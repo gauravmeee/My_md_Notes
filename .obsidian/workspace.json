@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "My Notes/1. Git Push Exisiting.md",
+                "file": "My Notes/0. Git commands.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "My Notes/1. Git Push Exisiting.md",
+                "file": "My Notes/0. Git commands.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "My Notes/1. Git Push Exisiting.md",
+                "file": "My Notes/0. Git commands.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "My Notes/1. Git Push Exisiting.md"
+                "file": "My Notes/0. Git commands.md"
               }
             }
           }
@@ -149,11 +149,11 @@
   },
   "active": "2a331b1062b8cfab",
   "lastOpenFiles": [
+    "My Notes/1. Git Push Exisiting.md",
     "My Notes/0. Git commands.md",
     "My Notes/2. Git Clone.md",
     "My Notes/Advance Keyboard Shortcuts.md",
     "Data Structure And Algorithm/DSA/Sorting_Striver.md",
-    "My Notes/1. Git Push Exisiting.md",
     "TechNotes_Index.md",
     "Untitled.md",
     "().md",
