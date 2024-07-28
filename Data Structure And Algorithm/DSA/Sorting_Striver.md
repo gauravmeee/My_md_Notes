@@ -400,7 +400,8 @@ n = 2^k
  
 <ins>Space Complexity :</ins>
 `SC:O(n)`
-SC: -> temporary array in merge of n size() -> SC: O(n)
+temporary array in merge of n size() -> SC: O(n)
+Recursion stack space -> SC:O(log(n))
 
  ***C++ code :***
  ```cpp
@@ -454,6 +455,23 @@ void callMergeSort(vector<int> & arr, int n){
  ```
 
 # [Quick Sort For Beginners | Strivers A2Z DSA Course](https://youtu.be/WIrA4YexLRQ)
+
+1. pick any (first, last, right, random, etc.) element as `pivot` & place it in its correct place in the sorted array
+2.  Smaller element than `pivot` goes on its left , larger goes on the right
+
+TC: `O(n*log(n))`
+SC: Average`O(logn)`
+SC: Worst `O(n)`
+
+But how to put `pivot`  in its correct position??
+
+***Pseudocode:***
+```
+```
+
+```
+[ 4 6 2 5 7 9 1 3 ]
+```
 # More Knowledge
 
 **Comparison Sorting**  
