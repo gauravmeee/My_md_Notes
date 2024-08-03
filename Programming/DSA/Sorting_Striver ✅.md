@@ -288,7 +288,7 @@ Inner Loop  `j-1` to `0` -> `n*` Times
 
 
 # [Merge Sort | Algorithm | Pseudocode | Dry Run | Code | Strivers A2Z DSA Course](https://youtu.be/ogjf7ORKfd8)
-## 4. Merge Sort (Recursion)
+
 - Divide , Sort & Merge
 
 > best, average, worst  TC: `O(nlog(n))`  
@@ -390,12 +390,12 @@ Average, Worst, Best `TC: O(nlog(n))`
     [n/4]   [n/4]  [n/4]  [n/4] 
 
 
-if recursion call k...*times times, then 
+1. if **recursion** call k...*times times, then 
 
 n = 2^k
 => log2n = k 
 => no. of times -> time complexity
-**merge() time complexity :** worst case O(n)
+2. **merge()** -> Traversing aray: TC: worst case O(n)
 
  
 <ins>Space Complexity :</ins>
@@ -456,21 +456,217 @@ void callMergeSort(vector<int> & arr, int n){
 
 # [Quick Sort For Beginners | Strivers A2Z DSA Course](https://youtu.be/WIrA4YexLRQ)
 
+- Divide and Conquer
 1. pick any (first, last, right, random, etc.) element as `pivot` & place it in its correct place in the sorted array
 2.  Smaller element than `pivot` goes on its left , larger goes on the right
 
 TC: `O(n*log(n))`
-SC: Average`O(logn)`
+SC: Best, Average`O(logn)`
 SC: Worst `O(n)`
 
 But how to put `pivot`  in its correct position??
 
-***Pseudocode:***
+***Quick Sort:***
+```cpp
+qs(arr, low, high){
+	//array should contain more than one element i.e. `low!=high`
+	if(low<high){
+		 // function to find out pivot
+		 pIndex = partition(arr, low, high)
+		 // sort left of partition
+		 qs(arr, low, pIndex-1)
+		 
+		 // sort right of partition
+		 qs(arr, pIndex+1, high)
+	} 
+}
 ```
+
+***Swap and Return Partition:***
+```cpp
+int partition(arr, low, high){
+	pivot = arr[low] // let choose `arr[low]` as pivot
+	i = low;
+	j = high;
+    // stop when `i` & `j` cross each other
+	while(i<j){
+	
+		// loop until find first element from left side greater than `pivot`
+		// `i<=high` : `i` shouldn't cross right boundry
+		while(arr[i]<=arr[pivot] && i<=high ){
+			i++;
+		}
+		// loop until find first element from right side smaller than or equal to `pivot`
+		//`j>=low` : `j` shouldn't cross left boundry
+		while(arr[j]>arr[pivot] && j>=low){
+			j--}
+		}
+		// if we find, `arr[i] > arr[pivot]` & `arr[j] <= arr[pivot]` from while loop & `if (i<j)` i dosn't cross each other, `swap`
+		if(i<j) swap(arr[i]), arr[j]);
+	}
+	// Swap `arr[low] = pivot` with  `arr[j] = last element of left index`
+	swap(arr[low], arr[j]);
+}
+```
+
+Example: 
+```
+[ 4 6 2 5 7 9 1 3 ]
+```
+
+In this Case, we will choose `arr[low]` as our `pivot`  (it might not be optimal)
+```
+1. 
+arr = [ 4 6 2 5 7 9 1 3 ] : let pivot = 4
+qs(arr, low, high)
+ 
+find i & j such that : arr[i]>pivot, arr[j]<= pivot and i<j
+
+arr[i=6]=6 > 4 &  arr[j=7]=3 <= 4  
+[ (4) 6 2 5 7 9 1 3 ]  : swap[i]&[j] -> swap(6,3) ✅ 
+
+arr[i=3]= 5 > 4 & arr[j=6]=1 <= 4 
+[ (4) 3 2 5 7 9 1 6 ] : swap[i]&[j] -> swap(5,1) ✅
+
+arr[i=4]= 7 > 4 & arr[j=3]=1 <= 4 : but i>j 
+[ (4) 3 2 1 7 9 5 6 ] : swap [i]&[j] ❌  swap [low]&[j] -> swap(4,1) ✅
+
+
+>>> Partition: [[1 3 2] 4 [7 9 5 6]]
+pIndex = 4
+index<j : left partition < pIndex
+index>j : right partition > pIndex
 ```
 
 ```
-[ 4 6 2 5 7 9 1 3 ]
+2.1
+arr[1 3 2] : let pivot = 1
+qs(arr, low, pIndex-1)
+
+find i & j such that : arr[i]>pivot, arr[j]<= pivot and i<j
+
+arr[i=1]= 3 > 1 & arr[j=0]=1 <= 1  : but i>j
+[ (1) 3 2 ] : swap [i]&[j] ❌  swap [low]&[j] -> swap(1,1) ✅
+
+
+>>> Partition: [1 [3 2]]
+pIndex = 0
+no left elements.
+index>j : right partition > pIndex 
+```
+
+```
+2.1.2
+arr[3 2] : let pivot = 3
+qs(arr, pIndex+1, high)
+
+find i & j such that : arr[i]>pivot, arr[j]<= pivot and i<j
+
+arr[i=2]=?  &  arr[j=1]=2 <= 3  : but i>j
+[ 3 2 ]  : swap [i]&[j] ❌  swap [low]&[j] -> swap(3,1) ✅
+
+>>> Partition: [[2] 3] // swapped in actual array
+```
+
+```
+2.1.2.1
+arr = [2]
+low == high -> Single element -> Already sorted ✅
+```
+
+```
+2.2
+arr[7 9 5 6] : let pivot = 7
+qs(arr, pIndex+1, high) 
+
+find i & j such that : arr[i]>pivot, arr[j]<= pivot and i<j
+
+arr[i=1]=9 > 7 &  arr[j=3]=6 <= 7
+[(7) 9 5 6] : swap[i]&[j] -> swap(9,6) ✅
+
+arr[i=3]= ? &  arr[j=2]=5 <= 7 : but i>j
+[(7) 6 5 9] swap [i]&[j] ❌  swap [low]&[j] -> swap(7,5) ✅
+
+>>> Partition: [[5 6] 7 [9]] // swapped in actual array
+```
+
+```
+2.2.1
+arr = [5 6] : let pivot = 5
+arr[i=1]=6>5 & arr[j=0]=5 <= 5 : but i>j 
+[(5) 6] swap [i]&[j] ❌  swap [low]&[j] -> swap(5,5) ✅
+
+>>> partition : [5 [6]]
+```
+
+```
+2.2.1.2
+arr = [6]
+low == high -> Single element -> Already sorted ✅
+```
+
+```
+2.2.2
+arr = [9]
+low == high -> Single element -> Already sorted ✅
+```
+
+<ins>Time Complexity :</ins>
+Average, Worst, Best `TC: O(nlog(n))` 
+
+
+
+				[n]
+        [n/2]         [n/2]
+    [n/4]   [n/4]  [n/4]  [n/4] 
+
+
+1. if **recursion call** k...*times times, then 
+
+n = 2^k
+=> log2n = k (height of tree)
+=> no. of times -> time complexity
+
+ 
+2. **partition()** function going to entire array : TC :O(n)
+
+ 
+<ins>Space Complexity :</ins>
+`SC:O(logn)`
+Recursion stack space -> SC:O(log(n))
+
+***C++ Code:***
+```cpp
+int partition(vector<int> &arr, int low, int hig){
+    int pivot = arr[low]; // choosing `arr[low]` as pivot
+    int i = low;
+    int j = high;
+    while( i < j){
+        while(arr[i] <= pivot && i<= high-1){
+            i++;
+        }
+        while(arr[i] > pivot && j>= low +1){
+            j--;
+        }
+        if(i<j) swap(arr[i], arr[j]);
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+
+
+void qs(vector<int> &arr, int low, int high){
+    if(low < high){
+        int pIndex = partition(arr, low, high);
+        qs(arr, low, pIndex -1);
+        qs(arr, pIndex + 1, high);
+    }
+}
+
+vector<int> quickSort(vector<int> arr){
+    qs(arr, 0, arr.size()-1);
+    return arr;
+}
 ```
 # More Knowledge
 
@@ -479,3 +675,26 @@ Quicksort usually has a running time of `n x log(n)` , but is there an algorith
 
 **Alternative Sorting**  
 Another sorting method, the _counting sort_, does not require comparison. Instead, you create an integer array whose index range covers the entire range of values in your array to sort. Each time a value occurs in the original array, you increment the counter at that index. At the end, run through your counting array, printing the value of each non-zero valued index that number of times.
+
+Sure, here is a table summarizing the time complexity and space complexity of various popular sorting algorithms:
+
+**Basic Sort :**
+
+| **Sorting Algorithm** | **Best Time Complexity** | **Average Time Complexity** | **Worst Time Complexity** | **Space Complexity** |
+| --------------------- | ------------------------ | --------------------------- | ------------------------- | -------------------- |
+| **Bubble Sort**       | O(n)                     | O(n^2)                      | O(n^2)                    | O(1)                 |
+| **Selection Sort**    | O(n^2)                   | O(n^2)                      | O(n^2)                    | O(1)                 |
+| **Insertion Sort**    | O(n)                     | O(n^2)                      | O(n^2)                    | O(1)                 |
+| **Merge Sort**        | O(n * log n)             | O(n * log n)                | O(n * log n)              | O(n)                 |
+| **Quick Sort**        | O(n * log n)             | O(n * log n)                | O(n^2)                    | O(log n)             |
+| **Heap Sort**         | O(n * log n)             | O(n * log n)                | O(n * log n)              | O(1)                 |
+
+**Advance Sort :**
+
+| **Sorting Algorithm** | **Best Time Complexity** | **Average Time Complexity** | **Worst Time Complexity** | **Space Complexity** |
+| --------------------- | ------------------------ | --------------------------- | ------------------------- | -------------------- |
+| **Shell Sort**        | O(n * log n)             | O(n * log^2 n)              | O(n^2)                    | O(1)                 |
+| **Counting Sort**     | O(n + k)                 | O(n + k)                    | O(n + k)                  | O(k)                 |
+| **Radix Sort**        | O(nk)                    | O(nk)                       | O(nk)                     | O(n + k)             |
+| **Bucket Sort**       | O(n + k)                 | O(n + k)                    | O(n^2)                    | O(n + k)             |
+| **Tim Sort**          | O(n)                     | O(n * log n)                | O(n * log n)              | O(n)                 |

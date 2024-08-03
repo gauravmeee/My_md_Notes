@@ -152,7 +152,8 @@ for loop in increment `+2`
 `for (int i=0; i<n; i+=2`
 
 
-# Algorithm `<algorithm>`
+# Libraries 
+## `<algorithm>`
 ✅ vec.begin() & vec.end()\
 `std::sort(vec.begin(), vec.end()); ` 
 
@@ -171,7 +172,13 @@ note: `std::max_element()` returns an iterator, not an integer.
 `int maxx = *max_itr`✅
 
 `int maxx = *max_element(arr.begin(), arr.end())`✅
+<hr>
+## `<utility>`
 
+`swap()` function can be used to swap the values of two variables of any type.
+`swap(x,y)`
+
+<hr>
 # \#include Header 
 `<iostream>`
 `<bits/stdc++.h>`
@@ -195,6 +202,7 @@ string a, b;
 getline(cin, a);
 ```
 
+---
 
 # Common Errors
 

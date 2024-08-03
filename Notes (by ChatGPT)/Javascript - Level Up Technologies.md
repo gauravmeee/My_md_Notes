@@ -1,7 +1,9 @@
+# JavaScript
+
 <hr>
 
 `24/6/2024 Monday` 
-# Overview of OOP's 
+# 1. Overview of OOP's 
 
 Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects," which can contain data and code: data in the form of fields (often known as attributes or properties), and code in the form of procedures (often known as methods).
 
@@ -142,7 +144,7 @@ By understanding and using these OOP principles, JavaScript developers can creat
 <hr>
 
 `25/6/2024 Tuesday`
-# Overview of Javascript
+# 2. Overview of Javascript
 
 JavaScript is a versatile, high-level, interpreted programming language primarily used to create interactive effects within web browsers. It is one of the core technologies of the World Wide Web, alongside HTML and CSS.
 
@@ -313,7 +315,7 @@ JavaScript is a powerful and essential language for web development, enabling de
 <hr>
 
 `26/6/2024 Wednesday`
-# Data Type and Variables in JS
+# 3. Data Type and Variables in JS
 
 #### Data Types
 
@@ -476,7 +478,7 @@ By understanding and effectively utilizing JavaScript's data types and variable 
 <hr>
 
 `27/6/2024 Thursday`
-# Operators in Javascript
+# 4. Operators in Javascript
 
 JavaScript provides a rich set of operators to perform operations on variables and values. These operators can be broadly categorized into several types:
 
@@ -646,7 +648,7 @@ JavaScript’s operators are powerful tools for performing various operations on
 <hr>
 
 `28/6/2024 Friday`
-# Functions and Objects in JavaScript 
+# 5. Functions and Objects in JavaScript 
 
 JavaScript functions and objects are fundamental building blocks of the language. Here’s an in-depth look at each:
 
@@ -888,7 +890,7 @@ Functions and objects are essential to JavaScript. Functions help encapsulate be
 <hr>
 
 `1/7/2024 Monday`
-# Events and Strings Method in JavaScript
+# 6. Events and Strings Method in JavaScript
 
 
 JavaScript's event handling and string manipulation are crucial for building interactive and dynamic web applications. Let's delve into these topics:
@@ -1085,13 +1087,13 @@ Understanding events and string methods in JavaScript is essential for building 
 <hr>
 
 `4/7/2024 Thursday`
-# Conditional statements and switch case in JavaScript
+# 7. Conditional statements and switch case in JavaScript
 
-### **Conditional Statements in JavaScript**
+### Conditional Statements in JavaScript
 
 Conditional statements allow you to execute different code blocks based on different conditions. In JavaScript, the most common conditional statements are `if`, `else if`, `else`, and `switch`.
 
-#### **1. `if` Statement**
+#### 1. `if` Statement
 
 The `if` statement evaluates a condition (an expression that returns `true` or `false`). If the condition is `true`, the block of code inside the `if` statement is executed.
 
@@ -1113,7 +1115,7 @@ if (number > 5) {
 }
 ```
 
-#### **2. `if...else` Statement**
+#### 2. `if...else` Statement
 
 The `if...else` statement executes one block of code if the condition is `true`, and another block of code if the condition is `false`.
 
@@ -1139,7 +1141,7 @@ if (number > 5) {
 }
 ```
 
-#### **3. `if...else if...else` Statement**
+#### 3. `if...else if...else` Statement
 
 This allows you to check multiple conditions. If the first condition is `false`, the next condition is evaluated, and so on.
 
@@ -1169,7 +1171,7 @@ if (number > 10) {
 }
 ```
 
-### **Switch Statement**
+### Switch Statement
 
 The `switch` statement is used to perform different actions based on different conditions. It is often used as an alternative to `if...else if...else` when there are multiple possible conditions.
 
@@ -1209,19 +1211,19 @@ switch (fruit) {
 }
 ```
 
-#### **Key Points**
+#### Key Points
 
 - **`if` Statement**: Used for simple condition checks.
 - **`if...else` Statement**: Handles a binary choice.
 - **`if...else if...else` Statement**: Handles multiple conditions.
 - **`switch` Statement**: Best for handling multiple discrete values.
 
-#### **Using `switch` with `break` and `default`**
+#### Using `switch` with `break` and `default`
 
 - **`break`**: Prevents the execution of subsequent cases once a match is found.
 - **`default`**: Specifies the code to run if no cases match the expression.
 
-### **Summary**
+### Summary
 
 - Use `if` statements for basic condition checking.
 - Use `if...else` for binary choices.
@@ -1233,7 +1235,7 @@ These conditional constructs are fundamental for controlling the flow of your Ja
 <hr>
 
 `5/7/2024 Friday`
-# Arrays Methods, Dates, Math, Random and Booleans
+# 8. Arrays Methods, Dates, Math, Random and Booleans
 
 JavaScript provides a rich set of features for manipulating arrays, working with dates and times, performing mathematical operations, generating random values, and handling Boolean logic. Let's explore these topics in detail.
 
@@ -1241,14 +1243,14 @@ JavaScript provides a rich set of features for manipulating arrays, working with
 
 JavaScript arrays come with a variety of built-in methods that simplify array manipulation. Here are some commonly used array methods:
 
-### 1. **Creating and Initializing Arrays**
+### 1. Creating and Initializing Arrays
 
 ```javascript
 let fruits = ["Apple", "Banana", "Cherry"];
 let numbers = new Array(1, 2, 3, 4, 5);
 ```
 
-### 2. **Array Methods**
+### 2. Array Methods
 
 - **push()**: Adds one or more elements to the end of an array.
 
@@ -1605,7 +1607,7 @@ Understanding array methods, dates, math functions, random number generation, an
 <hr>
 
 `11/7/2024 Thursday`
-# Loops and Functions in JavaScript
+# 9. Loops and Functions in JavaScript
 
 
 JavaScript loops and functions are fundamental for controlling the flow of your program and for reusing code. Let's dive into these concepts.
@@ -1614,7 +1616,7 @@ JavaScript loops and functions are fundamental for controlling the flow of your 
 
 Loops allow you to execute a block of code multiple times. JavaScript provides several types of loops:
 
-### 1. **For Loop**
+### 1. For Loop
 
 The `for` loop repeats a block of code a known number of times.
 
@@ -1628,7 +1630,7 @@ for (let i = 0; i < 5; i++) {
 - **Condition**: `i < 5` (continue loop as long as the condition is true).
 - **Increment/Decrement**: `i++` (increase `i` by 1 after each iteration).
 
-### 2. **While Loop**
+### 2. While Loop
 
 The `while` loop executes a block of code as long as a specified condition is true.
 
@@ -1642,7 +1644,7 @@ while (i < 5) {
 
 - **Condition**: `i < 5` (loop continues as long as the condition is true).
 
-### 3. **Do...While Loop**
+### 3. Do...While Loop
 
 The `do...while` loop executes a block of code once, and then repeats the loop as long as a specified condition is true.
 
@@ -1656,7 +1658,7 @@ do {
 
 - **Execution**: Executes the code block at least once before checking the condition.
 
-### 4. **For...of Loop**
+### 4. For...of Loop
 
 The `for...of` loop is used to iterate over iterable objects (e.g., arrays, strings).
 
@@ -1667,7 +1669,7 @@ for (let fruit of fruits) {
 }
 ```
 
-### 5. **For...in Loop**
+### 5. For...in Loop
 
 The `for...in` loop iterates over the properties of an object.
 
@@ -1682,7 +1684,7 @@ for (let key in person) {
 
 Functions are blocks of code designed to perform a particular task. They can take parameters and return values.
 
-### 1. **Function Declaration**
+### 1. Function Declaration
 
 ```javascript
 function greet(name) {
@@ -1692,7 +1694,7 @@ function greet(name) {
 console.log(greet("Alice")); // "Hello, Alice!"
 ```
 
-### 2. **Function Expression**
+### 2. Function Expression
 
 A function expression is a function defined within a variable.
 
@@ -1704,7 +1706,7 @@ const greet = function(name) {
 console.log(greet("Bob")); // "Hello, Bob!"
 ```
 
-### 3. **Arrow Function**
+### 3. Arrow Function
 
 Introduced in ES6, arrow functions provide a concise syntax.
 
@@ -1714,7 +1716,7 @@ const greet = (name) => `Hello, ${name}!`;
 console.log(greet("Charlie")); // "Hello, Charlie!"
 ```
 
-### 4. **Function with Default Parameters**
+### 4. Function with Default Parameters
 
 Default parameters allow you to set default values for function parameters.
 
@@ -1727,7 +1729,7 @@ console.log(greet()); // "Hello, Guest!"
 console.log(greet("David")); // "Hello, David!"
 ```
 
-### 5. **Rest Parameters**
+### 5. Rest Parameters
 
 Rest parameters allow a function to accept an indefinite number of arguments as an array.
 
@@ -1739,7 +1741,7 @@ function sum(...numbers) {
 console.log(sum(1, 2, 3, 4)); // 10
 ```
 
-### 6. **Anonymous Functions**
+### 6. Anonymous Functions
 
 Anonymous functions are functions without a name.
 
@@ -1751,7 +1753,7 @@ const multiply = function(a, b) {
 console.log(multiply(2, 3)); // 6
 ```
 
-### 7. **IIFE (Immediately Invoked Function Expression)**
+### 7. IIFE (Immediately Invoked Function Expression)
 
 An IIFE is a function that runs as soon as it is defined.
 
@@ -1761,7 +1763,7 @@ An IIFE is a function that runs as soon as it is defined.
 })();
 ```
 
-### 8. **Function Scope and Hoisting**
+### 8. Function Scope and Hoisting
 
 Functions are hoisted, meaning they can be called before they are defined.
 
@@ -1773,7 +1775,7 @@ function add(a, b) {
 }
 ```
 
-### 9. **Callback Functions**
+### 9. Callback Functions
 
 Callback functions are functions passed into another function as arguments.
 
@@ -1788,7 +1790,7 @@ processUserInput(function(name) {
 });
 ```
 
-### 10. **Arrow Function and `this` Context**
+### 10. Arrow Function and `this` Context
 
 Arrow functions do not have their own `this` context, inheriting `this` from the surrounding scope.
 
@@ -1840,12 +1842,12 @@ Understanding loops and functions is crucial for effective JavaScript programmin
 <hr>
 
 `12/7/2024 Friday`
-# Error Handling in JavaScript
+# 10. Error Handling in JavaScript
 
 
 Error handling is an important aspect of programming that helps manage and respond to unexpected situations or errors in your code. JavaScript provides several mechanisms for error handling, including the `try...catch` statement, `throw` statements, and `finally` blocks. Here’s an overview of how error handling works in JavaScript:
 
-## 1. **Using `try...catch`**
+## 1. Using `try...catch`
 
 The `try...catch` statement allows you to test a block of code for errors and handle those errors gracefully.
 
@@ -1873,7 +1875,7 @@ try {
 }
 ```
 
-## 2. **Using `throw`**
+## 2. Using `throw`
 
 The `throw` statement allows you to create a custom error and throw it, which can then be caught by a `try...catch` block.
 
@@ -1900,7 +1902,7 @@ try {
 }
 ```
 
-## 3. **Using `finally`**
+## 3. Using `finally`
 
 The `finally` block, if present, will execute after the `try` and `catch` blocks, regardless of whether an error was thrown or not. It’s useful for cleanup code that should run no matter what.
 
@@ -1928,7 +1930,7 @@ try {
 }
 ```
 
-## 4. **Creating Custom Errors**
+## 4. Creating Custom Errors
 
 You can create custom error classes by extending the built-in `Error` class.
 
@@ -1971,7 +1973,7 @@ try {
 }
 ```
 
-## 5. **Error Handling in Asynchronous Code**
+## 5. Error Handling in Asynchronous Code
 
 In asynchronous code, such as with Promises or async/await, error handling is slightly different.
 
@@ -2012,7 +2014,7 @@ async function fetchData() {
 fetchData();
 ```
 
-## 6. **Common Error Types**
+## 6. Common Error Types
 
 - **`Error`**: The generic error type.
 - **`TypeError`**: Thrown when an operation is performed on a value of the wrong type.
@@ -2042,21 +2044,21 @@ Error handling in JavaScript helps you manage unexpected situations gracefully, 
 <hr>
 
 `15/7/2024 Monday`
-# Map & Set and Map & Set Methods
+# 11. Map & Set and Map & Set Methods
 
 JavaScript's `Map` and `Set` are data structures that provide efficient ways to store and manage unique values or key-value pairs. They offer functionalities that are different from traditional objects and arrays, making them useful for various scenarios.
 
-## 1. **Maps**
+## 1. Maps
 
 A `Map` is a collection of key-value pairs where both keys and values can be of any data type. Unlike objects, keys in a `Map` can be any data type, and `Map` maintains the insertion order of keys.
 
-### **Creating a Map**
+### Creating a Map
 
 ```javascript
 const myMap = new Map();
 ```
 
-### **Adding Entries**
+### Adding Entries
 
 ```javascript
 myMap.set('name', 'Alice');
@@ -2064,7 +2066,7 @@ myMap.set(1, 'Number One');
 myMap.set(true, 'Boolean True');
 ```
 
-### **Accessing Entries**
+### Accessing Entries
 
 ```javascript
 console.log(myMap.get('name')); // "Alice"
@@ -2072,28 +2074,28 @@ console.log(myMap.get(1)); // "Number One"
 console.log(myMap.get(true)); // "Boolean True"
 ```
 
-### **Checking for Existence**
+### Checking for Existence
 
 ```javascript
 console.log(myMap.has('name')); // true
 console.log(myMap.has('age')); // false
 ```
 
-### **Deleting Entries**
+### Deleting Entries
 
 ```javascript
 myMap.delete('name');
 console.log(myMap.has('name')); // false
 ```
 
-### **Clearing the Map**
+### Clearing the Map
 
 ```javascript
 myMap.clear();
 console.log(myMap.size); // 0
 ```
 
-### **Iterating Over a Map**
+### Iterating Over a Map
 
 ```javascript
 const myMap = new Map([
@@ -2112,7 +2114,7 @@ myMap.forEach((value, key) => {
 });
 ```
 
-### **Map Properties and Methods**
+### Map Properties and Methods
 
 - **`size`**: Returns the number of key-value pairs in the Map.
 - **`set(key, value)`**: Adds or updates an entry.
@@ -2125,17 +2127,17 @@ myMap.forEach((value, key) => {
 - **`entries()`**: Returns an iterator of [key, value] pairs.
 - **`forEach(callback)`**: Executes a callback function for each entry.
 
-## 2. **Sets**
+## 2. Sets
 
 A `Set` is a collection of unique values. Unlike arrays, a `Set` automatically ensures that each value occurs only once, and it also maintains the insertion order.
 
-### **Creating a Set**
+### Creating a Set
 
 ```javascript
 const mySet = new Set();
 ```
 
-### **Adding Values**
+### Adding Values
 
 ```javascript
 mySet.add('apple');
@@ -2143,28 +2145,28 @@ mySet.add('banana');
 mySet.add('apple'); // This will not be added again
 ```
 
-### **Accessing Values**
+### Accessing Values
 
 ```javascript
 console.log(mySet.has('apple')); // true
 console.log(mySet.has('grape')); // false
 ```
 
-### **Deleting Values**
+### Deleting Values
 
 ```javascript
 mySet.delete('banana');
 console.log(mySet.has('banana')); // false
 ```
 
-### **Clearing the Set**
+### Clearing the Set
 
 ```javascript
 mySet.clear();
 console.log(mySet.size); // 0
 ```
 
-### **Iterating Over a Set**
+### Iterating Over a Set
 
 ```javascript
 const mySet = new Set(['apple', 'banana', 'cherry']);
@@ -2179,7 +2181,7 @@ mySet.forEach(value => {
 });
 ```
 
-### **Set Properties and Methods**
+### Set Properties and Methods
 
 - **`size`**: Returns the number of unique values in the Set.
 - **`add(value)`**: Adds a value to the Set.
@@ -2191,7 +2193,7 @@ mySet.forEach(value => {
 - **`entries()`**: Returns an iterator of [value, value] pairs (each pair is the same value).
 - **`forEach(callback)`**: Executes a callback function for each value.
 
-## **Comparison Between Map and Set**
+## Comparison Between Map and Set
 
 - **Map**: 
   - Stores key-value pairs.
@@ -2205,21 +2207,21 @@ mySet.forEach(value => {
   - Maintains the insertion order of values.
   - Does not store key-value pairs.
 
-## **Conclusion**
+## Conclusion
 
 Maps and Sets are powerful tools in JavaScript for handling collections of data. `Maps` are ideal when you need to work with key-value pairs and require the ability to access values via keys. `Sets` are useful when you need a collection of unique values and want to ensure no duplicates. Understanding these data structures and their methods will help you efficiently manage and manipulate data in your JavaScript applications.
 
 <hr>
 
 `16/7/2024 Tuesday`
-# Regex precedence scope hoisting
+# **Regex** precedence scope hoisting
 
 
 Regular Expressions (Regex) are patterns used to match character combinations in strings. They are used for searching, replacing, and validating strings. Understanding regex syntax and its features is crucial for effective string manipulation in JavaScript.
 
-## **Regex Syntax and Features**
+## Regex Syntax and Features
 
-### **1. Basic Syntax**
+### 1. Basic Syntax
 
 - **Literals**: Matches exact characters.
   ```javascript
@@ -2250,7 +2252,7 @@ Regular Expressions (Regex) are patterns used to match character combinations in
     /[^abc]/ // matches any character except "a", "b", or "c"
     ```
 
-### **2. Quantifiers**
+### 2. Quantifiers
 
 - **`*`**: Matches 0 or more times.
   ```javascript
@@ -2282,7 +2284,7 @@ Regular Expressions (Regex) are patterns used to match character combinations in
   /a{2,4}/ // matches "aa", "aaa", "aaaa"
   ```
 
-### **3. Anchors**
+### 3. Anchors
 
 - **`^`**: Matches the beginning of a string.
   ```javascript
@@ -2294,7 +2296,7 @@ Regular Expressions (Regex) are patterns used to match character combinations in
   /abc$/ // matches "abc" at the end of the string
   ```
 
-### **4. Special Characters**
+### 4. Special Characters
 
 - **`\d`**: Matches any digit (0-9).
   ```javascript
@@ -2326,7 +2328,7 @@ Regular Expressions (Regex) are patterns used to match character combinations in
   /\S/ // matches any non-whitespace character
   ```
 
-### **5. Grouping and Capturing**
+### 5. Grouping and Capturing
 
 - **`(abc)`**: Groups characters together and captures the match.
   ```javascript
@@ -2340,7 +2342,7 @@ Regular Expressions (Regex) are patterns used to match character combinations in
 
 - **Capture Groups**: Can be referenced using `$1`, `$2`, etc., in the replacement string.
 
-### **6. Lookahead and Lookbehind**
+### 6. Lookahead and Lookbehind
 
 - **Positive Lookahead**: `(?=...)` asserts that what follows must match.
   ```javascript
@@ -2362,7 +2364,7 @@ Regular Expressions (Regex) are patterns used to match character combinations in
   /(?<!b)a/ // matches "a" only if not preceded by "b"
   ```
 
-## **Precedence**
+## Precedence
 
 In regex, precedence determines how different parts of a regex are combined and interpreted. Here’s a general order of precedence:
 
@@ -2374,7 +2376,7 @@ In regex, precedence determines how different parts of a regex are combined and 
 6. **Lookahead and Lookbehind**: `(?=...)`, `(?!...)`, `(?<=...)`, `(?<!...)`
 7. **Alternation**: `|` (OR)
 
-### **Example of Precedence**
+### Example of Precedence
 
 ```javascript
 let regex = /(\d+)\s+(\w+)(?=\s+(\w+))/;
@@ -2412,11 +2414,11 @@ In the context of regex, scope typically refers to the range or extent of a patt
   console.log(regex.test('a\nb')); // true
   ```
 
-## **Hoisting**
+## Hoisting
 
 In JavaScript, hoisting refers to the behavior where variable and function declarations are moved to the top of their containing scope during compilation. However, regex patterns themselves are not affected by hoisting. The concept of hoisting is mainly relevant for variables and functions.
 
-### **Example of Hoisting**
+### Example of Hoisting
 
 ```javascript
 console.log(foo); // undefined (variable declaration is hoisted)
@@ -2429,7 +2431,7 @@ function myFunction() {
 }
 ```
 
-### **Regex in Context of Hoisting**
+### Regex in Context of Hoisting
 
 When using regex literals, they are not subject to hoisting in the same way variables and functions are. Regex patterns are interpreted as part of the code execution and do not get hoisted.
 
@@ -2437,7 +2439,7 @@ When using regex literals, they are not subject to hoisting in the same way vari
 console.log(/abc/.test('abcdef')); // true (regex is executed as it appears)
 ```
 
-## **Conclusion**
+## Conclusion
 
 Regular expressions are a powerful tool for string manipulation in JavaScript, offering a rich syntax for pattern matching and text processing. Understanding regex syntax, precedence, and scope helps in constructing effective patterns and handling various string operations. While regex itself isn't subject to hoisting, the surrounding code's behavior should be well-understood for robust regex usage.
 
@@ -2445,18 +2447,18 @@ Regular expressions are a powerful tool for string manipulation in JavaScript, o
 <hr>
 
 `17/7/2024 Wednesday`
-# Classes and Object in JavaScript
+# 12. Classes and Object in JavaScript
 
 
 JavaScript uses a prototype-based inheritance model, but since ECMAScript 6 (ES6), it has also introduced a class syntax that offers a more traditional and familiar way of defining and working with objects. This class syntax is syntactic sugar over JavaScript's existing prototype-based inheritance.
 
-## **1. Objects**
+## 1. Objects
 
 An object in JavaScript is a collection of key-value pairs where keys are strings (or Symbols) and values can be of any data type. Objects are the fundamental building blocks of JavaScript programs and can represent real-world entities and complex data structures.
 
-### **Creating an Object**
+### Creating an Object
 
-#### **Using Object Literals**
+#### Using Object Literals
 
 ```javascript
 const person = {
@@ -2471,7 +2473,7 @@ console.log(person.name); // "Alice"
 person.greet(); // "Hello, my name is Alice"
 ```
 
-#### **Using the `new Object()` Syntax**
+#### Using the `new Object()` Syntax
 
 ```javascript
 const person = new Object();
@@ -2485,7 +2487,7 @@ console.log(person.name); // "Alice"
 person.greet(); // "Hello, my name is Alice"
 ```
 
-### **Adding and Modifying Properties**
+### Adding and Modifying Properties
 
 ```javascript
 const person = {
@@ -2499,7 +2501,7 @@ person.email = 'bob@example.com'; // Add new property
 console.log(person); // { name: 'Bob', age: 30, email: 'bob@example.com' }
 ```
 
-### **Deleting Properties**
+### Deleting Properties
 
 ```javascript
 const person = {
@@ -2511,7 +2513,7 @@ delete person.age;
 console.log(person); // { name: 'Alice' }
 ```
 
-### **Object Methods**
+### Object Methods
 
 Objects can have methods, which are functions that are properties of the object.
 
@@ -2526,11 +2528,11 @@ const person = {
 person.greet(); // "Hello, my name is Alice"
 ```
 
-## **2. Classes**
+## 2. Classes
 
 Classes in JavaScript are a syntactical sugar over the existing prototype-based inheritance and provide a more familiar way to work with objects and inheritance, especially for those coming from class-based languages.
 
-### **Creating a Class**
+### Creating a Class
 
 ```javascript
 class Person {
@@ -2549,7 +2551,7 @@ console.log(alice.name); // "Alice"
 alice.greet(); // "Hello, my name is Alice"
 ```
 
-### **Class Inheritance**
+### Class Inheritance
 
 Classes can extend other classes, allowing for inheritance and the creation of subclasses.
 
@@ -2574,7 +2576,7 @@ const dog = new Dog('Rex');
 dog.speak(); // "Rex barks."
 ```
 
-### **Static Methods**
+### Static Methods
 
 Static methods are called on the class itself, rather than on instances of the class.
 
@@ -2588,7 +2590,7 @@ class MathUtils {
 console.log(MathUtils.add(5, 3)); // 8
 ```
 
-### **Getters and Setters**
+### Getters and Setters
 
 Getters and setters allow you to define methods that are accessed like properties.
 
@@ -2626,7 +2628,7 @@ alice.age = -5; // "Age cannot be negative."
 console.log(alice.age); // 30
 ```
 
-### **Class Fields**
+### Class Fields
 
 Class fields allow you to define properties directly inside a class, without needing a constructor.
 
@@ -2646,7 +2648,7 @@ alice.age = 30;
 alice.greet(); // "Hello, my name is Alice"
 ```
 
-## **3. Prototypes**
+## 3. Prototypes
 
 JavaScript uses prototypes for inheritance. Each object has a prototype object, and inheritance is handled through these prototypes.
 
@@ -2666,7 +2668,7 @@ const alice = new Person('Alice', 30);
 alice.greet(); // "Hello, my name is Alice"
 ```
 
-### **Object.create()**
+### Object.create()
 
 You can create a new object with a specified prototype.
 
@@ -2682,7 +2684,7 @@ alice.name = 'Alice';
 alice.greet(); // "Hello, my name is Alice"
 ```
 
-## **4. Summary**
+## 4. Summary
 
 - **Objects**: Collections of key-value pairs with properties and methods.
 - **Classes**: ES6 syntax for creating objects and managing inheritance.

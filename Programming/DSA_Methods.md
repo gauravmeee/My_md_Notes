@@ -73,3 +73,28 @@ a = a + b // a = (6+4) = 10
 b = a - b // b = (10-4) = 6
 a = a - b // a = (10-6) = 4
 ```
+
+```cpp
+// Swap Function : int x=5, y=10;
+
+//Pass by Reference : Call swap(x,y)
+void swap(int &a, int &b){
+	int temp = a;
+	a = b;
+	b = temp;
+	}
+
+// Using pointer Arguments : Call swap(&x, &y)
+void swap(int *a, int *b){
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+	}
+
+// Using XOR ( Bitwise Swap) ⭐
+void swap(int &a, int &b){
+	a = a ^ b;
+	b = a ^ b;
+	a = a ^ b;
+	}
+```

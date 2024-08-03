@@ -1,3 +1,14 @@
+
+- **Class Member Functions:**
+    
+    - The order of function declarations within a class does not matter.
+    - As long as a function is declared somewhere in the class definition, it can be called from anywhere within the class.
+    - This flexibility is due to the class definition acting as a forward declaration for all its member functions.
+- **Free Functions:**
+    
+    - Free functions must be declared before they are called.
+    - If a free function is called before its declaration, the compiler will not recognize it, resulting in a compilation error.
+    - 
 ### Struct vs Class
 
 | Feature               | struct                         | class                               |

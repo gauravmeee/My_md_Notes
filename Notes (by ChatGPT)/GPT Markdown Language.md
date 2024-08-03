@@ -186,3 +186,16 @@ use HTML `<center> </center>` tag
 ```
 <center> My Notess </center>
 ```
+
+## Obsedian Markdown Features
+
+### Highlight
+`==`
+### Line Break
+`---`
+
+### [Plugin for Features:](https://github.com/Benature/obsidian-underline)
+- `<center>text</center>`: cmd/ctrl+Shift+C
+- `[[<u>Underline</u>]]` : cntrl + u
+- `[[#heading]]`: ctrl+#
+- `[[#^block]]`: ctrl+^
