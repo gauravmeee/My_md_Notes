@@ -8,27 +8,6 @@ otherwise `undetermined`
 `int a, b;` ✅
 
 `int a=b=0` ❌
-# Arrays
-- `int arr[a];` ❌ : if `int a=5` ->
-- `int arr[b];` ✅ : if `const int b=5` -> constant  
-<hr>
-
-- `int arr = { 1, 2, 3};` invalid in C++ ❌ : without `[]` compiler will think `arr` as Scaler Object
-- `int arr[] = { 1, 2, 3};` ✅
-<hr>
-
-- `int n = arr.size();` not valid ❌ `size()` is part of C++ Standard Library such as std::vector, std::array
-- `int n = sizeof(arr) / sizeof(arr[0]);` ✅
-<hr>
-
-- `int arr[] = [3, 1, 2]` ❌
-- `int arr[] = {3, 1, 2}` ✅
-<hr>
-
-**String can be Stored in Array :**
-- `char str1[] = {'H', 'e', 'l', 'l', 'o', '\0'};` 
-'\0' is the null terminator
-- `char str2[] = "Hello";`  str2=str1 -> are string
 
 # String
 
@@ -47,30 +26,6 @@ built-in reverse function from the `<algorithm>` library.
 constructs a new string using reverse iterators (rbegin and rend)
 - `string reversed_str(str.rbegin(), str.rend());`
 
-# Vector
-for, int , float double
-- `vector<int> vec(n)` : n items , default value 0
-- `vector<int> vec(n,10)` : n items, each value =10
-<hr>
-
-find maximum from Vector:\
-`int maxx = *max_element(vec.begin(), vec.end());`
-**Sort the vector of pair, based on second values of Pairs**
-
-```cpp
-    sort(vec.begin(), vec.end(), [](const pair<int, int> &a, const pair<int, int> &b) {
-        return a.second < b.second;
-    });
-```
-
-<hr>
-
-**2-D Vector Declaration
-
-
-`vector<vector<int>> vec = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
-
-`vector<vector<int>> vec(rows, vector<int>(cols, 0));`
 `
 # Stack / Queue
 **Queue**: `push()` `pop()` `empty()` `front()` 
@@ -85,27 +40,8 @@ find maximum from Vector:\
  `myQue[0]` ❌ : doesn't support direct access
  `myQue.front()` ✅ : only first element access is allowed
 
-# Map / Unordered Map
 
-**std::map :** Sort map based on Second Value??
-- In C++, you cannot directly sort a 
-**std::map by its values**.\
- However, you can achieve the desired result by transferring the contents to a std::vector of pairs and then sorting the vector based on the values.
 
-<hr>
-
-The `unordered_map<int, int>`automatically initializes missing keys with `0`, which is convenient for counting frequencies.
-
-# Pairs
-```
-vector<vector<int>> vec{{1,2},{3,4},{5,6}}
-unordered_map<int,int> mp{{1,2},{3,4},{5,6}}
-```
- `for(pair<int,int> v: vec){ }` ❌ Vector Can't be converted into pairs.\
- `for(pair<int,itn> m: mp){ }`  ✅ Map Can be converted into pairs.
- 
- `m.first` access first element of pair\
- `m.second` access second element of pair
 
 # nullptr vs NULL
 

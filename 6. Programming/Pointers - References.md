@@ -1,3 +1,44 @@
+
+# My Notes
+
+
+```cpp
+### Variable
+int a = 5;  // 'a' is an integer variable initialized to 5.
+a;          // Value of 'a' is 5.
+&a;         // Address of 'a' in memory.
+*a;         // **error**. 'a' is not a pointer, so dereferencing it with '*' is invalid.
+```
+
+```cpp
+### Pointer
+int b2 = 10;  // Assuming you meant to have 'b2' as an integer variable.
+int *b = &b2; // 'b' is a pointer to an integer, initialized to the address of 'b2'.
+b;            // Value of 'b' is the address of 'b2'.
+*b;           // Dereferencing 'b', gives the value stored in 'b2', which is 10.
+&b;           // Address of the pointer 'b' itself in memory.
+```
+
+```cpp
+### Reference
+int c2 = 15;   // Assuming you meant to have 'c2' as an integer variable.
+int &c = c2;   // 'c' is a reference to 'c2'.
+c;             // Value of 'c' is the same as the value of 'c2', which is 15.
+&c;            // Address of 'c' is the same as the address of 'c2'.
+*c;            // *error** 'c' is not a pointer, so dereferencing it with '*' is invalid.
+```
+
+
+
+- **Operator `*` is used for both** 
+1. <ins>declaring `pointers`</ins> - When you see `*` before a variable in a declaration, it means the variable is a pointer.
+2. <ins>`dereferencing` them</ins> - When you see `*` before a pointer variable (not in a declaration), it means dereferencing that pointer to get the value it points to.
+
+- **Operator `&` is used for both** 
+1. <ins>obtaining the `address` of a variable</ins> - When you see `&` before a variable, it typically means you're getting its address.
+2. <ins>declaring `references`</ins> - When you see `&` in a declaration, it means you're creating a reference.
+
+
 # Pointers
 
 Here’s a comprehensive set of notes on pointers in C++:

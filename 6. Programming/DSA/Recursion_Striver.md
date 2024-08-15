@@ -559,7 +559,7 @@ no. of permutation => n! = 3! =  6
 >1.  Brute Force
 >> Using map array
 
- Here we use int freq[] array i.e array used to map values to certain indices.
+ Here we use int `freq[]` array i.e array used to map values to certain indices.
 
  We will loop through indeces 0 to n-1, and if freq[i] is `unmarked` than it is not picked
  1. push this in datastructure and `marked` it

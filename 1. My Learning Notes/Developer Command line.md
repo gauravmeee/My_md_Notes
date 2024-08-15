@@ -53,6 +53,7 @@ npm start
 # "dev": "nodemon src/app.js"
 npm run dev
 ```
+*Note:* `npm start` is a shorthand to run the `start` script defined in `package.json`, while `npm run start` explicitly uses the `run` command to achieve the same result.
 
 it is not necessary to share the `node_modules`.
 all dependencies in this folder are already specified in you `package.json` and `package-lock.json`(or yarn.lock)

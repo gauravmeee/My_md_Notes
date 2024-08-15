@@ -92,7 +92,11 @@ Note: When using import, ensure all files that use ES Modules have the `"type":"
 
 - **Route**: A pattern for matching URLs.
 - **Endpoint**: A specific URL pattern combined with an HTTP method.
+## Create Instance of React Express
 
+```js
+const app = express()
+```
 ## Routes Handler
 
 `localhost:3000` will show 'Hello World!' as Response at the Page
@@ -188,7 +192,7 @@ const path = require('path')
 // All other Imports
 
 // Middleware
-App.use(express.static(path.join(__dirname, "public")))
+app.use(express.static(path.join(__dirname, "public")))
 ```
 Note:- Now it will start Serving `Public` Folder as `Static` Folder
 **`Express Middleware` are Functions that will keep Access of  Request and Response Objects, and can change it.**
@@ -288,11 +292,13 @@ app.listen(port, () => {
 
 1. The `app.use(express.static(path.join(__dirname, "static")))` line in an Express.js application sets up middleware to serve static files from a directory. Here’s a breakdown of what each part does:
 
-3. **`require(path.join(__dirname, 'routes/blog.js'))`**: This loads the router module from the `routes/blog.js` file. The `path.join(__dirname, 'routes/blog.js')` constructs the absolute path to the `blog.js` file. `__dirname` is a global variable representing the directory name of the current module.
+3. **`require(path.join(__dirname, 'routes/blogRoute.js'))`**: This loads the router module from the `routes/blogRoute.js` file. The `path.join(__dirname, 'routes/blogRoute.js')` constructs the absolute path to the `blogRoute.js` file. `__dirname` is a global variable representing the directory name of the current module.
 
-4. **`path.join(__dirname, 'routes/blog.js')`**: Joins the `__dirname` (current directory) with the `routes/blog.js` path, ensuring the path is correctly constructed based on the operating system.
+4. **`path.join(__dirname, 'routes/blogRoute.js')`**: Joins the `__dirname` (current directory) with the `routes/blogRoute.js` path, ensuring the path is correctly constructed based on the operating system.
 
 5. We will separate our other routes from `index.js` into separate routes files, because it will become complex to write multiple routes into single, index.js. let the routes be `routes/blog.js`
+
+*Note:* To ensure your CSS and JavaScript files are applied correctly to your `index.html`, configure Express to serve static files using `app.use('/static', express.static(path.join(__dirname, 'static')));`, and use absolute paths in your HTML, such as `<link rel="stylesheet" href="/static/style.css" />` and `<script src="/static/script.js"></script>`. This setup will correctly link your styles and scripts regardless of the file's location.
 
 *Create Index.html*
 ```html
@@ -312,7 +318,7 @@ const express = require('express')
 const router = express.Router()
 // routes
 router.get('/', (req, res)=>{
-	res.sendFile(path.join(__dirname, `templates/index.html`  ))
+	res.sendFile(path.join(__dirname, 'templates/index.html' ))
 })
 
 // Export router
@@ -434,6 +440,7 @@ template: <p>{{firstname}} {{lastname}}</p>
 ```
 
 *Note:* `Handlebar` is like `Jinja2` python template engine.
+more template engines for express - `EJS`, `Pug`
 
 - **HBS**
 `HBS (Express-HBS)`: A specialized package for using Handlebars within the Express framework, making integration with Express easier and more streamlined.

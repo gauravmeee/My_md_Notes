@@ -217,3 +217,5 @@ Output will be display at terminal, whenever you visit `http://127.0.0.1:8000/sh
 <hr>
 
 # 53:00 / 1:47:13 ⚠️
+
+# Also notes of Jinja Template engine

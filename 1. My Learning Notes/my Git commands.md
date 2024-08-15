@@ -47,6 +47,9 @@ git remote remove origin
 # Clone a repository
 git clone https://github.com/username/repository.git
 
+#clone a specific branch
+git clone --branch branchname https://github.com/username/repository.git
+
 # Create a new branch
 git checkout -b my-new-branch
 
