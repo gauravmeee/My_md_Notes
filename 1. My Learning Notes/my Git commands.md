@@ -71,3 +71,39 @@ git rm mynotes/javascript.md
 # Stage file at once
 git add -u
 ```
+
+.gitignore
+```sh
+# Create a .gitignore
+touch .gitignore # only for linus-based system
+# or
+echo. > .gitignore
+# or
+copy nul .gitignore
+
+# add node_modules/ in .gitignore
+echo node_modules/ >> .gitignore
+
+# Edit a .gitignore
+nano . gitignore
+
+# Check ignored files
+git status --ignored
+```
+
+Manual Add  .gitignore file 
+```sh
+# .gitignore
+# Ignore all .log files
+*.log
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore specific file
+config/settings.json
+
+# Ignore all files in tmp directory
+tmp/**/
+
+```

@@ -98,3 +98,18 @@ void swap(int &a, int &b){
 	a = a ^ b;
 	}
 ```
+
+
+```cpp
+// Find Combination nCr formula
+int nCr(int n, int r){
+	long long res =1;
+	for(i=0; i<r; i++){
+	res = res * (n-1); *10*9*8
+	res = res/(i+1); 1*2*3
+	}
+	return res;
+}
+// nCr = n!/((n-r)!*(r)!)
+// 10C3 = 10*9*8/(1*2*3)
+```
