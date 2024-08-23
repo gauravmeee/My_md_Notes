@@ -75,14 +75,14 @@ git add -u
 .gitignore
 ```sh
 # Create a .gitignore
-touch .gitignore # only for linus-based system
+touch .gitignore # only for linux-based system
 # or
-echo. > .gitignore
+echo. > .gitignore ✅
 # or
 copy nul .gitignore
 
 # add node_modules/ in .gitignore
-echo node_modules/ >> .gitignore
+echo node_modules/ >> .gitignore ✅
 
 # Edit a .gitignore
 nano . gitignore

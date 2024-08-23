@@ -1,4 +1,70 @@
 
+
+# Different types of Functions in Java Script
+
+### Types of Functions in JavaScript:
+
+1. **Function Declaration**:
+```javascript
+// function funcName() { }
+function greet() { console.log("Hello"); }
+// Hoisted ✅
+// Named ✅
+```
+
+2. **Function Expression**:
+```javascript
+// const funcName = function() { }
+const greet = function() { console.log("Hello"); };
+// Not Hoisted ❌
+```
+
+3. **Arrow Function**:
+```javascript
+// const funcName = () => { }`
+const greet = () => { console.log("Hello"); };
+// Lexical `this` ✅
+```
+
+4. **Named Function Expression**:
+```javascript
+// `const funcName = function name() { }
+const greet = function sayHello() { console.log("Hello"); };
+// Named ✅ (name accessible only inside function) 
+```
+
+
+*Note :* 
+- **Hoisted :** youcan use functions or variables before they are declared in your code, without causing an error.
+- -**Anonymous Function Expressions**: Have no name, so they rely on the variable they're assigned to.
+- **Named Function Expressions**: Have a name, but it's only accessible within the function body itself.
+
+Here’s a refined categorization of the functions, with a focus on whether they are anonymous or named, and which can be executed without explicitly calling them:
+
+### Functions Executed Without Explicit Calls:
+
+1. **Immediately Invoked Function Expression (IIFE)**:
+```javascript
+// (function(){})()
+(function() { console.log("Hello"); })();
+// Executed immediately without explicit call
+```
+
+2. **Event Handlers**:
+```javascript
+// ....addEventListner("event", function(){})
+document.getElementById("btn").addEventListener("click", function() { console.log("Clicked!"); });
+// Executed when the associated event occurs
+```
+
+3. **Callbacks**:
+```javascript
+// seTimout(function(){}, time)
+setTimeout(function() { console.log("Delayed Hello"); }, 1000);
+// Executed after the delay without an explicit call
+```
+
+
 # Call back Functions
 
 Callback functions are functions that are passed as arguments to other functions, which are then invoked (called back) at a later point in time, usually after some operation has been completed or an event has occurred. They are a fundamental concept in JavaScript and are widely used in asynchronous programming and event handling.
@@ -88,21 +154,18 @@ var add = (a, b) => {
 ```
 
 If the function body contains only a single expression, you can omit the braces and the `return` keyword:
-
 ```javascript
 var add = (a, b) => a + b;
 ```
 
-If the function has no parameters, you can write it like this:
-
-```javascript
-var greet = () => console.log('Hello, world!');
-```
-
 If the function has one parameter, you can omit the parentheses around the parameter:
-
 ```javascript
 var square = x => x * x;
+```
+
+If the function has no parameters, you can write it like this:
+```javascript
+var greet = () => console.log('Hello, world!');
 ```
 
 ### `this` Binding

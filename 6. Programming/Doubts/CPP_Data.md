@@ -6,6 +6,29 @@
 `nullptr` is a keyword introduced in C++11 that represents a null pointer of type std::nullptr_t, providing type safety.
 
 ---
+#### Data structures that do not support direct access via an index:
+
+1. **Linked List**:
+   - In both singly and doubly linked lists, elements are stored in nodes, with each node pointing to the next (and sometimes the previous) node. You cannot directly access an element by index; instead, you must traverse the list from the head to reach the desired node.
+
+2. **Queue**:
+   - A queue operates on a First-In-First-Out (FIFO) principle. Access to elements is restricted to the front (for removal) and the back (for insertion). There is no direct access to elements in the middle of the queue.
+
+3. **Stack**:
+   - A stack operates on a Last-In-First-Out (LIFO) principle. Similar to a queue, you can only access the top element, and there is no direct access to other elements.
+
+4. **Priority Queue (Heap)**:
+   - As mentioned earlier, a priority queue typically implemented with a heap structure only allows access to the top element. You cannot directly access elements by index.
+
+5. **Set and Map (unordered_set, unordered_map, set, map)**:
+   - In `std::set` and `std::map`, elements are typically organized in a binary search tree (for ordered versions) or a hash table (for unordered versions). Direct indexing is not supported; you must use iterators or lookup functions to access elements.
+
+6. **Tree-Based Data Structures (e.g., Binary Search Tree, AVL Tree, Red-Black Tree)**:
+   - In tree structures, elements are accessed via pointers or references by navigating the tree, rather than using an index.
+
+*Note:* Data structures that do not support direct access via an index are typically non-linear or do not store elements in a contiguous memory block. These data structures typically require traversal or specific access functions to locate or manipulate elements.
+
+---
 
 ### Common Integers in  C++
 

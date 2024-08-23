@@ -11,26 +11,26 @@
 Try these codes on console of Google Chrome.
 >Google Chrome -> right Click -> Inspect -> console.
 - `alert("Hello world")`
-- console.log("Hello world")
-- 34+897
-- 931
-- 
-Right click and Inspect HTML documents, and find some class let - "button1" and some  Id let - "navbar1"\
+- `console.log("Hello world")`
+- `34+897`
+- `931`
+
+Right click and `Inspect HTML` documents, and find some class let - "button1" and some  `Id` let - "navbar1"\
 try (use dot before name for class)\
 Let Do some DOM Manipulatoin
-- > document.querySelector(".button1")
-- > document.querySelector(".button1").click()
-- > document.getElementById("navbar1")
-- > document.getElementById("navbar1").click()
+- > `document.querySelector(".button1")`
+- > `document.querySelector(".button1").click()`
+- > `document.getElementById("navbar1")`
+- > `document.getElementById("navbar1").click()`
 
-- > button1
-- > button1.innerHTML ="Hello Harry";
-- > document.getElementsByTagName('h1')
-- > document.getElementsByTagName('h1')[0]
-- > document.getElementsByTagName('h1')[0].style.fontSize = "99px"
-- > document.getElementsByTagName('h1')[0].style.background = "red"
-- > document.getElementsByTagName('h1')[0].style.visibility = "hidden"
-- > document.getElementsByTagName('h1')[0].style.display = "none"
+- `> button1`
+- > `button1.innerHTML ="Hello Harry";
+- > `document.getElementsByTagName('h1')`
+- > `document.getElementsByTagName('h1')[0]`
+- > `document.getElementsByTagName('h1')[0].style.fontSize = "99px"`
+- > `document.getElementsByTagName('h1')[0].style.background = "red"`
+- > `document.getElementsByTagName('h1')[0].style.visibility = "hidden"`
+- > `document.getElementsByTagName('h1')[0].style.display = "none"`
 
 this is client side javaScript
 
@@ -49,6 +49,8 @@ Website
 - Server Side -> JavaScript(NodeJS), Python(Django) etc.
 
 ## Lets work on .html file
+
+**Inline JavaScript**
 ```html
 ...
 <body> Hello World! </body>
@@ -61,8 +63,8 @@ similarly, add these in html, and check what is shown on browser's document, con
 
 ```html
 <script> alert("me") </script>
+
 ```html
-```
 <script> document.write("I am writing") </script>
 ```
 ```html
@@ -79,7 +81,7 @@ similarly, add these in html, and check what is shown on browser's document, con
 ```
 # .js file
 
-add this line in .html
+**External Java Script** : add this line in .html
 ```html
 <script> src ="index.js"> </script>
 ```
@@ -102,7 +104,7 @@ Comments -> for devlopers readability ,but to ignore by the compiler
 ```
 ## 3. Data Types
 
-In java Script , there are two types of Data Type, Primitive data type i.e **Primitive data types** & **Reference data types**
+In java Script , there are two types of Data Type,i.e **Primitive data types** & **Reference data types**
 
 ### Primitive Data Types
 number, string, boolean, undefined, null, symbol
@@ -126,9 +128,9 @@ var n = null;
 // Symbol
 symbol('')// not much imprtant, leave it
 ```
-note: in javaScript, you can use, comman `,` between objects during functions like console.log(a,b) to seperate print value by ` ` WhiteSpace
+*Note:*- in javaScript, you can use, comman `,` between objects during functions like console.log(a,b) to seperate print value by ` ` WhiteSpace
 
-note: - Semicolon is important in JavaScript\
+*Note:* - Semicolon is important in JavaScript\
 but Java Script is very forgiving language 🥹, it provide flexibilities such as not using `;`, `let` etc 
 
 ### Reference Datatype 
@@ -139,7 +141,7 @@ var arr = [1,2,"doe",4,5]
 console.log(arr) // 0:1 1:2 3:"doe" 4:5
 console.log(arr[0]) //print 1
 ```
-note:- Arrays (or lists) in Python and JavaScript -> different datatypes,\ unlike arrays in C++ -> a single data type.
+*Note:-* Arrays (or lists) in Python and JavaScript -> different datatypes,\ unlike arrays in C++ -> a single data type.
 
 ```js
 // Objects
@@ -152,14 +154,14 @@ var marks = {
 ## Operators in JS
 
 `x @ y = z`
-x & y : operands\
-@ : Operator
+`x , y` : operands\
+`@`: Operator
 
 ### Assignment Operators
 ```js
 var b = 5
 var c
-
+// Assignment Operators
 c=b
 c+=b
 c-=b
@@ -171,7 +173,7 @@ c/=b
 ```js
 var a = 100
 var b = 10
-
+// Arithmetic Operators
 a+b  // 110
 a-b  // 90
 a*b  // 1000
@@ -182,7 +184,7 @@ a/b  // 10
 ```js
 var x = 34
 var y = 56
-
+// Comparison Operators
 x == y // false
 x < y // true
 x > y // false
@@ -228,7 +230,53 @@ Chrome console log :\
 blue color number output : Number Datatype\
 black color number output : String Datatype
 
+---
+#### Types of Functions in JavaScript:
+
+1. **Anonymous Function**
+```javascript
+// Anonymous Function Expression
+const funcVar = function() { };
+
+// Immediately Invoked Function Expression (IIFE)
+(function() {})();
+
+// Callback Example
+setTimeout(function() {}, time);
+
+// Event Handler Example
+document.getElementById("elementId").addEventListener("event", function() {});
+```
+- **Note**: Anonymous functions do not have a name. They need to be assigned to a variable if you need to use them later, except when used as an IIFE or in contexts like callbacks and event handlers.
+
+2. **Named Function (Assigning to variable is optional)**
+```javascript
+// Named Function Declaration
+function funcName() { }
+
+// Named Function Expression
+const funcVar = function funcName() { };
+
+// Named Function Expression with Immediate Invocation
+(function funcName() {})();
+```
+- **Note**: Named function expressions can be used for recursion and debugging but are not hoisted.
+
+3. **Arrow Function**
+```javascript
+// Arrow Function
+const funcName = () => { };
+
+// Immediately Invoked Arrow Function
+(() => {})();
+```
+- **Note**: Arrow functions have a concise syntax and capture the `this` value from their surrounding context. They also need to be wrapped in parentheses for immediate invocation.
+
+*Note :* **Call Back Function** callback function is a function passed as an argument to another function, which is then executed after some operation has completed. It’s a general programming concept used to ensure that certain code is executed after a task finishes
+
+---
 ## Conditionals in JavaScript
+
 1. single if statement : only if condition.
 2. if - else statement : both if and else condition
 3. if-else Ladder statement : if, series of else if ,and else conditons
@@ -247,6 +295,7 @@ else{
 }
 ```
 
+---
 ## Loop
 ### for loop
 
@@ -259,6 +308,7 @@ for(var i =0;arr.length; i++){
 //1234567
 } 
 ```
+
 `for loop:` best to iterate from a lower bound value to upper bound value
 ```js
 // for-Each loop ⭐
@@ -268,7 +318,7 @@ arr.forEach(functions(element){
 ```
 `forEach loop` : best to iterate over elements of sequence - array, string etc.
 
-### while
+### while loop
 
 ```js
 //while loop
@@ -289,7 +339,6 @@ do{
 `do while` : best when we have to run a loop,at least one time.
 
 ## Break and Continue;
-
 ```js
 //breaks;
 for( var i = 0; i<10; i++){
@@ -310,6 +359,7 @@ for( var i = 0; i<10; i++){
 ```
 `continue`: skip loop's execution for a condition
 
+---
 ## let var const
 
 `var` :
@@ -336,9 +386,10 @@ This means that you can use variables and functions before they are formally dec
 
 'var' is a old js standard, we should use 'let' and 'const' whenever possible possible, that make temporary variables in blocks, without appending the global one.
 
-##  Methods on array 
+---
+## Methods in JavaScript
 
-Note: JS Methods are generally in `camelCase` in format
+####  Methods on array 
 ```js
 let myArray = ["Fan", "Camera", 34, null, true ]
 
@@ -372,7 +423,7 @@ d.sort() // [1, 23, 32324, 4, 43, 6]
 ```
 Note: javascript allow storing different datatypes in single array
 
-## String Methods in JS
+#### String Methods in JS
 ```js
 let myLovelyString = "Gaurav is a good boy, Gaurav";
 
@@ -391,6 +442,8 @@ myLovelyString.slice(0,3) // "Gau
 // Replace first substring occurence in string
 myLovelyString.replace("Gaurav","Meena") //"Meena is a good boy, Gaurav"
 ```
+
+#### Date-Time Method in JS
 ```js
 // Date
 let myDate = new Date(); // Mon July 01 2024 22:47:00 GMT+0530 (Indian Standard Time)
@@ -398,23 +451,23 @@ let myDate = new Date(); // Mon July 01 2024 22:47:00 GMT+0530 (Indian Standard 
 //more
 myDate.getTime()
 myDate.getFullYear()
-myDate.getDay() //1   (sun = 0, sat =6)
+myDate.getDay() //1   (sun = 0 to sat =6)
 myDate.getMinutes()
 myDate.getHours()
 ```
 Note: In JavaScript, the `new` keyword is used to create instances of objects that have a constructor function.
 
+Note: JS Methods are generally in `camelCase` in format
 
-
+---
 # Document Object Model (DOM)
 DOM - Everything inside body of browser is DOM
 `document` is used to access HTML page's element and apply DOM manipulation
 
-
+## Get Element 
 
 `document.getElementById('click').click()`
 `document.getElementById('click').style.border = '2px solid blue'`
-
 
 ```js
 // Get HTML elment by Id
@@ -451,10 +504,10 @@ document.getElementsByTagName('div`)
 Tired of typing `getElementById` , `getElementByClassName` type 'gebi', 'gebcn' as shortcut respectively in vscode , explore more
 
 Tag Name : tag names refer to the names of HTML elements used to structure and display content on a web page. Here’s an overview:
-<body>, <div>, <img>
+`<body>`, `<div>`, `<img>`
 
-getElementsByClass & getElementsByTagName = Elements (plural)
-getElementById = Element (Singular)
+>`getElementsByClassName` , `getElementsByTagName` , `getElementsByName`=  Elements (plural)
+>`getElementById` = Element (Singular)
 
 ```js
 // Create a Element <p></p>
@@ -484,11 +537,11 @@ tn[0].removeChild(createdElment2)
 `document.forms`
 `document.domain`
 
-note: focus on singular plural words, in js it worked as they are written
+*Note:* focus on singular plural words, in js it worked as they are written
 
 ## Selecting using Query /CSS
 
-the querySelector and querySelectorAll methods provide a concise and powerful way to select elements using CSS selectors, demonstrating their flexibility and ease of use compared to traditional getElement methods.
+the `querySelector` and `querySelectorAll` methods provide a concise and powerful way to select elements using CSS selectors, demonstrating their flexibility and ease of use compared to traditional `getElement` methods.
 
 ```js
 check all by console.log(sel)
@@ -498,6 +551,7 @@ sel = document.querySelector('.container')
 // Select all element using Id
 sel = document.querySelectorAll('.container')
 ```
+---
 # Events in JS 
 
 `onclick`
@@ -506,15 +560,13 @@ sel = document.querySelectorAll('.container')
 <button id="click"> onclick="clicked()"> Click Me </button>
 ```
 
-//call function `clicked()` when `onclick` event occred
-
+//call function `clicked()` when `onclick` event occured
 ```js
 //function definition 
 function clicked(){
     console.log('The button was clicked')
 }
 ```
-
 
 More events
 ```js
@@ -538,14 +590,14 @@ firstContainer.addEventListener('click',fucntion()){  //you can direct access ht
 }
 
 ```
-// you can add more events in place of 'click' like:
-`mouseup`// when mouse is released after click
-`mousedown`// when mouse is released after hold
-`mouseover`//when mouse go on an element
-`mouseout`//when mouse go out of an element
+
+you can add more events in place of 'click' like:
+`mouseup` : when mouse is released after click
+`mousedown` : when mouse is released after hold
+`mouseover`: when mouse go on an element
+`mouseout` : when mouse go out of an element
 
 To change html element on click
-
 ```js
 let prevHTML = document.querySelectorAll(.container)[1].innerHTML;
 
@@ -559,7 +611,9 @@ firstContainer.addEventListener('click', function(){
 firstContainer.addEventListener('mousedown', function(){ document.querySelectorAll('.container')[1].innerHTML = "<b> we had clicked </b>"
     console.log("Clicked on Container Released"))
 ```
-# Arrow Functions
+
+---
+Arrow Functions
 ```js
 //normal function
 function sum(a,b){
@@ -570,6 +624,7 @@ sum =(a,b)=>{return a+b;}
 
 //arrow function is used when we have to insert function in between
 ```
+---
 # setTimeout and setInterval
 
 ```js
@@ -578,16 +633,15 @@ logKaro = () => {
     console.log("I am your log")
 }
 ```
-seTimeout: -> Schedule a function to execute after some milliSecond of time
+#### setTimeout: -> Schedule a function to execute after some millisecond of time
 
 `setTimeout(function, Time_in_ms)`
-
 ```js
 // Execute logKaro() after 2 second
 setTimeout(logKaro, 2000); //2000 ms => 2 second
 ```
 
-Set Interval :- repeatedly execute function after in fixed time interval
+#### Set Interval -> repeatedly execute function after in fixed time interval
 
 `setInterval(function,time)`
 ```js
@@ -683,3 +737,40 @@ ECMA Script is a scripting-language specification standardized by Ecma Internati
 6th Edition - ECMAScript 2015 - ECMAScript 6 (ES6)
 
 Backticks -> 
+
+---
+# [Arrow Functions Revisited | JavaScript Tutorial in Hindi #91](https://youtu.be/bJKjtC9MnZ8)
+
+Two Types of Function in Java Script 
+1. Function Expression
+2. Arrow Function (Introduced in ES6)
+
+```js
+// Function Expression
+const sayHello = function() { console.log("Hello"); };
+```
+
+```js
+// Arrow Function
+const sayHello = () => {
+	console.log("Hello")
+}
+```
+
+```js
+//
+```
+
+```js
+//
+```
+
+
+
+    - **Lexical `this`**: Arrow functions do not have their own `this` context; they inherit `this` from the parent scope.
+    - **Concise Syntax**: For simple functions, the arrow function syntax is more concise.
+    - **No `arguments` object**: Arrow functions do not have their own `arguments` object.
+
+    - **Standard `this`**: In a function expression, `this` refers to the object that calls the function.
+    - **Named or Anonymous**: Function expressions can be anonymous (as in your example) or named.
+    - **More Flexible**: You can define named functions for recursion or easier debugging.
