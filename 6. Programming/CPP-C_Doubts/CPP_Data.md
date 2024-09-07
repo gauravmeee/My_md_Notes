@@ -1,4 +1,45 @@
 
+---
+#### Double to Integer Conversion
+
+1. **Direct Assignment (Truncation)** Assigning a `double` to an `int` variable truncates the decimal part, effectively rounding toward zero.
+```cpp
+double num = 2.9;
+int truncated = num;  // truncated = 2
+```
+
+2. **`static_cast<int>()` (Truncation)** Assigning a `double` to an `int` variable truncates the decimal part, effectively rounding toward zero.
+```cpp
+double num = 3.7;
+int result = static_cast<int>(num);  // result = 3
+
+```
+
+3. **`round()`** Rounds the `double` to the nearest integer. If exactly halfway, it rounds toward positive infinity.
+```cpp
+double num = 2.5;
+int rounded = round(num);  // rounded = 3
+// round(2.5) -> 3
+// round(-1.5) -> -1
+```
+
+4. **`floor()`** Rounds down to the nearest integer (toward negative infinity).
+```cpp
+double num = 2.9;
+int floored = floor(num);  // floored = 2
+// floor(2.9) -> 2
+// floor(-1,1) -> -2
+```
+
+5. **`ceil()`** Rounds up to the nearest integer (toward positive infinity).
+```cpp
+double num = 2.1;
+int ceiled = ceil(num);  // ceiled = 3
+// ceil(2.1) -> 3 
+// ceil(-1.7) gives -1
+```
+
+---
 #### NULL & nullptr
 `NULL`
  is an integer constant typically defined as `0`, which can lead to type ambiguity.

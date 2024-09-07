@@ -8,6 +8,15 @@
 compiler doesn't know the size of the array, You must either specify the size of the array explicitly or provide an initializer list.
 
 ---
+Default Value of Elements when initialize size 
+
+```cpp
+int arr[5]; // elments value are undefined
+int arr[5]={}; // all element initialisez `0`
+int arr[5]={1}; // first elmenent initialize `1`, rest `0`
+```
+
+---
 
 **Initializing Size of array should be constant**
 - `int arr[a];` ❌ : if `int a=5` ->
@@ -71,25 +80,17 @@ sort(arr, arr + n);
     std::swap(arr[1], arr[3]);
 ```
 ---
+**Passed array as Reference in Function ?**
 
-`push_back` on `ans[0]`, you need to ensure that `ans` has at least one inner vector.❌
-   ```cpp
-   vector<vector<int>> ans(); // Initializes 2 D vector
-   ans[0].push_back(1); // Error : Directly accessing `ans[0]` will cause an error if `ans` is empty.
-// The 2D vector `ans` is declared but not yet populated with any inner vectors.
+In C++, if you don't know the size of the array at compile time, you cannot pass the array as a reference with a fixed size directly because C++ requires the size of the array to be known at compile time when using array references.
+
+If know the size at compile time
+```cpp
+void modifyArray(int (&arr)[5]){...}
 ```
 
-1. **Initialize with an inner vector**: ✅
-   ```cpp
-   vector<vector<int>> ans(1); // Initializes with one empty inner vector
-   ans[0].push_back(1); // This will work now
-   ```
-
-2. **Add an inner vector before accessing**: ✅
-   ```cpp
-   vector<vector<int>> ans;
-   ans.push_back(vector<int>()); // Adds an empty vector
-   ans[0].push_back(1); // Now you can use push_back
-   ```
-
-Either method ensures that you have a valid inner vector to work with.
+pass as pointer if size not known at compile time (for similar functionality)
+```cpp
+void modifyArray(int* arr, int size){...}
+// We can't find size of pointer so need to pass run-time/compile-time size as additional parameter
+```

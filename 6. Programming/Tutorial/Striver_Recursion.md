@@ -9,15 +9,511 @@ Method 2. -> `loop (skip or pick)` -> L9 Combination Sum II (optimal), Sub Set I
 
 # [Re 1. Introduction to Recursion | Recursion Tree | Stack Space | Strivers A2Z DSA Course](https://www.youtube.com/watch?v=yVdKa8dnKiE&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=1&pp=iAQB)
 
+Recursion 
+- Function Call itself
+- Until a specific condition is met
+
+Function Call Itself
+```cpp
+void f(){ 
+	print(1)
+	f() --------> void f(){
+	}                 print(1)
+}                     f() -----------> void f(){
+                      }                     print(1)
+main(){                                     f() -----------> .......
+	f();                                    }
+}
+
+// Output: 1111111111111111.....∞
+```
+TC: `O(∞)` -> Recursion
+SC: `O(∞)` -> Stack Space
+```scss
+Stack
+
+|...|
+|...|
+|f()|
+|f()|
+|f()|
+|___|
+```
+
+
+Function Call itself + Condition
+```cpp
+void f(){
+	if(ct==r) return --> (base condition)
+	print(ct)
+	ct++
+	f()
+}
+
+main(){
+ f()
+}
+```
+TC: `O(n)` -> n* time recursion
+SC: `O(n)` -> n stack space
+
+```scss
+Stack
+
+|f()->     |   |    
+|f()|      |f()->      |   |      
+|f()|  =>  |f()|   =>  |f()->  =>  |   |   => 
+|f()|      |f()|       |f()|       |f()|       |   |
+|___|      |___|       |___|       |___|       |___|
+```
+
+Recursion Tree
+```scss
+f()
+  ⬊
+   f()
+     ⬊
+      f()
+        ⬊
+         f()
+```
 # [Re 2. Problems on Recursion | Strivers A2Z DSA Course](https://youtu.be/un6PLygfXrA?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
 
+Problems on Recursion
+```
+Q1. Print Name N Times
+Q2. Print Linearly from 1 to N
+Q3. Print from N to 1
+Q4. Print Linearly from 1 to N (by Backtracking)
+Q5. Print from N to 1 (by Backtracking)
+```
+
+Q1. Print Name 5 Time
+```cpp
+void f(){
+	if(i>n) return
+		print("gaurav")
+		f(i+1,n)
+}
+
+main(){
+	int n;
+	cin>>N;
+	f(i,n)
+}
+```
+```scss
+    f(1,4)    -> "Gaurav"
+	 |
+     v
+    f(2,4)    -> "Gaurav"
+     |
+     v
+    f(3,4)    -> "Gaurav"
+     |
+     v
+    f(4,4)    -> "Gaurav"
+     |
+     v
+    f(5,4)    -> Returns (Base Case)
+   
+    Unwinds back up, printing "Gaurav" 4 X time
+
+```
+
+Siminlarly,
+
+Q2. Print Linearly from 1 to N
+```cpp
+f(i,N){
+	if(i>N) return
+	print(i)
+	f(i+1,N)
+}
+
+main(){
+	input(N)
+	f(1,N) // 1->N
+}
+```
+
+Q3. Print from N to 1
+```cpp
+f(i,N){
+	if(i<1) return
+	print(i)
+	f(i-1,N)
+}
+
+main(){
+	input(N)
+	f(N,N); // N->1
+}
+```
+
+Q4. Print Linearly from 1 to N (by Backtracking)
+```cpp
+f(i<N){
+	if(i<N) return;
+	f(i-1,N)
+	print(i)
+	}
+
+main(){
+	input()
+	f(N,N)
+}
+```
+```scss
+	f(3,3)
+	 |    ⬉
+     v    -> print(3)
+    f(2,3)
+     |     ⬉
+     v   ->  print(2) 
+    f(1,3) 
+     |     ⬉
+     v   ->  print(1)
+    f(0,3) 
+
+// Output : 1 2 3
+```
+
+Q5. Print from N to 1 (by Backtracking)
+```cpp
+f(i<N){
+	if(i>N) return;
+	f(i+1,N)
+	print(i)
+	}
+
+main(){
+	input()
+	f(N,N)
+}
+```
+
+**Recursion :** A recursive function solves a particular problem by calling a copy of itself and solving smaller subproblems of the original problems
+
+**Backtracking :** Backtracking at every steps eliminates those choices that cannot give us the solution and process to those choices that have the potential of taking us to the solution
 # [Re 3. Parameterised and Functional Recursion | Strivers A2Z DSA Course](https://youtu.be/69ZCDFy-OUo?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
 
+**Parameterized Recursion :** In parameterized recursion, the function passes additional parameters to keep track of the state or accumulate results. The parameters change with each recursive call, influencing the behavior of the recursion.
+
+Factorial using Parameterized Recursion
+```cpp
+int f(int n, int r = 1) {
+    return (n == 1) ? r : f(n - 1, r * n);
+}
+```
+
+**Functional Recursion :** In functional recursion, the function relies on returning values from recursive calls to calculate the final result. The recursion is driven by returning and combining results from each call rather than using parameters to track state.
+
+Factorial using Functional Recursion
+```cpp
+int f(int n) {
+    return n == 1 ? 1 : n * f(n-1);
+}
+```
+
+> Q1. Print Sum of first N numbers 
+
+
+By Parameterized Recursion
+```cpp
+f(i,sum){
+	if(i<1){
+		print(sum)
+		return
+		}
+	
+	f(i-1,sum+i)
+}
+
+main(){
+	n = 3
+	f(n,0)
+}
+```
+TC: `O(n)` -> recursion 
+SCL: `O(n)` -> stack space
+
+```scss
+   f(3,0) -> (i+1, sum+i)
+	 |    ⬋
+	 v
+   f(2,3) -> (i+1,sum+i)
+	 |   ⬋
+	 v
+   f(1,5) -> (i+1, sum+i)
+	 |    ⬋
+	 v  
+   f(0,6) -> print(sum)
+	 |
+	 v
+     X
+```
+
+
+By Functional Recursion
+```cpp
+f(n){
+	if(n==0) return 0
+	return n+f(n-1)
+}
+
+main(){
+	n=3
+	print(f(n))
+}
+```
+TC: `O(n)` -> recursion
+SC: `O(n)` -> stack space
+
+```scss
+	f(3)                => 6
+   ⬋   ⬊
+  3  +  f(2)            => 3+3 = 6     
+        ⬋   ⬊             ↑
+       2  +  f(1)       => 2+1 = 3
+             ⬋   ⬊        ↑
+            1  +  f(0)  => 1+0 = 1
+```
+
+*Note :* The **parameterised** recursion approach involves passing additional parameter to the recursive function to keep track of the current sum and the current number being considered. **Functional** recursion approach involves defining a recursion function without any additional parameters. The functional simplify calls itself with a modified argument until it reach the base case.
 # [Re 4. Problems on Functional Recursion | Strivers A2Z DSA Course](https://youtu.be/twuC1F6gLI8?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
 
+> Q1. Function to swap/reverse an array
+
+```
+[1 2 3 4 2] -> [2 4 3 2 1]
+```
+
+Approach 1
+```
+[ 1  2  3  4  2 ]  swap(i & r) till i<r
+  i ⤻ ⤻ ↜ ↜ r
+```
+```cpp
+f(l,r){
+	if(l>=r) return
+	swap
+}
+
+main(){
+	arr
+	f(0,n-1)
+}
+```
+TC: `O(n/2)` - recursion 
+SC: `O(n/2)` -> stack space
+
+Approach 2
+```
+       n/2
+[ 1  2  3  4  2 ]  swap(i) till i<n/2
+  i ⤻ ⤻   
+```
+```cpp
+f(i){
+	if(i>=n/2) return
+	swap(a[i],a[n-i-1])
+	f(i+1)
+}
+
+main(){
+	arr
+	f(0)
+}
+```
+TC: `O(n/2)` -> recursion
+SC: `O(n/2)` -> stack space
+
+> Q2. Check if a String is Palindrome
+```scss
+"MADAM" -> "MADAM"  -> True
+"MADAM" -> "MADSM"  -> False
+```
+```cpp
+f(i){
+	if(i>=n/2) return true;
+	if(s[i]!=s[n-i-1]) return false;
+	return f(i+1);
+}
+
+main(){
+	print(f(0))
+}
+```
+TC: `O(n/2)` -> recursion
+SC: `O(n/2)` -> stack space
 # [Re 5. Multiple Recursion Calls | Problems | Strivers A2Z DSA Course](https://youtu.be/kvRjNm4rVBE?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
 
+> Q1. Fibonacci of nth term
 
+Fibonacci Series
+```
+0   1   2   3   4   5    6   7    8 ...........
+0   1   1   2   3   5    8   13   21 ...........
+```
+
+```cpp
+f(n){
+	if(n<=) return n
+	last = f(n-1)
+	slast = f(n-2)
+	return last + slast
+}
+
+main(){
+	n // let 4
+	print f(n)
+}
+```
+TC:`O(2^n)` -> Recursion ⭐
+SC:`O(n)` -> Stack Space
+
+Recursion Tree.
+```scss 
+                     f(4)=3
+                 ⤤⬋         ⬊⤣ 
+		     2= f(3)    +     f(2) =1
+		      ⤤⬋    ⬊⤣     ⤤⬋   ⬊⤣  
+		  1= f(2) + f(1)    f(1) + f(0)
+		   ⤤⬋  ⬊⤣   =1       =1     =0
+		 f(1) + f(0)
+		  =1     =0
+```
+Calling and Return Order
+```scss                
+                                  1↓⤣9
+                                 f(4)
+                           5⤤⬋2         7⬊⤣8 
+		             f(3)         +     f(2)
+		       3⤤⬋3         6⬊⤣4     6⤤⬋8   9⬊⤣7
+		      f(2)       + f(1)      f(1) + f(0)
+		  1⤤⬋4   5⬊⤣2  
+		 f(1)  +  f(0)
+
+c↓= Calling order
+r⤣=return order
+```
+
+Time Complexity Explanation
+```
+f(n)    -> 2  Recursion calls  f(n-1) & f(n-2)
+f(n-1)  -> 2  Recursion calls  f(n-2) & f(n-3)
+.       -> 2  Recursion calls  ...
+.       -> 2  Recursion calls  ...
+f(2)    -> 2  Recursion calls  f(1) & f(0)
+f(1)    -> 1
+
+2*2*2* ... n times = 2^n Time complexity
+```
+
+**TC- 2^n -> 2^4 = 16**
+**but there are only 9 calls for n->4**
+*Note:* The reason being, you are calling two down level like from four , you are going to two
+So for every time you're like going twice down, there by its not exactly 2^n,  but you can see its exponential in nature
+
+# [L6. Recursion on Subsequences | Printing Subsequences](https://youtu.be/AxNNVECce8c?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
+
+**Subsequence** : A contiguous or non-contiguous sequence, which follow the order
+
+```
+arr[3,1,2] 
+
+subsequence :{},{3},{1},{2},{3 1},{1 2},{3 2},{3 1 2}
+
+3  1  2
+X  ✓  ✓  {1 2}
+✓  ✓  X  {3 1}
+✓  ✓  ✓  {3 1 2}
+X  X  X  { }
+```
+
+> Q1.  Find Subsequence of a Array/List
+
+***Pseudo Code***
+```
+f(ind, []){
+	if(ind >=n){
+		print([])
+		return
+		
+	[].add(arr.[i])  ---> Take arr[i]
+	f(ind+1, [])
+	
+	[].remove(arr.[i]) ---> Not Take arr[i]
+	f(ind+1, [])
+	}
+}
+```
+
+Recursion Tree
+```scss
+                                     f(0,[])
+                        ✅ ⬋                         ⬊ ❌
+                  f(1,[3])                                  f(1,[])
+                ✅ ⬋     ⬊ ❌                             ✅   ⬋     ⬊ ❌
+       f(2,[31])            f(2,[3])              f(2,[1])           f(2,[])           ✅ ⬋     ⬊ ❌      ✅  ⬋      ⬊ ❌      ✅  ⬋     ⬊ ❌    ✅ ⬋     ⬊ ❌
+f(3,[312]) f(3,[31])   f(3,[32]) f(3,[3])   f(3,[12]) f(3,[1])   f(3,[2])  f(3,[])
+
+Take arr[i] - ✅ 
+Not Take arr[i] - ❌
+```
+
+***C++ Code***
+```cpp
+# include <bits/stdc++.h>
+using namespace std;
+
+void printF(ind ind, vector<int> &ds, int arr[], int n){
+	if(ind==n){
+		for(auto it:ds) cout<<it<<" ";
+		if(ds.size()==0) cout<<"{}";
+		cout<<endl;
+		return;
+	}
+	// pick the particular index into subsequence
+	ds.push_back(arr[ind]);
+	printF(ind+1,ds,arr,n);
+	ds.pop_back();
+	// not pick, this elment is not added to your subsequence
+	printF(ind+1,ds,arr,n);
+}
+```
+TC:`O(n*2^n)` for loop * Recursion => n * k  => n*2^n
+SC:`O(n)`  Stack Space
+
+Output Order
+```
+3 1 2
+3 1
+3 2
+3
+1 2
+1
+2
+{}
+```
+
+How to Reverse The output (without backward for loop i.e. using recursion only??
+Ans -> Write Exclusion call before Exclusion
+```cpp
+// not pick, this elment is not added to your subsequence
+printF(ind+1,ds,arr,n);
+// pick the particular index into subsequence
+ds.push_back(arr[ind]);
+printF(ind+1,ds,arr,n);
+ds.pop_back();
+```
+
+*Note :* More related term.
+- **Substring:** Contiguous part of a string.
+- **Subarray:** Contiguous part of an array.
+- **Subsequence:** Non-contiguous sequence with order maintained.
+- **Subset:** Any selection of elements from a set, order doesn’t matter.
 # [L7. All Kind of Patterns in Recursion | Print All | Print one | Count](https://youtu.be/eQCS_v3bw0Q?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9)
 
 >## **Ques: Print All subsequence of Array whose sum in equal to `sum`

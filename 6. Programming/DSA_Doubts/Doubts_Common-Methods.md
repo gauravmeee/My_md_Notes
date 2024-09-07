@@ -113,3 +113,27 @@ int nCr(int n, int r){
 // nCr = n!/((n-r)!*(r)!)
 // 10C3 = 10*9*8/(1*2*3)
 ```
+
+```cpp
+//check if 
+
+#include <cmath>
+
+bool isPerfectSquare(int num) {
+    if (num < 0) {
+        return false;
+    }
+    int sqrtNum = static_cast<int>(sqrt(num));
+    return (sqrtNum * sqrtNum == num)
+}
+
+// or
+
+bool isPerfectSquare(int num) {
+    if (num < 0) {
+        return false;
+    }
+    double sqrtNum = sqrt(num);
+    return (sqrtNum == static_cast<int>(sqrtNum)); // if double and integer are equal
+}
+```

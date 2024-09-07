@@ -1,6 +1,48 @@
 
 # My Notes
 
+Both references and pointers are related terms. Pointers and references are connected to a variable, but in different ways. The difference is that a pointer stores the address of the variable, while a reference acts as an alias for the variable, directly referring to its value.
+
+**Pointers:**
+```cpp
+int *a = &b;
+```
+- `a`: is a pointer, and it stores the address of `b`.
+- `*a`: can be used to access or modify the value stored at the address `a` is pointing to (i.e., the value of `b`).
+- **Note**: `*a = c;` will change the value of `b` to `c`.
+
+**References:**
+```cpp
+int &a = b;
+```
+- `a`: is a reference, and it directly refers to the variable `b`. It behaves as an alias to `b`.
+- `&a`: gives the address of `b` (because `a` is just another name for `b`).
+- **Note**: `a = c;` will change the value of `b` to `c`.
+
+
+**Reference Parameter Function**:
+```cpp
+void func(int &a){
+	cout<<a; // print the value of b
+	cout<<&a; // print the address of b
+}
+
+int b;
+func(b);
+```
+
+**Pointer Parameter Function**:
+```cpp
+void func(int *a){
+	cout<<a; // print the address of b
+	cout<<*a; // print the value of b
+}
+
+int b;
+func(&b); // should pass the address of b
+```
+
+### More Detailed
 
 ```cpp
 ### Variable

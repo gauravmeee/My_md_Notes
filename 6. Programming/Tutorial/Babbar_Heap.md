@@ -127,9 +127,11 @@ Parent-> 3rd/2->1st node -> (60)
 ```cpp
 # Insertion Function
 void insert(int val){
+	// add value to last
 	size = size +1;
 	int index = size;
 	arr[index] = val;
+	// if it is greater than parent, swap it with parent.
 	while(index>1){
 		int parent = i/2;
 		if(arr[parent]<arr[index]){
@@ -145,7 +147,7 @@ void insert(int val){
 ```
 
 #### TC: `O(logn)` 
-`n` number of nodes, than maximum swaps will be the height of tree , i.e. `logn`
+`n` number of nodes. each node with `2` children. `2^k=n`  `k=height=logn` than maximum swaps will be the height of tree , i.e. `logn`
 
 ---
 #### Max Heap Delete ( Deleting the Root Node)
@@ -196,23 +198,30 @@ Delete Last node
 ```cpp
 # Delete Function
 void deleteFromHeap(){
+
+	// check if there is element to delete?
 	if(size==0){
 	cout<<"nothing to delete" <<endl;
 	return;
 	}
-	
+
+	// remove root elment swapping it with last element.
 	arr[1] = arr[size];
 	arr[size]=-1;
-	// take root node to its correct position
+	
+	// take root node to its correct position by comparing to left and right child
 	index = 1;
 	while(index<size]){
 		int lefIndex = 2*index;
 		int rightIndex = 2*index+1;
-		
+
+		// if left is within size range and bigger than swap it with current node
 		if(leftIndex<size && arr[index]< arr[leftIndex]){
 			swap(arr[index], arr[leftIndex]);
 			index = leftIndex;
 		}
+		
+		// if right  is within size range and bigger than swap it with current node
 		else if(rightIndex<size && arr[index]< arr[rightIndex]){
 			swap(arr[index], arr[rightIndex]);
 			index = rightIndex;
@@ -229,7 +238,7 @@ void deleteFromHeap(){
 
 ## Heapify Algorithm
 
-*Note:* in a CBT  the leaf nodes are from  : `(n/2+1)th` to `nth node
+*Note:* in a CBT(complete binary tree)  the leaf nodes are from  : `(n/2+1)th` to `nth node
 
 ```
      54(1)
@@ -439,7 +448,7 @@ size--, size = 3
   0   1   2   3 |  4  5
 ```
 
-2.2 Heapify  Root Node -> Swap 45 and 55(greater then current and left)
+2.2 Heapify Root Node -> Swap 45 and 55(greater then current and left)
 ```
 		       55
 		      /   \
@@ -501,10 +510,11 @@ heapSort(int arr[], int n){
 	}
 }
 ```
-#### TC:** `O(nlogn)` 
 
-**Time Complexity Analysis:**
-1. **Building the Heap**:  Building a Max-Heap from an unsorted array takes `O(n)` time.
+*Note :* Do same process with min-Heap to sort in descending order
+#### TC:** `O(nlogn)`  
+
+**Time Complexity Analysis:**1. **Building the Heap**:  Building a Max-Heap from an unsorted array takes `O(n)` time.
 2. **Sorting Process**: The sorting process involves repeatedly extracting the maximum element and heapifying the reduced heap.
      - **While Loop**: The loop runs `n - 1` times, where `n` is the initial size of the array.
     -  **Heapify Operation**: Each call to `heapify` takes `O(log k)`, where `k` is the current size of the heap. Initially, `k = n`, then `k = n-1`, and so on, down to `1`.
@@ -545,3 +555,230 @@ minheap.pop(); // remove top element -> [3, 4, 5]
 minheap.size(); // size of element -> 3
 minheap.empty(); // is empty?? -> 0 -> false
 ```
+
+---
+# [Lecture 75: Heaps in C++ || Interview Questions || Part - 1](https://youtu.be/_9F2VgZcvdw)
+
+## Q1 Find `kth` Smallest Element from a heap.
+
+Example
+```
+{7, 10, 4, 3, 20, 15} 
+3rd Smallest = 7
+4th Smallest = 15
+```
+
+### Approach 1
+
+- Step 1: Sort Array in Increasing Order using any sort method.
+- Step 2: Return `ans = arr[k-1]`
+- minimum TC: `nlogn` if used optimized sort algorithm
+
+### Approach 2
+
+- Step 1: Create a Max-Heap First K element `0 to kth` element
+- Step 2: For rest elements `kth to (n-1)th`, if `element < heap.top()`, then `heap.pop()` and `heap.push(element)`. 
+- Now the heap of size `k` will only contains the smallest k number of elements from the array. because this will pop out element in heap greater than `kth` smallest element , and push the all the smallest element up to `k`.
+- Step 3: Heapify. the biggest element i.e. on top() or root of heap will be the kth smallest element.
+- TC: `O((n)⋅logk)`
+
+dry run
+```
+arr = {7, 10, 4, 20, 15} k =4
+```
+
+```
+Heap of first 4 elements
+
+            20
+           /  \
+          10   4
+          /
+         7 
+```
+
+```
+Remainint elments = {15}
+
+15<20 : pop 20 and push 15
+```
+
+```
+            15
+           /  \
+          10   4
+          /
+         7 
+```
+
+```
+Remaining elments? -> no
+
+Heap.top() = 15 -> kth smallest element
+ans = 15
+```
+
+**C++ Code **
+```cpp
+int kthSmallest(vector<int> &arr, int k) {
+	int n= arr.size();
+	priority_queue<int> pq;
+	for(int i=0; i<k; i++){
+		pq.push(arr[i]);
+	}
+	for(int i=k; i<n; i++){
+		if(pq.top()>arr[j]){
+			pq.pop();
+			pq.push(arr[i]);
+		}
+	}
+	
+	return ans = pq.top();
+}
+```
+#### TC: `O(n*logk)`
+push + heapify first k elements:  `O(k * log k)`
+worst case, swap all rest `n-k` element with heapify top one by one : `O((n-k) * log k)`
+#### SC : O(k)
+*Note :* similarly you can find kth largest element using min heap
+
+--- 
+## Q2 Is Given Binary Tree Heap??
+
+Heap - It is a Complete binary Tree (CBT) that satisfy heap property
+
+Approach:
+- Check if binary Tree is CBT
+- Check if binary tree satisfying heap order (let Max heap)
+
+We will create two function to , one for checking CBT property and other for heap property
+
+
+1. **Main function**
+```
+solve(){
+-> f( isCBT() && isMaxOrder) return true
+-> else false;
+}
+```
+
+
+2. **Check CBT??**
+
+In `0` based indexing,  if `node=i` then `left= 2i+1` and `right=2i+2`
+
+Let there is a binary Tree:
+```
+                  (1)
+                 /    \
+               (2)     (3)
+              /  \       \
+             (4) (5)  6?  (7)
+```
+`Total no. of nodes(6) < Last Node(7th)` : not a CBT
+
+Algorithm for CBT Check
+```
+isCBT( root, i, nodeCount){
+-> if(root\==NULL) return True;
+-> if( i > nodeCount) return false;
+-> else {
+     left = isCBT (root->left, 2i +1, nodeCount)
+     right = isCBT(root->right, 2i+2, nodeCount)
+     return (left && right)
+  }
+}
+```
+
+3. **Check Max order ??**
+
+if you passed the CBT test, its mean that a node can be any out of these
+
+```
+                   ()
+                 /    \
+                ()     ()
+              /  \     / 
+             ()  ()  ()
+
+1. Both child exist
+2. Leaf Node exist
+3. Only left exist (when left will be last elment -> right=NULL)
+```
+
+Algorithm for Max Order Check
+```
+isMaxOrder(){
+-> if (leaf Node) return true
+-> if (right == NULL){
+		return (root->data > root->left->data)
+	}
+-> else{
+       return (root->data > root->left->data) && 
+       (root->data > root->right->data) &&
+       isMaxOrder(root->left) && isMasOrder(root->right)
+	}
+}
+```
+
+**C++ Code**
+```cpp
+bool isHeap(struct Node* root){
+	ind index = 0;
+	int totalCount = countNode(root);
+	if(isCBT(root, index, totalCount) && isMaxOrder(root)){
+		return true;
+	}
+	else
+		return false;
+}
+```
+
+Count Nodes
+```cpp
+int countNodes(struct Node* root){
+	if(root == NULL)
+		return 0;
+
+	int count = 1 + countNode(root->left) + countNodes(root->right);
+	return count;
+}
+```
+
+CBT
+```cpp
+bool isCBT(struct Node* root, int index, int cnt){
+	if(root=NULL)
+		return ture;
+	if(index >= cnt)
+		return false;
+	else{
+		bool left = isCBT(root->left, 2*index +1, cnt);
+		bool right = isCBT(root->right, 2*index +1, cnt);
+		return (left && right);
+	}
+}
+```
+
+Max Order
+```cpp
+bool isMaxOrder(struct Node* root){
+	if(root->left == NULL && root->right ==NULL)
+		return true;
+	if(root->right == NULL ){
+		return (root->data > root->left->data)
+	}
+	else{
+		bool left = isMaxOrder(root->left);
+		bool right = isMaxOrder(root->right);
+		
+		return if(left && right && 
+		(root->data>root->left->data && root->data>root->right->data)) ;
+	}
+}
+```
+
+#### TC : `O(3n)`
+each count, max order, and CBT traverse tree -> 3 times `O(n)`
+#### SC : `O(3logn)`
+each count, max order, and CBT stack space equal to  height of tree -> 3 times `O(logn)` 

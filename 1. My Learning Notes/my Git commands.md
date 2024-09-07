@@ -23,6 +23,9 @@ git status
 # Add remote repository to your local git configuration.
 git remote add origin https://github.com/username/repository.git
 
+# Update remote repository to your local git configuration.
+git remote set-url origin https://github.com/username/repository.git
+
 # verify or list the remote repositories and their urls
 git remote -v
 

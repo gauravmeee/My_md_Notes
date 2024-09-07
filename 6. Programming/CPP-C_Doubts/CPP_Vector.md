@@ -1,7 +1,97 @@
 
 # Vector `# include <vector>`
 
+---
+## Array of Vector vs Vector of Vector
 
+| **Feature**           | **Array of Vectors**                                                                          | **Vector of Vectors**                                                                     |     |
+| --------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --- |
+| **Definition**        | `vector<int> adj[]`                                                                           | `vector<vector<int>> adj`                                                                 |     |
+| **Syntax**            | `vector<int> adj[N];`                                                                         | `vector<vector<int>> adj(N);`                                                             |     |
+| **Memory Allocation** | Fixed-size array of vectors                                                                   | Dynamically sized outer and inner vectors                                                 |     |
+| **Size Flexibility**  | Fixed size of the outer array                                                                 | Dynamic resizing for both outer and inner vectors                                         |     |
+| **Initialization**    | Predefined size (e.g., `vector<int> adj[10];`)                                                | Can initialize with size or dynamically add/remove (e.g., `vector<vector<int>> adj(10);`) |     |
+| **Access Syntax**     | `adj[i][j]`                                                                                   | `adj[i][j]`                                                                               |     |
+| **Resizing**          | Only individual vectors can be resized; outer array size is fixed                             | Both outer vector and inner vectors can be resized dynamically                            |     |
+| **Use Case**          | Suitable for fixed-size data structures where the number of elements is known at compile time | Suitable for dynamic data structures where the size can change during runtime             |     |
+- **Array of Vectors** is suited for fixed-size collections where the outer array size does not change.
+- **Vector of Vectors** is more flexible and allows for dynamic resizing, which is useful when the size of the data structure can vary.
+
+**Array of Vectors:**
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    const int N = 5;
+    vector<int> adj[N]; // Array of 5 vectors
+
+    adj[0].push_back(1);
+    adj[0].push_back(2);
+    adj[1].push_back(3);
+
+    for (int i = 0; i < N; i++) {
+        cout << "Node " << i << ": ";
+        for (int j : adj[i]) {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+**Vector of Vectors:**
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<vector<int>> adj(5); // Vector of 5 vectors
+
+    adj[0].push_back(1);
+    adj[0].push_back(2);
+    adj[1].push_back(3);
+
+    for (int i = 0; i < adj.size(); i++) {
+        cout << "Node " << i << ": ";
+        for (int j : adj[i]) {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+---
+`push_back` on `ans[0]`, you need to ensure that `ans` has at least one inner vector.❌
+   ```cpp
+   vector<vector<int>> ans(); // Initializes 2 D vector
+   ans[0].push_back(1); // Error : Directly accessing `ans[0]` will cause an error if `ans` is empty.
+// The 2D vector `ans` is declared but not yet populated with any inner vectors.
+```
+
+1. **Initialize with an inner vector**: ✅
+   ```cpp
+   vector<vector<int>> ans(1); // Initializes with one empty inner vector
+   ans[0].push_back(1); // This will work now
+   ```
+
+2. **Add an inner vector before accessing**: ✅
+   ```cpp
+   vector<vector<int>> ans;
+   ans.push_back(vector<int>()); // Adds an empty vector
+   ans[0].push_back(1); // Now you can use push_back
+   ```
+
+Either method ensures that you have a valid inner vector to work with.
+---
+```
 
 #### Steps to Remove Duplicate Elements from a Vector
 

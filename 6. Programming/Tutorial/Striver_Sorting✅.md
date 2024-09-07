@@ -353,7 +353,6 @@ Example:
 ```
 
 ```
-
 Merge sort -> divide and merge 
 n = 9 , divide -> 5:4 or 4:5 
 
@@ -460,7 +459,8 @@ void callMergeSort(vector<int> & arr, int n){
 1. pick any (first, last, right, random, etc.) element as `pivot` & place it in its correct place in the sorted array
 2.  Smaller element than `pivot` goes on its left , larger goes on the right
 
-TC: `O(n*log(n))`
+TC: Best, Average `O(n*log(n))`
+TC : Worst `O(n^2)`
 SC: Best, Average`O(logn)`
 SC: Worst `O(n)`
 
@@ -682,11 +682,11 @@ Sure, here is a table summarizing the time complexity and space complexity of va
 
 | **Sorting Algorithm** | **Best Time Complexity** | **Average Time Complexity** | **Worst Time Complexity** | **Space Complexity** |
 | --------------------- | ------------------------ | --------------------------- | ------------------------- | -------------------- |
-| **Bubble Sort**       | O(n)                     | O(n^2)                      | O(n^2)                    | O(1)                 |
 | **Selection Sort**    | O(n^2)                   | O(n^2)                      | O(n^2)                    | O(1)                 |
+| **Bubble Sort**       | O(n)                     | O(n^2)                      | O(n^2)                    | O(1)                 |
 | **Insertion Sort**    | O(n)                     | O(n^2)                      | O(n^2)                    | O(1)                 |
-| **Merge Sort**        | O(n * log n)             | O(n * log n)                | O(n * log n)              | O(n)                 |
 | **Quick Sort**        | O(n * log n)             | O(n * log n)                | O(n^2)                    | O(log n)             |
+| **Merge Sort**        | O(n * log n)             | O(n * log n)                | O(n * log n)              | O(n)                 |
 | **Heap Sort**         | O(n * log n)             | O(n * log n)                | O(n * log n)              | O(1)                 |
 
 **Advance Sort :**
