@@ -199,3 +199,88 @@ use HTML `<center> </center>` tag
 - `[[<u>Underline</u>]]` : cntrl + u
 - `[[#heading]]`: ctrl+#
 - `[[#^block]]`: ctrl+^
+
+
+
+## How to Render LaTeX in Markdown
+
+#### Inline Math
+For inline equations, you can use single dollar signs (`$`) to wrap your LaTeX code:
+
+```markdown
+This is an inline equation: $x^2 + y^2 = z^2$.
+```
+
+This will render as: \( x^2 + y^2 = z^2 \).
+
+#### Block Math
+For block equations, you can use double dollar signs (`$$`) to wrap your LaTeX code:
+
+```markdown
+$$
+\begin{pmatrix}
+1 & 0 & Tx \\
+0 & 1 & Ty \\
+0 & 0 & 1
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+x \\
+y \\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+x' \\
+y' \\
+1
+\end{pmatrix}
+$$
+```
+
+This will render the translation matrix multiplication as a block equation.
+
+### Example in Markdown
+```markdown
+The translation matrix is:
+
+$$
+\begin{pmatrix}
+1 & 0 & Tx \\
+0 & 1 & Ty \\
+0 & 0 & 1
+\end{pmatrix}
+$$
+
+When applied to the point matrix:
+
+$$
+\begin{pmatrix}
+x \\
+y \\
+1
+\end{pmatrix}
+$$
+
+It results in the translated point:
+
+$$
+\begin{pmatrix}
+x' \\
+y' \\
+1
+\end{pmatrix}
+$$
+
+Where:
+
+$$
+x' = x + Tx, \quad y' = y + Ty
+$$
+```
+
+### Notes:
+- On platforms like GitHub, only basic LaTeX is supported.
+- In Jupyter Notebooks, you have full support for LaTeX, making it a great tool for math-heavy documents.
+
+Make sure to test the rendering on your specific platform to ensure it displays correctly.

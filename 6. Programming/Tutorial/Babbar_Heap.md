@@ -383,6 +383,7 @@ vector<int> buildMinHeap(vector<int> arr){
 	return arr;
 }
 ```
+*Note :* We will not heapify leaf Nodes ( from `n/2` to `nth` node), because a single Individual node i.e. leaf node is heap in itself
 #### heapify() TC: `O(logn)` 
 #### buildMinHeap() TC: `O(n)` 
 
@@ -782,3 +783,221 @@ bool isMaxOrder(struct Node* root){
 each count, max order, and CBT traverse tree -> 3 times `O(n)`
 #### SC : `O(3logn)`
 each count, max order, and CBT stack space equal to  height of tree -> 3 times `O(logn)` 
+
+
+## Q3. Merge two Binary Max-Heap
+
+Steps:
+Max `Heap 1` -> `Vector a`
+Max `Heap 2` -> `Vector b`
+`Vector C` = `Vector a` + `Vector b`  (push both's element into another)
+Heapify `Vector C` 
+
+#### TC : `O(n+m)`
+Merge Vector a and b of size m and n -> `o(m+n)`
+Heapify Vector c of size m + n ->  `O(m+n)`
+#### SC : `O(n_m)`
+
+
+## Q4. Minimum Costs of Ropes
+
+*Problem Statement:*
+There are given `N`  ropes of different lengths, we need to connect these ropes into one rope. The costs to connect two ropes is equal to sum of their lengths. The task is to connect the ropes with minimum costs
+
+*Approach:*
+Minimum cost will be when, we start from combining smallest ropes.
+- Store the `ropes[]` in heap;
+- take out smallest `rope1` from the top of heap
+- take out other smallest `rope2` from the top of heap
+- Combine `rope1+rope2` and push into the heap.
+- Repeat. do this till heap contain only single row
+
+***C++ Code:****
+```cpp
+long long mincost(long long arr[], long long[]){
+	priority_queue<long long, vector<long long>, greater<long long>> pq;
+	for(int i=0; i<n; i++){
+		pq.push(arr[i]);
+	}
+
+	long long cost = 0;
+	while(pq.size()>1){
+		long long a = pq.top();
+		pq.pop();
+
+		long long b = pq.top();
+		pq.pop();
+
+		long long sum = a+b;
+		cost+=sum;
+	}
+	return cost;
+}
+```
+
+
+## Q5. Convert BST to Minheap
+
+*Problem Statement:*
+Convert Complete Binary Search Tree into Minheap, with condition that all left child should be smaller than right child
+
+```
+Input: BST
+
+              4
+            /    \
+           2      6
+         /  \    /  \
+        1    3   5   7
+
+Output: MinHeap
+
+              1
+            /    \
+           2      5
+         /  \    /  \
+        3    4   6   7
+```
+
+```
+Given BST
+BST : Left < Node < Right
+BST Inorder : 1 2 3 4 5 6 7
+```
+
+```
+Conclusion of MinHeap
+MinHeap : Node < Left < Right
+MinHeap Preorder : 1 2 3 4 5 6 7 8
+```
+
+*Note:*
+Inorder of BST is sorted 
+Preorder of MinHeap is sorted
+
+So from the Inorder array left to right, We need to build the heap by, filling the elements in Preorder way, First Node, then Left, then Right.
+
+Structure of Heap and BST is same, so we would use BST and modify its structure by assigning value in preorder form.
+
+
+*Algorithm:*
+```cpp
+getInorder(root, vector){
+	getInorder(root->left)
+	Vector.Insert(root->data)
+	getInorder(root->right)
+}
+```
+
+```cpp
+fillPreOrder(root, inorder, index){
+	root->data = inorder[index++]
+	fillPreOrder(root->left, inorder, index)
+	fillPreOrder(root->right, inorder, index)
+}
+```
+
+1
+```
+1 2 3 4 5 6 7
+^ 
+node
+
+              (1)
+            /    \
+           2      6
+         /  \    /  \
+        1    3   5   7
+``````
+
+2
+```
+1 2 3 4 5 6 7
+  ^ 
+node->left
+
+              1
+            /    \
+          (2)      6
+         /  \    /  \
+        1    3   5   7
+``````
+
+3
+```
+1 2 3 4 5 6 7
+    ^ 
+node->left->left
+
+              1
+            /    \
+           2      6
+         /  \    /  \
+       (3)   3   5   7
+``````
+
+```
+node->left->left = null !
+```
+
+4
+```
+1 2 3 4 5 6 7
+      ^ 
+node->left->right
+
+              1
+            /    \
+           2      6
+         /  \    /  \
+        3   (4)  5   7
+``````
+
+```
+node->left->right = null !
+```
+
+5
+```
+1 2 3 4 5 6 7
+        ^ 
+node->right
+
+              1
+            /    \
+           2     (5)
+         /  \    /  \
+        3    4  5    7
+``````
+
+6
+```
+1 2 3 4 5 6 7
+          ^ 
+node->right->left
+
+              1
+            /    \
+           2      5
+         /  \    /  \
+        3    4 (6)    7
+``````
+
+```
+node->right->left = null !
+```
+
+7
+```
+1 2 3 4 5 6 7
+            ^ 
+node->right->right
+
+              1
+            /    \
+           2      5
+         /  \    /  \
+        3    4  6   (7)
+``````
+
+Inorder Traversed successfully -> Minheap done

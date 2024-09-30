@@ -137,3 +137,20 @@ bool isPerfectSquare(int num) {
     return (sqrtNum == static_cast<int>(sqrtNum)); // if double and integer are equal
 }
 ```
+
+---
+```cpp
+// (x + y - 1) / y calculates ceil(x / y):
+
+// Exact Multiple Case:
+int x1 = 6, y1 = 3;
+int result1 = (x1 + y1 - 1) / y1;  // result1 = 2 (same as ceil(6 / 3))
+
+// Non-Multiple Case:
+int x2 = 7, y2 = 3;
+int result2 = (x2 + y2 - 1) / y2;  // result2 = 3 (same as ceil(7 / 3))
+
+//Note: the method `(x + y - 1) / y` only works for integer division. 
+//It does not handle floating-point numbers or decimals directly.
+// (6.1 + 3 - 1)/3 = 6/3 != ceil(6/3)
+```

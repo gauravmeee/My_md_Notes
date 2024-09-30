@@ -1,8 +1,3 @@
-| ←→↑↓ | ⬋⬊⬉⬈ | ⟷    | ⇄⇅  |
-| ---- | ---- | ---- | --- |
-| ○〇   | ˄˅>< | ˄˅>< | ╱╲  |
-| ─│   | ✕    | │    |     |
-| ✕    | ╲    | ╱    |     |
 
 # [# G-1. Introduction to Graph | Types | Different Conventions Used](https://youtu.be/M3_pLsDdeuU?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn)
 
@@ -333,7 +328,10 @@ For any Traversal in Graph we always use a `visited array` Vis[n+1]
 Vis = [ 0 0 0 0 0 0 0 0 0 0 0]
 ```
 
-To Handle any Traversal Algorithm/Function to Handle not connected components use the for loop:
+
+⭐ Always use the for loop in any traversal. so that our traversing not end, on disconnected components i.e. when have multiple components.
+
+*Note:* To Handle any Traversal Algorithm/Function to Handle not connected components use the for loop:
 ```cpp
 for(i=0->10)
 	if(!vis[i]) // whenever other component's node appear, pass to function.
@@ -656,7 +654,7 @@ int main()
 ```
 *Note :* We used Array of Vector here for Adjacency List
 
-<ins>Time  Complexity</ins>  TC:`O(V+2E)`
+##### <ins>Time  Complexity</ins>  TC:`O(V+2E)`
 `while(!q.empty())` -> run for each nodes : `n`
 `for(auto it : adj[node])` -> run for all adjacent node  i.e. degree of nodes (But only not visited satisfy if condition)
                         ->  (node1\*degree of node 1) + (node2\*degree of node 2) + . . . .
@@ -664,13 +662,116 @@ int main()
 Total Time complexity = n + total degree -> n:V, total degree:2E = V + 2E
 
 
-<ins>Space Complexity</ins>  SC`:O(3n)`
+##### <ins>Space Complexity</ins>  SC`:O(3n)`
 n -> BFS( ans ) List
 n-> Queue
 n -> Visited Node List
 
 
 # [G-6. Depth-First Search (DFS) | C++ and Java | Traversal Technique in Graphs](https://youtu.be/Qzf1a--rhp8)
+
+```
+              (2)----(5)
+             /          \
+           (1)           (7)
+             \          /
+              (3)----(6)
+              /
+            (4)
+``` 
+
+```
+adj List
+
+1 -> {2,3}
+2 -> {1, 5}
+3 -> {1, 4, 6}
+4 -> {3}
+5 -> {2, 7}
+6 -> {3, 7}
+7 -> {5, 6}
+```
+
+```
+✅ -> Already Visited
+
+dfs(1)
+1 -> {2, 3}
+      ^
+
+           (1)
+``` 
+
+```
+dfs(2)
+2 -> {1✅, 5}
+            ^  -> dfs(5)
+
+              (2)
+             /
+           (1)
+```
+
+```
+dfs(5)
+5 -> {2✅, 7}
+            ^ -> dfs(7)
+
+              (2)----(5)
+             /  
+           (1)          
+``` 
+
+```
+dfs(7)
+7 -> {5✅, 6}
+           ^ -> dfs(6)
+
+              (2)----(5)
+             /          \
+           (1)          (7)  
+
+``` 
+
+```
+dfs(6)
+6 -> {3, 7✅}
+      ^ -> dfs(3)
+
+              (2)----(5)
+             /          \
+           (1)          (7)  
+                        /
+                      (6) 
+``` 
+
+```
+dfs(3)
+3 -> {1✅, 4, 6✅}
+            ^ -> dfs(4)
+
+              (2)----(5)
+             /          \
+           (1)          (7)  
+             \          /
+              (3)----(6) 
+``` 
+
+```
+dfs(4)
+4 -> {3✅}
+
+              (2)----(5)
+             /          \
+           (1)          (7)  
+             \          /
+              (3)----(6) 
+              /
+            (4) 
+
+
+Done, All Node Visited.
+``` 
 
 ### *DFS C++ Code (0-based Indexing)*
 ```cpp
@@ -704,8 +805,7 @@ class Solution {
 };
 
 ```
-*Note:* Code for both Directed and Undirected Graph is Same, Because whether it is directed or undirected, one can't go from node B to A, if it already gone through A to B because of visited array
-
+*Note:* Code for both Directed and Undirected Graph is Same, Because whether it is directed or undirected, one can't go from node B to A, if it already gone through A to B because of visited array.
 Function to Make adjacent node
 ```
 void addEdge(vector <int> adj[], int u, int v) {
@@ -734,7 +834,7 @@ int main()
 }
 ```
 
-<ins>Time  Complexity</ins>  TC:`O(V+2E)` (Undirected Graph) for directed graph its depend on number of edges
+##### <ins>Time  Complexity</ins>  TC:`O(V+2E)` (Undirected Graph) for directed graph its depend on number of edges
 `if(!vis[it])` -> For every node Calling the dfs() function once : `n`
 `for(auto it : adj[node])` -> run for all adjacent node  i.e. degree of nodes (But only not visited satisfy if condition)
                         ->  (node1\*degree of node 1) + (node2\*degree of node 2) + . . . .
@@ -742,7 +842,262 @@ int main()
 Total Time complexity = n + total degree -> n:V, total degree:2E = V + 2E
 
 
-<ins>Space Complexity</ins>  SC`:O(3n)`
-n -> BFS( ans ) List
+##### <ins>Space Complexity</ins>  SC`:O(3n)`
+n -> DFS( ans ) List
 n-> Recursion Stack (Worst case)
 n -> Visited Node List
+
+
+# [G-11. Detect a Cycle in an Undirected Graph using BFS | C++ | Java](https://youtu.be/BPlrALf1LDU)
+
+Here, In Place of `queue<node>`, we will keep track of the the previous node from which it come i.e. Parent Node. `queue<node, parent>`
+
+For a Node, If it's one or more adjacent node are already visited. There are two cases
+1. If the visited Node is its Parent node. than it is obvious it should be visited. 
+2. But if the visited node is not parent that's mean, the visited node is traversed From a different Path and so make a cycle.
+3. 
+Let Consider the graph
+```
+✅ -> Already visited
+(node, parent)
+
+              (2)----(5)
+             /          \
+           (1)           (7)
+             \          /
+              (3)----(6)
+              /
+            (7)
+``` 
+
+```
+(1, -1) -> {2, 3}
+            ^  ^ add in queue and mark it as visited
+
+          Level 0
+
+           (1)
+
+``` 
+
+```
+(2, 1) -> {1✅, 5}
+                 ^ -> add in queue and mark it as visited
+                 
+(3, 1) -> {1✅, 4, 6}
+                 ^  ^ add in queue and mark it as visited
+
+             Level 1
+             
+              (2)
+             / 
+           1 
+             \  
+              (3)
+``` 
+
+```
+(4, 3) -> {3✅}
+
+(5, 2) -> {2✅, 7}
+                 ^ -> add in queue and mark it as visited
+                 
+(6, 3) -> {3✅, 7✅}
+                 ^ -> It is not parent but already visited 
+                     So its mean, it is visited already from different path
+
+Cycle Detected 💫
+
+                   Level 2
+
+               2 ----(5)
+             /          \
+            1            (7)
+             \     
+               3 ----(6)
+                 \
+                   (4)
+``` 
+
+```
+(7, 5) - {5✅}
+(7 ,6) - {6✅}
+                         Level 3
+
+               2 ---- 5 
+             /          \
+            1            (7)
+             \          /
+               3 ---- 6 
+                 \
+                   4 
+```
+
+
+***C++ Code: ***
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+  private: 
+  bool detect(int src, vector<int> adj[], int vis[]) {
+      vis[src] = 1; 
+      // store <source node, parent node>
+      queue<pair<int,int>> q; 
+      q.push({src, -1}); 
+      // traverse until queue is not empty
+      while(!q.empty()) {
+          int node = q.front().first; 
+          int parent = q.front().second; 
+          q.pop(); 
+          
+          // go to all adjacent nodes
+          for(auto adjacentNode: adj[node]) {
+              // if adjacent node is unvisited
+              if(!vis[adjacentNode]) {
+                  vis[adjacentNode] = 1; 
+                  q.push({adjacentNode, node}); 
+              }
+              // if adjacent node is visited and is not it's own parent node
+              else if(parent != adjacentNode) {
+                  // yes it is a cycle
+                  return true; 
+              }
+          }
+      }
+      // there's no cycle
+      return false; 
+  }
+  public:
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+        // initialise them as unvisited 
+        int vis[V] = {0};
+        // -> this for loop will take care of disconnected components
+        for(int i = 0;i<V;i++) { 
+            if(!vis[i]) {
+                if(detect(i, adj, vis)) return true; 
+            }
+        }
+        return false; 
+    }
+};
+```
+
+*Note :* Whenever there is Problem Related to Multiple Components, Don't forget to use
+```
+for(int i = 0;i<V;i++) { 
+            if(!vis[i]) {
+                // BFS or DFS 
+            }
+        }
+```
+
+
+##### <ins>Time  Complexity</ins>  TC:`O(V+2E) + O(n)`
+`for(int i = 0;i<V;i++)` -> n 
+Note TC will not equal `O(V+2E) * O(n)`. For loop will only called the `detect()` function whenever it is not visited. and hence for loop will only contribute to `o(n)` addtion of time complexity
+
+
+
+##### <ins>Space Complexity</ins>  SC`:O(4n)`
+n -> BFS( ans ) List
+2n-> Queue
+n -> Visited Node List
+
+# [G-12. Detect a Cycle in an Undirected Graph using DFS | C++ | Java](https://youtu.be/zQ3zgFypzX4)
+
+Similarly Like Detection in undirected graph using bfs, we will return cycle as true if a node is already visited but not parent
+
+```
+              (2)----(5)
+             /          \
+           (1)           (7)
+             \          /
+              (3)----(6)
+              /
+            (7)
+``` 
+
+```
+adj List
+
+1 -> {2,3}
+2 -> {1, 5}
+3 -> {4, 1, 6}
+4 -> {3}
+5 -> {2, 7}
+6 -> {3, 7}
+7 -> {5, 6}
+```
+
+DFS to detect  cycle
+```
+dfs(node, parent)
+
+dfs(1,-1) 
+   \   ⤣ true
+  dfs(2,1)
+     \    ⤣ true
+     dfs(5,2)
+       \   ⤣ true
+       dfs(7,5)
+          \   ⤣ true
+         dfs(6,7)
+            \    ⤣ true
+            dfs(3,6)
+          ⤤ /    \  ⤣ true
+        dfs(4,3)   dfs(1,3)  
+                    1 previously visited -> cycle 💫         
+     
+```
+
+
+***C++ Code: ***
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+  private: 
+    bool dfs(int node, int parent, int vis[], vector<int> adj[]) {
+        vis[node] = 1; 
+        // visit adjacent nodes
+        for(auto adjacentNode: adj[node]) {
+            // unvisited adjacent node
+            if(!vis[adjacentNode]) {
+                if(dfs(adjacentNode, node, vis, adj) == true) 
+                    return true; 
+            }
+            // visited node but not a parent node
+            else if(adjacentNode != parent) return true; 
+        }
+        return false; 
+    }
+  public:
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+       int vis[V] = {0}; 
+       // for graph with connected components 
+       for(int i = 0;i<V;i++) {
+           if(!vis[i]) {
+               if(dfs(i, -1, vis, adj) == true) return true; 
+           }
+       }
+       return false; 
+    }
+};
+
+```
+*Note :* For loop will take care of disconnected components
+
+
+##### <ins>Time  Complexity</ins>  TC:`O(V+2E) + O(n)`
+`for(int i = 0;i<V;i++)` -> n 
+Note TC will not equal `O(V+2E) * O(n)`. For loop will only called the `detect()` function whenever it is not visited. and hence for loop will only contribute to `o(n)` addtion of time complexity i.e.  TC:`O(V+2E) + O(n)`
+
+##### <ins>Space Complexity</ins>  SC`:O(3n)`
+n -> BFS( ans ) List
+n-> Queue
+n -> Visited Node List 

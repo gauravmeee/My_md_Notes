@@ -118,10 +118,20 @@ npm run dev
 npm install mongoose
 ```
 
+1. `npm install`:  it will install the package without automatically updating `package.json`.
+2. `npm install --save` Installs the package and adds it to the `dependencies` section of your `package.json` file.
+3. **`npm install --save-dev <package-name>`**: Installs the package and adds it to `devDependencies` in `package.json` (development dependencies).
+
+*Note:* **`--save` flag**: Redundant since npm 5, as `npm install` automatically updates `package.json` with `dependencies`.
+
 ---
 ## React
 ```sh
-# Creat New react project
+# install create-react-app globally
+npm i -g create-react-app
+create-react-app my-app
+        #or
+# Create New react project (npm version >5)
 npx create-react-app my-react-app
 
 # go to directory

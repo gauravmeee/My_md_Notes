@@ -1,15 +1,26 @@
 
 ---
+### Ceil in C++:
+- Use `std::ceil()` from `<cmath>` to find the smallest integer greater than or equal to a number.
+- Example: `std::ceil(4.3)` returns `5.0`.
+
+### Integer Division in C++:
+- Dividing `int` by `int` results in an `int`.
+- Fractional part is truncated (e.g., `7 / 2` gives `3`).
+- To get a floating-point result, cast one operand: `static_cast<double>(a) / b`.
+---
 #### Double to Integer Conversion
 
 1. **Direct Assignment (Truncation)** Assigning a `double` to an `int` variable truncates the decimal part, effectively rounding toward zero.
 ```cpp
+// implicit truncate
 double num = 2.9;
 int truncated = num;  // truncated = 2
 ```
 
 2. **`static_cast<int>()` (Truncation)** Assigning a `double` to an `int` variable truncates the decimal part, effectively rounding toward zero.
 ```cpp
+// explicitly truncate
 double num = 3.7;
 int result = static_cast<int>(num);  // result = 3
 

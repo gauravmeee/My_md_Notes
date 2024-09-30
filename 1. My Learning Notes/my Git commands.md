@@ -110,3 +110,19 @@ config/settings.json
 tmp/**/
 
 ```
+
+Here's a summary of your note on creating and pushing a new branch:
+
+---
+
+### Creating New Branch on Git and Push on New Branch in Github
+
+   ```bash
+   # Create a New Branch Locally
+   git checkout -b new-branch-name
+   
+   # Push the New Branch to GitHub
+   git push -u origin new-branch-name
+   ```
+
+_Note:_ This process is useful for managing different versions or features within the same project by using separate branches.
