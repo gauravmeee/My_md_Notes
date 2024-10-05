@@ -1,3 +1,50 @@
+
+##### Access Specifier
+- We can directly access public function and data of a class using `object dot notation`
+- We can't access private data directly, for this we should use a member function.
+- when declaring a function/constructor inside a class , you have the option to **omit parameter names** and only specify their data types
+
+##### Nesting of Member Function
+- Through nested/call of private member function into public member function, we can use it to access.
+
+##### Object Memory Allocation
+- Data members of each instance or object of class take separate memory storage, while member function memory is common for all objects of a class.
+
+You can declare objects along with the class declaration like this:
+```cpp
+Class Employee{
+	//class definition
+} harry, rohan, lavish;
+```
+
+##### Static Member
+- **Static members** are shared among all instances of a class, meaning they belong to the class itself, not to any particular object. Delclared inside using `static` keyword
+- **Static functions** also belong to class itself and limited to accessing **only static members** of the class, provide class level access and restrict operations on object-specific data.
+- we can access static member on class level using`ClassName::static_member`  along with `object.static_member`
+
+##### Array Of objects
+It is hectic to create many object that have similar work, than we can create Array of Objects `ClassName arr[3]`
+
+##### Passing objects as Arguments
+We could use objects as a arguments using individual `Funct(obj1, obj2)` or member `Obj3.member_func(obj1,obj2)`
+
+##### Friend Function
+function that is not a member of a class but has access to its private and protected members. **friend functions** are declared **inside the class** (with `friend` keyword before datatype )but **defined outside**
+
+##### Inheritence
+- Visibility mode public -base class public member would public member of derived class
+- private(default) -base class public member will be private of derived
+- private of base not inherited directly
+- - **Private**: Accessible only within the class itself, **not** in derived classes.
+- **Protected**: Accessible within the class and its **derived classes**, but **not** outside the class.
+
+
+
+
+
+
+
+---
 Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects," which contain data and methods. OOP principles are key for creating structured and reusable code. The four main principles of OOP are:
 
 ### 1. **Encapsulation**

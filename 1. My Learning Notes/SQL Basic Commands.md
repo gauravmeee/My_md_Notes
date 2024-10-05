@@ -25,7 +25,7 @@ COMMIT, ROLLBACK, SAVEPOINT, SET TRANSACTION
 SQL supports different types of joins: `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL JOIN`, `CROSS JOIN`.
 ## `--` or `/* ... */` 
 ```mysql
--- this is a single line comment
+-- this is a single line
 
 /* This is a 
 Multiline Comment */
@@ -188,6 +188,15 @@ SELECT 4 * 3 FROM DUAL;
 
 -- Scalar expression with a selected field
 SELECT ColumnName * 100 FROM TableName;
+```
+
+`Top 100 fields`
+```sql
+-- In SQL Server, Sybase, MS Access --
+SELECT TOP 100 *  FROM TableName;
+
+-- MySQL, MariaDB, PostgreSQL
+`SELECT *  FROM TableName LIMIT 100;`
 ```
 
 `AS`

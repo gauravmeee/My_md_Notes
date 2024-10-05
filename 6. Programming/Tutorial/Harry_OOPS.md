@@ -80,6 +80,8 @@
 
 # [#21 Classes, Public and Private access modifiers in C++](https://youtu.be/tL8vnfFFzVQ?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
+# Access Specifiers
+
 ***Class Syntax :***
 ```cpp
 class myClass{
@@ -96,8 +98,7 @@ accessSpecifier: // private, public or protected
 using namespace std;
 ```
 
-```cpp
-// 
+```cpp 
 class Employee{    
     private:   // private data
         int a, b, c;
@@ -143,9 +144,16 @@ int main(){
 - Declare `myFunc()` inside Class, Define   `myClass::myFunc(){. . .}` outside Class
 - also, Declare `count` inside Class, Define `myClass::count =0` outside Class (`::` Scope Resolution Operator)
 - Create Object Instance `myClass myObject`
-- Access data members `myObject.myData` ( Note if only public )
-- Access function members `myObject.myFunc()`
+- Access data members `myObject.myData` (only public )
+- Access function members `myObject.myFunc()` ( only public )
 - Class Definition end with a semicolon `;`
+
+
+| Specifier     | Same Class | Derived Class | Outside Class |
+| ------------- | ---------- | ------------- | ------------- |
+| **Private**   | Yes        | No            | No            |
+| **Protected** | Yes        | Yes           | No            |
+| **Public**    | Yes        | Yes           | Yes           |
 
 # [#22 OOPs Recap & Nesting of Member Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/d363dW0AeS8?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
@@ -214,8 +222,11 @@ int main(){
 	- It Can be accessed using member Function ( note:- it should be present in function declaration)
 - Private Member  function Can't be Access Directly
 	- It can be accessed using another member Function (it should be nested in other function)
+	- when declaring a function/constructor inside a class , you have the option to **omit parameter names** and only specify their data types. However, in the **definition** of the function you need to include both the data types and the parameter names.
 
 # [#23 # C++ Objects Memory Allocation & using Arrays in Classes | C++ Tutorials for Beginners](https://youtu.be/qq05D2yFIHA?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
+
+# Object Memory allocation 
 
 - `Variable` in class get their `own memories`
 - member `function` in class have `common memories` for different objects (unlike Data Members)
@@ -237,7 +248,7 @@ Class shop{
 	int itemID[100]; // array
 	int itemPrice[100]; // array
 	int counter;
-	publid:
+	public:
 		void initCounter(void){ counter = 0;}
 		void setPrice(void);
 		void displayPrice(void);
@@ -290,6 +301,8 @@ Class Employee{
 
 # [#24 Static Data Members & Methods in C++ OOPS | C++ Tutorials for Beginners](https://youtu.be/QcLI2zGVYFo?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
+# Static Members
+
 - A `Static Variable` have Common memory allocation for all objects in the class.
 - A `static function` can have access to only other static member functions/variable declared in the same class
 
@@ -340,6 +353,8 @@ int main(){
 
 # [#25 Array of Objects & Passing Objects as Function Arguments in C++ | C++ Tutorials for Beginners](https://youtu.be/aKnc1A5NOKo?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
+# Array of Objects 
+
 It is hectic to create many object that have similar work, than we can create Array of Objects
 
 ```cpp
@@ -370,10 +385,13 @@ int main(){
 ```
 
 ```
-Employee  arr[0], arr[1],  arr[2] =   haryr, gaurav, Lavish
 ┌--------┬--------┬--------┐
 | arr[0] | arr[1] | arr[2] |
 └--------┴--------┴--------┘
+```
+
+```
+// We could use above code in place of this Hard coding like this.
 
 harry.setId;
 harry.getId;
@@ -385,7 +403,6 @@ lovish.setId;
 lovish.getId;
 ```
 
-# [#26 Friend Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/HK6gnkQIgqI?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 # Passing objects as Function Argument
 
 ```cpp
@@ -399,7 +416,7 @@ class Complex{
 		}
 
 		void setDataBySum(Complex o1, Complex o2){ // arguments are objects.
-			a = o1.a +o2.a;
+			a = o1.a + o2.a;
 			b = o1.b + o2.b;
 		}
 
@@ -425,6 +442,8 @@ int main(){
 	return 0;
 }
 ```
+
+# [#26 Friend Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/HK6gnkQIgqI?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
 # Friend functions in C++
 
@@ -993,8 +1012,9 @@ or
    [B]
    derives
 ```
-
-
+```cpp
+class B : public A { }
+```
 
 ### Multiple Inheritance
 A derived class with more than one base class : `C = A + B + (more)`
@@ -1004,6 +1024,9 @@ A derived class with more than one base class : `C = A + B + (more)`
      ⬂   ⬃
        [C]
      Derived
+```
+```cpp
+class C : public A, public B { }
 ```
 
 ### Hierarchical Inheritance
@@ -1015,6 +1038,10 @@ Several Derived Classes from a single base class: `A = C + more` & `B = C + more
    [A]     [B]
 Derived   Derived
 ```
+```cpp
+class A:  public C { }
+class B:  public C { }
+```
 
 ### Multilevel Inheritance
 Deriving a class from already derived class : `B = A + more` & `C = B + more`
@@ -1024,8 +1051,12 @@ Deriving a class from already derived class : `B = A + more` & `C = B + more`
 	 ⇩ 
 	[B]
 	 ⇩ 
-	[B]
+	[C]
 	derives
+```
+```cpp
+class B:  public A { }
+class C:  public B { }
 ```
 
 
@@ -1042,9 +1073,22 @@ Deriving a class from already derived class : `B = A + more` & `C = B + more`
        [D]
      Derived
 ```
+```cpp
+class A:  public C { }
+class B:  public C { }
+class D : public A, public B { }
+```
 
 
 # [#37 Inheritance Syntax & Visibility Mode in C++ | C++ Tutorials for Beginners](https://youtu.be/Dmrc82dL7E8?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
+
+
+| Base Class Member     | Public Inheritance | Protected Inheritance | Private Inheritance |
+| --------------------- | ------------------ | --------------------- | ------------------- |
+| **Private Members**   | Not Inherited      | Not Inherited         | Not Not Inherited   |
+| **Protected Members** | **protected**      | **protected**         | **private**         |
+| **Public Members**    | **public**         | **protected**         | **private**         |
+
 
 Derived Class Syntax
 ```cpp
@@ -1104,3 +1148,742 @@ int main(){
 	return 0;
 }
 ```
+
+
+---
+
+---
+
+---
+# [#44 Virtual Base Class in C++ | C++ Tutorials for Beginners](https://youtu.be/kzMQpPX7TUY?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
+
+The virtual base class is a concept used in multiple inheritances to prevent ambiguity between multiple instances. 
+
+```
+                a
+            ⬋        ⬊
+          b            c
+            ⬊       ⬋
+                d
+```
+
+
+1. Class “A” is a parent class of two classes “B” and “C”
+2. And both “B” and “C” classes are the parent of class “D”
+
+The main thing to note here is that the data members and member functions of class “A” will be inherited twice in class “D” because class “B” and “C” are the parent classes of class “D” and they both are being derived from class “A”.
+
+So when the class “D” will try to access the data member or member function of class “A” it will cause ambiguity for the compiler and the compiler will throw an error. To solve this ambiguity we will make class “A” as a virtual base class. To make a virtual base class “virtual” keyword is used.
+
+When one class is made virtual then only one copy of its data member and member function is passed to the classes inheriting it. So in our example when we will make class “A” a virtual class then only one copy of the data member and member function will be passed to the classes “B” and “C” which will be shared between all classes. This will help to solve the ambiguity.
+
+The syntax of the virtual base class is shown in the code snippet below,
+```cpp
+#include <iostream> 
+using namespace std; 
+class A { 
+public: 
+    void say() 
+    { 
+        cout << "Hello world"<<endl; 
+    } 
+}; 
+class B : public virtual A { 
+};   
+class C : public virtual A { 
+};   
+class D : public B, public C { 
+}; 
+```
+
+Note:
+A **virtual class** refers to the **base class** that is inherited using virtual inheritance. In your case, **class `A`** is the **virtual base class**, and classes `B`, `C`, and `D` are derived from it either directly or indirectly.
+
+The **virtual** keyword in this context does not make `A` a "virtual class" globally. Instead, it only makes `A` a **virtual base class** **relative to** the inheritance relationship in `B` and `C`. Here's a clearer explanation:
+# [#45 Code Example Demonstrating Virtual Base Class in C++ | C++ Tutorials for Beginners](https://youtu.be/eYV-TohBaa0?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
+
+```
+              Student
+            ⬋        ⬊
+          Test       Sports
+            ⬊       ⬋
+              Result
+```
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Student{
+    protected:
+        int roll_no; // Roll No.
+    public:
+        void set_number(int a){ // Set Roll No.
+            roll_no = a;
+        }
+        void print_number(void){
+            cout<<"Your roll no is "<< roll_no<<endl;
+        }
+};
+
+class Test : public virtual Student{  // order of `access specifier` and 'virtual' keyword doesn't matter
+    protected:
+        float maths, physics;
+        public:
+            void set_marks(float m1, float m2){
+                maths = m1;
+                physics = m2;
+            }
+
+            void print_marks(void){
+                cout << "You result is here: "<<endl
+                     << "Maths: "<< maths<<endl 
+                     << "Physics: "<< physics<<endl; // shorthand to print train of cout
+            }
+};
+
+class Sports: virtual public Student{  // order of `access specifier` and 'virtual' keyword doesn't matter
+    protected:
+        float score;
+    public:
+        void set_score(float sc){
+            score = sc;
+        }
+
+        void print_score(void){
+            cout<<"Your PT score is "<<score<<endl;
+        }
+
+};
+
+class Result : public Test, public Sports{
+    private:
+        float total;
+    public:
+        void display(void){
+            total = maths + physics + score;
+            print_number(); // roll no. come from two direction
+            print_marks();
+            print_score();
+            cout<< "Your total score is: "<<total<<endl;
+        }
+};
+```
+
+```cpp
+int main(){
+    Result harry;
+    harry.set_number(4200); // `set_number` is ambiguous
+    harry.set_marks(78.9, 99.5);
+    harry.set_score(9);
+    harry.display();
+    return 0;
+}
+```
+
+Output if Use virtual Base Class
+```
+Your roll no. 4200
+Your result is here:
+Maths: 78.9
+Phyiscs: 99.5
+Your PT score is 9
+Your total score is: 187.4
+```
+
+Output if Not used Virtual Base Class -> Compile-time error
+```cmd
+error: request for member 'set_number' is ambiguous
+	harry.set_number(4200);
+```
+
+# [#46 Constructors in Derived Class in C++ | C++ Tutorials for Beginners](https://youtu.be/gvOO4H7j_qI?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
+
+# Constructor in Derived Class
+
+- We Can use constructors in derived classes in C++ 
+- If base class constructor does not have any arguments, there is no need of any constructor in derived class :
+```
+A (Constructor without argument) -> B
+Object of Derived Class (B) will automatically called Constructor of Base Class (A)
+```
+
+Note:
+- But if there are one or more arguments in the base class constructor, derived class need to pass arguments to the base class constructor
+- If both base and derived classes have constructors, base class constructor is executed first.
+
+#### Constructor in Multiple Inheritance
+- In multiple inheritance, base classes are constructed in the order in which they appear in class declaration
+```cpp
+class A : public B, public C { } // order of B and C
+```
+ 
+- In multilevel inheritance, the constructors are executed in the order of inherit
+```cpp
+// order of inheritance of B and C
+class B:  public A { }
+class C:  public B { }
+```
+
+#### Special Syntax
+- C++ supports an special syntax for passing arguments to multiple base classes
+- The constructor of the derived class receives all the arguments at once and then will pass the calls to the respective base classes
+- The body is called after all the constructors are finished executing.
+```
+A -> B -> C
+```
+```cpp
+class A { public: A(int x, int y) {} }; 
+class B { public: B(int z) {} }; 
+
+// Derived Class From A and B
+class C : public A, public B {
+	// Derived class constructor 
+	public: C(int x, int y, int z) : A(x, y), B(z) { 
+	
+	} 
+};
+```
+
+#### Special Case of Virtual Base Class
+- The constructors for virtual base classes are invoked before an nonvirtual base class
+- If there are multiple virtual base class, they are invoked in the order declared.
+- Any non-virtual base class are then constructed before the derived class constructor is executed.
+
+```
+Priority of Order:
+Virtual Base Class > Base Class > Derived Class
+```
+
+# [#47 Solution to Exercise on Cpp Inheritance | C++ Tutorials for Beginners ](https://youtu.be/eGhDSjWGXQc)
+> #42 Homework Exercise solution
+# [#48 # Code Example: Constructors in Derived Class in Cpp | C++ Tutorials for Beginners ]
+
+Case 1 : Simple Inheritance A->B
+```cpp
+Class B: public A{
+	//Constructor execution Order -> A() -> B()
+};
+```
+
+Case 2 : Multiple Inheritance B->A, C->A
+```cpp
+Class A: public B, public C{
+	//Constructor execution Order -> B() -> C() -> A()
+};
+```
+
+Case 3 : Virtual Base Class:
+```cpp
+Class A: public B, virtual public C{
+	//Constructor execution Order -> C() -> B() -> A()
+};
+```
+
+Passing Values to Base Constructor through Derive Constructor Arguments
+```cpp
+// Base Class1
+class Base1{
+	int data1;
+	public:
+		Base1(int i){
+			data1=i;
+			cout<<"Base1 class constructor called"<<endl
+		}
+		void printDataBase1(void){
+			cout<<"The value of data1 is"<<data1<<endl;
+		}
+};
+
+// Base Class2
+class Base2{
+    int data2;
+    public:
+        Base2(int i){
+            data2 = i;
+            cout << "Base2 class constructor called" << endl;
+        }
+        void printDataBase2(void){
+            cout << "The value of data2 is " << data2 << endl;
+        }
+};
+
+// Multiple Base Class Inhertence
+class Derived: public Base2, public Base1{
+    int derived1, derived2;
+    public:
+	    // Pass `a` to Base1 and 'b' to Base2
+        Derived(int a, int b, int c, int d) : Base1(a), Base2(b)
+        {
+            derived1 = c;
+            derived2 = d;
+            cout<< "Derived class constructor called"<<endl;
+        }
+        void printDataDerived(void)
+        {
+            cout << "The value of derived1 is " << derived1 << endl;
+            cout << "The value of derived2 is " << derived2 << endl;
+        }
+};
+```
+
+```cpp
+int main(){
+    Derived harry(1, 2, 3, 4); // 1 passed to Base1, 2 Passed to Base2
+    harry.printDataBase1(); // 1
+    harry.printDataBase2(); // 2
+    harry.printDataDerived(); // 3 & 4
+    return 0;
+}
+```
+
+Output
+```
+Base1 class constructor called
+Base2 class constructor called
+Derived class constructor called
+The value of data1 is 1
+The value of data2 is 2
+The value of derived1 is 3
+The value of derived2 is 4
+```
+# [#49 Initialization list in Constructors in Cpp | C++ Tutorials for Beginners](https://youtu.be/-Re7K7mHtv4?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
+
+```cpp
+/*
+Syntax for initialization list in constructor:
+constructor (argument-list) : initilization-section
+{
+    assignment + other code;
+}
+```
+
+```cpp
+class Test
+{
+    int a;
+    int b;
+
+public:
+	// i is assigne to a, j is assigned to b
+    Test(int i, int j) : a(i), b(j)
+    {
+        cout << "Constructor executed"<<endl;
+    }
+};
+```
+
+```cpp
+int main()
+{
+    Test t(4, 6); // a=4, b=6
+    return 0;
+}
+```
+
+Modification of argument in body
+```cpp
+Test(int i, int j) : a(i), b(j) {
+	i++; // not modified a afterward
+	++j; // not modified b afterward
+	}
+// a = i (before increment)
+// b = j (before increment)
+```
+
+b initializer using a value
+```cpp
+Test(int i, int j) : a(i), b(a+j)
+// a = i
+// b = a+j
+```
+
+a initializer using Value b : Garbage Value Error ❌
+```cpp
+Test(int i, int j) : b(j), a(i+b)
+// a = -> i + garbage value
+// b = j
+
+// Order of declaration of Class member 'int a' and 'int b' should be in same order of initialise list.
+
+//`b` is initialized **before** `a` because `b` is declared **after** `a`, leading to potential issues (like using uninitialized `a`).
+```
+
+# [#50 Revisiting Pointers: new and delete Keywords in CPP | C++ Tutorials for Beginners](https://youtu.be/2Y0b9nFA9s8?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
+
+```cpp
+// stack memory allocation
+int a = 4;
+
+// pointer : *ptr=value(a), ptr=address(a)
+int* ptr = &a;
+
+//heap allocation : *(h)=40
+int *h = new int(40);
+
+delete h ✅// deallocate
+
+// Dynamically alocating memory for an array of 3 integers
+int *arr = new int[3];
+arr[0] = 10; // *(arr) = 10
+arr[1] = 20; // *(arr+1)=20
+arr[2] = 30; // *(arr+2)=30
+
+delete arr // ❌ Undefined behavior
+delete arr[] ✅ // deallocate block of memory
+```
+- `new` and `delete` are keyword as well as operator
+- `new` : allocate a variable dynamically
+- `new[]`: allocate an array dynamically
+- `delete`: deallocate memory allocated for a single object (if array, first element of it.)
+- `delete[]`: deallocate block of memory allocated for an array
+
+Note: it is essential to use the corresponding `delete` operator properly to avoid memory leaks.
+
+# [#51 Pointers to Objects and Arrow Operator in CPP | C++ Tutorials for Beginners](https://youtu.be/ANpUQgyRPKk?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
+
+```cpp
+class Complex{
+    int real, imaginary;
+    public:
+        void getData(){
+            cout<<"The real part is "<< real<<endl;
+            cout<<"The imaginary part is "<< imaginary<<endl;
+        }
+
+        void setData(int a, int b){
+            real = a;
+            imaginary = b;
+        }
+
+};
+```
+
+Actual Object
+```cpp
+Complex a;
+
+a.real;
+a.getData();
+```
+Pointer to Object
+```cpp
+Complex *ptr = new Complex;
+// *ptr:object ptr:address of object
+(*ptr).real; is exactly same as  //a.real
+(*ptr).getData(); is as good as  //a.getData()
+
+// Note: use '()' because, precedence of '.' is more than '*'
+// Note: pointer can also store the address of an object
+```
+
+Access class member using arrow operator
+```cpp
+ptr->real; // (*ptr).real
+ptr->getData(); //  (*ptr).getData()
+
+// Note: The arrow operator (`->`) in C++ can be thought of as a combination of dereferencing a pointer and using the dot operator to access a member of a class or structure.
+```
+
+Array of Objects
+```cpp
+Complex *arrP = new Complex[4]; // Complex arr[]
+arrP->real; // arr[0].real;
+(arrP+1)->real;// (*arrP+1).real or arr[1].real;
+arrP+1->real;// paranthesis '()' is optional as, precedence of `+` > `->`
+```
+
+
+# [#52 Array of Objects Using Pointers in C++ | C++ Tutorials for Beginners](https://youtu.be/OCmCyYxSi2I)
+
+```cpp
+class ShopItem
+{
+    int id;
+    float price;
+    public:
+        void setData(int a, float b){
+            id = a;
+            price = b;
+        }
+        void getData(void){
+            cout<<"Code of this item is "<< id<<endl;
+            cout<<"Price of this item is "<<price<<endl;
+        }
+};
+```
+
+```cpp
+int main(){
+    int size = 3;
+    ShopItem *ptr = new ShopItem [size]; // dynamically allot block of ( size x memory required for 1 object) 
+    ShopItem *ptrTemp = ptr;
+    //    address  0  1  2
+    //             ^
+    //             |
+    //           ptr/ptrTemp
+    int p, i;
+    float q;
+
+	// setData();
+    for (i = 0; i < size; i++)
+    {
+        cout<<"Enter Id and price of item "<< i+1<<endl;
+        cin>>p>>q;
+        // (*ptr).setData(p, q);
+        ptr->setData(p, q);
+        ptr++;  // pointer address increment
+    }
+    //    address  0  1  2
+    //             ^        ^
+    //             |        |
+    //        ptrTemp      ptr
+
+	ptr = ptrTemp;
+
+    // getData()
+    for (i = 0; i < size; i++)
+    {
+        cout<<"Item number: "<<i+1<<endl;
+        ptr->getData();
+        ptr++; // pointer address increment
+    }
+    
+    
+    return 0;
+}
+```
+
+# [#53 this Pointer in C++ | C++ Tutorials for Beginners](https://youtu.be/cEOfK_L4gGA)
+
+```cpp
+class A{
+	int a;
+	public:
+		void setData(int a){ // if we want to use same variable for simplicity
+			a = a; // both in LHS and RHS , a will be local variable 
+				   // priority of local variable > Data member
+				   // no change to data member
+		}
+
+		void getData(){
+			cout<<a<<endl;
+		}
+}
+
+int main(){
+	A a;
+	a.setData(4); // here a -> object
+	a.getData(); // garbage value
+	return 0;
+}
+```
+Note: In C++ Most priority is given to Local variables.
+
+
+#### `this` keyword
+
+This: `this` is a keyword which is a pointer which points to the object which invokes the member function
+If you want to return an object, using  `this` is the only way.
+
+Use `this` keyword to refer the object
+```cpp
+class A{
+	int a;
+	int b;
+	public:
+		void setData(int a){ // if we want to use same variable for simplicity
+			// Explicitly use this->a
+			this->a = a; // LHS: data member,  RHS: local variable
+
+			// implicitly call this->b
+			b = a; 
+
+		}
+
+		void getData(){
+			cout<<a<<endl;
+		}
+}
+
+int main(){
+	A a;
+	a.setData(4); // here a -> object
+	a.getData(); // 4
+	return 0;
+}
+```
+
+Note: // C++ support easy syntax, if no local variable with same name as class variable is there, we could directly use class variable to return its value. otherwise we need to use `this->`
+
+#### Returning object itself using this
+
+```cpp
+class A{
+	int a;
+	public:
+
+		// Returning the object itself
+		A& setData(int a){
+			this->a = a;
+			return *this // *this = value of this, because this is a pointer 
+		}
+
+		void getData(){
+			cout<<a<<endl;
+		}
+}
+
+int main(){
+	A a;
+	a.setData(4) // set a=4, and return the object itself 
+	a.setData(4).getData(); // call the function of object
+	return 0;
+}
+```
+
+
+# [#54 Polymorphism in C++ | C++ Tutorials for Beginners](https://youtu.be/B-WWdC-H0zw)
+
+“Poly” means several and “morphism” means form. So we can say that polymorphism is something that has several forms or we can say it as one name and multiple forms. There are two types of polymorphism:
+- Compile-time polymorphism
+- Run time polymorphism
+
+```
+                         Polymorphism
+                         /         \
+                        /           \
+                 Compile-time      Run-time
+                 Polymorphism      Polymorphism
+                 /       \               \
+                /         \               \ 
+          Function       Operator         Virtual
+        Overloading    Overloading        Function
+```
+
+1. **Compile Time Polymorphism**
+In compile-time polymorphism, it is already known which function will run. Compile-time polymorphism is also called **early binding**, which means that you are already bound to the function call and you know that this function is going to run. There are two types of compile-time polymorphism:
+
+- Function Overloading : This is a feature that lets us create more than one function and the functions have the same names but their parameters need to be different. If function overloading is done in the program and function calls are made the compiler already knows that which functions to execute.
+
+- Operator Overloading: This is a feature that lets us define operators working for some specific tasks. For example, we can overload the operator “+” and define its functionality to add two strings. Operator loading is also an example of compile-time polymorphism because the compiler already knows at the compile time which operator has to perform the task.
+
+2. **Run Time Polymorphism**
+In the run-time polymorphism, the compiler doesn’t know already what will happen at run time. Run time polymorphism is also called **late binding**. The run time polymorphism is considered slow because function calls are decided at run time. Run time polymorphism can be achieved from the virtual function.
+
+-  Virtual Function: A function that is in the parent class but redefined in the child class is called a virtual function. “virtual” keyword is used to declare a virtual function.
+
+
+# [#55 Pointers to Derived Classes in C++ | C++ Tutorials for Beginners](https://youtu.be/0YQ_yhX46uk)
+
+```cpp
+// Base Class
+class BaseClass{
+    public:
+        int var_base;
+        void display(){
+            cout<<"Dispalying Base class variable var_base "<<var_base<<endl;
+        }
+};
+
+// Derived Class
+class DerivedClass : public BaseClass{
+    public:
+            int var_derived;
+            void display(){
+                cout<<"Dispalying Base class variable var_base "<<var_base<<endl;
+                cout<<"Dispalying Derived class variable var_derived "<<var_derived<<endl;
+            }
+};
+```
+
+#### 1.  **Base Class Pointer to Derived Class Object (Upcasting)**:
+```cpp
+BaseClass * base_class_pointer;
+DerivedClass obj_derived;
+
+base_class_pointer = &obj_derived; 
+
+base_class_pointer->display(); // ✅ member function of base class 
+base_class_pointer->var_base = 34; // ✅ member variable of base class
+base_class_pointer->var_derived= 134; // ❌ Error
+```
+- A **base class pointer** can point to a **derived class object**, but can only access **base class members**.
+- The **base class version** of an overridden function is called unless the function is **virtual** (due to **late binding**).
+- The base class pointer **cannot access derived class members** (e.g., variables specific to the derived class).
+
+
+#### 2. **Derived Class Pointer to Derived Class Object**:
+```cpp
+DerivedClass * derived_class_pointer;
+// Pointing Derived class pointer to derived class
+derived_class_pointer = &obj_derived;
+
+derived_class_pointer->display(); // ✅ member function of Derived class 
+derived_class_pointer->var_base = 34; // ✅ member variable of base class
+derived_class_pointer->var_derived = 98; // ✅ member variable of Derived class
+```
+    
+- A **derived class pointer** can access both **base** and **derived class members**.
+- The **derived class version** of an overridden function is called.
+
+
+#### 3. **Derived Class Pointer to Base Class Object (Downcasting)**: ❌
+
+- A **derived class pointer cannot point to a base class object** directly, resulting in a **compilation error**.
+- The base class lacks derived class-specific members, leading to **undefined behavior** if allowed.
+
+
+# [#56 Virtual Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/fB3JHNnlRfI)
+
+#### Virtual Functions in C++
+
+A member function in the base class which is declared using virtual keyword is called virtual functions. They can be redefined in the derived class.
+
+```cpp
+// Base Class
+class BaseClass{
+    public:
+        int var_base;
+        virtual void display(){
+            cout<<"Dispalying Base class variable var_base "<<var_base<<endl;
+        }
+};
+
+// Derived Class
+class DerivedClass : public BaseClass{
+    public:
+            int var_derived;
+            void display(){
+                cout<<"Dispalying Base class variable var_base "<<var_base<<endl;
+                cout<<"Dispalying Derived class variable var_derived "<<var_derived<<endl;
+            }
+};
+```
+
+**Base Class Pointer to Derived Class Object (Upcasting)**:
+```cpp
+BaseClass * base_class_pointer;
+DerivedClass obj_derived;
+
+base_class_pointer = &obj_derived; 
+
+base_class_pointer->display(); // ✅ member function of base class 
+base_class_pointer->var_base = 34; // ✅ member variable of base class
+base_class_pointer->var_derived= 134; // ✅ member variable of Derived class
+// base_class_pointer->var_derived= 134; // ❌ Error if not used virtual
+```
+
+ If we don’t use the “virtual” keyword with the “display” function of the base class then beside of the point that we have pointed our base call pointer to derived class object still the compiler would have called the “display” function of the base class because this is its default behavior
+ 
+But we have used the “virtual” keyword with the “display” function of the base class to make is **virtual function** so when the display function is called by using the base class pointer the display function of the derived class will run because the base class pointer is pointing to the derived class object.
+
+Note: It's Run-time polymorphism not means, that we can't guess which function will execute. actually here we can find out which function Base class or Derived Class will run.
+But runt-time polymorphism means, In actual ,the binding of compiler i.e., association of the function address to object is happen at runtime 
+
+
+# [#57 Virtual Functions Example + Creation Rules in C++ | C++ Tutorials for Beginners](https://youtu.be/-noYyWtdXSI?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL)
+
+# [# Abstract Base Class & Pure Virtual Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/RBAWWutf0fY?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL)
+
+
