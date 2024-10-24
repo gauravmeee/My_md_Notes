@@ -67,6 +67,22 @@ std::pair<std::string, char> p6("Example", 'A');
 ```
 
 
+--- 
+you **cannot** directly access the elements of a `std::pair` in C++ using the syntax `p[0]` and `p[1]`. The `std::pair` class does not overload the `operator[]`, so trying to use indexing like this will result in a compilation error.
 
+
+```cpp
+pair<char,char> p  = { 'a', 'b'}; ✅
+// or
+pair<char,char> p('a', 'b'); ✅
+```
+
+```cpp
+p.first; // ='a' ✅
+p.second; // ='b' ✅
+
+p[0]; // ='a'? ❌ Compilation error
+p[1]; // ='b'? ❌ Compilation error
+```
 
 

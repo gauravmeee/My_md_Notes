@@ -16,7 +16,7 @@
 - it **ties data** more closely to the function that operate on it, and protects it from accidental modification from outside function
 - Oop allow decomposition of a problem into a number of entities called `objects` and then builds data and function around these objects.
 - The data of an object can be accessed only by the function associated with that object. (However the function of one object can access the function of other object)
--  *Example :* `C++, Java, Python, Dot net`
+-  *Example :* `C++, Java, Python, .NET`
 
 | OOP                                                 | POP                                                   |
 | --------------------------------------------------- | ----------------------------------------------------- |
@@ -28,7 +28,7 @@
 | Encapsulation is used to hide the data              | No data hiding                                        |
 | Concept of Virtual Function                         | No virtual function                                   |
 | Object functions are linked through message passing | Parts of program are linked through parameter passing |
-
+OOPS Follow DRY!
 ### Feature of OOPS
 1. Class
 2. Object
@@ -53,7 +53,7 @@
 - This was the major problem with the languages like c which work upon functions or procedure (hence the name procedural programming languages)
 - As a result, the possibility of not addressing the problem in an affective manner was high.
 - Also, as data was almost neglected, data security was easily compromised.
-- Using classes solves this problem by modelling programs as real world scenario
+- Using classes solves this problem by modelling programs as real world scenario.
 
 ### Procedure Oriented Programming
 - consists of writing a set of instructions for the computer to follow
@@ -322,6 +322,7 @@ class Employee{
 };
 ```
 
+Unlike non-static member function, **Static Function** of a class can be called without creating an instance (or object) of that class.
 ```cpp
 // int Employee::count = 100; ✅
 int Employee::count; // Default value is zero `count=0`
@@ -1840,6 +1841,12 @@ derived_class_pointer->var_derived = 98; // ✅ member variable of Derived class
 
 A member function in the base class which is declared using virtual keyword is called virtual functions. They can be redefined in the derived class.
 
+Virtual allow derived classes to **override** methods from a base class so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer. 
+
+Why Virtual Function ??
+- **Base Class Interface**: If the function doesn’t exist in the base class, you can’t call it using a base class pointer or reference, losing polymorphism.
+- **Fallback to Base Function**: If a derived class doesn’t override the virtual function, the base class implementation is used, avoiding errors. Without the base function, the absence of an override would cause a compile-time error.
+
 ```cpp
 // Base Class
 class BaseClass{
@@ -1884,6 +1891,232 @@ But runt-time polymorphism means, In actual ,the binding of compiler i.e., assoc
 
 # [#57 Virtual Functions Example + Creation Rules in C++ | C++ Tutorials for Beginners](https://youtu.be/-noYyWtdXSI?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL)
 
+```cpp
+class Tutorial{
+	protected:
+		string title;
+		float rating;
+	public:
+		Tutorial(string t, float r){
+			title = t;
+			rating = r;
+		}
+		virtual void display(){
+			cout<<"bogus code"<<endl;
+		}
+}
+```
+
+```cpp
+class Tutorial_Video: public Tutorial{
+	int videoLength;
+	public:
+		Tutorial_Video(string t, int r, int vl):Tutorial(t,r){
+			videoLength = vl;
+		}
+
+		void display(){
+			cout<<"This is an amazing video with title "<<title<<endl;
+			cout<<"Ratings of this video is "<<rating<<" out of 5"<<endl;
+			cout<<"Length of this video is "<<videoLength<<" minutes"<<endl;
+		}
+
+		
+}
+```
+
+```cpp
+class Tutorial_Notes: public Tutorial{
+	int wordCount;
+	public:
+		Tutorial_Notes(string t, int r, int wc):Tutorial(t,r){
+			wordCount = wc;
+		}
+
+		void display(){
+			cout<<"This is amazing note with title "<<title<<endl;
+		    cout<<"Ratings of this note is "<<rating<<" out of 5"<<endl;
+		    cout<<"No of words in this Notes is "<<words<<" words"<<endl;
+		}
+}		    
+```
+
+```cpp
+int main(){
+
+    string t; 
+    float r;
+    
+    float vl;
+    int wc;
+```
+
+Constructor special syntax usage:
+```cpp
+    t = "Flask Tutorial Video";
+    r = 4.89;
+    
+    vl = 4.56;
+    Tutorial_Video flaskVideo(t, r, vl);
+    // flaskVideo():Tutorial(): title =t, rating r
+    // flaskVideo: videoLength = v
+```
+
+Constructor special syntax usage: 
+```cpp
+    t = "Flask Tutorial Note";
+    r = 4.19;
+    
+    wc = 433;
+    Tutorial_Notes flaskNote(t, r, wc);
+    // flaskVideo():Tutorial(): title =t, rating r
+    // flaskVideo: wordCount = wc
+```
+
+Virtual Function
+```cpp
+	
+    Tutorial* flask[2];
+    flask[0] = &flaskVideo; // Base Class pointer, pointing to Derived Class.
+    flask[1] = &flaskNote; // Base Class pointer, pointing to Derived Class.
+
+	// flask[x] = address of object (pointer)
+	// *flask[x] = value of object
+    flask[0]->display();
+    flask[1]->display();
+```
+
+Current Output with Virtual Function : Derived Class Function Execute
+```
+This is amazing note with title Flask Tutorial Video
+Ratings of this video is 4.89 out of 5
+Length of this video is 4.56 words
+
+This is amazing note with title Flask Tutorial Note
+Ratings of this note is 4.19 out of 5
+No of words in this Notes is 433 words
+```
+
+Output if not used Virtual Function : Base Class function Execute
+```
+bogus code
+bogus code
+```
+
 # [# Abstract Base Class & Pure Virtual Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/RBAWWutf0fY?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL)
 
 
+#### Pure Virtual Functions
+**Pure virtual function** is a function that doesn’t perform any operation and the function is declared by assigning the value `0` to it. Pure virtual functions are declared in abstract classes.
+-> It make necessary for the Derived Class to override the virtual function and thus Abstraction class
+#### Abstract Base Class
+**Abstract base class** is a class that has at least one pure virtual function in its body. The classes which are inheriting the base class must need to override the virtual function of the abstract class **otherwise compiler will throw an error.**
+
+```cpp
+class Tutorial{
+    protected:
+        string title;
+        float rating;
+    public:
+	    // Constructor of Abstract Base Class
+        Tutorial(string t, float r){
+            title =  t;
+            rating = r;
+        }
+
+		// Pure Virtual Function (Abstract method)
+        virtual void display()=0; // do-nothing-function (No implementation)
+};
+```
+
+> **abstraction** allows focusing on what an object does, rather than how it achieves it.
+### Advantages of Abstraction:
+
+1. **Reduces Complexity**: Users only need to know the interface and not the implementation details.
+2. **Improves Code Maintenance**: Implementation can change without affecting the users of the class.
+3. **Enhances Security**: Hides sensitive information from the user.
+
+
+Note:
+1. You can't Create Instance or Object of abstract class.  
+	However If you **were** calling the pure virtual function through object would lead to **undefined behavior** because there would be no actual implementation for that function in the object.
+
+2. call a pure virtual function directly from the abstract class, it will result in a compilation error `ClassName::virtualFunc()`❌
+	You can define a non-virtual function in an abstract class and call it directly using `ClassName::NonVirtualFunc()` ✅
+	
+1. If you declare a function as `display() = 0;` without the `virtual` keyword 
+	It will not be considered a pure virtual function. Instead, this would lead to a compilation error ❌ , as it would not be valid to declare a function in this way in C++.
+	
+1. Declaring a function as `display() = 0;` outside of a class is not valid in C++.  ❌
+	A pure virtual function declaration must occur within the context of a class. 
+
+
+---
+# Operator Overloading and Function Overloading
+
+Function overloading and operator overloading are considered part of OOP as they enable polymorphism, enhance code readability, and allow user-defined types to interact naturally with operators and functions. While they can exist independently, their integration within classes and objects is fundamental to the principles of Object-Oriented Programming.
+
+**Function overloading vs Operator Overloading**
+- operator overloading **cannot be done independently** without using classes or structs because it's meant to define custom behavior for operators when applied to user-defined types (like classes or structs). It can't be used with fundamental types or independently of user-defined types.
+- However, **function overloading** is different. Function overloading **can be done independently** of classes. You can overload functions with different parameter types or numbers, even if they don't belong to any class.
+# [Operator Overloading in C++ Programming | C++ Programming for Beginners](https://youtu.be/BO2KagRMS3M)
+
+Let take the example of `+` Operator
+
+`+` Operator
+```cpp
+int x=5;
+int y=4;
+int z = x+y; // 5+4
+cout<<z; // 9
+```
+
+Operator Overloading for User Defined Class.
+```cpp
+class Complex{
+	int real, img;
+	public:
+		// Default constructor + Default Argument
+		Complex(int r=0, int i=0){
+			real = r;
+			imag = i;
+		}
+		void print(){
+			// 5 + 4i;
+			cout<<real<<"+"<<imag<<"i"<<endl;
+		}
+	// Binary Operator Overloading: Addition (+)
+	Complex operator +(Complex c){ // x.add(Complex c)
+		Complex ans;
+		ans.real = real + c.real; // real -> x.real
+		ans.img = img + c.img; // img -> x.img
+		return temp;
+	}
+
+	// Unary Operator overloading: Negotion (-)
+	Complex operator -(){ // x.neg()
+		Complex ans;
+		ans.real = -real; // real -> x.real
+		ans.img = -img; // img -> x.img
+		return ans;
+	}
+};
+	```
+
+`+` Operator Overloading
+```cpp
+Complex c1(5, 4); // 5+ 4i
+Complex c2(2, 5); // 2 + 5i
+Complex c3 = c1 + c2 // c1.add(c2)
+Complex c4 = c1 + c2 + c3 // (c1.add(c2)).add(c3)
+
+c1.print(); // Output: 5+4i 
+c2.print(); // Output: 2+5i 
+c3.print(); // Output: 7+9i 
+c4.print(); // Output: 14+18i
+```
+
+
+Operator overloading is only relevant in Object-Oriented Programming (OOP) because it allows custom behavior for operators with user-defined types like classes or structs. Without OOP, operators already have predefined behavior for fundamental types, so overloading them has no significance.
+
+Operator overloading cannot be used for fundamental data types (like `int`, `float`, etc.) because their operator behavior is predefined by the language. If you attempt to overload operators for these types, the compiler will produce an error, as C++ doesn't allow changing their built-in behavior.

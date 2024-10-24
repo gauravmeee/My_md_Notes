@@ -21,6 +21,9 @@ int arr[5]={1}; // first elmenent initialize `1`, rest `0`
 **Initializing Size of array should be constant**
 - `int arr[a];` ❌ : if `int a=5` ->
 - `int arr[b];` ✅ : if `const int b=5` -> constant  
+
+Note: In C++, the code `int arr[n];` is valid in some compilers (like`gcc`) due to Variable Length Array (VLA) support, but it is not part of the C++ standard, which requires array sizes to be known at compile time. A better and standard-compliant approach is to use `std::vector` for dynamic arrays, as it provides safer memory management and flexibility when the array size is determined at runtime.
+
 ---
 **Default value on Array Declaration
 ```cpp

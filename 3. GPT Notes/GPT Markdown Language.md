@@ -2,6 +2,7 @@
 
 [Markdown Documentation](https://www.markdownguide.org/getting-started/)
 
+`.md`
 ## What is Markdown?
 Markdown is a lightweight markup language with plain text formatting syntax. Its design allows it to be converted to many output formats, but the original tool by the same name only supports HTML. Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.
 
@@ -68,7 +69,6 @@ To add an image, use an exclamation mark `!` followed by alt text in brackets `[
 ```markdown
 ![OpenAI Logo](https://www.openai.com/logo.png)
 ```
-
 ### Reference
 Internal Links to Go to a Specific Section of Page 
 
@@ -165,6 +165,8 @@ To create tables, use pipes `|` and dashes `-` to separate columns and headers.
 | Row 1    | Data     | Data     |
 | Row 2    | Data     | Data     |
 ```
+
+
 
 ### Sub<sub>script</sub>  &  Super<sup>script</sup>
 SubScript : `log<sub>2</sub>N` : log<sub>2</sub>N

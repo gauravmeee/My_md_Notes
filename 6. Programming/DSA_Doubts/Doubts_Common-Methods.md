@@ -154,3 +154,7 @@ int result2 = (x2 + y2 - 1) / y2;  // result2 = 3 (same as ceil(7 / 3))
 //It does not handle floating-point numbers or decimals directly.
 // (6.1 + 3 - 1)/3 = 6/3 != ceil(6/3)
 ```
+
+
+ceil(6/3) = (3 + 6 - 1 )/3 = (1 + 2 - 1/3) =  1 + 2 -1 = 2
+ceil(7/3) = (3 + 7 -1)/3 = (1 + 3 -1/3) = 1 + 3 - 1 = 3

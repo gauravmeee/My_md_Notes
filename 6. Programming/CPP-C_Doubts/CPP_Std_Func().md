@@ -140,3 +140,18 @@ This code correctly creates a `std::pair` using the `make_pair` function, where 
 ### Summary
 - **`greater<int>`**: Defines ascending order for a priority queue.
 - **Min-Heap**: Smallest element on top.
+
+---
+# `Ceil` `<cmath`
+### Summary of Using `double ceil` vs. `int ceil` with `10/3`
+
+- **`int ceil(10/3)`**:
+  - **Integer Division**: `10 / 3` evaluates to `3` (truncated).
+  - **Result**: `ceil(3)` returns `3`, not the correct ceiling of the division.
+
+- **`double ceil(10/3)`**:
+  - **Floating-Point Division**: Use `10.0 / 3` or `static_cast<double>(10) / 3` to get `3.333...`.
+  - **Result**: `ceil(3.333...)` correctly returns `4`.
+
+### Conclusion
+Using `double` with `ceil` is essential for accurate ceiling calculations, as it ensures floating-point division, yielding the correct result.

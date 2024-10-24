@@ -87,3 +87,17 @@ int main() {
 **Use case**:
   - Use `std::map` when you need to maintain a sorted order of elements or when you need to frequently traverse the elements in order.
   - Use `std::unordered_map` when you need faster lookups and don't care about the order of elements.
+
+---
+
+
+- **Ordered Map**: An ordered map stores key-value pairs in a sorted order based on the keys. It is implemented as a balanced binary search tree (typically a Red-Black Tree).
+
+- **Unordered Map**: An unordered map stores key-value pairs in an arbitrary order. It is implemented using a hash table.
+
+| Operation        | Ordered Map (`std::map`) | Unordered Map (`std::unordered_map`)             |
+| ---------------- | ------------------------ | ------------------------------------------------ |
+| Insertion        | O(log n)                 | O(1) average, O(n) worst case (due to collision) |
+| Deletion         | O(log n)                 | O(1) average, O(n) worst case                    |
+| Access/Search    | O(log n)                 | O(1) average, O(n) worst case                    |
+| Space Complexity | O(n)                     | O(n) (for storing n key-value pairs)             |

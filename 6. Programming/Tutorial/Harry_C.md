@@ -53,6 +53,7 @@ a = &c;
 b = c;
 ```
 
+# [#42 Static Variables In C: C Tutorial In Hindi](https://youtu.be/u98KvPuaIus)
 # [#58 C Pre-processor Introduction & Working: C Tutorial In Hindi](https://youtu.be/P9IAfh89EK8?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR)
 
 - Compiler converts textual form of a c program into an executable.
@@ -203,4 +204,253 @@ int main()
  printf("Line No. is %d\n", __LINE__); // 7
  printf("ANSI: %d\n", __STDC__); // 1 
 }
+```
+
+
+# [#47 Dynamic Memory Allocation Malloc Calloc Realloc & Free(): C Tutorial In Hindi](https://youtu.be/q8j8EqCZcWM) ⭐
+
+### Recap
+
+- An statically allocated variable or array has a fixed size in memory.
+- Dynamic Memory Allocation is a way in which the size of a data structure can be changed during the runtime.
+- Memory assigned to a program in a typical architecture can be broken down into four segments:
+
+1. Code
+2. Static/global variables
+3. Stack
+4. Heap
+
+#### Stack
+`int arr[10]`
+`int a`
+
+### Global and Static Variable
+
+## Functions for Dynamic Memory Allocation in C
+
+- In Dynamic memory allocation, the memory is allocated at runtime from the heap segment 
+- We have four functions that help us achieve this task:
+1. malloc
+2. calloc
+3. realloc
+4. free
+
+## C MALLOC()
+
+- `malloc()` stands for memory allocation
+- It reserves a block of memory With the given amount of bytes.
+```           
+              |--------|
+int *ptr ------> Heap  |
+              |________|
+```
+- The return value is a void pointer to the allocated space
+- Therefore the void pointer needs to be casted to the appropriate type as per the requirements
+- However, if the space is insufficient. allocation of memory fails and it returns a NULL pointer.
+- the values at allocated memory are initialized to `garbage values` 
+- Syntax: `ptr = (ptr_type*) malloc(size_in_bytes)`
+
+for ex, for an array If we need `3 integer` space -> `3*sizeof(int)`;
+```cpp
+ptr = (int*) malloc(3*sizeof(int));
+```
+
+Void Pointer:
+- A **void pointer** is a generic pointer that can point to any data type.
+- It cannot be dereferenced directly without casting to another pointer type.
+- It is useful for writing flexible functions and for memory allocation functions.
+## C CALLOC()
+
+- `calloc()` stands for contiguous allocation
+- It reserves `n` blocks of memory with the given amount of bytes.
+```           
+              |--------|
+int *ptr ------> Heap  |
+              |________|
+```
+- The return value is a void pointer to the allocated space
+- Therefore the void pointer needs to be casted to the appropriate type as per the requirements
+- However, if the space is insufficient, allocation of memory fails and it returns a NULL pointer.
+- All the values at allocated memory are initialized to `0` 
+- Syntax: `ptr = (ptr_type*) calloc(n, size_in_bytes)`
+
+for ex, for an array If we need `3 integer` space -> `3*sizeof(int)`;
+```cpp
+ptr = (int*) malloc(3, sizeof(int));
+```
+
+
+## C REALLOC()
+
+- `realloc()` stands for reallocation
+- If the dynamically allocated memory is insufficient we can change the size of previously allocated memory using `realloc()` function
+```
+              |--------|-----|
+int *ptr ------> Heap  |  +  |
+              |________|_____|  
+```
+- Syntax: `ptr = (ptr_type) realloc(ptr, new_size_in_bytes)`
+
+## C FREE()
+
+- fee() is used to free the allocated memory
+- If the dynamically allocated memory is not required anymore, we can free it using free function.
+- This will free the memory being used by the program in the heap
+- Syntax: `free(ptr)`
+
+
+Note: `Malloc()` vs `Calloc()`
+- **`malloc`**: Allocates a block of memory but **does not initialize** the memory. The memory block will contain **garbage values**.
+- **`calloc`**: Allocates memory and **initializes all bits to zero**. This means all the values in the allocated memory will initially be set to zero.
+
+## Lets Code
+
+- We can use dynamic memory allocation to allocate memory during runtime.
+- Dynamic memory allocation functions are under `<stdilib.h>` file
+
+# Malloc 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	// Use of malloc
+	int *ptr;
+	int n;
+	printf("Enter the size of the array you want to create\n");
+	scanf("%d", &n);
+	
+	ptr = (int *)malloc(n*sizeof(int));
+
+	for(int i=0; i<n; i++){
+		// ptr[i]=*(ptr+i):value at pointer (ptr+i), 
+		// &ptr[i]=(ptr+i):address of pointer (ptr+i)
+		printf("Enter the value no %d of this array\n", i);
+		scanf("%d", &ptr[i]);
+	}
+
+	for(int i=0; i<n; i++){
+		print("The value at %d of this array is %d\n", i, ptr[i]);
+	}
+}
+```
+input
+```
+Enter the size of the array you want to create
+3
+Enter the value no 0 of this array
+5
+Enter the value no 1 of this array
+6
+Enter the value no 2 of this array
+7
+```
+
+Output : Memory is allocated at runtime i.e. size `n`
+```
+The value at 0 of this array is 5
+The value at 1 of this array is 6
+The value at 2 of this array is 7
+```
+
+Value at out of bound of pointer
+```c
+print("The value at ptr[3] is %d\n", ptr[3]); // 12838462834 Garbage Value
+```
+
+
+# Calloc
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	// Use of calloc
+	int *ptr;
+	int n;
+	printf("Enter the size of the array you want to create\n");
+	scanf("%d", &n);
+	
+	ptr = (int *)calloc(n,sizeof(int));
+
+	//for(int i=0; i<n; i++){
+	//	print("Enter the value no %d of this array\n", i);
+	//	scanf("%d", &ptr[i]);
+	//}
+
+	for(int i=0; i<n; i++){
+		print("The value at %d of this array is %d\n", i, ptr[i]);
+	}
+}
+```
+
+Input
+```
+Enter the size of the array you want to create
+4
+```
+
+Output : If value not Initialised in Calloc, it is set to `0`
+```
+The value at 0 of this array is 0
+The value at 1 of this array is 0
+The value at 2 of this array is 0
+The value at 2 of this array is 0
+```
+
+
+## Realloc
+
+
+Consider Code Connected after the Calloc i.e ptr assigne 4 byte of memory
+```cpp
+// Use of calloc
+printf("Enter the size of the new array you want to create\n");
+scanf("%d", &n);
+
+ptr = (int *)realloc(ptr,n*sizeof(int));
+
+for(int i=0; i<n; i++){
+	print("Enter the new value no %d of this array\n", i);
+	scanf("%d", &ptr[i]);
+}
+
+for(int i=0; i<n; i++){
+	print("The new value at %d of this array is %d\n", i, ptr[i]);
+}
+```
+
+Input
+```
+Enter the size of the new array you want to create\n
+6
+Enter the new value no 0 of this array
+1
+Enter the new value no 1 of this array
+2
+Enter the new value no 2 of this array
+3
+Enter the new value no 3 of this array
+4
+Enter the new value no 4 of this array
+5
+Enter the new value no 5 of this array
+6
+```
+
+Output
+```
+The new value at 0 of this array is 1
+The new value at 1 of this array is 2
+The new value at 2 of this array is 3
+The new value at 3 of this array is 4
+The new value at 4 of this array is 5
+The new value at 5 of this array is 6
+```
+
+## Free
+
+```c
+free(ptr);  // its a good practice to use free
 ```
