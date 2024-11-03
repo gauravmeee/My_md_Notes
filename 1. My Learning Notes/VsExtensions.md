@@ -1,2 +1,0 @@
-Live server
-Live Preview
