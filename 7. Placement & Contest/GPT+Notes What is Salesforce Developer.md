@@ -1,8 +1,4 @@
 
-Certainly! Here’s the explanation in a narrative format:
-
----
-
 **Q: What do you understand by the role of a Salesforce Developer?**
 
 **A:** A Salesforce Developer is responsible for ==Building, customizing and maintaining applications== on the Salesforce platform, which is a ==cloud-based CRM==(Customer Relationship Management) system used by businesses to manage customer relationships and streamline processes. The role involves several key responsibilities. 

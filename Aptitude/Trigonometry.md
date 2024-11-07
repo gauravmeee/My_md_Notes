@@ -1,10 +1,4 @@
 
-# Log
-log a^b = bloga)
-
----
-# Trignometry
-
 
 ### Trigonometry Angle Table
 
@@ -66,17 +60,5 @@ log a^b = bloga)
 
 ---
 
-# Interest
-
-### Simple Interest
-
-- **Simple Interest:**
-  - Total Amount  (A) = P + (P × R × T) / 100
-- **Compound Interest:** ⭐
-  - Total Amount  (A) = P × (1 + R/100)^T 
-where:
-  - P = Principal amount
-  - R = Rate of interest per annum
-  - T = Time period in years
 
 
