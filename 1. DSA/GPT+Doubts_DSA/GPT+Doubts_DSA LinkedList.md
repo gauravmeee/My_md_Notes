@@ -1,11 +1,5 @@
 # Linked List 🖇️
 
-Limitation of array:
-- [1 7 5 2 9 4]
-- fixed size
-- Continuous block of memory
-- insertion or deleting costly
-
 Linked list
 ```
 1 -> 7 -> 5 -> 2 -> 9 -> 4
@@ -30,7 +24,7 @@ public:
 // Stack Allocation : Object Created   
 ListNode node1; // node1.val = 0
 ListNode node2(5); // node2.val = 5
-ListNode &node3(7, node2); //node3.val = 5 , node3.next->val = 7;
+ListNode node3(7, &node2); //node3.val = 7 , node3.next->val = 5;
 ```
 ```cpp
 // Heap Allocation : Pointers Created
@@ -57,7 +51,7 @@ Memory must be explicitly deallocated usinge `delete`
 ```cpp
 ListNode *Head = new ListNode(1);
 Head -> next = new ListNode(2);
-Head -> next = new ListNode(3);
+Head -> next -> next = new ListNode(3);
 ```
 ```cpp
 // Stack Allocation
@@ -65,7 +59,6 @@ ListNode node3(3, nullptr);
 ListNode node2(2, &node3); //Reference of object n3 should be passed
 ListNode node1(1, &node2); 
 // note:- node1 is a ListNode object on the stack, pointing to node2
-
 ```
 ```cpp
 // Heap Allocation

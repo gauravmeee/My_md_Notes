@@ -157,3 +157,9 @@ Generate a Requirements File:
 ```sh
 pip freeze > requirements.txt
 ```
+
+
+Note:
+- **`pip`**: Used in the command line/terminal to install Python packages.
+- **`!pip`**: Used in Jupyter Notebooks to run `pip` commands within a code cell.
+- **`%pip`**: A newer magic command in Jupyter Notebooks that ensures package installation in the notebook's Python environment.
