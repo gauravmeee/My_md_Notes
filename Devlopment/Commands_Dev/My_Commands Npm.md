@@ -1,4 +1,10 @@
 
+## Node and NPM version
+
+```sh
+node -v 
+npm -v
+```
 ## npm (Node Package Manager)
 
 `npm`  is a package manager for JavaScript, primarily used to manage dependencies for Node.js projects. It is the default package manager that comes with Node.js, which allows developers to share and reuse code.
@@ -126,6 +132,8 @@ npm install mongoose
 
 ---
 ## React
+
+
 ```sh
 # install create-react-app globally
 npm i -g create-react-app
@@ -134,12 +142,17 @@ create-react-app my-app
 # Create New react project (npm version >5)
 npx create-react-app my-react-app
 
+# create a new React application in the current directory
+npx create-react-app .
+
 # go to directory
 cd my-react-app
 
 # run the app
 npm start
 ```
+
+Note: `create-react-app` automatically installs the latest versions of `react` and `react-dom` in your project, along with other necessary dependencies like `react-scripts`.
 
 ---
 ### React-Native
@@ -173,6 +186,21 @@ npm install
 
 *Note :* You can install vite explicitly using
 `npm install vite` even with `-g` or `--save-dev` options
+
+Alternate Commands
+```sh
+# Creates a new Vite project in a folder named `my-project` with the React template.
+npm init vite@latest my-project -- --template react
+
+# Creates a new Vite project in a folder named `myApp`. It will prompt you to choose a framework and variant (e.g., React, Vue, Svelte, etc.).
+npm create vite@latest myApp
+
+# Initializes a new Vite project in the current directory.
+npm create vite@latest .
+
+# Creates a new Vite project in a folder (name entered when prompted).
+npm create vite@latest
+```
 
 ---
 ### Dotenv

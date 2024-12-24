@@ -4,7 +4,7 @@
 
 In JavaScript, `import` and `require` are both used to include and use modules, but they are used in different contexts and have different syntax and features. Here’s a comparison:
 
-### `require`
+#### `require`
 
 - **Context**: CommonJS
 - **Used in**: Node.js (primarily)
@@ -17,7 +17,7 @@ In JavaScript, `import` and `require` are both used to include and use modules, 
   - **Dynamic Loading**: You can use `require` inside functions or conditionally.
   - **No static analysis**: Since `require` is a function call, the imports cannot be analyzed at compile time for optimizations.
 
-### `import`
+#### `import`
 
 - **Context**: ES Modules (ESM)
 - **Used in**: Modern JavaScript environments including browsers and Node.js (with `.mjs` extension or `type: module` in `package.json`)
@@ -39,8 +39,7 @@ In JavaScript ES Modules, `default export` and `named export` are two ways to ex
 ### Default Export
 
 - **Purpose**: Allows you to export a single value or entity from a module.
-- **Syntax**:
-  ```javascript
+```javascript
   // module.js
   export default function myFunction() {
     // function body
@@ -51,6 +50,18 @@ In JavaScript ES Modules, `default export` and `named export` are two ways to ex
     key: 'value'
   };
   ```
+
+Declare first and Export at later point
+```javascript
+  // module.js
+  function myFunction() {
+    // function body
+  }
+  
+  // or exporting an object
+  export default myFunction;
+  ```
+
 - **Importing**:
   ```javascript
   // Importing the default export
@@ -107,3 +118,30 @@ In JavaScript ES Modules, `default export` and `named export` are two ways to ex
 - **Named Export**:
   - Suitable for exporting multiple entities from a module.
   - Importing requires exact names or allows for aliasing.
+
+
+##### Default + Named Exports
+
+**Export file**
+```javascript
+// math.js
+export default function add(a, b) {
+  return a + b;
+}
+
+export function multiply(a, b) {
+  return a * b;
+}
+
+export const PI = 3.14;
+```
+
+**Import file**
+```javascript
+// app.js
+import add, { multiply, PI } from './math.js';
+```
+
+1. **Default export**: Imported without curly braces.
+2. **Named export**: Imported with curly braces and the exact name.
+3. If you try to import a named export as a default import or vice versa, you'll get an error.

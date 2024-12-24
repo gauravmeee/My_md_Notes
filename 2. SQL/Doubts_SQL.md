@@ -47,6 +47,14 @@ In SQL the order of keywords matters
 -  `NATURAL LEFT JOIN`. ✅ 
 - `LEFT NATURAL JOIN`. ❌ Syntax Error
 
+----
+#### IS NULL
+
+In SQL, when checking for a `NULL` value, you should use the `IS NULL` or `IS NOT NULL` operator, not the `=` operator.
+
+`customerId = NULL` ❌
+`customerId IS NULL` ✅
+
 ---
 #### Largest Value
 

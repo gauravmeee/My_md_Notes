@@ -1,19 +1,22 @@
 
 # [React Tutorial in Hindi 🔥🔥](https://youtu.be/RGKi6LSPDLU)
 
- **What is React?**
+#### **What is React?**
 React is a JavaScript library used to build single-page user interfaces. Although it's a library, it's often referred to as a framework due to its compatibility with other frameworks like AngularJS and VueJS.
 
-**Single-Page Applications**
+#### **Single-Page Applications**
 React is one of the most popular frameworks for building single-page applications (SPAs). In an SPA, the UI doesn't reload when navigating to another page or sending an HTTP request. Instead, the page updates dynamically, providing a seamless user experience.
 
-**Library vs. Framework**
+#### **Library vs. Framework**
 Frameworks provide a comprehensive set of functionality and often include pre-built components. Libraries, on the other hand, are more specialized and provide a specific set of functions or tools.
 
-**JSX: JavaScript Syntax Extensions**
+#### **JSX: JavaScript Syntax Extensions**
 In React, we use JSX, which is an extension of JavaScript that allows you to write HTML-like code in your JavaScript files. JSX enables you to divide your website into reusable components, making it easier to manage and maintain. This is particularly useful when working with multiple team members on different parts of the project.
 
-**Why Use React?**
+JSX is a syntax extension for JavaScript that looks like HTML but is converted into React `createElement` calls by tools like Babel. It allows you to write UI components declaratively in JavaScript.
+- In JSX, **HTML** is written as regular tags (`<div>`, `<p>`, etc.), and to write JavaScript inside JSX, you use curly braces `{}`. This allows you to include any valid JavaScript expression or logic directly within your JSX code.
+
+#### **Why Use React?**
 
 You might wonder why use React when we already have HTML, CSS, and JavaScript. The answer is that building a complex application with HTML
 
@@ -21,17 +24,26 @@ If you were to build an application similar to a React app using only HTML and C
 
 However, with React, the process becomes much easier. React provides many hooks that enable you to send data from one component to another in the form of props. Additionally, the React community has already created a wide range of packages that can be easily integrated into your project.
 
-**Routing with React**
+**Unique features of React :**
+1. **State**: Internal data storage for components that can change over time and trigger UI re-rendering.
+2. **Props**: Short for properties, used to pass data and methods from parent to child components.
+3. **Hooks**: Functions like `useState`, `useEffect`, etc., that enable state and lifecycle management in functional components.
+4. **JSX**: A syntax extension to write HTML-like code directly within JavaScript.
+5. **Virtual DOM**: Optimizes rendering by updating only the parts of the actual DOM that have changed.
+6. **Lifecycle Methods**: Functions like `componentDidMount` or `useEffect` (in hooks) to manage component behavior during its lifecycle.
+7. **Context API**: For managing global state without the need for third-party libraries like Redux.
+
+#### **Routing with React**
 
 For client-side routing, you can use React Router DOM. This library helps to make routing smooth and seamless, allowing users to navigate between pages without seeing any loading screens.
 
-**React Utilities and Hooks**
+#### **React Utilities and Hooks**
 
 React offers a wide range of utilities and hooks that make it easy to build complex applications. With React, you have access to a vast ecosystem of tools and libraries that can help you streamline your development process.
 
-##  Lets Get Started
+## Lets Get Started
 
-To begin, you'll need to have Node.js and NPM (Node Package Manager) installed on your system. You can download and install Node.js from the official website, which will automatically include NPM.
+To begin, you'll need to have `Node.js` and `NPM` (Node Package Manager) installed on your system. You can download and install `Node.js` from the official website, which will automatically include `NPM`.
 
 Once installed, open a PowerShell or terminal and type the following commands to check if Node.js, NPM, and npx (a package runner) are properly installed:
 ```
@@ -45,9 +57,20 @@ npx --version
 ### Create React App
 
 Open a folder where you want to create a React app, shift + right-click, and select "Open Windows PowerShell". Then, type:
+
+reate a new React application in the **new directory** `myapp`
 ```
 npx create-react-app myapp 
 ```
+or
+to create a new React application in the **current directory**
+```
+
+npx create-react-app .
+```
+
+`create-react-app myapp`
+
 This will create a new React app in a directory called `myapp`.
 
 > *Note:* Project name can no longer contain capital letters. 'myApp' Invalid
@@ -71,7 +94,7 @@ myApp/
 └── yarn.lock / package-lock.json
 ```
 
-The `package.json` file contains project details, such as dependencies and scripts. The `public` directory contains static assets, like the favicon and `index.html` file. The `src` directory contains the source code for your React app.
+The `package.json` file contains project details, such as dependencies and scripts. The `public` directory contains static assets, like the favicon and `index.html` file. The `src` directory contains the source code for your React app.
 
 ### Start Server
 
@@ -85,23 +108,24 @@ This will start the development server, and your app will be available at:
 
 You can also access the app from other devices on the same network by using the IP address and port: `http://192.168.0.103:3000/`
 
-### index.html
+### `index.html`
 let's talk about how React works its magic. When you open the app in a browser, you'll see that the source code only shows the `index.html` file, regardless of which page you navigate to. This is because React is a single-page application (SPA) framework.
 
-The JavaScript files in the `src` directory target the `<div id="root">` element in `index.html` and inject dynamic content into it. As the user interacts with the app, the JavaScript files update the dynamic content accordingly.
+The JavaScript files in the `src` directory target the `<div id="root">` element in `index.html` and inject dynamic content into it. As the user interacts with the app, the JavaScript files update the dynamic content accordingly. ⭐
 
-> *Note:* If someone's computer doesn't have JavaScript or has it disabled, they will see the content inside `<noscript>...</noscript>`
+> *Note:* If someone's computer doesn't have JavaScript or has it disabled, they will see the content inside `<noscript>...</noscript>` ❓
 
-### id="root"
+### `id="root"`
 
 From where does the content in `<div id="root">...</div>` come from?
 
 - Close the `public/` directory; all development will be done in `src/`.
 - `App.js` in the `src/` directory is the main app component we will use to develop the React application.
 
-> *Note:* In a MERN stack application, `index.js` and `App.js` files are commonly written in JSX. While the code written is in JSX, the file extension can still be `.js`. It's common practice to use the `.js` extension for React components, even though they contain JSX syntax. Modern build tools like Babel can handle JSX syntax within `.js` files without any issues.
+> *Note:* In a MERN stack application, `index.js` and `App.js` files are commonly written in JSX. While the code written is in JSX, the file extension can still be `.js`. It's common practice to use the `.js` extension for React components, even though they contain JSX syntax. Modern build tools like `Babel` can handle JSX syntax within `.js` files without any issues. ⭐
 
 - `index.js` in `src/` is the entry point of React Application. 
+
 ```jsx
 // index.js
 ...
@@ -112,6 +136,12 @@ ReactDOM.render(
 	document.getElementById('root')
 )
 ...
+```
+
+```jsx
+ReactDOM.render(  // Function to render React elementsinto the actual DOM.
+	ReactElement, // Argument 1 -> What React should render 
+	DOMContainer // Argument 2 -> Where React should render it );
 ```
 It takes two things: `App` (JSX) and the `root` selector.
 
@@ -126,7 +156,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.js</code> and save to reload. 
+          <!--the `<code>` simply styles the text inside it i.e. "src/App.js" to look like code (usually in a monospace font).-->
         </p>
         
         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer" >
@@ -152,8 +183,8 @@ This includes HTML and JavaScript syntax, which is JSX, used in React components
 1. **React Setup (`index.js`)**:
     - Imports React and ReactDOM libraries.
     - Imports your main `App` component.
-    - Uses `ReactDOM.render` to render the `App` component into the `root` element specified in `index.html`.
-    - `React.StrictMode` is used to wrap the `App` component, enabling additional checks during development.
+    - Uses `ReactDOM.render` ⭐ to render the `App` component into the `root` element specified in `index.html`.
+    - `React.StrictMode`  is a development tool that helps identify potential problems in an application. It doesn't render anything visible in the UI and has no effect in production builds. Its purpose is to improve the quality of your code by enabling extra checks and warnings during development.
     
 1. **Rendering and Result**:
     - React takes over the `root` element and renders the content produced by the `App` component inside it.
@@ -167,20 +198,20 @@ This includes HTML and JavaScript syntax, which is JSX, used in React components
 
 - `<img src={logo}>`: Why is this written inside curly braces?
     
-    - `logo` is a JavaScript variable, and to use it in HTML, we use `{}`.
+    - `logo` is a JavaScript variable, and to Variable use it in HTML, we use `{}`. ⭐`
     - Like you can print `<div>12 + 45</div>`: shows '12 + 45' on the webpage.
     - `<div>{12 + 45}</div>`: shows '57' on the webpage.
 
 ```jsx
 // App.js
-import logo from `./logo.svg`;
+import logo from `./logo.svg`; // logo->variable created
 import './App.css'
 ```
 Import is used to import modules, like CSS, to style our webpage.
 
 If we use a wrong JavaScript variable or syntax inside `{}`, it will show an error on the webpage: 'Failed to compile'.
 
-**In React, we can create components in two ways:**
+**In React, we can create components in two ways:** ⭐
 - *Class-based components*
 - *Function-based components*
 
@@ -211,15 +242,15 @@ function App(){
 	);
 }
 ```
-*Note:* The whole HTML that is returned in JSX should be wrapped in some single opening and closing tags. If no tags, then simply use `<>` and `</>`.
+*Note:* The whole HTML that is returned in JSX should be wrapped in some single opening and closing tags. If no tags, then simply use `<>` and `</>`. ⭐
 
 In this way you can use HTML and CSS in React JS.
 **Just start Writing your HTML or use bootstrap inside App() returns.** ⭐
 
 *Note:* 
-1. Always make sure, In React file (`.jsx` or `.js`) you are using `className` not `class` to assign class to html tags. also use `htmlFor` in place of `for`.
+1. Always make sure, In React file (`.jsx` or `.js`) you are using `className` not `class` to assign class to html tags. also use `htmlFor` in place of `for`. ⭐
 2. In React file self-closing tags such as `<input>`, `<img>`, `<br>`, etc., must be written with a closing slash to conform to JSX syntax. This means that instead of writing `<input.....>`, you should write `<input...../>`.
-3. Using `href="#"` in React is discouraged because it triggers unnecessary page reloads and disrupts the SPA (Single Page Application) behavior.
+3. Using `href="#"` in React is discouraged because it triggers unnecessary page reloads and disrupts the SPA (Single Page Application) behavior. ❗
 
 > [Boot Strap for React ](https://react-bootstrap.netlify.app/)
 
@@ -240,7 +271,7 @@ So always try to write, small and simple js and css code on you own as required
 #### Named Export
    - **Multiple Exports :** Allows exporting multiple variables, functions, or classes from a module.
    - **Explicit Names:** Each export has a specific name, which must be used when importing.
-   - **Usage:** Use named exports when you need to export multiple values from a module.
+   - **Usage:** Use named exports when you need to export multiple values from a module. ⭐
    ```javascript
    // Exporting
    export const add = (a, b) => a + b;
@@ -253,7 +284,7 @@ So always try to write, small and simple js and css code on you own as required
 #### Default Export
    - **Single Export**: Only one default export is allowed per module.
    - **Flexible Naming**: The imported name can be different from the exported name.
-   - **Usage**: Use default export when exporting a single main value from a module.
+   - **Usage**: Use default export when exporting a single main value from a module. ⭐
    ```javascript
    // Exporting
    const multiply = (a, b) => a * b;
@@ -262,6 +293,11 @@ So always try to write, small and simple js and css code on you own as required
    // Importing
    import multiplyFunction from './math';
    ```
+
+NOTE: using both default export and named export
+- If Imported without curly braces -> Default Export
+- Imported with curly braces and the exact name -> Named Export
+- If you try to import a named export as a default import or vice versa, you'll get an error.
 
 ---
    
@@ -340,14 +376,13 @@ export default App;
 
 Wow, Our Components are successfully rendered.
 
-
 ---
 ### Props in React
 
 In React, **props** (short for properties) are a fundamental concept used for passing data from one component to another. They allow you to pass data as attributes from a parent component (or the parent component's state) to a child component. Props are read-only, meaning that the child component receiving props cannot modify the props directly.
 
-1. **Data Passing**: Props are used to pass data from a parent component to a child component.
-2. **Read-Only**: Props are immutable and cannot be modified by the child component.
+1. **Data Passing**: Props are used to pass data from a parent component to a child component. ⭐
+2. **Read-Only**: Props are immutable and cannot be modified by the child component. ⭐
 3. **Usage**: Accessed via the `props` object in functional components or `this.props` in class components.
 4. **Custom Attributes**: Props can be of any data type, including strings, numbers, objects, arrays, and functions.
 5. **Functionality**: Used for configuring child components and passing event handlers or callback functions.
@@ -359,6 +394,8 @@ In React, **props** (short for properties) are a fundamental concept used for pa
 <ChildComponent name="John Doe" age={30} />
 ```
 
+Note : `{30}` enclosed in `{}` because , In JSX, non-string values (like numbers, objects, booleans, or expressions) must be wrapped in curly braces `{}` because **JSX syntax is an extension of JavaScript**. Curly braces explicitly indicate to JSX that the value inside is a JavaScript expression, not plain text or a string. ⭐ Without curly braces, `age=30` would be treated as plain text, which is invalid.
+
 **Child Component:**
 ```jsx
 function ChildComponent(props) {
@@ -368,23 +405,63 @@ function ChildComponent(props) {
 
 ### Default Props in React:
 
-- **Purpose**: Provide default values for props if none are passed.
-- **Functional Components**: Set defaults using `defaultProps`.
-- **Class Components**: Define defaults with `static defaultProps`.
+In this example, `name` defaults to `'Guest'` if not provided. ⭐
 
-**Example**:
+##### 1. Using Destructuring with Default Values in the Parameter List
 ```jsx
 function MyComponent({ name = 'Guest' }) {
   return <p>Hello, {name}</p>;
 }
 ```
 
-In this example, `name` defaults to `'Guest'` if not provided.
+##### 2. Using Default Props `defaultProps`
+```jsx
+function MyComponent({ name }) {
+  return <p>Hello, {name}</p>;
+}
+
+MyComponent.defaultProps = {
+  name: 'Guest',
+};
+```
+
+- `defaultProps` property to define default values for props:
+- **Purpose**: Provide default values for props if none are passed.
+- **Functional Components**: work at component level
+- **Class Components**: Define defaults with `static defaultProps`.
 
 ---
 
-## Use props in Parent `App.js` and Child `Header.js`
+### **`PropTypes` and `isRequired` in React**
 
+
+- **`PropTypes`**: Specifies the type of a prop.
+- **`isRequired`**: Ensures a prop is provided, logging a warning if missing.
+
+- **`PropTypes`**: A built-in React library used for type-checking the props passed to components.
+	Helps ensure that components receive props of the correct type and can provide warnings in the console during development.
+    ```jsx
+    import PropTypes from 'prop-types';
+    
+    function MyComponent({ name }) {
+      return <p>Hello, {name}</p>;
+    }
+
+    MyComponent.propTypes = {
+      name: PropTypes.string,  // Ensures `name` is a string
+    };
+    ```
+    
+- **`isRequired`**: A modifier used with `PropTypes` to enforce that a prop **must** be provided. If the prop is missing, React will log a warning in the console.
+    ```jsx
+    MyComponent.propTypes = {
+      name: PropTypes.string.isRequired,  // `name` must be a string and is required
+    ```
+
+	Note:  `PropTypes.isRequired` Invalid ❌ because `isRequired` is applied to a specific type of prop, not directly to `PropTypes`
+
+---
+## props usage template Example
 
 ```jsx
 // App.js
@@ -395,81 +472,45 @@ In this example, `name` defaults to `'Guest'` if not provided.
 ...
 ```
 
-## props usage template
-
 If `searchBar` is true show search bar, else so nothing.
 ```jsx
 // Header.js
 //jsx
 { props.searchbBar? <form> <input/><button>search</button> </form> : ""}
-// { condition ? <TrueComponent /> : <FalseComponent /> }
+// { condition ? <TrueComponent /> : <FalseComponent /> } ⭐
 ```
 
-take properties as a `props`
+**Example:** Using Datatype constraint to Props `propTypes` , and `isRequired` & using `defaultProps`
 ```jsx
 // Header.js
-...
-export default function Header(props){
-	...
-	<h3> {props.title} </h2>
-	...
-}
-...
-```
+import PropTypes from 'prop-types';
 
-take props directly as  `title`
-```jsx
-// Header.js
-...
-export default function Header(title){ // you can add multiple values seperated by comma(,) Header(title, description, serial)
-	...
-	<h3> {title} </a>
-	...
+export default function Header({ title, searchBar }) {  // Destructuring props directly
+  return (
+    <div>
+      <h3>{title}</h3>
+      {searchBar && <input type="text" placeholder="Search..." />}
+    </div>
+  );
 }
-...
-```
 
-Datatype constraint to Props , and isRequired
-```jsx
-// Header.js
-import PropTypes from `prop-types`
-...
-export default function Header(title){ // you can add multiple values seperated by comma(,) Header(title, description, serial)
-	...
-	<h3> {title} </a>
-	...
-}
-Header.propTypes =	{
-	title: PropTypes.string; // it will give error in cosole, if title is not of string dataype in parent component. Provide robustness to app
-	searchBar: PropTypes.string.isRequired // `isRequired` if search Bar is not passed/present and default prop is not present, it will give error in console.
-}
-...
-```
+// PropTypes definition
+Header.propTypes = {
+  title: PropTypes.string,  // `title` should be a string
+  searchBar: PropTypes.bool.isRequired,  // `searchBar` is required and should be a boolean
+};
 
-Default Props
-```jsx
-// Header.js
-import PropTypes from `prop-types`
-...
-export default function Header(title){ // you can add multiple values seperated by comma(,) Header(title, description, serial)
-	...
-	<h3> {title} </a>
-	...
-}
-Header.defaultProps ={ // if no `title` and `searchBar` is there in parent component, it will get the value
-	title: "Your Title Here",
-	searchBar: true
-}
-Header.propTypes =	{
-	title: PropTypes.string,
-}
-...
+// Default Props definition
+Header.defaultProps = {
+  title: "Your Title Here",  // Default value if `title` is not provided
+  searchBar: true,           // Default value if `searchBar` is not provided
+};
 ```
 
  **And the conclusion is that, you can use the header is different different components or react app : )**
 
 ---
-## Use Parent Component `App.js` and pass todo list to Child `Todos.js` and its Child `TodoItem.js` component.
+## Use Parent Component `App.js` and pass todo list to Child `Todos.js` and its Child `TodoItem.js` component. ⭐
 
 Let make a list and show how are app.js looks
 ```jsx
@@ -497,7 +538,7 @@ function App(){
 	return (
 		<>
 			<Header title="My TodoList" searchBar={true}/>
-			<Todos/>
+			<Todos todos={todos}/>
 			<Footer/>
 		</>
 	);
@@ -516,12 +557,12 @@ export const Todos = (props) => {
 		<div className="container">
 			<h3>Todos List</h3>
 			{/*{props.todos}*/}  <!--can't print list directly-->
-			<TodoItem todo={todo[0]}/>
+			<TodoItem todo={todos[0]}/>
 		</div>
 	)
 }
 ```
-*Note:* to use comments in jsx html, you can simply use `/**/` insid `{}`
+*Note:* to use comments in jsx html, you can simply use `/**/` inside `{}`
 
 Use `props`=todos item from `Todos.js` to  `TodoItem.js` to show each Items individually
 ```jsx
@@ -539,7 +580,15 @@ export const TodoItem = ({todo})=>{ <!-- todo = todo[0] is recieved -->
 }
 ```
 
-### show All list items in `Todos.js` using for Loop and `Higher order method` of JavaScript
+Above Props Structure
+```
+//parent : props -> child
+
+App() : title, searchBar -> Header()
+App() : todos -> Todos()
+Todos() : todo -> TodoItem()
+```
+#### show All list items in `Todos.js` using for Loop and `Higher order method` of JavaScript
 
 ```jsx
 // Todos.js
@@ -549,7 +598,7 @@ export const Todos = (props) => {
 	return (
 		<div className="container">
 			<h3>Todos List</h3>
-			{props.todos.map((todo)=>{ <!-- Higher order method-->
+			{props.todos.map((todo)=>{ <!-- Higher order method-- ⭐>
 				return <TodoItem todo={todo}/>
 			})}
 		</div>
@@ -557,10 +606,11 @@ export const Todos = (props) => {
 }
 ...
 ```
-*Note:* to use for multiple tags in jsx, for example `<h3>``</h3>` inside return, you should wrap whole content inside `<></>`  and use `()` to enclose return value
+*Note:* to use for multiple tags in jsx, for example `<h3>` `</h3>` inside return, you should wrap whole content inside `<></>`  and use `()` to enclose return value
 
-### Implement Delete Function
+#### Implement Delete Function
 
+1. In `TodoItem.js` Take `onDelete` props from `Todos.js` (Taken itself from `App.js`)
 ```jsx
 // TodoItem.js
 
@@ -570,14 +620,15 @@ export const TodoItem = ({todo, onDelete})=>{
 		<div>
 			<h4>{todo.title}</h4>
 			<p>{todo.desc}</p>
-			<button className="btn btn-sm btn-danger" onClick{onDelete(todo)}> Delete </button>
+			<button className="btn btn-sm btn-danger" onClick{onDelete(todo)}> Delete </button> 
+			{/* Logical Error: ❌ onDelete() should be passed as arrow function, otherwise it will be called without calling onClick()*/}
 		</div>
 	)
 }
 // if we passed `props` as props, than we would use `props.title`, `props.desc` and `props.onClick`
 ```
 
-Update `Todo.js` to return to implement Delte
+2. Update `Todo.js` to pass `onDelete()` as props.
 ```jsx
 // Todos.js
 ... 
@@ -585,8 +636,8 @@ export const Todos = (props) => {
 	return (
 		<div className="container">
 			<h3>Todos List</h3>
-			{props.todos.map((todo)=>{
-				return <TodoItem todo={todo} onDelte={props.onDelete}/> // one line return
+			{props.todos.map((todo)=>{ // Will give error (bug solved in future ❌)
+				return <TodoItem todo={todo} onDelete={props.onDelete}/> // one line return
 			})}
 		</div>
 	)
@@ -594,7 +645,7 @@ export const Todos = (props) => {
 ...
 ```
 
-Define `onDelete()` in `App.js`
+3. Define `onDelete()` function in `App.js`
 ```jsx
 // App.js
 ...
@@ -645,8 +696,7 @@ This ensures `onDelete` is executed only when the button is clicked, not during 
 
 *Note:*
 - **`onDelete()`**: Executes immediately during render.
-- **`onDelete`**: Passes the function reference, executed on the event trigger.
-- **`() => onDelete`**: Creates a function that calls `onDelete`, executed on the event trigger, useful for passing arguments or deferring execution.
+- **`() => onDelete()`**: Creates a function that calls `onDelete`, executed on the event trigger, useful for passing arguments or deferring execution.
 ---
 ## Implementing `Delete TodoItems` to update `DOM`
 
@@ -668,7 +718,9 @@ const onDelete = (todo) =>{
 
  In Angular, you update variables to reflect changes in the DOM automatically. In React, you use the State Hook (`useState`) to manage state and trigger re-renders for updating the DOM.
 
-### Using the State Hook
+---
+## Use State Hook `useState()`
+
 Import `useState`
 ```jsx
 // App.js
@@ -676,7 +728,6 @@ Import `useState`
 import React, {useState} from 'react';
 ...
 ```
-
 
 Update the `App.js` to Use this `const [count, setCount] = useState(0);` method to Declare `todos` 
 
@@ -713,7 +764,6 @@ function App(){
 ```
 
 use State hook in `onDelete()`
-
 ```jsx
 // App.js
 ...
@@ -753,7 +803,7 @@ setTodos(todos.filter(todo => todo.id !== idToDelete));
   setTodo(todos.filter(e => e !== todo)); // Implicit Return
   ```
 
-If todos is empty, i.e. `list .lengt==0` print No item else, render the list UI
+If todos is empty, i.e. `list.lengt==0` print No item else, render the list UI
 ```jsx
 // Todos.js
 ... 
@@ -772,7 +822,8 @@ export const Todos = (props) => {
 ...
 ```
 
-### Style in React
+---
+## Style in React
 
 ```jsx
 // Footer.js
@@ -1057,7 +1108,9 @@ When we call updater of `useState` Hook  i.e. `setTodo`, it will not update `tod
 Solution : `useEffect`
 
 ---
-##### `useEffect` in `App.js`
+## Use Effect Hook `useEffect()`
+
+Import `useEffect` in `App.js`
 ```jsx
 // App.js
 import React, { useState, useEffect } from `react`;
@@ -1077,8 +1130,9 @@ import React, { useState, useEffect } from `react`;
 ```
  *Note:* Whenever there is a change in `todos`  , the `useEffect` Method will be called Immediately. it means item will be saved in local storage only after change in todo is successful.
 
+---
+## React Router
 
-### React Router
 React Router is a library for managing routing in React applications. It allows you to define and handle different routes within a single-page application (SPA), enabling navigation between different views or components based on the URL on the Same Page.
 
 - It render different URI into same page

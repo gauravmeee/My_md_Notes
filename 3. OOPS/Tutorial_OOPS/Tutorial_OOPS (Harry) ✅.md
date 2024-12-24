@@ -1155,7 +1155,7 @@ int main(){
 
 ---
 
----
+
 # [#44 Virtual Base Class in C++ | C++ Tutorials for Beginners](https://youtu.be/kzMQpPX7TUY?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
 The virtual base class is a concept used in multiple inheritances to prevent ambiguity between multiple instances. 
@@ -1358,7 +1358,7 @@ Virtual Base Class > Base Class > Derived Class
 
 # [#47 Solution to Exercise on Cpp Inheritance | C++ Tutorials for Beginners ](https://youtu.be/eGhDSjWGXQc)
 > #42 Homework Exercise solution
-# [#48 # Code Example: Constructors in Derived Class in Cpp | C++ Tutorials for Beginners ]
+# [#48 Code Example: Constructors in Derived Class in Cpp | C++ Tutorials for Beginners ]
 
 Case 1 : Simple Inheritance A->B
 ```cpp
@@ -1414,6 +1414,7 @@ class Derived: public Base2, public Base1{
     int derived1, derived2;
     public:
 	    // Pass `a` to Base1 and 'b' to Base2
+	    // Special Syntex
         Derived(int a, int b, int c, int d) : Base1(a), Base2(b)
         {
             derived1 = c;
@@ -1571,8 +1572,8 @@ Pointer to Object
 ```cpp
 Complex *ptr = new Complex;
 // *ptr:object ptr:address of object
-(*ptr).real; is exactly same as  //a.real
-(*ptr).getData(); is as good as  //a.getData()
+(*ptr).real; // is exactly same as a.real
+(*ptr).getData(); // is as good as a.getData()
 
 // Note: use '()' because, precedence of '.' is more than '*'
 // Note: pointer can also store the address of an object
@@ -1590,7 +1591,7 @@ Array of Objects
 ```cpp
 Complex *arrP = new Complex[4]; // Complex arr[]
 arrP->real; // arr[0].real;
-(arrP+1)->real;// (*arrP+1).real or arr[1].real;
+(arrP+1)->real;// *(arrP+1).real or arr[1].real;
 arrP+1->real;// paranthesis '()' is optional as, precedence of `+` > `->`
 ```
 
@@ -1614,6 +1615,7 @@ class ShopItem
 };
 ```
 
+⭐ Array of Object Use case Example 
 ```cpp
 int main(){
     int size = 3;
@@ -1623,16 +1625,16 @@ int main(){
     //             ^
     //             |
     //           ptr/ptrTemp
-    int p, i;
-    float q;
+    int i;
+    float p;
 
 	// setData();
     for (i = 0; i < size; i++)
     {
         cout<<"Enter Id and price of item "<< i+1<<endl;
-        cin>>p>>q;
-        // (*ptr).setData(p, q);
-        ptr->setData(p, q);
+        cin>>id>>price;
+        // (*ptr).setData(id, price);
+        ptr->setData(id, price);
         ptr++;  // pointer address increment
     }
     //    address  0  1  2
@@ -1718,7 +1720,6 @@ int main(){
 Note: // C++ support easy syntax, if no local variable with same name as class variable is there, we could directly use class variable to return its value. otherwise we need to use `this->`
 
 #### Returning object itself using this
-
 ```cpp
 class A{
 	int a;
@@ -1729,11 +1730,12 @@ class A{
 			this->a = a;
 			return *this // *this = value of this, because this is a pointer 
 		}
+		// cout<<this = address of object
 
 		void getData(){
 			cout<<a<<endl;
 		}
-}
+};
 
 int main(){
 	A a;
@@ -1774,7 +1776,7 @@ In the run-time polymorphism, the compiler doesn’t know already what will happ
 
 -  Virtual Function: A function that is in the parent class but redefined in the child class is called a virtual function. “virtual” keyword is used to declare a virtual function.
 
-
+---
 # [#55 Pointers to Derived Classes in C++ | C++ Tutorials for Beginners](https://youtu.be/0YQ_yhX46uk)
 
 ```cpp
@@ -1800,10 +1802,10 @@ class DerivedClass : public BaseClass{
 
 #### 1.  **Base Class Pointer to Derived Class Object (Upcasting)**:
 ```cpp
-BaseClass * base_class_pointer;
-DerivedClass obj_derived;
+BaseClass *base_class_pointer; // Base Class Pointer
+DerivedClass obj_derived; // Derived Class Object
 
-base_class_pointer = &obj_derived; 
+base_class_pointer = &obj_derived; // Base Class pointer pointing to Derived class object
 
 base_class_pointer->display(); // ✅ member function of base class 
 base_class_pointer->var_base = 34; // ✅ member variable of base class
@@ -1816,9 +1818,10 @@ base_class_pointer->var_derived= 134; // ❌ Error
 
 #### 2. **Derived Class Pointer to Derived Class Object**:
 ```cpp
-DerivedClass * derived_class_pointer;
-// Pointing Derived class pointer to derived class
-derived_class_pointer = &obj_derived;
+DerivedClass * derived_class_pointer; // Derived Class Pointer
+DerivedClass obj_derived; // Derived Class object
+
+derived_class_pointer = &obj_derived; // Derived class pointer, pointing to derived class
 
 derived_class_pointer->display(); // ✅ member function of Derived class 
 derived_class_pointer->var_base = 34; // ✅ member variable of base class
@@ -1833,8 +1836,16 @@ derived_class_pointer->var_derived = 98; // ✅ member variable of Derived class
 
 - A **derived class pointer cannot point to a base class object** directly, resulting in a **compilation error**.
 - The base class lacks derived class-specific members, leading to **undefined behavior** if allowed.
+- This restriction prevents unsafe memory access since the Derived class expects a larger object layout than what the Base class provides.
 
+| Case                                     | Behavior                                                      |
+| ---------------------------------------- | ------------------------------------------------------------- |
+| **1. Base Pointer to Base Object**       | Same as Base Object ✅                                         |
+| **2. Base Pointer to Derived Object**    | Acts like Base Object + Runtime Polymorphism (via virtual) 🙀 |
+| **3. Derived Pointer to Derived Object** | Same as Derived Object ✅                                      |
+| **4. Derived Pointer to Base Object**    | **Invalid** (Cannot be created) ❌                             |
 
+---
 # [#56 Virtual Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/fB3JHNnlRfI)
 
 #### Virtual Functions in C++
@@ -1861,7 +1872,7 @@ class BaseClass{
 class DerivedClass : public BaseClass{
     public:
             int var_derived;
-            void display(){
+            void display() override {
                 cout<<"Dispalying Base class variable var_base "<<var_base<<endl;
                 cout<<"Dispalying Derived class variable var_derived "<<var_derived<<endl;
             }
@@ -1881,14 +1892,97 @@ base_class_pointer->var_derived= 134; // ✅ member variable of Derived class
 // base_class_pointer->var_derived= 134; // ❌ Error if not used virtual
 ```
 
- If we don’t use the “virtual” keyword with the “display” function of the base class then beside of the point that we have pointed our base call pointer to derived class object still the compiler would have called the “display” function of the base class because this is its default behavior
+---
+### `Virtual` Keyword
+
+
+**Without `Virtual`**:
+ If we **don’t use the “virtual”** keyword with the “display” function of the base class then beside of the point that we have pointed our base call pointer to derived class object still the compiler would have called the “display” function of the base class because this is its default behavior
  
-But we have used the “virtual” keyword with the “display” function of the base class to make is **virtual function** so when the display function is called by using the base class pointer the display function of the derived class will run because the base class pointer is pointing to the derived class object.
+But we have **used the “virtual”** keyword with the “display” function of the base class to make is **virtual function** so when the display function is called by using the base class pointer **the display function of the derived class will run** because the base class pointer is pointing to the derived class object.
 
 Note: It's Run-time polymorphism not means, that we can't guess which function will execute. actually here we can find out which function Base class or Derived Class will run.
 But runt-time polymorphism means, In actual ,the binding of compiler i.e., association of the function address to object is happen at runtime 
 
+*Example:*
 
+**Derived Class Function :** 
+```cpp
+class Derived : public Base {
+    void display() override { cout << "Derived class";}
+};
+```
+
+**Base Class Function without `virtual` :**
+```cpp
+class Base {
+    void display() { cout << "Base class";}
+};
+```
+```cpp
+Base* obj = new Derived();
+obj->display();  // Calls Base::display() ✅
+```
+
+**Base Class function with `virtual` :**
+```cpp
+class Base {
+    virtual void display() { cout << "Base class"; }
+};
+```
+```cpp
+Base* obj = new Derived();
+obj->display();  // Calls Derived::display() 🙀
+```
+
+---
+### `Override` Keyword
+
+The `override` keyword in C++ is optional, and omitting it does not cause a runtime or compile-time error **as long as the function signature in the derived class correctly matches the one in the base class**. 
+
+**Function Signature** -> Unique characteristics of a function that allow the compiler to identify it. 
+- Function Name: The name of the function.
+- Parameter Types: The number, types, and order of parameters.
+
+**Without `Override`**:
+If you do not use the `override` keyword in the derived class's `display()` method, the method will still be **overridden** if the base class function is virtual. However, there are some potential risks:
+
+- If you accidentally change the method signature in the derived class (e.g., change the parameters or return type), the base class method will no longer be overridden, and you may not notice the issue. The compiler will not check if the method in the derived class is correctly overriding a base class method. It will treat the method as a new method in the derived class.
+
+
+The `override` keyword in C++ ensures that the compiler checks whether a method in a derived class is **actually overriding** a virtual method in the base class. This helps prevent subtle bugs caused by mismatched function signatures.
+
+*Example:* 
+
+Base Class Function
+```cpp
+class Base {
+	virtual void display(int x) {cout << "Base class";} 
+};
+```
+
+Derived Class Function Without `overriden`
+```cpp    
+class Derived : public Base { 
+	void display(double x) {cout << "Derived class";} // Mistyped parameter type
+};
+```
+```cpp
+Base* obj = new Derived();
+obj->display(5);  // Calls Base::display (not overridden!) ✅
+```
+
+Derived Class Function With `overriden`
+```cpp
+class Derived : public Base {
+	void display(double x) override {cout << "Derived class"}; // Mistyped parameter type
+```
+```cpp
+Base* obj = new Derived();
+obj->display(5);  // Error: 'display' in 'Derived' does not override any member function 🙀
+```
+
+---
 # [#57 Virtual Functions Example + Creation Rules in C++ | C++ Tutorials for Beginners](https://youtu.be/-noYyWtdXSI?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL)
 
 ```cpp
@@ -2003,6 +2097,23 @@ bogus code
 bogus code
 ```
 
+---
+
+### Relationship Between Late Binding, Overriding and Runtime Polymorphism ⭐
+
+**late binding**, **overriding**, and **runtime polymorphism** indeed go **hand in hand**. They are tightly connected, and together they enable flexible and extensible object-oriented programming. Here's how they fit together
+
+- **Late Binding** is the mechanism.
+- **Overriding** is the act of redefining a function in the derived class.
+- **Runtime Polymorphism** is the result of late binding and overriding combined.
+
+|**Concept**|**Definition**|**Connection**|
+|---|---|---|
+|**Late Binding**|Function call resolved at runtime (via virtual function mechanism).|Enables runtime polymorphism.|
+|**Overriding**|Redefining a base class virtual function in the derived class to provide specific behavior.|A requirement for runtime polymorphism.|
+|**Runtime Polymorphism**|The behavior where the derived class function is executed when using a base class pointer/reference at runtime.|Achieved through late binding and overriding.|
+
+---
 # [# Abstract Base Class & Pure Virtual Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/RBAWWutf0fY?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL)
 
 

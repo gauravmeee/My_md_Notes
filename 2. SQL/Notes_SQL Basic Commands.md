@@ -5,7 +5,7 @@ Data Definition Language (DDL): Defines and manages the structure of database ob
  USE DESC/ DESCRIBE SHOW
 ```
 
- Data Manipulation Language (DML): Manipulates data within database tables.
+Data Manipulation Language (DML): Manipulates data within database tables.
 ```mysql
 SELECT, INSERT, UPDATE, DELETE
 ```
@@ -36,16 +36,22 @@ Multiline Comment */
 ---
 #### 1. DDL For Databases
 
+## `SHOW DATABASES`
+```Mysql
+SHOW DATABASES
+```
 ## `CREATE DATABASE`
 ```mysql
-CREATE DATAASE DatabaseName;
+CREATE DATABASE DatabaseName;
 -- or
-CREATE DATAASE [IF NOT EXISTS] DatabaseName;
+CREATE DATABASE IF NOT EXISTS DatabaseName;
 ```
 
 ## `DROP DATABASE`
 ```mysql
 DROP DATABASE DatabaseName;
+-- or
+DROP DATABASE IF EXISTS DatabaseName
 ```
 ## `USE`
 ```mysql
@@ -59,9 +65,11 @@ USE DatabaseName;
 SHOW TABLES;
 ```
 
-`DROP TABLE`
+## `DROP TABLE`
 ```mysql
 -- Drop Table Commands
+DROP TABLE TableName;
+-- or
 DROP TABLE IF EXISTS TableName;
 ```
 
@@ -113,13 +121,13 @@ MODIFY ColumnName DataType (Size)
 ALTER TABLE TableName MODIFY ColumnName DataType(Size) FIRST;
 
 -- Places the modified column immediately after the specified column.
-ALTER TABLE TableName MODIFY ColumnName DataType(Size) AFTER Column;
+ALTER TABLE TableName MODIFY ColumnName DataType(Size) AFTER ColumnName2;
 ```
 
 `CHNAGE`
 ```mysql
 -- Changing ColumnName
-ALTER TABLE TableName CHANGE FirstName SecondName Datatype(Size)
+ALTER TABLE TableName CHANGE OldName NewName Datatype(Size)
 ```
 
 `DROP`
@@ -142,6 +150,9 @@ DESC TableName;
 -- or
 DESCRIBE TableName;
 ```
+
+- Use **`TRUNCATE`** when you need to quickly clear all rows from a table but keep the table structure.
+- Use **`DROP`** when you want to permanently delete a table, including its structure.
 
 ---
 # DML
@@ -170,12 +181,15 @@ SELECT DISTINCT ColumnName FROM TableName;
 
 `ALL`
 ```mysql
--- Select all rows (ALL is implicit by default)
-SELECT ALL * FROM TableName;
+-- select ALL (ALL is implicit by default)
 
--- Select all values in a specific column
-SELECT ALL ColumnName FROM TableName;
+SELECT ALL * FROM TableName; -- Select all rows
+SELECT ALL ColumnName FROM TableName; -- Select all values in a specific column
 
+-- `ALL` as Comparison Operator
+SELECT * FROM Employees
+WHERE Salary > ALL (SELECT Salary FROM Employees);
+-- This query selects employees whose salary is greater than all the salaries
 ```
 
 `Expression`
@@ -185,6 +199,7 @@ SELECT 1 + 6;
 
 -- Evaluate an expression with `FROM dual` (used in Oracle, not needed in MySQL)
 SELECT 4 * 3 FROM DUAL;
+-- `DUAL` allows you to execute expressions like arithmetic, string manipulations, or system functions without requiring a real table.
 
 -- Scalar expression with a selected field
 SELECT ColumnName * 100 FROM TableName;
@@ -230,10 +245,12 @@ WHERE (Bonus + Commission > 10000)
   AND NOT (JobTitle LIKE 'Intern%'); 
 ```
 
+`<>` : not
+
 `BETWEEN`
 ```mysql
 -- Filters rows where ColumnName is between x and y (inclusive)
-... WHERE ColumnName BETWEEN x
+... WHERE ColumnName BETWEEN x AND y
 ```
 
 `IN`

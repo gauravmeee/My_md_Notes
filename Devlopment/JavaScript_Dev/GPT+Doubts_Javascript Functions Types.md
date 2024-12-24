@@ -8,7 +8,7 @@
 ```javascript
 // function funcName() { }
 function greet() { console.log("Hello"); }
-// Hoisted ✅
+// Declaration Hoisted (not assignment) ✅
 // Named ✅
 ```
 
@@ -35,8 +35,8 @@ const greet = function sayHello() { console.log("Hello"); };
 
 
 *Note :* 
-- **Hoisted :** youcan use functions or variables before they are declared in your code, without causing an error.
-- -**Anonymous Function Expressions**: Have no name, so they rely on the variable they're assigned to.
+- **Hoisted :** you can use functions or variables before they are declared in your code, without causing an error.
+- **Anonymous Function Expressions**: Have no name, so they rely on the variable they're assigned to.
 - **Named Function Expressions**: Have a name, but it's only accessible within the function body itself.
 
 Here’s a refined categorization of the functions, with a focus on whether they are anonymous or named, and which can be executed without explicitly calling them:
