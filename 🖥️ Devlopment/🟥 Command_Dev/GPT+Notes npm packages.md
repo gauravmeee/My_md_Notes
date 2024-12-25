@@ -1,4 +1,48 @@
-Sure! Here's a brief overview of how and why you might use each of these packages in a Node.js application:
+
+## Backend
+
+Create and Navigate to new Directory and Setup
+```sh
+mkdir backend
+cd mern-backend
+npm init -y
+```
+
+Install Packages from `Package.json`
+```
+npm i
+```
+
+- express
+- mongoose
+- dotenv
+- cors
+- body-parser
+- nodemon
+- axios
+
+## Frontend
+
+Navigate to Project root and Create react App
+```
+cd..
+npx create-react-app client
+cd client
+```
+
+Install Packages from Package.json
+```
+npm i
+```
+
+- react
+- react-router-dom
+- axios
+- react-hot-toast
+- redux
+- react-redux
+
+---
 
 # dotenv
 **dotenv**: This package is used to load environment variables from a `.env` file into `process.env`. It's useful for managing configuration settings like database credentials, API keys, and other sensitive data that you don't want to hard-code into your application. 

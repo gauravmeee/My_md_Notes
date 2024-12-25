@@ -1,5 +1,5 @@
 
-## [DBMS Interview Questions](https://www.interviewbit.com/dbms-interview-questions/)
+# [DBMS Interview Questions](https://www.interviewbit.com/dbms-interview-questions/)
 
 ### 1. Basic
 
@@ -35,13 +35,15 @@ Example of Popular  RDBMS
 
 What is a Database?
 - **Database** -> `organized`, `consistent`, and `logical` collection of data (that can easily be updated, accessed, and managed).
-- Database mostly contains sets of tables or objects (anything created using create command is a database object) which consist of records and fields. 
-- **Record** -> a `tuple` or a `row` represents a single entry in a table. 
-- **Field** -> an `Attribute` or a `column` represents the basic units of data storage (which contain information about a particular aspect of the table).
+	- Database mostly contains sets of tables or objects (anything created using create command is a database object) which consist of records and fields. 
+- **Relation(Table)** -> set of tuples/rows/entities/records 
+- **Tuple(Record or Row)** ->  represents a single entry in a table. 
+- **Attribute(Field or Column)** ->  represents the basic units of data storage (which contain information about a particular aspect of the table).
+- **Domain** -> Set of atomic values
 
 What is Cardinality and Degree?
-- **Cardinality** -> no. of tuples
-- **Degree** -> no. of Attributes
+- **Cardinality** -> no. of tuples of a relational instance
+- **Degree** -> no. of Attributes of a relation
 
 What DBMS do on a Database Relation?
 - DBMS extracts or perform operation on data from a database in the form of queries given by the user.
@@ -321,6 +323,281 @@ Explain different types of Normalization forms in a DBMS.
 | **5NF**         | 4NF + No join dependency. (Lossless decomposition.) | Eliminate join-related redundancy. |
 | **6NF**         | 5NF + deals with temporal or non-atomic data.       | Handle time-dependent data.        |
 
+- **1NF:** It is known as the first normal form and is the simplest type of normalization that you can implement in a database. A table to be in its first normal form should satisfy the following conditions:
+	- Every column must have a single value and should be `atomic`.
+	- Duplicate columns from the same table should be removed.
+	- Separate tables should be created for each group of related data and each row should be identified with a unique column.
+
+- **2NF:** It is known as the second normal form. A table to be in its second normal form should satisfy the following conditions:
+	- The table should be in its 1NF i.e. satisfy all the conditions of 1NF.
+	- Every non-prime attribute of the table should be fully functionally dependent on the primary key i.e. every non-key attribute should be dependent on the primary key in such a way that if any key element is deleted then even the `non key` element will be saved in the database.
+
+- **3NF:** It is known as the third normal form. A table to be in its third normal form should satisfy the following conditions:
+	- The table should be in its 2NF i.e. satisfy all the conditions of 2NF.
+	- There is no transitive functional dependency of one attribute on any attribute in the same table.
+
+- **BCNF:** BCNF stands for Boyce-Codd Normal Form and is an advanced form of 3NF. It is also referred to as `3.5NF` for the same reason. A table to be in its BCNF normal form should satisfy the following conditions:
+	- The table should be in its 3NF i.e. satisfy all the conditions of 3NF.
+	- For every functional dependency of any attribute A on B (A->B), A should be the super key of the table. It simply implies that A can't be a non-prime attribute if B is a prime attribute.
+
+
+#### MCQ
+```
+What does ODBC in a database stand for
+- Open Database Connectivity ✅
+
+DBA stands for
+- Database Administrator ✅
+
+Which contains information about the data stored in a DBMS?
+- Meta Data ✅
+
+In E-R diagram, which shaper represent entity set
+- Rectangle ✅
+```
+
 ---
 
-Most prac
+# [DBMS MCQ](https://www.interviewbit.com/dbms-mcq/)
+
+Problem With File Systems ⭐
+- Data redundancy and inconsistency. 
+- Difficulty in accessing data
+- Data isolation
+- Integrity problem
+- Atomicity problem
+- Concurrent access anomalies
+
+What are Instance and Schemas
+- **Instance** -> The collection of `information stored` in the database at a `particular moment` is called an instance of the database.
+- **Schemas** -> The overall design of the database is called the database schema.
+
+Types of Databases ❓
+- Commercial database
+- Multimedia database
+- Deductive database
+- Temporal database
+- Geological Info System
+
+Characteristics of Database Management System ❓
+- Provides security and removes redundancy
+- Self-describing nature of a database system
+- Insulation between programs and data abstraction
+- Support of multiple views of the data
+- Sharing of data and multiuser transaction processing
+- Database Management Software allows entities and relations among them to form tables.
+- It follows the ACID concept ( Atomicity, Consistency, Isolation, and Durability).
+
+What is Transaction? ❓
+- To remove this partial execution problem, we increase the level of atomicity and `bundle all the instructions of a logical operation into a unit` called a transaction.
+- **Transaction :**  `A transaction is a set of logically related instructions to perform a logical unit of work`.
+
+What is a Schedule? ❓
+- When` two or more transactions` are executed together or one after another, then they can be `bundled up into a higher unit of execution` called schedule.
+- A schedule of `N` transactions `T1, T2, T3...TN`, is an ordering of the operations of the transactions. Operations from different transactions can be interleaved in the scheduled `S`.
+- However, the schedule for a set of transactions must contain all the instructions of those transactions, and for each transaction T, that participates in the schedule S, the operation of `T`, in `S` must appear in the same order in which they occur in `T`.
+
+
+Properties of RDBMS
+- Cells contain atomic values.
+- Values in a column are of the same kind.
+- Each row is unique.
+- Each column has a unique name
+- No two tables can have the same name in a relational schema.
+- The sequence of rows is insignificant.
+- The sequence of columns is insignificant.
+
+#### MCQ
+
+```
+Query that is placed within a WHERE/HAVING clause of another query?
+- Subquery ✅
+```
+
+```
+COUNT in SQL?
+- Returns total no. of distinct values
+- Returns total values ✅
+```
+
+``` 
+❓
+Command used to remove a stored function from database
+- DROP ✅
+- DELETE
+```
+
+```
+Which Data structure is used in Hierarchical Model reocords?
+- Graph
+- Tree ✅
+```
+
+```
+Normal Form deals with multivalued dependency?
+- 4NF ✅
+
+Which Normalization form is based on the transitive dependency
+- 3NF ✅
+
+Which of the NF contains informatioon about a single entity?
+- 4NF ✅
+```
+
+```
+Which of the following can replace the below query?
+   `SELECT name, course_id
+	FROM instructor, teaches
+	WHERE instructor_ID = teaches_ID;`
+
+- Select name, course_id from instructor natural join teaches; ✅
+- Select from teaches,instructor where instructor_id=course_id;
+- Select name, course_id from instructor;
+- Select course_id from instructor join teaches;
+```
+
+```
+What is DBMS
+- Collection of Many programs to access data
+- Collection of interrelated data ✅
+```
+
+```
+Which of the following is known as minimal super key
+- Primary Key
+- Candidate Key ✅
+```
+
+```
+❓
+Which of the following is not a SQL Command
+- DELETE ✅
+- ORDER BY
+- WHERE
+```
+
+```
+Which of the following is preserved in execution of transaction in isolation?
+- Atomicity
+- Isolation ❓
+- Durability
+- Consistency ✅
+
+Which property of Transaction protects data from system failure
+- Isolation
+- Durability ✅
+```
+
+```
+Full forms of NTFS
+- New Tree File System ✅
+```
+
+```
+Which of the following operator is used to compare a value to a list of literals ❓ values that have been specified?
+- BETWEEN ✅
+- IN
+```
+
+```
+After which operation is the modify operation done?
+- Look-up ✅
+```
+
+```
+How is ER diagram represented?
+- Circle
+- Ellipse ✅
+- Triangle
+- Square
+```
+
+```
+How many levels are there in architecture of database?
+- 2
+- 3 ✅
+```
+
+```
+❓
+Identify the concurrency❓ based protocol?
+- Lock based protocol ✅
+- Two phase locking protocol ✅
+- Timestamp ordering protocol ✅
+```
+
+```
+Maximum children of a B-tree of order m?
+- m-1
+- m+1
+- m/2
+- m ✅
+```
+
+```
+NATURAL JOIN can also be termed as
+- Combination of Union and cartesian product
+- Combination of Selection and cartesian product
+- Combination of Projection❓ and cartesian product ✅
+
+To select some particular columns, which of the following command is used?
+- PROJECTION ✅
+- SELECTION
+- JOIN
+- UNION
+
+Select the Relation algebra operations. ❓
+- Select ✅
+- Union ✅
+- Rename ✅
+```
+
+```
+Advantages of view
+- Derived Column ✅
+- Data Security ✅
+- Hiding of complex queries ✅
+```
+
+``` 
+❓
+Select the correct definition of relation.
+- Subset of a cartesian product of list of domains ✅
+- Subset of a cartesian product of list of tuple
+- Subset of a cartesian product of list of attributes
+- Subset of a cartesian product of list of relations
+```
+
+``` 
+❓
+Select the correct definition of Relational calculus?
+- It is a high level language
+- It is a procedural language
+- It is a non-procedural language ✅
+- It is a data definition language
+```
+
+```
+Properties of entities
+- Attribute ✅
+```
+
+```
+Select the valid SQL type.
+- NUMERIC ✅
+- CHARACTER ✅
+- FLOAT ✅
+```
+
+```
+❓
+Total View of a database is known as?
+- External View
+- Conceptual View ✅
+```
+
+```
+Table joined with itself
+- Self join ✅
+- Equi join
+```

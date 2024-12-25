@@ -22,18 +22,26 @@ RAID is commonly used in databases to ensure high **availability** and **reliabi
 
 RAID has different levels, each offering a balance of performance, redundancy, and storage capacity. Here are some key RAID levels:
 
-### 1. **RAID 0 (Striping)**:
+### **RAID 0 (Striping)**:
 - **Purpose**: Improves performance by spreading data across multiple disks.
 - **How it works**: Data is split into blocks and written across multiple disks. This parallelism enhances read and write speeds.
 - **Pros**: High performance for read/write operations.
 - **Cons**: No redundancy; if one disk fails, all data is lost.
 
-### 2. **RAID 1 (Mirroring)**:
+;### **RAID 1 (Mirroring)**:
 - **Purpose**: Provides data redundancy by duplicating the same data on two or more disks.
 - **How it works**: Every piece of data is written to two or more disks simultaneously. If one disk fails, the other contains an identical copy.
 - **Pros**: High data redundancy and reliability.
 - **Cons**: Storage efficiency is low, as 50% of disk space is used for duplication.
 
+### **RAID 10 (Combining RAID 1 + RAID 0)**:
+- **Purpose**: Offers both redundancy and high performance.
+- **How it works**: Combines RAID 1 (mirroring) and RAID 0 (striping). Data is mirrored across pairs of disks (RAID 1) and striped across multiple mirrored sets (RAID 0).
+- **Pros**: High performance and redundancy(Reliability).
+- **Cons**: Requires more disks; storage efficiency is only 50%.
+### **RAID 2 (Bit-Level Striping with Hamming Code Parity)**
+### **RAID 3 (Byte-Level Striping with Dedicated Parity Disk)**
+### **RAID 4 (Block-Level Striping with Dedicated Parity Disk)**
 ### 3. **RAID 5 (Striping with Parity)**:
 - **Purpose**: Balances performance and redundancy.
 - **How it works**: Data is striped across multiple disks, but in addition, parity information is distributed across all disks. The parity data allows the system to reconstruct lost data if one disk fails.
@@ -46,11 +54,6 @@ RAID has different levels, each offering a balance of performance, redundancy, a
 - **Pros**: Increased fault tolerance (can withstand two disk failures).
 - **Cons**: Slower write performance due to double parity calculation; more overhead than RAID 5.
 
-### 5. **RAID 10 (Combining RAID 1 + RAID 0)**:
-- **Purpose**: Offers both redundancy and high performance.
-- **How it works**: Combines RAID 1 (mirroring) and RAID 0 (striping). Data is mirrored across pairs of disks (RAID 1) and striped across multiple mirrored sets (RAID 0).
-- **Pros**: High performance and redundancy.
-- **Cons**: Requires more disks; storage efficiency is only 50%.
 
 ### Benefits of RAID in DBMS:
 - **Data Redundancy**: Ensures data remains available even if a disk fails.

@@ -14,8 +14,8 @@ npm -v
 Initialize (`Node`)
 ```sh
 # intialize a new project
+npm init
 npm init -y # -y(optional) -> yes all prompts
-
 ```
 
 Packages (`Dependencies : package.json`)
