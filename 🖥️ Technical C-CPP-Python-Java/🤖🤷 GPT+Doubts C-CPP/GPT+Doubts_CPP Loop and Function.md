@@ -1,5 +1,26 @@
 
-# Iterations
+# Function Declaration
+
+- Functions in C++ are not allowed to be nested inside other functions like in some other languages (e.g., JavaScript or Python, where you can define functions inside other functions).
+- A function must be declared and defined outside of any other function (including `main`).
+
+```cpp
+void printMessage(); // Function declaration (prototype)
+
+int main() {
+	// void Func() ❌
+    printMessage(); // Function call
+    return 0;
+}
+
+void printMessage() { // Function Definition
+    cout << "Hello, World!" << endl;
+}
+```
+
+
+- The declaration tells the compiler about the function before it's used in `main()`.
+- The definition provides the actual code that runs when the function is called.
 
 # Loop / Iteration
 `while (int i<n) valid?` ❌ In C++, you cannot declare a variable inside the condition of a while loop.\

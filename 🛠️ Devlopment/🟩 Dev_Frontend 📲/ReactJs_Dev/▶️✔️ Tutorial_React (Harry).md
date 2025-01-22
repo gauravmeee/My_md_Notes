@@ -1200,12 +1200,18 @@ import { Link } from "react-router-dom";
 // Replace `<a>` tags with `<Link>`
 // Replace `href` properties with `to`
 
-// Change <a href="#"> About </a>  to <Link = to="/about"> About </Link>
+// Change <a href="about"> About </a>  to <Link = to="/about"> About </Link>
 ```
 *Note:*  Change
 `href` ->`to` 
 `<a>` -> `<Link>`
 
+## React Router (v6)
+
+React Router v6 introduces some changes, and one of the most significant is the replacement of the `Switch` component with `Routes`.
+```js
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+```
 
 ##### Useful Extension - React Developer Tools (by Facebook)
 This will provide features in `Inspect` options.   You can show, props, states of components, It will tell How tell what thing is coming from where, How something is happening etc.

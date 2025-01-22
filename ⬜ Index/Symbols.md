@@ -1,5 +1,5 @@
 
-Symbol
+
 ```
 - Arrow - 
  ←→↑↓ 
@@ -16,6 +16,11 @@ Symbol
 ˄˅><
 ─│
 ✕
+```
+
+```
+∞
+≠
 ```
 
 ```
@@ -60,12 +65,12 @@ myApp/
 	➡️ - npm/pip/yarn Commands
 
 - Attribute Prefix - 
-⚡ - My Cheatsheet Notes
-⭐ - My Brain/Notes
+⚡ - Cheatsheet 
+⭐ - My Brain/Notes, ⭐⚡, ⭐💡
 💡 - Solution
 ➕ - To Add Note
 ✔️ - Completed
-📽️ - Video Tutorial
+▶️ - Video Tutorial ▶️✔️, ▶️🚀
 🤖 - Notes+GPT
 🤷 - Doubts
 ```

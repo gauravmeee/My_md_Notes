@@ -447,6 +447,325 @@ const Main = ({activeNote, onUpdateNote}) => { /* but activeNote is not taken*/
 export default Main;
 ```
 
+### Step 4 : Add Markdown Feature in Main Component
+
+```jsx
+import React from "react";
+
+import ReactMarkdown from "react-markdown";
+
+  
+
+const Main = ({activeNote, onUpdateNote}) => { /* but activeNote is not taken*/
+
+  
+
+    const onEditField = (key, value) => {
+
+      onUpdateNote({
+
+        ...activeNote, // spread operator: creates a shallow copy of all properties of the activeNote object and spreads them into another object or array.
+
+        // Key= title/body is Dynamically typed and shown
+
+        [key]: value, // Set value to key
+
+        lastModified: Date.now() // Update date
+
+        // Note: Id need not to update, so don't write here.
+
+      });
+
+    }
+
+  
+
+  if(!activeNote) return <div className="no-active-note">No note Selected</div> // If activeNote = false
+
+  return (
+
+    // Main Section
+
+    <div className="app-main">
+
+      {/*Section 1: Main Note Edit*/}
+
+      <div className="app-main-note-edit">
+
+  
+
+        <input type="text" id="title" autoFocus
+
+          value={activeNote.title}   // Initial Value
+
+          onChange={(e)=> onEditField("title", e.target.value)} // onEditField() to show title text change ⭐
+
+        />
+
+  
+
+        <textarea id="body" placeholder="Write your note here..."
+
+          value={activeNote.body}  // Initial Value
+
+          onChange={(e)=> onEditField("body", e.target.value)} // onEditField() to show body text changes ⭐
+
+        />
+
+  
+
+      </div>
+
+      {/*Section 3: Main Note Preview*/}
+
+      <div className="app-main-note-preview">
+
+        <h1 className="preview-title">{activeNote.title}</h1>
+
+        {/* <div className="markdown-preview">{activeNote.body}</div> */}
+
+        {/*Replace the <div></div> to <ReactMarkdown></ReactMarkdown> to Render in Markdown*/}
+
+        <ReactMarkdown className="markdown-preview">{activeNote.body}</ReactMarkdown>
+
+      </div>
+
+    </div>
+
+  );
+
+};
+
+  
+
+export default Main;
+```
+
+### Step 5 : Sort Notes in Sidebar Component based on LastModified
+
+```jsx
+import React from 'react';
+
+  
+
+const Sidebar = ({notes, onAddNote, onDeleteNote, activeNote, setActiveNote}) => { // Props Taken from `App.js`
+
+  // function using complicated sorting algorithm to sort based on lastModified date
+
+  const sortedNotes = notes.sort((a,b)=>b.lastModified-a.lastModified);
+
+  return (
+
+    // Sidebar
+
+    <div className="app-sidebar">  
+
+      {/* Section 1: Sidebar Header */}
+
+      <div className="app-sidebar-header">  
+
+        <h1>Notes</h1>
+
+        <button onClick={onAddNote}>Add</button> {/*onDeleteNote() use*/}
+
+      </div>
+
+  
+
+      {/* Section 2: Sidebar Notes */}
+
+      <div className="app-sidebar-notes">
+
+  
+
+        {sortedNotes.map((note)=> // Map Function for Dynamically Use Sorted Notes
+
+            <div className={`app-sidebar-note ${note.id === activeNote && "active" /* Dynamically return "active" if condition true note: using template literal for js logic*/}`} onClick={()=>setActiveNote(note.id)}> {/* setActiveNote() to show current Note Active*/}
+
+            {/* Section 2.1: Sidebar Notes Title */}
+
+            <div className="sidebar-note-title">  
+
+              <strong>{note.title}</strong> {/*using props.note title*/}
+
+              <button onClick={()=>onDeleteNote(note.id)}>Delete</button> {/*onDeleteNote() use, Note: onDelete()❌ -> ()=>onDelete() ✔️ ⭐*/}
+
+            </div>
+
+            {/* Section 2.2: Sidebar Notes Preview */}
+
+            <p>{note.body && (note.body.length>100? note.body.substr(0,100)+"..." : note.body)}</p> {/* Using props.note body and only show upto 100 string if greater ⭐*/}
+
+            <small className="note-meta">{new Date(note.lastModified).toLocaleDateString("en-GB", { hour: "2-digit", minute:"2-digit"})}</small> {/* show note.lastModified to date format  and also minute and Hour ⭐*/}
+
+          </div>
+
+        )}
+
+  
+
+      </div>
+
+    </div>
+
+  );
+
+}
+
+  
+
+export default Sidebar;
+```
+
+### Step 6 : Save Notes to Local Storage
+
+
+```jsx
+//App.js
+
+import React from "react";
+
+import Sidebar from "./components/Sidebar";
+
+import Main from "./components/Main";
+
+import { useState , useEffect} from "react";
+
+import uuid from "react-uuid"; // library for random ID ⭐
+
+  
+
+function App() {
+
+  // Notes State Array
+
+  const [notes, setNotes] = useState(JSON.parse(localStorage.notes) || []); // Initalize Notes to Local Storage JSON if not defined than default⭐
+
+  const [activeNote, setActiveNote] = useState(false); // State (initialy boolean=false) for Active or not ⭐
+
+  
+
+  // Save Notes to local storage i.e. browser's internal storage
+
+  useEffect(()=>{
+
+    localStorage.setItem("notes", JSON.stringify(notes));
+
+  }, [notes]);
+
+  
+  
+
+  // Note: All Event handling function will be Arrow function.
+
+  const onAddNote = () => {
+
+    const newNote = {
+
+      id: uuid(), // random 'uuid' for the object ⭐
+
+      title: "Untitled Note",
+
+      body: "",
+
+      lastModified: Date.now(), // Javascript function for current date ⭐
+
+    };
+
+    setNotes([newNote, ...notes]); // Append an object in State Array using spreadoperator⭐
+
+  };
+
+  
+
+  const onDeleteNote = (idToDelete) => {
+
+    setNotes(notes.filter((note) => note.id !== idToDelete)); // Filter Array and Save to set States ⭐
+
+  };
+
+  
+
+  // Get Active Helper function to get the current stored id
+
+  const getActiveNote = () => {
+
+    return notes.find((note)=> note.id===activeNote); // activeNote is set by seActive Note inside Sidebar.js ⭐
+
+  }
+
+  
+
+  // Update Note
+
+  const onUpdateNote = (updatedNote) => {
+
+    const updatedNotesArray = notes.map((note)=>{ // Map function to update Notes array ⭐
+
+      if(note.id === activeNote){
+
+        return updatedNote; // update only for activeNote in newarray ⭐
+
+      }
+
+  
+
+      return note;
+
+    });
+
+    setNotes(updatedNotesArray) // set State to Updated returned Note Array ⭐
+
+  }
+
+  
+
+  return (
+
+    <div className="App">
+
+      {/* Sidebar Component*/}
+
+      <Sidebar
+
+        notes={notes} //Notes State Prop⭐
+
+        onAddNote={onAddNote}
+
+        onDeleteNote={onDeleteNote}
+
+        activeNote={activeNote} // activeNote State Prop⭐
+
+        setActiveNote={setActiveNote} // activeNotes set State Prop⭐
+
+      />
+
+      {/* Main Component*/}
+
+      <Main
+
+      // Why not Directly passing activeNote ⭐❓
+
+        activeNote={getActiveNote()}  // getActiveNote() automatically running a function as a prop and update activeNote ⭐
+
+        onUpdateNote={onUpdateNote} // Run only when called
+
+  
+
+      />
+
+    </div>
+
+  );
+
+}
+
+  
+
+export default App;
+```
+### Style
+
 `src/index.css`
 ```css
  /*index.css*/

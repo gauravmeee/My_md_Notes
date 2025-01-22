@@ -17,7 +17,13 @@ An object is an instance of a class. It contains an address and takes up memory 
 1. **Instance member variable:** Attributes, data members, field, properties.
 2. **Instance member functions:** Methods, procedures, actions, operations, services.
 
-Play
+**Message Passing**
+- Message passing in OOP-> the process of **communication between objects** in a program. It allows objects to interact with each other by invoking methods or functions.
+```cpp
+Car myCar;
+// `myCar` object receives the message `start()`
+myCar.start();
+```
 
 ## Features of OOPS
 
@@ -88,6 +94,8 @@ There are primarily four pillars of OOPS:
 
 Constructor - `class_name()`
 Destructor - `~class_name()`
+tilde ~
+
 
 ---
 

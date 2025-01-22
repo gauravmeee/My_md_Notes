@@ -14,7 +14,7 @@ npm start
 ```
 myApp/
 ├── public/  -> index.html, favicon.ico
-└──  src/ -> App.js, index.js, index.css
+└──  src/ -> index.js, index.css, App.js, App.css
           -> components/ -> Header.js, Footer.js
 ```
 
@@ -220,7 +220,7 @@ Note :
 ---
 
 ``
-**Props template example**
+**Props usage example**
 ```jsx
 // App.js
 ...
