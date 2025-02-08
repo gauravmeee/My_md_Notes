@@ -1,12 +1,34 @@
 
 
+Gurgaon companies
+Soho, JMD, Aria, PayU, AKM Global, ArgenBright Group, Spinny, Spaze, Spinny  skymark, spaze Arcus, EThiess, JMD Megapolis, Spazedge, RenewBuy.com, 
+
 ```
 - Arrow - 
- ←→↑↓ 
-⭠⭢ ⬋⬊⬉⬈ ⬆
-  ⬈ ⬉ ⬊ ⬋ 
-↥↧ ⟷ ⇄⇅ 
+ ←→↑↓ ⭠⭢  
+ ⬆ ⬅ ⬇ ➡
+⬋⬊⬉⬈  
+↥↧ ⟷ ↕ ⇄⇅ 
 ⤺⤻ ↶ ↷
+⤴⤵
+
+| │ ┃
+
+- _ ─ ━
+
+/╱
+
+\╲
+```
+```
+╭----╮ --------->
+| qd |
+╰----╯ <---------
+
+︵
+⌣ 
+
+◯ ●
 ```
 
 ```
@@ -16,11 +38,20 @@
 ˄˅><
 ─│
 ✕
+∝
 ```
 
 ```
-∞
-≠
+Infinity ∞
+equation, ≠, ≤
+Epsilon Ε , ε, ϵ
+Zeta Ζ, ζ
+Eta Η, η
+Delta ∂
+Theta Θ, θ
+Sigma ∑
+Subscript No. ₀₁₂₃₄₅₆₈₉
+Subscript Char ᵢ ⱼ ₘ ₗ
 ```
 
 ```

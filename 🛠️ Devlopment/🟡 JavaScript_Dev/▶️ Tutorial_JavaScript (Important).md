@@ -20,7 +20,7 @@ arr.map((value, index, array) =>{
 })
 ```
 
-3. `fileter()` -> filters an array with values that passes a test. Creates a new array
+1. `filter()` -> filters an array with values that passes a test. Creates a new array
 ```js
 const arr = [1, 2, 3, 4, 5]
 arr.filter((value, index, array)=>{
@@ -28,7 +28,7 @@ arr.filter((value, index, array)=>{
 }; 
 ```
 
-4. `reduce()` -> Reduces an array to a single value
+2. `reduce()` -> Reduces an array to a single value
 ```js
 const arr = [1, 2, 3, 4, 5]
 arr.reduces(arr.reduce(add)); // add -> function 

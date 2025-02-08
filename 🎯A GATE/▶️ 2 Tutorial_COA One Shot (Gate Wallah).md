@@ -72,11 +72,11 @@ Min Value => S=0, E=0...0, M=0...01
 
 **System Buses** -> Collection of communication lines between components (3 types)
 ```
-┌────┐                      ┌────┐
-│    │ --- Address Bus ---> |    │
-│    │ <--- Data Bus --->   |    │
-│    │ <--- Control Bus --->|    │
-└────┘                      └────┘
+┌─────┐                      ┌─────────────┐
+│     │ --- Address Bus ---> |  Memory     │
+│ CPU │ <--- Data Bus --->   |    &        │
+│     │ <--- Control Bus --->|  IO Device  │
+└─────┘                      └─────────────┘
 ```
 - Address Bus is only uni-directional
 - Address and Instructions can be transferred through Data Bus as Data example :- in effective addressing, and storing program counter address at Stack
@@ -140,22 +140,24 @@ Instruction -> `[ Opcode | Operand Info.]`
 
 **Ques:** two-address instructions each with 3 bytes. If address length is 9-bits then maximum and minimum how many instructions the system can support.
 **Ans:** `[Opcode | a1 | a2 ]` 
-          6       9        9    => 24 bit
+          6       9        9    => 3 byte = 2x8 = 24 bit
 max instructions = `2^6` = `64`
 min instructions = `1`
 
-**Ques:** sixteen 2-bit instructions. address length = 8 bit. what is the length of instruction?
+**Ques:** sixteen 2-address instructions. address length = 8 bit. what is the length of instruction?
 
 **Ans:** 16 instructions
 length of opcode => log(16) = 4
 `[ Opcode | a1 | a2 ]`
      4           8     8    => 20 bits instruction length
 
-**Ques:** 64 registers, instruction set of size 12, each instruction has five distinct field (opcode + 2 source registers + 1 destination register identifier, and a 12-bit immediate value ). Each instruction stored in byte-aligned fashion. If a program has 100 instructions, the amount of memory (in bytes) consumed by the program text is??
+**Ques:** 64 registers, instruction set of size 12, each instruction has five distinct field (opcode + 2 source registers + 1 destination register identifier, and a 12-bit immediate value ). Each instruction stored in byte-aligned fashion. If a program has 100 instructions, the amount of memory (in bytes) consumed by the program text is?? 
 
 64 registers
-instruction = 12 bitf
+instruction = 12 bit
 
+ ⭐![[Pasted image 20250131175905.png]]
+![[Pasted image 20250131181605.png]]
 
 base register mode and pc- relative, inter, intera  segment role are only two used for branching
 
@@ -181,7 +183,26 @@ Internal Interrupt IO -> example -> memory doesn't have the required content -> 
 
 Direct memory access
 DMA is a special purpose processor as it can genrate address and control signal
+
+question on DMA
+
+one cell access time -> memory access time
+
+![[Pasted image 20250131191035.png]]
 ****
 
+Simultaneous Access -> if written cache searching/lookup time is negligible
+
+
+Hierarchy Access - if written cache hierarchy, memory hierarchy level wise memory, 2 level memory system
+
+dirty bit only required in write back cache write.
+
+missed block is stored in cache
 
 Instruction - opcode is mandatory
+
+Disk Addressing Question, Given Address find sector, Given Sector find Address
+
+
+

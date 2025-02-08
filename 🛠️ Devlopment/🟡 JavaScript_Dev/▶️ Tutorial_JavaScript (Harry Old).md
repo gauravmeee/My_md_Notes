@@ -41,7 +41,7 @@ HTML (Structure) + CSS(Design) + JavaScript(Client side Scripting) => WebPage
 Browser(Client) ---request---> Server
 - request like (Get Google.com)
 
-Browser(Cleint) <---response--- Server
+Browser(Client) <---response--- Server
 - response like (HTML with CSS and JS embedded in it)
 
 Website
