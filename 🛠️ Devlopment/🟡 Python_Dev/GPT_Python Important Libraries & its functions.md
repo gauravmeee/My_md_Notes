@@ -86,6 +86,7 @@ df = pd.DataFrame(data)
 - `df.plot()`: Basic plotting.
 - `df.hist()`: Histogram of the DataFrame.
 
+---
 ## Requests
 
 The `requests` library in Python is used for making HTTP requests. Here are some of the most important functions and methods provided by the `requests` library:
@@ -260,6 +261,7 @@ for chunk in response.iter_content(chunk_size=8192):
 print(chunk)
 ```
 
+---
 ## BeautifulSoup
 
 BeautifulSoup is a powerful library for web scraping and parsing HTML and XML documents in Python. Here are some important functions and methods provided by BeautifulSoup:

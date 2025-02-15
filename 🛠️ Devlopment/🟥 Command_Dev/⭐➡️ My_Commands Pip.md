@@ -11,6 +11,11 @@ py -v
 py app.py
 #or
 python app.py
+
+# shows  paths where the `python` ,exe found on system 
+where python # window
+#or
+which python # Linux/MacOS
 ```
 
 ```python
@@ -30,6 +35,13 @@ or
 - Installing `Python` will install `pip` automatically. 
 - In `pip` 'i' doesn't stand for `install`
 
+**Manually Install/Upgrade `pip`**
+```sh
+python -m ensurepip
+python -m pip install --upgrade pip
+```
+- The `-m`stands for **"module"**, allows you to run a Python module as a script. `python -m <module_name> [arguments]`
+
 **Install Package**
 ```sh
 # insttall package
@@ -40,9 +52,6 @@ pip install package_name1 package_name2
 
 # Install Specific Version
 pip install package_name==version # pip install django==3.2.5
-
-# Install from requirements.
-pip install -r requirements.txt
 ```
 
 **Upgrade Package**
@@ -68,11 +77,26 @@ pip list --outdated
 # show package information
 pip show package_name
 ```
+Note: - **Inside a virtual environment**, both commands will show the packages installed within that virtual environment (and not the global environment) and  **Outside a virtual environment** (i.e., in the global environment), they show the global packages.
 
-**Generate a Requirements File:**
+**`Requirements.txt` Related command**
 ```sh
+# Displays a list of installed packages in `<package_name>==<version>` format.
+pip freeze
+
+# Install from requirements.
+pip install -r requirements.txt
+
+# Generates `requirements.txt` containing a list of all installed Python packages in your environment, (env+global)
 pip freeze > requirements.txt
+
+# scans your project and creates `requirements.txt` with only used packages.
+pip install pipreqs
+pipreqs . --force 
+
+# Note: `pipreqs` does not delete or uninstall packages.
 ```
+
 
 Note:
 - **`pip`**: Used in the command line/terminal to install Python packages.
@@ -85,25 +109,23 @@ Virtual environments are a fundamental tool in Python development, allowing you 
 
 *Note:* The `venv` module is not a standalone command; it must be run as a module/script using the `-m` option.
 
+
+ **Create** Virtual Environment using `venv` (Built-in Module)
 ```sh
-
-#----- Create using `venv` (Built-in Module) -------
-
-# Create a Virtual Environment
+# Create a Virtual Environment in /myenv
 python -m venv myenv 
 
 # Activate (Window)
 myenv\Scripts\activate
+# or
+.\myenv\Scripts\activate
 
 # Now  install packages in Virtual env
 pip install package_name 
+```
 
-#deactivate
-deactivate
-
-
-#or -------- Create using `virtualenv` (Third-Party Package) ------
-
+**Create** Virtual Environment using `virtualenv` (Third-Party Package)
+```sh
 # install virtual env
 pip install virtualenv
 
@@ -111,6 +133,18 @@ pip install virtualenv
 virtualenv myenv
 
 # Activate, Intsall, Deactivate using same method
+```
+
+**Deactivate** Virtual Environment
+```sh
+# deactivate the current virtual environment
+deactivate
+```
+
+**Delete** Virtual Environment
+```sh
+# Delete the existing virtual environment folde
+rmdir /s /q venv 
 ```
 
 ---

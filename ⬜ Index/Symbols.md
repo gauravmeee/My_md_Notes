@@ -50,8 +50,20 @@ Eta Η, η
 Delta ∂
 Theta Θ, θ
 Sigma ∑
-Subscript No. ₀₁₂₃₄₅₆₈₉
+Subscript No. ₀₁₂₃₄₅₆₈₉ ⁺
+SuperScript No. ⁰¹²³⁴⁵⁶⁷⁸⁹
 Subscript Char ᵢ ⱼ ₘ ₗ
+
+Sets:
+Subset ⊂, ⊆, ⫋ ⊄
+Super Set, ⊇ ⊃
+Intersection ∩, 
+Union: ∪
+Empty set : ∅
+
+Project Π
+Cartesian Product/Cross Product
+⨝ Natual Join
 ```
 
 ```
@@ -61,6 +73,11 @@ Subscript Char ᵢ ⱼ ₘ ₗ
 ├────┼────┤
 │    │    │
 └────┴────┘
+
+┌────────┐
+│        │
+│        │
+└────────┘
 ```
 
 ```
