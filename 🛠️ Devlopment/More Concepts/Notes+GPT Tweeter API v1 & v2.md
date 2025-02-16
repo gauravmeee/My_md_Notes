@@ -139,10 +139,3 @@ Twitter API **v1.1** and **v2** are different versions of the Twitter API provid
         print(content)
     ```
     
-
----
-
-### **Recommendation**
-
-- Start with **API** for reliable, structured, and ethical data extraction.
-- Only consider **scraping** if your use case absolutely requires bypassing API limits but be aware of the legal and technical risks involved.

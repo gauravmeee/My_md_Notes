@@ -58,4 +58,5 @@ Start typing the new variable name. All selected occurrences will be renamed sim
 5. `C/C++(~Microsoft)` : C/C++ IntelliSense, debugging, and code browsing.
 6. `Tailwind CSS IntelliSense (~Tailwind Labs)` : Intelligent Tailwind CSS tooling for VS Code
 7. `Prettier`
--
+8. `Competitive Programming Helper (cph) (~Divyanshu Agrawal)` : Makes judging, compiling, and downloading problems for competitve programming easy.
+

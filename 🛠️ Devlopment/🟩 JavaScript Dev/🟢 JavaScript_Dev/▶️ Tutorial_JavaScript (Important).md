@@ -97,7 +97,7 @@ console.log(newArr) // 14
 # [Error Handling: try and catch | JavaScript Tutorial in Hindi #60 (Harry)](https://www.youtube.com/watch?v=WRNBQCl_cPU&ab_channel=CodeWithHarry)
 
 
-
+---
 # [THIS and arrow function in javascript | chai aur javascript(Chai aur Code)](https://www.youtube.com/watch?v=9ksqBa8_txM&t=10s&ab_channel=ChaiaurCode)
 
 this in global statement in browser -> point to window
@@ -126,3 +126,37 @@ const addTwo = (numl, num2) => ( numl + num2 )
 const addTwo = (numl,num2) => numl + num2
 ```
 
+---
+# [Immediately Invoked Function Expressions IIFE (Chai aur Code)](https://youtu.be/GAIbn16Iytc)
+
+---
+
+# [Function Reference vs Function Call]
+
+The function executes immediately when the component renders.
+```jsx
+const onDelete = () => {
+  console.log("Function executed");
+};
+
+<button onClick={onDelete()}>Delete</button>;
+```
+    
+
+The `onDelete` function runs only when the button is clicked.
+```jsx
+const onDelete = () => {
+  console.log("Button clicked");
+};
+
+<button onClick={onDelete}>Delete</button>;
+```
+
+The `onDelete` function is invoked with an argument when the button is clicked.
+```jsx
+const onDelete = (id) => {
+  console.log(`Deleting item with ID: ${id}`);
+};
+
+<button onClick={() => onDelete(1)}>Delete</button>;
+```

@@ -17,11 +17,5 @@ Loading is **synchronous**(step by step) for `require` on the other hand `im
 - Explicitly marks a file as an ES module, regardless of the `package.json` configuration.
 - Avoids ambiguity when no `package.json` is present or when the file is standalone.
 
-
 Study Middleware by `piyush garg`. He said middleware are like plugins
 
-
----
-
-Study and make notes of asynchronous programming
-study and make notes of middleware

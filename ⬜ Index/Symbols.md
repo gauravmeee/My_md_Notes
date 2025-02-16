@@ -105,12 +105,14 @@ myApp/
 🖥️ - Technical 
 🚀 - Project
 
-🟡 - JavaScript/Python Development
-🟩 - Frontend/Backend/Database Development
-🟥 - Commands in Development
-	⏹️ - Window Commands
-	⏺️ - Git/Gnu Commands
-	➡️ - npm/pip/yarn Commands
+🟨 - Python Dev
+🟩 - JavaScript Dev
+🟦 - HTML, CSS etc
+🟥 - Dev Tools
+⏹️ Commands in Development
+	Window Commands
+	Git/Gnu Commands
+	npm/pip/yarn Commands
 
 - Attribute Prefix - 
 ⚡ - Cheatsheet 

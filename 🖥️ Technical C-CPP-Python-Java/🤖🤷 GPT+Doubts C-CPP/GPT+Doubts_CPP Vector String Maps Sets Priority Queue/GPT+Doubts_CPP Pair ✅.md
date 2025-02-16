@@ -11,7 +11,7 @@ unordered_map<int,int> mp{{1,2},{3,4},{5,6}}
  `m.second` access second element of pair
 
 ---
-# Pair (By Chat GPT)
+# Pair
 
 In C++, a `pair` is a simple container defined in the `<utility>` header that holds two values, which may be of different types. The types of these values are specified as template parameters. Here's a quick guide on using `pair`:
 
