@@ -37,6 +37,12 @@ common Unix-like shells that are available on Windows **1. Bash (Bourne Again Sh
 - It is a redirection operator. It redirects the output of a command to a file.
 ---
 
+Clean Terminal
+```
+clear
+```
+
+---
 **Remove a file** (In Window)
 ```sh
 # Remove a file

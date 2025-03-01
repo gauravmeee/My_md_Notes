@@ -2,6 +2,12 @@
 
 ---
 
+Open VS Code from Terminal like `cmd`
+```sh
+code .
+```
+
+---
 ### Opens the `my_project` folder in the current VS Code window. 
 & If no window is open, it will create a new one.
 

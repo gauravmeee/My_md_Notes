@@ -154,9 +154,13 @@ rmdir /s /q venv
 ```sh
 # install Flask
 pip install Flask
+```
 
+```python
 # Create app.py and Run the application
 python app.py
 ```
 
 *Note :* Jinja2 templating is Included with flask so no explicitly install required
+
+---
