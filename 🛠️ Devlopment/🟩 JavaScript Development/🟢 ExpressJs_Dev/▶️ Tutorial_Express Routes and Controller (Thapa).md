@@ -2,6 +2,40 @@
 
 [Playlist (Thapa Technical)](https://www.youtube.com/playlist?list=PLwGdqUZWnOp1ve9jXCz9apbouv-eAMi6E)
 
+---
+
+### Structure
+
+**Express:**
+```js
+const express = require("express");
+
+// Server.js
+const app = express();
+app.use(path, middleware)
+app.get(path, callback)
+app.listen(port, callback)
+
+// Router.js
+const router = express.Router();
+router.route(path).get(handler)
+
+// Controller.js
+// ...No special Function...
+```
+
+**MongoDB**
+```js
+const mongoose = require("mongoose");
+
+// DB.js
+mongoose.connect(uri, options)
+
+// Model.js)
+mongoose.Schema(definition, options)
+mongoose.model(name, schema)
+```
+
 --- 
 
 # [#1: Introduction to Build REST API with Node, Express, Mongo & Mongoose in Hindi](https://www.youtube.com/watch?v=GRS6tQfSfqU&list=PLwGdqUZWnOp1ve9jXCz9apbouv-eAMi6E&index=1&ab_channel=ThapaTechnical)
@@ -16,9 +50,60 @@
 - `npm init -y`
 - `echo>app.js`
 
+**Setting a Basic Route in `app.js`**
+```js
+const express = require("express");
+const app = express();
+
+const PORT = process.env.PORT || 5000;
+
+// Route
+app.get("/", (req, res)=>{
+	res.send
+})
+
+// Listen Using Asynchronous Arrow Function
+const start = async () =>{
+	try{
+		app.listen(port, ()=>{
+			`${PORT} Yes I am connected`;
+		})
+	} catch(error){
+		console.log(error);
+	}
+};
+```
+
+Run `app.js`
+```sh
+node app.js
+```
+Output
+```
+Yes I am connected
+```
+>Hurray , Data is stored in MongoDB with Collection name `products` plural automatically
+
+
+Note: 
+- **GET** -> `.get(route, callback)`. this callback is a middleware and have access to `req`, `res`, and `next`.
+- **LISTEN** -> `.listen(port, hostname, backlog, callback)` , All optional except `port`
+
+**Learning from `app.js` (Express App & Server)**
+```js
+const app = express(); // Creates an Express application instance.
+
+app.get(path, callback)
+// path(String) :Route URL ("/api/users").
+// callback(Function) :Handler function (req, res) => {...}.
+
+app.listen(port, callback)
+// port(Number) : Port number where the server runs (5000).
+// callback(Function, Optional) : Runs after the server starts.
+```
+
 ---
-# [Rest API #2: Lets create Server with Express JS](https://youtu.be/DMx3ace8L-8?list=PLwGdqUZWnOp1ve9jXCz9apbouv-eAMi6E)
-## Basic Express Setup and using `dotenv` & `mongoose`
+# Basic Express Setup and using `dotenv` & `mongoose`
 
 **Define environment variables** in a `.env` file:
 ```sh
@@ -27,7 +112,7 @@ PORT=5000
 MONGODB_URL=mongodb://localhost:27017/myDatabase
 ```
 
-**Loading Environment Variables in `App.js`** Using `dotenv`
+**Loading Environment Variables in `app.js`** Using `dotenv`
 ```js
 // Import dotenv
 const dotenv = require("dotenv");
@@ -72,6 +157,15 @@ Notes:
 3. **Middleware:** Add any required middleware (e.g., `express.json()`).
 4. **Keep `.env` Secure:** Add `.env` to `.gitignore`.
 
+
+**Learning DB.js** (MongoDB Connection)
+```js
+mongoose.connect(uri, options)
+
+// uri(String) : MongoDB connection string (`"mongodb://localhost:27017/myDB"`).
+// options(Object, Optional) : Additional configurations like:  
+```
+
 ---
 
 # [Rest API #3: Setup Routes & Controllers using Express Routers in Hindi](https://www.youtube.com/watch?v=AzmWXD-uGjI&ab_channel=ThapaTechnical)
@@ -93,7 +187,7 @@ So we use Routes and Controller
 - Routes -> Tells what to do
 - Controller -> Then it do
 
-Added `Routes/products.js` and `controller/products.js`
+**Added `Routes/products.js` and `controller/products.js` :**
 ```
 server
 ├── controllers
@@ -103,7 +197,7 @@ server
 └── app.js
 ```
 
-**Setup Controller `controllers/products.js` :** Define the Function to be used for each Routes
+**1. Setup Controller (`controllers/products.js`) :** Define the Functions (And Import and used in **Routes** to Perform different  operation for different routes
 ```js
 const getAllProducts = async (req, res)=>{
 	res.status(200).json(msg: "I am getAllProducts"});
@@ -116,7 +210,7 @@ const getAllProductsTesting = async (req, res)=>{
 module.exports = {getAllProducts, getAllProductsTesting};
 ```
 
-**Setup Router `routes/proudcts.js`:** Define the routes and Use the Functions in each routes
+**2. Setup Router (`routes/proudcts.js`):** Define the routes and Use the Functions in each routes
 ```js
 const router = express.Router(); // import router
 const {getAllProducts, getAllProductsTesting} = require("../controllers/products"); // import controller
@@ -129,7 +223,9 @@ router.route("/testing").get(getAllProductsTesting);
 module.exports = router;
 ```
 
-**Setup Server (`app.js`):** 
+`app.get(route, callback)` -> `router.route(route).get(callback)`
+
+**3. Setup Server (`app.js`):** 
 ```js
 // import Router
 const productsRoutes = require("./routes/products"); 
@@ -146,16 +242,48 @@ app.use("/api/products", productsRoutes);
 // - localhost:5000/api/products/testing -> getAllProductsTesting
 ```
 
+
+
+**Learning from `app.js` (Express App & Server)**
+```js
+app.use(path, middleware)
+// path(String, Optional) : URL path (default: "*" for all routes).
+// middleware(Function) : Middleware function (e.g., `express.json()`).
+```
+
+**Learning from `Router.js`** (Routing System)
+```js
+const router = express.Router(); // Creates a new router instance for modular routes.
+
+router.route(path).get(handler)
+// path(String) : API endpoint ("/users").
+// handler(Function) : Handles the request.
+```
+
+**Learning from `Controller.js`** (Request Handlers)
+```js
+// Defines functions to handle requests (e.g., `getUsers`, `createUser`).
+// Functions receive `(req, res)` objects and perform database operations.
+```
+---
+
+# [Rest API #4: Testing API using Postman & Thunderbolt ❤️‍🔥](https://youtu.be/ci085YHwduo) 
+
+❌ Not much important
+
 ---
 
 # [Rest API #5: Introduction to MongoDB & Mongoose || Connect Backend to Database ](ZwkXyI&ab_channel=ThapaTechnical)
+
 
 mongoose Connection function
 ```js
 mongoose.connect(uri, options, callback)
 ```
 
-Added `db/connect.js`
+Note: - Get the MongoDB Uri through setting up mongodb at local or through Cloud Atlas
+
+**Added `db/connect.js` :**
 ```
 server
 ├── controllers
@@ -167,7 +295,7 @@ server
 └── app.js
 ```
 
-Connect MonogoDB using its framework mongoose in `dp/connect.js` using mongoose
+**Setup MongoDB: `db/connect.js` :** Connect MonogoDB using its framework mongoose in `db/connect.js` using mongoose
 ```js
 // import mongoose
 connect mongoose = require("mongoose");
@@ -183,14 +311,15 @@ const connectDB = ()=>{
 	});
 };
 
-module.exports = connectDB;
+// Named export but still can be exported imported without `{}` because it's the only export.
+module.exports = connectDB; // Export as an object
 ```
 
-Import `db/connect.js` and use `connectDB()` in `App.js`
+**Update `app.js`** Import `db/connect.js` and use `connectDB()` in `app.js`
 ```js
 ...
 // import connectDB
-const connectDB = require("./db/connect.js");
+const connectDB = require("./db/connect.js"); 
 
 // Express Logic.....
 
@@ -217,10 +346,71 @@ Note:
 - **States of a Promises:** Pending, Fulfilled and Rejected 
 - **Immutable:** Once a Promise is fulfilled or rejected, its state cannot change.
 ---
+# [Rest API #6: Secure Your Personal Data with DOTENV](https://youtu.be/qYDIyG5jz60)
 
+# Basic Express Setup and using `dotenv` & `mongoose`
+
+**Install Dotenv :**
+```sh
+npm i dotenv
+```
+
+**Create and Define Environment Variable in  `.env` file:**
+```sh
+# .env
+PORT=5000
+MONGODB_URL=mongodb://localhost:27017/myDatabase
+```
+
+**Import Dotenv and Load Environment Variables in `app.js`** Using `dotenv`
+```js
+// Import dotenv
+const dotenv = require("dotenv");
+
+// Load environment variables
+dotenv.config();
+
+const MONGODB_URL = process.env.MONGODB_URL; // MongoDB URL
+const PORT = process.env.PORT || 3000;      // Server port
+```
+
+- **Use `.env` for sensitive data like `PORT` and `MONGODB_URL`.
+
+**Updated `db/conntect.js` :** Make `connectDB()` to take URI argument
+```js
+...
+const connectDB = (uri)=>{
+	console.log("connect db");
+	return mongoose.connect( uri, {   
+		// option
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	});
+};
+...
+```
+
+**Update `app.js` :** Pass MongoDB URI directly to `connectDB()` through environment variable
+```js
+...
+const start = async() => {
+	try{
+	// pass uri from environment variable
+		await connectDB(process.env.MONGODB_URL);
+		app.listen(PORT, () => {
+			console.log(`${PORT} Yes I am connected`);
+		});
+	} catch (error) {
+		console.log(error),
+	}
+}
+...
+```
+
+---
 # [Rest API #7: Create Schema & Model (Collection & Tables) using Mongoose & Express JS](https://www.youtube.com/watch?v=vUW9DoWwMOE&ab_channel=ThapaTechnical)
 
-Let Our data is like this
+Let Our data is `Products` like this, that is an Array of an object i.e. `"products"=[{},{},{}...]`
 ```json
 {
 	"Proudcts":[
@@ -252,7 +442,7 @@ Let Our data is like this
 
 Now We need to define the Schema on models
 
-Added  `models/products.js`
+**Added  `models/products.js` :**
 ```
 server
 ├── controllers
@@ -298,6 +488,7 @@ module.exports = mongoose.model("Product", productSchema)
 ```js
 const mongoose = require("mongoose");
 
+// mongoose.Schema(definition,options)
 const productSchema = new mongoose.Schema({
 			name : {
 				type: String,
@@ -331,10 +522,25 @@ const productSchema = new mongoose.Schema({
 module.exports = mongoose.model("Product", productSchema)
 ```
 
+
 Note:
 - All attributes of each field are in lowercase `type`, `required`, `default`, `enum`, `message`, `values` in mongoose
 - All attributes values are in Capitalize form `String`, `Number`, `Boolean`, `Date` in mongoose
 - Export model name should be singular `Procuct` in mongoose `model` function, it will automatic pluralize to `Products` in mongoDB Database 
+
+**Learning from `Model.js`** (Schema & Model Definition)
+```js
+mongoose.Schema(definition, options)
+
+// definition(Object) : Defines the structure of the collection (fields, types).
+
+// options(Object, Optional) : Extra settings like timestamps, validation, etc.
+
+mongoose.model(name, schema)
+// name(String) : Collection name (Write in Singular form, Automatically convert into Plural on Database)
+// schema(Schema Object) : Schema definition created using `mongoose.Schema().
+```
+
 
 ---
 
@@ -377,9 +583,10 @@ Let our Data is stored in `prodcuts.json`
 ```
 - Values that are not present for a product, like rating, Date is Autofill by our `model/product.js` if set default
 
-Setup `productDB.js`
+**Setup `productDB.js` :**
 ```js
 require("dotenv").config();
+
 const connectDB = require("./db/connect"); // import `connect.js`
 const Product = require("/models/product"); // import `models/product.js`
 
@@ -400,9 +607,21 @@ const start = async() => {
 start();
 ```
 
-For this Video run the Product.js Independently
+run and test `Product.js` Independently without Importing in `app.js`  for now
 ```sh
 node productDB.js
 ```
+Output
+```
+success
+```
+>Hurray , Data is stored in MongoDB with Collection name `products` plural automatically
 
-Hurray , Data is stored in MongoDB with Collection name `products` plural automatically
+
+**Learning from `productDB.js`** 
+```js
+// Product = mongoose.model() -> Product.create(data)
+mongoose.model().create(data) // inserts new document(s) into the corresponding collection/Model
+
+// data(Object | Array) : Document(s) to insert into the database. Example: Product.create(ProductJSON)
+```

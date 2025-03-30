@@ -122,3 +122,30 @@ npm i
    ```
 
 These packages are often used together in an Express application to handle environment configuration, database interactions, cross-origin requests, and request body parsing.
+
+
+---
+# Remove unused dependencies from your Node.js project
+
+**Identify Unused Dependencies**
+```sh
+npx depcheck
+#or
+npx npm-check
+```
+
+**Remove Unused Dependencies from** `package.json`, `package-lock.json` & `node_modules`
+```
+npm uninstall <package_name1> <package_name2> ...
+```
+
+**Prune Extraneous Packages** : 
+```sh
+npm prune
+```
+- To remove any remaining extraneous packages those in `node_modules` but not listed in `package.json`
+
+**Remove Development Dependencies (Optional)**
+```sh
+npm prune --production
+```

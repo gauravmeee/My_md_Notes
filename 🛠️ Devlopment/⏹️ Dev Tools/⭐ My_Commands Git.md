@@ -126,3 +126,48 @@ Here's a summary of your note on creating and pushing a new branch:
    ```
 
 _Note:_ This process is useful for managing different versions or features within the same project by using separate branches.
+
+
+---
+
+I'll help you revert all changes up to the last commit. There are two main ways to do this depending on whether you want to:
+
+1. Discard all changes but keep the files (safer option)
+2. Hard reset to the last commit (more aggressive option)
+
+Let me show you both approaches:
+
+1. First, let's see what changes are currently pending:
+
+```bash
+git status | cat
+```
+I apologize for the Windows command issue. Let me modify the command for Windows:
+
+```bash
+git status
+```
+To revert all changes to the last commit, you have two options:
+
+Option 1 (Safer - Recommended):
+This will discard changes but keep your files:
+
+```bash
+git restore .
+```
+Let me provide both commands and you can choose which one to use:
+
+1. **Safer Option (Recommended):**
+```bash
+git restore .                  # Restore tracked files
+git clean -fd                  # Remove untracked files and directories
+```
+
+1. **Aggressive Option:**
+```bash
+git reset --hard HEAD          # Hard reset to last commit
+git clean -fd                  # Remove untracked files and directories
+```
+
+- `git restore .` is safer and more modern
+- `git reset --hard HEAD` is more aggressive and will completely reset everything

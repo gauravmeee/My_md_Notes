@@ -239,4 +239,56 @@ async function getJobs() {
 
 ---
 
+## **Update 3** : Use `cache: 'no-cache'` in Next.js Fetch Requests ✅
 
+Yes, that's correct. This code has the same caching setup as we just discussed:
+
+```javascript
+const response = await fetch('https://flask-contest-api.onrender.com/', {
+  next: { revalidate: 3600 }, // Revalidate every hour
+  cache: 'no-cache' // Force a network request
+});
+```
+
+Without the `cache: 'no-cache'` option, you were experiencing the issue where the data wasn't updating even after the revalidation period. This configuration fixes that problem by ensuring fresh data is fetched when revalidation occurs.
+    
+
+---
+## **Update 4** : Solving `cache: 'no-cache'` and `next: { revalidate: 3600 }` are now considered conflicting strategies ✅`
+
+
+In newer versions of Next.js, the fetch caching system has been updated
+
+Instead of using both, you can use the `fetchCache` option in your Next.js config to ensure data is always revalidated when needed. Here's a recommended approach:
+
+#### `apps/jobs/page.js`
+```javascript
+"use server";
+// In an API route or server action where you update data
+import { revalidateTag } from "next/cache";
+
+// Force revalidation of all data with this tag
+export async function revalidateContests() {
+  revalidateTag("jobs"); // `revalidateTag` should be inside a server action (`"use server"`) or an API Route
+}
+```
+
+```js
+// In your fetch call
+const response = await fetch('https://flask-contest-api.onrender.com/https://flask-jobs-api.onrender.com/update', {
+  next: { 
+    revalidate: 3600,
+    tags: ['jobs'] // Add a cache tag
+  }
+});
+```
+
+Then, whenever you need to force an update (e.g., when you know new contest data is available), you can revalidate the tag from your code:
+
+This approach gives you the best of both worlds:
+- Regular cache revalidation every hour
+- The ability to force an update when needed
+- No conflicting cache options
+- Proper Next.js 14 caching behavior
+
+---

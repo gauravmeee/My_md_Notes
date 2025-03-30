@@ -64,3 +64,12 @@ K-Map
 Right shift left shift
 
 
+## Core CS
+
+- **OS** ( One shot Gate Wallah ) ✅
+- **DBMS** ( One shot Gate Wallah ) 
+- **OOPS** (Harry Tutorial) ✅
+- **Computer Network** ( One shot Gate Wallah ) 
+- **COA** ( One shot Gate Wallah) ✅
+- **Compiler Design** ( One shot Gate Wallah )
+- **Theory of Computation** ( One shot Gate Wallah)

@@ -208,152 +208,87 @@ export default async function ContestsPage() {
 };
 ```
 
+#### `apps/contests/page.js`
+```jsx
+// Function to fetch contests from the API
+async function getContests() {
+  try {
+    // Fetch data from the API with revalidation set to 1 hour (3600 seconds)
+    const response = await fetch('https://flask-contest-api.onrender.com/', { 
+      next: { revalidate: 3600 } // Ensures data is updated every hour
+      cache: 'no-cache' // Force a network request
+    });
 
-
+//  Remain Code
+```
 
 
 ---
 
-With local cache and upstash cache
-local redis cache
-```python
-import redis
+## **Update 2** : Use `cache: 'no-cache'` in Next.js Fetch Requests ✅
 
-import json
 
-from platforms import atcoder, codechef, codeforces, hackerearth, hackerrank, geeksforgeeks
+Even with `next: { revalidate: 3600 }` set to revalidate data every hour, the data wasn't updating after the revalidation period expired.
 
-  
+**Solution: `cache: 'no-cache'`**
 
-# Connect to Redis
+Adding `cache: 'no-cache'` to the fetch options ensures that when Next.js attempts to revalidate the data after the specified time period, it will:
 
-redis_client = redis.StrictRedis(host="localhost", port=6379, decode_responses=True)
+Without this setting, Next.js might use stale data from the HTTP cache even when attempting to revalidate, causing your contest data to appear outdated despite setting a revalidation period.
 
-  
-
-def fetchContests():
-
-    cached_data = redis_client.get("contests_data")
-
-    if cached_data:
-
-        return json.loads(cached_data)  # Return cached results if available
-
-  
-
-    # Fetch new contest data if cache is empty
-
-    contests = []
-
-    contests.extend(codeforces.getCodeforcesContests())
-
-    contests.extend(codechef.getCodechefContests())
-
-    contests.extend(hackerrank.getHackerrankContests())
-
-    contests.extend(hackerearth.getHackerearthContests())
-
-    contests.extend(geeksforgeeks.getGeeksforgeeksContests())
-
-    contests.extend(atcoder.getAtCoderContests())
-
-  
-
-    contests = sorted(contests, key=lambda contest: contest['startTime'])
-
-    result = {"contests": contests}
-
-  
-
-    # Store in Redis for 30 minutes (1800 seconds)
-
-    redis_client.setex("contests_data", 1800, json.dumps(result))
-
-  
-
-    return result
+```js
+// Function to fetch contests from the API
+async function getContests() {
+  try {
+    // Fetch data from the API with revalidation set to 1 hour (3600 seconds)
+    const response = await fetch('https://flask-contest-api.onrender.com/', { 
+      next: { revalidate: 3600 } // Ensures data is updated every hour
+      cache: 'no-cache'
+    });
 ```
 
-upstash cloud redis cache
-```python
-# Cloud Cache Upstash-Redis
+There's an important distinction here between different layers of caching that are occurring in your Next.js application:
+1. **Fetch API Cache** - The `cache: 'no-cache'` option specifically controls the HTTP-level cache that the `fetch` API uses. This prevents caching at the network request level.
+2. **Next.js Route Cache** - The `next: { revalidate: 3600 }` setting controls Next.js's own server-side route cache, which is a completely separate caching mechanism that operates at the page/component level.
 
-import redis
+So what's happening is:
+- You're disabling the low-level network cache with `cache: 'no-cache'`
+- BUT you're still enabling Next.js's higher-level route cache with the revalidation setting
 
-import json
+---
+## **Update 4** : Solving `cache: 'no-cache'` and `next: { revalidate: 3600 }` are now considered conflicting strategies ✅`
 
-import os
 
-from platforms import atcoder, codechef, codeforces, hackerearth, hackerrank, geeksforgeeks
+In newer versions of Next.js, the fetch caching system has been updated
 
-  
-  
+Instead of using both, you can use the `fetchCache` option in your Next.js config to ensure data is always revalidated when needed. Here's a recommended approach:
 
-redis_host = "gorgeous-rodent-12506.upstash.io"  # Set this in your Vercel environment variables
+#### `apps/jobs/page.js`
+```javascript
+"use server";
+// In an API route or server action where you update data
+import { revalidateTag } from "next/cache";
 
-redis_port = 6379
-
-redis_password = "ATDaAAIjcDEzNzEyOTQxM2M0ZmQ0NmI2OGZkZTk0OTk4OWY4Mzg5NXAxMA"
-
-  
-
-redis_client = redis.StrictRedis(
-
-    host=redis_host,
-
-    port=redis_port,
-
-    password=redis_password,
-
-    decode_responses=True,
-
-    socket_timeout=10,  # Timeout in seconds
-
-    ssl=True  # Enable SSL
-
-)
-
-  
-
-def fetchContests():
-
-    cached_data = redis_client.get("contests_data")
-
-    if cached_data:
-
-        return json.loads(cached_data)  # Return cached results if available
-
-  
-
-    # Fetch new contest data if cache is empty
-
-    contests = []
-
-    contests.extend(codeforces.getCodeforcesContests())
-
-    contests.extend(codechef.getCodechefContests())
-
-    contests.extend(hackerrank.getHackerrankContests())
-
-    contests.extend(hackerearth.getHackerearthContests())
-
-    contests.extend(geeksforgeeks.getGeeksforgeeksContests())
-
-    contests.extend(atcoder.getAtCoderContests())
-
-  
-
-    contests = sorted(contests, key=lambda contest: contest['startTime'])
-
-    result = {"contests": contests}
-
-  
-
-    # Store in Redis for 30 minutes (1800 seconds)
-
-    redis_client.setex("contests_data", 604800, json.dumps(result)) # 604800 seconds -> 1 week cache
-
-  
-
-    return result
+// Force revalidation of all data with this tag
+export async function revalidateContests() {
+  revalidateTag("contests"); // `revalidateTag` should be inside a server action (`"use server"`) or an API Route
+}
 ```
+
+```js
+// In your fetch call
+const response = await fetch('https://flask-contest-api.onrender.com/', {
+  next: { 
+    revalidate: 3600,
+    tags: ['contests'] // Add a cache tag
+  }
+});
+```
+
+Then, whenever you need to force an update (e.g., when you know new contest data is available), you can revalidate the tag from your code:
+
+This approach gives you the best of both worlds:
+- Regular cache revalidation every hour
+- The ability to force an update when needed
+- No conflicting cache options
+- Proper Next.js 14 caching behavior

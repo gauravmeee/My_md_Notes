@@ -167,4 +167,15 @@ echo -e "Line 1\nLine 2\nLine 3"
 
 ---
 
+### Temporarily Allow Scripts in Powershell
+
+ PowerShell has a restrictive execution policy that prevents scripts from running. 
+
+Run the following command in PowerShell as Administrator:
+
+`powershell`
+```sh
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
 

@@ -11,7 +11,7 @@ Soho, JMD, Aria, PayU, AKM Global, ArgenBright Group, Spinny, Spaze, Spinny  sky
 ↥↧ ⟷ ↕ ⇄⇅ 
 ⤺⤻ ↶ ↷
 ⤴⤵
-
+↳
 | │ ┃
 
 - _ ─ ━
@@ -45,11 +45,14 @@ Soho, JMD, Aria, PayU, AKM Global, ArgenBright Group, Spinny, Spaze, Spinny  sky
 Infinity ∞
 equation, ≠, ≤
 Epsilon Ε , ε, ϵ
+Alpha α 
+Beta β
 Zeta Ζ, ζ
 Eta Η, η
 Delta ∂
 Theta Θ, θ
-Sigma ∑
+Sigma ∑, σ
+Pi Π, π
 Subscript No. ₀₁₂₃₄₅₆₈₉ ⁺
 SuperScript No. ⁰¹²³⁴⁵⁶⁷⁸⁹
 Subscript Char ᵢ ⱼ ₘ ₗ
@@ -61,7 +64,10 @@ Intersection ∩,
 Union: ∪
 Empty set : ∅
 
-Project Π
+
+And ∧
+Or ∨
+Project Π, π
 Cartesian Product/Cross Product
 ⨝ Natual Join
 ```

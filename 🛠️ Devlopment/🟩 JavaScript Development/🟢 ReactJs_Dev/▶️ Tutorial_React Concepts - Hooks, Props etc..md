@@ -221,7 +221,7 @@ function App(){
 		<>
 		<counterContext.Provider value={count}>
 			<Navbar/>
-		</counterContext>
+		</counterContext.Provider>
 		</>
 	)
 }

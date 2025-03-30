@@ -57,7 +57,41 @@ if __name__ == "__main__":
 ```
 ---
 
-## **Update 1:** Added Redis Cloud Cache ✅ on `upstash.com`
+## **Update 2:** Added Redis Local Cache ✅
+
+#### `contest_scrap.py`
+```python
+import redis
+import json
+
+from platforms import atcoder, codechef, codeforces, hackerearth, hackerrank, geeksforgeeks
+
+# Connect to Redis
+redis_client = redis.StrictRedis(host="localhost", port=6379, decode_responses=True)
+
+def fetchContests():
+    cached_data = redis_client.get("contests_data")
+    if cached_data:
+        return json.loads(cached_data)  # Return cached results if available
+    
+    # Fetch new contest data if cache is empty
+    contests = []
+    contests.extend(codeforces.getCodeforcesContests())
+    contests.extend(codechef.getCodechefContests())
+    contests.extend(hackerrank.getHackerrankContests())
+    contests.extend(hackerearth.getHackerearthContests())
+    contests.extend(geeksforgeeks.getGeeksforgeeksContests())
+    contests.extend(atcoder.getAtCoderContests())
+    contests = sorted(contests, key=lambda contest: contest['startTime'])
+    result = {"contests": contests}
+
+    # Store in Redis for 30 minutes (1800 seconds)
+    redis_client.setex("contests_data", 1800, json.dumps(result))
+    return result
+```
+
+---
+## **Update 2:** Added Redis Cloud Cache ✅ on `upstash.com`
 
 #### `contest_scrap.py`
 ```python
@@ -132,3 +166,38 @@ REDIS_PASSWORD=ATDaAAIjcDEzNzEyOTQxM2M0ZmQ0NmI2OGZkZTk0OTk4OWY4Mzg5NXAxMA
 ```
 
 ---
+
+
+## **Update 3** : Solving `cache: 'no-cache'` and `next: { revalidate: 3600 }` are now considered conflicting strategies ✅`
+
+
+In newer versions of Next.js, the fetch caching system has been updated
+
+Instead of using both, you can use the `fetchCache` option in your Next.js config to ensure data is always revalidated when needed. Here's a recommended approach:
+
+#### `apps/contests/page.js`
+```javascript
+// In an API route or server action where you update data
+import { revalidateTag } from 'next/cache';
+
+// Force revalidation of all data with this tag
+revalidateTag('contests');
+
+...
+
+// In your fetch call
+const response = await fetch('https://flask-contest-api.onrender.com/', {
+  next: { 
+    revalidate: 3600,
+    tags: ['contests'] // Add a cache tag
+  }
+});
+```
+
+Then, whenever you need to force an update (e.g., when you know new contest data is available), you can revalidate the tag from your code:
+
+This approach gives you the best of both worlds:
+- Regular cache revalidation every hour
+- The ability to force an update when needed
+- No conflicting cache options
+- Proper Next.js 14 caching behavior
