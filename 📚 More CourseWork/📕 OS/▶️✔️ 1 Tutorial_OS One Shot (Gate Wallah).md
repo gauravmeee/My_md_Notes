@@ -30,7 +30,7 @@
 	- Degree of Multiprogramming > 1
 	- CPU Scheduling and Better Resource Utilization (like when P1 doing I/O operation, Execute P2)
 3. **Multi-Tasking OS**
-	- Type of Multi-Programming in Which Scheduling Process is fixed i.e. Round Robin
+	- Type of Multi-Programming in Which Scheduling Process is fixed i.e. Round Robin ⭐
 
 Note: Single Processor/CPU can run one Process at a time.
 
@@ -156,7 +156,7 @@ Context Switch:
                   reserved process by devices
 ```
 
-**Main Memory vs CPU stored state:**
+**Main Memory vs CPU stored state:** ⭐
 - Stored in both  CPU & Main Memory-> `Running`
 - Stored in Main memory Only -> `Ready, Blocked`
 - Not stored -> `New & Terminated`

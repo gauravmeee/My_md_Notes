@@ -256,9 +256,7 @@ Find All CKs of Relation R
 **Membership Test:**
 - Consider F is a given FD set, and X->Y be some FD. If (X)⁺ w.r.t FD set F contains `Y` then we say that X->Y is a member of FD set F
 
-.
-.
-.
+[??]
 
 **Primary Key (PK)** -> One of the C.K is chosen as P.K
 - P.K attributes are not allowed to take NULL values.
@@ -377,11 +375,10 @@ Decomposition               Decomposition
 `⊂` -> Not depen. Pres.     `⊃` -> Lossy Join
 ```
 
-Ques.......
+[Ques.......]
 
 ## Normal Forms
 
-[4:54](https://youtu.be/k6rDS0qQiO0?t=17697)
 
 `1NF`, `2NF`, `2NF`, `BCNF`, `4NF`
 
@@ -557,8 +554,7 @@ E2    | Bob     | D2        | IT
 E3    | Charlie | D1        | HR 
 
 - C.K = Eid
-- Eid → Ename (Fully Dependency)
-- Dept_id → Dept_name (Transitive dependency)
+- Eid → Dept_id → Dept_name (Transitive dependency)
 
 ❌ Not in 3NF due to transitive dependency.
 ```
@@ -589,25 +585,97 @@ E3    | Charlie | D1
 
 **Example:**
 ```
-    Employee  
-_Eid_ | Ename   | Dept_id   | Dept_name  
-------|---------|-----------|------------  
-E1    | Alice   | D1        | HR  
-E2    | Bob     | D2        | IT  
-E3    | Charlie | D1        | HR  
+         dept_advisor
+| s_ID | i_ID | dept_name |
+|------|------|-----------|
+| S1   | I1   | CS        |
+| S2   | I1   | CS        |
+| S3   | I2   | Math      |
+| S4   | I3   | Math      |
 
-- C.K = {Eid, Dept_id}  
-- Eid → Ename
-- Dept_id → Dept_name
+
+
+- C.K = {s_ID, dept_name} & {s_ID, i_ID} 
+- i_ID → dept_name (i_ID Not a Super Key)
+- s_ID, dept_name → i_ID
+
+❌ Not in 3NF, The relation is not in BCNF because the dependency i_ID → dept_name violates BCNF. Here, i_ID is not a super key of the relation, as the candidate keys are {s_ID, dept_name} and {s_ID, i_ID}.
 ```
 
-**Question**
+```
+Decompose into Two Relation Employee & Department
+           ⬇ to Transitive Dependency
+           
+    instructor            std_advisor   
+| i_ID | dept_name |      | s_ID | i_ID |
+|------|-----------|      |------|------|
+| I1   | CS        |      |  S1  |  I1  |
+| I2   | Math      |      |  S2  |  I1  |
+| I3   | Math      |      |  S3  |  I2  |
+                          |  S4  |  I3  |
 
-[5:29](https://youtu.be/k6rDS0qQiO0?t=19798) .................
+✅ Every non-trivial functional dependency has a super key on the left-hand side -> Relation is in BCNF 
+```
 
----
+#### Question Practice
 
-[5:48](https://youtu.be/k6rDS0qQiO0?t=20908)
+**Ques. Find the Normal form of the Relation** ⭐
+```
+R(A B C D E F)
+
+F = { AB -> CD
+	  D -> A
+	  C -> E
+	  B -> F }
+```
+
+**Solution:**
+```
+Step 1: Find candidate key
+- C.K (AB), (DB)
+```
+
+**Note:** We can't store multiple value in a single entry -> so By default Normal form of a relation is 1NF -> So a table which is not in 1NF is not a Valid Relation -> So we can't find C.K for it. and vice versal
+```
+we have find c.K for our relation `R`, so it is in 1NF atleast
+
+Step 2: Find Types of FD
+
+- AB -> CD (LHS(AB) is SK) : Satisfy BCNF -> BCNF
+- D -> A (PSCK -> PSCK) : Type 4 FD -> 3NF
+- C -> E (NPA -> NPA) : Type 3 FD -> 2NF
+- B -> F (PSCK -> PSCK) : Type 1 FD -> 1NF
+
+Type 4 FD -> Allowed in 3NF, but not in BCNF
+Type 3 FD -> Allowed in 2NF, but not in 3NF
+Type 1 FD -> Allowed in 1 NF, but not in 2NF
+```
+- PSCK -> Proper subset of a Candidate key
+- NPA -> Non Prime Attribute
+- SK -> Super key
+**Normal Form ->** Least of the highest Normal form satisfy by all the FDs, Here 1NF 
+```
+Ans : 1NF
+```
+
+**Ques. Find the Normal form of the Relation** ⭐
+```
+R (AB -> CD)
+
+F = {AB -> C
+	 BC -> D}
+```
+
+**Solution:**
+```
+AB -> C (LHS(AB)-> SK) : BCNF
+BC -> D (PSCK(B) + NPA(D)) : Type 2 FD -> 2NF
+
+Normal Form of the RElation: 2NF
+```
+
+****
+[5:48:00](https://youtu.be/k6rDS0qQiO0?t=20893) ✅
 # Query Languages
 
 **1. Relational Algebra**
@@ -619,6 +687,7 @@ E3    | Charlie | D1        | HR
 - Duplicate tuples may be present in the output
 
 ---
+[5:51:00](https://youtu.be/k6rDS0qQiO0?t=21124) ✅
 # Relational Algebra (RA)
 
 - **Query Condition** evaluates tuple by tuple on the database table, taken only one tuple at a time.
@@ -1031,18 +1100,19 @@ R ⟗ S
 ---
 ## Lossless Natural Join
 
+[5:51:00](https://youtu.be/k6rDS0qQiO0?t=28262) ✅
 
 **Lossless Natural Join** R decomposed into R1 and R2, this decomposition is lossless join decomposition if and only if
 
 1. Attribute of R1 ∪ Attribute of R2 = Attribute of R
 ```
-R1(ABC) ∪ R2(CDE) = R(ABCDEF) ❌
+R1(ABC) ∪ R2(CDE) = R(ABCDE) ❌
 R1(ABC) ∪ R2(CDE) = R(ABCDEF) ✅
 ```
 2. Attribute of R1 ∩ Attribute of R2 = ∅
 ```
-R1(ABC) ∩ R2(CDE) = R(ABCDE) ❌ 
-R1(ABC) ∩ R2(CDE) = R(ABCDE) ✅
+R1(ABC) ∩ R2(DE) = ∅ ❌ 
+R1(ABC) ∩ R2(CDE) = R(C) ✅
 ```
 3. Attribute of R1 ∩ Attribute of R2 is a candidate key of at least one of R1 or R2
 ```
@@ -1165,12 +1235,172 @@ Value of **Common Attribute** is Unique in at least one relation -> Lossless Joi
 1. Natural Join is Commutative. R1⨝R2 = R2⨝R1 (tuple wise)
 2. Natural Join is associative R1⨝(R2⨝R3) = (R1⨝R2)⨝R3
 
+#### Question Practices
 
-[8:49](https://youtu.be/k6rDS0qQiO0) to [10:07]
+[8:49](https://youtu.be/k6rDS0qQiO0) ✅
 
-Consider the following Relation....
+**Ques: Check whether the decomposition of the relation is lossy or lossless** 
+```
+R (A B C D E F)
+
+F = { AB -> C, BC->A, AC->B, B->D, AD->E, E->F}
+
+D = {R1(ABC), R2(ABDE), R3(EF)}
+```
+
+If there is any way that can join so, 
+
+**Solution:**
+```
+Step 1 : R1 ⨝ R2  
+- A ∩ B => AB
+- (AB)+ = {A, B, C, D, D, E, F} -> S.K of both -> we can join
+- R1 ⨝ R2 = (ABCDE)
+
+Step 2 : ABCDE ⨝ R3
+- ABCDE ∩ R3
+- (E)+ = {E,F} -> S.K of R3 -> We can join
+- (R1 ⨝ R2) ⨝ R3 = (ABCDEF) : 
+
+✅ Lossless Join
+```
+
+Joining in Incorrect Way (Lossy):
+```
+(R1 ⨝ R2) ⨝ R3 way
+
+R1      R2
+  ⬊ ∩ ⬋
+    = ∅       R3
+      ⬊  ∩  ⬋
+         = ∅
+
+❌ Lossy Join
+```
+
+**Note: ** Since **natural join is commutative and associative**, **some join order** leads to a **lossless join**.
+
+**If there exists any order in which relation can be joined such that join is lossless at every point of join, then overall decomposition is Lossless Join decomposition**
 
 ---
+[9:06:00](https://youtu.be/k6rDS0qQiO0?t=32797) ✅
+##### Division
+
+**Example 1: Retrieve Sid of Students who enrolled for all courses**
+```
+  Enroll
+| Sid| Cid| Fee |
+|----|----|-----|
+| S1 | C1 | 500 |
+| S1 | C2 | 700 |
+| S2 | C2 | 500 |
+| S3 | C2 | 700 |
+| S1 | C3 | 400 |
+| S3 | C3 | 300 |
+
+ Course
+| Cid| Name|
+|----|-----|
+| C1 | OS  |
+| C2 | DBMS|
+| C3 | OS  |
+```
+
+We are looking for `Sid`s in the `Enroll` table that are associated with all `Cids of Course table`
+```
+Important Attributes
+In Enroll -> Sid & Cid
+In Course -> Cid
+```
+
+Ans: **Π<sub>Sid,Cid</sub>(Enroll) ÷ Π<sub>Cid</sub>(Course)**
+
+
+**Derivation:** ⭐
+
+Step 1:
+```
+	ΠSid(Enroll)   X    ΠCid(Course)
+	   ↓                            ↓ 
+	  Sid          ⬇           Cid
+	  ----                     ----
+	  S1        Sid|Cid        C1
+	  S2       ----|----       C2
+	  S3        S1 | C1        C3				
+    		    S1 | C2
+			    S1 | C3
+			    S2 | C1
+			    S2 | C2
+				S2 | C3
+				S3 | C1
+				S3 | C2
+				S3 | C3
+				   ↑ 
+			Universal Relation
+
+```
+
+Step 2:
+```
+(ΠSid(Enroll) X ΠCid(Course)) -  ΠSid,Cid(Enroll)
+                                
+      Sid|Cid             ⬋        Sid|Cid
+     ----|----                    ----|----
+      S1 | C1        Sid|Cid       S1 | C1
+      S1 | C2       ----|----      S1 | C2
+      S1 | C3        S2 | C1       S2 | C2
+      S2 | C1        S2 | C3       S3 | C2
+      S2 | C2        S3 | C1       S1 | C3
+	  S2 | C3                      S3 | C3
+	  S3 | C1          ↑              ↑    
+	  S3 | C2    It contains Sid    Sid Enrolled
+	  S3 | C3	 of the students      for the Cid
+	             who did not enroll
+	             for some course
+	             along with Cids
+
+```
+
+Step 3:
+```
+ΠSid[ΠSid(Enroll) X ΠCid(Course)) -  ΠSid,Cid(Enroll)]
+↓
+Sid
+---
+S1        ← Sid of Students who did not enroll for at least one course
+S3
+
+
+```
+
+Step 4: 
+```
+ΠSid(Enroll) - ΠSid[ΠSid(Enroll) X ΠCid(Course)) -  ΠSid,Cid(Enroll)]
+   ↓         ⬊
+  Sid        Sid
+  ---        ----
+   S1         S1 ← Sid of Students enrolled for all the courses ✅
+   S2
+   S3
+	↑
+	Sid of Students who
+	enrolled for some courses
+```
+
+- **Π<sub>Sid, Cid</sub>(Enroll) ÷ Π<sub>Cid</sub>(Course)** = Π<sub>Sid</sub>(Enroll) - Π<sub>Sid</sub>(Π<sub>Sid</sub>(Enroll) × Π<sub>Cid</sub>(Course) - Π<sub>Sid, Cid</sub>(Enroll))
+
+**Example 2: Retrieve the values of A & B from relation R that are associated with all values of C in relation S**
+```
+R(ABC)  S(C,D)
+```
+**Ans:**  R ÷  Π<sub>C</sub>(S)  or  Π<sub>ABC</sub>(R) ÷   Π<sub>C</sub>(S) 
+
+[9:33:00](https://youtu.be/k6rDS0qQiO0?t=34365) to [10:07:00] Remaining
+
+
+---
+
+[10:07:00] ✅
 ## SQL
 
 - SQL is Non Procedural
@@ -1511,7 +1741,6 @@ SELECT  Sid
 		               -- ↑ Inner Query (Sub-query)
 ```
 This is the correct Query ✅
-
 
 
 **Order of Execution w.r.t independent Sub-query**

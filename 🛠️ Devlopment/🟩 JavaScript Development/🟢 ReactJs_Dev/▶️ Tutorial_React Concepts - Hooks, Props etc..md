@@ -162,7 +162,7 @@ Note:
 
 ## [The useContext hook in React | Sigma Web Development Course - Tutorial #116 (Harry)](https://www.youtube.com/watch?v=jIbXtgL0qrg&t=11s&ab_channel=CodeWithHarry)
 
-React Context provides a way to share data (like state, functions, or themes) across components without passing props through every level of the component tree (avoids prop drilling). 
+React **Context** provides a way to share data (like state, functions, or themes) across components without passing props through every level of the component tree (avoids prop drilling). 
 
 **Prop Drilling**: passing data from a parent component to a deeply nested child component by passing it as props through intermediate components, even if those intermediate components don't directly use the data.
 
@@ -181,11 +181,15 @@ We can achieve this by prop drilling, by transferring prop `count` from `app` to
 
 But this is not a good approach, as we are passing a value from one component to others, even it is not required.
 
+**Props Passing in Parent**
 ```jsx
 // src/App.jsx
 const [count, setCount] = useState(0);
 const App = () =>{ return( <Navbar count={count}/> }
+```
 
+**Props Using in Children and Passing to Nested Children**
+```js
 // src/components/Navbar.jsx
 const Navbar = ({count}) =>{ return( <Button count={count}/>) }
 
@@ -200,7 +204,7 @@ const Component1 = ({count}) =>{ return(<div> {count} </div>) }
 
 **Create Context**
 ```js
-// src/context/context.js
+// src/context.js
 
 // import `create` context hook
 import {createContext} from "react";
@@ -211,8 +215,10 @@ export const counterContext = createContext(0)
 
 **Provide Context in `App.jsx`**
 ```jsx
+// src/App.jsx
+
 // import the defined counter Context 
-import {counterContext} from './context/context'
+import {counterContext} from './context'
 
 const [count, setCount] = useState(0)
 function App(){
@@ -226,11 +232,16 @@ function App(){
 	)
 }
 ```
+- Passing value `count` value only -> `count` Read by Children
 
 **Consume Context in `Component1.jsx`**
 ```jsx
+// Component1.jsx
+
 // import `use` Context Hook
 import {useContext} from 'react'
+import { counterContext } from './context'
+
 
 const Component1 = () =>{
 	// use the context created inside `context.js` through `useContext`
@@ -248,22 +259,37 @@ const Component1 = () =>{
 **Provide `count` and `setCount` in `App.jsx`**
 ```jsx
 // App.jsx
-...
-return(
-	<counterContext.Provider value={{count, setCount}}>
-	</counterContext.Provider>
-)
-...
+
+// import the defined counter Context 
+import {counterContext} from './context'
+
+const [count, setCount] = useState(0)
+function App(){
+	return(
+		// wrap the component inside context Provider
+		<>
+		<counterContext.Provider value={{count, setCount}}>
+			<Navbar/>
+		</counterContext.Provider>
+		</>
+	)
+}
 ```
+- Passing  `setCount` also -> to Modify `count` by Children
 
 **Consume `count` and Display in `Component1.jsx`**
 ```jsx
+// Component1.jsx
+
+// import the defined counter Context 
+import {counterContext} from './context'
+
 // Component1.jsx
 const Component1 = () =>{
 	const value = useContext(counterContext)
 	return (
 		<div>
-		{value.counter} {/*count value*/}
+		{value.count} {/*count value*/}
 		</div>
 	)
 }
@@ -272,6 +298,9 @@ const Component1 = () =>{
 **Consume `setCount` and Update `count` from `Button.jsx`**
 ```jsx
 // Button.jsx
+
+// import the defined counter Context 
+import {counterContext} from './context'
 
 const Button = () =>{
 	const value = useContext(counterContext)
@@ -353,15 +382,14 @@ useEffect(() => {
 });
 ```
 **Advantages of `useRef`:**
-
 - **Persistence:** The value of `a.current` persists across renders.
 - **No Re-renders:** Unlike `useState`, changing `useRef` values does not trigger re-renders.
 
 **Comparison of Approaches:**
-
 - **Normal Variable:** Loses its updated value after every render.
-- **`useState`:** Triggers re-renders upon value change.
 - **`useRef`:** Retains the updated value across renders without causing re-renders.
+- `current` : **mutable property** (like a variable) on the object returned by `useRef`
+- Use `useState` to preserve a value **and trigger re-renders**, and `useRef` to preserve a value **without causing re-renders**.
 
 #### *Example Use Case 2: DOM Manipulation with `useRef`*
 
@@ -393,6 +421,117 @@ return (
 - `useRef` provides a reference(or access) to the DOM element, enabling style changes without manually querying the DOM (e.g., `document.getElementById`).
 - Changes made via `useRef` do not trigger re-renders.
 
+---
+
+# Use Memo Hook
+
+# Use Callback Hook
+
+# Use Reducer Hook
+
+
+---
+
+# Custom Hooks
+## [Create Custom Hooks in React 19: Step-by-Step Guide with Best Practices #66 (Thapa)](https://youtu.be/4fmYrIWl-4Q)
+
+
+**What is Custom Hooks?**
+- A **Custom Hook** is a function that starts with `use` and allows you to reuse stateful logic across components
+- Custom Hooks mean creating reusable functions using existing hooks to simplify and organize logic.
+
+
+Creating custom hooks in React is a powerful way to encapsulate logic and make your components cleaner and more maintainable.
+
+1. **Prefix with use:** Custom hooks must start with the word use. This convention ensures that hooks are easily identifiable and adhere to the hook rules.
+2. **Use Built-in Hooks:** Custom hooks should utilize React's built-in hooks (e.g., `useState`, `useEffect`, `useContext`) to leverage React's state and lifecycle features.
+3. **Avoid Side Effects Outside Hooks:** Side effects (e.g., data fetching, subscriptions) should be managed within hooks using `useEffect` or other appropriate hooks.
+4. **Keep Hooks Pure:** Hooks should be free from side effects and return values or function that the component can use.
+
+#### Example: Creating a Custom Hook with Context
+
+
+**Create Context + Provider + Custom Hook** : ``
+```jsx
+// src/hooks/ContextAPI/index.jsx
+
+import { createContext, useContext } from "react";
+
+// 1. Create Context
+export const BioContext = createContext();
+
+// 2. Provider Component
+export const BioProvider = ({ children }) => {
+  const myName = "vinod";
+  const myAge = 30;
+
+  return (
+    <BioContext.Provider value={{ myName, myAge }}>
+      {children}
+    </BioContext.Provider>
+  );
+};
+
+// 3. Custom Hook
+export const useBioContext = () => {
+  const context = useContext(BioContext);
+  return context;
+};
+
+```
+
+**Using the Custom Hook :**
+```jsx
+import { useBioContext } from ".";
+
+export const Home = () => {
+  const { myName, myAge } = useBioContext();
+
+  return (
+    <div>
+      <h1>Name: {myName}</h1>
+      <p>Age: {myAge}</p>
+    </div>
+  );
+};
+```
+
+**Using the Provider :**
+```jsx
+// App.jsx
+import { BioProvider } from "./hooks/ContextAPI";
+import { Home } from "./hooks/ContextAPI/Home";
+
+export const App = () => {
+  return (
+    <BioProvider>
+      <Home />
+    </BioProvider>
+  );
+};
+```
+
+
+
+**Without custom hook:** his line must be repeated in **every** component.
+```jsx
+const { myName, myAge } = useContext(BioContext);
+```
+
+**With custom hook:** It look Cleaner
+```jsx
+const { myName, myAge } = useBioContext();
+```
+
+
+**Custom Hook (`useBioContext`) Helped us to :**
+
+1. **Avoid Repetition:**  You don’t need to write `useContext(BioContext)` everywhere.
+2. **Centralized Logic:**  You can add logic later inside `useBioContext` (e.g., error handling if context is `undefined`).
+3. **Cleaner Components:**  Components like `Home` focus only on rendering, not context management.
+4. **Better Readability:**  `useBioContext()` clearly shows you're accessing BioContext — no need to guess.
+    
+ Custom Hook = **Reusability + Clean Code + Separation of Concerns** 
 
 ---
 
@@ -456,4 +595,6 @@ return (
     - Handling component types (e.g., FC, PropsWithChildren)
 - **Practice**: Refactor a project to use TypeScript.
 
+
+---
 

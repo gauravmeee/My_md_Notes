@@ -66,3 +66,35 @@ Start typing the new variable name. All selected occurrences will be renamed sim
 7. `Prettier`
 8. `Competitive Programming Helper (cph) (~Divyanshu Agrawal)` : Makes judging, compiling, and downloading problems for competitve programming easy.
 
+---
+### **important VS Code shortcuts**:
+
+**General:**
+- `Ctrl + B` → Toggle Side Bar (open/close)
+- `Ctrl + Shift + P` → Command Palette
+- `Ctrl + P` → Quick Open (search files)
+- `Ctrl + Shift + N` → New VS Code window
+- `Ctrl + Shift + W` → Close VS Code window
+
+**Navigation :**
+- `Ctrl + Click` → Go to Definition (open link/symbol)
+- `Alt + ← / →` → Go Back / Forward
+- `Ctrl + Tab` → Cycle through open tabs
+
+**Editing :**
+- `Ctrl + /` → Toggle line comment
+- `Ctrl + Shift + A` → Toggle block comment
+- `Alt + ↑ / ↓` → Move line up/down
+- `Shift + Alt + ↓ / ↑` → Copy line up/down
+- `Ctrl + D` → Select next occurrence of word
+- `Ctrl + Shift + L` → Select all occurrences of word
+- `Ctrl + Space` → Trigger suggestion
+
+**File Management :**
+- `Ctrl + N` → New file
+- `Ctrl + S` → Save
+- `Ctrl + Shift + S` → Save As
+- `Ctrl + K` then `Ctrl + W` → Close all editors
+    
+**Terminal :**
+- `Ctrl +` (backtick) → Toggle integrated terminal

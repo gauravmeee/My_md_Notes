@@ -14,13 +14,25 @@
 **What is Unix- like shell?** 
 common Unix-like shells that are available on Windows **1. Bash (Bourne Again Shell)** such as Git Bash:** 
 
-**Directory Separator**
+**Directory Separator :**
 - **Windows:** 
 	- Uses the **backslash** (`\`) as the directory separator.
 	 - `C:\Users\YourName\Documents\myfile.txt`
 - **Unix-like systems (Linux, macOS, etc.):**
 	- Use the **forward slash** (`/`) as the directory separator.
 	- `/home/yourname/documents/myfile.txt`
+
+**Window Path:**
+- **Correct:**
+    - `D:/folder/subfolder` (recommended)
+    - `D:\\folder\\subfolder` (works but less readable)
+- **Incorrect:**
+    - `D:\folder\subfolder` (could cause errors due to escape sequences).
+
+**Ques. why doesn't the backslash in Windows paths behave as an escape character when used in directory paths?**
+- **Backslash (`\`)** is the directory separator in Windows due to historical decisions from MS-DOS.
+- **Forward slash (`/`)** is used in Unix-like systems and is now also supported by modern Windows systems, especially in programming environments.
+- The backslash is only treated as an **escape character in code and certain environments**, but it is **not** treated as an escape character by the file system in Windows paths.
 
 ---
 ### Commands

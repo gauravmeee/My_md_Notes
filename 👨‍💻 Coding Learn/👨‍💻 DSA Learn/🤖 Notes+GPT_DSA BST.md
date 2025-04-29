@@ -1,3 +1,27 @@
+
+
+## Binary Search Tree
+**Balanced->** **Insertion** : `O(logn)` **Find** : `O(logn)`✅\
+**Unbalanced->** **Insertion** : `O(n)` **Find** : `O(n)` ❌
+
+## Tree Traversal
+
+>**DFS (Depth-First Search)**
+
+**Traversal order:** Preorder, Inorder, Postorder
+**Time complexity:** `O(|E| + |V|)`
+**Space complexity:** `O(|V|)`
+**Use cases:** Finding connected components, topological sorting, and finding strongly connected components.
+
+>**BFS (Breadth-First Search)**
+
+**Traversal order:** Level by level, from left to right.
+**Time complexity:** `O(|E| + |V|)`
+**Space complexity:** `O(|V|)`
+Use cases: Finding shortest paths, minimum spanning trees, and network traversal.
+
+
+---
 ### Implementing a Binary Search Tree
 
 #### Node Class

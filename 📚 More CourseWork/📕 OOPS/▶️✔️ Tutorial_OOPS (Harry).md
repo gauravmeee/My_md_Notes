@@ -1,19 +1,19 @@
 
 ## Procedure Oriented Programming (POP)
-- large problems are divided into smaller problems known as functions
-- program is written as sequence of procedure or function
+- large problems are ==divided into smaller problems known as functions==
+- ==program is written as sequence of procedure== or function
 - Each procedure contains a series of instructions for performing specific task.
 - During the program execution each procedure (function) can be called by the other procedure
 - To call procedure, we have to write function name only
 - we concentrate on functions and gives very little attention to the data that are being used by functions.
 - The major emphasis is on `PROCEDURE` and not on the data.
 - In a multi-function program, many important data items are placed as `global` so that they may be accessed by all the function ( and each functions may have its own local data)
-- Global data are more vulnerable to an accidental change by a function. In a large program it is very difficult to Identify what data is used by which function.
+- ==Global data are more vulnerable to an accidental change by a function==. In a large program it is very difficult to Identify what data is used by which function.
 - *Example :* of POP languages `C, Cobol, Fortan, Pascal`
 ## Object Oriented Programming (OOP)
-- OOP treats data as critical element in the program development and does not allow it to flow freely around the system.
+- OOP ==treats data as critical element== in the program development and does not allow it to flow freely around the system.
 - Major emphasis is on `DATA` rather than `PROCEDURE`
-- it **ties data** more closely to the function that operate on it, and protects it from accidental modification from outside function
+- it ==**ties data** more closely to the function that operate on it==, and protects it from accidental modification from outside function
 - Oop allow decomposition of a problem into a number of entities called `objects` and then builds data and function around these objects.
 - The data of an object can be accessed only by the function associated with that object. (However the function of one object can access the function of other object)
 -  *Example :* `C++, Java, Python, .NET`
@@ -33,10 +33,10 @@ OOPS Follow DRY!
 1. Class
 2. Object
 3. Data Binding
-4. Encapsulation 
-5. Data Abstraction
-6. Inheritance
-7. Polymorphism
+4. ==Encapsulation ==
+5. ==Data Abstraction==
+6. ==Inheritance==
+7. ==Polymorphism==
 8. Message Passing
 
 ### 4-Principle of OOP
@@ -70,24 +70,24 @@ OOPS Follow DRY!
 ![OOP vs POP Diagram ](https://d8it4huxumps7.cloudfront.net/bites/wp-content/banners/2023/7/64c0c9e8d26d0_oop_vs_pop_.jpg)
 
 ### Basic Concepts in OOP
-- **Classes -** Basic templates for creating objects
-- **Objects** - Basic run time entities
+- **Classes -** ==Basic templates for creating objects==
+- **Objects** - ==Basic run time entities==
 - **Data Abstraction and Encapsulation** - Wrapping data and functions into single unit.
 - **Inheritance** - Properties of one class can be inherited into others
 - **Polymorphism** - Ability to take more than one forms ( same function for area of square and circle)
-- **Dynamic Binding** - code which will execute is not known until the programs run
-- **Message Passing** - Object message (information) call format
+- **Dynamic Binding** - Code which will execute is not known until the programs run ⭐
+- **Message Passing** - Object message (information) call format ⭐
 
 # [#21 Classes, Public and Private access modifiers in C++](https://youtu.be/tL8vnfFFzVQ?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
-# Access Specifiers
+### Access Specifiers
 
 ***Class Syntax :***
 ```cpp
 class myClass{
-accessSpecifier: // private, public or protected
-	myData;  // variable
-	myFunc(){. . .}; // method to access the data members
+	accessSpecifier: // private, public or protected
+		myData;  // variable
+		myFunc(){. . .}; // method to access the data members
 }; // end
 ```
 
@@ -141,8 +141,8 @@ int main(){
 - Definition of Class `class <Class_Name> { . . .};`
 - Access Specifier `public:` and `private:`
 - Declare and Define `myFunc(){. . .}` inside Class Definition
-- Declare `myFunc()` inside Class, Define   `myClass::myFunc(){. . .}` outside Class
-- also, Declare `count` inside Class, Define `myClass::count =0` outside Class (`::` Scope Resolution Operator)
+- Declare `myFunc()` inside Class, Define   `void myClass::myFunc(){. . .}` outside Class ⭐
+- also, Declare `count` inside Class, Define `int myClass::count =0` outside Class (`::` Scope Resolution Operator)  (⭐ Only if `count` is  Static)
 - Create Object Instance `myClass myObject`
 - Access data members `myObject.myData` (only public )
 - Access function members `myObject.myFunc()` ( only public )
@@ -151,8 +151,8 @@ int main(){
 
 | Specifier     | Same Class | Derived Class | Outside Class |
 | ------------- | ---------- | ------------- | ------------- |
-| **Private**   | Yes        | No            | No            |
-| **Protected** | Yes        | Yes           | No            |
+| **Private**   | Yes        | ==No==        | ==No==        |
+| **Protected** | Yes        | Yes           | ==No==        |
 | **Public**    | Yes        | Yes           | Yes           |
 
 # [#22 OOPs Recap & Nesting of Member Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/d363dW0AeS8?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
@@ -168,6 +168,7 @@ class binary{
 		void display(void);
 };
 ```
+
 
 // Member Functions definition
 ```cpp
@@ -226,7 +227,7 @@ int main(){
 
 # [#23 # C++ Objects Memory Allocation & using Arrays in Classes | C++ Tutorials for Beginners](https://youtu.be/qq05D2yFIHA?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
-# Object Memory allocation 
+### Object Memory allocation 
 
 - `Variable` in class get their `own memories`
 - member `function` in class have `common memories` for different objects (unlike Data Members)
@@ -301,13 +302,13 @@ Class Employee{
 
 # [#24 Static Data Members & Methods in C++ OOPS | C++ Tutorials for Beginners](https://youtu.be/QcLI2zGVYFo?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
-# Static Members
+## Static Members
 
 - A `Static Variable` have Common memory allocation for all objects in the class.
 - A `static function` can have access to only other static member functions/variable declared in the same class
 
-why need?
-If you have a piece of data that should be shared across all instances of a class, you can declare it as a static variable. All objects of that class will share the same copy of this variable.
+**why need?**
+- If you have a piece of data that should be shared across all instances of a class, you can declare it as a static variable. All objects of that class will share the same copy of this variable.
 
 ```cpp
 class Employee{
@@ -322,7 +323,6 @@ class Employee{
 };
 ```
 
-Unlike non-static member function, **Static Function** of a class can be called without creating an instance (or object) of that class.
 ```cpp
 // int Employee::count = 100; ✅
 int Employee::count; // Default value is zero `count=0`
@@ -346,11 +346,22 @@ int main(){
 }
 ```
 
+**Static Function**
+- Unlike non-static member function, **Static Function** of a class can be called without creating an instance (or object) of that class. 
+- Belongs to the **class**, not to any object.
+- Can be called using the class name directly.
+- Cannot access **non-static members** (since they belong to objects).
+
+
 ***Key Learnings :***
 - A Static function can't access non-static function/variable
 - Declare `count` inside Class, Define `Employee::count` outside Class
 - Default value is `zero` for all static variable
 - A Static function can be called without mentioning object name by class `Employee::getcoutn()`
+
+**Note:**
+- `static` in a function -> retains value between calls
+- `static` in a class -> shared among all objects
 
 # [#25 Array of Objects & Passing Objects as Function Arguments in C++ | C++ Tutorials for Beginners](https://youtu.be/aKnc1A5NOKo?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
@@ -391,9 +402,9 @@ int main(){
 └--------┴--------┴--------┘
 ```
 
-```
+```cpp
 // We could use above code in place of this Hard coding like this.
-
+// No need to do that ❌
 harry.setId;
 harry.getId;
 
@@ -404,7 +415,7 @@ lovish.setId;
 lovish.getId;
 ```
 
-# Passing objects as Function Argument
+### Passing objects as Function Argument
 
 ```cpp
 class Complex{
@@ -446,7 +457,7 @@ int main(){
 
 # [#26 Friend Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/HK6gnkQIgqI?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
-# Friend functions in C++
+### Friend functions in C++
 
 A friend function in C++ is a function that is not a member of a class but has access to its private and protected members. It is declared using the `friend` keyword within the class.
 
@@ -459,7 +470,7 @@ class Complex{
 			b = n2;
 		}
 
-	friend Complex SumComplex(Complex o1, Complex o2);
+	friend Complex SumComplex(Complex o1, Complex o2); 
 	// it give permission to non-member function i.e.  sumcomplex function is allowed to do anything with my private members.
 
 	void printNumber(){
@@ -497,8 +508,8 @@ int main(){
 1. Not in the scope of Class
 2. Since it is not in the scope of the class, it cannot be called from the object of that class. `c1.sumComplex() = Invalid ❌`
 3. Can be invoked without the help of any object
-4. Usually contains the objects as argument ( so that we can access its private data). Without object as argument it is a normal funciton
-5. `friend <type> <functionName>();` Can be declared inside of private section of the class. (there will not be any difference)
+4. Usually contains the objects as argument ( so that we can access its private data). Without object as argument it is a normal function
+5. `friend <type> <functionName>();` ⭐ Can be declared inside of private section of the class. (there will not be any difference)
 6. It cannot access the member directly by their names and need `object_name.member_name` to access any member
 
 # [#27 Friend Classes & Member Friend Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/Tk-4KUoatg8?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
@@ -616,6 +627,54 @@ int main(){
 - It can have default arguments like normal functions.
 - A default construct is constructor that takes no parameter
 
+
+**Types of Constructors in C++ :**
+
+1. **Default Constructor** ⭐
+    - No parameters
+    - Automatically called when object is created
+    ```cpp
+    class A {
+    public:
+        A() { }
+    };
+    ```
+    
+2. **Parameterized Constructor** ⭐
+    - Takes arguments to initialize data members 
+    ```cpp
+    class A {
+    public:
+        A(int x) { }
+    };
+    ```
+    
+3. **Copy Constructor** ⭐
+    - Takes object reference as parameter
+    - Initializes an object from another object
+    ```cpp
+    class A {
+    public:
+        A(const A &obj) { }
+    };
+    ```
+    
+4. **Defaulted Constructor (C++11)**
+    ```cpp
+    A() = default;
+    ```
+    
+5. **Deleted Constructor (C++11)**
+    ```cpp
+    A() = delete;
+    ```
+    
+6. **Move Constructor (C++11)**
+    
+    - Transfers resources from temporary objects
+    ```cpp
+    A(A&& obj) { }
+    ```
 # [#30 Parameterized and Default Constructors In C++ | C++ Tutorials for Beginners](https://youtu.be/CYXIlh5DURI?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
 ```cpp
@@ -650,7 +709,7 @@ int main(){
 }
 ```
 
-*Note:* It is necessary to initialize while creating object in constructor. Declaring in one line and Defining in other show error.
+*Note:* It is necessary to initialize while creating object in constructor. Declaring in one line and Defining in other show error. ⭐
 
 >Try it! :  From the class below Create a function (Hint: Make it a friend function) which takes 2 point objects and computes the distance b/w those 2 points.
 

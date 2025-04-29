@@ -11,7 +11,8 @@ Soho, JMD, Aria, PayU, AKM Global, ArgenBright Group, Spinny, Spaze, Spinny  sky
 ↥↧ ⟷ ↕ ⇄⇅ 
 ⤺⤻ ↶ ↷
 ⤴⤵
-↳
+↳ ↰ ↱ 
+↲ ↴ ↵
 | │ ┃
 
 - _ ─ ━
@@ -63,7 +64,7 @@ Super Set, ⊇ ⊃
 Intersection ∩, 
 Union: ∪
 Empty set : ∅
-
+Division : ÷
 
 And ∧
 Or ∨
