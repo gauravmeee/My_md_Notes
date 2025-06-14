@@ -33,7 +33,7 @@ Note:
 - HTML elements can refer to more than one class ex: `<p class="center large"></p>` : styled according to two class `center` & `large`
 - A class name cannot start with a number
 
-#### Three Ways to Insert CSS
+#### Three Ways to Insert CSS in HTML
 
 1. External CSS
 ```html

@@ -1,7 +1,6 @@
 
 # [Database Management System One Shot | CS & IT Engineering | DA | Maha Revision | Target GATE 2025](https://youtu.be/k6rDS0qQiO0)
 
-
 **Topics**
 1. Relational Model and Normal Forms
 2. Query Languages
@@ -39,6 +38,9 @@ S4  | Ram   | 72
 ```
 - Order of tuples doesn't matter in Relation Instance as it is a set.
 
+---
+
+[15:14:00](https://youtu.be/k6rDS0qQiO0?t=914) ✅
 ### Functional Dependency (FD)
 
 Relation `R(A,B,C,D,E,F)`
@@ -71,7 +73,7 @@ A | B | C
 - X : Determiner & Y: Dependent
 - i.e. if we know value of X in the relation then we can identify value of Y
 
-**Types of FD's:**
+##### **Types of FD's:**
 
 **1. Trivial FD:**
 - If `Y ⊆ X` then `X->Y` is trivial
@@ -144,7 +146,7 @@ BC->A May or May not Hold
 
 Note: Functional Dependency are property of Attributes in A Relation. You can Conclude that `Sid->Sname`, `Sid->Smarks` but Not `Sname->Sid` or `Sname.Smarks->Sid`. Two different person with same name and Marks can exists
 
-**Properties of FD**
+##### **Properties of FD**
 1. **Reflexivity:** If `Y ⫋ X` then `X->Y` is called reflexive FD (always hold in a relation)
 2. **Augmentation** : If `X->Y` holds in relation, then `XZ->YZ` will also hold in relation
 3. **Transitivity** : If `X->Y` & `Y->Z` holds in Relation, then `X->Z` will also holds
@@ -155,7 +157,7 @@ Note: Functional Dependency are property of Attributes in A Relation. You can Co
 7. **Pseudo Transitivity :** If X->Y and YW->Z, then XW->Z will hold in Relation.
 
 
-**Important Rule of Relation Model**
+##### **Important Rule of Relation Model**
 
 Doctor Cord have given 13 Rules (0 to 12) called `Cord twelve rules`
 1. Each Tuple of the relation must be distinct, i.e. duplicate tuples are not allowed in the relation
@@ -183,22 +185,22 @@ Strong Entity                            Weak Entity
  
 Strong Entity Set  -> It contains sufficient attributes such that key can be defined
 
-Weak Entity SEt -> Id doesnot contain sufficient attributes for a key
+Weak Entity Set -> Id doesnot contain sufficient attributes for a key
 
-Emp:              Dependent:                Dependent:
-Emp | Ename       Dname |  Dage             Emp | Dname |  Dage
-----|------       ------|------             ----| ------|------
-E1  |             Riya  | 05         =>     E1  | Riya  | 05
-E2  |             Rony  | 03                E2  | Rony  | 03
-E3  |             Riya  | 01                E3  | Riya  | 05
-  ↓                  ↓                          ↓
- Key:Eid           Key?? X -> Relation X    Key:{Eid, Name}
+Emp:                                       Dependent:
+Eid | Ename                             Eid | Dname |  Dage
+----|------                             ----| ------|------
+E1  |  Ram      <<take care of >>       E1  | Riya  | 05
+E2  |  Shyam                            E2  | Rony  | 03
+E3  |  Ohm                              E3  | Riya  | 05
+  ↓                                            ↓
+ Key:Eid                                Key:{Eid, DName}
 
 Note: Any Employee (Eid) will not give his/her two children Same name, so {Eid, DName} is a key. but {Eid, Dage} can't be key, because an Employee can have two children with same age.
 
 ```
 
-**Closure of an attribute Set:****
+##### **Closure of an attribute Set:****
 
 Closure of an attribute set X i.e. X⁺ is a set of all attributes that can be determined by X
 
@@ -217,8 +219,7 @@ A⁺, AB⁺, AC⁺, AD⁺, ABC⁺, ABD⁺, ACD⁺, ABCD⁺ All of them represent
 - Ex: `A, AB, AC, AD, ABC, ABD, ACD or ABCD`
 
 **Candidate Key(CK)** -> A minimal set of attribute that can determine all attribute of relation is candidate key.
-	or
-Let R be the relation, and X be some super key of relation R, If No proper subset of X is a super Key, then X is a minimal Super Key i.e. X is candidate key
+- or Let R be the relation, and X be some super key of relation R, If No proper subset of X is a super Key, then X is a minimal Super Key i.e. X is candidate key
 - Ex: `A`
 
 **Points to remember:**
@@ -233,30 +234,369 @@ Let R be the relation, and X be some super key of relation R, If No proper subse
 Note:
 - Minimal Set of attributes -> set of attributes from which no attribute can be removed without destroying its property of being a key
 
+```
+- Any Super Set of Candidate Key is a Super Key
+- Super Key = All attributes of at least one C.K + 0 or More of the remaining attributes
+```
 
 
-Questions
-........
+##### **Ques.**Find total no. of S.Ks of Relation R
+```
+Let R (A B C D E F G) be a Relation and 
+(AC) & (BC), and (CD) are the only three C.Ks of the Relation. 
+```
+
+**Solution**:
+No. of Sets Including **AC**  = No. of Subsets of {B, D, E, F, G} -> 2<sup>5</sup>
+No. of Sets Including **BC**  = No. of Subset of {A, D, E, F, G} -> 2<sup>5</sup>
+No. of Sets Including **CD** = No. of Subsets of { A, B, E, F, G} -> 2<sup>5</sup>
+
+No. of Sets including **AC & BC** Both = No. of Subsets of {D, E, F, G} -> 2<sup>4</sup>
+No. of Sets including **AC & CD** Both = No. of Subsets of {B, E, F, G} -> 2<sup>4</sup>
+No. of Sets including **BC & CD** Both = No. of Subsets of {A, E, F, G} -> 2<sup>4</sup>
+
+No. of Sets including **AC & BC & CD** = No. of Subsets of {E, F, G} -> 2<sup>3</sup>
+
+**Total no. of S.Ks of Relation R** = **AC** ∪ **BC** ∪ **CD**  = 3x2<sup>5</sup> - 3x2<sup>4</sup> + 2<sup>3</sup>
+
+=> 96 - 48 + 8  =56
+
+##### **Ques** Find total no. of Super Keys
+```
+R (P Q R S T U V)
+and C.K = (PQ), (RS) & (TU)
+```
+
+**Solution:**
+No. of Sets Including **PQ**  = No. of Subsets of {R, S, T, U, V} -> 2<sup>5</sup>
+No. of Sets Including **RS**  = No. of Subset of {P, Q, T, U, V} -> 2<sup>5</sup>
+No. of Sets Including **TU** = No. of Subsets of {P, Q, R, S, V} -> 2<sup>5</sup>
+
+No. of Sets including **PQ & RS** Both = No. of Subsets of {T, U, V} -> 2<sup>3</sup>
+No. of Sets including **RS & TU** Both = No. of Subsets of {P, Q, V} -> 2<sup>3</sup>
+No. of Sets including **TU & PQ** Both = No. of Subsets of {R, S, V} -> 2<sup>3</sup>
+
+No. of Sets including **PQ & RS & TU** = No. of Subsets of {V} -> 2<sup>1</sup>
+
+**Total no. of S.Ks of Relation R** = **AC** ∪ **BC** ∪ **CD**  = 3x2<sup>5</sup> - 3x2<sup>3</sup> + 2<sup>1</sup>
+
+=> 96-24+2 = 74
+
+##### **Ques:** Find All CKs of Relation R
+```
+R (A B C D E)
+F = { AB->C
+	  B->E
+	  C -> D }
+```
+
+**Solution:**
+
+Essential Attributes = {A, B}
+All essential attributes must be present in Every key of Relation.
+
+(AB)<sup>+</sup> = {A, B, C, E, D}   ∴ AB is S.K
+(A)<sup>+</sup> = {A}  Not a S.K
+(B)<sup>+</sup> = {B, E} Not a S.K
+-> **No. Proper subset of AB**  (i.e. A<sup>+</sup> and B<sup>+</sup> ) is SK  ∴ AB is C.K
+
+-> **Candidate Key** -> AB
+-> **Prime Attributes** -> {A, B}
+-> **Non Prime Attribute** -> {C, D, E}
 
 Note: 
 - If there exists a non trivial FD X->Y in the FD set of the relation such that `Y` is a prime attribute then relation will have at least two C.K
-- We can obtain few more super keys by replacing prime attribute (y) in the corresponding candidate key by `X` i.e. LHS of FD X->Y (Prime Attribute)
+- We can obtain few more super keys by replacing prime attribute (y) in the corresponding candidate key by `X` i.e. LHS of FD X->Y (Prime Attribute) 
 
-**Ques:** 
+##### **Ques:** Find All CKs of Relation R
 ```
 R (A B C D E)
 F = { AB->CD
 	  C->E
-	  BD->A }
+	  BD -> A }
+```
 
-Find All CKs of Relation R
+**Solution:**
+
+Essential Attributes = {A, B}
+All essential attributes must be present in Every key of Relation.
+
+(AB)<sup>+</sup> = {A, B, C, D, E}   ∴ AB is S.K
+(A)<sup>+</sup> = {A}  Not a S.K
+(B)<sup>+</sup> = {B, E} Not a S.K
+-> **No. Proper subset of AB**  (i.e. A<sup>+</sup> and B<sup>+</sup> ) is SK  ∴ AB is C.K
+
+(BD)<sup>+</sup> = {A, B, C, D, E}   ∴ AB is S.K
+(B)<sup>+</sup> = {B}  Not a S.K
+(D)<sup>+</sup> = {D} Not a S.K
+-> **No. Proper subset of BD**  (i.e. B<sup>+</sup> and D<sup>+</sup> ) is SK  ∴ BD is C.K
+
+-> **Candidate Key** -> AB, BD
+-> **Prime Attributes** -> {A, B, D}
+-> **Non Prime Attribute** -> {C, E}
+
+
+[Break from 2:19-2:31]
+
+---
+
+**Membership Test:**
+- Consider F is a given FD set, and X->Y be some FD. 
+- If (X)⁺ w.r.t FD set F contains `Y` then we say that X->Y is a member of FD set F
+```
+ig Y (X)+ w.r.t F
+then X-> Y is not a member of F
+```
+
+Following are same, 
+1. X->Y is a member of F
+2. F implies X->Y
+3. X->Y is implied by F
+
+Note: Set of all FDs implied by F is called closure of FD set F i.e. F+
+
+##### **Ques:** Find F+
+```
+R (A B C D)
+F = { AB->C
+	  C->D}
+```
+
+**Solution:**
+
+(A)<sup>+</sup> = {A} 
+(B)<sup>+</sup> = {B} 
+(C)<sup>+</sup> = {C, D} 
+(D)<sup>+</sup> = {D} 
+
+(AB)<sup>+</sup> = {A, B, C, D} 
+(AC)<sup>+</sup> = {A, C, D} 
+(AD)<sup>+</sup> = {A, D} 
+(BC)<sup>+</sup> = {B, C, D} 
+(BD)<sup>+</sup> = {B, D} 
+(CD)<sup>+</sup> = {C, D} 
+
+(ABC)<sup>+</sup> = {A, B, C, D} 
+(ABD)<sup>+</sup> = {A, B, C, D} 
+(ACD)<sup>+</sup> = {A, C, D} 
+(BCD)<sup>+</sup> = {B, C, D} 
+(ABCD)<sup>+</sup> = {A, B, C, D}  Trivial FD -> (Optional)
+
+```
+F+ = {
+	C->D
+	AB->CD  Simplified -> (AB-> C + AB->D)
+	AC->D,
+	BC->D,
+	ABC->D,
+	ABD->C,
+	ACD->B,
+}
+
+7 Simplified Non-Trivial FDs in F+
 ```
 
 
-**Membership Test:**
-- Consider F is a given FD set, and X->Y be some FD. If (X)⁺ w.r.t FD set F contains `Y` then we say that X->Y is a member of FD set F
+##### **Relation b/w two FDs sets**
 
-[??]
+Let F1 & F2 are any two FD sets
+1. If all FDs of FD set F1 are member of F2, then F1⊆F2
+	- or If F2 Covers F1
+	- or All FDs of F1 are implied by F2
+2. If all FDs of FD set F2 are member of F1 then F2 ⊆ F1
+	- or If F1 covers F2
+	- or All FDs of F2 are implied by F1
+
+**1.** If F1 ⊆ F2 but F2  ⊈ F1 then F1 ⊂ F2
+**2.** If F2 ⊆ F1 but F1  ⊈ F2 then F2 ⊂ F1
+**3.** If F1 ⊆ F2 and F2 ⊆ F1 then F1 = F2
+
+
+##### **Ques.** Find Relation between F1 and F2
+```
+F1 = {AB->C, BC->D, D->AE}
+F2 = {AB->CD, BC->DA, D->E}
+```
+
+**Solution:**
+
+Check if F1 Covers F2
+- **FDs of F2**
+- AB->CD -> yes ∵ ( F1:  AB->C & BC->D)
+- BC->DA -> yes ∵ ( F1:  BC->D & D->AE)
+- D->E -> yes ∵ ( F1:  D-> AE)
+
+Check if F2 Covers F1
+- **FDs of F1**
+- AB->C -> yes ∵ ( F1:  AB->CD)
+- BC->D -> yes ∵ ( F1:  BC->DA)
+- D->AE -> No  ∵ D+ w.r.t F2 = {D, E}, and A ∉ {D,E}
+
+∴ F2 ⊂ F1
+
+##### **Minimal Cover**
+
+**Minimal/Canonical Cover:-** Let F be any FD set, and FD set Fm such that
+1. Fm = F { i.e. F⊆ Fm & Fm ⊆ F}
+2. Fm does not contain any extraneous attribute in the LHS and Fm does not contain any Redundant FD
+then, Fm is called minimal Cover of F
+
+**Steps to Identify Minimal Cover:-**
+- Step 1. Simplify all FDs such that R.H.S contains exactly one attribute
+- Step 2. Find and remove extraneous attributes from the L.H.S { if any }
+- Step 3. Find and eliminate all redundant FDs
+- Step 4. Finally Union all remaining FDs (if require)
+
+**Extraneous Attribute:** If `α -> β` and `A ∈ α` if (α - A)+ determines A, then `A` is Extraneous
+**Redundant Attribute:** if `(α)+` w.r.t `(F-α ->β)` Contains `β` then `α ->β`
+##### **Ques** find the minimal Cover of FD set F
+```
+F = { A -> BC
+	  CD -> E
+	  E -> C
+	  D -> AEH
+	  ABH -> BD
+	  DH -> BC }
+```
+
+**Solution:**
+
+- Step 1
+	- A->B    (Simplified A->BC)
+	- A->C    (Simplified A->BC)
+	- CD->E
+	- E->C
+	- D->A    (Simplified D->AEH)
+	- D->E     (Simplified D->AEH)
+	- D->H     (Simplified D->AEH)
+	- ABH->B     (Simplified ABH->BD)
+	- ABH->D     (Simplified ABH->BD)
+	- DH->B     (Simplified DH->BC)
+	- DH->C    (Simplified DH->BC)
+
+- Step 2
+	- A->B
+	- A->C 
+	- D->E (Simplified from CD->E by removing extraneous attribute C) ∵ E ∈ (D)+ = {D,A,E,H,C}
+	- E->C
+	- D->A
+	- D->E
+	- D->H 
+	- AH->D  (Simplified from ABH->D by removing extraneous attribute B) ∵ B ∈ (A)+ = {A,B}
+	- D->B  (Simplified from DH->B by removing extraneous attribute H) ∵ B ∈ (D)+ = {D,A,B,C,E,H}
+	- D->C (Simplified from DH->C by removing extraneous attribute H) ∵ C ∈ (D)+ = {D,A,B,C,E,H}
+
+- Step 3
+	- A->B
+	- A->C 
+	- ~~D->E~~  Remove (Redundant FDs) ∵ D->E exist two time
+	- E->C
+	- D->A
+	- D->E
+	- D->H 
+	- AH->D 
+	- ~~D->B~~ Remove (Redundant FDs) ∵ D -> A->B 
+	- ~~D->C~~  Remove (Redundant FDs) ∵ D -> A->C 
+
+- Step 4
+	- A->BC (A->B ∪ A->C)
+	- E->C
+	- D->AEH (D->A ∪ D->E ∪ D->H)
+	- AH -> D
+
+- This is Minimal Cover of F
+
+
+##### **Ques** find the minimal Cover of FD set F
+```
+F = { A -> B, B->AC, C->AB }
+```
+
+
+- Step 1
+	- A->B
+	- B->A
+	- B->C
+	- C->A
+	- C->B
+
+
+- Step 2
+	- All correct
+
+- Step 3 (Order 1 )
+	- A->B
+	- B->A
+	- B->C
+	- ~~C->A~~ Remove (Redundant FDs) ∵ B -> C->A 
+	- C->B
+- Minimal Cover 2
+
+- Step 3 (Order 2)
+	- A->B
+	- B->A
+	- B->C
+	- ~~C->A~~ Redundant because (C->B & B->A)
+	- C->B 
+- Minimal Cover 12
+
+- Step 4 (Not Required)
+- Minimal Cover for given FD set need not be unique
+
+
+##### **Ques** R (A B C D)
+```
+F = { AB->CD, D->A, C->B}
+```
+Find C.Ks of sub-relation **R1(BCD)** of relation R
+
+**Solution:**
+
+(B)+ = {B}
+(C)+ = {C,B}
+(D)+ = {D, A}
+(BC)+ = {B, C}
+(BD)+ = {B, D, A, C}
+(CD)+ = {C, D, B, A}
+
+Remove Trivial Relation & A's Relation
+
+~~(B)+ = {B}~~ Trivial
+(C)+ = {B}  ∵ (C->C Trivial)
+(D)+ = {D, A} (A is not in R1)
+~~(BC)+ = {B, C}~~ Trivial
+(BD)+ = {C} ∵  (BD -> BD Trivial) & (A is not in R1)
+(CD)+ = {B}   ∵ (CD->CD Trivial) & (A is not in R1)
+
+FD set of sub relation R1 { C-> B,  BD->C, CD->B}
+∴ CK = (BD), (CD)
+
+---
+[3:32:00](https://youtu.be/k6rDS0qQiO0?t=12754) ✅
+## Schema Refinement or Normalization
+
+**Normalization** - It is the process of eliminating/reducing the redundancies present in the relation
+
+```
+Sid -> Sname    ⬅   Student             Course  ➡  Cid  -> Cname  
+Sname -/> Sid			       Enroll               Cname -/> Cid
+					_Sid_| Sname | _Cid_ | Cname
+					-----|-------|-------|------
+				 	S1   |  A    |   C1  |  OS
+				 	S1   |  A    | ┌ C2  |  DBMS
+					S2   |  A    | | C2  |  DBMS
+				 	S3   |  B    | └ C2  |  DBMS
+				 	S3   |  B    |   C3  |  CN
+
+Only two FDs exist in the Enroll Table :
+Sid -> Sname
+Cid -> Cname
+
+∴ C.K = (Sid, Cid)
+```
+
+Note: A Relation will have at least one C.K
+
 
 **Primary Key (PK)** -> One of the C.K is chosen as P.K
 - P.K attributes are not allowed to take NULL values.
@@ -268,7 +608,6 @@ Note: PK and AK are also minimal as formed from CK
 
 
 **Redundancy:**
-
 ```
        Student              Course
                   Enroll
@@ -375,8 +714,40 @@ Decomposition               Decomposition
 `⊂` -> Not depen. Pres.     `⊃` -> Lossy Join
 ```
 
-[Ques.......]
+##### **Ques** Let R (A B C D)
+```
+F = {A->B, B->C, C->D, D-A}
+```
+Let R is decomposed into three sub-relations R1(AB), R2(BC), R3(CD) Check whether decomposition is dependency preserving or not
 
+**Solution:**
+                        
+**R1 (AB)**             
+- F1 = { A->B , B->C }
+
+**R2 (BC)**
+- F2 = {B->C, C->B}
+
+**R3 (CD)**
+- F3 = {C -> D, D->C}
+
+F1 ∪ F2 ∪ F3 = { A->B, B->C, C->D, B->A, C->B, D->C}
+We Already know  F1 ∪ F2 ∪ F3  ⊆ F  
+
+We need to check if F⊆ F1∪F2∪F3 or not
+- i.e. if F1 ∪ F2 ∪ F3  covers F  
+FDs of 
+F = { A->B  ( Present in union )
+	B->C,  ( Present in union )
+	C->D,  ( Present in union )
+	D->A} (Present in union as D->C & C->B & B->A)
+So  F ⊆ F1 ∪ F2 ∪ F3  
+
+F1 ∪ F2 ∪ F3  ⊆ F and  F ⊆ F1 ∪ F2 ∪ F3  -> Dependency Preserving
+
+[Break from 4:16-4:52]
+
+---
 ## Normal Forms
 
 
@@ -617,9 +988,9 @@ Decompose into Two Relation Employee & Department
 ✅ Every non-trivial functional dependency has a super key on the left-hand side -> Relation is in BCNF 
 ```
 
-#### Question Practice
+### Question Practice
 
-**Ques. Find the Normal form of the Relation** ⭐
+##### **Ques.** Find the Normal form of the Relation ⭐
 ```
 R(A B C D E F)
 
@@ -658,7 +1029,7 @@ Type 1 FD -> Allowed in 1 NF, but not in 2NF
 Ans : 1NF
 ```
 
-**Ques. Find the Normal form of the Relation** ⭐
+##### **Ques. Find the Normal form of the Relation** ⭐
 ```
 R (AB -> CD)
 
@@ -1098,9 +1469,10 @@ R ⟗ S
 **Important:** Full Outer Join is the Super set of Left and Right Outer Join ⭐
 
 ---
-## Lossless Natural Join
 
 [5:51:00](https://youtu.be/k6rDS0qQiO0?t=28262) ✅
+## Lossless Natural Join
+
 
 **Lossless Natural Join** R decomposed into R1 and R2, this decomposition is lossless join decomposition if and only if
 
@@ -1237,9 +1609,9 @@ Value of **Common Attribute** is Unique in at least one relation -> Lossless Joi
 
 #### Question Practices
 
-[8:49](https://youtu.be/k6rDS0qQiO0) ✅
+[8:49:00](https://youtu.be/k6rDS0qQiO0) ✅
 
-**Ques: Check whether the decomposition of the relation is lossy or lossless** 
+##### **Ques: Check whether the decomposition of the relation is lossy or lossless** 
 ```
 R (A B C D E F)
 
@@ -1395,12 +1767,78 @@ R(ABC)  S(C,D)
 ```
 **Ans:**  R ÷  Π<sub>C</sub>(S)  or  Π<sub>ABC</sub>(R) ÷   Π<sub>C</sub>(S) 
 
+---
 [9:33:00](https://youtu.be/k6rDS0qQiO0?t=34365) to [10:07:00] Remaining
 
+**Consider the Following Relation :-**
+Supplier (Sid, Sname, Rating)
+Parts(Pid, Pname, Color)
+Catalog (Sid, Pid, Cost)
 
+Let there are `Sid - S1, S2, S3, S4....` & `Pid - P1, P2, P3, P4`
+
+Let S4 Never Supply a Part 
+```
+Catalog 
+(Sid, Pid, Cost)
+S4   NULL NULL ❌
+```
+Let P4 is never supplied
+```
+Catalog 
+(Sid, Pid, Cost)
+NULL  P4  NULL ❌
+```
+
+Note: `Sid` & `Pid` Can't be NULL. So Information such as `A supplier that not supply and parts`, or `Parts that never supplied by any supplier`. would never be stored in Catalog Table
+
+##### **Ques.** Retrieve `Sid` of supplies who have not supplied some Red Color Parts
+```
+Catalog    Parts
+
+Sid Pid     Pid >> Color
+S1  P1      P1   Red
+S1  P2      P2   Green
+S2  P2      P3   Red
+S2  P3   
+```
+
+`Sid` is in Catalog and `Color` is in Parts Table. So we need to compare two tables
+So we need to join (Cross Product) the Table
+
+**Ans:** 
+-> Π<sub>Catalog.Sid</sub>( σ<sub>Catalog.Pid=Parts.Pid ∧ Parts.color='Red'</sub> (Catalog X Parts) )
+or
+-> Π<sub>C.Sid</sub>( σ<sub>C.Color='Red'</sub>(σ<sub>C.Pid=P.Pid</sub> (Catalog(C) X Parts(P))) )
+or
+-> Π<sub>Sid</sub>( σ<sub>C.Color='Red'</sub>(Catalog ⨝ Parts ))
+or
+-> Π<sub>Sid</sub>(Catalog ⨝ (σ<sub>C.Color='Red' )</sub>(Parts)) ---> Efficient Query
+
+##### **Ques.** Retrieve `Sid` of supplies who have supplied at least three parts
+```
+  Catalog
+
+Sid Pid Cost
+S1  P1    
+S1  P2    
+S2  P2    
+S1  P3
+S3  P3
+```
+
+
+**Ans:** 
+-> Π<sub>C1.sid</sub>( σ <sub>C1.Sid=C2.Sid ∧ C2.Sid=C3.Sid ∧ C1.Sid = C3.Sid ∧ C1.Pid!=C2.Pid ∧ C2.Pid!=C3.Pid ∧ C1.id!=C3.Pid</sub> (ρ<sub>C1</sub><sup>(Catalog)</sup> X ρ<sub>C2</sub><sup>(Catalog)</sup>  X ρ<sub>C3</sub><sup>(Catalog)</sup>))
+
+(C1.Sid = C3.Sid -> Optional)
+
+-> Π<sub>C1.sid</sub>(σ <sub>C1.Sid=C2.Sid ∧ C2.Sid=C3.Sid ∧ C1.Pid!=C2.Pid ∧ C2.Pid!=C3.Pid ∧ C1.id!=C3.Pid</sub>(ρ<sub>C1</sub><sup>(Catalog)</sup> X ρ<sub>C2</sub><sup>(Catalog)</sup>  X ρ<sub>C3</sub><sup>(Catalog)</sup>))
+
+#### **Homework:** Retrieve `Sids` of supplies who have supplied some parts at maximum cost
 ---
 
-[10:07:00] ✅
+[10:07:00](https://youtu.be/k6rDS0qQiO0?t=36464) ✅
 ## SQL
 
 - SQL is Non Procedural
@@ -1645,7 +2083,7 @@ Note: `Where (Attribute > X )` , then the NULL Attribute value will be compared 
 
 ##### GROUP BY
 
-**Question:** Retrieve names of All branches along with Max marks in the branch
+##### **Ques.** Retrieve names of All branches along with Max marks in the branch
 
 ```sql
 SELECT Branch, Max(Marks)
@@ -1682,7 +2120,7 @@ Note :  ⭐
 
 ##### HAVING
 
-**Question:** Retrieve Branch names with average marks more than 40
+##### **Ques.:** Retrieve Branch names with average marks more than 40
 
 ```mysql
 SELECT Branch
@@ -1713,7 +2151,7 @@ Note:
 Important ⭐ : Correlated Subquery Question is Very Very Important for Gate exam
 
 
-**Question** Write Query to Retrieve Sids of Students who scored maximum marks, from the above student table
+##### **Ques.** Write Query to Retrieve Sids of Students who scored maximum marks, from the above student table
 
 ```mysql
 SELECT  Sid
@@ -1722,6 +2160,7 @@ SELECT  Sid
 ```
 ❌ This Is Invalid Query
 
+**Solution:**
 ```
 Output:
 

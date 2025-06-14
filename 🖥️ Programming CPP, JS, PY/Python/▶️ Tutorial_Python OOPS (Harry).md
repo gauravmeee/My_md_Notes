@@ -207,7 +207,6 @@ Output:
 
 # [Decorators in Python | Python Tutorial - Day #59](https://youtu.be/PTBZ674EsvI)
 
-
 ### Decorators in Python
 
 **Decorators** ->  A function that takes another function as an argument, modifies it, and returns the modified function.
@@ -224,7 +223,7 @@ def greet(fx):  # Takes a function as an argument
     return mfx  # Return the modified function
 ```
 
-**Using `greet()`** on a Defined Function
+**1. Using `greet()`** on a Defined Function
 ```python
 def hello():
 	print("Hello world")
@@ -237,7 +236,7 @@ Hello World # Main Logic
 Tata!
 ```
 
-**Using `greet()`** as a **decorator** ⭐ by adding `@greet` before the function definition
+**2. Using `greet()`** as a **decorator** ⭐ by adding `@greet` before the function definition
 ```python
 @greet
 def hello(): # greet() already attach to it
@@ -320,7 +319,7 @@ Tata!
 ```
 
 - `*args` -> Collects all **positional** arguments as a tuple (type: `tuple`)
-- `*kwargs` -> Collects all **keyword** arguments as a dictionary (type: `dict`)
+- `**kwargs` -> Collects all **keyword** arguments as a dictionary (type: `dict`)
 - **Real use cases:** Logging, authentication, performance tracking, etc.
 #### Theory Notes
 
@@ -345,7 +344,7 @@ Decorators are often used to add functionality to functions and methods, such as
 
 #### Practical use case
 
-One common use of decorators is to add logging to a function. For example, you could use a decorator to log the arguments and return value of a function each time it is called:
+1. One common use of decorators is to add logging to a function. For example, you could use a decorator to log the arguments and return value of a function each time it is called:
 
 ```python
 import logging
@@ -362,14 +361,30 @@ def log_function_call(func):
 def my_function(a, b):
     return a + b
 ```
+- In this example, the `log_function_call` decorator takes a function as an argument and returns a new function that logs the function call before and after the original function is called.
 
-In this example, the log_function_call decorator takes a function as an argument and returns a new function that logs the function call before and after the original function is called.
+2. In Flask `route` decorator  binds the URL `'/'` to this function
+```python
+@app.route('/')
+def home():
+    return 'Welcome to the Homepage'
+```
+
+- the above code is equivalent to 
+```python
+def home():
+    return 'Welcome to the Homepage'
+app.add_url_rule('/home', view_func=home)
+```
+- Flask maps the URL path `/about` to the function `about()` using `add_url_rule()` under the hood. 
 
 #### Conclusion
 
 Decorators are a powerful and flexible feature in Python that can be used to add functionality to functions and methods without modifying their source code. They are a great tool for separating concerns, reducing code duplication, and making your code more readable and maintainable.
 
 In conclusion, python decorators are a way to extend the functionality of functions and methods, by modifying its behavior without modifying the source code. They are used for a variety of purposes, such as logging, memoization, access control, and more. They are a powerful tool that can be used to make your code more readable, maintainable, and extendable.
+
+
 
 ---
 # [Getters and Setters in Python | Python Tutorial - Day #60](https://youtu.be/2gbCT8h9uyk)

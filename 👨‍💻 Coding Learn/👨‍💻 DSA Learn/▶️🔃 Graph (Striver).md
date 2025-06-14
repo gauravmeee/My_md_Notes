@@ -17,7 +17,7 @@
 | [[#^G7]]  | Number of Provinces - Connected Components    | Problem   |     | A2Z🟠    |
 | --------- | --------------------------------------------- | --------- | --- | -------- |
 | [[#^G8]]  | Number of Islands - Connected Components      | Problem   |     | 🔴SDE    |
-| [[#^G9]]  | Flood Fill Algorithm                          | Algorithm | 🔃⭐ | A2Z🔴    |
+| [[#^G9]]  | Flood Fill Algorithm                          | Algorithm | ✅⭐  | A2Z🔴    |
 | [[#^G10]] | Rotten Oranges                                | Problem   |     | A2Z🟠    |
 | [[#^G11]] | Cycle Detection in Undirected Graph - BFS     | Algorithm | ✅⭐  | A2Z🔴SDE |
 | [[#^G12]] | Cycle Detection in Undirected Graph - DFS     | Algorithm | ✅⭐  | A2Z🔴SDE |
@@ -44,9 +44,9 @@
 
 **4. Shortest Path Algorithm and Problems** 
 
-| [[#^G27]] | Shortest Path in DAG - Topological Sort | Concept   | ⭐   | A2Z🔴    |
+| [[#^G27]] | Shortest Path in DAG - Topological Sort | Concept   | 🔃⭐ | A2Z🔴    |
 | --------- | --------------------------------------- | --------- | --- | -------- |
-| [[#^G28]] | Shortest Path in UG with unit wieghts   | Concept   | ⭐   | A2Z🔴    |
+| [[#^G28]] | Shortest Path in UG with unit wieghts   | Concept   | 🔃⭐ | A2Z🔴    |
 | [[#^G29]] | Word Ladder -1                          | Problem   |     | A2Z🔴    |
 | [[#^G30]] | Word Ladder - 2                         | Problem   |     | A2Z🔴    |
 | [[#^G35]] | Djisktra's Algorithm                    | Algorithm | ⭐   | A2Z🔴SDE |
@@ -61,6 +61,32 @@
 - Floyd Warshal Algorithm
 
 
+---
+
+
+### Traversal `BFS()`/`DFS()` in Connected vs Disconnected Graph
+
+##### 1. For connected graph:
+- If graph is connected and `x` can reach every node
+```cpp
+// Start from root
+BFS(x); // or DFS(x)
+```
+
+##### 2. For disconnected graph:
+- If graph is disconnected or `x` can't reach all nodes
+```cpp
+for (int i = 0; i < V; i++) {
+    // loop ensures visiting all components
+    if (!vis[i]) BFS(i); // or DFS(i)
+}
+```
+
+**Note:** 
+- Generally, `x` is taken as `0`.  
+- Before solving a question, always check if the graph is connected from node `0`. If it’s not, ensure to use a `for` loop to visit all components in the graph.
+
+---
 ---
 
 # [# G-1. Introduction to Graph | Types | Different Conventions Used](https://youtu.be/M3_pLsDdeuU?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn) ^G1
@@ -220,21 +246,22 @@ Interpretation (Undirected Graph)
 - Edges - No. of Edges Variable (if we join more two nodes in same graph no. of edges increase)
 ```
 
-How to store??
-Two ways - Matrix and List
+**Store `edges[]`  list i.e. Graph efficiently** ⭐
+1. Adjacency Matrix `adj[][]`
+2. Adjacency List `adj[]`
 
 ### *Adjacency Matrix:*
 
-```
+```sh
 adj[n+1][n+1] (if 0 based indexing then adj[n][n])
 
 Mark the edge = 1
-adj[2][1]=1 and adj[1][2]=1
-adj[1][3]=1 and adj[3][1]=1
-adj[2][4]=1 and adj[4][2]=1
-adj[3][4]=1 and adj[4][3]=1
-adj[2][5]=1 and adj[5][2]=1
-adj[4][5]=1 and adj[5][4]=1
+adj[2][1]=1 # and adj[1][2]=1  (if undirected)
+adj[1][3]=1 # and adj[3][1]=1         ,,
+adj[2][4]=1 # and adj[4][2]=1         ,,
+adj[3][4]=1 # and adj[4][3]=1         ,,
+adj[2][5]=1 # and adj[5][2]=1         ,,
+adj[4][5]=1 # and adj[5][4]=1         ,,
 
       0   1   2   3   4   5
 	┌-----------------------┐
@@ -273,7 +300,7 @@ int main(){
 
 ### *Adjacency List:*
 
-```
+```sh
 List for Each Nodes (In c++, list are vector)
 Vector<vector<int>> adj(n+1)
 adj[0] -> {}
@@ -958,6 +985,129 @@ n -> Visited Node List
 
 # [G-9. Flood Fill Algorithm | C++ | Java](https://youtu.be/C-2_uSRli8o) ^G9
 
+
+For a Source, Traverse its, Upper, Lower, Left and Right Cells.
+```
+                 (row+1, col)
+                      ↑                 
+                      |
+(row, col-1)  ←--   (row, col)  --→ (row, col+1)
+                      |
+                      ↓
+                  (row+1, col)
+```
+
+=
+
+**Flood Fill - DFS Algorithm**
+```sh
+1. Create ans[][] = image[][]. # to store output
+2. Store iniColor = image[sr][sc].
+3. Define delRow[] = {-1, 0, +1, 0}, delCol[] = {0, +1, 0, -1}.
+4. Call DFS(sr, sc):
+    a. Set ans[row][col] = newColor.
+    b. For 4 neighbours (nrow, ncol):
+        - If valid (in bounds), same iniColor, and ans[nrow][ncol] != newColor:
+            -> Call DFS(nrow, ncol).
+5. Return ans[][] as final image.
+```
+
+### Flood Fill - DFS Algorithm C++ Code*
+**Version 1:**
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+private:
+    void dfs(int row, int col, vector<vector<int>>&ans,
+     vector<vector<int>>& image, int newColor, int delRow[], int delCol[],
+     int iniColor) {
+        // color with new color
+        ans[row][col] = newColor; 
+        int n = image.size();
+        int m = image[0].size(); 
+        // there are exactly 4 neighbours
+        for(int i = 0;i<4;i++) {
+            int nrow = row + delRow[i]; 
+            int ncol = col + delCol[i]; 
+            // check for valid coordinate 
+            // then check for same initial color and unvisited pixel
+            if(nrow>=0 && nrow<n && ncol>=0 && ncol < m && 
+            image[nrow][ncol] == iniColor && ans[nrow][ncol] != newColor) {
+                dfs(nrow, ncol, ans, image, newColor, delRow, delCol, iniColor); 
+            }
+        }
+    }
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image, 
+    int sr, int sc, int newColor) {
+        // get initial color
+        int iniColor = image[sr][sc]; 
+        vector<vector<int>> ans = image; 
+        // delta row and delta column for neighbours
+        int delRow[] = {-1, 0, +1, 0};
+        int delCol[] = {0, +1, 0, -1}; 
+        dfs(sr, sc, ans, image, newColor, delRow, delCol, iniColor); 
+        return ans; 
+    }
+};
+```
+
+**Version 2:**
+```cpp
+vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+        int old = image[sr][sc];
+        if(old==color) return image;
+        image[sr][sc]=color;
+        
+        // Down Cell Color
+        if(sr+1<image.size() and image[sr+1][sc]==old){
+
+            floodFill(image, sr+1, sc, color);
+        }
+        // Upper Cell color
+        if(sr-1>=0 and image[sr-1][sc]==old){
+            floodFill(image, sr-1, sc, color);
+        }
+        // Right cell Color
+        if(sc+1<image[0].size() and image[sr][sc+1]==old){
+            floodFill(image, sr, sc+1, color);
+        }
+        // Left Cell color
+        if(sc-1 >=0 and image[sr][sc-1]==old){
+            floodFill(image, sr, sc-1, color);
+        }
+        return image;
+    }
+```
+
+**Time Complexity:** **O(N × M)** 
+- (`N` no. of rows &  `M`  no. of cols)
+- In the **worst case**, all `N×M` pixels are visited once (if all have the same color).
+- Each pixel is processed only **once** due to the color check (`== oldColor` and updated after visit).
+Space Complexity:
+- **O(N × M)** → in recursive DFS, due to **function call stack** (worst case, all pixels in path).
+- Or **O(1)** if system supports tail-call optimization (rare in C++).
+
+TC : `O(N × M)`
+SC : `O(N x M)`
+
+
+
+1. **Version 1 (with `ans` copy):**
+	- **Does not modify the original image directly**  
+	    Useful when the problem requires **returning a new image** without changing the input.
+	- **More flexible:**  
+	    You can compare `image` (original) and `ans` (result) to handle visited/unvisited clearly.
+    
+2. **Version 2 (my simple version):**
+	- **More concise and readable**
+	- **Modifies the original `image` directly**
+	- Works fine when **in-place update** is allowed  
+	    (Most Leetcode problems **do allow** this, so this is preferred in contests/interviews)
+
+
 # [G-10. Rotten Oranges | C++ | Java](https://youtu.be/yf3oUhkvqA0) ^G10
 ---
 
@@ -1046,18 +1196,6 @@ Cycle Detected 💫
                    4 
 ```
 
-1. Create vis[] array and initialize to 0.
-2. For each unvisited node:
-    a. Start BFS with (node, parent = -1).
-    b. Mark node as visited and push into queue.
-    c. While queue not empty:
-        i. Pop (node, parent) from queue.
-        ii. For each neighbor:
-            - If not visited:
-                * Mark visited and push (neighbor, node) into queue.
-            - Else if neighbor is visited and neighbor != parent:
-                * Cycle detected, return true.
-3. If no cycle found after all traversals, return false.
 
 **Cycle Detection in Undirected Graph- BFS Algorithm**
 ```sh
@@ -1135,7 +1273,6 @@ for(int i = 0;i<V;i++) {
             }
         }
 ```
-
 
 ##### <ins>Time  Complexity</ins>  TC:`O(V+2E) + O(n)`
 `for(int i = 0;i<V;i++)` -> n 
@@ -1272,6 +1409,70 @@ n -> Visited Node List
 # [G-17. Bipartite Graph | BFS | C++ | Java](https://youtu.be/-vu34sct1g8) ^G17
 # [G-18. Bipartite Graph | DFS | C++ | Java](https://youtu.be/KG5YFfR0j8A) ^G18
 
+**Bipartite Graph Check - DFS Algorithm**
+```sh
+1. Initialize color[] array to -1. # Not colored
+2. For each unvisited node:
+    a. If color[node] == -1:
+        -> Call DFS(node, 0)
+3. In DFS(node, col):
+    a. Set color[node] = col
+    b. For each adjacent node it:
+        - If color[it] == -1:
+            -> Call DFS(it, !col)
+            -> If returns false, return false
+        - Else if color[it] == col:
+            -> Return false
+    c. Return true
+4. If all components return true, graph is bipartite.
+
+```
+
+### *Bipartite Graph Check - DFS  C++ Code*
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+private: 
+    bool dfs(int node, int col, int color[], vector<int> adj[]) {
+        color[node] = col; 
+        
+        // traverse adjacent nodes
+        for(auto it : adj[node]) {
+            // if uncoloured
+            if(color[it] == -1) {
+                if(dfs(it, !col, color, adj) == false) return false; 
+            }
+            // if previously coloured and have the same colour
+            else if(color[it] == col) {
+                return false; 
+            }
+        }
+        
+        return true; 
+    }
+public:
+	bool isBipartite(int V, vector<int>adj[]){
+	    int color[V];
+	    for(int i = 0;i<V;i++) color[i] = -1; 
+	    
+	    // for connected components
+	    for(int i = 0;i<V;i++) {
+	        if(color[i] == -1) {
+	            if(dfs(i, 0, color, adj) == false) 
+	                return false; 
+	        }
+	    }
+	    return true; 
+	}
+};
+
+void addEdge(vector <int> adj[], int u, int v) {
+    adj[u].push_back(v);
+    adj[v].push_back(u);
+}
+```
 # [G-19. Detect cycle in a directed graph using DFS | Java | C++](https://youtu.be/9twcmtQj4DU) ^G19
 
 
@@ -1480,7 +1681,6 @@ Topological Sort :
     #----------------------------------------------------------
 4. After all DFS calls, pop all elements from stack and store into ans[].
 5. Return ans[] as Topological Order.
-
 ```
 ### *Topological Sort - DFS  C++ Code*
 ```cpp
@@ -1489,9 +1689,9 @@ using namespace std;
 
 class Solution {
 private:
-	void dfs(int node, int vis[], stack<int> &st,
-	         vector<int> adj[]) {
+	void dfs(int node, int vis[], stack<int> &st, vector<int> adj[]) {
 		vis[node] = 1;
+		// Traverse Adjacent Nodes
 		for (auto it : adj[node]) {
 			if (!vis[it]) dfs(it, vis, st, adj);
 		}
@@ -1499,16 +1699,16 @@ private:
 	}
 public:
 	//Function to return list containing vertices in Topological order.
-	vector<int> topoSort(int V, vector<int> adj[])
-	{
+	vector<int> topoSort(int V, vector<int> adj[]){
 		int vis[V] = {0};
 		stack<int> st;
+		// Loop and DFS(). Because We can't reach to every nodes through single start at node `0`
 		for (int i = 0; i < V; i++) {
 			if (!vis[i]) {
 				dfs(i, vis, st, adj);
 			}
 		}
-
+		// Stack -> Ans list
 		vector<int> ans;
 		while (!st.empty()) {
 			ans.push_back(st.top());
@@ -1517,26 +1717,14 @@ public:
 		return ans;
 	}
 };
-
-
-int main() {
-
-	//V = 6;
-	vector<int> adj[6] = {{}, {}, {3}, {1}, {0, 1}, {0, 2}};
-	int V = 6;
-	Solution obj;
-	vector<int> ans = obj.topoSort(V, adj);
-
-	for (auto node : ans) {
-		cout << node << " ";
-	}
-	cout << endl;
-
-	return 0;
-}
 ```
 
+**In place of Stack, we could use `ans` vector Directly**
+```cpp
+st.push() ----then----> ans.push_back(st.top())
 
+ans.push_back() -----then----> reverse(ans.begin(), ans.end())
+```
 # [G-22. Kahn's Algorithm | Topological Sort Algorithm | BFS](https://youtu.be/73sneFXuTEg) ^G22
 
 
@@ -1666,9 +1854,184 @@ vector<int> topoSort(int V, vector<int> adj[]) {
 - **Topological order vector:** `O(V)` → Stores the result of the topological sort.
 
 
+---
+
+# [G-23. Detect a Cycle in Directed Graph | Topological Sort | Kahn's Algorithm | BFS](https://youtu.be/iTBaI90lpDQ)
+
+
+# [# G-24. Course Schedule I and II | Pre-requisite Tasks | Topological Sort](https://youtu.be/WAOfKpxYHR8)
+
+
+# [# G-25. Find Eventual Safe States - BFS - Topological Sort](https://youtu.be/2gtg3VsDGyc)
+
+# [# G-26. Alien Dictionary - Topological Sort](https://youtu.be/U3N_je7tWAs)
 
 ---
-> Problems
+# [G-27. Shortest Path in Directed Acyclic Graph - Topological Sort](https://youtu.be/ZUFQfFaU-8U?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn) ^G27
+
+## Directed Acyclic Graph + Weight
+
+
+**Shortest Path in DAG - Topo Sort + Relaxation Algorithm**
+```sh
+1. Create adj[] list from edges with (node -> {adj, weight}).
+2. Create vis[] array and initialize to 0.
+3. For each unvisited node:
+    a. Call DFS(node).
+4. In DFS(node):
+    a. Mark node as visited. # vis[node] = 1
+    b. For each adjacent node (v, wt):
+        - If not visited, call DFS(v). # !vis[v] -> DFS(v)
+    c. Push node into stack after all calls. # st.push(node)
+5. Create dist[] array of size N, initialize with 1e9.
+6. Set dist[source] = 0.
+7. While stack is not empty:
+    a. Pop node from stack.
+    b. For each adjacent (v, wt):
+        - If dist[node] + wt < dist[v], update dist[v]. # Relax
+8. Replace all 1e9 in dist[] with -1 (unreachable nodes).
+9. Return dist[] as shortest paths from source.
+
+```
+
+
+### *Shortest Path in DAG -Using Topo Sort + Edge Relaxation  | C++ Code*
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+  private:
+    void topoSort(int node, vector < pair < int, int >> adj[],
+      int vis[], stack < int > & st) {
+      //This is the function to implement Topological sort. 
+      vis[node] = 1;
+      for (auto it: adj[node]) {
+        int v = it.first;
+        if (!vis[v]) {
+          topoSort(v, adj, vis, st);
+        }
+      }
+      st.push(node);
+    }
+  public:
+    vector < int > shortestPath(int N, int M, vector < vector < int >> & edges) {
+
+      // Step 1: Build graph (adjacency list)
+      vector < pair < int, int >> adj[N];
+      for (int i = 0; i < M; i++) {
+        int u = edges[i][0];
+        int v = edges[i][1];
+        int wt = edges[i][2];
+        adj[u].push_back({v, wt}); 
+      }
+      // Step 2: Topological sort
+      int vis[N] = {0};
+      stack < int > st;
+      for (int i = 0; i < N; i++) {
+        if (!vis[i]) {
+          topoSort(i, adj, vis, st);
+        }
+      }
+
+      // Step 2: Topological Sort
+      vector < int > dist(N);
+      for (int i = 0; i < N; i++) {
+        dist[i] = 1e9;
+      }
+
+      dist[0] = 0;
+      // Step 4: Relax edges in topological order
+      while (!st.empty()) {
+        int node = st.top();
+        st.pop();
+
+        for (auto it: adj[node]) {
+          int v = it.first;
+          int wt = it.second;
+
+          if (dist[node] + wt < dist[v]) {
+            dist[v] = wt + dist[node];
+          }
+        }
+      }
+	// Step 5: Convert unreachable nodes' distance to -1
+      for (int i = 0; i < N; i++) {
+        if (dist[i] == 1e9) dist[i] = -1;
+      }
+      return dist;
+    }
+};
+```
+
+# [# G-28. Shortest Path in Undirected Graph with Unit Weights](https://youtu.be/C4gxoTaI71U?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn) ^G28
+## Undirected Graph + Unit  Weight
+
+
+**Shortest Path - Undirected Graph - BFS Algorithm**
+```sh
+1. Create adj[] list from edges for undirected graph.
+2. Create dist[] array of size N, initialized with 1e9.
+3. Set dist[src] = 0.
+4. Create queue q and push src.
+5. While q is not empty:
+    a. Pop node from front.
+    b. For each adjacent node:
+        - If dist[node] + 1 < dist[adj], update and push. # Relaxation
+6. Create ans[] with -1.
+7. For each i: if dist[i] != 1e9, set ans[i] = dist[i].
+8. Return ans[] as shortest distance from src.
+```
+
+### *Shortest Path - Undirected Graph - BFS C++ Code*
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution {
+  public:
+    vector<int> shortestPath(vector<vector<int>>& edges, int N,int M, int src){
+    //Create an adjacency list of size N for storing the undirected graph.
+        vector<int> adj[N]; 
+        for(auto it : edges) {
+            adj[it[0]].push_back(it[1]); 
+            adj[it[1]].push_back(it[0]); 
+        }
+
+        //A dist array of size N initialised with a large number to 
+        //indicate that initially all the nodes are untraversed.    
+    
+        int dist[N];
+        for(int i = 0;i<N;i++) dist[i] = 1e9;
+        // BFS Implementation.
+        dist[src] = 0; 
+        queue<int> q;
+        q.push(src); 
+        while(!q.empty()) {
+            int node = q.front(); 
+            q.pop(); 
+            for(auto it : adj[node]) {
+                if(dist[node] + 1 < dist[it]) {
+                    dist[it] = 1 + dist[node]; 
+                    q.push(it); 
+                }
+            }
+        }
+        // Updated shortest distances are stored in the resultant array ‘ans’.
+        // Unreachable nodes are marked as -1. 
+        vector<int> ans(N, -1);
+        for(int i = 0;i<N;i++) {
+            if(dist[i] != 1e9) {
+                ans[i] = dist[i]; 
+            }
+        }
+        return ans; 
+    }
+};
+```
+
+---
+
 # [G-29. Word Ladder - I | Shortest Paths](https://youtu.be/tRPda0rcf8E) ^G29
 
 # [G-30. Word Ladder - 2 | Shortest Paths](https://youtu.be/DREutrv2XD0) ^G30

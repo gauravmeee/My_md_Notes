@@ -1,5 +1,24 @@
 # Arrays
 
+---
+
+**Passing Arrays in Functions**
+
+```cpp
+// Function Definition : 
+void func(int arr[5])  // ❌ size is ignored; treated as int*
+void func(int arr[])  ✅
+void func(int* arr) ✅
+```
+
+```cpp
+// Function Call :
+func(arr[]);  // ❌ Syntax Error
+func(arr);  // ✅
+```
+
+---
+
 
 **Can't declare array without size or initializer list**
 ```cpp

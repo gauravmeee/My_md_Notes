@@ -52,3 +52,38 @@ if(a) cout<<1, a++; ✅
 if(a) cout<<1, return 1; ❌
 ```
 Note: comma operator allows two or more expressions to be executed sequentially, but `return` is a control statement, not an expression, so it cannot be used in this way.
+
+
+---
+
+ `bool` with Arithmetic Operations in C++
+```cpp
+bool a = true, b = false, c = 3, d = 0;
+int e = 1;
+int sum = a + b + c + d + e; // 1 + 0 + 1 + 0 + 1 = 3
+```
+
+- `bool` behaves like integers (`0` or `1`) in arithmetic.    
+- Any non-zero assigned to `bool` becomes `true` (i.e., 1). 
+- In expressions, `bool` values are added like `int`.
+
+---
+
+
+
+Cpp Invalid Variable Declaration 
+```cpp
+int a, b, c = 0, 1, 2; // ❌ Only 'c' initialized to 2, rest are undeclared
+int a = 0, int b = 1, int c = 2; // ❌ Wrong syntax
+```
+
+
+Cpp valid Variable Declaration 
+```cpp
+int a = 0, b = 1, c = 2; // ✅ Preferred: single-line declaration
+int a = 0; int b = 1; int c = 2; // ✅ Valid but less clean
+```
+
+- In C++, type is specified once per declaration line.
+- `int a, b = 0, 1;` means only `b` is initialized with 1; `a` is uninitialized.
+- Unlike Python/JS, C++ doesn’t support unpacking style (`a, b, c = 0, 1, 2`).

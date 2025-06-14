@@ -38,7 +38,7 @@
 
 ---
 
-### Recursion vs Backtracking
+# Recursion vs Backtracking
 
 **Recursion:** -> Tool
 - Just goes forward solving smaller subproblems.
@@ -56,7 +56,7 @@
 
 ---
 
-### Problems Solved by Recursion
+# Problems Solved by Recursion
 
 **Can be Solved using Recursion ✅**
 ```mathematica
@@ -90,7 +90,7 @@
 
 ---
 
-## Approach Summary
+# Recursion Approach Types
 
 **Combination Sum**
 ```sh
@@ -148,10 +148,11 @@
 
 ---
 
-### `Pick or Not Pick` vs `Pick or Skip`
+# Pick/Not-Pick  vs Pick/Skip`
 
+**Method 1: Pick or Not Pick**
 ```sh
-Method 1: Pick or Not Pick
+
 - For every index:
     a. Pick the element.
     b. Not pick the element.
@@ -159,8 +160,8 @@ Method 1: Pick or Not Pick
 - Example: Combination Sum I
 ```
 
+**Method 2: For Loop (Pick or Skip)**
 ```sh
-Method 2: For Loop (Pick or Skip)
 - At each recursion level:
     a. Run a loop from current index to end.
     b. Pick an element, move recursion ahead.
@@ -169,12 +170,10 @@ Method 2: For Loop (Pick or Skip)
 - Example: 
     - Combination Sum II (Optimal)
     - Subset Sum II (Optimal)
-
 ```
 
 ---
 # [Re 1. Introduction to Recursion | Recursion Tree | Stack Space | Strivers A2Z DSA Course](https://www.youtube.com/watch?v=yVdKa8dnKiE&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=1&pp=iAQB) ^R1
-
 
 
 Recursion 
@@ -258,7 +257,7 @@ Q4. Print Linearly from 1 to N (by Backtracking)
 Q5. Print from N to 1 (by Backtracking)
 ```
 
-Q1. Print Name 5 Time
+**Q1.** Print Name 5 Time
 ```cpp
 void f(){
 	if(i>n) return
@@ -293,7 +292,7 @@ main(){
 
 Siminlarly,
 
-Q2. Print Linearly from 1 to N
+**Q2**. Print Linearly from 1 to N
 ```cpp
 f(i,N){
 	if(i>N) return
@@ -307,7 +306,7 @@ main(){
 }
 ```
 
-Q3. Print from N to 1
+**Q3**. Print from N to 1
 ```cpp
 f(i,N){
 	if(i<1) return
@@ -321,7 +320,7 @@ main(){
 }
 ```
 
-Q4. Print Linearly from 1 to N (by Backtracking)
+**Q4**. Print Linearly from 1 to N (by Backtracking)
 ```cpp
 f(i<N){
 	if(i<N) return;
@@ -349,7 +348,7 @@ main(){
 // Output : 1 2 3
 ```
 
-Q5. Print from N to 1 (by Backtracking)
+**Q5**. Print from N to 1 (by Backtracking)
 ```cpp
 f(i<N){
 	if(i>N) return;

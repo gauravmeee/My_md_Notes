@@ -102,7 +102,33 @@ Image
 <img src="image.jpg" alt="Alternate Text" breadth="10px" height="10px">
 ```
 
-Inline Style
+**Types of Style**
+
+- CSS Outside HTML
+```html
+<!--External CSS-->
+<head>
+	<link rel="stylesheet" href="style.css">
+</head>
+```
+```css
+/*style.css*/
+h1 {  color: navy;  margin-left: 20px;}
+```
+
+- CSS Inside HTML
+```html
+<!--Internal CSS-->
+<head>
+	<style> p{  color: navy;  margin-left: 20px;} </style>
+</head>
+
+<!--Inline CSS-->
+<h1 style="color:blue;text-align:center;">Title</h1>  
+```
+
+
+**Internal Style**
 ```html
 <!-- Style to Tags -->
 <style>
@@ -130,7 +156,7 @@ Inline Style
 
 - **`href` Used when referring to a resource** : The browser doesn’t load the file immediately but references it when needed. (ex: Stylesheets, hyperlinks.)
 
-- **`src` Used when embedding a resource** : The browser **fetches and loads** the file immediately as part of the page. (ex: Images, scripts, iframes.)
+- **`src` Used when embedding a resource** : The browser **fetches and loads** the file immediately as part of the page. (ex: `images`, `scripts`, `iframes`)
 
 - `rel` stands for **relationship**. It is an attribute used in `<link>` and `<a>` elements  to specify the relationship between the current document and the linked resource (`href`)
 

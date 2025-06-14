@@ -1,5 +1,9 @@
 
-### Data Structures And Their Implementation 
+
+> Resources
+- [DSA BY Google](https://techdevguide.withgoogle.com/paths/data-structures-and-algorithms/)
+
+# Types of Data Structures and their Implementation 
 
 1. **Array**: Contiguous memory block. ✅
 2. **Linked List**: Nodes with pointers (Singly/Doubly Linked List). 
@@ -22,7 +26,9 @@
 
 ---
 
-### **Data Structures Uses**
+# Data Structure and Algorithm Uses
+
+### **1. Data Structures Uses**
 
 1. **Linear Data Structures**
     - **Array** - Used for storing fixed-size data like employee IDs or scores in a game.
@@ -69,9 +75,7 @@
 - **Suffix Tree** - Efficient substring search, e.g., in bioinformatics for DNA sequencing.
 
 
----
-
-### **Algorithms Uses**
+### **2. Algorithms Uses**
 
 1. **Searching Algorithms**
 
@@ -174,9 +178,9 @@
 - **Ternary Search**: Finding the optimal point in unimodal functions, e.g., optimizing resource allocation in production.
 
 ---
+# Overview of Each Data Structure
 
-
-### 1. **Array**
+##### 1. **Array**
 - **Definition:** A collection of elements identified by index or key.
 - **Properties:** 
   - Fixed size.
@@ -188,7 +192,7 @@
     int arr[5] = {1, 2, 3, 4, 5};
     ```
 
-### 2. **Linked List**
+##### 2. **Linked List**
 - **Definition:** A linear data structure where elements are stored in nodes, with each node containing data and a reference to the next node.
 - **Types:**
   - **Singly Linked List:** Each node points to the next node.
@@ -202,7 +206,7 @@
     };
     ```
 
-### 3. **Stack**
+##### 3. **Stack**
 - **Definition:** A linear data structure that follows the Last In, First Out (LIFO) principle.
 - **Operations:**
   - **push(x):** Insert an element at the top.
@@ -222,7 +226,7 @@
     };
     ```
 
-### 4. **Queue**
+##### 4. **Queue**
 - **Definition:** A linear data structure that follows the First In, First Out (FIFO) principle.
 - **Operations:**
   - **enqueue(x):** Insert an element at the rear.
@@ -244,7 +248,7 @@
     };
     ```
 
-### 5. **Priority Queue**
+##### 5. **Priority Queue**
 - **Definition:** A special type of queue where each element is associated with a priority, and elements are dequeued based on their priority.
 - **Implementation:**
   - **Heap-based implementation:** A common method where the highest (or lowest) priority element is always at the root.
@@ -257,7 +261,7 @@
     ```
   - **Binary Heap:** A binary tree where the parent node is always greater (max-heap) or smaller (min-heap) than its children.
 
-### 6. **Binary Search Tree (BST)**
+##### 6. **Binary Search Tree (BST)**
 - **Definition:** A binary tree where each node has a key, and every node's left subtree has smaller keys, and the right subtree has larger keys.
 - **Properties:**
   - Allows for efficient searching, insertion, and deletion.
@@ -277,7 +281,7 @@
     }
     ```
 
-### 7. **Hash Table**
+##### 7. **Hash Table**
 - **Definition:** A data structure that maps keys to values for efficient lookup.
 - **Properties:**
   - Uses a hash function to compute an index into an array of buckets or slots.
@@ -291,7 +295,7 @@
     hashTable[2] = "Two";
     ```
 
-### 8. **Graph**
+##### 8. **Graph**
 - **Definition:** A collection of nodes (vertices) connected by edges.
 - **Types:**
   - **Directed Graph:** Edges have a direction.
@@ -305,7 +309,7 @@
     adj[0].push_back(4);
     ```
 
-### 9. **Trie (Prefix Tree)**
+##### 9. **Trie (Prefix Tree)**
 - **Definition:** A tree-like data structure used to store a dynamic set of strings where nodes represent prefixes of strings.
 - **Operations:**
   - **Insert:** Add a word to the Trie.
@@ -322,7 +326,7 @@
     };
     ```
 
-### 10. **Heap**
+##### 10. **Heap**
 - **Definition:** A special tree-based data structure that satisfies the heap property.
 - **Types:**
   - **Max Heap:** Parent nodes are always greater than or equal to their children.
@@ -334,7 +338,7 @@
     std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap; // Min-Heap
     ```
 
-### 11. **Deque (Double-ended Queue)**
+##### 11. **Deque (Double-ended Queue)**
 - **Definition:** A linear data structure that allows insertion and deletion at both ends.
 - **Properties:**
   - Can operate both as a queue and a stack.
@@ -350,7 +354,7 @@
     dq.pop_front();    // Remove from front
     ```
 
-### 12. **Segment Tree**
+##### 12. **Segment Tree**
 - **Definition:** A tree data structure used for storing information about intervals or segments.
 - **Properties:**
   - Useful for answering range queries like sum, min, max, etc.
@@ -362,7 +366,7 @@
     void build(int node, int start, int end) { /* Code */ }
     ```
 
-### 13. **Fenwick Tree (Binary Indexed Tree)**
+##### 13. **Fenwick Tree (Binary Indexed Tree)**
 - **Definition:** A data structure that provides efficient methods for cumulative frequency tables or ranges.
 - **Properties:**
   - Supports point updates and prefix queries.
@@ -378,7 +382,7 @@ These notes provide a summary of common data structures, their properties, and h
 
 Apologies for missing those! Let's cover `set`, `map`, and other related data structures in C++.
 
-### 14. **Set**
+##### 14. **Set**
 - **Definition:** A collection of unique elements stored in a specific order.
 - **Properties:**
   - Elements are automatically sorted.
@@ -402,7 +406,7 @@ Apologies for missing those! Let's cover `set`, `map`, and other related data st
     us.insert(20);
     ```
 
-### 15. **Map**
+##### 15. **Map**
 - **Definition:** A collection of key-value pairs, where each key is unique.
 - **Properties:**
   - Keys are automatically sorted.
@@ -426,7 +430,7 @@ Apologies for missing those! Let's cover `set`, `map`, and other related data st
     um[3] = "three";
     ```
 
-### 16. **Multiset**
+##### 16. **Multiset**
 - **Definition:** A set-like container that allows duplicate elements.
 - **Properties:**
   - Elements are automatically sorted.
@@ -450,7 +454,7 @@ Apologies for missing those! Let's cover `set`, `map`, and other related data st
     ums.insert(10); // Duplicate allowed
     ```
 
-### 17. **Multimap**
+##### 17. **Multimap**
 - **Definition:** A map-like container that allows multiple keys to have the same value.
 - **Properties:**
   - Keys are automatically sorted.
@@ -474,7 +478,7 @@ Apologies for missing those! Let's cover `set`, `map`, and other related data st
     umm.insert({1, "another one"}); // Duplicate key allowed
     ```
 
-### 18. **Bitset**
+##### 18. **Bitset**
 - **Definition:** A specialized container to store bits efficiently.
 - **Properties:**
   - Fixed size.
@@ -494,3 +498,43 @@ Apologies for missing those! Let's cover `set`, `map`, and other related data st
 - **Special Structures:** `std::bitset` is optimized for bit-level manipulation.
 
 These additions should complete the set of data structures commonly used in C++!
+
+---
+
+# Inbuilt Linked List and Binary Tree in C++
+
+##### 1. **Linked List**:
+   - **`std::list`**: This is a doubly linked list, which allows for efficient insertion and deletion of elements from both ends and the middle. It does not provide random access to elements, unlike arrays or vectors.
+
+   ```cpp
+   #include <list>
+
+   int main() {
+       std::list<int> myList;
+       myList.push_back(1);
+       myList.push_front(2);
+       myList.pop_back();
+       myList.pop_front();
+       return 0;
+   }
+   ```
+
+##### 2. **Binary Tree**:
+   - **`std::set` and `std::map`**: These are associative containers that use a balanced binary tree (typically a Red-Black Tree) to store elements. `std::set` is used for storing unique elements, while `std::map` stores key-value pairs.
+
+   ```cpp
+   #include <set>
+   #include <map>
+
+   int main() {
+       std::set<int> mySet;
+       mySet.insert(1);
+       mySet.insert(2);
+       
+       std::map<int, std::string> myMap;
+       myMap[1] = "One";
+       myMap[2] = "Two";
+       
+       return 0;
+   }
+   ```

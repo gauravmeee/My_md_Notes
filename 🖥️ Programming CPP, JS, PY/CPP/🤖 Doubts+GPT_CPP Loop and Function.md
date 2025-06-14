@@ -71,3 +71,4 @@ int main(){
 datatype -> declaration + initialisation
 
 function -> declaration + definiton
+
