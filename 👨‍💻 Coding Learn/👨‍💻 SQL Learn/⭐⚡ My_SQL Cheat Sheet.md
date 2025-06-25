@@ -32,6 +32,8 @@ COMMIT, ROLLBACK, SAVEPOINT, SET TRANSACTION
 ```Mysql
 SHOW DATABASES
 ```
+
+---
 ### 1. DDL For Databases
 
 - *CREATE, DROP, USE, SHOW TABLES*
@@ -61,6 +63,7 @@ USE DatabaseName;
 SHOW TABLES;
 ```
 
+---
 ### 2. DDL For Tables
 
 - *CREATE x3, ALTER x5, DROP, SHOW COLUMNS, DESC/DESCRIBE*
@@ -76,6 +79,7 @@ ColumnName2 DataType [Size],...
 CREATE TABLE TableName(
 ColumnName1 DataType [Size] Constraints,...)
 ```
+
 
 `REFERENCES`  (defines a **foreign key constraint**) ⭐
 ```mysql
@@ -94,8 +98,42 @@ CREATE TABLE TableName (
 );
 ```
 
+`AS` - `SELECT` 
+```mysql
+-- Create TAble from Existing Table
+CREATE TABLE TableName AS
+(SELECT ColumnName, ColumnName2 FROM TableName WHERE <Condition>)
+```
+
+
+**Full Use case Example** ⭐
+```mysql
+-- Table 1:  Use of -> Primary Keys, Size
+CREATE TABLE Department (
+  dept_id INT PRIMARY KEY,
+  dept_name CHAR(30)
+);
+
+-- Table 2: Use of Primary Keys, Size, Foregin Key (References)
+CREATE TABLE Student (
+  student_id INT PRIMARY KEY,
+  name CHAR(20),
+  email VARCHAR(50),
+  age INT,
+  grade DECIMAL(4,2),
+  dept_id INT,
+  FOREIGN KEY (dept_id) REFERENCES Department(dept_id)
+);
+
+-- Table 3: Use of AS (Select)
+CREATE TABLE TopStudents AS
+SELECT student_id, name, grade
+FROM Student
+WHERE grade >= 90.00;
+```
+
 **NOTE**
-- Ensures `Column2` in `Orders` must exist in `OtherTAble(OtherColumn)`
+- Ensures `Column2` in `Orders` must exist in `OtherTAble(OtherColumn)` ⭐
 - `REFERENCES` requires the target column to be **uniquely identifiable** (**PRIMARY KEY** or **UNIQUE**)
 
 **Benefit of linking to `PRIMARY KEY`:**
@@ -106,12 +144,16 @@ CREATE TABLE TableName (
 - Prevents **accidental deletion or updates** (with `ON DELETE` / `ON UPDATE` rules).
 - This ensures **one-to-one or many-to-one** relationships can be enforced.
 
-`AS` - `SELECT` 
+**Constraint vs size**
+- `CHAR(5)` → allows **exactly 5 characters** (padded if shorter).
+- `VARCHAR(5)` → allows **up to 5 characters**.
+- `INT(5)` → **does not** restrict the number of digits.  (`INT`, `BIGINT` store **binary integers**, not character strings.)
+- **Use `CHECK` for integer constraint**
 ```mysql
--- Create TAble from Existing Table
-CREATE TABLE TableName AS
-(SELECT ColumnName, ColumnName2 FROM TableName WHERE <Condition>)
+column2 INT,
+CHECK (column2 BETWEEN 10000 AND 99999)  -- exactly 5-digit numbers
 ```
+ 
 
 ##### `ALTER TABLES`
 
@@ -177,18 +219,28 @@ DROP TABLE IF EXISTS TableName;
 -- Truncate Table Command (removes all rows, resets identity)
 TRUNCATE TABLE TableName;
 ```
-
+- Truncate Don't Delete Table itself, but its a `DDL` Command
 
 **NOTE :**
+- Faster than `DELETE` (which is in DML)
 - Use **`TRUNCATE`** when you need to quickly clear all rows from a table but keep the table structure.
 - Use **`DROP`** when you want to permanently delete a table, including its structure.
 
 **Why Truncate is in DDL and not in DML ?**
-- Faster than `DELETE` (which is in DML)
-- It **resets the table structure** (like auto-increment counters).
-- It **doesn't log row-level deletions** (unlike `DELETE`) and **cannot be rolled back** in many DBMS.
-- It **deallocates data pages**, not just removes rows.
+1. **Resets structure (like AUTO_INCREMENT):**
+    - Resets identity/auto-increment counters to start from initial value.
+    - Example:
+	```mysql
+	TRUNCATE TABLE students; -- Next insert will start student_id from 1 again (if auto_increment)
+	```
+2. **No row-level logging & mostly non-rollbackable:**
+    - Most DBMS don’t log individual row deletions.
+    - Can’t `ROLLBACK` after `TRUNCATE` (unless in a transaction and supported).
+3. **Deallocates entire data pages:**
+    - Instead of deleting row-by-row (like `DELETE`), it frees up memory pages.
+    - That’s why it’s **faster** and more **efficient**.
 
+---
 ---
 # DML
 
@@ -201,8 +253,15 @@ SELECT * FROM TableName;
 -- Show specific columns
 SELECT ColumnName1, ColumnName2, ColumnName3 FROM TableName;
 
--- Putting Text in the Query Output
+-- This adds a fixed text column in the result for every row.
 SELECT ColumnName, 'Text' FROM TableName;
+
+/* ColumnName    |   'Text'
+  ---------------|-----------
+    Value 1      |    'Text'
+    Value 2      |    'Text'
+    Value 3      |    'Text'
+*/
 ```
 
 `DISTINCT`
@@ -216,7 +275,7 @@ SELECT DISTINCT ColumnName FROM TableName;
 
 `ALL`
 ```mysql
--- select ALL (ALL is implicit by default)
+-- select ALL (Include Non-Distinct) (ALL is implicit by default)
 
 SELECT ALL * FROM TableName; -- Select all rows
 SELECT ALL ColumnName FROM TableName; -- Select all values in a specific column
@@ -226,21 +285,33 @@ SELECT * FROM Employees
 WHERE Salary > ALL (SELECT Salary FROM Employees);
 -- This query selects employees whose salary is greater than all the salaries
 ```
+Note:- `ALL` is **redundant** because it's the **default behavior**. It Select all **non-distinct** values (default).
 
 `Expression`
 ```mysql
--- Evaluate a simple expression
-SELECT 1 + 6;
+-- Evaluate a expression (MySQL, PostgreSQL, SQL Server, etc.)
+SELECT 1 + 6; -- 
+/*
+| 1 + 6 |
+|-------|
+|   7   |
+*/
 
--- Evaluate an expression with `FROM dual` (used in Oracle, not needed in MySQL)
+-- Evaluate a expression (used in Oracle, Also work in MySQL)
 SELECT 4 * 3 FROM DUAL;
--- `DUAL` allows you to execute expressions like arithmetic, string manipulations, or system functions without requiring a real table.
+/*
+| 4 * 3 |
+|-------|
+|  12   |
+*/
 
 -- Scalar expression with a selected field
 SELECT ColumnName * 100 FROM TableName;
 ```
 
-`Top 100 fields`
+**Note:**  `DUAL` is a special one-row, one-column table used in Oracle for expressions without needing actual data.  `DUAL` allows you to execute expressions like arithmetic, string manipulations, or system functions without requiring a real table.
+
+`Top 100 fields` ⭐
 ```sql
 -- In SQL Server, Sybase, MS Access --
 SELECT TOP 100 * FROM TableName;
@@ -249,13 +320,14 @@ SELECT TOP 100 * FROM TableName;
 `SELECT *  FROM TableName LIMIT 100;`
 ```
 
+
 `AS`
 ```mysql
 -- Using column aliases
 SELECT ColumnName AS MyColumnName FROM TableName;
 ```
 
-`IFNULL`
+`IFNULL` ⭐
 ```mysql
 -- Replaces NULL in ColumnName with 'ValueSubstitute'
 SELECT IFNULL(ColumnName, 'ValueSubstitute') FROM TableName;
@@ -269,18 +341,6 @@ FROM TableName
 WHERE <Conditions>;
 ```
 
-EXAMPLE :
-```mysql
-SELECT *
-FROM Employees
-WHERE (Bonus + Commission > 10000)
-  AND (Department = 'Sales')
-  AND (Name LIKE 'J___') 
-  AND (YearsExperience IS NOT NULL)
-  AND NOT (JobTitle LIKE 'Intern%'); 
-```
-
-`<>` : not
 
 `BETWEEN`
 ```mysql
@@ -309,6 +369,21 @@ WHERE (Bonus + Commission > 10000)
 ...WHERE ColumnName IS NULL;
 ```
 **Note:** `customerId = NULL` ❌ Syntax Error
+
+**Full Use Case Example:** ⭐
+```mysql
+SELECT *
+FROM Employees
+WHERE (Bonus + Commission > 10000)
+  AND (Department = 'Sales')
+  AND (Name LIKE 'J___')          -- Name starts with J and has 4 letters
+  AND (YearsExperience IS NOT NULL)
+  AND NOT (JobTitle LIKE 'Intern%')    -- Exclude interns
+  AND Department IN ('Sales', 'Marketing')   -- Department is either Sales or Marketing
+  AND Age BETWEEN 30 AND 40;  -- Age between 30 and 40 (inclusive)
+```
+
+`<>` : not
 
 `ORDER BY`
 ```mysql
@@ -391,6 +466,8 @@ SELECT SUM(DISTINCT ColumnName) FROM TableName;
 ```
 
 
+✅ Revision Done Upto here - 18 June 2025
+
 ##### `INSERT INTO`
 
 `VALUES`
@@ -448,10 +525,33 @@ Multiline Comment */
 - In MySQL Single-line comments can be implemented with  `#` too , along with `--`
 
 ---
+
+### SQL Clause order ⭐
+
+- **`WHERE`** - Filters **rows** before any grouping happens.
+- **`GROUP BY`** - Groups the filtered rows by specified column(s).
+- **`HAVING`** - Filters **groups** (not individual rows) after aggregation.
+- **`ORDER BY`** - Sorts the final result.
+
+```sql
+SELECT
+FROM
+--
+WHERE
+GROUP BY
+HAVING
+ORDER BY -- sorts the grouped result
+```
+
+**WHERE → GROUP BY → HAVING → ORDER BY**
+
+---
 ### Data Types in SQL
 
+
+
 ##### 1. Numeric Data Types
-- `INT`  - Integer (whole number)
+- `INT` or `INTEGER` - Integer (whole number)
 - `SMALLINT` - Smaller range integer  
 - `BIGINT` - Large range integer 
 - `DECIMAL(p,s)` - Exact fixed-point number
@@ -662,6 +762,22 @@ NOT NULL, UNIQUE, PRIMARY KEY, DEFAULT 'Value', CHECK (<Conditions>), REFERENCE
 ```
 NOTE: ALL can be used wherever DISTINCT is applicable (default is ALL).
 SELECT (ALL/ DISTINCT) (*/ColumnName) FROM TableName;
+```
+
+**Double use of Same Keyword** `DESC`, `AS`, `ALL`
+```mysql
+-- Two uses of `DESC`
+DESC table_name;           -- Describe table structure (DDL)
+SELECT * FROM table_name ORDER BY column_name DESC;  -- Sort in descending order (DML)
+
+-- Two uses of `AS`
+SELECT column_name AS alias;  -- Column alias (Rename column in output)
+CREATE TABLE new_table AS SELECT ...;   -- Create new table using result of a SELECT
+
+-- Two uses of `ALL`
+SELECT ALL column_name FROM table_name;  -- (Default) Include duplicates in SELECT
+SELECT * FROM table_name WHERE salary > ALL (...); -- Comparison operator in subqueries
+
 ```
 
 ---

@@ -372,3 +372,94 @@ SELECT CURDATE() + INTERVAL 1 DAY; # Next day ✅
 # or
 SELECT DATE_ADD(CURDATE(), INTERVAL 1 DAY); # Using Add Next day ✅
 ```
+
+
+---
+
+### Q. Write a solution to find, for each `event_type` registered **more than once**, the difference between the **latest** and **second latest** value (based on `time`). Return the result ordered by `event_type`. ⭐⭐
+
+**Table Schema:**
+
+```sql
+CREATE TABLE events (
+  event_type INTEGER NOT NULL,
+  value INTEGER NOT NULL,
+  time TIMESTAMP NOT NULL,
+  UNIQUE(event_type, time)
+);
+```
+
+**Example Input:**
+
+```
++------------+-------+---------------------+
+| event_type | value | time                |
++------------+-------+---------------------+
+|     2      |   5   | 2015-05-09 12:42:00 |
+|     4      | -42   | 2015-05-09 13:19:57 |
+|     2      |   2   | 2015-05-09 14:48:30 |
+|     2      |   7   | 2015-05-09 12:54:39 |
+|     3      |  16   | 2015-05-09 13:19:57 |
+|     3      |  20   | 2015-05-09 15:01:09 |
++------------+-------+---------------------+
+```
+
+**Expected Output:**
+
+```
++------------+--------+
+| event_type | value  |
++------------+--------+
+|     2      |   -5   |
+|     3      |    4   |
++------------+--------+
+```
+
+---
+
+### Solution (Using `ROW_NUMBER()`):
+
+```sql
+WITH ranked_events AS (
+  SELECT
+    event_type,
+    value,
+    ROW_NUMBER() OVER (PARTITION BY event_type ORDER BY time DESC) AS rn
+  FROM events
+),
+
+filtered AS (
+  SELECT
+    event_type,
+    MAX(CASE WHEN rn = 1 THEN value END) AS latest,
+    MAX(CASE WHEN rn = 2 THEN value END) AS second_latest
+  FROM ranked_events
+  GROUP BY event_type
+  HAVING COUNT(*) > 1
+)
+SELECT event_type,
+       latest - second_latest AS value
+FROM filtered
+ORDER BY event_type;
+```
+
+---
+
+### Learnings ⭐
+
+#### Row Ranking
+```sql
+ROW_NUMBER() OVER (PARTITION BY col ORDER BY col DESC); -- assigns 1,2,3,... within group
+```
+
+#### Group Filtering
+```sql
+HAVING COUNT(*) > 1; -- ensures only event_type with more than one row
+```
+
+#### Aggregating Conditionals
+```sql
+MAX(CASE WHEN rn = 1 THEN value END); -- pick latest value
+MAX(CASE WHEN rn = 2 THEN value END); -- pick second latest value
+```
+This ensures clean selection of **top 2 values** per group using window functions and conditional aggregation.

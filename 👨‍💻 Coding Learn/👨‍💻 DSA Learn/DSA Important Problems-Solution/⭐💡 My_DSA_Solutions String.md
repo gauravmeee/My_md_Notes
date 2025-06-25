@@ -163,3 +163,57 @@ def longestPalindrome(self, s):
 # TC -> O(n^2)
 # SC -> O(1)
 ```
+
+---
+
+### **Ques.** Write a C++ program to find the **word with the highest frequency** in a given string. If multiple words have the same maximum frequency, print the one that appears **first** in the string.
+ 
+Input:  
+```
+"apple banana apple orange banana apple"
+```
+
+Output:  
+```
+apple
+```
+
+**Constraints:**
+- The input string contains only lowercase English letters and spaces.
+- Words are separated by a single space.
+
+**Solution by GPT** ⭐
+```cpp
+#include <iostream>
+#include <sstream>
+#include <unordered_map>
+using namespace std;
+
+string maxFreqWord(string str) {
+    unordered_map<string, int> freq;
+    stringstream ss(str);
+    string word, maxWord;
+    int maxFreq = 0;
+
+    while (ss >> word) {
+        freq[word]++;
+        if (freq[word] > maxFreq) {
+            maxFreq = freq[word];
+            maxWord = word;
+        }
+    }
+    return maxWord;
+}
+
+int main() {
+    string s = "apple banana apple orange banana apple";
+    cout << "Max frequency word: " << maxFreqWord(s);
+    return 0;
+}
+```
+
+**Note:** `>>` Operator in `while (ss >> word)`
+- the `>>` is the **stream extraction operator** (same as in `cin >> x`).
+- `ss` is a `stringstream` initialized with the input string.
+- `ss >> word` extracts the **next word** (separated by whitespace) from the stream and stores it in the variable `word`.
+    

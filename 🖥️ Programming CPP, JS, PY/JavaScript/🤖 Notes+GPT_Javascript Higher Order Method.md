@@ -67,3 +67,76 @@ console.log(loggedMultiply(2, 3)); // Logs arguments and returns 6
 - Promotes cleaner and more modular code.
 - Enhances reusability and abstraction.
 - Simplifies working with data transformations and iterations.
+
+---
+
+### Understanding Callback Parameters in Array Methods (JavaScript)
+
+When we use array methods like `forEach`, `map`, `filter`, etc., we pass a callback function to them. This callback can receive up to **three arguments**:
+
+```js
+callback(currentValue, index, array)
+```
+
+Let’s understand each:
+
+**1. `currentValue`**
+- This is the current element of the array being processed.
+- It is **mandatory** in the callback.
+    
+
+**2. `index` _(optional)_**
+- This is the index (position) of the current element in the array.
+- Use it when you need to know **where you are** in the array.
+    
+
+ **3. `array` _(optional)_**
+- This is the **original array** on which the method was called.
+- Useful when you want to compare values or need access to the entire array inside the callback.
+    
+
+**Is `array` Redundant?**
+
+- No, it's not redundant.
+- JavaScript **gives it as an option** so that you can use it **when needed**, without having to refer to the outer array manually. It avoids writing extra code to bring the array into the callback’s scope.
+
+- Example:
+```js
+const arr = [1, 2, 3];
+
+arr.forEach((value, index, array) => {
+  console.log(array); // gives [1, 2, 3] every time
+});
+```
+Even if you're not using it, JavaScript still makes it available. But **you’re free to ignore it** if you don’t need it.
+
+
+**Applies To These Methods:**
+- All standard array methods that process elements one by one:
+- `forEach`,  `map`,  `filter`,  `find`,  `findIndex`, `some`, `every`, `flatMap`
+    
+
+> Note: `reduce` and `reduceRight` have different callback parameters (accumulator, currentValue, index, array).
+
+
+**When to Use Which Parameter**
+- Use only what you need.
+- If you don’t use `index` or `array`, you can omit them in your callback.
+    
+
+Examples:
+```js
+// Only need value
+arr.map(value => value * 2);
+
+// Need value and index
+arr.map((value, index) => index + value);
+
+// Need all three
+arr.map((value, index, array) => {
+  return array.length - index;
+});
+```
+
+
+---

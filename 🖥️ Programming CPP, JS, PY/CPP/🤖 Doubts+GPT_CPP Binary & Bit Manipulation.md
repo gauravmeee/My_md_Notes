@@ -1,6 +1,51 @@
 
 
+# Binary & Bits
+
+##### Integer to Binary Conversion
+
+- **Method 1:** Using `bitset` (fixed length only)
+```cpp
+# include <bitset>
+cout << bitset<8>(18); // Output: 00010010 (8-bit)
+```
+
+- **Method 2:** Custom Function (Dynamic length):
+```cpp
+// Convert to Binary
+string toBinary(int n) {
+    if (n == 0) {
+        return ""
+    }
+    string bin = "";
+    while (n > 0) {
+        bin = char(n % 2 + '0') + bin;
+        n /= 2;
+    }
+    return bin
+}
+
+// Calling Function
+toBinary(num); // output 1010
+```
+
+##### Find the number of bits required to Represent a decimal number
+```cpp
+int countBits(int n) {
+    int count = 0;
+    while (n > 0) {
+        count++;
+        // n = n>>1
+        n >>= 1; // right shift by n by 1 bit, and Assign the shifted value back to `n`
+    }
+    return count;
+}
+```
+
 ---
+
+# Bit Manipulation
+
 ### **Bit Manipulation Property: XOR from `0` to `x`**
 
 - When you compute the XOR of all numbers from `0` to `x`:
@@ -143,7 +188,8 @@ Bitwise operations manipulate individual bits of integers.
 
 - Shifts bits to the left, filling with `0` on the right.
 - **Properties**:
-    - `a << n = a * (2^n)`
+	- `a << n` **returns the left-shifted value** of `a` by `n` positions but **does not change** the value of `a`.
+    - `a << n` same  `a * (2^n)`
 - **Use cases**: **Multiplying by powers of 2**
     ```cpp
     int x = 5;  // `101`
@@ -153,7 +199,8 @@ Bitwise operations manipulate individual bits of integers.
 ##### Right Shift `>>`
 - Shifts bits to the right.
 - **Properties**:
-    - `a >> n = a / (2^n)`
+	- `a << n` **returns the right-shifted value** of `a` by `n` positions but **does not change** the value of `a`.
+    - `a >> n` same as  `a / (2^n)`
 - **Use cases**: **Dividing by powers of 2**
     ```cpp
     int x = 10;  // `1010`
@@ -171,7 +218,6 @@ if (x & (1 << 1)) cout << "2nd bit is set";
 // Clearing (resetting the 2nd bit)
 x = x & ~(1 << 1);  // `101` → `001` (1)
 ```
-
 
 #### Toggle Bits
 - Toggle a bit using XOR with `1`:

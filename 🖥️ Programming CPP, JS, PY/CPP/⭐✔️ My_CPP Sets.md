@@ -1,5 +1,15 @@
 
 ---
+
+```cpp
+set<int> mySet; // -> {} Empty set
+set<int> mySet(n); // -> {1, 2, 3, ...., n-1} set with n unique no.
+// same is for unordered_set
+```
+
+
+---
+
 Convert Set to Vector
 ```cpp
 // Create a set of integers 

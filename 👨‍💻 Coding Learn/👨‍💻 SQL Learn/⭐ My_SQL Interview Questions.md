@@ -10,9 +10,8 @@
 ## #Basic SQL Interview Questions
 
 
-
 ##### **1. What is SQL?**
-- SQL (Structured Query Language) -> standard programming language used to ==communicate with **relational databases**==. It allows users to create, read, update, and delete data, and provides commands to define **database schema** and manage database security.
+- SQL (Structured Query Language) -> standard programming language used to ==communicate with **relational databases**==. It allows users to create, read, update, and delete data, and provides commands to define **database schema** and ==manage database security==.
 
 ##### **2. What is a database?**
 - A **database** -> an ==**organized collection of data** stored== electronically, typically structured in tables with rows and columns. 

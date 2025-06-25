@@ -198,7 +198,7 @@ pop(){
 }
 
 isEmpty(){
-	return (cnt==0)
+	return (cnt==0) // also `return (front == rear)`
 }
 
 # front or top element
@@ -242,7 +242,7 @@ int front(){
 ---
 # Implement Stack Using Queue
 
-### Approach 1:  2 queue -> stack
+### Approach 1:  2 queue -> stack ⭐
 
 Steps:
 - push(x)
@@ -386,7 +386,7 @@ push `size-1` or `n-1` front elment to back -> O(n)
 ---
 # Implement Queue using Stack
 
-### Approach 1: 2 Stack -> queue
+### Approach 1: 2 Stack -> queue ⭐
 
 Steps:
 - push(x)

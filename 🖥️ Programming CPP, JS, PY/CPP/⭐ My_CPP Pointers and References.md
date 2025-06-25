@@ -7,7 +7,7 @@ Both references and pointers are related terms. Pointers and references are conn
 
 ### Pointer
 
--  A pointer is a variable that s**tores the address of another variable**. 
+- A pointer is a variable that **stores the address of another variable**. 
 - It allows indirect access to the value stored in that variable.
 - Useful for dynamic memory allocation, arrays, and data structures like linked lists.
 
@@ -52,7 +52,7 @@ r -> value of x
 - **Note**: `a = c;` will change the value of `b` to `c`.
 
 
-**Null Reference** (Not Allowed ❌)
+**Null Reference** (Not Allowed ❌) ⭐
 ```cpp
 int *ptr = nullptr;
 int &ref = *ptr;  // Error: dereferencing a null pointer

@@ -1,5 +1,6 @@
 
 # [Top 24 Data Modeling Interview Question and Answers for 2025(Simplilearn)](https://www.simplilearn.com/data-modeling-interview-question-and-answers-article)
+
 ### What is Data Model ?
 
 - A data model **organizes different data elements and standardizes how they relate to one another** and real-world entity properties.

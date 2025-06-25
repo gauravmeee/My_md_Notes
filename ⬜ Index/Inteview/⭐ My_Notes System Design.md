@@ -14,4 +14,3 @@
 - APIs
 - Microservices
 - Scalability, availability, fault tolerance
-    

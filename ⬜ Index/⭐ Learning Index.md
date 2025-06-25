@@ -12,6 +12,7 @@ NextJS -
 
 ## Python
 Flask - [CodeWithHarry](https://www.youtube.com/watch?v=oA8brF3w5XQ&t=3212s) 🔃
+FastAI - [CldeWithHarry](https://www.youtube.com/watch?v=52c7Kxp_14E&t=611s&pp=ygUhaG93IHRvIGdpdmUgY29udGV4dCB0byBnZW1pbmkgYXBp)
 Jupyter-  [CodeWithHarry](https://youtu.be/6jgpCSYiV_o) 🔃
 Python PDF Tools - [CodeWithHarry](https://youtu.be/GxWwBp8SNNA) [Pythonology](https://youtu.be/G0PApj7YPBo) 🔃
 Requests - [CodeWithHarry](https://www.youtube.com/watch?v=IzcEH8QgoqY&pp=ygUPUHl0aG9uIFJlcXVlc3Rz)

@@ -94,8 +94,99 @@ Platform Independent (32 bit or 64 bit) :  `size_t`, `long/unsigned long`,
 - Dividing `int` by `int` results in an `int`.
 - Fractional part is truncated (e.g., `7 / 2` gives `3`).
 - To get a floating-point result, cast one operand: `static_cast<double>(a) / b`.
+
 ---
-#### Double to Integer Conversion
+# Data Type Conversions
+
+#### 1. Implicit Type Conversion (Automatic Conversion)
+
+**Happens Automatically When:**
+- Different types used in expressions
+- Assignment between different types
+- Function arguments and return types
+    
+**Common Promotions:**
+- `bool → char → short → int → unsigned int → long → unsigned long → float → double → long double`
+    
+
+**Integer Promotions:**
+- All `char`, `bool`, and `short` are promoted to `int` if `int` can represent all values
+    
+#### 2. Explicit Type Conversion (Manual Conversion)
+
+**Syntax:**
+```cpp
+(type)expression     // C-style cast
+static_cast<type>(expression)   // safer, C++-style
+```
+
+**C-style cast**
+```cpp
+int x = (int)3.14;
+```
+    
+**C++-style cast**
+```cpp
+int x = static_cast<int>(3.14);
+```
+
+**C++ Cast Operators:**
+1. `static_cast<T>(expression)` : Converts between compatible types (e.g., int → float, base ↔ derived)
+2. `const_cast<T>(expression)` : Used to add/remove `const` or `volatile` qualifier
+3.  `reinterpret_cast<T>(expression)` :  Converts one pointer type to another (very low-level)
+4.  `dynamic_cast<T>(expression)` :  Used for safe downcasting in inheritance (needs polymorphism)
+
+
+#### 3. User-Defined Conversion
+
+**Conversion Constructor**
+```cpp
+class A {
+public:
+    A(int x); // int → A
+};
+```
+
+**Conversion Operator**
+```cpp
+class A {
+public:
+    operator int(); // A → int
+};
+```
+
+#### 4. Standard Conversion Sequences
+
+**Includes:**
+- Lvalue-to-rvalue
+- Array-to-pointer
+- Function-to-pointer
+- Integral promotions
+- Floating-point promotions
+- Qualification conversions (like `T*` to `const T*`)
+
+#### 5. Pointer Conversions
+
+**Examples:**
+- `Derived*` → `Base*` (implicit)
+- `void*` ↔ any pointer (with cast)
+- `nullptr` → any pointer (implicit)
+    
+#### Coversion Summary Table:
+
+| Conversion Type        | Requires Cast | Safe?     | Keyword(s)           |
+| ---------------------- | ------------- | --------- | -------------------- |
+| Implicit Promotion     | No            | Yes       | —                    |
+| C-style Cast           | Yes           | Risky ❌   | `(type)`             |
+| `static_cast`          | Yes           | Yes       | `static_cast<>`      |
+| `const_cast`           | Yes           | Limited ❌ | `const_cast<>`       |
+| `reinterpret_cast`     | Yes           | Unsafe ❌  | `reinterpret_cast<>` |
+| `dynamic_cast`         | Yes           | Yes       | `dynamic_cast<>`     |
+| Conversion Constructor | No (implicit) | Yes       | Constructor          |
+| Conversion Operator    | No (implicit) | Yes       | `operator type()`    |
+
+---
+### Double to Integer Conversion
 
 1. **Direct Assignment (Truncation)** Assigning a `double` to an `int` variable truncates the decimal part, effectively rounding toward zero.
 ```cpp

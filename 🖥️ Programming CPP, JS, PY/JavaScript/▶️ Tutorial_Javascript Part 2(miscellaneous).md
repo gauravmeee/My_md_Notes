@@ -9,7 +9,7 @@ Arrays can be looped through using the classical javascript for loop or through 
 ```js
 const arr = [1, 2, 3]
 arr.forEach((value, index, array)=>{
-	//function logic
+	console.log(`Index: ${index}, Value: ${value}`);
 })
 ```
 

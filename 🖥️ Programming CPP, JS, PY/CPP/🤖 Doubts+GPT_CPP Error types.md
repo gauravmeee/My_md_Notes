@@ -1,79 +1,325 @@
 
+
+# My Common Errors
+
+### Error : Comparison between `long unsigned int` & `int`
+
+```
+Error -> 'std::unordered_set<int>::size_type' {aka 'long unsigned int'} and 'int' [-Wsign-compare] ❌
+```
+
+means you're **comparing two values of different signedness**:
+
+- `arr.size()` returns `size_t` (an **unsigned** type).
+- `n` is an `int` (a **signed** type).
+    
+**Fix 1 (recommended):** cast `n` to `size_t`
+```cpp
+if (plankNailed.size() == static_cast<size_t>(n)) {
+```
+
+**Fix 2:** declare `n` as `size_t` from the beginning:
+```cpp
+size_t n = A.size();
+```
+
+
+---
+
+### Error: `size_t` in reverse `for` loop causing segmentation fault
+
+```cpp
+for (size_t i = A.size() - 1; i >= 0; i--) ❌ // Segmentation fault
+```
+
+**Why:**
+
+- `size_t` is **unsigned**, so when `i == 0` and you do `i--`, it wraps to a huge value (e.g., `18446744073709551615`)
+    
+- This leads to **out-of-bounds access** → segmentation fault
+    
+
+**Fix:** use a signed type like `int` for reverse iteration:
+
+```cpp
+for (int i = A.size() - 1; i >= 0; i--) ✅
+```
+
+---
+## Types of Errors
+
+- **Syntax Errors** – Detected at **compile time** due to incorrect code structure.  
+    _e.g., missing semicolon, undeclared variable, unmatched braces._
+- **Runtime Errors** – Detected during **program execution**.  
+    _e.g., division by zero, segmentation fault, invalid memory access._
+- **Logical Errors** – Code runs without errors, but **output is wrong** due to incorrect logic.  
+    _e.g., wrong condition in `if`, incorrect loop bounds._
 ### 1. Syntax Errors
 
 These errors occur when the code violates the grammatical rules of the C++ language. They are detected at compile-time, and the program won't compile until these errors are fixed.
 
-- **Missing Semicolon**: Forgetting to end a statement with a semicolon.
-  ```cpp
-  int main() 
-  {
-      int a = 5  // Missing semicolon
-      return 0;
-  }
-  ```
+##### A. **Missing or Misplaced Symbols**
 
-- **Mismatched Parentheses/Braces**: Not having matching opening and closing parentheses or braces.
-  ```cpp
-  int main() 
-  {
-      if (true) {
-          // Do something
-      // Missing closing brace for the if statement
-  }
-  ```
+- **Missing Semicolon** ⭐
+```cpp
+int main() {
+	int a = 5  // Missing semicolon
+	return 0;
+}
+```
+```
+error: expected ';' before 'return'
+```
 
-- **Type Mismatch**: Assigning a value of one type to a variable of another incompatible type.
-  ```cpp
-  int x = "hello"; // Type mismatch
-  ```
+- **Mismatched Parentheses/Braces** ⭐
+```cpp
+int main() {
+	if (true) {
+		// Do something
+	// Missing closing brace
+}
+```
+```
+error: expected '}' at end of input
+```
 
-- **Invalid Identifiers**: Using invalid characters in variable or function names.
-  ```cpp
-  int 1stVariable; // Invalid identifier
-  ```
+- **Expected ')' before '}' token**
+```cpp
+int main() {
+	if (true {
+		cout << "Yes";
+	}
+}
+```
+```
+error: expected ')' before '}' token
+```
+
+- **Expected primary-expression before 'xxx'**
+```cpp
+int main() {
+	int x = ;
+}
+```
+```
+error: expected primary-expression before ';' token
+```
+
+- **Expected unqualified-id before '{' token**
+```cpp
+int main() {
+	int = 5;
+{
+	cout << "Hello";
+}
+```
+```
+error: expected unqualified-id before '{' token
+```
+
+- **Missing terminating " character**
+```cpp
+int main() {
+	cout << "Hello;
+}
+```
+```
+error: missing terminating " character
+```
+
+##### B. **Identifier and Declaration Issues**
+
+- **Using Undeclared Variable/Function** ⭐
+```cpp
+int main() {
+	cout << cnt;
+}
+```
+```
+error: 'cnt' was not declared in this scope
+```
+
+- **Invalid Identifiers**
+```cpp
+int 1stVariable = 10;
+```
+```
+error: expected unqualified-id before numeric constant
+```
+
+- **Conflicting declaration**
+```cpp
+int x = 10;
+float x = 5.5;
+```
+```
+error: conflicting declaration 'float x'
+```
+
+- **Redeclaration of 'xxx'**
+```cpp
+int x;
+int x;
+```
+```
+error: redeclaration of 'int x'
+```
+
+##### C. **Type Errors**
+
+- **Type Mismatch**
+```cpp
+int main() {
+	int x = "hello";
+}
+```
+```
+error: invalid conversion from 'const char*' to 'int'
+```
+
+- **Invalid conversion from 'xxx' to 'yyy'**
+```cpp
+int* ptr;
+double d = ptr;
+```
+```
+error: invalid conversion from 'int*' to 'double'
+```
+
+##### D. **Class-Related Errors**
+
+- **Expected class-name before '{' token**
+```cpp
+class Derived : Base {
+};
+```
+```
+error: expected class-name before '{' token
+```
+
+- **Invalid use of incomplete type 'class xxx'**
+```cpp
+class A;
+A obj;
+```
+```
+error: invalid use of incomplete type 'class A'
+```
+
+##### E. **Function Definition Errors**
+
+- **A function-definition is not allowed here before '{' token**
+```cpp
+int main() {
+	void fun() {
+		// invalid
+	}
+}
+```
+```
+error: a function-definition is not allowed here before '{' token
+```
+
+- **No matching function for call to 'xxx'** ⭐
+```cpp
+void fun(int);
+int main() {
+	fun();
+}
+```
+```
+error: no matching function for call to 'fun()'
+```
+
 
 ---
 ### 2. Runtime Errors
 
 These errors occur during the execution of the program, causing it to crash or behave unexpectedly. These are often harder to detect than syntax errors.
 
-- **Segmentation Fault (SIGSEGV)**: Accessing invalid memory, such as dereferencing a null pointer.
-  ```cpp
-  int* ptr = nullptr;
-  *ptr = 10; // Causes segmentation fault
-  ```
+##### A. **Illegal Memory Access**
 
-- **Division by Zero**: Attempting to divide a number by zero, which leads to undefined behavior.
-  ```cpp
-  int a = 10, b = 0;
-  int c = a / b; // Causes runtime error
-  ```
+- **Segmentation Fault (SIGSEGV)** ⭐  
+    Accessing memory not allowed by the OS (null/dangling/wild pointer).
+```cpp
+int* ptr = nullptr;
+*ptr = 10;
+```
+```
+Segmentation fault (core dumped)
+```
 
-- **Stack Overflow**: Occurs due to excessive use of stack memory, often from deep recursion without a proper base case.
-  ```cpp
-  void recurse() {
-      recurse(); // Causes stack overflow
-  }
-  ```
+- **Out of Bounds Access** ⭐  
+    Accessing array index beyond declared bounds.
+```cpp
+int arr[5];
+int x = arr[10];
+```
+```
+Segmentation fault (core dumped)
+```
 
-- **Memory Leak**: Not freeing dynamically allocated memory, leading to wasted resources.
-  ```cpp
-  void memoryLeak() {
-      int* ptr = new int[100]; // Memory allocated but never deleted
-  }
-  ```
+##### B. **Arithmetic Errors**
 
-- **Out of Bounds Access**: Accessing an array element outside its bounds.
-  ```cpp
-  int arr[5];
-  int x = arr[10]; // Out of bounds access
-  ```
+- **Division by Zero** ⭐  
+    Dividing integer or float by zero.
+```cpp
+int a = 10, b = 0;
+int c = a / b;
+```
+```
+Floating point exception (core dumped)
+```
 
-- **Invalid Type Casting**: Performing an invalid type cast that leads to unexpected behavior.
-  ```cpp
-  void* ptr = nullptr;
-  int* intPtr = static_cast<int*>(ptr); // Invalid cast, leads to undefined behavior
-  ```
+##### C. **Infinite Recursion / Stack Overuse**
+
+- **Stack Overflow**  
+    Exceeding stack memory (usually due to infinite or deep recursion).
+```cpp
+void recurse() {
+	recurse();
+}
+```
+```
+Segmentation fault (core dumped)
+```
+
+##### 4. **Dynamic Memory Issues**
+- **Memory Leak**  
+    Not releasing dynamically allocated memory.
+
+```cpp
+void memoryLeak() {
+	int* ptr = new int[100]; // Never deleted
+}
+```
+(No error immediately, but leads to memory waste)
+
+
+##### 5. **Invalid Type Conversion**
+
+- **Invalid Type Casting**  
+    Improper casting of pointers leads to undefined behavior.
+
+```cpp
+void* ptr = nullptr;
+int* intPtr = static_cast<int*>(ptr);
+```
+(Behavior is undefined; may crash or corrupt memory)
+
+##### F. **Program Aborted by Library/Internal Check**
+
+- **Aborted (core dumped)**  
+    Raised by `assert()`, STL bounds checks, or other critical failures.
+```cpp
+#include <cassert>
+int main() {
+	assert(false);
+}
+```
+```
+Aborted (core dumped)
+```
 
 ---
 ### 3. Logical Errors

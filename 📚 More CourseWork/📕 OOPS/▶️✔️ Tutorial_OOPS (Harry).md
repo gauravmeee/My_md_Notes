@@ -776,6 +776,44 @@ int main(){
 }
 ```
 
+# Constructor Overloading Conflicts and Abiguity
+
+```cpp
+class MyClass {
+public:
+    MyClass() { ... }                          // 1. Default constructor
+    MyClass(int a) { ... }                     // 2. One int param
+    MyClass(int a, int b) { ... }              // 3. Two int params
+    MyClass(int a, int b = 0) { ... }          // 4. Default b
+    MyClass(int a = 0, int b = 0) { ... }      // 5. Default a and b
+    MyClass(char) { ... }                      // 6. One char param
+};
+
+int main() {
+    MyClass obj1;            // ✅ 5 is used (int a=0, int b=0) → matches default constructor
+    MyClass obj1();          // ❌ Most Vexing Parse: interpreted as a function
+    MyClass obj2(5);         // ❌ Ambiguous: matches 2, 4, and 5 → compile-time error
+    MyClass obj3(5, 10);     // ✅ 3 is used (int, int)
+    MyClass obj4 = MyClass(5);   // ❌ Same ambiguity as obj2
+    MyClass obj5 = MyClass();    // ✅ 5 is used (a=0, b=0)
+    MyClass obj6('a');       // ✅ 6 is used (char)
+}
+```
+`MyClass obj1` -> If no argument passed, and both `default constructor` and `constructor with no argument` are there, `default constructor` is called. then use explicitly `Constructor with Default argument` by `MyClass obj3=MyClass()` without passing single data
+
+Summary
+```cpp
+MyClass() { ... }                          // 1. ❌ Conflicts with 5 → MyClass obj; is ambiguous
+MyClass(int a) { ... }                     // 2. ❌ Conflicts with 4 → MyClass obj(5); is ambiguous
+MyClass(int a, int b) { ... }              // 3. ❌ Conflicts with 5 → MyClass obj(5, 10); is ambiguous
+MyClass(int a, int b = 0) { ... }          // 4. ✅ Called using → MyClass obj4(5); or MyClass obj4(5, 10);
+MyClass(int a = 0, int b = 0) { ... }      // 5. ✅ Called using → MyClass obj5; or MyClass obj5 = MyClass();
+MyClass(char) { ... }                      // 6. ✅ Called using → MyClass obj6('a');
+```
+- Don't define both 1 and 5, or 2 and 4 together — causes ambiguity.
+- Best practice: define **only one constructor with default arguments** if needed.
+
+
 # [#32 Constructors With Default Arguments In C++ | C++ Tutorials for Beginners](https://youtu.be/Ok-5YqcGl6c?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
 
@@ -822,6 +860,8 @@ int main(){
 *Note:* 
 If we want to use constructor without argument we need to use `Simple s1` not `Simple s()`.
 it's not possible to create an object like `Simple s1;` and then explicitly call the constructor on the already created object in C++
+
+---
 
 # [#33 Dynamic Initialization of Objects Using Constructors | C++ Tutorials for Beginners](https://youtu.be/c_9oCs-9fvg?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
@@ -1815,12 +1855,17 @@ int main(){
                          Polymorphism
                          /         \
                         /           \
-                 Compile-time      Run-time
-                 Polymorphism      Polymorphism
-                 /       \               \
-                /         \               \ 
-          Function       Operator         Virtual
-        Overloading    Overloading        Function
+               Compile-time       Run-time
+            (Static/Early Binding)  (Dynamic/Late Binding)
+                /       \                  |
+               /         \                 |
+      Function        Operator         Function
+     Overloading     Overloading       Overriding
+   - Different       - Redefine       - Same signature
+     signatures        operators        in base & derived
+   - Resolved at     - At compile     - Uses virtual
+     compile time       time            functions
+
 ```
 
 1. **Compile Time Polymorphism**
@@ -2128,7 +2173,6 @@ Constructor special syntax usage:
 
 Virtual Function
 ```cpp
-	
     Tutorial* flask[2];
     flask[0] = &flaskVideo; // Base Class pointer, pointing to Derived Class.
     flask[1] = &flaskNote; // Base Class pointer, pointing to Derived Class.

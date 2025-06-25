@@ -41,11 +41,15 @@ Note: Single Processor/CPU can run one Process at a time.
 **Degree of Multi Programming** -> No. of Processes in Main Memory (other then OS processes)
 - Degree  ∝ Efficiency (Upto Thrashing)
 
+**Thrashing** occurs in **Operating Systems** (mainly in virtual memory systems) when The system spends more time swapping pages in and out of memory than executing actual processes.
+
+
 **Parts of OS:**
 ```  
 ( Shell ( Kernel ) )
 ```
-- Shell ->  Outer layer of OS, Provide a way to use OS using `GUI` or `CLI`
+- **Shell** → Outer layer of OS, provides interface to user via `GUI` or `CLI`
+- **Kernel** → Core of OS, directly interacts with **hardware**; manages **CPU, memory, processes, I/O, and devices**
 
 **System Call:** -> A way for program to interact with the operating system.
 - It protect privileged systems like files from program, and program need to request Call and Request OS
@@ -73,9 +77,9 @@ Kernel :                            ⬊                   ⬈
 Main Memory        Program P1
 ┌──┐             . ┌───────┐
 |OS|        .      | Stack | -> Local Var, Function Param, return addr.
-├──┤. . .          ├───↓───┤
+├──┤.....          ├───↓───┤
 |P1| ->            ├───↑───┤
-├──┤.  .           | Heap  | -> Dynamic Memory Allocation
+├──┤.....          | Heap  | -> Dynamic Memory Allocation
 │  │       .       ├───────┤
 └──┘           .   | Data  | -> Static and Global Variable
                    ├───────┤

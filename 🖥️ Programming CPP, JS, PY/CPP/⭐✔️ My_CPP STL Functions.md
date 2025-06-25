@@ -31,11 +31,10 @@ Content:
 ---
 ---
 
-# `<algorithm>`
+# A. `<algorithm>`
 
 
-### `Sort()` 
-
+### 1. `Sort()` 
 > `<algorithm>`
 
 **1. Using `vec.begin()` & `vec.end()`**
@@ -48,10 +47,8 @@ std::sort(vec.begin(), vec.end());
 std::sort(std::begin(vec),std::end(vec));
 ```
 
-<hr> 
 
-### `max_element()` 
-
+### 2. `max_element()` 
 > `<algorithm>`
 
 
@@ -72,9 +69,8 @@ int maxx = max_element(arr.begin(), arr.end())  // Error
 ```
 note: `std::max_element()` returns an iterator, not an integer.
 
----
-### `max()` & `min()`
 
+### 3. `max()` & `min()`
 > `<algorithm>`
 
 ```cpp
@@ -88,10 +84,8 @@ int minimum = std::min(a, b);
 
 ```
 
----
 
-### `binary_search()` (for Sorted Containers)
-
+### 4. `binary_search()` (for Sorted Containers)
 > `<Algorithm>`
 
 ```cpp
@@ -101,14 +95,12 @@ bool found = std::binary_search(v.begin(), v.end(), 3);
 - **Complexity:** **O(log N)**.
 - **Works with:** `std::vector`, `std::deque`, `std::array` (sorted).
 
-
 ---
----
-# 2. `<utility>`
+
+# B. `<utility>`
 
 
-### `swap()` 
-
+### 1. `swap()` 
 >`<utility>`
 
 The in-built `std::swap` function in C++ exchanges the values of two variables. It is defined in the `<utility>` header and works with any data type. Example:
@@ -120,8 +112,7 @@ std::swap(a, b);
 
 This function is efficient and widely used in algorithms like sorting.
 
-### `make_pair()`
-
+### 2. `make_pair()`
 > `<utility>`
 
 The `make_pair` function is defined in the `<utility>` header. However, it is indirectly included when you include headers like `<map>`, `<set>`, `<unordered_map>`, `<unordered_set>`, `<algorithm>`, `<tuple>`, and `<queue>`. These headers often include `<utility>` internally because they use `std::pair` or other utility functions.
@@ -144,13 +135,11 @@ p = {a,b};
 This code correctly creates a `std::pair` using the `make_pair` function, where `a` and `b` are the values you want to pair together.
 
 ---
----
 
-# 3. `functional>`
+# C. `<functional>`
 
 
-### `greater<int>` 
-
+### 1. `greater<int>` 
 > `<functional>`
 
 **Purpose**
@@ -175,13 +164,9 @@ This code correctly creates a `std::pair` using the `make_pair` function, where 
 - **Min-Heap**: Smallest element on top.
 
 ---
----
+# D. `<cmath>`
 
-# 4. `<cmath>`
-
-
-### `ceil()` 
-
+### 2. `ceil()` 
 > `<cmath>`
 
 **Summary of Using `double ceil` vs. `int ceil` with `10/3`**
@@ -197,10 +182,7 @@ This code correctly creates a `std::pair` using the `make_pair` function, where 
 **Conclusion**
 - Using `double` with `ceil` is essential for accurate ceiling calculations, as it ensures floating-point division, yielding the correct result.
 
----
-
-### `pow()` 
-
+### 3. `pow()` 
 >`<cmath>`
 
 To calculate \( x \) raised to the power \( y \) (i.e., \( x^y \)).
@@ -227,3 +209,19 @@ Result Integer
     int result = static_cast<int>(pow(x, y));
 }
 ```
+
+---
+
+# E. `<numeric>`
+
+### 1. `accumulate()`
+> `<numeric`
+
+**accumulate()** returns the **sum** of elements in a range.
+
+```cpp
+vector<int> A = {2, 1, 5, 1, 2, 2, 2};
+int total = accumulate(A.begin(), A.end(), 0);  // total = 15
+//  accumulate(start_iterator, end_iterator, initial_value)
+```
+

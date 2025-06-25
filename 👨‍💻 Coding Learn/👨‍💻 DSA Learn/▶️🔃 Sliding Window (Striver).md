@@ -104,7 +104,7 @@ int maxSumKSubarray(vector<int>& arr, int k) {
 ⭐Important
 
 > Use two pointers `l` and `r` with **variable window size**.  
-> Window length is `r - l + 1`.  
+> Window length is `r - l + 1`.  ⭐
 > Expand window by increasing `r`, and shrink from left (increase `l`) when condition
 > breaks.
 ### **Ques.** Find the `length` of Longest Subarray with `sum <= K`
@@ -292,23 +292,24 @@ Maximum Points = 16
 **C++ Code**
 ```cpp
 func( nums[], k) {
-       l=k , r= n //n : nums.size
-       lsum =0 , rsum =0
-       k+1; // need to iterate k+1 time
-        while(k--){
-            lsum=0; //reset
-            for(i -> -1){
-                lsum+=nums[i]
-            }
+   l=k , r= n //n : nums.size
+   lsum =0 , rsum =0, maxSum=0
+   t=k+1; // need to iterate k+1 time
+	while(t--){
+		lsum=0; //reset
+		for(int i = 0; i < l; i++){ // re calculate for each while loop
+			lsum+=nums[i]
+		}
 
-            rsum =0; //reset
-            for(int j=r; j<n; j++){
-                rsum+=nums[j]
-            }
+		rsum =0; //reset
+		for(int j=r; j<n; j++){ // re calculate for each while loop
+			rsum+=nums[j]
+		}
 
-            maxSum = max(maxSum, lsum+rsum);
-            l-- , r--
-        }
+		maxSum = max(maxSum, lsum+rsum);
+		l-- , r--
+	}
+}
 ```
 **Time Complexity:** While loop : O(k+1) + for loop1 : O(k) + for loop2 : O(k)
 TC: (k+1)(k+k) => 2K^2 + 2K
@@ -332,8 +333,8 @@ funct(nums, k) {
 
     //remove left last element and add right first element
 
-    for( int i=k-1; i>=0 ; i--){ //left Index
-        lsum = lsum - nums[i]
+    for( int l=k-1; l>=0 ; l--){ //left Index
+        lsum = lsum - nums[l]
         rsum = rsum +  nums[r]
         r = r-1
         maxSum = max(maxSum, lsum+rsum)
