@@ -1035,7 +1035,7 @@ SC: `O(1)`
 
 ⭐ Same as above. 
 just String and Variable `k` instead of Array and constant `2`.
-### **Ques.** Longest Substring With At Most K Distinct.
+### **Ques.** Longind the length of the longest substring of string `s` that contains at most `k` distinct characters.
 
 ### 1.<ins>Brute Force</ins>
 
@@ -1055,6 +1055,7 @@ func(s,k){
 	}
 }
 ```
+
 **Time Complexity:** Outer-Inner for loop - `O(nx2)`, At worst case, `k` >=256 and so map can store `256` characters `O(log256)`  (considering map take logarithm of time)
 TC : `O(n^2)` x `O(256)`
 SC : `O(256)`
@@ -1069,7 +1070,7 @@ func(s,k){
 		mp[s[r]]++;
 		while(mp.size()>k){
 			mp[s[l]]--;
-			if(hash[s[l]]==0) mp.erase(mp[s[l]])
+			if(mp[s[l]]==0) mp.erase(mp[s[l]])
 			l++
 		}
 		maxlen=max(maxlen, r-l+1)
@@ -1090,7 +1091,7 @@ func(s,k){
 		mp[s[r]]++;
 		if(mp.size()>k){ // while -> if
 			mp[s[l]]--;
-			if(hash[s[l]]==0) mp.erase(mp[s[l]])
+			if(mp[s[l]]==0) mp.erase(mp[s[l]])
 			l++
 		}
 		if(mp.size()<=k) maxlen=max(maxlen, r-l+1)
@@ -1102,8 +1103,12 @@ func(s,k){
 TC : `O(n)` + `O(log256)`
 SC : `O(256)`
 
+
+
 ---
 # [L7. Number of Substrings Containing All Three Characters | 2 Pointers and Sliding Window Playlist](https://youtu.be/xtqN4qlgr8s?list=PLgUwDviBIf0q7vrFA_HEWcqRqMpCXzYAL)
+
+### **Ques.** Find the number of substrings of string `s` that contain at least one occurrence of each character `'a'`, `'b'`, and `'c'`.
 
 ```
 s = bbacba
@@ -1219,7 +1224,7 @@ SC: `O(3)` ~ `O(1)`
 
 `i=0`
 ```
-j=3	____   -> bbac   +(1x3)          i.e. 1x(6-3) = 1x(n-j)
+j=3	____   -> bbac   +(1x3)          i.e. (6-3) = 1x(n-j)
 j=2	___    -> bba ❌ 
 j=1	__     -> bb ❌
 j=0	_      -> b ❌  
@@ -1231,18 +1236,18 @@ no. of substring = 3
 
 `i=1`
 ```
-j=3	 ___   -> bac   + (1x3)           i.e 1x(6-3) = 1x(n-j)
+j=3	 ___   -> bac   + (1x3)           i.e. (6-3) = 1x(n-j)
 j=2	 __    -> ba ❌
 j=1	 _     -> b ❌
 	bbacba
 	012345
 	
-	no. of substring = 3
+no. of substring = 3
 ```
 
 `i=2`
 ```
-j=4	  ___  -> acb  + (1x2)            i.e. 1x(6-4) = 1x(n-j)
+j=4	  ___  -> acb  + (1x2)            i.e. (6-4) = 1x(n-j)
 j=3	  __   -> ac ❌
 j=2	  _    -> a ❌
 	bbacba
@@ -1253,7 +1258,7 @@ no. of substring = 2
 
 `i=3`
 ```
-j=5	   ___ -> cba + (1x1)            i.e. 1x(6-5) = 1(n-j)
+j=5	   ___ -> cba + (1x1)            i.e. (6-5) = 1x(n-j)
 j=4	   __  -> cb ❌
 j=3	   _   -> c ❌
 	bbacba
@@ -1284,6 +1289,7 @@ no. of substring = 0
 ```
 Total no. of Substring = 3 + 3 + 2 + 1 + 0 + 0 = 9
 ```
+
 
 ```cpp
 int func(string s) {
@@ -1463,21 +1469,703 @@ So even without the if condition, the line is safe and correct.
 
 # [L8. Longest Repeating Character Replacement | 2 Pointers and Sliding Window Playlist](https://youtu.be/_eNhaDCr6P0?list=PLgUwDviBIf0q7vrFA_HEWcqRqMpCXzYAL)
 
-### 1.<ins>Brute Force</ins>
+### **Ques.** Find the length of the longest substring with all same letters after at most `k` character replacements in string `s`.
 
+### 1 <ins>Brute Force</ins>
+
+> Try out all the substrings 
+
+```
+s = AABABBA k=2
+```
+
+`i=0` , `j=i`
+```
+j = 0 -> A
+
+len (j-l+1) = 1
+- most frequesnt letter = A, Max frequency = 1
+- no. of letters need to Replace = size-frequency = 0 < k
+
+Max len = 1
+j++
+```
+
+```
+j=1 -> AA
+
+len (j-l+1) = 2
+most frequesnt letter = A, Max frequency = 2
+no. of letters need to Replace = size-frequency = 0 ≤ k
+
+Max len = 2
+j++
+```
+
+```
+j =2 -> AAB
+
+len (j-l+1) = 3
+most frequesnt letter = A, Max frequency = 2
+no. of letters need to Replace = size-frequency = 1 ≤ k 
+
+Max len = 3
+j++
+```
+
+```
+j=3 -> AABA
+
+len (j-l+1) = 4
+most frequesnt letter = A, Max frequency = 3
+no. of letters need to Replace = size-frequency = 1 ≤ k 
+
+Max len = 4
+j++
+```
+
+```
+j=4 -> AABAB
+
+len (j-l+1) = 5
+most frequesnt letter = A, Max frequency = 3
+no. of letters need to Replace = size-frequency = 2 ≤ k 
+
+Max len = 5
+j++
+```
+
+```
+j=5 -> AABABB
+
+len (j-l+1) = 6
+most frequesnt letter = A, Max frequency = 3
+no. of letters need to Replace = size-frequency = 3 not ≤ k ❗
+
+break !!
+```
+
+`i=1` , `j=i`
+```
+j = 1 -> A
+
+len (j-l+1) = 1
+most frequesnt letter = A, Max frequency = 1
+no. of letters need to Replace = size-frequency = 0 ≤ k
+
+Max len = 5
+j++
+```
+
+```
+j = 2 -> AB
+
+len (j-l+1) = 2
+most frequesnt letter = A, Max frequency = 1
+no. of letters need to Replace = size-frequency = 1 ≤ k
+
+Max len = 5
+j++
+```
+
+```
+j = 3 -> ABA
+
+len (j-l+1) = 3
+most frequesnt letter = A, Max frequency = 2
+no. of letters need to Replace = size-frequency = 1 ≤ k
+
+Max len = 5
+j++
+```
+
+```
+j = 4 -> ABAB
+
+len (j-l+1) = 4
+most frequesnt letter = A, Max frequency = 2
+no. of letters need to Replace = size-frequency = 2 ≤ k
+
+Max len = 5
+j++
+```
+
+```
+j = 5 -> ABABB
+
+len (j-l+1) = 5
+most frequesnt letter = B, Max frequency = 3
+no. of letters need to Replace = size-frequency = 2 ≤ k
+
+Max len = 5
+j++
+```
+
+```
+j = 6 -> ABABBA
+
+len (j-l+1) = 6
+most frequesnt letter = A, Max frequency = 3
+no. of letters need to Replace = size-frequency = 3 not ≤ k ❗
+
+break!!
+```
+
+
+`i=2` , `j=i`
+```
+And so on.........
+```
+
+**ans**: `maxlen` = 5  ✅
+
+**C++ Code**
+```cpp
+int func(string s) {
+    int n = s.size();
+    int maxlen = 0;  // maximum len i.e answer
+    for (int i = 0; i < n; i++) {
+        int hash[26] = {0}; // A, B, C.....Z
+        int maxf = 0; // fequency of max 
+        for (int j = i; j < n; j++) {
+            hash[s[j] - 'A']++;
+            maxf = max(maxf, hash[s[j]-'A']); // update maximum frequency
+            int changes = (j-i+1) - maxf; // change required = len - max freq
+
+			// if condition satisfy, update ans, else break
+			if(changes<=k) maxlen = max(maxlen, j-i+1)
+			else break;
+        }
+    }
+    return maxlen;
+}
+```
+TC: `O(N^2)` (For loops)
+SC: `O(26)`    (hash map of 26 size)
 ### 2.<ins>Better</ins>
 
-### 3.<ins>Optimal</ins>
+
+> Use 2 pointers and a sliding window to shrink the window from the left when the current substring is not valid or doesn’t satisfy the condition.
+
+```
+s= AAABBCCD k=2
+```
+
+`i=0`, `j=i`
+```
+
+j=0 -> A  (A is most frequent) 
+Required Change = Size - Maxf = 0  ≤ k  -> j++
+
+Similarly...
+j = 1 -> AA    (0≤k)  -> j++
+j = 2 -> AAA   (0≤k)  -> j++
+j = 3 -> AAAB  (1≤k)  -> j++
+j = 4 -> AAABB (2≤k)  -> j++ 👈 (maximum length)
+j = 5 -> AAABBC  (3 not ≤k ) ❌ -> i++
+```
+
+`i=1`
+```
+j = 5 -> AABBC  (3 not ≤k ) ❌ -> i++
+```
+
+`i=2`
+```
+j = 5 -> ABBC  (2 ≤ k )  -> j++  (Now B is most Frequent)
+j = 6 -> ABBCC  (3 not ≤k ) ❌ -> i++
+```
+
+`i=2`
+```
+i = 3
+j = 6 -> BBCC  (2 ≤ k )  -> j++
+j = 7 -> BBCCD (3 not ≤k ) ❌ -> i++
+```
+
+`i=3`
+```
+i=3
+j = 7 -> BCCD (2 ≤ k )  -> j++ (Now C is most Frequent)
+
+(j->8) == n ✅ Done
+```
+
+
+**Ans:** `maxlen` = 5
+
+
+**Note:**  
+In **Brute Force**, we reset the frequency map (`hash[26]`) at the start of every outer loop because we start checking from a new index. So, we don’t need to maintain state across iterations.
+
+But in the **Better Approach** (Sliding Window), there’s no fixed loop for `l++` or `r++` — movement depends on whether the current window satisfies the condition. So, we **can’t simply continue by resetting `hash[26]` to zero**. Instead, before shrinking the window (`l++`), we do `hash[s[l] - 'A']--`.  
+If the removed character was contributing to `maxf`, we need to **traverse `hash[26]`** to recompute the new `maxf`.
+
+**C++ Code**
+```cpp
+int func(string s, int k) {
+    int l = 0, r = 0;
+    int maxlen = 0, maxf = 0;
+    int hash[26] = {0};
+
+    while (r < s.size()) {
+        hash[s[r] - 'A']++;
+        maxf = max(maxf, hash[s[r] - 'A']);
+
+        while ((r - l + 1) - maxf > k) {
+            hash[s[l] - 'A']--, maxf = 0;
+            l++;
+
+            // Recalculate maxf only if necessary
+            maxf = 0;
+            for (int i = 0; i < 26; i++)
+                maxf = max(maxf, hash[i]);
+        }
+        maxlen = max(maxlen, r - l + 1);
+        r++;
+    }
+    return maxlen;
+}
+```
+TC: `O(N+N) * 26`
+SC: `O(26)`
+
+**Time Complexity:**  
+- The outer `while` loop runs `r = 0` to `n`, so **O(n)**.  
+- The inner `while` loop (which increments `l`) also moves `l` from `0` to `n` over time, so **O(n)** in total.  
+- Each time we shrink the window, we may recalculate `maxf` using a loop over 26 characters, i.e., **O(26)** ≈ **O(1)**.
+- So overall time complexity = **O(n + n × 26) = O(26n) = O(n)** (since 26 is constant).
+### 3.<ins>Optimal</ins> ⭐
+
+> We avoid shrinking repeatedly because our goal is to **maximize window length**, not minimize it.
+    
+> We **don’t recalculate `maxf`** after removing a character since reducing `maxf` makes the condition `(len - maxf) ≤ k` even harder to satisfy.
+
+Example
+
+```
+s= AAABBCCD k=2
+```
+
+let `l=0`  & `r=4`
+```
+AAABB___
+len = 5
+(len - maxf) <= k
+(5 - 3)  <= 2 ✅ -> r++
+```
+
+
+So `l=0` & `r=5`
+```
+AAABBC__
+(len - maxf) <= k
+(6-3) not <= 2 ❌ Invalid
+```
+
+**Should we shrink?**
+- No. If we shrink (`l++`), window length will reduce to `5`, which is not our goal.  
+- We are trying to find the **maximum length** valid window.
+- So instead of shrinking repeatedly (like in brute or better),  
+→ We just **slide** the window: do both `l++` and `r++`, and keep checking.
+
+**We will not Reduce `maxf`**
+
+- Let `l=0` & `r=5` -> `AAABBC__`
+- `(6-3) not <= 2` ❌ Invalid
+
+1. Now let’s say we **reduce** the frequency( because `A`  was contributing to `maxf`)
+	- `maxf--`; `maxf = 2`
+	- `(6-2) not <= 2` ❌ Invalid
+	- So reducing it make condition more Invalid
+
+2. Now let’s say we try to **shrink** the window and Reduce the Frequency
+	- `i++` -> `len--` -> `len=5`
+	- `maxf--`, `maxf = 2`
+	- `(5-2) not <= 3` ❌ Invalid
+	- So reducing it make condition more Invalid
+
+**Overall Idea** ⭐
+- We don’t want to **shrink** using a `while` loop,  
+    because our **goal is to grow the window** and find the **maximum possible length** with valid condition.
+- We **can’t reduce `maxf`**,  
+    because that may make the condition `(len - maxf) <= k` **even more invalid**.
+- Instead, we **only increase `maxf`** whenever a more frequent char comes.  `maxf = max(maxf, hash[s[r]-'A']);`
+- Just **slide the window** (`l++`, `r++`) until the condition becomes valid again for a longer window.
+
+
+**C++ Code**
+```cpp
+int func(string s, int k) {
+    int l = 0, r = 0;
+    int maxlen = 0, maxf = 0;
+    int hash[26] = {0};
+
+    while (r < s.size()) {
+        hash[s[r] - 'A']++;
+        maxf = max(maxf, hash[s[r] - 'A']);
+
+        if ((r - l + 1) - maxf > k) {
+            hash[s[l] - 'A']--;
+            l++;
+        }
+
+        maxlen = max(maxlen, r - l + 1);
+        r++;
+    }
+
+    return maxlen;
+}
+```
+TC: `O(N)`
+SC: `O(26)`
 
 ---
 
 # [L9. Binary Subarrays With Sum | 2 Pointers and Sliding Window Playlist](https://youtu.be/XnMdNUkX6VM?list=PLgUwDviBIf0q7vrFA_HEWcqRqMpCXzYAL)
 
+```
+nums = {1, 0, 0, 1, 1, 0} goal=2
+```
+
 ### 1.<ins>Brute Force</ins>
 
-### 2.<ins>Better</ins>
+> Generate all possible subarrays and check if sum equals goal.
 
-### 3.<ins>Optimal</ins>
+**C++ Code:**
+```cpp
+int countSubarraysWithSum(vector<int>& nums, int goal) {
+    int n = nums.size(), cnt = 0;
+    for(int i = 0; i < n; i++) {
+        int sum = 0;
+        for(int j = i; j < n; j++) {
+            sum += nums[j];
+            if(sum == goal) cnt++;
+        }
+    }
+    return cnt;
+}
+```
+**TC**: `O(N^2)`  
+**SC**: `O(1)`
+### 2.<ins>Better</ins> (Prefix Sum + HashMap) ⭐
+
+ > Maintain a prefix sum and count how many times `prefix_sum - goal` has occurred using hashmap.
+
+### Step-by-step:
+
+
+We are given:  
+`nums = {1, 0, 0, 1, 1, 0}`  
+`goal = 2`
+
+Initialize: ` unordered_map<int, int> mp`
+```
+sum = 0
+cnt = 0;
+mp[0] = 1
+```
+
+**Index = 0**:  
+```
+num = 1  
+sum = sum + 1 = 1  
+sum - goal = 1 - 2 = -1 → not in mp  
+So, cnt = 0  
+Update mp[1] = 1
+```
+
+
+**Index = 1**:  
+```
+num = 0  
+sum = 1 + 0 = 1  
+sum - goal = -1 → not in mp  
+So, cnt = 0  
+Update mp[1] = 2
+```
+
+
+**Index = 2**:  
+```
+num = 0  
+sum = 1 + 0 = 1  
+sum - goal = -1 → still not in mp  
+So, cnt = 0  
+Update mp[1] = 3
+```
+
+
+**Index = 3**:  
+```
+num = 1  
+sum = 1 + 1 = 2  
+sum - goal = 2 - 2 = 0 → mp[0] = 1  
+So, cnt += 1 → cnt = 1  
+Update mp[2] = 1
+```
+
+**Index=  4**:  
+```
+num = 1  
+sum = 2 + 1 = 3  
+sum - goal = 3 - 2 = 1 → mp[1] = 3  
+So, cnt += 3 → cnt = 4  
+Update mp[3] = 1
+```
+
+**Index = 5**:  
+```
+num = 0  
+sum = 3 + 0 = 3  
+sum - goal = 3 - 2 = 1 → mp[1] = 3  
+So, cnt += 3 → cnt = 7  
+Update mp[3] = 2
+````
+
+**Final Answer: 7**
+
+**Subarrays that sum to `2`:** `[1, 0, 0, 1]`, `[0, 0, 1, 1]`,  `[0, 1, 1]`,  `[1, 1]`, `[1, 0, 0, 1, 1]`, `[0, 0, 1, 1, 0]`, `[0, 1, 1, 0]`
+    
+
+Each time the prefix sum difference `sum - goal` has occurred, we add how many times it occurred to the answer.
+
+
+**C++ Code:** ⭐
+```CPP
+int countSubarraysWithSum(vector<int>& nums, int goal) {
+    unordered_map<int, int> mp;
+    int sum = 0, cnt = 0;
+    mp[0] = 1; // base case for sum == goal
+
+    for(int num : nums) {
+        sum += num;
+        if(mp.count(sum - goal)) cnt += mp[sum - goal];
+        mp[sum]++;
+    }
+    return cnt;
+}
+```
+**TC**: `O(N)`  
+**SC**: `O(N)`
+
+### 3.<ins>Optimal</ins> (Sliding Window / Two Pointers) ⭐
+
+> Use two calls to a function `atMost(nums, goal)` to calculate exact subarrays with sum = goal.
+
+
+Given that the input array is binary (contains only 1s and 0s), it's possible to further optimise the solution from the O(N) time and O(N) space hashing approach. The aim is to achieve **O(N) time complexity and O(1) space complexity** by getting rid of external data structures like the hash map. This suggests using a two-pointer or sliding window algorithm.
+
+**Initial Attempt and Challenge:**
+
+- A standard two-pointer/sliding window approach typically involves finding the longest subarray or substring. When attempting to count subarrays with an _exact_ sum (`sum == goal`), a direct application of two pointers faces a dilemma. The challenge arises because **zeros do not affect the sum**. If the sum exceeds the goal and you need to shrink the window from the left, removing a zero from the left end does not decrease the sum, making it difficult to decide whether to move the left or right pointer to find _all_ valid subarrays.
+
+- If `nums[i] = 0`, then moving `i++` doesn't reduce the sum.
+- But if `nums[j]++`, the sum might increase, which can go beyond the goal.
+- So, you face a **dilemma: whether to move `i++` or `j++`** to adjust the window.
+- Zeros **do not change the sum**, so the window **gets stuck** and fails to explore all valid subarrays.
+
+
+**The Key Insight: Solving for "Sum Lesser Than or Equal to Goal"**
+
+- To overcome this challenge, the optimal approach involves a clever mathematical trick: The number of subarrays with sum **equal to** `goal` can be found by: **`countSubarraysWithSum(nums, goal) = atMostGoal(nums, goal) - atMostGoal(nums, goal - 1)`**.
+
+- Here, `atMostGoal(nums, k)` is a function that computes the number of subarrays where the sum is **less than or equal to `k`**.
+
+**Algorithm for `atMostGoal(nums, goal)`:**
+
+This function uses a sliding window approach with two pointers, `L` (left) and `R` (right), along with a `current_sum` and a `count` for the valid subarrays.
+
+We are given:  
+`nums = {1, 0, 1, 1, 0}`  
+`goal = 2`
+
+**1. Let Find No. of Subarrays for `sum` <= 2**
+
+- **Initial**:
+```
+L = 0
+R = 0
+sum = 0
+count = 0
+```
+
+`L=0`
+
+`R = 0` 
+```
+1___
+sum = 0 + 1 = 1. sum (1) <= goal (2)
+count += (R - L + 1) = (0 - 0 + 1) = 1 → count = 1
+R++
+```
+
+`R = 1`
+```
+10___
+
+sum = 1 + 0 = 1. sum (1) <= goal (2)
+count += (R - L + 1) = (1 - 0 + 1) = 2 → count = 3
+R++
+```
+
+`R = 2`
+```
+101__
+
+sum = 1 + 1 = 2. sum (2) <= goal (2)
+count += (R - L + 1) = (2 - 0 + 1) = 3 → count = 6
+R++
+```
+
+`R = 3`
+```
+1011_
+
+sum = 2 + 1 = 3. sum (3) > goal (2)
+ Shrink window:
+   sum = 3 - nums[L = 0] = 2
+   L++
+```
+
+`R=3` & `L=1`
+```
+_011_
+
+sum (2) <= goal (2)
+count += (R - L + 1) = (3 - 1 + 1) = 3 → count = 9
+R++
+```
+
+`R = 4`
+```
+_0110
+
+sum = 2 + 0 = 2. sum (2) <= goal (2)
+count += (R - L + 1) = (4 - 1 + 1) = 4 → count = 13
+R++ (out of bounds)
+```
+
+`R=5` -> (out of bounds) Stop! -> **No. of Subarrays with `sum`<=2 :  `count = 13`**
+
+**2. Let Find No. of Subarrays for `sum` <= 1**
+
+- **Initial**:
+```
+L = 0
+R = 0
+sum = 0
+count = 0
+```
+
+`L=0`
+
+`R = 0` 
+```
+1____
+sum = 0 + 1 = 1. sum (1) <= goal (1)
+count += (R - L + 1) = (0 - 0 + 1) = 1 → count = 1
+R++
+```
+
+`R = 1`
+```
+10___
+
+sum = 1 + 0 = 1. sum (1) <= goal (1)
+count += (R - L + 1) = (1 - 0 + 1) = 2 → count = 3
+R++
+```
+
+`R = 2`
+```
+101__
+
+sum = 1 + 1 = 2. sum (2) > goal (1)
+ Shrink window
+ Sum = 2 - nums[L=0] = 1
+ L++
+```
+
+`R = 2` & `L=1`
+```
+_01__
+
+sum = 0 + 1 = 1. sum (1) <= goal (1)
+count += (R - L + 1) = (2 - 1 + 1) = 2 → count = 5
+R++
+```
+
+`R = 3`
+```
+_011_
+
+sum = 1 + 1 = 2. sum (2) > goal (1)
+ Shrink window
+ Sum = 2 - nums[L=0] = 2
+ L++
+```
+
+`R = 3` & `L=2`
+```
+__11_
+
+sum = 1 + 1 = 2. sum (2) > goal (1)
+ Shrink window
+ Sum = 2 - nums[L=0] = 1
+ L++
+```
+
+`R=3` & `L=3`
+```
+___1_
+
+sum (1) <= goal (1)
+count += (R - L + 1) = (3 - 1 + 1) = 3 → count = 6
+R++
+```
+
+`R = 4`
+```
+___10
+
+sum = 1 + 0 = 1. sum (1) <= goal (1)
+count += (R - L + 1) = (4 - 1 + 1) = 4 → count = 8
+R++ (out of bounds)
+```
+
+`R=5` -> (out of bounds) Stop! ->  **No. of Subarrays with `sum`<=1 :  `count = 8`
+
+
+**Final Answer** 13 - 8 = 5  (No. of subarrays with `sum` == 2)
+
+**C++ Code:**
+```cpp
+int atMost(vector<int>& nums, int goal) {
+    if(goal < 0) return 0; // sum can't be negative in binary array
+
+    int l = 0, r = 0, sum = 0, cnt = 0;
+    for(r = 0; r < nums.size(); r++) {
+        sum += nums[r];
+        while(sum > goal) {
+            sum -= nums[l++];
+        }
+        cnt += (r - l + 1);
+    }
+    return cnt;
+}
+
+int countSubarraysWithSum(vector<int>& nums, int goal) {
+    return atMost(nums, goal) - atMost(nums, goal - 1);
+}
+```
+**TC**: `O(4N)` ~ `O(N)`  
+**SC**: `O(1)`
+
+- **Time Complexity**: The `atMostGoal` function has a **time complexity of O(N)**. Both the left (`L`) and right (`R`) pointers traverse the array at most once. So `O(N +N)` for single call of `atMostGoal`
+
+- Since the overall solution calls this function twice (`atMostGoal(goal)` and `atMostGoal(goal - 1)`), the total time complexity will be **O(2(N+N))**.
+
 
 ---
 # [L10. Count number of Nice subarrays | 2 Pointers and Sliding Window Playlist](https://youtu.be/j_QOv9OT9Og?list=PLgUwDviBIf0q7vrFA_HEWcqRqMpCXzYAL)

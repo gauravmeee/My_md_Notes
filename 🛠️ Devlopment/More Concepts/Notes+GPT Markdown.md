@@ -286,3 +286,5 @@ $$
 - In Jupyter Notebooks, you have full support for LaTeX, making it a great tool for math-heavy documents.
 
 Make sure to test the rendering on your specific platform to ensure it displays correctly.
+
+

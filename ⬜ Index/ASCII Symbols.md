@@ -130,8 +130,8 @@ myApp/
 💡 - Solution
 ➕ - To Add Note
 ✔️ - Completed
-▶️ - Video Tutorial ▶️✔️, ▶️🚀
-🤖 - Notes+GPT
+ ▶️ - Video Tutorial ▶️✔️, ▶️🚀
+ 🤖 - Notes+GPT
 🤷 - Doubts
 ```
 

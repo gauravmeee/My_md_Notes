@@ -8,8 +8,6 @@ JavaScript - [CodeWithHarry](https://www.youtube.com/watch?v=hKB-YGF14SY&t=10646
 NextJS - 
 
 
-
-
 ## Python
 Flask - [CodeWithHarry](https://www.youtube.com/watch?v=oA8brF3w5XQ&t=3212s) 🔃
 FastAI - [CldeWithHarry](https://www.youtube.com/watch?v=52c7Kxp_14E&t=611s&pp=ygUhaG93IHRvIGdpdmUgY29udGV4dCB0byBnZW1pbmkgYXBp)
@@ -68,9 +66,6 @@ Flask
 - Sorting Algorithm ✅
 - **To Study :** Bit Manipulation, OS Scheduling.
 - **Advance:** Dynamic Programming ☑️
-
-
-
 
 
 ## Core CS

@@ -55,8 +55,8 @@ if __name__ == "__main__":
     # app.run(host="0.0.0.0", port=5000) # Uncomment this to run on all network interfaces
     app.run(debug=True) # Run in debug mode (auto-restarts on code changes)
 ```
----
 
+---
 ## **Update 2:** Added Redis Local Cache ✅
 
 #### `contest_scrap.py`
@@ -167,7 +167,6 @@ REDIS_PASSWORD=ATDaAAIjcDEzNzEyOTQxM2M0ZmQ0NmI2OGZkZTk0OTk4OWY4Mzg5NXAxMA
 
 ---
 
-
 ## **Update 3** : Solving `cache: 'no-cache'` and `next: { revalidate: 3600 }` are now considered conflicting strategies ✅`
 
 
@@ -201,3 +200,76 @@ This approach gives you the best of both worlds:
 - The ability to force an update when needed
 - No conflicting cache options
 - Proper Next.js 14 caching behavior
+
+
+
+---
+
+# `GTk(AMB)`
+
+> History
+
+
+
+```cpp
+napi_value Method(napi_env env, napi_callback_info args) {
+  napi_value greeting;
+  napi_status status;
+```
+
+```cpp
+// addon.cc
+#include <node.h>
+
+namespace demo {
+
+using v8::Exception;
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::Number;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+// This is the implementation of the "add" method
+// Input arguments are passed using the
+// const FunctionCallbackInfo<Value>& args struct
+void Add(const FunctionCallbackInfo<Value>& args) {
+  Isolate* isolate = args.GetIsolate();
+
+  // Check the number of arguments passed.
+  if (args.Length() < 2) {
+    // Throw an Error that is passed back to JavaScript
+    isolate->ThrowException(Exception::TypeError(
+        String::NewFromUtf8(isolate,
+                            "Wrong number of arguments").ToLocalChecked()));
+    return;
+  }
+
+  // Check the argument types
+  if (!args[0]->IsNumber() || !args[1]->IsNumber()) {
+    isolate->ThrowException(Exception::TypeError(
+        String::NewFromUtf8(isolate,
+                            "Wrong arguments").ToLocalChecked()));
+    return;
+  }
+
+  // Perform the operation
+  double value =
+      args[0].As<Number>()->Value() + args[1].As<Number>()->Value();
+  Local<Number> num = Number::New(isolate, value);
+
+  // Set the return value (using the passed in
+  // FunctionCallbackInfo<Value>&)
+  args.GetReturnValue().Set(num);
+}
+
+void Init(Local<Object> exports) {
+  NODE_SET_METHOD(exports, "add", Add);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
+
+}  // namespace demo
+```
