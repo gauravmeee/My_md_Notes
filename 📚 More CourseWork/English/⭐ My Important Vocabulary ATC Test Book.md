@@ -1,6 +1,7 @@
 
 
 **A**
+
 - **Adjure** – To command/request solemnly, आग्रह करना (Syn: Urge, Ant: Ignore) ⭐
 - **Aeon** – An indefinite long time, युग (Syn: Eternity)
 - **Aisle** – Passageway, गलियारा (Used in planes, churches, theatres)
@@ -8,6 +9,7 @@
 - **Arrears** – Unpaid debts, बकाया (Related to finance)
 - **Abrasive** – Harsh in manner, कठोर (Syn: Harsh, Ant: Gentle, Rel: Abrade)  ⭐
 - **Attic** – Room under roof, अटारी (Syn: Loft, Ant: Cellar, Rel: Storage)
+- **Allure** – Strong attraction or charm, आकर्षण (Syn: Temptation, Ant: Repulsion, Rel: Fascination) ⭐
 
 **B**  
 
@@ -26,6 +28,7 @@
 - **Clamorous** – Loud and noisy, कोलाहलपूर्ण (Syn: Noisy, Ant: Silent, Rel: Clamor)  
 - **Compel** – Force someone, मजबूर करना (Syn: Force, Ant: Dissuade, Rel: Compulsion)  ✅
 - **Convivial** – Friendly/lively, मिलनसार (Syn: Sociable, Ant: Dull, Rel: Conviviality)
+- **Consolidate** – Make stronger or combine, मजबूत करना / एकत्र करना (Syn: Strengthen, Ant: Weaken, Rel: Merge)
 
 **D**
 
@@ -34,6 +37,7 @@
 - **Disguise** – Change appearance, वेश बदलना (Syn: Camouflage) ⭐
 - **Duologue** – Conversation between two, द्वालाप (Duo = Two) ✅
 - **Deviant** – Abnormal behavior, विचलित (Syn: Abnormal, Ant: Normal, Rel: Deviation)
+- **Despair** – Complete loss of hope, निराशा (Syn: Hopelessness, Ant: Hope, Rel: Depression)
 
 **E**
 
@@ -50,12 +54,13 @@
 - **Faint** – Weak, unclear, मंद (Syn: Dim, Ant: Strong) ✅
 - **Fad** – Temporary trend, झटका-सा चलन (Syn: Craze, Ant: Tradition, Rel: Fashion)  
 - **Frothing** – Forming foam, झाग बनना (Syn: Foaming, Ant: Still, Rel: Foam)
+- **Frantic** – Wild with fear or anxiety, घबराया हुआ (Syn: Frenzied, Ant: Calm, Rel: Panic)
 
 
 **G**  
 - **Genial** – Warm and cheerful, मिलनसार (Syn: Friendly, Ant: Rude, Rel: Geniality)  
 - **Grim** – Harsh and gloomy, कठोर (Syn: Bleak, Ant: Cheerful, Rel: Grimness)
-- **Gynaecologist** – Women's reproductive health doctor, स्त्री रोग विशेषज्ञ (Syn: Obstetrician) ⭐
+
 
 **H**  
 - **Hasty** – Done quickly, जल्दबाज़ (Syn: Rash, Ant: Careful, Rel: Haste) ✅
@@ -95,16 +100,17 @@ _(None)_
 - **Narcissist** – Self-loving person, आत्ममुग्ध (Syn: Selfish, Ant: Humble) ✅
 - **Niche** – Suitable position, उपयुक्त स्थान (Syn: Slot, Ant: Misfit, Rel: Specialization)
 
+
+
 **O**  
-- **Oncologist** – Cancer specialist doctor, कैंसर विशेषज्ञ (Rel: Oncology, Related: Medical Field) ⭐
+
 
 **P**
 - **Presumptuous** – Overconfident, घमंडी (Syn: Arrogant, Ant: Humble)
 - **Prickly** – Easily irritated, चिड़चिड़ा (Syn: Irritable, Ant: Calm)
 - **Prologue** – Introduction, प्रस्तावना (Ant: Epilogue)
-- **Pediatrician** – Child specialist doctor, बाल रोग विशेषज्ञ (Rel: Pediatrics)  ⭐
 - **Placid** – Calm and peaceful, शांत (Syn: Tranquil, Ant: Agitated, Rel: Placidity)  
-- **Podiatrist** – Foot specialist doctor, पैरों का डॉक्टर (Rel: Podiatry)  ⭐
+
 - **Pompous** – Self-important, घमंडी (Syn: Arrogant, Ant: Humble, Rel: Pomp)
 
 **Q**  
@@ -159,5 +165,79 @@ _(None)_
 **Data vs Datum**
 
 - **Datum (Singular)** -> Data (Plural)
+
+---
+
+# ABC
+
+
+
+**NOUN**  
+- Aeon, Aisle, Armada, Arrears, Attic, Cellar, Dialogue, Duologue, Epilogue, Fad, Foam, Gynaecologist, Impetus, Lacuna, Loft, Monologue, Narcissist, Niche, Oncologist, Prologue, Pediatrician, Podiatrist, Recluse
+
+**ACTION**  
+- Adjure, Abrade, Allure, Buzz, Camouflage, Chastise, Clamor, Compel, Consolidate, Disburse, Disguise, Entangle, Evade, Froth, Scold, Spend
+
+**QUALITY (+ve)**
+- Benevolent, Candid, Convivial, Eternal, Friendly (Genial), Honest, Ingenious, Intense, Infallible, Laconic, Lofty, Magnanimous, Noble, Placid, Sociable
+
+**QUALITY (-ve)**
+- Abrasive, Bleak, Boisterous, Clamorous, Contagious, Cynical, Deviant, Erroneous, Evasive, Frantic, Grim, Hasty, Impulsive, Incorrigible, Insatiable, Inebriated, Leery, Magniloquent, Pompous, Presumptuous, Prickly, Skeptical
+
+**FEELING (+ve)**
+- Allure, Especially, Impetus
+
+**FEELING  (-ve )**  
+- Despair, Frantic, Reluctant
+
+
+---
+
+# To Add
+
+• Obliviousness (Q{QT): The state of being unaware or
+unconscious of what is happening around.
+
+
+reins - a long thin piece of leather that is held by the rider and used to control a horse’s movements
+
+whims - a sudden idea or desire to do something (often something that is unusual or not necessary)
+
+
+- Zealous: This word means fervent or passionate, often with strong
+emotions or intensity, and does not convey the idea of whims or
+impulsiveness.
+
+- Cipher: A cipher is a code or a zero (depending on the context), which
+does not relate to the concept of whims or sudden 
+
+- impulses - Caprice means a sudden, impulsive, and seemingly unmotivated notion or action, 
+
+- Deceive - to try to make somebody believe something that is not true
+
+- Vague - Not clearly
+- Statuesque - Attractively tall and dignified
+- Picturesque - refers to something that is visually attractive, especially in a quaint or charming way.
+- Maze -a system of paths which is designed to confuse you so that it is difficult to find your way out
+- curt" - short and not polite
+- abrupt - sudden and unexpected
+
+
+---
+
+- **Homicide**: Killing of a human being by another person (general term)
+- **Regicide**: Killing of a king or monarch
+- **Infanticide**: Killing of an infant or very young child
+- **Fratricide**: Killing of one’s own brother
+- **Uxoricide**: Killing of one’s wife
+- **Patricide**: Killing of one’s father
+
+
+---
+
+- **Pediatrician** – Child specialist doctor, बाल रोग विशेषज्ञ (Rel: Pediatrics)  ⭐
+- - **Gynaecologist** – Women's reproductive health doctor, स्त्री रोग विशेषज्ञ (Syn: Obstetrician) ⭐
+- - **Oncologist** – Cancer specialist doctor, कैंसर विशेषज्ञ (Rel: Oncology, Related: Medical Field) ⭐
+- - **Podiatrist** – Foot specialist doctor, पैरों का डॉक्टर (Rel: Podiatry)  ⭐
 
 ---

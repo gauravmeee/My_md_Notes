@@ -82,3 +82,18 @@
     
 
 ---
+
+# To add
+
+- See red - bahut gussa hona
+
+- Pay through the nose- jyada paisa dena
+
+- hold the reins - to be in control or to have the power to direct or manage
+
+- went down in flames - means something that fails spectacularly or disastrously.
+
+- Took a leaf out of his book - to imitate or follow someone's example.
+
+- Shown the ropes -> to teach someone how to do a job or activity
+- Led up the garden Path - to deceive someone (dhokha dena)

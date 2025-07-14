@@ -26,3 +26,8 @@
 ![](https://niwa.co.nz/sites/default/files/images/teasers/layers_teaser.jpg)
 
 ![](https://www.codingtag.com/bloguploads/1634039068.jpg)
+
+
+---
+
+# 📘 [AAI ATC Static GK Classes 2025 | AAI ATC Static GK Marathon 2025 | Complete Revision in 1 Class!](https://youtu.be/yyr8Zq2kQkI)
