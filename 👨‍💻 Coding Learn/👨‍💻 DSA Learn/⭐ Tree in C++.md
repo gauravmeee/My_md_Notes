@@ -58,32 +58,34 @@
 # Important Trees
 
 1. **Binary Tree**:
-   - A tree where each node has at most two children, typically referred to as the left and right child.
+   - A ==tree== where each node has ==at most two children==, typically referred to as the left and right child.
 
-2. **Binary Search Tree (BST)**:
-   - A binary tree where for each node, the left child’s value is less than the node’s value, and the right child’s value is greater. This property allows efficient searching, insertion, and deletion operations.
+2. **Heap**:
+   - A ==binary tree== used to ==implement priority queues.== The heap property requires that each ==node’s value be greater than or equal to the values of its children (for a max heap)== or less than or equal to the values of its children (for a min heap).
+
+3. **Binary Search Tree (BST)**:
+   - A ==binary tree ==where for each node, the ==left child’s value is less than the node’s value==, and the ==right child’s value is greater==. This property allows efficient searching, insertion, and deletion operations.
 
 3. **Balanced Binary Search Trees**:
-   - **AVL Tree**: A self-balancing binary search tree where the heights of two child subtrees of any node differ by no more than one.
-   - **Red-Black Tree**: A self-balancing binary search tree with additional properties to ensure that the tree remains approximately balanced during insertions and deletions.
+   - **AVL Tree**: A ==self-balancing binary search tree== where the ==heights of two child subtrees of any node differ by== no more than one.
+   - **Red-Black Tree**: A ==self-balancing binary search tree== with additional properties to ensure that the ==tree remains approximately balanced== during insertions and deletions.
 
-4. **Heap**:
-   - A binary tree used to implement priority queues. The heap property requires that each node’s value be greater than or equal to the values of its children (for a max heap) or less than or equal to the values of its children (for a min heap).
+4. **B-Tree**:
+   - A ==self-balancing tree== data structure that ==maintains sorted data== and ==allows searches, sequential access, insertions, and deletions== in logarithmic time. It is commonly used in ==databases and file systems.==
 
-5. **Trie (Prefix Tree)**:
-   - A tree-like data structure used to store associative data structures, such as dictionaries. It is often used for string storage and retrieval.
+5. **B+ Tree**:
+   - A ==variation of the B-tree== where all ==values are stored at the leaf level==, and internal nodes only store keys. It is used extensively in ==database indexing.==
 
-6. **Segment Tree**:
-   - A binary tree used for answering range queries efficiently. It is often used for problems that involve querying sums or minimums over an interval of an array.
+**More:**
 
-7. **Fenwick Tree (Binary Indexed Tree)**:
+7. **Segment Tree**:
+   - A ==binary tree== used for answering range queries efficiently. It is often used for problems that involve querying sums or minimums over an interval of an array.
+
+8. **Trie (Prefix Tree)**:
+   - A tree-like data structure ==used to store associative data structures==, such as dictionaries. It is ohow ften used for string storage and retrieval.
+
+9. **Fenwick Tree (Binary Indexed Tree)**:
    - A data structure that provides efficient methods for querying and updating prefix sums in an array.
-
-8. **B-Tree**:
-   - A self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. It is commonly used in databases and file systems.
-
-9. **B+ Tree**:
-   - A variation of the B-tree where all values are stored at the leaf level, and internal nodes only store keys. It is used extensively in database indexing.
 
 ---
 # Binary Tree in C++
@@ -373,15 +375,14 @@ int height(TreeNode* root) {
     
 ##### More Order Combinations to Construct Tree
 
-| Traversal Combinations                                 | Can Construct Tree? | Notes                                                             |
-| ------------------------------------------------------ | ------------------- | ----------------------------------------------------------------- |
-| Inorder + Preorder                                     | ✅ Yes               | Most commonly used. Preorder gives root, Inorder gives structure. |
-| Inorder + Postorder                                    | ✅ Yes               | Postorder gives root, Inorder gives structure.                    |
-| Inorder + Level-order                                  | ✅ Yes               | Possible but complex, needs extra mapping and indexing.           |
-| Preorder + Postorder                                   | ❌ Not always        | **Ambiguous** unless it's a **full binary tree**.                 |
-| Preorder + Levelorder                                  | ❌ No                | Not enough information for unique construction.                   |
-| Postorder + Levelorder                                 | ❌ No                | Also insufficient for unique structure.                           |
-| Only Inorder / Preorder / Postorder / Levelorder alone | ❌ No                | Cannot reconstruct uniquely with single traversal.                |
+| Traversal Combinations                        | Can Construct Tree? | Notes                                                             |
+| --------------------------------------------- | ------------------- | ----------------------------------------------------------------- |
+| Inorder + Preorder                            | ✅ Yes               | Most commonly used. Preorder gives root, Inorder gives structure. |
+| Inorder + Postorder                           | ✅ Yes               | Postorder gives root, Inorder gives structure.                    |
+| Inorder + Level-order                         | ✅ Yes               | Possible but complex, needs extra mapping and indexing.           |
+| Preorder + Postorder                          | ❌ Not always        | **Ambiguous** unless it's a **full binary tree**.                 |
+| Preorder + Levelorder, Postorder + Levelorder | ❌ No                | Not enough information for unique construction.                   |
+
 
 
 ---

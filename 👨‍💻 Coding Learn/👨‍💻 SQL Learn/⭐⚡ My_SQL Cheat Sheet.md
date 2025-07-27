@@ -418,6 +418,25 @@ GROUP BY ColumnName1
 HAVING AggregateFunction(ColumnName2) < Condition;
 ```
 
+**Where vs Having** Clause : ⭐
+
+| Feature             | WHERE Clause                   | HAVING Clause               |
+| ------------------- | ------------------------------ | --------------------------- |
+| **Used On**         | Rows (Before grouping)         | Groups (After GROUP BY)     |
+| **Aggregate Use**   | Cannot use aggregate functions | Can use aggregate functions |
+| **Execution Order** | Evaluated before GROUP BY      | Evaluated after GROUP BY    |
+
+**Non-Aggregate** vs **Aggregate** functions: ⭐
+
+| **Aspect**                 | **Non-Aggregate Functions**      | **Aggregate Functions**                       |
+| -------------------------- | -------------------------------- | --------------------------------------------- |
+| **Definition**             | Work on individual rows          | Work on groups of rows                        |
+| **Return Value**           | One result per row               | One result per group or table                 |
+| **Usage**                  | In `SELECT`, `WHERE`, etc.       | In `SELECT`, `HAVING`, `GROUP BY`             |
+| **Examples**               | `UPPER()`, `LOWER()`, `LENGTH()` | `SUM()`, `AVG()`, `COUNT()`, `MAX()`, `MIN()` |
+| **Can be used in WHERE?**  | Yes                              | No                                            |
+| **Can be used in HAVING?** | No                               | Yes                                           |
+
 ### Aggregate Functions
 
 `ROUND()`
@@ -779,6 +798,42 @@ SELECT ALL column_name FROM table_name;  -- (Default) Include duplicates in SELE
 SELECT * FROM table_name WHERE salary > ALL (...); -- Comparison operator in subqueries
 
 ```
+
+--- 
+
+### Query Processing and Execution Order
+
+
+
+
+**SQL Query Writing Order (Syntax Order):**
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+[JOIN other_table ON condition]
+[WHERE condition]
+[GROUP BY column]
+[HAVING condition]
+[ORDER BY column ASC|DESC]
+[LIMIT number OFFSET number];
+```
+- Writing order is how you write the query.
+
+**Order of Execution in SQL Query:**
+```text
+1. FROM            -- tables & joins
+2. ON              -- join condition
+3. JOIN            -- apply joins
+4. WHERE           -- row filtering
+5. GROUP BY        -- grouping rows
+6. HAVING          -- group filtering
+7. SELECT          -- select columns or expressions
+8. DISTINCT        -- remove duplicates
+9. ORDER BY        -- sort results
+10. LIMIT / OFFSET -- restrict output
+```
+- - Execution order is how SQL engine processes it internally.
 
 ---
 
