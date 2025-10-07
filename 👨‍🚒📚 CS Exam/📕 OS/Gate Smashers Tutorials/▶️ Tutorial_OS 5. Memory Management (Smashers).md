@@ -165,10 +165,10 @@ P1 allocated      P1->P2->P3 Allocated
 
 ```
 ┌--------┐     
-|        | 2MB      
-├--------┤   
-|////////|            <- P4 (9 MB) ❌ Cannot Be Allocated Due to
-|///P2///| 6MB                        (External Fragmentation)
+|        | 2MB        <- P4 (9 MB) ❌ Cannot Be Allocated Due to
+├--------┤                            (External Fragmentation)
+|////////|            
+|///P2///| 6MB                        
 |////////|
 ├--------┤ 
 |        |   

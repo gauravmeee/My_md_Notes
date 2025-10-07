@@ -4,27 +4,103 @@
 ---
 ## [SJVN 2019 Executive Trainee IT - Answer Key ](https://solutionsadda.in/wp-content/uploads/2019/07/SJVNL_1569050019_1258O1990S2D67E1.pdf)
 
-1. C Programming - 16
-2. Data Structure - 12
-3. Algorithm - 8
-4. Operating System - 13
-5. Database Management System - 17
-6. Computer Networks - 15
-7. Digital Logic - 10
-8. Computer Organisation and Architecture - 7
-9. Theory of Computation - 12
-10. Compiler Design - 10
+**Syllabus**
 
-🔢 -> Numerical or practical type
+- **Technical**
+	1. Programming Concepts : C, C++, Java
+	2. Data Structures
+	3. Algorithms
+	4. Operating System
+	5. Database Management Systems (DBMS)
+	6. Computer Networks
+	7. Digital Logic
+	8. Computer Organization and Architecture
+	9. Theory of Computation
+	10. Compiler Design
+
+- **More Technical**
+	1. Software Engineering
+	2. Programming and Data Structures
+	3. Web Technologies
+	4. Data Analytics and Cloud Computing
+
+- **Non-Technical/General Section**
+	- General Aptitude
+	- Reasoning (Verbal/Non-Verbal)
+	- Quantitative Aptitude
+	- English Language
+	- General Awareness
+
+**SJVN Structure**
+- **Technical Section**: 120 questions → **120 marks**
+- **Aptitude Section**: 30 questions → **30 marks**    
+- **Total CBT**: 150 marks
+
+**Cutoff**
+- **General/EWS**: **75 marks** (50%)
+- **OBC/SC/ST/PwBD**: **60 marks** (40%)
+
+**My Score**
+
+1. **C Programming** `12/16✔️`
+2. **Data Structures** `8/12✔️`
+3. **Algorithm Design** `3/8✔️`
+4. **Operating Systems (OS)** `5/13✔️`
+5. **Database Management System (DBMS)**  `16/19✔️`
+6. **Computer Networks (CN)** `5/15` ✔️
+7. **Digital Logic** `7/10` ✔️
+8. **Computer Organisation & Architecture (COA)** `10/10` ✔️
+9. **Theory of Computation (TOC)** `6/12` ✔️
+10. **Compiler Design** `6/8` ✔️
+
+- **Total Question** - 120
+
+**Attempted** (Without COA and TOC) - 103
+- **Correct** - 61  (50.83) %
+
+**Attempted** - 120
+- **Correct** - 78 (63.41 %)
+
+- **Expected out of 150** - 76.245 (50.83 %)
+
+
+From highest % to lowest Subject:
+1. **COA** → **100%** (Strongest)
+2. **DBMS** → **84.21%**
+3. **C Programming** → **75%**
+4. **Compiler Design** → **75%**
+5. **Digital Logic** → **70%**
+6. **Data Structures** → **66.67%**
+7. **TOC** → **50%**
+8. **OS** → **38.46%**
+9. **Algorithm Design** → **37.5%**
+10. **CN** → **33.33%** (Weakest)
 
 ---
 #### **1. C Programming** `12/16✔️`
 
+
 **Q7.** Consider the 'C' language variables x and y with initial values 100 and 500, respectively. What will be the value of y after executing the following expression? `((x>=100 ) || (y+=100))` ✅⭐
 - _Topic: Expression Evaluation_
-    
+```
+- y = 500 ✔️
+```
+- In C, `||` (logical OR) **short-circuits**: if the first operand is true, the second is **not evaluated**.
+- So, `(y += 100)` is **not executed**, and `y` remains **500**.
+- if `((y+=100) || (x>=100 ))` then `y=600`
+- In C, **logical operators (`||`, `&&`) work with the truthiness of expressions**, but the expressions themselves **are fully evaluated** for side effects **before the logical operator checks truth**.
+- `y += 100` is an **assignment expression** and an assignment **returns the value assigned**. So `y += 100` **returns 600** (which is non-zero → true).
+
+
 **Q20.** What will be the value of the following arithmetic expression in 'C'? 125 % -4 ✅⭐
 - _Topic: Arithmetic Operators & Precedence_
+```
+- +1 ✔️
+```
+- In C, the **sign of the result** of `%` follows the **dividend** (the first operand).
+- `125 % -4 = 1` (because `125 / -4 = -31` remainder 1).
+- `x % -y` **is the same as `x % y` if `x` is positive**.
+- If `x` is negative, the result **keeps the sign of `x`**, not `y`.
     
 **Q27.** In 'C' language, the scope of a ______ variable extends from the point of definition throughout the remainder of the program. ❌
 - _Topic: Variable Scope_
@@ -32,12 +108,15 @@
 - External ✔️
 - Static ❗
 ```
+- A variable whose **scope extends from the point of definition to the rest of the program** is an **external (global) variable**. `int x = 10;  // external/global`⭐
+- `static` variables have **scope limited to the file** if declared at global level, or to the block if local. `static int count = 0; // local static`
 
 **Q30.** Which of the following is NOT a valid decimal integer constant in 'C'? ✅
 - _Topic: Constants Syntax_
 ```
 - 02019 ✔️
 ```
+`02019` is **invalid** because numbers starting with `0` are **octal** in C, and `9` is not allowed in octal.
 
 **Q31.** In 'C' language, an unsigned long integer constant can be specified by appending the letters ___ to the ___ of the constant. ❌
 - _Topic: Integer Constant Representation_
@@ -46,9 +125,16 @@
 - UL Beginning  ❗
 - LU, End ❗
 ```
+- Correct syntax: **UL or LU at the end** of the constant.
+- Cannot put `UL` at the beginning.
+- `unsigned long a = 1000UL; // valid` or `unsigned long b = 2000LU; // also valid`
+- But here only `UL` is considered correct
 
 **Q42.** Each 'C' program consists of one or more functions, one of which must be named as: ____________. ✅
 - _Topic: Structure of C Program_ 
+```
+- main() ✔️
+```
     
 **Q54.** Which of the following statements are true?  ✅
 - _Topic: Character Arrays and Pointers_
@@ -56,7 +142,10 @@
 - In 'C', a character array always ends with null character (NULL).  ✔️
 - The "base address" of an array means the address of the second element. ❗
 ```
-    
+- `char arr[]` always ends with **null character `\0`**.
+- Base address of an array is the **address of the first element**, not the second.
+- `\0` → marks **end of a string**; `\n` → represents a **newline/line break**.
+
 **Q55.** In 'C' language, an unsigned integer constant can be specified by appending the letter ___ to the ___ of the constant. ❌
 - _Topic: Constant Declaration_
 ```
@@ -71,12 +160,24 @@
 b = 1 ✔️
 b = 2 ❗
 ```
+- `a = 0`, `b = 1`
+- `a > 0` is false → `&&` **short-circuits**, `(b = b + 1)` is **not executed**
+- `b = 1`
 
 **Q71.** In 'C' language, an identifier name CANNOT start with:` __________` ✅
 - _Topic: Variable Naming Rules_
+```
+- Numerid degit ✔️
+- Uppercase Letter
+- Lowercase Letter
+- Under Score
+```
     
 **Q83.** With respect to 'C' language, the collection of characters, digits, and symbols enclosed within quotation marks is called `___________`. ✅
 - _Topic: String Literals_
+```
+- String ✔️
+```
 
 **Q84.** The 'C' language was originally developed at: ✅⭐
 - _Topic: Programming Language History_
@@ -86,17 +187,22 @@ b = 2 ❗
 - Intel ❗
 - Microsoft ❗
 ```
-    
+- Developed at **Bell Labs** by Dennis Ritchie in the early 1970s.
+
 **Q90.** Comments can be placed anywhere in a 'C' program, as long as they are placed within the delimiters: `__________. ` ✅
 - _Topic: Comment Syntax_
+```
+- /* */ ✔️
+```
     
-**Q91.** In 'C' language, the gets() function reads a string from the keyboard and terminates reading after encountering a __________ character. ❌
+**Q91.** In 'C' language, the gets() function reads a string from the keyboard and terminates reading after encountering a `__________` character. ⭐❌
 - _Topic: gets() Function Behavior_
 ```
 - NewLine ✔️
 - Space ❗
 - Tab ❗
 ```
+- **`gets()` function** Reads input until a **newline (`\n`)** is encountered. `Space` or `Tab` do not terminate** input.
     
 **Q93.** What is the associativity of the comma operator in 'C'? ⭐✅
 - _Topic: Operator Associativity_
@@ -110,11 +216,13 @@ Left-to-Right ✔️
 - 0X1234 ✔️
 - 0x1234G ❗
 ```
-    
+- Must start with `0x` or `0X` and contain valid hex digits (`0-9`, `A-F`).
+- `0X1234` is valid; `0x1234G` is invalid because `G` is not a hex digit.
 
 ---
 
 #### **2. Data Structures** `8/12✔️`
+
 
 **Q3.** Array is a(n) _______ data structure. ✅
 - _Topic: Array Classification_
@@ -178,6 +286,7 @@ Left-to-Right ✔️
 
 #### **3. Algorithm Design** `3/8✔️`
 
+
 **Q19.** What is the solution of the given recurrence relation?  `T(n) = 4T(n/2) + n^2` ❌⭐
 - _Topic: Recurrence Relations_    
 ```
@@ -200,11 +309,7 @@ Left-to-Right ✔️
 - Spanning tree will always have n-1 edges, where n is the total nodes of a graph. ✔️
 ```
 
-**Q79.** What is the correct value of x if (211 & x) = (152 & x)?  ⭐✅
-- _Topic: Bitwise Logic & Algebra_
-```
-- 7 ✔️
-```
+
 
 **Q89.** Recursion: (i) Needs extra space, (ii) Reduces code size. ❌
 - _Topic: Recursion Pros and Cons_
@@ -213,8 +318,15 @@ Left-to-Right ✔️
 - Using recursion, the length (size) of the program can be reduced. ✔️
 ```
 
+
+**Q79.** What is the correct value of x if (211)base x = (152)base8?  ⭐✅
+- _Topic: Bitwise Logic & Algebra_
+```
+- 7 ✔️
+```
+
 **Q105.** Matrix multiplication: optimal order for P(20x30), Q(30x5), R(5x15), S(15x10)? ✅
-- _Topic: Matrix Chain Multiplication_
+- _Topic: Dynamic Programming -> Matrix Chain Multiplication_
 ```
 - (PxQ) X (RXS) ✔️
 ```
@@ -236,6 +348,7 @@ Left-to-Right ✔️
 
 ---
 #### **4. Operating Systems (OS)** `5/13✔️`
+
 
 **Q1.** If a CPU takes 10 ms to decide to execute a process of 100 ms, approximately what percentage of time will be wasted by CPU in scheduling work? ❌⭐🔢
 - _Topic: CPU Scheduling Overhead_
@@ -336,7 +449,8 @@ program counter ✔️
 
 ---
 
-#### **5. Database Management System (DBMS)**  `13/17✔️`
+#### **5. Database Management System (DBMS)**  `16/19✔️`
+
 
 **Q6.** Which of the following is maintained by a DBMS to keep track of all transactions that update the database? ✅
 - _Topic: Transaction Logging_
@@ -406,6 +520,15 @@ MAX() ❗
 - dashed oval ❗
 ```
 
+**Q70.** Which normal form ensures non-prime attributes are not functionally dependent on subset of any candidate key? ✅⭐
+- _Topic: BCNF Definition_
+```
+- 2NF ✔️
+```
+- **2NF**: Removes **partial dependencies** (i.e., no non-prime attribute depends on a **part** of a candidate key).
+- **3NF**: Removes **transitive dependencies** (i.e., non-prime attributes should depend **only on candidate keys**, not on other non-prime attributes).
+- **BCNF**: Stronger than 3NF — it also eliminates anomalies where a non-superkey determines a candidate key (i.e., every determinant must be a **superkey**).
+
 **Q75.** What is the full-form of ER model? ✅
 - _Topic: Entity Relationship Model_
 
@@ -414,6 +537,12 @@ MAX() ❗
 
 **Q87.** What is the purpose of the SELECT statement in SQL? ✅
 - _Topic: SQL Querying_
+
+**Q96.** Consider relation `R(A, B, C, D)`. What is the **maximum number of attributes in a candidate key**? ✅
+- _Topic: Relational Database Design (Keys & Normalization)_
+```
+- 4 ✔️
+```
 
 **Q97.** In a database, a primary index is an `_____` file whose records are of `____` length. ❌⭐
 - _File Organization and Indexing_
@@ -446,7 +575,8 @@ MAX() ❗
 ---
 #### **6. Computer Networks (CN)** `5/15` ✔️
 
-**Q13.** Which of the following statements are true? (OSI layer functions) ❌⭐
+
+**Q13.** Which of the following statements are true? (OSI layer functions) ✅⭐
 - _Topic: OSI Model Responsibilities_
 ```
 - EncryptionDecryption and compression are the functions of presentation layell ✔️
@@ -455,19 +585,29 @@ MAX() ❗
 - Service point addressing is the job of network layer. ❗
 ```
 
-**Q14.** A 10 KBPS satellite link... What is the possible throughput using go-back-N ARQ? ❌🔢⭐
+
+**Q14.** A 10 KBPS satellite link... What is the possible throughput using go-back-N ARQ? ❌🔢 (To do.....⭐ )
 - _Topic: ARQ Protocol Efficiency_
+```
+- 6.89 KBps ✔️
+```
+
 
 **Q16.** Match the columns: (i) Breach of confidentiality, (ii) Breach of integrity, (iii) Breach of availability. ✅
 - _Topic: CIA Triad (Confidentiality, Integrity, Availability)_
+```
+- (i) -> Theft of information ✔️
+- (ii) -> Unauthorised modification of data ✔️
+- (iii) -> Unauthorised destruction of data  ✔️
+```
 
 **Q29.** In IPv4 datagram header, which field signifies the number of hops allowed? ✅
 - _Topic: TTL Field in IPv4_
 ```
-Time to Live
+- Time to Live ✔️
 ```
 
-**Q32.** Which of the following is ==**NOT**== an error control technique? ✅⭐
+**Q32.** Which of the following is ==**NOT**== an error control technique? ✅ (To do.....⭐ )
 - _Topic: Error Control Protocols_
 ```
 - Sliding Window ✔️
@@ -476,7 +616,7 @@ Time to Live
 - Selective Repeat ARQ ❗
 ```
 
-**Q35.** What type of address is 255.255.255.255? ❌
+**Q35.** What type of address is 255.255.255.255? ✅
 - _Topic: IP Address Types_
 ```
 - Limited broadcast address ✔️
@@ -484,16 +624,19 @@ Time to Live
 - Multicast address ❗
 ```
 
-**Q50.** What is the port number for HTTP protocol? ✅⭐
+**Q50.** What is the ==port number== for HTTP protocol? ✅⭐
 - _Topic: Well-known Ports_
 ```
 - 80 ✔️
 ```
 
-**Q52.** Leaky bucket algorithm rate calculation. ❌🔢⭐
+**Q52.** Leaky bucket algorithm rate calculation. ❌🔢(To do.....⭐ )
 - _Topic: Traffic Shaping Algorithms_
+```
+- 44.4 MBps ✔️
+```
 
-**Q56.** Which of the following implementations uses UDP as its transport layer protocol? ❌⭐
+**Q56.** Which of the following implementations uses UDP as its transport layer protocol? ✅⭐
 - _Topic: Transport Layer Protocols_
 ```
 - DNS ✔️
@@ -502,10 +645,21 @@ Time to Live
 - IMAP ❗
 ```
 
-**Q68.** Distance Vector Routing behavior when a link fails. ✅⭐
+**Q68.** In the given diagram, if link V2-V4 is removed, how does the routing table for distance vector routing protocol vary for the node V2 ✅⭐
+```
+     4              3
+(V1)---------(V2)---------(V5)
+ |            |
+ | 5          | 2
+ |      3     |      1
+(V3)----------(V4)--------(V6)
+```
 - _Topic: Routing Table Updates_
+```
+- 4, 0, 9, 12, 3, 13 ✔️
+```
 
-**Q82.** Which OSI layer maintains data and dialog synchronization? ❌⭐
+**Q82.** Which OSI layer maintains data and dialog synchronization? ✅⭐
 - _Topic: Session Layer_
 ```
 - Session Layer ✔️
@@ -515,19 +669,32 @@ Time to Live
 ```
 
 
-**Q102.** Match IEEE 802 standards (LLC, Ethernet, Token Bus, Token Ring) ❌⭐
+**Q102.** Match IEEE 802 standards (LLC, Ethernet, Token Bus, Token Ring) ❌(To do.....⭐ ) (a) 802.3, (b) 802.4, (c) 802.5, (d) 802.2
+```
+- Logical Link Control
+- Ethernet
+- Token Bus
+- Token Ring
+```
 - _Topic: IEEE LAN Protocols_
 
-**Q104.** In a single-router scenario, how often does each layer (Application, network and data Link) process the packet? ❌⭐
+**Q104.** In a single-router scenario, how often does each layer (Application, network and data Link) process the packet? ❌(To do.....⭐ )
 - _Topic: Layer-wise Packet Processing_
 ```
 - 2, 3, 4 ✔️
 ```
 
 **Q110.** Match networking devices with their function/layer. ❌⭐
+(i) Hubs, (ii) Gateways, (iii) Switches, (iv) Bridges
 - _Topic: Network Device Classification_
+```
+- (i) -> Physical layer device having multiple ports to forward data
+- (ii) -> A device connecting two networks functioning on two different entwork models  
+- (iii) -> Data link layer device that performs error checking before forwarding data.
+- (iv) -> Data link layer device with functionality of filtering content and forwarding data.
+```
 
-**Q114.** Match protocols to actions: ping, send mail, transfer file. ❌⭐
+**Q114.** Match protocols to actions: ping, send mail, transfer file. ✅⭐
 - _Topic: Protocol Usage (ICMP, SMTP, FTP)_    
 ```
 - DNS, SMPTP, FTP ✔️
@@ -535,145 +702,333 @@ Time to Live
 ```
 
 ---
-#### **7. Digital Logic** `/10` ✔️
+#### **7. Digital Logic** `7/10` ✔️
 
-
-**Q12.** State true/false: (i) Excess-3 code is BCD variant. (ii) K-map of n variables has 2^n cells.
+**Q12.** State true/false: (i) Excess-3 code is BCD variant, in which each decimal digit is coded into a 4-bit binary code. (ii) K-map of n variables has 2^n cells. ❌⭐
 - _Topic: Coding Systems and Karnaugh Maps_
+```
+- (i) True 
+- (ii) True ✔️
+```
 
-**Q25.** Let f(A, B) = A'+B. What is simplified form of `f(f(x+y, y), z)`?
+- **Excess-3 Code**
+    - It is a _self-complementary_ form of **BCD code**.
+    - Each decimal digit (0–9) is represented by its 4-bit BCD code **plus 3 (0011)**.
+    - Used in decimal arithmetic and error detection.
+        
+- **Karnaugh Map (K-Map)**
+    - A K-map of **n variables** contains **2ⁿ cells**.
+    - Each cell represents a **minterm** (or maxterm) of the function.
+    - Used to simplify Boolean expressions.
+
+
+**Q25.** Let f(A, B) = A'+B. What is simplified form of `f(f(x+y, y), z)`? ✅
 - _Topic: Boolean Function Simplification_
+```
+- xy' + z ✔️
+```
 
-**Q46.** What is the Excess-3 code for decimal 13?
+**Q46.** What is the Excess-3 code for decimal 13? ✅
 - _Topic: Excess-3 Code Conversion_
+```
+- 01000110 ✔️
+```
 
-**Q49.** Which of the following is equivalent to the decimal number (0.6875)₁₀?
+**Q49.** Which of the following is equivalent to the decimal number `(0.6875)₁₀`? ✅⭐⭐⭐
 - _Topic: Number System Conversion (Decimal ↔ Octal)_
+```
+- (0.54)₈
+```
 
-**Q57.** Using which of the following can decimal digits be converted into binary format?
+**Q57.** Using which of the following can decimal digits be converted into binary format? ✅⭐
 - _Topic: Combinational Circuits (Encoders)_
+```
+- Encoder ✔️
+```
 
-**Q85.** Simplify F(x,y,z) = pi(0,1,4,5) to product of sums.
+> Study Multiplexer, Demultiplexer, Encoder, Decoder Theory
+
+**Q85.** Simplify `F(x,y,z) = pi(0,1,4,5)` to product of sums. ❌⭐⭐⭐
 - _Topic: Boolean Algebra (POS)_
+```
+- y ✔️
+- x
+- z
+- xyz
+```
 
-**Q99.** Complement of Boolean function: F = x(y'z' + yz)
+**solution:**
+- M0 + M1 + M4+ M4 
+- => (X + Y + Z ).( X + Y + Z' ).(X' + Y + Z).(X' + Y + Z') 
+- => (X + Y).(X' + Y)  - Using Absorption Law
+- => Y - Using Absorption Law
+
+**Absorption Law** : `(A+B)(A+B')`=`A+(B⋅B′)`=`A+0`=`A`
+
+**Q99.** Complement of Boolean function: `F = x(y'z' + yz)` ✅
 - _Topic: Boolean Function Complement_
+```
+- x' + yz' + y'z ✔️
+```
 
-**Q107.** State true/false: (i) RS latch is 1-bit memory. (ii) Encoder has n inputs, 2^n outputs.
+
+
+**Q107.** State true/false: (i) RS latch is 1-bit memory. (ii) Encoder has n inputs, 2^n outputs. ✅⭐
 - _Topic: Latches & Encoders_
+```
+- (i) True  ✔️
+- (ii) False 
+```
 
-**Q108.** What is range of 2's complement for k-digit number?
+> Study - Encoder, RS Latch, Flip Flop Theory
+
+**Q108.** What is range of 2's complement for k-digit number? ❌⭐
 - _Topic: Number Representation_
+```
+- [ -(2^(k-1))] to (2^(k-1)-1) ✔️
+- [ -(2^(k-1) -1)] to (2^(k-1)-1)
+- [ -(2^(k-1))] to (2^(k-1))
+- [ -(2^(k-1) -1)] to (2^(k-1))
+```
+- The number of negative numbers is one more because in 2’s complement, zero has only one representation, so the extra bit pattern is used for an extra negative number, and 0 is counted in the positive side.
+- **Minimum value** = when MSB = 1 and all other bits = $0 → 2^{k-1}$
+- **Maximum value** = when MSB = 0 and all other bits = $1 → 2^{k-1} - 1$
 
-**Q118.** Match digital components: Shift Reg, MUX, Decoder with their functions.
+> Study 2's Complement Theory
+
+**Q118.** Match digital components: (i) Shift Register, (ii) Multiplexer, (iii) Decoder. ✅⭐
 - _Topic: Digital Components Matching_
+```
+- (i) - To convert parallel data to serial data ✔️
+- (ii) - To transmit large no. of information units over a smaller no. of channels ✔️
+- (iii) - To design seven segment dislplay ✔️
+```
+
+> Study - Multiplexer, Decoder, Shift Register
 
 ---
-#### **8. Computer Organisation & Architecture (COA)** `/7` ✔️
 
-**Q5.** A 4-stage pipeline has stage delays of 150, 120, 160, and 140ns, respectively. Registers used between the stages have a delay of 5ns. Assuming constant clocking rate, what is the total time required to process 1000 data items on this pipeline?
+#### **8. Computer Organisation & Architecture (COA)** `10/10` ✔️
+
+**Q5.** A 4-stage pipeline has stage delays of 150, 120, 160, and 140ns, respectively. Registers used between the stages have a delay of 5ns. Assuming constant clocking rate, what is the total time required to process 1000 data items on this pipeline? ✅⭐
 - _Topic: Pipelining and Performance_
+```
+- 165.5 us ✔️
 
-**Q10.** How many 64K x 1 RAM chips are needed to provide 512K x 8 memory?
+Solution:
+Non Uniform Cycle - Take max time = 160 + 5 = 165ns
+Total Time = (No. of Stages + No. of Instructins - 1)x time
+		   = (4 + 1000 - 1) x 165ns 
+
+```
+
+**Q10.** How many 64K x 1 RAM chips are needed to provide 512K x 8  memory? ✅
 - _Topic: Memory Chip Calculation_
+```
+- 64 ✔️
+
+Solution:
+
+(512K x 8 bits) / (64K x 1 bits) = 64
+```
+
 
 **Q38.** Match the columns with addressing modes and their applications.
 - _Topic: Addressing Modes_
+```
+- Indirect addressing mode -> → (d) Pointers ✔️
+- Immediate addressing mode -> (a) Constant operands ✔️
+- Base addressing mode -> (b) Relocatable program ✔️
+- Index addressing mode -> (c) Arrays ✔️
+```
 
-**Q44.** State true/false: (i) DRAM uses capacitors. (ii) PSW contains CPU status bits.
+**Q44.** State true/false: (i) . (ii) PSW contains CPU status bits. ✅
 - _Topic: Memory & Processor Status Word_
+```
+- DRAM uses capacitors  ✔️
+- PSW contains status bits ✔️
+```
 
-**Q61.** Given a **7-stage instruction pipeline** and instruction sequence, find the number of cycles required for complete execution.
+**Q61.** Given a **7-stage instruction pipeline** and instruction sequence, find the number of cycles required for complete execution. ✅
 - _Topic: Instruction Pipelining & Timing_
+```
+- 16 ✔️
 
-**Q74.** Output sequence of JK Flip-Flop for 6 pulses with J=Q', K=1.
+but answer should be 14 ❗
+(7 + 8-1) = 14
+```
+
+**Q74.** Output sequence of JK Flip-Flop for 6 pulses with J=Q', K=1. ✅
 - _Topic: Sequential Circuits - JK Flip-Flop_
+```
+- 010101 ✔️
 
-**Q109.** Memory chip with 20 address and 16 data pins: how many locations?
+but answer should be '101010' ❗
+```
+
+**Q109.** Memory chip with 20 address and 16 data pins: how many locations? ✅
 - _Topic: Addressable Memory Calculation_
+```
+- 2^20 ✔️
+```
 
 ---
-#### **9. Theory of Computation (TOC)** `/12` ✔️
+#### **9. Theory of Computation (TOC)** `6/12` ✔️
 
 
-**Q2.** Every monotonic grammar is a ______ `_____` grammar.
+**Q2.** Every monotonic grammar is a ______ `_____` grammar. ❌❓⭐
 - _Topic: Grammar Hierarchy_
+```
+- Type 1 ✔️
+```
+- Every monotonic grammar is a **type 1 grammar**—that is, a **context-sensitive grammar**.
+- ❗Chatgpt giving ambiguous answer, In note I added that Every monotonic grammar is subset of Type 0  
 
-**Q8.** A grammar that produces more than one leftmost or rightmost derivation is known as ________.
+**Q8.** A grammar that produces more than one leftmost or rightmost derivation is known as `________` ✅
 - _Topic: Ambiguous Grammar_
+```
+- Ambiguous
+```
 
-**Q22.** The concatenation of two regular expressions R1 and R2 is represented using: ________.
+**Q22.** The concatenation of two regular expressions R1 and R2 is represented using: ________. ❌
 - _Topic: Regular Expression Operations_
+```
+- R1 R2 ✔️
+- R1 + R2
+```
 
-**Q40.** The language {aⁿbⁿcⁿ | n≥1} is:
+**Q40.** The language `{aⁿbⁿcⁿ | n≥1}` is: ❌⭐
 - _Topic: Language Classification (Chomsky Hierarchy)_
+```
+Context-Sensitive but not context-free ✔️
+```
+`aⁿbⁿ` needs one dependency (CFG can handle), but `aⁿbⁿcⁿ` needs two (CFG can't handle).
 
-**Q51.** Match the grammar types with their Chomsky classification.
+**Q51.** Match the grammar types with their Chomsky classification. (i) Regular language (ii) Context-free language , (iii) Context-sensitive language ✅⭐
 - _Topic: Chomsky Grammar Hierarchy_
+```
+(i) Type-3 grammar  ✔️
+(ii) Type-2 grammar ✔️
+(iii) Type-1 grammar ✔️
+```
 
-**Q63.** In Automata Theory, a production without any restriction is called ______ production.
+**Q63.** In Automata Theory, a production without any restriction is called ______ production. ✅
 - _Topic: Unrestricted Grammar_
+```
+Type 0 ✔️
+```
 
-**Q69.** What is the correct production rule for the language L = {a^m b^n | m < n, m ≥ 1}?
+**Q69.** What is the correct production rule for the language `L = {a^m b^n | m < n, m ≥ 1}`? ✅⭐
 - _Topic: Grammar Rule Derivation_
+```
+S-> Sb|Bb, B -> aBb, B -> ab ✔️
+```
 
-**Q72.** Linear bounded automaton: (i) Deterministic TM? (ii) Language not always context-sensitive?
+**Q72.** Linear bounded automaton :  ❌⭐
 - _Topic: Linear Bounded Automaton (LBA)_
+```
+- Same as Deterministic Turing Machine?  ❌ 
+- Language not always context-sensitive? ❌
+```
+Note: **LBA** is a non-deterministic Turing Machine
 
-**Q77.** According to Chomsky classification, the language of Finite Automata is:
-- _Topic: Regular Languages (Type-3)_
+**Q77.** According to Chomsky classification, the language of Finite Automata is: ✅⭐
+- _Topic: Regular Languages (Type-3)_ 
+```
+- Type 3 ✔️
+```
 
-**Q78.** Which of the following is FALSE?
+**Q78.** Which of the following are True? ✅⭐
 - _Topic: Finite Automata (Mealy & Moore Machines)_
+```
+- In Mealy machine, output depends on both the present state and current input symbol. ✔️
+- In Moore machine, output depends only on the present state of the machine. ✔️
+- An NFA can also have NULL moves (i.e., moves without input symbol) ✔️
+- Mealy machine is infinite state machinine ❌
+```
 
-**Q88.** Deterministic context-free languages are closed under ______.
+**Q88.** Deterministic context-free languages are closed under ______. ❌⭐
 - _Topic: Closure Properties- _
+```
+- Complementation ✔️
+- union
+- intersection
+- addition
+```
+Note: CFL Don't Follow Complement, But DCFL Do
 
-**Q112.** State T/F: (i) Union of RegExp not always regular. (ii) Concatenation of RegExp is regular.
-- _Topic: RegExp Properties_
+**Q112.** State True/False: (i) Union of Regular expression not always regular. (ii) Concatenation of Regular expression is regular. ❌⭐
+- _Topic: Regular Expression Properties_
+```
+(i) False - Union of Two RL is Closed
+(ii) True - Concatenation of Two RL is Closed ✔️
+```
+
 
 ---
-#### **10. Compiler Design** `/10` ✔️
+#### **10. Compiler Design** `6/8` ✔️
 
 
-**Q33.** Which of the following statements is true?
+**Q33.** Which of the following statements is true? ✅
 - _Topic: General Programming Statement_
+```
+- A Type 2 production is of the form A->a or A-> aB, where A, B are variables and a is a terminal. ✔️
 
-**Q34.** The analysis part of a compiler is also called ______.
+- In Type 2 production rule, left hand side has no left or right context ❌
+- In Type 2 production rule, left hand side has only left context ❌
+- In Type 2 production rule, left hand side has only right context ❌
+```
+
+**Q34.** The analysis part of a compiler is also called ______. ✅⭐
 - _Topic: Compiler Phases_
-    
-**Q37.** Which of the following is done by attaching rules or program fragments to productions in a grammar?
+```
+- Frontend ✔️
+```
+- **Frontend** - Lexical Analyses, Syntax Analysis, Semantic Analysis, Intermediate Code Generation
+- **Backend** - Optimization, Code Generation , Linking & Assembly
+
+**Q37.** Which of the following is done by attaching rules or program fragments to productions in a grammar? ✅
 - _Topic: Syntax-Directed Translation_
+```
+- Syntax-directed translation ✔️
+```
 
     
-**Q70.** Which normal form ensures non-prime attributes are not dependent on subset of any candidate key?
-- _Topic: BCNF Definition_
-
-    
-**Q76.** ______ takes tokens from lexer and constructs syntax tree by derivation.
+**Q76.** ______ takes tokens from lexer and constructs syntax tree by derivation. ✅
 - _Topic: Syntax Analysis (Parser)_
+```
+- Syntax analysis ✔️
+```
 
 
-**Q92.** Which of the following holds information about identifiers?
+**Q92.** Which of the following holds information about identifiers? ✅
 - _Topic: Symbol Table Management_
+```
+- Symbol table ✔️
+```
     
-**Q96.** Consider relation `R(A, B, C, D)`. What is the **maximum number of attributes in a candidate key**?
-- _Topic: Relational Database Design (Keys & Normalization)_
     
-**Q101.** Which statements are TRUE about code optimization?
+**Q101.** Which statements are TRUE about code optimization? ❌⭐
 - _Topic: Local Optimization & Code Motion_
+```
+- (i) Code optimization within a basic block is called local code optimization. ✔️
+- (ii) Code motion finds the expression outside a loop that yields the different results and evaluates it inside loop ❌
+```
+
+**Q103.** Which compiler component converts lexemes into tokens? ✅
+- _Topic: Lexical Analysis_ 
+```
+- Lexical analyzer ✔️
+```
     
-**Q103.** Which compiler component converts lexemes into tokens?
-- _Topic: Lexical Analysis_
-    
-**Q119.** Type checking validates syntax tree consistency. Front-end handles source structure.
+**Q119.** Type checking validates syntax tree consistency. Front-end handles source structure. ❌⭐
 - _Topic: Type Checking and Compiler Front-End_
+```
+- (i) Type checking analyses the syntax tree to determine if the program vioates certain consistency requirements. ✔️
 
+- (ii) Details of the source is confined to the front end. ✔️  
+```
 
----
----
-
-Here is your study plan organized **chapter-wise** with clear topic breakdown:
 
 ---
 

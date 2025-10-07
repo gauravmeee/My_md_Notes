@@ -16,7 +16,6 @@
     _Reform Sikh practices, promote education, counter Christian proselytization_
 - **Akali Movement (1920s)**  
     _Control of Gurudwaras from Mahants to Sikhs_
-    
 
 ###### **4. Dalit and Backward Caste Movements**
 - **Dalit Movement** – Dr. B.R. Ambedkar  
@@ -25,7 +24,6 @@
     _Rationalism, anti-Brahminism, gender equality_
 - **Adi Dharma Movement** – Harichand Thakur  
     _Upliftment of the Namasudras in Bengal_
-    
 
 ###### **5. Tribal and Peasant Reform Movements**
 - **Santhal Rebellion (1855-56)**
@@ -126,7 +124,7 @@
 
 ---
 
-### Major **civilizations and historical cultural phases**
+### Major civilizations and historical cultural phases
 
 **1. Prehistoric Cultures** 
 - **Paleolithic Culture** (Old Stone Age) – Hunter-gatherers
@@ -201,7 +199,7 @@
 ---
 
 
-# Induds Valley Civilization
+### Indus Valley Civilization
 
 **Important Sites**
 
@@ -271,3 +269,259 @@
 | **3. British**    | Most of India (British Raj)                                    | 1757 (Battle of Plassey) – 1947 (Independence) |
 | **4. Danish**     | Serampore (Bengal), Tranquebar (Tamil Nadu)                    | 1620 – 1845 (sold to British)                  |
 | **5. French**     | Pondicherry (Puducherry), Mahe, Karaikal, Yanam, Chandernagore | 1673 – 1954 (merged with India)                |
+
+---
+
+
+### Complete British Monarchs (England → Great Britain → United Kingdom)
+
+**Tudor Dynasty**
+1. **Henry VII (1485–1509)**
+2. **Henry VIII (1509–1547)**
+3. **Edward VI (1547–1553)**
+4. **Mary I (1553–1558)**  
+5. **Elizabeth I (1558–1603)**
+    
+
+**Stuart Dynasty**  
+6. **James I (1603–1625)** – First Stuart, also James VI of Scotland  
+7. **Charles I (1625–1649)**
+- **Interregnum / Commonwealth**: Oliver Cromwell (1649–1660)
+6. **Charles II (1660–1685)** – Restoration
+7. **James II (1685–1688)**
+8. **William III & Mary II (1689–1702)** – Joint rule
+9. **Anne (1702–1714)** – Last Stuart monarch; Act of Union 1707 ⭐
+
+**House of Hanover**  
+12. **George I (1714–1727)**  
+13. **George II (1727–1760)**  
+14. **George III (1760–1820)**  
+15. **George IV (1820–1830)**  
+16. **William IV (1830–1837)**
+
+**House of Saxe-Coburg and Gotha / Windsor**  
+17. **Victoria (1837–1901)** – Empress of India (1876)  
+18. **Edward VII (1901–1910)**  
+19. **George V (1910–1936)** (George Pancham)⭐
+20. **Edward VIII (Jan–Dec 1936)** – Abdicated  
+21. **George VI (1936–1952)**  
+22. **Elizabeth II (1952–2022)**   ⭐
+23. **Charles III (2022–Present)** ⭐
+
+Here’s a **complete list of British Governors-General and Viceroys of India** from the start of British administration to independence in **1947**, in a concise competitive-exam style:
+
+---
+
+# Governors General and Viceroy
+
+
+**Governor-General**
+- **Period**: 1773–1858 (East India Company rule)
+- **Role**: Head of British administration in India, representing the Company
+- **Power**: Executive and some legislative powers; could override other presidencies
+- **Example**: **Warren Hastings, Lord Canning**
+- **Key Point**: Title changed to **Viceroy** after 1858
+
+**Viceroy**
+- **Period**: 1858–1947 (British Crown rule)
+- **Role**: Representative of the British monarch in India
+- **Power**: Executive, legislative, and ceremonial; acted as King/Queen’s direct representative
+- **Example**: **Lord Curzon, Lord Hardinge, Lord Mountbatten**
+- **Key Point**: More ceremonial and symbolic authority; highest in hierarchy
+
+**Why was the title of Governor-General of India changed to Viceroy after 1858?**
+- **Before 1858**: India was governed by the **East India Company**, so the head was called **Governor-General**. They represented the Company’s interests.
+- **After 1857 Revolt**: The British government decided to take direct control of India (via the **Government of India Act 1858**).
+- **Result**:
+    - India came under the **British Crown**
+    - The **Governor-General became Viceroy** to represent the **monarch (Queen Victoria)** directly
+    - The title **“Viceroy”** emphasizes **royal authority** rather than Company administration
+- **Key Point**: Powers largely remained the same, but the title reflected **sovereign authority** instead of Company rule.
+
+**Simple Rule to Remember**:
+- **Governor-General = Company → Administrative Head**
+- **Viceroy = Crown → Monarch’s Representative**
+
+**List of Governors-General of India (1757–1858) – East India Company Rule**
+1. **Warren Hastings (1773–1785)** – First Governor-General of Bengal ⭐
+2. **Lord Cornwallis (1786–1793)**
+3. **Sir John Shore (1793–1798)**
+4. **Lord Wellesley (1798–1805)**
+5. **Lord Cornwallis (Second Term, 1805–1805)**
+6. **Sir George Barlow (1805–1807)**
+7. **Lord Minto I (1807–1813)**
+8. **Lord Moira / Hastings, etc. (1813–1823)**
+9. **Lord Amherst (1823–1828)**
+10. **Lord William Bentinck (1828–1835)**
+11. **Lord Auckland (1836–1842)**
+12. **Lord Ellenborough (1842–1844)**
+13. **Lord Hardinge I (1844–1848)**
+14. **Lord Dalhousie (1848–1856)** – Introduced Doctrine of Lapse
+15. **Lord Canning (1856–1858)** – Last Governor-General under Company rule; oversaw 1857 Revolt ⭐
+    
+**List Viceroys of India (1858–1947) – British Crown Rule**
+1. **Lord Canning (1858–1862)** – First Viceroy of India ⭐
+2. **Lord Elgin I (1862–1863)**
+3. **Sir John Lawrence (1864–1869)**
+4. **Lord Mayo (1869–1872)**
+5. **Lord Northbrook (1872–1876)**
+6. **Lord Lytton (1876–1880)** – During Second Anglo-Afghan War
+7. **Lord Ripon (1880–1884)** – Introduced local self-government
+8. **Lord Dufferin (1884–1888)** – Delhi Durbar ⭐
+9. **Lord Lansdowne (1888–1894)**
+10. **Lord Elgin II (1894–1899)**
+11. **Lord Curzon (1899–1905)** – Partition of Bengal
+12. **Lord Minto II (1905–1910)** – Morley-Minto Reforms ⭐
+13. **Lord Hardinge II (1910–1916)** – Delhi Durbar 1911
+14. **Lord Chelmsford (1916–1921)** – Jallianwala Bagh Massacre 1919
+15. **Lord Reading (1921–1926)**
+16. **Lord Irwin (1926–1931)** – Salt March 1930
+17. **Lord Willingdon (1931–1936)**
+18. **Lord Linlithgow (1936–1943)** – Quit India Movement 1942
+19. **Lord Wavell (1943–1947)** – Interim negotiations for independence    
+20. **Lord Mountbatten (1947)** – Last Viceroy; oversaw Partition & transfer of power ⭐
+
+---
+### Indian Movements & Incidents
+
+**1. Regulating Act of 1773** ⭐
+- **==First direct intervention by British Parliament==** in **East India Company** (EIC) affairs.
+- Established Governor-General of Bengal (==**Warren Hastings** first holder==).
+- Created Supreme Court at Calcutta.
+
+**2. Pitt’s India Act (1784)**
+- **Dual control:** Board of Control (political) & Court of Directors (commercial).
+- British Government gained supreme control over Indian affairs.    
+
+**3. Charter Act of 1813**
+- Ended EIC’s trade monopoly in India except for tea & China trade.
+- Allowed Christian missionaries to preach in India.
+
+**4. Charter Act of 1833**
+- Made Governor-General of Bengal → Governor-General of India (Lord William Bentinck first).
+- Ended Company’s commercial functions, purely administrative.
+    
+
+**5. Charter Act of 1853**
+- Introduced open competition for Civil Services.
+- First time legislative & executive functions separated in Governor-General’s Council.
+
+**6. Revolt of 1857 (First War of Independence)** ⭐
+- **Causes:** Enfield rifle cartridges controversy, annexation policies (Doctrine of Lapse), economic exploitation.
+- **Leaders:** ==**Mangal Pandey, Rani Laxmibai, Kunwar Singh, Bahadur Shah Zafar.**==
+- Suppressed in 1858; **==led to Government of India Act 1858 (Crown rule begins).==**
+    
+
+**7. Formation of INC (1885)** ⭐
+- Founded by A.O. Hume; platform for political dialogue.
+- First session in Bombay; W.C. Bonnerjee presided.
+- Moderate phase (1885–1905).
+
+**8. Partition of Bengal (1905)**
+- By **Lord Curzon** citing administrative efficiency.
+- Triggered mass protests; annulled in 1911.
+
+
+**9. Swadeshi & Boycott Movement (1905–1908)** ⭐
+- **==Boycott of British goods;==** promotion of swadeshi industries.
+- Spread to Bengal, Maharashtra, Punjab.
+- **Leaders:** ==Bal Gangadhar Tilak, Bipin Chandra Pal, Lala Lajpat Rai.==
+
+--> Continuous 1916-1920
+
+**10. Home Rule Movement (1916)**
+- **Two leagues:** ===Tilak== (Maharashtra, Central provinces)=, ==Annie Besant== (Madras, rest).
+- Demand for self-government on **Dominion status model**.
+
+**11. Champaran Satyagraha (1917)** ⭐
+- **Cause:** Indigo planters ==forcing cultivation at low rates==.
+- Gandhi’s first satyagraha in India; abolition of **tinkathia** system.
+
+**12. Kheda Satyagraha (1918)**
+- **==Poor harvest;==** peasants couldn’t pay tax.
+- **Gandhi, Vallabhbhai Patel, Shankarlal Banker led** struggle; tax suspended.
+
+**13. Ahmedabad Mill Strike (1918)**
+- Dispute over plague bonus & wage hike.
+- Gandhi used hunger strike as pressure tactic; settlement in workers’ favor.
+
+**14. Rowlatt Satyagraha (1919)**
+- **Against Rowlatt Act** allowing detention without trial.
+- Nationwide hartal; led to unrest in Punjab.
+    
+**15. Jallianwala Bagh Massacre (1919)** ⭐
+- General Dyer ordered indiscriminate firing on unarmed crowd.
+- Deepened nationalist anger; led to Hunter Commission inquiry.
+
+**16. Khilafat Movement (1919–1924)** ⭐
+- Led by **Ali brothers**; support from Gandhi to unite Hindus & Muslims.
+- Ended after abolition of Caliphate by Turkey (1924).
+
+**17. Non-Cooperation Movement (1920–1922)** ⭐
+- **Boycott of schools, law courts, foreign cloth.**
+- Leaders returned British titles.
+- Called off after **Chauri Chaura** violence (1922).
+
+--> end
+
+**18. Swaraj Party Formation (1923)**
+- Formed by C.R. Das, Motilal Nehru; aim to enter councils & obstruct colonial policies from inside.
+    
+
+**19. Civil Disobedience Movement (1930–1934)** ⭐
+- Started with Gandhi’s Dandi March to break salt law.
+- Mass refusal to pay taxes, break forest laws.
+- Suspended during Second Round Table Conference; resumed later.
+    
+
+**20. Round Table Conferences (1930–1932)**
+- Three sessions in London; 2nd attended by Gandhi as sole Congress **representative**.
+- Discussed constitutional reforms; led to Govt of India Act 1935.
+    
+
+**21. Quit India Movement (1942)** ⭐
+- Launched 8 Aug 1942 at Bombay; “Do or Die” slogan.
+- Massive arrests; violent & non-violent protests; underground activities.
+    
+
+**22. INA Trials & Naval Mutiny (1945–46)**
+- INA leaders (Shah Nawaz Khan, Prem Sahgal, Gurbaksh Dhillon) tried at Red Fort.
+- Bombay Naval Mutiny saw sailors protesting British rule; spread to other cities.
+    
+
+**23. Independence of India (1947)**
+- British Parliament passed **Indian Independence Act 1947.**
+- **15 Aug 1947:** India became independent; Dominion status under Mountbatten Plan.
+- Partition created India & Pakistan; large-scale migration & violence.
+
+
+**Full forms**
+- **EIC** – East India Company
+- **INC** – Indian National Congress
+- **INA** – Indian National Army
+- **NCM** – Non-Cooperation Movement
+- **CDM** – Civil Disobedience Movement
+- **RIN** – Royal Indian Navy
+- **RTC** – Round Table Conference
+- **ICS** – Indian Civil Service
+- **AIML** – All India Muslim League
+
+
+**Major Figures & Their Roles:**
+
+- **Warren Hastings:** First Governor-General of Bengal (Regulating Act 1773)
+- **Lord William Bentinck:** First Governor-General of India (Charter Act 1833)
+- **Mangal Pandey:** Key figure in 1857 revolt
+- **Rani Laxmibai, Kunwar Singh, Bahadur Shah Zafar:** Leaders of 1857 revolt
+- **A.O. Hume:** Founder of INC (1885)
+- **W.C. Bonnerjee:** Presided first INC session
+- **Lord Curzon:** Partition of Bengal (1905)
+- **Bal Gangadhar Tilak, Bipin Chandra Pal, Lala Lajpat Rai:** Leaders of Swadeshi & Boycott Movement
+- **Annie Besant:** Home Rule Movement leader (Madras & South India)
+- **Gandhi:** Champaran, Kheda, Ahmedabad strikes, Non-Cooperation, Civil Disobedience, Quit India
+- **Vallabhbhai Patel, Shankarlal Banker:** Kheda Satyagraha leaders
+- **Ali Brothers:** Leaders of Khilafat Movement
+- **C.R. Das, Motilal Nehru:** Formed Swaraj Party
+- **Shah Nawaz Khan, Prem Sahgal, Gurbaksh Dhillon:** INA trials leaders
+- **Lord Mountbatten:** Oversaw Indian independence & partition
+If you want, I can make a **concise table of movements vs leaders & their role** for easier memorization. Do you want me to do that?

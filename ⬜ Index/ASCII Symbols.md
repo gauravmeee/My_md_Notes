@@ -9,7 +9,7 @@ Soho, JMD, Aria, PayU, AKM Global, ArgenBright Group, Spinny, Spaze, Spinny  sky
  ⬆ ⬅ ⬇ ➡
 ⬋⬊⬉⬈  
 ↥↧ ⟷ ↕ ⇄⇅ 
-⤺⤻ ↶ ↷
+⤺⤻ ↶ ↷ ↺ ↻ ↩ 
 ⤴⤵
 ↳ ↰ ↱ 
 ↲ ↴ ↵
@@ -83,6 +83,17 @@ Cartesian Product/Cross Product
 ├────┼────┤
 │    │    │
 └────┴────┘
+
+┌────┬────┐
+│    │    │
+│    │    │
+└────┴────┘
+
+┌────────┐
+│        │
+├────────┤
+│        │
+└────────┘
 
 ┌────────┐
 │        │

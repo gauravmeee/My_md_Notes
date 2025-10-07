@@ -61,20 +61,20 @@
 
 **1. Month Code Table (for Calendar Questions)**
 
-| Month     | Code |
-|-----------|------|
-| Jan       | 0    |
-| Feb       | 3    |
-| Mar       | 3    |
-| Apr       | 6    |
-| May       | 1    |
-| Jun       | 4    |
-| Jul       | 6    |
-| Aug       | 2    |
-| Sep       | 5    |
-| Oct       | 0    |
-| Nov       | 3    |
-| Dec       | 5    |
+| Month | Code |
+| ----- | ---- |
+| Jan   | 0    |
+| Feb   | 3    |
+| Mar   | 3    |
+| Apr   | 6    |
+| May   | 1    |
+| Jun   | 4    |
+| Jul   | 6    |
+| Aug   | 2    |
+| Sep   | 5    |
+| Oct   | 0    |
+| Nov   | 3    |
+| Dec   | 5    |
 
 **2. Century Codes (Important to Memorize)**
 
@@ -91,7 +91,7 @@
 
 - **Formula To find the day of the week for any date:**
 ```sql
-Day = (Last 2 digits of year + (year/4) + Date + Month Code + Century Code) % 7
+Day = (Last 2 digits of year + (Last 2 digits of year  year/4) + Date + Month Code + Century Code) % 7
 ```
 
 - **Example: `15 August 1947`**

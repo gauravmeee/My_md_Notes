@@ -72,8 +72,6 @@ class MyClass{
 void MyClass::myFunc(int a, float b){...}; 
 ```
 
-
-
 Parameter name can be **omitted** in declaration for any function : member function, friend function, independent function etc. 
 ```cpp
 // Function declaration (parameter names omitted)
@@ -84,7 +82,6 @@ int add(int a, int b) {
     return a + b; 
 }
 ```
-
 
 Declare objects along with the class declaration like this:
 ```cpp
@@ -129,18 +126,20 @@ obj.pubFunc() // Accessing private function through another function
 
 ### Static
 
-- lass-level variable shared by all instances.
+- `static variable`
+	- class-level variable shared by all instances.
     - Declared using the `static` keyword.
-    - Can be accessed by both `static` and `non-static` functions.
+    - Can be ==accessed by both `static` and `non-static` functions.==
     - Can be accessed **without creating an object** of the class. ⭐
-    - Must be **defined outside** the class.
-    - If **not explicitly initialized**, it is **automatically initialized to 0**.
+    - `static variable` inside a class **must** be ==defined outside the class== **unless** it is a `constexpr` or `const static` integral type, which can be initialized inside the class.
+    - If **not explicitly initialized**, it is ==**automatically initialized to 0**==.
         
 - **`static function`**
-    - Can access **only `static` members** (variables/functions) of the class.
-    - Cannot access `this` pointer or non-static members.
+    - ==Can access **only `static` members**== (variables/functions) of the class.
+    - Since it has ==no `this` pointer==, it ==can’t access non-static variables/functions.==
     - Useful for operations not tied to a specific object.
     - Can be called **without creating an instance**. ⭐
+    - **Static functions** ==cannot be virtual== because they don’t belong to a specific object instance.
 
 
 ```cpp
@@ -175,12 +174,13 @@ MyClass::pubFunc(); // ✅ Accessing Private static member using public static F
 MyClass::pubFunc2(): // ❌ Non-static member cannot be called without creating an object
 ```
 `Default` value is `0` for all static variable (unlike local variable)
+
 ### Object Memory Allocation
 
 The memory of a class in C++ is primarily determined by its **instance variables** (data members).
 
 - `Variable` in class get their `own memories`
-- member `function` and `static variables` in class have `common memory` allocation for different objects
+- Member `function` and `static variables` in class have `common memory` allocation for different objects
 
 ```
 __________________________________
@@ -228,15 +228,14 @@ void myFunc(MyClass *obj) { // object address is passed
 ---
 ### Friend Functions
 
-**Friend function** - > function that is not a member of a class but has access to its private and protected members.
+**Friend function** - > function that is ==not a member of a class but has access to its private and protected members.==
 - Declared inside class using `friend` keyword.
 - Take  `object` as an argument. (to access its private member)
 - Can be also declared inside of `private` section of the class ⭐
-- It can be invoked without the help of object
+- It can be ==**invoked without the help of object**==
 
 
 - Writing `friend int friendFunc(int pvtData);` or `friend int friendFunc(int pubData);` does not give the function access to the class's `pvtData` or `pubData` directly.
-
 ```cpp
 class MyClass{
 	int pvtData;
@@ -249,10 +248,9 @@ class MyClass{
 int friendFunc(MyClass obj1, MyClass obj2){obj1.pvtData + obj2.pvtData} // accessing `pvtData` of objects
 ```
 
-
 ##### **Friend Class**
 
-Instead of making individual functions friends, you can declare the entire class as a friend of another class.
+Instead of making individual functions friends, **==you can declare the entire class as a friend==** of another class.
 ```cpp
 class MyClass1 // forward declaration
 
@@ -286,11 +284,11 @@ class MyClass2{
 
 ### Constructor
 
-**Constructor:** -> Special member function with same name as of the class.
+**Constructor:** -> Special member function with ==same name as of the class.==
 - It is used to initialized the objects of its class
-- It is automatically invoked whenever an object is created
--  It should be declared in the `public` section of the class ⭐
-- Cannot `return` values and do not have `return` type ⭐
+- It is ==automatically invoked== whenever an object is created
+-  It should be ==declared in the `public` section== of the class ⭐
+- Cannot `return` values and do n==ot have `return` type== ⭐
 
 ```cpp
 class MyClass{
@@ -396,9 +394,9 @@ int main(){
 	bd2 = MyClass(1, 3, 3); // Reassigned
 }
 ```
-- Default Constructor is required to create object without passing initial parameter (otherwise error).
+- ==Default Constructor is required to create object without passing initial parameter ==(otherwise error).
 - Initially `bd1` & `bd2` created using the default constructor and  assigned garbage values.
-- `bd1` & `bd2` then assigned a value using the parameterized constructor.
+- `bd1` & `bd2` then ==reassigned a value using the parameterized constructor==.
 
 ##### **Copy Constructor**
 
@@ -419,13 +417,13 @@ int main(){
 }
 ```
 
-**Default Copy Constructor :** There is no error to use `MyClass obj2(obj)` even if copy constructor is not defined by user.  ⭐ Because it is inbuilt. But user define copy constructor overload it.
+**Default Copy Constructor :** There is no error to use `MyClass obj2(obj)` even if copy constructor is not defined by user.  ⭐ Because **it is inbuilt**. But user define copy constructor overload it.
 
 **Destructor** -> an instance member function which is invoked automatically whenever an object is going to be destroyed
 - Destructor neither requires any argument nor returns any value.
 - Destructor has the same name as their class name preceded by a `tilde(~)` symbol
 - It is not possible to define more than one destructor. 
-- In destructor, objects are destroyed in the reverse of an object creation.
+- In ==destructor, objects are destroyed in the reverse of an object creation.==
 ```cpp
 Class MyClass{
 	MyClas(){cout<<"constructor called";}
@@ -590,8 +588,9 @@ class DerivedClass:public BaseClass{
 }
 ```
 
+**Constructor Execution Order**
 
-**Case 1: Constructor in Simple Inheritance** -> If both base and derived classes have constructors, base class constructor is executed first. 
+1. **Case 1: Constructor in Simple Inheritance** -> If both base and derived classes have constructors, **==base class constructor is executed first==**. 
 - Constructor order for `B`'s Instance where Inheritance `A->B`
 ```cpp
 class B: public A{
@@ -599,7 +598,7 @@ class B: public A{
 };
 ```
 
-**Case 2 : Constructor in Multiple Inheritance** -> base classes are constructed in the order in which they appear in class declaration.
+2. **Case 2 : Constructor in Multiple Inheritance** -> base classes are constructed in the **==order in which they appear==** in class declaration.
 - Constructor order for `C`'s Instance where Inheritance `A->C, B->C`
 ```cpp
 class C: public A, public B{
@@ -607,7 +606,7 @@ class C: public A, public B{
 };
 ```
 
-**Case 3 : Constructor in Multilevel Inheritance** -> the constructors are executed in the order of inherit
+3. **Case 3 : Constructor in Multilevel Inheritance** -> the constructors are **==executed in the order of inherit==**
 -  Constructor order for `C`'s Instance where Inheritance `A->B->C` ⭐
 ```cpp
  // For Object `C` Constructor order : A() -> B() -> C() 
@@ -615,8 +614,7 @@ class B:  public A { }
 class C:  public B { }
 ```
 
-**Case 4 : Virtual Base Class** ->  constructors for virtual base classes are invoked before an non-virtual base class. If there are multiple virtual base class, they are invoked in the order declared.
-
+4. **Case 4 : Virtual Base Class** ->  constructors for **==virtual base classes are invoked before an non-virtual base class==**. If there are multiple virtual base class, they are invoked in the order declared.
 -  Constructor order for `C`'s Instance multiple inheritance.
 ```cpp
 class C: public A, virtual public B{
@@ -631,6 +629,8 @@ Virtual Base Class  -> Base Class ->  Derived Class
 
 Rule 2:
 Order of Declaration
+
+Rule 1 > Rule 2
 ```
 
 ---
@@ -706,7 +706,6 @@ MyClass(int i, int j) : a(i), b(a+j)
 - `a` is initialized first with `i` and then `b` is initialized using the already-initialized value of `a` and `j`.
 
 
-
 **Case 4: **Order mismatch in declaration and initializer list**:**
 ```cpp
 MyClass(int i, int j) : b(j), a(i+b)
@@ -778,10 +777,9 @@ ptrArr+1->a;// paranthesis '()' is optional.
 ```
 - paranthesis `()` is optional as, precedence of `+` is more than `->` ⭐
 
-**this pointer** -> refer to the object
+**`this` pointer** -> Refer to the object
 - `this` is a keyword which is a pointer which points to the object which invokes the member function.
 - If you want to return an object, using  `this` is the only way.
-
 ```cpp
 class MyClass{
 	int a;
@@ -816,7 +814,7 @@ class ShopItem
     int id;
     float price;
     public:
-        void setData(int id, float price){
+        void setData(int a, float b){
             this->id = a;
             this->price = b;
         }
@@ -925,8 +923,8 @@ base_class_pointer->display(); // BaseClass::Display()
 
 ##### **Virtual Function**
 
-- **Virtual Function** -> A member function in the base class which is declared using virtual keyword is called virtual functions. 
-- Virtual allow derived classes to **override** methods from a base class so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer. 
+- **Virtual Function** -> A member function in the base class which is **declared using virtual keyword** is called virtual functions. 
+- ==Virtual allow derived classes to **override** methods from a base class== so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer. 
 - **Use of Virtual Function :**
 	- if not exist in base class -> you can’t call it using a base class pointer.
 	- If a derived class not override -> the base class implementation is used, avoiding errors.
@@ -958,7 +956,7 @@ base_class_pointer->display(); // DerivedClass::Display()
 
 `virtual` keyword make sure that when the **virtual** function is called by using the base class pointer the `overriden` function of the derived class will run ⭐
 
-`override` keyword ensures that the compiler checks whether a method in a derived class is **actually overriding** a virtual method even If you accidentally change the method signature in the derived class. `override` Ensure correct matching, Catch typos, Avoid silent bugs.
+==`override` keyword ensures that the compiler checks whether a method in a derived class is **actually overriding** a virtual method== even If you accidentally change the method signature in the derived class. `override` Ensure correct matching, Catch typos, Avoid silent bugs.
 
 **virtual functions can be overridden without the `override` keyword**, but using `override` is **strongly recommended**.
 
@@ -1001,10 +999,9 @@ public:
 ```
 
 
- 
 **Function Signature Include:**
 1. Function name
-2. Parameter types
+2. No. of Parameter + Its Types
 3. `const` qualifier (if member function)
 
 **Function Signature Don't Include:**
@@ -1052,7 +1049,7 @@ MyClass{
 
 ##### **Abstract Base Class**
 
-**Abstract base class** -> class that has at least one pure virtual function in its body.
+**Abstract base class** -> class that has ==at least one pure virtual function in its body==.
 - The classes which are inheriting the base class must need to override the virtual function of the abstract class **otherwise compiler will throw an error.**
 - You can't Create Instance or Object of abstract class.  
 - Virtual function can't be called directly from abstract class `MyClass::virtualFunc()` (compilation error)

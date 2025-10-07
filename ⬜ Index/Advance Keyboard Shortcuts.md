@@ -1,6 +1,7 @@
 <hr>
 # <center> Windows </center>
 ### In Habit
+
 `Alt + f4` - Close Window
 `Alt + Tab` - Switch Tab
 `Shift + Del` - Permanent delete
@@ -19,6 +20,7 @@
 `Win + V` - access clipboard
 
 ### Not in Habit (Very Useful)
+
 `Win + X` - Window Options
 `Win + X U U` - Fastest way to shutdown window
 `Win + Q` - Search bar
@@ -28,6 +30,7 @@
 `Win + C` - open Copilot
 
 ### Not in Habit (Others)
+
 `Win + M` - Minimize All Windows 
 `Win + Shift + M` - Restore minimized windows
 

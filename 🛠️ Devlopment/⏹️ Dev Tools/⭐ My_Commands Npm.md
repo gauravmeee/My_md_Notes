@@ -134,6 +134,25 @@ npm run dev -- --port 3000 # Passes --port 3000 to the dev script
 npm install some-package --save-dev # Long-form flag equivalent to -D
 ```
 
+**NPM Install Flags: `--legacy-peer-deps` vs `--force`**
+```sh
+<command> --legacy-peer-deps # Safe
+<command> --force # Risky 
+```
+1. **`--legacy-peer-deps`**
+	- Ignores peer dependency conflicts, similar to npm v6 behavior.
+	- Installs packages even if peer dependencies don’t match exactly.
+	- Safer option for older or slightly incompatible packages.
+	- May hide warnings but reduces risk of breaking the project.
+    
+2. **`--force`**
+	- Forces installation regardless of any dependency conflicts or warnings.
+	- Installs everything, ignoring peer deps, version mismatches, and errors.
+	- Risky: can cause runtime errors if incompatible versions are installed.
+	- Use only when necessary and if you can debug issues.
+	- **Safer choice:** `--legacy-peer-deps`
+	- **Risky choice:** `--force`
+
 ---
 ## Express Setup
 

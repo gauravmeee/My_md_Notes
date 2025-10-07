@@ -185,8 +185,28 @@ git clean -fd  - # Removes untracked files (-f) and directories (-d)
 
 _Note:_ This process is useful for managing different versions or features within the same project by using separate branches.
 
+---
+# Update Last Commit and Push
+
+```sh
+# Stage all changes
+git add .
+```
+
+```sh
+# Amend the last commit
+git commit --amend        # Add changes and edit commit message
+git commit --amend --no-edit   # Add changes without editing message
+```
+
+```sh
+# Push updated commit (overwrite previous one on remote)
+git push origin <branch-name> --force
+```
+
 
 ---
+
 
 # Revert all changes up to the last commit. There are two main ways:
 
@@ -280,3 +300,112 @@ git push --force
 
 
 ---
+
+## Commit author email does not match any verified email in GitHub linked to Vercel.
+ 
+- GitHub shows:
+```
+All checks have failed
+1 failing check
+Vercel - No GitHub account was found matching the commit author email address
+```
+    
+
+**Solution:**
+
+1. **Check current Git email**
+```bash
+git config user.email        # repo-level
+git config --global user.email  # global-level
+```
+
+2. **Set correct Git email and name**
+```bash
+git config user.email "gkmeena2810@gmail.com"
+git config user.name "Gaurav Kumar Meena"
+```
+
+_(Use `--global` to apply to all future repos)_
+
+3. **Update last commit author (if previous commits have wrong email)**
+```bash
+git commit --amend --no-edit --reset-author
+git push --force
+```
+
+4. **Reconnect/check Vercel Git integration**
+- Go to Vercel → Project → Settings → Git → Confirm GitHub account is connected.
+- Manual redeploy if needed.
+
+**Notes:**
+- Only the **email must match** a verified GitHub email; name is optional.
+- Using correct email ensures future commits trigger Vercel deployments automatically.
+
+---
+## common commit types with examples in Git:
+
+**1. `feat` (Feature)** – New functionality or feature added.
+
+```bash
+git commit -m "feat: add search bar to navbar"
+```
+
+**2. `fix` (Bug Fix)** – Fixing a bug or issue.
+
+```bash
+git commit -m "fix: resolve navbar dropdown not opening on mobile"
+```
+
+**3. `chore` (Maintenance/Config)** – Changes that don’t affect the code logic (build scripts, dependencies).
+
+```bash
+git commit -m "chore: update npm dependencies"
+```
+
+**4. `docs` (Documentation)** – Updating docs, README, comments.
+
+```bash
+git commit -m "docs: add usage instructions for ThemeProvider"
+```
+
+**5. `style` (Formatting/UI)** – Code formatting, UI tweaks, CSS changes.
+
+```bash
+git commit -m "style: adjust navbar padding for mobile view"
+```
+
+**6. `refactor` (Code Change)** – Code restructuring without changing functionality.
+
+```bash
+git commit -m "refactor: simplify ThemeProvider logic"
+```
+
+**7. `perf` (Performance)** – Performance improvements.
+
+```bash
+git commit -m "perf: optimize image loading in Navbar"
+```
+
+**8. `test` (Tests)** – Adding or fixing tests.
+
+```bash
+git commit -m "test: add unit test for theme toggle"
+```
+
+**9. `fix(ui)` / `feat(ui)` (Optional scope)** – For clarity, you can add scope:
+
+```bash
+git commit -m "fix(ui): fix button overlap on mobile"  
+git commit -m "feat(ui): add dark mode toggle animation"
+```
+
+**Good usage tips:**
+
+- Keep **commit messages short and meaningful**.
+    
+- Use **imperative mood** (`add`, `fix`, `update`).
+    
+- Use **scope** when multiple areas exist (`feat(navbar): ...`).
+    
+
+If you want, I can make a **ready-to-use cheat sheet of 10–12 commit types with examples** for daily Git usage. It’s very handy. Do you want me to do that?

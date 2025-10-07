@@ -2,24 +2,24 @@
 #  [# Operating System One Shot | CS & IT Engineering | Maha Revision | Target GATE 2025](https://youtu.be/86kN-pdxsl0)
 ### Operating System
 
-**Operating System** -> It is a Software abstracting hardware
+**Operating System** -> It is a ==Software abstracting hardware==
 - It is a Interface between user and hardware
 
 **Services of Operating Systems**
-- User Interface
+- ==User Interface==
 - Program Execution  ⭐
-- I/O Operation
+- ==I/O Operation==
 - File-System Manipulation
 - Inter Process Communication
 - Error Detection Allocation
 - Accounting
-- Protection & Security
+- ==Protection & Security==
 
-
-**Resource Management** : CPU, Memory, Storage -> for different tasks & Processes
-**File Management** : Structure for data storage,  File Operations (CRUD)
-**Process Management** : Schedule processes, inter-process communication 
-**Device Management** :  Communication btw H/w & S/w
+**Overall:**
+**1. Resource Management** : CPU, Memory, Storage -> for different tasks & Processes
+**2. File Management** : Structure for data storage,  File Operations (CRUD)
+**3. Process Management** : Schedule processes, inter-process communication 
+**4. Device Management** :  Communication btw H/w & S/w, I/O Operation
 
 **Types of OS**:
 1. **Uni-Programming OS** 
@@ -30,7 +30,7 @@
 	- Degree of Multiprogramming > 1
 	- CPU Scheduling and Better Resource Utilization (like when P1 doing I/O operation, Execute P2)
 3. **Multi-Tasking OS**
-	- Type of Multi-Programming in Which Scheduling Process is fixed i.e. Round Robin ⭐
+	- Type of ==Multi-Programming== in Which Scheduling Process is fixed i.e. ==Round Robin ==⭐
 
 Note: Single Processor/CPU can run one Process at a time.
 
@@ -39,40 +39,54 @@ Note: Single Processor/CPU can run one Process at a time.
 - Non-Preemptive -> Can't be Stop without process itself
 
 **Degree of Multi Programming** -> No. of Processes in Main Memory (other then OS processes)
-- Degree  ∝ Efficiency (Upto Thrashing)
+- ```
+  Degree  ∝ Efficiency (Upto Thrashing)
+  ```
 
 **Thrashing** occurs in **Operating Systems** (mainly in virtual memory systems) when The system spends more time swapping pages in and out of memory than executing actual processes.
+```
+CPU Utilization
+^
+|                     λ   
+|                   / . \
+|                /    .   \     
+|             /       .      \    
+|          /          .         \ 
+|       /             .            \ 
+|    /                .               \ 
+| /                   .                  \
++--------------------------------------------> Degree of Multi-Programming
+                 Thrashing Region
 
+```
 
 **Parts of OS:**
 ```  
 ( Shell ( Kernel ) )
 ```
-- **Shell** → Outer layer of OS, provides interface to user via `GUI` or `CLI`
-- **Kernel** → Core of OS, directly interacts with **hardware**; manages **CPU, memory, processes, I/O, and devices**
+- ==**Shell**== → ==Outer layer of OS==,== provides interface to user== via `GUI` or `CLI`
+- ==**Kernel**== → ==Core of OS==, directly ==interacts with **hardware**==; manages **CPU, memory, processes, I/O, and devices**
 
-**System Call:** -> A way for program to interact with the operating system.
-- It protect privileged systems like files from program, and program need to request Call and Request OS
+**System Call:** -> A way for ==program to interact with the operating system==.
+- It protect privileged systems like files from program, and ==program need to request Call and Request OS==
 - Dual Mode of Operation : Transition from user to kernel mode
 ```
 	User Process:
 	User Process executing ---> Call Systems call ---> Return from system call
-	                            ⬊                          ⬈
-x-------------------------------------------------------------------------------x
-Kernel :                            ⬊                   ⬈
-							 Mode bit =0        Return mode bit = 1
-										 ⬊          ⬈
-									   Execute system Call			
-
+	                       ⬊                          ⬈
+x-----------------------------------------------------------------------------x
+Kernel :                       ⬊                   ⬈
+						 Mode bit =0        Return mode bit = 1
+		   						   ⬊          ⬈
+							     Execute system Call			
 ```
 - User mode ( mode bit = 1), Kernel mode (mode bit = 0)
-
 
 ### Processes
 
 **Processes** -> Program under execution
 
-**Representation of Processes**
+**Representation of Processes** ⭐
 ```
 Main Memory        Program P1
 ┌──┐             . ┌───────┐
@@ -87,8 +101,8 @@ Main Memory        Program P1
                    └───────┘
 ```
 
-**Ques:** Calling `malloc()` execute System Call ?
-Ans: No, malloc uses some area from heap, if heap is already given by OS to program, then there is no need to call system call for using heap
+**Ques:** Calling `malloc()` execute System Call ? ⭐
+- -> No, malloc uses some area from heap, if ==heap is already given by OS to program==, then there is no need to call system call for using heap
 
 **Program Counter** (PC)-> Store address of Next Instruction -> Program Code Part
 ```
@@ -101,14 +115,13 @@ Ans: No, malloc uses some area from heap, if heap is already given by OS to prog
 ```
 
 **Ques:** If a process `P` is running, which section of the process's what address will be stored in PC for the process `P`
-Ans: PC will store address of next instruction, i.e. Some address of Code Section of the Process P1 inside Main Memory
+- -> PC will store address of next instruction, i.e. Some address of Code Section of the Process P1 inside Main Memory
 
 **Ques:** In which Section of the Process `P`, the program counter value would be saved
-Ans: If some function call or Interrupt happens, PC value is stored Inside Stack of Process P
-
+- -> If some function call or Interrupt happens, PC value is stored Inside Stack of Process P
 
 **PCB** -> Process Control Block
-- When Process load into CPU Process content like (instructions, Variables) not goes into CPU, only PCB goes into CPU that stores Process ID, Process current state, Process Priority etc.)
+- When Process load into CPU Process content like (instructions, Variables) not goes into CPU, only ==PCB goes into CPU== that ==stores Process ID, Process current state, Process Priority== etc.)
 ```
 Main Memory                OS
                   . ┌──────────────────┐
@@ -123,7 +136,7 @@ Attributes of PCB
 [ PID, PC, GPR, List of Devices, Type, Size, Memory Limits, Priority, State, List of Files]
 ```
 
-**Context** -> The content of PCB of a process are collectively knowns as 'Context' of that process
+**Context** -> The ==content of PCB of a process are collectively knowns as 'Context'== of that process
 - Done By a OS's Program known as `Dispatcher`
 - Step 1: Current Running process `Context` from CPU come back to its corresponding PCB
 - Step 2: Next Process's Context from PCB load into CPU
@@ -143,49 +156,78 @@ Context Switch:
 ```
 
 **Ques :** Is context switch same as preemption.
-- Ans - It is not necessary to have preemption for Context Switch, because preemption is forcefully unload running process while, without preemption, if a Processing is going to do I/O there can be context switch
+- ->  It is not necessary to have preemption for Context Switch, because ==preemption is forcefully unload running process== while, without preemption, if a ==Processing is going to do I/O there can be context switch==
 
 
-**Process States :**
+**Process States :** ⭐⭐
 ```      
                          preemption    
-                       ┌------------┐ 
-    admitted           ↓            |             exit
+                   ┌---------------------┐ 
+                   |                     |
+       admitted    ↓                     |         exit
 {New}--------->   {Ready} -------> {Running} ------------> {Terminated}
-                   ↑   |            ↑    |
-                   |   └------------┘    |
-                   | schedule dispatcher | 
+                   ↑                     |
  I/O or event done |                     | waiting for I/O or event
                    └--{Waiting/Blocked}←-┘
                   reserved process by devices
 ```
 
+**1. Process Lifecycle (Basic Flow):**
+```
+{New} ---------> {Ready} ---------> {Running} ---------> {Terminated}
+        admitted         scheduled                exit
+```
+
+**2. I/O & Preemption Flow:**
+```
+	       preemption    
+	    ┌--------------┐ 
+	    |              |
+ 	    ↓   Dispatch   | 
+  {Ready} ----------> {Running}
+	    ↑              |  
+event	└--{waiting}---┘  event wait
+completion 
+```
+
+Schedule & Dispatcher:**
+- **Scheduler:** Chooses which process in **Ready** will get CPU next. Uses policies like FCFS, SJF, RR, Priority.
+- **Dispatcher:** Performs **context switch** to transfer CPU to selected process. Handles:
+    - **Ready → Running** (process starts execution)
+    - **Running → Waiting/Blocked** (process waits for I/O/event)
+    - **Running → Ready** (preemption occurs, e.g., time slice ends or higher-priority process arrives)
+- **Responsibilities:**
+    - Executes CPU allocation decisions of the scheduler        
+    - Handles **preemption**
+    - Performs **context switching**
+
 **Main Memory vs CPU stored state:** ⭐
-- Stored in both  CPU & Main Memory-> `Running`
-- Stored in Main memory Only -> `Ready, Blocked`
-- Not stored -> `New & Terminated`
+- `Running` -> Stored in both  CPU & Main Memory
+- `Ready, Blocked` -> Stored in Main memory Only 
+- `New & Terminated` -> Not stored
 
 **Two Transition are Voluntary by Process:**
 - Running to Terminated
 - Running to Blocked
 
-**CPU Bound** - If the process is intensive in terms of CPU operations
-**IO Bound** - If the process is intensive in terms of IO operations.
+**Process Types Based on Resource Usage**
+- **CPU Bound** - If the process is intensive in terms of CPU operations
+- **IO Bound** - If the process is intensive in terms of IO operations.
 
-Note:
+**Note:**
 - A good blend of CPU Bound & IO Bound are made for better utilization
 - Running Process Can take only two decision by itself, `exit` and `waiting for I/O or event`. and all other are decide by OS
 
-
-**Scheduling Queues:**  -> Queues of PCB's of different state of process 
+**Scheduling Queues:**  -> Queues of PCB's of different state of process
 - **Job Queue** ->  New State
 - **Ready Queue** -> Ready State
 - **Device Queue**  -> Blocked State
 
-**Types of Schedulers:**
-- **Long-Term Scheduler (Job)** -> Decide process From `New` to `Ready` state
-- **Short-Term Scheduler (CPU)** -> Decide process From `Ready` to `Running` state -> CPU Scheduling Algorithms ⭐
+**Types of Schedulers:** ⭐
+- **Long-Term Scheduler (Job)** -> ==Decide process From `New` to `Ready` state==
+- **Short-Term Scheduler (CPU)** -> ==Decide process From `Ready` to `Running` state== -> CPU Scheduling Algorithms ⭐
 - **Mid-Term Scheduler(Medium Term)** -> Swap out Process (Ready or Blocked) from Main memory to new suspended state -> Swapping
+
 ```
                ┌-resume-->                     // other states connected
 {Suspended Ready}       {Ready}
@@ -198,9 +240,9 @@ Note:
 ```
 
 **Effect of Scheduler on Degree of Multiprogramming:**
-- Long Term -> Can Increase
-- Short Term -> No effect X
-- Mid-Term -> Increase/Decrease (Swap in/out)
+- **Long Term** -> Can Increase
+- **Short Term** -> No effect X
+- **Mid-Term** -> Increase/Decrease (Swap in/out)
 
 Note : Swapping is also Called Rolling Rollout and Rollin if it is based on priority
 
@@ -212,7 +254,6 @@ Note : Swapping is also Called Rolling Rollout and Rollin if it is based on prio
 
 **Scheduling Times** 
 ```
-
 - Arrival Time (AT), 
 - Burst Time(BT), 
 - Completion Time (CT), 
@@ -241,15 +282,14 @@ Note : Swapping is also Called Rolling Rollout and Rollin if it is based on prio
 - Criteria -> Priority static/dynamic (Tie breaker -> Given in Ques)
 - Problem -> **Starvation** : If lower priority waiting for too much (Solution-> aging (only for dynamic priority))
 
-**5. Round-Robin** -> Preemptive
-- Criteria -> Smaller AT first + Time slice (**Quantum**)
+**5. Round-Robin** -> Preemptive ⭐
+- Criteria -> ==Smaller AT first== + ==Time slice== (**Quantum**)
 - If two process coming to ready state, one from New State and another from CPU, New process will be forward in queue.
 - Quantum Value (Q) : very very small -> No Efficiency, Small -> Interactive, Large -> Less Interactive, Very very large -> RR degrades to FCFS
 
 Note:⭐
 - Learn to make `Gantt Chart` for analyze process scheduling.
 - Most question are to find **Average TAT** or **Average WT**
-
 
 
 **6. Multilevel Queue (MLQ) Scheduling:**
@@ -287,12 +327,13 @@ Foreground Processes ←┘
 
 
 **Advantage and Disadvantage of Each Scheduling Algorithm**
-- **FCFS** -> (Easy to Implement, No complex Logic, No starvation)✅ , (No Option of Preemption, Convoy Effect Makes System Slow) ❌
-- **SJF** -> (Minimum average waiting time among non-preemptive scheduling, Better throughput in continue run) ✅ , (No Practical Implementation because burst time is not known in advance, No option of preemption, Longer Processes may suffer from starvation) ❌
-- **SRTF** -> (Minimum Average waiting time among all algorithms, Better throughput in continue run) ✅, (No practical implementation because Burst time is not known in advance), (Longer Processes may suffer from starvation) ❌
-- **Priority Based Algorithm** -> (Better response for real time situations)✅, (Low Priority Processes may suffer from starvation) ❌
-- **Round Robin** -> (All processes execute one by one, so no starvation, Better interactive-ness, Burst time is not required to be known in advance) ✅, (Average waiting time and turnaround time is more, Can degrade to FCFS) ❌
+1. **FCFS** -> (Easy to Implement, No complex Logic, ==No starvation==)✅ , (No Option of Preemption, ==Convoy Effect== Makes System Slow) ❌
+2. **SJF** -> (Minimum average waiting time among non-preemptive scheduling, Better throughput in continue run) ✅ , (No Practical Implementation because burst time is not known in advance, No option of preemption, ==Longer Processes may suffer from starvation==) ❌
+3. **SRTF** -> (Minimum Average waiting time among all algorithms, Better throughput in continue run) ✅, (==No practical implementation== because Burst time is not known in advance), (==Longer Processes may suffer from starvation==) ❌
+4. **Priority Based Algorithm** -> (Better response for real time situations)✅, (Low Priority Processes may suffer from starvation) ❌
+5. **Round Robin** -> (All processes execute one by one, so ==no starvation==, ==Better interactive-ness==, Burst time is not required to be known in advance) ✅, (Average waiting time and turnaround time is more, ==Can degrade to FCFS==) ❌
 
+---
 ### Synchronisation
 
 **Type of Processes:**
@@ -304,8 +345,7 @@ Foreground Processes ←┘
 - Loss of Data
 - DeadLock
 
-**Race Condition** -> A race condition is an undesirable situation, it occurs when the final result of concurrent processes depend on the sequence in which the processes complete their execution. ⭐
-
+==**Race Condition**== -> A race condition is an ==undesirable situation==, it occurs ==when the final result of concurrent processes depend on the sequence in which the processes complete their execution==. ⭐
 
 **Ques:** How many different values of X are possible after both `P1` and `P2` process finish execution
 ```
@@ -356,9 +396,7 @@ Ans -> By Race condition `Xmin` = 10 (P3 & P4), `Xmax` = 25(P1 & P2)
 - **Shared Variable** -> A way of communication
 - **Others Communicating ways** -> message passing, ...
 
-
 `Critical Section -> Shared variable ->  Synchronization -> Solution `
-
 
 **Requirement of Critical Section Solution**
 1. **Mutual Exclusion** -> If a Process P1 is executing Critical Section, Other Process P2 can't enter critical section i.e. One process can enter critical section at a time
@@ -370,7 +408,7 @@ R.S -> Remaining Section
  
 **A. Software Solutions**
 
-Solution 1 (`Lock`):
+**Solution 1 (`Lock`):**
 ```
 		Using Lock
 		Boolean lock = false;
@@ -394,7 +432,7 @@ While(true)                      While(true)
 - If No process inside Critical Section, Last updated Value of Lock always be `false` and so any process can enter -> There is Progress
 - If Process P1 enter Critical Section, and made `lock=true`, Process P2 can't enter C.S. After P1 finished its One Cycle, It come out, Make `lock=false` and again it can access Critical section and Make `lock=true` even if P2 is waiting. so there is no procedure to prevent P1 from execution if someone is waiting from more time -> No bound and wait
 
-Solution 1(`Turn`):
+**Solution 1(`Turn`):**
 ```
 		Using turn
 		int turn=0
@@ -444,7 +482,6 @@ No Starvation ❌
 - `turn` used for priority and will tell who should go in C.S, at a time `turn=0` or `turn=1`. If Process P0 Execute and Complete C.S, it will set `turn=1` and tell that next time its's P1 turn, So on Completing a Process another want to access C.S waiting one will given priority -> Bounded wait
 - In P0 : `while(Flag[1] && turn==1)` -> `Flag[1]` (P1 want to go in C.S) and `turn==1` (Priority is P1), the P0 -> Infinite Loop, Can't Access and vice versa -> Mutual Exclusion
 - If another process don't want to go in C.S its `Flag=false` and so, the current process's `while(another Process Flag = false && turn)` -> Not infinity -> can enter C.S
-
 
 **B. Hardware Solutions**
 1. `TestAndSet()`
@@ -639,6 +676,7 @@ signal(ch[(i+1)modk)])
 	3. One philosopher should pick the left chopstick first and then right chopstick next; While all others will pick the right one first then left one
 
 
+---
 ### Deadlock
 
 Starvation -> Indefinite wait
@@ -683,6 +721,12 @@ p2 | Printer  | Keyboard
 1. Make sure that deadlock never occur -> Prevent the system from deadlock or avoid deadlock
 2. Allow deadlock, detect and recover
 3. Pretend that there is no any deadlock (used modern day OS)
+
+**Deadlock Handling Techniques:**
+4. ==**Deadlock Prevention==:** Ensure ==at least one of the necessary conditions note meet==.
+5. ==**Deadlock Avoidance:**== Dynamically ==check resource allocation to avoid unsafe states== (e.g., Banker's Algorithm).
+6. ==**Deadlock Detection & Recovery:**== Allow deadlock to occur, ==detect it, and recover== by terminating or preempting processes.
+7. **==Deadlock Ignore:==** ==Do nothing== (used in systems like UNIX where deadlocks are rare).
 
 **A. Deadlock Prevention**->Prevent any 4 necessary condition:
 1. Mutual Exclusion
@@ -797,15 +841,15 @@ Min no. of Resources such that deadlock never occur:
 **D. Recovery From Deadlock**
 
 There are three basic approaches to recover from deadlock
-1. Inform the system operator and allow him/her to take manual intervention
-2. Terminate one or more processes involved in the deadlock
-3. Preempt resources.
+4. Inform the system operator and allow him/her to take manual intervention
+5. Terminate one or more processes involved in the deadlock
+6. Preempt resources.
 
 - **Process Termination**
 	1. Terminate all processes involved in the deadlock
 	2. Terminate processes one by one until the deadlock is broken
 
-
+---
 ### Memory Management
 
 - **Memory Management** -> Module of OS
@@ -825,13 +869,18 @@ There are three basic approaches to recover from deadlock
  fixed partition     variable partition     Paging    Segmentation
 ```
 
-**Contiguous Memory Allocation** → The whole process is stored in a single continuous block of memory.
-1. **Fixed Partitioning** → The memory is divided into a fixed number of partitions at system startup. When a process arrives, it is allocated to a partition based on the partition allocation method (e.g., first-fit, best-fit).
--  **Problem**: **Internal Fragmentation** → Wasted space inside partitions if the process is smaller than the partition size.
+##### **Contiguous Memory Allocation**
 
-2. **Variable Partitioning** → No fixed partitions; memory is allocated dynamically as per the process's need. When a process arrives, a partition of exact size is created.
-- **Problem**: **External Fragmentation** → Free memory exists, but it is scattered in non-contiguous blocks, making it unusable for larger processes.
-- **Solution: Compaction** -> Rearranges memory contents to place all free memory together in one large block
+**Contiguous Memory Allocation** → The whole process is stored in a single continuous block of memory.
+
+1. ==**Fixed Partitioning**== → The memory is divided into a fixed number of partitions at system startup. When a process arrives, it is allocated to a partition based on the partition allocation method (e.g., first-fit, best-fit).
+	-  **Problem**: ==**Internal Fragmentation**== → Wasted space inside partitions if the process is smaller than the partition size.
+
+2. ==**Variable Partitioning**== → No fixed partitions; memory is allocated dynamically as per the process's need. When a process arrives, a partition of exact size is created.
+	- **Problem**: ==**External Fragmentation**== → Free memory exists, but it is scattered in non-contiguous blocks, making it unusable for larger processes.
+	- **Solution: Compaction** -> Rearranges memory contents to place all free memory together in one large block
+
+##### **Non-Contiguous Memory Allocation**
 
 **Non-Contiguous Memory Allocation** → The process is divided into multiple parts and stored in different locations in memory. This allows better memory utilization but requires mechanisms like paging or segmentation for access.
 
@@ -843,7 +892,7 @@ There are three basic approaches to recover from deadlock
 - A **segment table** keeps track of each segment’s base address and limit.
 - **Eliminates internal fragmentation** but may cause **external fragmentation** (though less than variable partitioning).
 
-### Paging:
+##### **Paging:**
 
 - ==Processes is divided in equal size of partitions called as ==`pages`
 - ==Physical memory is divided in same equal size of partitions called== `frames`
@@ -1411,13 +1460,12 @@ Total No of page = 1 + 2 + 1024 = 1027 Pages
 Total Page Table size = 1027 Pages * 2KB = 2054 KB
 ```
 
-
-### Segmentation
+##### **Segmentation**
 
 - Divide Process in Logically related partitions (Segments)
 - Segments are scattered in physical memory
 
-### Virtual Memory
+##### **Virtual Memory**
 
 - Feature of OS
 - Enables to run larger process with smaller available memory
@@ -1650,8 +1698,7 @@ Hit Ration = 10/12
 - Replace page which entered in Last
 - Very Bad Algorithm -> Usually Last In process are Replaced, and the starting Processes are Remained for Long time without any replacement
 
-
-### Frame Allocation
+##### **Frame Allocation**
 
 - How many frames do we allocate per process?
 - If it is a single-user, single-tasking system, it's simple - all the frames belong to the user's process
@@ -1708,6 +1755,7 @@ LA - Logical Address in Decimal
 PA - Physical Address
 ```
 
+---
 ### Thrashing
 
 When the degree of **multiprogramming** (number of processes in memory) **increases beyond a limit**, thrashing occurs because of More processes share limited RAM, reducing frames per process, leading to frequent page faults.
@@ -1729,6 +1777,7 @@ CPU Utilisation (Efficiency)
 After thrashing, the pages in main memory become **insufficient** to store the required process pages, leading to **frequent page faults** and excessive swapping between RAM and disk, further degrading system performance.
 - i.e. after thrashing -> CPU spend more time in Page fault Service, and less time in Process execution
 
+---
 ### File System
 
 **File** -> file is named collection of related information that is recorded on secondary storage
@@ -1801,6 +1850,7 @@ Pefromance:
 3. Type of access: Random Access : )
 ```
 
+---
 ### Unix I-node Structure
 
 The `inode` (index node) is a data structure in a Unix-style file system that describes a file-system object such as a file or a directory.
@@ -1833,6 +1883,8 @@ File Size by Double-Indifect Pointer = (1*1k*1k*4KB)
 
 Max File Size = 12*4kB + (1*1k*4kb) + (1*1k*1k*4kb) = 48KB + 4 MB + 4GB = 4.004048 GB
 ```
+
+---
 ### Disk Scheduling
 
 **Cylinder:**

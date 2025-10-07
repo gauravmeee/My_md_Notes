@@ -1,12 +1,12 @@
 
-## Extremes of India (Important for Exams)
+# Extremes of India (Important for Exams)
 
-|Direction|Location|Details|
-|---|---|---|
-|**North**|Indira Col|Siachen Glacier, Jammu & Kashmir|
-|**South**|**Indira Point**|Great Nicobar Island|
-|**East**|Kibithu|Arunachal Pradesh|
-|**West**|Guhar Moti|Gujarat (Kutch District)|
+| Direction | Location         | Details                          |
+| --------- | ---------------- | -------------------------------- |
+| **North** | Indira Col       | Siachen Glacier, Jammu & Kashmir |
+| **South** | **Indira Point** | Great Nicobar Island             |
+| **East**  | Kibithu          | Arunachal Pradesh                |
+| **West**  | Guhar Moti       | Gujarat (Kutch District)         |
 
 
  **Indira Point (Southernmost Point of India)**
@@ -20,7 +20,7 @@
 
 ---
 
-## Brahmaputra River (SSC & AAI-oriented)
+### Brahmaputra River (SSC & AAI-oriented)
 
 - Largest River in India by Volume
 - Least Polluted Himalayan River
@@ -50,7 +50,7 @@
 
 ---
 
-### Biosphere Reserve
+# Biosphere Reserve
 
 - Total **18** numbers of Biospheres are present in India.
 - **12** of the 18 biosphere reserves are a part of the World Network of Biosphere Reserves, based on the **UNESCO Man and the Biosphere (MAB)** program List
@@ -72,7 +72,7 @@
 
 ---
 
-### Hills, Desserts, Plateaus and Valleys
+# Hills, Desserts, Plateaus and Valleys
 
 
 **Ghats**
@@ -149,19 +149,21 @@
 
 **3. Deserts**
 
-|Name|Location|Key Points|
-|---|---|---|
-|**Thar Desert**|Rajasthan, Gujarat|Arid, sand dunes, cities: Jaisalmer, Barmer, Bikaner|
+| Desert Name   | Location                                      | Key Facts                                               |
+| ------------- | --------------------------------------------- | ------------------------------------------------------- |
+| Thar Desert ⭐ | Rajasthan (mainly) + Gujarat, Punjab, Haryana | Also called "Great Indian Desert"                       |
+| Rann of Kutch | Gujarat                                       | Seasonal salt marsh; divided into Great and Little Rann |
+| Cold Desert   | Ladakh, Himachal Pradesh (Spiti)              | High-altitude desert; sparse vegetation                 |
 
 
 **4. Plateaus**
 
-| Name                     | Location                                 | Key Points                    |
-| ------------------------ | ---------------------------------------- | ----------------------------- |
-| **Deccan Plateau**       | Central & South India ⭐                  | Largest plateau, black soil   |
-| **Malwa Plateau**        | Madhya Pradesh                           | Formed by volcanic lava flows |
-| **Chota Nagpur Plateau** | Jharkhand, Odisha, Bihar, Chhattisgarh ⭐ | Mineral-rich (coal, iron)     |
-| **Meghalaya Plateau**    | Meghalaya (Garo, Khasi, Jaintia Hills)   | Rainiest plateau              |
+| Name                       | Location                                 | Key Points                    |
+| -------------------------- | ---------------------------------------- | ----------------------------- |
+| **Deccan Plateau** ⭐       | Central & South India ⭐                  | Largest plateau, black soil   |
+| **Malwa Plateau**          | Madhya Pradesh                           | Formed by volcanic lava flows |
+| **Chota Nagpur Plateau** ⭐ | Jharkhand, Odisha, Bihar, Chhattisgarh ⭐ | Mineral-rich (coal, iron)     |
+| **Meghalaya Plateau**      | Meghalaya (Garo, Khasi, Jaintia Hills)   | Rainiest plateau              |
 
 **5. Valleys**
 
@@ -200,6 +202,52 @@
 
 
 
+### Major Mountain Peaks of India
+
+##### **Highest Peaks in The World**
+
+| Rank (World) | Mountain      | Height (m) | Height (ft) | Location                              | Other Names                          |
+| ------------ | ------------- | ---------- | ----------- | ------------------------------------- | ------------------------------------ |
+| 1st          | Mount Everest | 8,848.86   | 29,031.7    | Nepal–China Border (Mahalangur Himal) | Sagarmatha (NP), Chomolungma (Tibet) |
+| 2nd ⭐        | K2            | 8,611      | 28,251      | Pakistan–China Border (Karakoram)     | ==Godwin-Austen,== Chhogori          |
+| 3rd          | Kanchenjunga  | 8,586      | 28,169      | Nepal–India Border (Sikkim)           | Five Treasures of Snow               |
+
+![](https://guidelyassets.s3.ap-south-1.amazonaws.com/editor/blogs/167782978373.png?1677829785237)
+
+![](https://www.upscprep.com/content/images/2024/04/hill-ranges-in-india-upsc.jpg)
+##### **Himalayan Peaks (Highest in India)**
+
+| Peak             | Height (m) | State/UT             | Mountain Range            | Rank in India  |
+| ---------------- | ---------- | -------------------- | ------------------------- | -------------- |
+| Kanchenjunga ⭐   | 8,586      | Sikkim               | Himalayas                 | 1st            |
+| Nanda Devi       | 7,816      | Uttarakhand          | Garhwal Himalayas         | 2nd            |
+| Kamet            | 7,756      | Uttarakhand          | Garhwal Himalayas         | 3rd            |
+| Saltoro Kangri   | 7,742      | Ladakh (POK region)  | Karakoram                 | 4th*           |
+| Saser Kangri     | 7,672      | Ladakh               | Saser Muztagh (Karakoram) | 5th            |
+| Mamostong Kangri | 7,516      | Ladakh (Karakoram)   | Karakoram                 | –              |
+| Nun Peak         | 7,135      | Ladakh               | Western Himalayas         | Highest in J&K |
+| Trisul           | 7,120      | Uttarakhand          | Kumaon Himalayas          | –              |
+| Chaukhamba       | 7,138      | Uttarakhand          | Garhwal Himalayas         | –              |
+| Dhaulagiri       | 8,167      | Nepal (Not in India) | Himalayas                 | –              |
+> Saltoro Kangri is in **Pakistan-occupied** territory, not included in India’s official ranking.
+
+##### **Peaks in Western Ghats**
+| Peak          | Height (m) | State             | Notes                                       |
+| ------------- | ---------- | ----------------- | ------------------------------------------- |
+| Anamudi ⭐     | 2,695      | Kerala            | Highest peak in Western Ghats & South India |
+| Doddabetta ⭐  | 2,637      | Tamil Nadu        | Near Ooty, Nilgiri Hills                    |
+| Mullayanagiri | 1,930      | Karnataka         | Highest in Karnataka, Baba Budangiri range  |
+| Agasthyamalai | 1,868      | Kerala/Tamil Nadu | Sacred peak, Agastya sage                   |
+| Kalsubai      | 1,646      | Maharashtra       | Highest in Maharashtra                      |
+
+
+##### **Peaks in Eastern Ghats**
+
+| Peak           | Height (m) | State          | Notes                             |
+| -------------- | ---------- | -------------- | --------------------------------- |
+| Arma Konda ⭐   | 1,680      | Andhra Pradesh | Highest in Eastern Ghats          |
+| Mahendragiri ⭐ | 1,501      | Odisha         | Mythologically linked to Ramayana |
+| Deomali        | 1,672      | Odisha         | Highest in Odisha                 |
 
 ---
 
