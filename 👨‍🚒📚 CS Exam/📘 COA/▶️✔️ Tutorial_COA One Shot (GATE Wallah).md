@@ -1,4 +1,4 @@
-# [Computer Organization and Architecture One Shot | Maha R  evision | CS & IT | Target GATE 2025](https://youtu.be/N-tuZNkNubk)
+# [Computer Organization and Architecture One Shot | Maha Revision | CS & IT | Target GATE 2025](https://youtu.be/N-tuZNkNubk)
 
 ### Topics
 
@@ -6,6 +6,9 @@
 
 - [[#Floating Point Representation]]
 	- [[#IEEE-754 Floating Point Representation (Standard Representation)]]
+	- [[#**Single Precision Representation**]]
+	- [[#Implicit Normalized vs Explicit Normalized (Optional⭐)]]
+	- [[#Denormalized (Subnormal) Number? (Optional⭐)]]
 	- [[#Implicit Normalized ⭐]]
 	- [[#Denormalized]]
 
@@ -15,16 +18,19 @@
 	- [[#Micro Operations]]
 
 - [[#Instructions]]
+	- Questions 1-4
 	- [[#Effective Address]]
 	- [[#Instruction Cycle]]
 	- [[#Two types of Instruction]]
-	- [[#**Addressing Mode** ⭐]]
+	- [[#Addressing Mode ⭐]]
+	- [[#Intra-segment vs Inter Segment (Optional ⭐)]]
 
 - [[#Components]] 
 	- [[#Arithmetic Logical Unit (ALU)]]
 	- [[#Control Unit (CU)]]
 	- [[#Hardwired Control Unit]]
 	- [[#Microprogrammed CU]]
+	- [[#Microinstruction & Control Word]]
 	- [[#Control Memory]]
 	- [[#Control Word Sequencing]]
 	- [[#Types of Microprogrammed CU]]
@@ -40,6 +46,8 @@
 		- [[#1. Programmed I/O (PIO / Program-Controlled I/O)]]
 		- [[#2. Interrupt-Driven I/O]]
 		- [[#3. Direct Memory Access (DMA)]]
+	- [[#CPU Blocked in Different Modes (due to DMA)]]
+	- [[#Advantage / Disadvantage of Different Mode of Transfer (Optional ⭐)]]
 
 - [[#Hierarchy of Memory]]
 	- [[#Memory Representation]]
@@ -60,7 +68,7 @@
 	- [[#Cache Memory]]
 	- [[#Cache Access Types]]
 	- [[#Average Memory Access Time (AMAT)]]
-	- [[#Cache Write]]
+	- [[#Cache Write Policies]]
 		- [[#Write Through (No Write Allocate)]]
 		- [[#Write Back (Write Allocate)]]
 	- [[#Cache Mapping]]
@@ -118,15 +126,13 @@
 | Addressing modes      | Peformance            |
 | Data format           |                       |
 
-
-- COA = CA(Design) + CO(Implementation) ⭐
+- ==COA = CA(Design) + CO(Implementation)== ⭐
 
 ---
 ### Floating Point Representation
 
 
 > GATE Important & Smallest Topic -> Floating Point Representation
-
 
 
 The number is represented in format:
@@ -148,7 +154,7 @@ S
 ```
 
 
-- **Exponent** it is stored in biased form
+- **Exponent** it is ==stored in biased form==
 ```
 Original Exponent: e
 Biased Exponent : E 
@@ -169,22 +175,27 @@ Mantissa Stored M = xxxxx
 
 ##### **IEEE-754 Floating Point Representation (Standard Representation)**
 
+==**Single Precision** (Float in C) ==
 ```
-Single Precision (Float in C) 
 <--------- 32 bits --------->
 ┌────────┬─────────┬─────────┐
 │  1 bit │ 8 bits  │ 23 bits |
 └────────┴─────────┴─────────┘
 bias = 127
+Value range (Exponent) = 1 to 254 ⭐
+```
 
-
-Double Precision (Double in C)
-<--------- 32 bits --------->
+==**Double Precision** (Double in C)==
+```
+<--------- 64 bits --------->
 ┌────────┬─────────┬─────────┐
 │  1 bit │ 11 bits │ 52 bits |
 └────────┴─────────┴─────────┘
 bias = 1023
+Value range (Exponent) = 1 to 2046 ⭐
 ```
+
+##### **Single Precision Representation**
 
 Special Numbers
 ```
@@ -192,24 +203,37 @@ E = all 0's
 or
 E = all 1's
 ```
+ 
+| S   | E                 | M         | Number             | Example for Single Precision       |
+| --- | ----------------- | --------- | ------------------ | ---------------------------------- |
+| 0   | 00000000          | 000...0   | +0                 | (-1)^0 × 0.0 × 2^(1−127)           |
+| 1   | 00000000          | 000...0   | -0                 | (-1)^1 × 0.0 × 2^(1−127)           |
+| 0   | 11111111          | 000...0   | +∞                 | (-1)^0 × ∞                         |
+| 1   | 11111111          | 000...0   | -∞                 | (-1)^1 × ∞                         |
+| 0/1 | 11111111          | M ≠ 0...0 | Not a Number (NaN) | (-1)^S × (1.M) × 2^(255−127) → NaN |
+| 0/1 | 00000000          | M ≠ 0...0 | Denormalized       | (-1)^S × (0.M) × 2^(1−127)         |
+| 0/1 | 0...0 < E < 1...1 | x...x     | Normalized ⭐       | (-1)^S × (1.M) × 2^(E−127)         |
 
-| S   | E                 | M         | Number                | Example for Single Precision   |
-| --- | ----------------- | --------- | --------------------- | ------------------------------ |
-| 0   | 0.....0           | 0.....0   | +0                    | (-1)^0 x 0.0 x 2^(0-126)       |
-| 1   | 0.....0           | 0.....0   | -0                    | (-1)^1 x 0.0 x 2^(0-126)       |
-| 0   | 1.....1           | 0.....0   | +∞                    | (-1)^0 x 0.0 x 2^(255-126)     |
-| 1   | 1.....1           | 0.....0   | -∞                    | (-1)^1 x 0.0 x 2^(255-126)     |
-| 0/1 | 1...1             | M ≠ 0...0 | Not a Number (NaN)    | (-1 or +1) x 0.M x 2^(255-126) |
-| 0/1 | 0...0             | M ≠ 0...0 | Denormalized          | (-1 or +1) x 0.M x 2^(0-126)   |
-| 0/1 | 0...0 < E < 1...1 | x.....x   | Implicit Normalized ⭐ | (-1 or +1) x 1.M x 2^(E-126)   |
-or
+- Bias = **127** (single precision)
+- Exponent = all 1s
+    - M all 0s → **Infinity**
+    - M ≠ 0...0 → **NaN**
+        
+- Exponent = all 0s (use **0.M**)
+    - M all 0s → **Zero**
+    - M ≠ 0...0 → **Denormalized**
+        
+- 0 < Exponent < all 1s (use **1.M**)
+    - Any M → **Normalized****
+
+**Summary**
 
 | S   | E                                 | M           | Number              |
 | --- | --------------------------------- | ----------- | ------------------- |
 | 0/1 | all 0's                           | all 0's     | +0 / -0             |
 | 0/1 | all 1's                           | all 0's     | +∞ / -∞             |
-| 0/1 | all 1's                           | M ≠ all 0's | Not a Number (NaN)  |
 | 0/1 | all 0's                           | M ≠ all 0's | Denormalized        |
+| 0/1 | all 1's                           | M ≠ all 0's | Not a Number (NaN)  |
 | 0/1 | Not all 0's<br>and<br>Not all 1's | any         | Implicit Normalized |
 
 - **Normal Case**: Numbers are stored as **implicitly normalized** (leading 1 is hidden).
@@ -217,16 +241,57 @@ or
 - **Very Large Numbers**: Cannot be stored → treated as **∞ (overflow)**.
 
 
+##### **Implicit Normalized vs Explicit Normalized** (Optional⭐)
+
+| Aspect                         | **Implicit Normalized** ⭐                                                            | **Explicit (Non-Implicit) Normalized**                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| **Leading Bit**                | The ==leading 1 of the mantissa is _not stored_== — it is **assumed automatically**. | The ==leading 1 of the mantissa is **stored explicitly** in memory==.                          |
+| **Purpose**                    | ==To **save 1 bit** of storage== and still represent all normalized numbers.         | To **store** the full mantissa explicitly (used in older or simpler systems).                  |
+| **Normalization Rule**         | Number is stored as **1.M × 2^(E − bias)**.                                          | Number is stored as **b.M × 2^(E − bias)**, where **b** (the leading bit) is stored in memory. |
+| **Efficiency**                 | More efficient — one extra bit of precision gained.                                  | Less efficient — one bit wasted storing the leading 1.                                         |
+| **Example (Single Precision)** | Mantissa bits in memory: `M` → actual value = `1.M`.                                 | Mantissa bits in memory: `1.M` → actual value = `1.M`.                                         |
+| **Used In**                    | IEEE-754 Floating Point (Single & Double Precision).                                 | Non-IEEE or older custom floating-point formats.                                               |
+
+
+**In short:**
+- _Implicit normalized_ → hidden (assumed) leading 1.
+- _Explicit (non-implicit) normalized_ → leading 1 is stored in memory.
+
+##### **Denormalized (Subnormal) Number?** (Optional⭐)
+
+A **denormalized** (also called **subnormal**) number is a **very small non-zero number** that cannot be represented in the _normalized_ (implicit) format — because the exponent would have to go below its minimum value.
+
+**Why It Exists**
+- In normalized form, exponent starts from `Emin = 1` (not 0).
+- But what if you need to represent numbers **smaller** than `2^(-126)` (for single precision)?
+- Denormalized numbers allow that — by **removing the implicit 1** and **fixing the exponent** to its smallest possible value.
+- This creates a **smooth, gradual transition** from the smallest normalized number down to **zero**.
+
+**How It Works**
+
+|Type|Exponent bits|Hidden bit|Formula|Range|
+|---|---|---|---|---|
+|**Normalized**|`E ≠ 0, E ≠ all 1s`|1 (implicit)|`(-1)^S × (1.M) × 2^(E−Bias)`|`≈ 2^(−126)` to `≈ 2^(+127)`|
+|**Denormalized**|`E = 0`|0 (no implicit 1)|`(-1)^S × (0.M) × 2^(1−Bias)`|`≈ 0` to `≈ 2^(−126)`|
+
+ **Example (Single Precision)**
+
+| Type                  | Binary Representation  | Decimal Approx                            |
+| --------------------- | ---------------------- | ----------------------------------------- |
+| Smallest Normalized   | `1.000...0 × 2^(-126)` | ≈ 1.175×10⁻³⁸                             |
+| Largest Denormalized  | `0.111...1 × 2^(-126)` | ≈ 1.175×10⁻³⁸ (just below normalized min) |
+| Smallest Denormalized | `0.000...1 × 2^(-126)` | ≈ 1.4×10⁻⁴⁵                               |
+
 ##### **Implicit Normalized** ⭐
 
 ```
-Implicit Norm.  | Single  | Double
-----------------|---------|---------                
-Emin = 00...01  | (1)₁    | (1)₁
-Emax = 11....10 | (254)₁₀ | (2046)₁₀
+ Implicit Norm. |  Single  | Double
+----------------|----------|----------
+Emin = 00...01  | (1)₁₀    | (1)₁₀
+Emax = 11...10  | (254)₁₀  | (2046)₁₀
 ```
 
-Value Formula
+==**Value Formula**== : ⭐
 ```
 Value (implicit) = (-1)^S * 1.M * 2^(E-bias)
 ```
@@ -242,7 +307,7 @@ S = 0, E = 00...1, M = 00...0
 
 ##### **Denormalized**
 
-Value Formula
+**==Value Formula==** :
 ```
 Value (denormalized) = (-1)^S * 0.M * 2^(-126 or -1022)  
 ```
@@ -280,8 +345,8 @@ S=0, E = 00...0, M = 00...1
 │     │ <--- Control Bus --->|  IO Device  │
 └─────┘                      └─────────────┘
 ```
-- Address Bus is only **uni-directional**
-- Address and Instructions can be transferred through Data Bus as Data example :- in effective addressing, and storing program counter address at Stack
+- ==Address Bus is only **uni-directional**==
+- ==Address and Instructions can be transferred through Data Bus== as Data example :- in effective addressing, and storing program counter address at Stack
 
 ##### **CPU Registers**
 
@@ -291,42 +356,85 @@ S=0, E = 00...0, M = 00...1
 1. General Purpose Register  (GPR) - `R1`, `R2` etc
 2. Special Purpose Register
 
+
 **Special Purpose Registers**
-1. Accumulator (AC) ⭐ : Store Result generated by ALU
-2. Program Counter (PC) ⭐: Store address of Next Instruction
-3. Instruction Register (IR) ⭐: Store Instruction fetched by CPU
-4. Stack Pointer (SP) : Store Address of Stack in Memory of Processes
-5. Flag Register / Program Status Word (PSW) : Store of Status Result generated by ALU such as (zero/nonzero, sign, carry...)
-6. Address Register (AR) / Memory Address Register (MAR) : Used to send address to Memory
-7. Data Register (DR) / Memory Data Register (MDR) / MBR : Used to send or Receive Data from memory
+1. ==Accumulator== (AC) ⭐: Stores the result generated by the ALU
+2. ==Program Counter== (PC) ⭐: Holds the address of the next instruction to be executed
+3. ==Instruction Register== (IR) ⭐: Holds the current instruction fetched by the CPU
+4. ==Stack Pointer== (SP): Holds the address of the top of the stack in memory
+5. ==Flag Register== / ==Program Status Word== (PSW): Stores status flags generated by the ALU (e.g., Zero, Sign, Carry, Overflow, Parity)
+6. ==Address Register== (AR) / ==Memory Address Register== (MAR): Holds the address of the memory location to be accessed
+7. ==Data Register== (DR) / ==Memory Data Register== (MDR) / ==Memory Buffer Register== (MBR): Holds data being transferred to or from memory
 
 **Types of Architecture** (Based on ALU input):
-1. AC-Based Architecture `AC -> [ALU] <- Reg/Memo.`
-2. Register Based Architecture `GPR -> [ALU] <- GPR`
-3. Register-Memory Based Architecture `GPR -> [ALU] <- GPR/Memo`
-4. Complex System Architecture `GPR/Mem -> [ALU] <-GPR/Mem`
-5. Stack Based Architecture
+- ==AC-Based== Architecture → `AC → [ALU] ← Reg/Mem`
+- ==Register-Based== Architecture → `GPR → [ALU] ← GPR`
+- ==Register-Memory-Based== Architecture → `GPR → [ALU] ← GPR/Mem`
+- ==Complex System== Architecture → `GPR/Mem → [ALU] ← GPR/Mem`
+- ==Stack-Based== Architecture → `Stack → [ALU] ← Stack`
 
-##### **Micro Operations** 
 
-- **Micro Operations** operations executed on values store in registers. 
+##### **Micro Operations**
 
-1. Register Transfer
+- **Micro-operations** are basic operations performed on data stored in registers.
+- They represent the **lowest-level operations** executed by the control unit.
+
+1. **Register Transfer Micro-operations** : Used to move data between registers.
 ```
-R1 <- R2  or R2 -> R1
+R1 ← R2
+R3 ← PC
 ```
 
-2. Memory Register
+2. **Arithmetic Micro-operations** : Used to perform arithmetic operations on register data.
+```
+R1 ← R2 + R3
+R1 ← R2 - R3
+R1 ← R2 x R3
+R1 ← R2 ÷ R3
+
+R1 ← R2 + 1      (Increment)
+R1 ← R2 - 1      (Decrement)
+R1 ← -R2         (Complement)
+```
+- **`ADD`** → adds values
+- **`MUL`** → multiplies values
+- **`SUB`** → subtracts values    
+- **`DIV`** → divides values
+
+3. **Logic Micro-operations** : Used to perform bitwise logical operations.
+
+```
+R1 ← R2 AND R3
+R1 ← R2 OR R3
+R1 ← R2 XOR R3
+R1 ← NOT R2
+```
+- **`AND`** → performs bitwise AND between two register values
+- **`OR`** → performs bitwise OR between two register values
+- **`XOR`** → performs bitwise exclusive OR between two register values
+- **`NOT`** → inverts all bits of a register value
+
+4. **Shift Micro-operations** : Used to shift or rotate the bits of a register.
+
+```
+R1 ← shl R2   (Shift Left)
+R1 ← shr R2   (Shift Right)
+R1 ← cil R2   (Circular Left)
+R1 ← cir R2   (Circular Right)
+```
+- **`SHL`** → Shift Left: shifts all bits of a register to the left, filling LSB with 0
+- **`SHR`** → Shift Right: shifts all bits of a register to the right, filling MSB with 0
+- **`CIL`** → Circular (Rotate) Left: shifts all bits left, MSB wraps around to LSB    
+- **`CIR`** → Circular (Rotate) Right: shifts all bits right, LSB wraps around to MSB
+
+5. **Memory Transfer Micro-operations** : Used for data transfer between CPU and memory.
 ```
 Read:
-
-R1 <- M [address]
-R1 <- M [1000]
-R1 <- M [R2]
+R1 ← M[Address]
+R1 ← M[R2]
 
 Write:
-
-M[Address] <- R1
+M[Address] ← R1
 ```
 
 ---
@@ -346,13 +454,13 @@ Instruction
 
 **Types of Instruction**
 
-1. 3-Address Instruction: `[Opcode|addr1|addr2|addr3]`
-2. 2-Address Instruction: `[Opcode|addr1|addr2]`
-3. 1-Address Instruction: `[Opcode|addr1]`
-4. 0-Address Instruction: `[Opcode]`
+1. 3-Address Instruction: `[ Opcode | addr1 | addr2 | addr3 ]`
+2. 2-Address Instruction: `[ Opcode | addr1 | addr2 ]`
+3. 1-Address Instruction: `[ Opcode | addr1 ]`
+4. 0-Address Instruction: `[ Opcode ]`
 
 
-##### **Ques.** Consider a digital computer which supports only two-address instructions each with 3 bytes. If address length is 9-bits then maximum and minimum how many instructions the system can support.
+##### **Ques1.** Consider a digital computer which supports only two-address instructions each with 3 bytes. If address length is 9-bits then maximum and minimum how many instructions the system can support.
 
 **Ans:**
 ```
@@ -367,7 +475,7 @@ Instruction
 -> Min Instructions = 1
 ```
 
-##### **Ques.** Consider a digital computer which supports  16 2-address instructions. if address length = 8 bit. what is the length of instruction?
+##### **Ques2.** Consider a digital computer which supports  16 2-address instructions. if address length = 8 bit. what is the length of instruction?
 
 **Ans:**
 ```
@@ -382,7 +490,7 @@ Instruction
 -> length of Instruction = 4 + 8 + 8 =  20 bits
 ```
 
-##### **Ques.** Consider a processor with 64 registers, instruction set of size 12, each instruction has 5 distinct field (opcode + 2 source registers + 1 destination register identifier, and a 12-bit immediate value ). Each instruction stored in byte-aligned fashion. If a program has 100 instructions, the amount of memory (in bytes) consumed by the program text is?? 
+##### **Ques3.** Consider a processor with 64 registers, instruction set of size 12, each instruction has 5 distinct field (opcode + 2 source registers + 1 destination register identifier, and a 12-bit immediate value ). Each instruction stored in byte-aligned fashion. If a program has 100 instructions, the amount of memory (in bytes) consumed by the program text is?? 
 
 ```
 -> 64 register
@@ -409,15 +517,18 @@ Instruction stored in Bytes format
 <--- 1 Instruction (34 bit) --->
 
 
--> Note: Each instruction start from new bytes.
+-> Note: Each instruction start from new bytes. 
 -> So practically, each Instruction = 40 bit = 5 byte
 -> Total Memory = 100 Instruction x 5 B = 500 Byte
 ```
 
-Note: Don't confuse program's 100 instructions with 12 distinct no. Instructions. 
+
+Note: 
+- Don’t confuse a program having 100 instructions with having 12 **distinct instructions**.
+- Each instruction is stored in a **byte-aligned fashion** → (Two instructions cannot share the same byte) → **Each instruction starts at a new byte**.
 
 
-##### **Ques.** Consider a System with 24-bit instructions and 9-bit addresses. If there are 60 2-address instructions, then maximum how many 1-address instructions can be formulated in the system ⭐
+##### **Ques4.** Consider a System with 24-bit instructions and 9-bit addresses. If there are 60 2-address instructions, then maximum how many 1-address instructions can be formulated in the system ❗⭐
 ```
 2-Adress Instructions
 <---------- 24 bits  ----------->
@@ -434,16 +545,16 @@ Note: Don't confuse program's 100 instructions with 12 distinct no. Instructions
 1-Address Instructions
 
 <---------- 24 bits  ----------->
-[      Opcode        |   a2     ] 
-        24 bits         9 bit
+[      Opcode        |   a1     ] 
+        15 bits         9 bit
 
-No. of
-Max No. of 1 Address Instructions = 4 * 2^9 = 2^11 = 2048
+-> Maximum number of 1-address instructions = Unused opcode × 2^(address bits)
+   = 4 × 2^9 = 2^11 = 2048
 ```
 
 ##### **Effective Address**
 
-- Address of operand in a computation-type instruction or The target address in a branch-type instruction.
+- The **address of the operand** in a computation-type instruction, or the **target address** in a branch-type instruction.
 
 ##### **Instruction Cycle**
 
@@ -471,11 +582,9 @@ Max No. of 1 Address Instructions = 4 * 2^9 = 2^11 = 2048
 6. **Write Back (WB)**
     - Final result is stored back to the destination (register or memory) as per instruction.
 
-**Fetch and Execution Cycle**
-
+**Fetch and Execution Cycle** ⭐
 1. **Fetch Cycle:**
 	- Instruction Fetch
-
 2. **Execution Cycle:**
 	- Decode
 	- Effective Address Calculation
@@ -485,9 +594,8 @@ Max No. of 1 Address Instructions = 4 * 2^9 = 2^11 = 2048
 ##### **Two types of Instruction**
 
 **Fixed Length Instruction**
-
-- Instruction size is constant (e.g., 32 bits).
-- Opcode length may vary within that fixed size.
+- ==Instruction size is constant== (e.g., 32 bits).
+- ==Opcode length may vary== within that fixed size.
 - Whole instruction is fetched in a single step.
 - Program Counter (PC) increments by instruction length.
 ```
@@ -499,8 +607,8 @@ Max No. of 1 Address Instructions = 4 * 2^9 = 2^11 = 2048
 ```
 
 **Variable Length Instruction**
-- Instruction size is not constant.
-- Opcode field size is fixed.
+- ==Instruction size is not constant==.
+- ==Opcode field size is fixed==.
 - While fetching, CPU doesn’t know total instruction length.
 - CPU first fetches opcode (since fixed size).
 - After decoding opcode, CPU knows how many additional bytes to fetch.
@@ -542,8 +650,8 @@ Specifies how and from where the operands are obtained for an instruction.
     - Base Register Mode
         
 
-**Note:** Base register mode and PC-relative, Inter, InterA segment are only used for branching; the rest are used for computation instructions.
-
+**Note:** 
+- ==**Base register** (inter-segment)== mode and ==**PC-relative** (intra-segment)== addressing are used ==**only for branching**==; all other addressing modes are used for **computation instructions**.
 ##### **1. Implied Mode**
 
 Operand is defined by the opcode itself.
@@ -634,7 +742,7 @@ Variant of register indirect mode; register is automatically incremented/decreme
 Increment/Decrement amount depends on size of data accessed.
 ```
 
-##### **6. Indexed Mode**
+##### **6. Indexed Mode** ⭐
 
 Effective address = Base address from instruction + index from index register.
 
@@ -658,7 +766,7 @@ Effective address = Base address from instruction + index from index register.
 Address = Base Address
 ```
 
-##### **7. PC-Relative Mode (Position Independent Mode)**
+##### **7. PC-Relative Mode (Position Independent Mode)** ⭐
 
 Effective address = PC + offset (from instruction).
 
@@ -681,7 +789,7 @@ Effective address = PC + offset (from instruction).
 							 │           │
 							 └───────────┘
 							 
-Used for inter-segment jumps.
+Used for intra-segment jumps.
 PC stores address of next instruction, not current.
 	 
 Forward jump: +ve offset  
@@ -714,6 +822,22 @@ Used for inter-segment jumps.
 ```
 
 
+##### **Intra-segment vs Inter Segment** (Optional ⭐)
+
+**1. PC-relative (intra-segment) → short jumps**
+
+- The **displacement** is measured **relative to the current PC** (program counter).
+- Since the displacement field in the instruction is usually **small** (e.g., 13–16 bits), the **maximum jump distance is limited**.
+- This makes it suitable for **short jumps within the same segment** (intra-segment).
+- **Example:**  If PC = 0x1000 and displacement = +0x0FF0, the target = 0x1FF0 → still in the same code segment.
+
+**2. Base register (inter-segment) → long jumps**
+
+- The **target address** = **contents of a base register + displacement**.
+- The **base register** can hold the **starting address of any segment**, so the displacement can reach **anywhere relative to that segment**, including another segment.
+- This allows **long jumps** across segments (inter-segment).
+- **Example:** If base register = 0x8000 (start of another segment) and displacement = 0x0200, target = 0x8200 → jump to a different segment.
+
 ---
 ### Components
 
@@ -731,9 +855,8 @@ code      └──────────┘
 
 ##### **Control Unit (CU)**
 
-
-- CU directs the flow of data and instructions in the CPU.    
-- It generates **control signals** and sends them to various components (ALU, memory, I/O, registers).
+- CU ==directs the flow of data and instructions== in the CPU.    
+- It ==generates **control signals**== and sends them to various components (ALU, memory, I/O, registers).
 - All operations are carried out as per these control signals.
 
 **Control Word**
@@ -745,21 +868,21 @@ code      └──────────┘
 - **One control word executes one microoperation**. A sequence of microoperations together completes an instruction.
 
 **Two Types of CU**
-- **Hardwired CU** = control signals via logic.
-- **Microprogrammed CU** = control signals via **control memory** (microinstructions).
+- ==**Hardwired CU**== = control signals via logic.
+- ==**Microprogrammed CU**== = control signals via **control memory** (==microinstructions==).
 
 
 ##### **Hardwired Control Unit**
 
-- Control logic is implemented using **Gates, Flip-Flops, Decoders, Multiplexers, and other digital circuits**.
+- Control logic is ==implemented using **Gates, Flip-Flops, Decoders, Multiplexers, and other digital circuits**.==
 
 **Advantaged:**
-- Very fast (pure hardware implementation).
-- Can be optimized for specific instruction sets to achieve high performance.
+- ==Very fast== (pure hardware implementation).
+- Can be ==optimized for specific instruction== sets to achieve high performance.
 
 **Disadvantage:**
-- Difficult to design for complex instruction sets.
-- Modification or updating is hard (requires rewiring / redesign).
+- ==Difficult to design== for complex instruction sets.
+- Modification or ==updating is hard== (requires rewiring / redesign).
 
 **Design**: Scientist Design Control Table
 
@@ -775,7 +898,7 @@ code      └──────────┘
 
 ##### **Microprogrammed CU**
 
-- Instead of building hardware for each control signal combination, we store those combinations (called **microinstructions**) in a **Control Memory (ROM / PLA / RAM)**.
+- ==Instead of building hardware for each control signal== combination, we ==store those combinations (called **microinstructions**) in a **Control Memory== (ROM / PLA / RAM)**.
 
 ```
 ┌─────────────────┐
@@ -792,12 +915,20 @@ code      └──────────┘
 - Control logic is implemented with micro-programs
 
 **Advantage:**
-- Updating the control logic is easy
+- ==Updating the control logic is easy==
 
 **Disadvantage:**
-- Slower than hardwired control unit.
+- ==Slower== than hardwired control unit.
 
 
+##### **Microinstruction & Control Word**
+
+- Microinstruction = part of a **microprogram**
+- **Microinstruction (A)** → specifies a **micro-operation** to be performed
+- Each **microinstruction** is stored in **Control Memory** as a **Control Word**
+- **Control Word** = binary representation of **control signals** required to execute the micro-operation
+
+**Micro-operation → Encoded as → Microinstruction → Stored as → Control Word in Control Memory**
 
 ##### **Control Memory**
 
@@ -817,15 +948,14 @@ Control Memory
 ```
 
 
-- **Control Words** = Bit patterns (signals) stored in control memory.
-- Each **control word** activates a set of control signals in one step (micro-operation).
-- Control words for an instruction are stored **together sequentially** (→ forms a microprogram).
-    
+- **Control Words** = Bit ==patterns (signals) stored== in control memory.
+- ==Each **control word** activates a set of control signals== in one step (==micro-operation==).
+- ==Control words for an instruction are stored **together sequentially**== (→ forms a ==microprogram==).
 
-**Sequencer (Address Generator)**
+**==Sequencer== (Address Generator)**
 - A small hardware unit inside CU.    
-- For a given instruction `I`, sequencer provides the **starting address** of its microprogram in control memory.
-- Each control word has a field that specifies the **address of the next control word** (sequential or branching).
+- For a given instruction , ==sequencer provides the **starting address** of its microprogram== in control memory.
+- ==Each control word has a field that specifies the **address of the next control word**== (sequential or branching).
 - Last control word of an instruction indicates **“End of Instruction”**, so CU fetches the next instruction’s microprogram.
 
 ##### **Control Word Sequencing**
@@ -840,8 +970,17 @@ Control Memory
    │                                                    ↓
 External I/P                                          Control Word
 ```
+- **CAR (Control Address Register):**
+    - Holds the **address of the next microinstruction** in **Control Memory (ROM)**
+    - Output of **Next-address generator / Sequencer** is loaded into CAR
+    - Basically, it **points to which control word to fetch next**
+        
+- **CDR (Control Data Register):**
+    - Holds the **control word fetched from Control Memory**
+    - Sends the **actual control signals** to the CPU / hardware
+    - Acts as a **buffer between Control Memory and execution units**
 
-A **microinstruction** is stored as a **control word** in control memory.
+A ==**microinstruction** is stored as a **control word**== in control memory.
 ```
 Microinstruction Format
 
@@ -860,45 +999,87 @@ More specifically:
 - **Mux Select** → Bits to choose input line of a multiplexer.
     - Example: for 4-input MUX → log2(4) = 2 select lines.   
 - **Address** → Next control word (sequential or branch).
-    
 
 ##### **Types of Microprogrammed CU**
 
-**1. Horizontal Microprogramming**
+**1. ==Horizontal Microprogramming**==
 - 1 bit per control signal (direct control).
 - Many bits → Long control word.
 - High parallelism (many signals can be activated simultaneously).
-- Fast but requires large control memory.
+- Fast but ==requires large control memory==.
     
 
-**2. Vertical Microprogramming**
+**2. ==Vertical Microprogramming**==
 - Encoded control signals (compact form).
 - Short control word (fewer bits).
 - Low parallelism (needs decoding to generate actual signals).
-- Slower but saves control memory.
+- Slower but ==saves control memory==.
 - **Steps:**
-	- Control Word is divided into groups `[ G1 | G2 | G3 | G4 ]`, such that in each group only one signal can be active at a time.
+	- Control Word is divided into groups, such that ==in each group only one signal can be active at a time==.
 	- Instead of storing one-hot signals, each group is stored in **encoded form** (saves space).
 	- During execution, encoded groups are passed through **decoders** to generate the actual control signals.
 
+**Example:** ⭐
 
-##### **RISC vs CISC**
+Suppose the control unit needs to generate 8 control signals:  
+`S1, S2, S3, S4, S5, S6, S7, S8`
 
-| S. No. | RISC (Reduced Instruction Set Computer)         | CISC (Complex Instruction Set Computer)                |
-| ------ | ----------------------------------------------- | ------------------------------------------------------ |
-| 1.     | Less number of instructions                     | More number of instructions                            |
-| 2.     | Fixed length instructions                       | Variable length instructions                           |
-| 3.     | Simple instructions                             | Complex instructions                                   |
-| 4.     | Limited addressing modes                        | More & complex addressing modes                        |
-| 5.     | Easy to implement using hardwired control unit  | Difficult to implement using hardwired control unit    |
-| 6.     | One cycle per instruction (mostly)              | Multiple cycles per instruction                        |
-| 7.     | Register-to-Register arithmetic operations only | Register-to-Memory & Memory-to-Register arithmetic ops |
-| 8.     | More number of registers                        | Less number of registers                               |
+**Horizontal Microprogramming:**
+- Each signal has a dedicated bit.
+- Control Word = 8 bits → `[S1 S2 S3 S4 S5 S6 S7 S8]`
+- Example Control Word: `11001000`  
+    → Signals S1, S2, and S5 active.
+
+**Vertical Microprogramming:**
+
+- Divide signals into groups:  
+    `G1 = {S1, S2, S3, S4}`, `G2 = {S5, S6, S7, S8}`
+- Each group encoded separately.  
+    → G1 needs 2 bits (for 4 signals), G2 needs 2 bits (for 4 signals).
+- Control Word = `[G1 G2] = 4 bits`
+- Example Control Word:
+    - `G1 = 01` → activates S2
+    - `G2 = 10` → activates S7  
+        → Total Control Word = `0110`  
+        → Signals S2 and S7 active after decoding.
+
+##### **RISC vs CISC** ⭐
+
+**ISC (Instruction Set Computer):**
+- General term for any ==processor architecture== defined by its ==**instruction set**==.
+- Both **RISC** and **CISC** are **types of ISC** (i.e., two ==philosophies of instruction set design==).
+
+**RISC (Reduced Instruction Set Computer):**
+- Uses ==**small, simple, and fast**== instructions.
+- Each ==instruction executes in **one clock cycle**== (ideally).
+- Emphasizes ==**hardware simplicity**== and ==**compiler optimization**.== ⭐
+- Examples: ==**ARM, MIPS, SPARC**==.
+
+**CISC (Complex Instruction Set Computer):**
+- Uses ==**large and complex**== instructions that can perform **multiple operations**.
+- Each ==instruction may take **multiple clock cycles**.==
+- Emphasizes ==**instruction richness**== and ==**compact programs**.== ⭐
+- Examples: ==**x86 (Intel, AMD)**==.
+
+| S. No. | RISC (Reduced Instruction Set Computer)            | CISC (Complex Instruction Set Computer)                    |
+| ------ | -------------------------------------------------- | ---------------------------------------------------------- |
+| 1.     | Less number of instructions                        | ==More number of instructions==                            |
+| 2.     | ==Fixed length== instructions                      | Variable length instructions                               |
+| 3.     | ==Simple== instructions                            | Complex instructions                                       |
+| 4.     | Limited addressing modes                           | ==More & complex addressing modes==                        |
+| 5.     | ==Easy to implement== using hardwired control unit | Difficult to implement using hardwired control unit        |
+| 6.     | ==One cycle per instruction== (mostly)             | Multiple cycles per instruction                            |
+| 7.     | Register-to-Register arithmetic operations only    | ==Register-to-Memory & Memory-to-Register arithmetic ops== |
+| 8.     | ==More number of registers==                       | Less number of registers                                   |
+
+
 ##### **Byte Ordering**
 
-Let **4 byte** Content `[ B3 | B2 | B1 | B0 ]`
+Let a **4-byte word** be represented as `[ B3 | B2 | B1 | B0 ]`  
+(where **B3** = Most Significant Byte, **B0** = Least Significant Byte)
 
-**1. Little Endian** (least significant byte stored at lowest address)
+**1. Little Endian** — _(Least Significant Byte stored at lowest address)_
+- Stored **right to left** in memory.
 ```
 Memory
 ┌─────┐
@@ -912,9 +1093,10 @@ Memory
 └─────┘
 ```
 
-**2. Big Endian** (most significant byte stored at lowest address)
+**2. Big Endian** — _(Most Significant Byte stored at lowest address)_ ⭐
+- Stored **left to right** in memory.
 ```
-Memory 
+Memory
 ┌─────┐
 │ B3  │ Addr 1
 ├─────┤
@@ -929,23 +1111,23 @@ Memory
 ---
 ### I/O Devices
 
-- **I/O Devices**: Devices connected externally to the processor.
+- **I/O Devices**: Devices ==connected externally to the processor==.
 - Memory is also connected externally, but it is **not considered a peripheral** because it does not require drivers.
-- I/O Devices require **drivers** and an **interface**.
+- ==I/O Devices require **drivers** and an **interface**==.
     
 
-##### **Need of Interface**
+##### **Need of Interface** ⭐
 
-- Peripherals are _electromechanical/electromagnetic_ devices, and their manner of operation is different from the operation of the CPU and memory, which are electronic devices.
+- Peripherals are _electromechanical/electromagnetic_ devices, and their ==manner of operation is different== from the operation of the CPU and memory, which are electronic devices.
     → So Conversion of signals is required.
     
-- The data transfer rate of peripherals is usually **slower** than CPU and memory. 
+- The data transfer rate of peripherals is usually ==**slower** than CPU and memory==. 
     → So Synchronization is required for correct data transfer.
     
-- Data codes and formats in peripherals differ from the word format in the CPU and memory.
+- Data codes and ==formats in peripherals differ== from the word format in the CPU and memory.
     → So Conversion of formats is required (e.g., ASCII ↔ Binary).
     
-- The operating modes of peripherals are different from each other.  
+- The ==operating modes of peripherals== are different from each other.  
     → So Each must be controlled so that one peripheral does not disturb the operation of others.
     
 
@@ -964,7 +1146,7 @@ Memory
 └────────┘                         └────────┘
 ```
 
-**2. Common Address & Data Bus** 
+**2. Common Address & Data Bus (I/O Mapped I/O)** 
 ```css
                Control Bus
                
@@ -989,18 +1171,17 @@ Memory
               Control Bus
 ```
 - CPU can access memory or I/O **at a time**, so no need for separate buses.
-- CPU distinguishes whether it is accessing memory or I/O by checking the **control signal**.
+- ==CPU distinguishes whether it is accessing memory or I/O by checking the **control signal**.==
 - This is called **I/O mapped I/O (Isolated I/O)**.
 - This method is used in our computers.
 
 
-**3. Common Address, Data Bus & Control Bus** 
-
+**3. Common Address, Data Bus & Control Bus (Memory Mapped I/O)**
 ```css
 
 ┌────────┐  A.Bus              ┌────────┐
 │        │ <------------┬----> │        │
-│        │ <- D.Bus -┬--|----> │ Memory │
+│        │ <-- D.Bus-┬--|----> │ Memory │
 │        │ <------┬--|--│----> └────────┘
 │ CPU    │ C.Bus  │  │  |
 │        │        |  │  └----> ┌────────┐
@@ -1009,23 +1190,24 @@ Memory
 └────────┘                     └────────┘
 ```
 - How CPU distinguishes if signal is for I/O or memory:
-    - Some addresses of memory are **assigned to I/O**.
-    - If CPU generates that assigned address, then I/O is accessed; otherwise, memory is accessed.
-- This is called **Memory Mapped I/O**, because I/O does not have separate addresses, instead it uses memory address space.
+    - ==Some addresses of memory are **assigned to I/O**.==
+    - If ==CPU generates that assigned address, then I/O is accessed==; otherwise, memory is accessed.
+- This is called **Memory Mapped I/O**, because ==I/O does not have separate addresses==, instead it uses memory address space. ⭐
 
 ##### **Memory Mapped IO vs IO Mapped IO**
 
-| S. No. | Memory Mapped I/O                                   | I/O Mapped (Isolated) I/O                        |
-|--------|-----------------------------------------------------|--------------------------------------------------|
-| 1.     | Memory wastage                                      | No memory wastage                                |
-| 2.     | All memory access instructions are used for I/O     | I/O and memory access instructions are different |
-| 3.     | No separate address space for I/O                   | I/O has its own separate address space           |
-| 4.     | More instructions required for I/O access           | Fewer instructions required for I/O access       |
-| 5.     | More addressing modes available for I/O access      | Limited addressing modes for I/O access          |
+| S. No. | Memory Mapped I/O                                  | I/O Mapped (Isolated) I/O                        |
+| ------ | -------------------------------------------------- | ------------------------------------------------ |
+| 1.     | ==Memory wastage==                                 | No memory wastage                                |
+| 2.     | All memory access instructions are used for I/O    | I/O and memory access instructions are different |
+| 3.     | No separate address space for I/O                  | I/O has its own ==separate address space==       |
+| 4.     | ==More instructions required for I/O access==      | Fewer instructions required for I/O access       |
+| 5.     | ==More addressing modes available for I/O access== | Limited addressing modes for I/O access          |
 
 **Note:**
-- **Memory Mapped I/O** uses the **common address, data, and control buses**, which can lead to **wastage of memory**.
-- **I/O Mapped I/O** has a **separate address space** for I/O devices, avoiding memory wastage.
+- **Memory Mapped I/O** -> uses the ==**common address, data, and control buses**==, which can lead to **wastage of memory**.
+- **I/O Mapped I/O**  -> has a ==**separate address space** for I/O devices==, avoiding memory wastage.
+
 ##### **Asynchronous Serial Transfer**
 
 ```
@@ -1042,7 +1224,7 @@ Source                             Destination
 - Not necessary that only 1 stop bit is sent — more than one can also be used.
 - A **parity bit** may also be added for error checking.
     
-**Efficiency Formula**
+**Efficiency Formula** 
 ```
 Efficiency = (Character bits) / (Total bits sent per character)
 ```
@@ -1054,8 +1236,8 @@ Efficiency = (Character bits) / (Total bits sent per character)
 
 ##### **Modes of Transfer** 
 
-**1. Programmed IO or Program Controlled IO**
-**2. Interrupt Driven IO or Interrupt Initiated IO**
+**1. Programmed IO / Program Controlled IO**
+**2. Interrupt Driven IO / Interrupt Initiated IO**
 **3. Direct Memory Access (DMA)**
 
 > (Notes by NotebookLM)
@@ -1063,9 +1245,9 @@ Efficiency = (Character bits) / (Total bits sent per character)
 
 ##### **1. Programmed I/O (PIO / Program-Controlled I/O):**
     
-- The ==**CPU directly controls== and initiates all data transfers** between I/O devices and memory.
-- **Polling:** The CPU continuously or periodically **checks the status flags** of I/O devices to see if they have data ready or are ready to receive data.
-- **Drawback:** Inefficient, as the CPU wastes significant time repeatedly checking devices, especially if data is not frequently ready. CPU is blocked waiting for I/O.
+- The ==**CPU directly controls== and ==initiates all data transfers**== between I/O devices and memory.
+- ==**Polling:**== The CPU continuously or ==periodically **checks the status flags** of I/O devices ==to see if they have data ready or are ready to receive data.
+- **Drawback:** Inefficient, as the ==CPU wastes significant time repeatedly checking devices==, especially if data is not frequently ready. CPU is blocked waiting for I/O. ⭐
 
 ##### **2. Interrupt-Driven I/O:**
 
@@ -1073,7 +1255,7 @@ Efficiency = (Character bits) / (Total bits sent per character)
 	
 - The CPU, upon receiving an interrupt:
 	- **Completes its current instruction**.
-	- **Saves its current context** (Program Counter, Flag Register, etc.) onto the stack.
+	- ==**Saves its current context**== (Program Counter, Flag Register, etc.) onto the stack.
 	- **Jumps to an ==Interrupt Service Routine (ISR)**== specific to the interrupting device/event.
 	- **Services the interrupt** (performs the required data transfer or task).
 	- **Restores its previous context** from the stack.
@@ -1082,26 +1264,26 @@ Efficiency = (Character bits) / (Total bits sent per character)
 **Types of Interrupts (based on ISR discovery):**
 
 1. ==**Vectored Interrupt:**== Device sends interrupt and vector
-	- The I/O device, along with the interrupt signal, **sends the starting address of its specific ISR** to the CPU.
+	- The I/O device, along with the ==interrupt signal==, **sends the ==starting address== of its ==specific ISR**== to the CPU.
 
 2. ==**Non-Vectored / Scalar Interrupt:**==  Device sends only interrupt
-	- The I/O device only sends the interrupt signal. The **CPU must run a ==default service routine**== to identify the interrupting device and then find its corresponding ISR address.
+	- The I/O device ==only sends the interrupt signal==. The **CPU must run a ==default service routine**== to identify the interrupting device and then find its corresponding ISR address.
 
 **Handling Multiple / Simultaneous Interrupts:**
-- When multiple devices interrupt simultaneously, the CPU uses **Priority-Based Interrupt Handling**.
+- When ==multiple devices interrupt== simultaneously, the CPU uses ==**Priority-Based Interrupt Handling**.==
 1. **Software Solution:** The CPU runs a program to ==check the priority== of each interrupting device to decide which to service first.
 2. **Hardware Solution:** Priority is resolved by hardware. Examples include ==**Daisy Chaining (serial priority)** or **Parallel Priority hardware**.==
 
 **Maskable vs Non-Maskable
-- **Maskable Interrupts:**  CPU can accept or reject the interrupt
+- **Maskable Interrupts:**  CPU can ==accept or reject== the interrupt
 	- Interrupts that the CPU **can ignore, reject, or postpone** if it is performing a critical task.
-- **Non-Maskable Interrupts:** CPU always accepts the interrupt
+- **Non-Maskable Interrupts:** CPU ==always accepts== the interrupt
 	- Interrupts that the CPU **must accept and service immediately**, regardless of its current task (e.g., power failure).
 
 
 **External vs Internal Interrupts**
-1. **External / Hardware Interrupts:** Generated by **I/O devices** or external events.
-2. **Internal / Software Interrupts (Traps / Exceptions):** Generated by the **CPU itself** due to some internal event or error during instruction execution.
+1. **External / ==Hardware Interrupts==:** Generated by **I/O devices** or external events.
+2. **Internal / Software Interrupts (==Traps / Exceptions==):** Generated by the **CPU itself** due to some internal event or error during instruction execution.
 	- Example: **Page Fault** (accessing a memory page not currently in main memory). In this case, the instruction causing the fault **restarts** after the interrupt is serviced (not resumes, as the instruction didn't complete).
 ##### **3. Direct Memory Access (DMA):**
     
@@ -1124,7 +1306,7 @@ DMA Diagram
 	|	   |  |	       ┌────────┴─────────┐ ← - - - - - ┘  |
 	|	   |  └ - - - -│ [ Starting addr.]│                |     
 	|	   └ - - - - → │ [  Data count   ]│  - - - - - - - ┘        
-	|	3. Bus Request └──────────────────┘    5. DMA Ack.
+	|	3. Start Addr. └──────────────────┘    5. DMA Ack.
 	|	   		          ↑   DMAC ⭐ 
 	└ - - - - - - - - - - ┘  
 		4. Bus Grant	                   
@@ -1155,43 +1337,133 @@ Ex: 3-bit (111)₍₂₎ = (7)₍₁₀₎ → can transfer 7 bytes at a time
 ```
 
 
-**DMA Transfer Modes:** 
+**DMA Transfer Modes:** ⭐
 
 - These modes determine how bus control is managed to reduce CPU blocking time:
 	
 1. ==**Burst Mode:**==
-	- Once the CPU grants bus control, the DMA Controller transfers the **entire block of data in one continuous burst**.
+	- Once the CPU grants bus control, the ==DMA Controller transfers the **entire block of data== in one continuous burst**.
 	- The **CPU is blocked for a long duration** during the entire burst transfer.
 
 2. ==**Cycle Stealing Mode:**==
-	- The DMA Controller transfers **one word or one byte of data at a time**.
-	- After each transfer, it **releases the bus back to the CPU**.
+	- The ==DMA Controller transfers **one word or one byte of data at a time**==.
+	- After each transfer, it ==**releases the bus back== to the CPU**.
 	- The DMA Controller then requests the bus again for the next data unit. This effectively "steals" bus cycles from the CPU.
-	- The **CPU is blocked only for short, periodic durations**, allowing it to perform other tasks in between.
+	- The ==**CPU is blocked only for short, periodic durations**==, allowing it to perform other tasks in between.
 
 3. ==**Interleaving Mode:**==
-	- The DMA Controller transfers data **only when the CPU does not need the buses**.
+	- The ==DMA Controller transfers data **only when the CPU does not need the buses**==.
 	- It interleave its transfers with CPU operations.
 	- The **CPU is minimally or not blocked** by the DMA transfer.
 
-- **Percentage of Time CPU Blocked (due to DMA):**
-	- `Tx`: Time required to **prepare data within the I/O device** (dependent on I/O device speed).
-	- `Ty`: Time required to **transfer data from I/O to memory** (dependent on memory access time and bus speed).
-	- **Formula (General, often used for Cycle Stealing):**
-		
-	- `Tx` can be calculated from disk specifications like transfer rate (e.g., `Tx = Data_to_transfer / Disk_Transfer_Rate`).
 
-	- Burst Mode
-	```
-	% CPU Blocked = (Ty / (Tx + Ty)) * 100%
-	```
+##### **CPU Blocked in Different Modes (due to DMA):**
 
-	- Cycle Stealing Mode
-	```
-	% CPU Blocked = (Ty / Tx) * 100%
-	```
+- **`Tx` — I/O Data Preparation Time**  
+    Time the I/O device takes to **prepare the next data unit** (byte/word) for transfer to memory.  
+    _(Depends on how fast the I/O device can supply data)_
 
-- `Tx`- Depend on I/O speed, `Ty` - Memory access speed
+    1. Using device data rate (bytes/sec):
+        ```
+        Tx = 1 / I_O_Data_Rate
+        ```
+    - Example: Device sends 1200 bytes/sec → Tx = 1 / 1200 ≈ 0.000833 sec ≈ 833 μs
+        
+    2. Using total data size and transfer rate:
+        ```
+        Tx = Data_to_transfer / Device_Transfer_Rate
+        ```
+    - Example: To transfer 2400 bytes at 1200 bytes/sec → Tx = 2400 / 1200 = 2 sec
+        
+
+- **`Ty` — Memory Transfer Time (DMA Bus Occupation Time)**  
+    Time required to transfer **one data unit** (byte/word) between memory and I/O via DMA.  
+    _(Depends on memory access time and bus transfer rate)_
+    
+    ```
+    Ty = 1 / Memory_Transfer_Rate
+    ```
+    or, if one memory transfer takes `t_mem` seconds (memory cycle time):
+    ```
+    Ty = t_mem
+    ```
+    
+
+---
+
+This version **avoids repetition**, clearly separates `Tx` and `Ty`, and includes examples for easy understanding.
+
+If you want, I can **merge this with Burst, Cycle Stealing, and Interleaving modes** into a **single, clean GATE-style table** for CPU blocked calculations.
+
+
+**General Formula for CPU Blocked (due to DMA):**
+
+```
+% CPU Blocked = (Time CPU waits for DMA / Total Cycle Time) × 100%
+```
+
+or equivalently,
+```
+% CPU Blocked = (T_blocked / (T_active + T_blocked)) × 100%
+```
+- `T_blocked = Ty` → Time CPU is blocked because DMA occupies the bus	
+- `T_active = Tx` → Time CPU is active (I/O device preparing the next data unit)
+- The fraction represents how much of the total time the CPU is stalled due to DMA activity. 
+    
+- **Burst Mode ⭐**    
+    ```
+    % CPU Blocked = (Ty / (Tx + Ty)) × 100%
+    ```
+    → CPU is **completely blocked** during the entire DMA burst.  
+    → DMA seizes the bus for duration **Ty**, transferring a block of data while CPU waits.  
+    → Total operation time = **Tx + Ty**, so the blocked fraction = **Ty / (Tx + Ty)**.
+    
+- **Cycle Stealing Mode ⭐**
+    ```
+    % CPU Blocked = (Ty / Tx) × 100%
+    ```
+    → DMA steals **one memory cycle** at a time during CPU execution.  
+    → For each I/O cycle (**Tx**), DMA occupies the memory bus for **Ty**.  
+    → CPU is blocked for **Ty** out of every **Tx**, giving **Ty / Tx**.
+    
+- **Interleaving Mode⭐(Transparent Mode) **
+    ```
+    % CPU Blocked = 0%
+    ```
+    → CPU and DMA access memory in **alternate, non-overlapping cycles**.  
+    → DMA transfers occur only when the CPU is not using memory, so **no blocking** occurs.
+    
+**Summary:**
+
+- `Tx` → I/O device data preparation time (depends on I/O speed)
+- `Ty` → Memory access or transfer time for one data unit (depends on memory and bus speed)
+
+##### **Advantage / Disadvantage of Different Mode of Transfer** (Optional ⭐)
+
+**1. Programmed I/O**  
+- **Advantages:**
+	- ==Simple implementation==
+	- ==No extra hardware==
+
+- **Disadvantages:**
+	- ==CPU time wasted ==in polling
+	- ==Slow== transfer rate
+
+**2. Interrupt-Driven I/O**  
+- **Advantages:**
+	- Better CPU utilization
+	- Faster than programmed I/O
+- **Disadvantages:**
+	- Interrupt overhead
+	- More complex control
+
+**3. DMA (Direct Memory Access)**  
+- **Advantages:**
+	- ==High-speed data== transfer
+	- CPU free during transfer
+- **Disadvantages:**
+	- ==Requires DMA hardware==   
+	- ==Complex design==
 
 
 ##### **Ques.** Consider a device operating on 2MBPS speed and transferring the data to memory using cycle stealing mode of DMA. If it takes 2 microseconds to transfer 16 bytes data to memory when it is ready/prepared. Then percentage of time CPU is blocked due to DMA is? Then percentage of time CPU is blocked due to DMA is?
@@ -1306,7 +1578,6 @@ Used to store current running programs and their data
 
 **Types:**
 1. **RAM** → Volatile
-    
 2. **ROM** → Non-Volatile
     
 - ROM is used because of its non-volatility, but we want the Operating System in memory for execution.
@@ -1610,27 +1881,31 @@ Tavg = [ H * tcm ] + [ (1 - H) * (tcm + tmm) ]
 > In GATE, both interpretations (simultaneous or hierarchical) are generally accepted.
 > In **DRDO / ISRO** type exams, **simultaneous** is usually considered the default method.
 
-##### **Cache Write**
+##### **Cache Write Policies**
 
 **Read**
 - On a cache miss → the block is **always copied from main memory to cache**.
 
 **Write**
 1. **Write Through**
-    - On CPU write → data written to **cache** and **main memory simultaneously**
+    - On CPU write → data ==written to **cache** and **main memory simultaneously**==
     - **Advantage** → Memory consistency (cache and main memory always in sync)
-    - **Disadvantage** → Time-consuming, higher memory traffic
+    - **Disadvantage** → ==Time-consuming==, ==higher memory traffic== ⭐
     - **Write Allocate** → On a write miss, the block is brought into cache and then written
     - ==**No Write Allocate**== → On a write miss, only main memory is updated; cache not updated
         
 2. **Write Back**    
-    - On CPU write → data written **only in cache**
-    - A **Dirty Bit** is used:
-        - Set = 1 → block in cache is updated but not yet written to main memory    
-    - When the dirty block is replaced, its updated content is written back to main memory
-    - **Advantage** → Faster writes, less memory traffic
+	- On CPU write → ==data written **only in cache**==, and the block’s **dirty bit** is set to 1. When the block is replaced later, the updated cache content is first written back to **main memory** before replacement.
+    - **Advantage** → ==Faster writes==, ==less memory traffic== ⭐
     - **Disadvantage** → Temporary inconsistency (main memory may not match cache until write-back)
-    - - ==**Write Allocate**== → Typically used with **Write Allocate** policy
+	- **Process:**
+	    - On CPU write data written **only in cache**
+	    - A **Dirty Bit** is used:
+        - Set = 1 → block in cache is updated but not yet written to main memory    
+	    - When the dirty block is replaced, its updated content is written back to main memory
+- 
+	- ==**Write Allocate**== → Typically used with **Write Allocate** policy
+	    
 
 **Doubt:** How can a write process result in a miss? We just need to write, not find.
 ->  A write miss occurs when the block to be written is **not present in cache**. The cache must be checked first; if absent, it’s a miss.
@@ -1660,11 +1935,11 @@ Tavg = [ H * tcm ] + [ (1 - H) * (tcm + tmm) ]
         ⬋     ⬊                 ⬋            ⬊
      Hit       Miss          Hit               Miss 
      ⬇           ⬇             ⬇                 ⬇ 
- Take from   Read from      Write in Cache    Bring block from
+ Take from   Read from      Write in Cache      Bring block from
    Cache     Main Memory         +            Main Memory into Cache
                  +            Mark Dirty=1            +
           If Replace Block    ⭐(Write Back)   Update in Cache 
-          is Dirty: Write Back                   i.e. write hit
+          is Dirty: Write Back                  i.e. write hit
           Else: Replace Directly            ⭐ (write allocate)
 ```
 
@@ -2645,6 +2920,8 @@ where,
 1 Rotation Time = 10 ms
 Sectors per Track = 1K = 1000
 1 Sector Capacity = 1 KB
+Track capacity?
+Track Rate?
 ```
 
 **Solution:**
@@ -2827,18 +3104,18 @@ Max Speedup = k
 
 **Non-Pipeline**
 
-- No buffer delay as it is a sequential operation.
+- No buffer delay as it is a sequential operation. ⭐
 ```
 tn = sum of all segment delays
 ```
 
 **Two Ways to Find `Tn`** ⭐
 1. `Tn = sum of segment delays`
-2. `Tn = CPI * (1 / clock rate)`
+2. `Tn = CPI * (1 / clock rate)` ⭐
 
 **Pipeline**
 
-- Buffer delay occurs due to parallel operations.
+- Buffer delay occurs due to parallel operations. ⭐
 ```
 tp = max(segment delays) + register/buffer delay
    or
@@ -2858,7 +3135,7 @@ tp = max(segment delays)       (if buffer delay is negligible)
 **Three Ways to Find `Tp`** ⭐
 1. `Tp = max(segment delays)` (if no buffer/register delay is given)
 2. `Tp = max(segment delays) + buffer/register delay`
-3. `Tp = 1 / clock rate`
+3. `Tp = 1 / clock rate` ⭐
 
 ##### **Latency & Throughput**
 
@@ -3082,9 +3359,9 @@ Instruction 2’s Operand Fetch waits for the Write Back of Instruction 1 → 2 
     
     - _Delayed Load_ → Insert a no-operation (NOP) or independent instruction between dependent ones to avoid stall.
         
-2. **Hardware Solution:**
+2. **Hardware Solution:** 
     
-    - _Operand Forwarding (Bypassing):_ Eliminates stalls for ALU-to-ALU dependency by forwarding results directly.
+    - _Operand Forwarding (Bypassing):_ Eliminates stalls for ALU-to-ALU dependency by forwarding results directly. ⭐
         
     - _Hardware Interlock:_ Detects hazards and introduces necessary stalls automatically.
         
@@ -3100,7 +3377,7 @@ R6 <- R1 * R2
 
 **3. Control Hazard / Branch Difficulty**
 
-- Occurs due to branch or jump instructions that change the flow of control, causing incorrect instruction fetch.
+- Occurs due to branch or jump instructions that change the flow of control, ==causing incorrect instruction fetch==.
 
 **Solutions:**
 
@@ -3121,9 +3398,7 @@ Occurs when an instruction needs to read a value that a previous instruction has
 I1 : R1 <- R2 + R3  
 I2 : R6 <- R1 * R4
 ```
-
 `I2` cannot read `R1` until `I1` finishes writing it.
-
 
 **2. Write After Write (WAW)** – _Write Dependency_  
 Occurs when two instructions write to the same register in sequence.
@@ -3131,28 +3406,26 @@ Occurs when two instructions write to the same register in sequence.
 I1 : R1 <- R2 + R3  
 I2 : R1 <- R4 * R5
 ```
-
 If both write to `R1`, the order must be preserved.
 
-**Solution:** _Register Renaming_
-```
-I1 : R1 <- R2 + R3  
-I2 : R8 <- R4 * R5
-```
+- **Solution:** _Register Renaming_
+	```
+	I1 : R1 <- R2 + R3  
+	I2 : R8 <- R4 * R5
+	```
 
 **3. Write After Read (WAR)** – _Anti-Dependency_  
 Occurs when an instruction writes to a register that a previous instruction still needs to read.
-
 ```
 I1 : R1 <- R2 + R3  
 I2 : R2 <- R4 * R5
 ```
 
-**Solution:** _Register Renaming_
-```
-I1 : R1 <- R2 + R3  
-I2 : R9 <- R4 * R5
-```
+- **Solution:** _Register Renaming_
+	```
+	I1 : R1 <- R2 + R3  
+	I2 : R9 <- R4 * R5
+	```
 
 
 ##### **Ques.** Consider a pipelined processor with the following 4 stages:

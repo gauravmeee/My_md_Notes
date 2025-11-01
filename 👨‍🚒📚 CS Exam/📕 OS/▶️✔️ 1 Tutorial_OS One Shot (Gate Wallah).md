@@ -136,7 +136,8 @@ Attributes of PCB
 [ PID, PC, GPR, List of Devices, Type, Size, Memory Limits, Priority, State, List of Files]
 ```
 
-**Context** -> The ==content of PCB of a process are collectively knowns as 'Context'== of that process
+**Context Switching:**
+- The ==content of PCB of a process are collectively knowns as 'Context'== of that process
 - Done By a OS's Program known as `Dispatcher`
 - Step 1: Current Running process `Context` from CPU come back to its corresponding PCB
 - Step 2: Next Process's Context from PCB load into CPU
@@ -244,7 +245,7 @@ Schedule & Dispatcher:**
 - **Short Term** -> No effect X
 - **Mid-Term** -> Increase/Decrease (Swap in/out)
 
-Note : Swapping is also Called Rolling Rollout and Rollin if it is based on priority
+Note: Swapping is also called **Roll Out** and **Roll In** if it is based on priority in OS.
 
 ### CPU Scheduling
 
@@ -306,13 +307,13 @@ Background Processes
 	1. **Fixed priority Preemptive scheduling method :**
 		- Different Queue for Different Priority Processes, Higher Priority Queue Process will get CPU first
 		- Even if Lower Priority Process let Foreground Processes, are in CPU and if some process enter in ready state of Higher Priority Process ex: System Process Queue, Foreground process will be preempt and System Process will be processed first
-		- Problem : Starvation of Low Priority Processes
+		- **Problem** : Starvation of Low Priority Processes
 	
 	2. **Time Slicing**
 		- Each Type of Process will be given certain Time limit. For ex in every 100ns, 60ns , 30ns and 10ns are given to System, Foreground and Background Process respectively
-		- Problem : The type of process with more time slice will be given more time
+		- **Problem** : The type of process with more time slice will be given more time
 
-**7. Multilevel Feedback Queue(MLFQ) Scheduling**
+**7. Multilevel Feedback Queue(MLFQ) Scheduling** ⭐⭐
 - Different Queue type of Processes with Flexible Priority
 - Criteria for Priorities of Queue can be changed based on Feedback
 - Round Robing is Used in Each Priority Queue
@@ -334,7 +335,7 @@ Foreground Processes ←┘
 5. **Round Robin** -> (All processes execute one by one, so ==no starvation==, ==Better interactive-ness==, Burst time is not required to be known in advance) ✅, (Average waiting time and turnaround time is more, ==Can degrade to FCFS==) ❌
 
 ---
-### Synchronisation
+### Synchronisation ⭐
 
 **Type of Processes:**
 1. **Independent** -> Process doesn't communicate with other processes
@@ -357,8 +358,11 @@ X = X/2
 P2
 X = X+4
 ```
-Ans -> `2` Processes -> `2^n` Possible Sequence,  P1->P2->`X=7`, P2->P1->`X=5`, 
-P1 & P2 execute at same time, P1 write later ->`X=3`,  P1 & P2 execute at same time, P2 write later -> `X=10`
+Ans -> `2` Processes -> `2^n` Possible Sequence: ⭐
+1. P1->P2->`X=7`
+2. P2->P1->`X=5`, 
+3. P1 & P2 execute at same time, P1 write later ->`X=3`
+4. P1 & P2 execute at same time, P2 write later -> `X=10`
 
 **Ques:** Minimum and Maximum possible value of X after all the processes
 ```
@@ -376,11 +380,13 @@ X = X-4
 P4
 X = X-6
 ```
-Ans -> By Race condition `Xmin` = 10 (P3 & P4), `Xmax` = 25(P1 & P2)
+Ans -> By Race condition 
+- `Xmin` = 10 (P3 & P4)
+- `Xmax` = 25(P1 & P2)
 
 **Critical Section :**
 
-**Critical Section** -> The critical section is a code segment where the shared variable can be accessed
+===**Critical Section===** -> The critical section is a ==code segment where the shared variable can be accessed== ⭐
 ```
 ┌──────┐
 │ ---- │
@@ -393,20 +399,20 @@ Ans -> By Race condition `Xmin` = 10 (P3 & P4), `Xmax` = 25(P1 & P2)
 │ ---- │
 └──────┘
 ```
-- **Shared Variable** -> A way of communication
-- **Others Communicating ways** -> message passing, ...
+- **Shared Variable** -> A way of communication using common memory accessible by multiple processes or threads. ⭐
+- **Other Communication Ways** -> Message Passing, Pipes, Sockets, Semaphores, Signals.
 
 `Critical Section -> Shared variable ->  Synchronization -> Solution `
 
-**Requirement of Critical Section Solution**
-1. **Mutual Exclusion** -> If a Process P1 is executing Critical Section, Other Process P2 can't enter critical section i.e. One process can enter critical section at a time
-2. **Progress** -> If no process is in Critical Section then process can access it, If it is not allowed due to some reason then there is no progress. If Deadlock -> No Progress
-3. **Bounded Waiting** -> If P1 is in critical section and Process P2 is waiting. After Process P1 come out from critical section and again tries to enter it, Stop it and give priority to waiting Process P2 to enter critical section
+**Requirement of Critical Section Solution** ⭐
+1. ==**Mutual Exclusion**== -> If a Process P1 is executing Critical Section, Other Process P2 can't enter critical section i.e. ==One process can enter critical section at a time==
+2. ==**Progress**== -> If no process is in Critical Section then process can access it, If it is not allowed due to some reason then there is no progress. ==If Deadlock -> No Progress==
+3. ==**Bounded Waiting**== -> If P1 is in critical section and Process P2 is waiting. After Process P1 come out from critical section and again tries to enter it, Stop it and give priority to waiting Process P2 to enter critical section
 
 C.S -> Critical Section
 R.S -> Remaining Section
  
-**A. Software Solutions**
+##### **A. Software Solutions** ⭐
 
 **Solution 1 (`Lock`):**
 ```
@@ -418,21 +424,27 @@ While(true)                      While(true)
 {                               {
 	while (lock);                 	while (lock); 
 	lock=true;                  	lock=true;   
-	C.S                             C.S
+	// C.S //                       // C.S //
 	lock = false;                	lock = false;
-	R.S                             R.S
+	// R.S //                       // R.S //
 }                                  }
 
 - Mutual Exclusion ❌
-- Progress ✅
+- Progress ❌-> Starvation
 - Bounded wait ❌ -> Starvation
 ```
+
 - `lock=true and while(lock)` -> Infinite Loop
 - In Starting, `lock = false` , if Both process execute `while(lock)` at same time and so can enters into critical Section -> So there is no Mutual Exclusion
 - If No process inside Critical Section, Last updated Value of Lock always be `false` and so any process can enter -> There is Progress
 - If Process P1 enter Critical Section, and made `lock=true`, Process P2 can't enter C.S. After P1 finished its One Cycle, It come out, Make `lock=false` and again it can access Critical section and Make `lock=true` even if P2 is waiting. so there is no procedure to prevent P1 from execution if someone is waiting from more time -> No bound and wait
+So:
+- **Mutual Exclusion Not Guaranteed:** Both processes can read `lock == false` simultaneously and then set `lock = true`, ==allowing both to enter the Critical Section together==.
+- **Progress Not Guaranteed:** If one process is ==preempted while in the Critical Section before setting `lock = false`==, the other process will ==wait indefinitely.==
+- **Bounded Waiting Not Satisfied:** There is ==no mechanism to ensure bounded waiting==, so one process may repeatedly enter the Critical Section while the other starves.
 
-**Solution 1(`Turn`):**
+
+**Solution 2(`Turn`):**
 ```
 		Using turn
 		int turn=0
@@ -441,9 +453,9 @@ P0                               P1
 While(true)                      While(true)
 {                               {
 	while (turn!=0);                  while (turn!=1);  
-	C.S                         	  C.S
+	// C.S //                         // C.S // 
 	turn = 1;                	      turn = 0;
-	R.S                               R.S
+	// R.S //                         // R.S // 
 }                                  }
 
 - Mutual Exclusion ✅
@@ -453,8 +465,12 @@ While(true)                      While(true)
 - Each process give another process turn after its execution -> Strict Alternation Manner -> Mutual Exclusion and Bounded wait is there
 - If only P1 process executed, `turn=0` in starting, and P1's `while(turn!=1)` -> `while(turn==0)` -> Infinite Loop -> No progress
 - Starvation ✅is also there, Each Process Required another Process execution to execute it again.
+So:
+- **Mutual Exclusion Guaranteed:** Only one process can enter the Critical Section since entry depends on the value of `turn`.
+- **Progress Not Guaranteed:** If one process fails or delays outside its turn, the other process waits indefinitely.
+- **Bounded Waiting Guaranteed:** Each process gets a fair turn alternately; no starvation occurs.
 
-Solution 3 (`Flag[] & Turn`): Peterson's Solution ⭐
+**Solution 3 (`Flag[] & Turn`):** Peterson's Solution ⭐⭐ ??????????? understand
 ```
 		Boolean Flag[2] = {False, False};
 		int turn;
@@ -465,29 +481,32 @@ While(true)                      While(true)
 	Flag[0]=true;                   Flag[1]=true;
 	turn=1;                         turn=0;
 	while (Flag[1] && turn==1);     while (Flag[0] && turn==0;);   
-	C.S                             C.S
+	// C.S //                       // C.S // 
 	Flag[0]=False;                  Flag[1]=False;
-	R.S                             R.S
+	// R.S //                       // R.S // 
 }  
 
 - Mutual Exclusion ✅
 - Progress ✅
-- Bounded Wait
+- Bounded Wait ✅
 
-No Starvation ❌
+No Starvation ⭐
 ```
 
 - Is Process P1 and P2 have there own Flag `Flag[0]` and `Flag[1]`, and both false in starting
 - `Flag[0]=1` -> P0 want to go in C.S, `Flag[1]=1` => P1 want to go in C.S
-- `turn` used for priority and will tell who should go in C.S, at a time `turn=0` or `turn=1`. If Process P0 Execute and Complete C.S, it will set `turn=1` and tell that next time its's P1 turn, So on Completing a Process another want to access C.S waiting one will given priority -> Bounded wait
+- ==`turn` used for priority== and will tell who should go in C.S, at a time `turn=0` or `turn=1`. If Process P0 Execute and Complete C.S, it will set `turn=1` and tell that next time its's P1 turn, So on Completing a Process another want to access C.S waiting one will given priority -> Bounded wait
 - In P0 : `while(Flag[1] && turn==1)` -> `Flag[1]` (P1 want to go in C.S) and `turn==1` (Priority is P1), the P0 -> Infinite Loop, Can't Access and vice versa -> Mutual Exclusion
 - If another process don't want to go in C.S its `Flag=false` and so, the current process's `while(another Process Flag = false && turn)` -> Not infinity -> can enter C.S
-
-**B. Hardware Solutions**
+So:
+- **Mutual Exclusion Guaranteed:** At most one process can enter the Critical Section because if both want to enter, `turn` ensures only one proceeds.
+- **Progress Guaranteed:** The decision of which process enters the Critical Section depends on `turn` and `flag`, ensuring no deadlock or indefinite blocking.
+- **Bounded Waiting Guaranteed:** Each process gets a fair chance to enter its Critical Section after at most one entry by the other process.
+##### **B. Hardware Solutions**
 1. `TestAndSet()`
 2. `Swap()` 
 
-Solution 1 `(TestAndSet()`): Returns the current value flag and sets it to `true`
+**Solution 1 `(TestAndSet()`):** Returns the current value flag and sets it to `true`
 ```
 		Boolean Lock = False;
 		boolean TestAndSet(Boolean *trg)
@@ -501,7 +520,7 @@ P0                               P1
 While(true)                      While(true)
 {                                {
 	while (TestAnsdSet(&Lock));     while(TestAnsdSet(&Lock));
-	C.S                             C.S
+	// C.S //                       // C.S // 
 	Lock = false;                	Lock = false;
 }                                }
 
@@ -512,7 +531,7 @@ While(true)                      While(true)
 - In starting `Lock=False`, let a Process P1, In `while(TestAndSet(&Lock))` `TestAndSet(&Lock)` will return `False` and set `Lock=True`. It goes into Critical Section and Prevent other process from accessing it.
 - This is same as S/w solution 1 (`lock`) just the difference is that, there is no preemption between checking of `lock` variable and setting it to `true`  in S/w solution i.e. if `lock=false`, `lock` will set to `true` after `while(lock)`: and if `lock=true`, `while(lock)` will be infinite loop
 
-Solution 2 (`Swap())`:
+**Solution 2 (`Swap())`:**
 ```
 		Boolean Key; // Local
 		Boolean Lock = False; // Global and Shared
@@ -531,9 +550,9 @@ While(true)                      While(true)
 	{                               {
 		Swap(&Lock, &Key)              Swap(&Lock, &Key)
 	}                               }
-	C.S                             C.S
+	// C.S //                       // C.S // 
 	Lock = False;                	Lock = False;
-		R.S                            R.S
+	// R.S //                       // R.S // 
 }                                }
 
 - Mutual Exclusion ✅
@@ -544,15 +563,16 @@ While(true)                      While(true)
 - It Swap() swap the value of `Lock` and `Key`
 - Let P0 Execute, Initially `Lock=False` and `Key=True`, `While(key==True)` -> Swap `Lock` & `Key`, `Lock=True`, `Key=False` then again `While(Key==True)` -> False -> Critical Section. and other Process can't access C.S until it complete, due to `Lock=true`
 
-**Synchronization Tools :**
+**Synchronization Tools :** ⭐
 1. **Semaphore**
 2. **Monitor**
 
-**Semaphore** -> Shared Integer value (non-negative)
+==**Semaphore**== -> ==Shared Integer value== (non-negative)
 - Semaphore (S) value which can be accessed using following function only
 1. `Wait()` / `P()` / `Degrade()`
 2. `Signal()` / `V()` / `Upgrade()`
 ```
+⭐
 wait(S){                           Signal(S)
 	while(S<=0);                   {
 	S--;                              S++
@@ -567,20 +587,20 @@ wait(S){                           Signal(S)
 
 Binary:
 if S=0:                             if S=1:
-	wait(s) => X Not Successful       wait(s) => s=0
-	signal(s) => S=1                  signal(s) => S=1
+	wait(s) => X Not Successful       wait(s) => s=0     (⭐ Set to 0)
+	signal(s) => S=1                  signal(s) => S=1   (⭐ Set to 1)
 
 Counting:
 if S=0:                             if S>0:
-	wait(s) => X Not Successful       wait(s) => s--
-	signal(s) => S++                  signal(s) => S++
+	wait(s) => X Not Successful       wait(s) => s--       (⭐ Decrment by 1)
+	signal(s) => S++                  signal(s) => S++ ->  (⭐ Increment by 1)
 ```
 
 **Ques:** A Binary Semaphore `S=1`, 10 Processes P1, P2, P3.....P10. All process have same code as given below but, one process P10 has `signal(S)` in place of `wait(S)` If all processes can execute Multiple times, then maximum no. of processes which can be in critical section together??
 ```
 while(True){
 	wait(S)
-		C.S
+	// C.S // 
 	Signal(S)
 }
 ```
@@ -590,7 +610,7 @@ Let any one Process P1 enters in C.S initially, and all goes and stay inside C.S
 (S=1)--->(P1=>S=0)--->(P10=>S=1)--->(P2=>S=0)--->(P10=>S=1)---->(P3=>S=0) ..... ----> P(10=>S=1 (Now it can stay in C.S)) ----> (P9=>S=0)
 
 
-**Classical Synchronisation Problems:**
+**Classical Synchronisation Problems:** ⭐
 1. Bounded Buffer Problem
 2. Reader-Writer Problem
 3. Dining Philosopher Problem
@@ -882,13 +902,13 @@ There are three basic approaches to recover from deadlock
 
 ##### **Non-Contiguous Memory Allocation**
 
-**Non-Contiguous Memory Allocation** → The process is divided into multiple parts and stored in different locations in memory. This allows better memory utilization but requires mechanisms like paging or segmentation for access.
+**Non-Contiguous Memory Allocation** → The ==process is divided into multiple parts and stored in different locations in memory==. This allows better memory utilization but requires mechanisms like paging or segmentation for access.
 
-1. **Paging** -> The process is divided into fixed-size **pages**, and memory is divided into **frames** of the same size.
+1. ==**Paging**== -> The ==process is divided into fixed-size **pages**==, and ==memory is divided into **frames**== of the same size.
 - A page table maps each page to a frame in physical memory.
 - **Eliminates external fragmentation** but may cause **internal fragmentation** if the last page is not fully used.
 
-2. **Segmentation** -> The process is divided into **logical segments** (e.g., code, stack, heap), each of varying size.
+1. ==**Segmentation**== -> The ==process is divided into **logical segments**== (e.g., code, stack, heap), each of varying size.
 - A **segment table** keeps track of each segment’s base address and limit.
 - **Eliminates internal fragmentation** but may cause **external fragmentation** (though less than variable partitioning).
 

@@ -1478,20 +1478,24 @@ R ⟗ S
 
 1. Attribute of R1 ∪ Attribute of R2 = Attribute of R
 ```
-R1(ABC) ∪ R2(CDE) = R(ABCDE) ❌
-R1(ABC) ∪ R2(CDE) = R(ABCDEF) ✅
-```
-2. Attribute of R1 ∩ Attribute of R2 = ∅
-```
-R1(ABC) ∩ R2(DE) = ∅ ❌ 
-R1(ABC) ∩ R2(CDE) = R(C) ✅
-```
-3. Attribute of R1 ∩ Attribute of R2 is a candidate key of at least one of R1 or R2
-```
-Common attribute must be S.K of atleast one R1 & R2.
+R1(ABC) ∪ R2(CDE) = R(ABCDE) ✅ lossless  
+R1(ABC) ∪ R2(CDE) = R(ABCDEF) ❌ not lossless
 ```
 
-Note: When no Common Attribute between R1 and R2, Natural join will be  same as Cross Product and Cross Product is always lossy ⭐
+2. Attribute of R1 ∩ Attribute of R2 ≠ ∅
+```
+R1(ABC) ∩ R2(CDE) = R(C) ✅ lossless
+R1(ABC) ∩ R2(DE) = ∅ ❌ not lossless  
+```
+
+3. Attribute of R1 ∩ Attribute of R2 is a candidate key of at least one of R1 or R2
+```
+Attr(R1) ∩ Attr(R2) ⊇ some candidate key of R1 or R2 ✅ lossless
+or
+Common attribute must be S.K of at least one R1 & R2 ✅ lossless
+```
+
+**Note:** When no common attribute between R1 and R2, natural join behaves like **cross product** and cross product is always ❌ **not lossless** ⭐
 
 **Table 1**
 ```

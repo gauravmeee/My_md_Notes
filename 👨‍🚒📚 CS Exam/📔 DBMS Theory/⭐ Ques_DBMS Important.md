@@ -35,7 +35,8 @@
 	- It maintains **pointers** to actual data locations (record/block addresses).
 	- Think of it like a **book index**: You search via keyword and find the page quickly.
 
-3. **Types of Indexing**
+3. **Types of Indexing** ⭐
+
 	- **A. Primary Index** 
 		- ==Based on **primary key**== (unique, sorted).
 		- One entry per block (in sparse index).
@@ -51,11 +52,11 @@
 		- One per table.
 		- Useful for range-based queries.
 
-	- **D. Dense Index**
+	- **D. Dense Index** ⭐
 		- Contains ==**entry for every record**==.
 		- Faster searches, more space required.
 
-	- **E. Sparse Index**
+	- **E. Sparse Index** ⭐
 		- Contains ==**entry for only some records**.==
 		- Used when records are **sorted**.
 
