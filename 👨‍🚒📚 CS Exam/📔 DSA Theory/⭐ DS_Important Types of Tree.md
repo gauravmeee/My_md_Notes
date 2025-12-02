@@ -85,3 +85,444 @@
 
 9. **Fenwick Tree (Binary Indexed Tree)**:
    - A data structure that provides efficient methods for querying and updating prefix sums in an array.
+
+
+# Classification of Trees Based on Structural Uniqueness ⭐
+
+
+##### **A. Unique with Given Set of Values (Insertion Order Doesn’t Matter)**
+
+These trees have a **fixed structure** for a given set of keys.
+
+**1. Min Heap / Max Heap**
+- **Min Heap / Max Heap** – Shape and heap property fix structure
+- **Property:** Complete binary tree with heap property; structure fixed for given keys.  
+- **Rule used:** insert at end (complete tree), then percolate-up (swap with parent while child < parent) to restore min-heap property.
+- **Example (Min Heap):** Keys = {10, 20, 5, 6, 1}
+
+- Insert 10
+```
+  10
+  
+Every Children < Parent : Rule Followed
+```
+
+- Insert 20
+```
+   10
+  /
+20
+
+Every Children < Parent : Rule Followed
+```
+
+- Insert 5
+```
+   10
+  / \    
+20   5 
+
+5(children) < 10(parent) : Swap
+
+   5
+  / \    
+20   10
+```
+
+- Insert 6
+```
+     5 
+    / \
+  20  10 
+  /
+ 6
+ 
+6(children) < 20(parent) : Swap
+
+     5 
+    / \
+   6  10 
+  /
+ 20
+ 
+Every Children < Parent : Rule Followed
+```
+
+- Insert 1
+```
+     5 
+    / \
+   6  10 
+  / \
+ 20  1
+
+1(children) < 6(parent) : Swap
+
+     5 
+    / \
+   1  10 
+  / \
+ 20  6
+ 
+1(children) < 5(parent) : Swap
+
+     1 
+    / \
+   5  10 
+  / \
+ 20  6
+ 
+Every Children < Parent : Rule Followed
+```
+
+**2. B Tree**
+- **B Tree** – Deterministic splits make same structure
+- **Property:** Deterministic node splits based on order and capacity (fixed structure for same keys).  
+- **Rule:**
+	- Each node can have **at most m–1 keys** and **m children**.
+	- Each node (except root) must have **at least ⌈m/2⌉–1 keys**
+	- **Keys in each node are sorted** in ascending order.
+	- **Children are separated** by key ranges:
+	    - All keys in the left subtree < parent key
+	    - All keys in the right subtree > parent key
+	- **Insertion** always happens at a **leaf**, then the tree may **split** upward if a node exceeds `m–1` keys.
+- **Example (Order = 3):** Keys = {10, 20, 5, 6, 12}
+- Definitions: order=3 ⇒ max children = 3 ⇒ max keys = 2, min keys = 1.
+
+- Insert 10
+```
+[10]
+```
+
+- Insert 20 
+```
+[10,20]
+```
+
+- Insert 5 
+```
+[5, 10, 20]
+
+3 keys > 2 ( max keys allowed) : split around median 10
+  
+  [10]
+  /   \
+[5]   [20]
+```
+
+Insert 6 
+```
+     [10]
+    /    \
+  [5,6]  [20]
+```
+
+Insert 12
+```
+     [10]
+   /      \
+[5,6]  [12,20]
+```
+
+
+**3. B+ Tree**
+- **B+ Tree** – Deterministic leaf linking and splits fix structure
+- **Property:** All data in leaf nodes, internal nodes only for indexing; unique structure for same keys.  
+- **Example (Order = 3):** Keys = {10, 20, 5, 6, 12}
+
+- Insert 10
+```
+[10]
+```
+
+- Insert 20
+```
+[10,20]
+```
+
+- Insert 5 
+```
+[5, 10, 20]
+
+3 keys > 2 ( max keys allowed) : split around median 10 + New root created with separator key 10
+  
+  [10]
+  /   \
+[5]   [10,20]
+```
+
+Insert 6 
+```
+      [10]
+    /     \
+  [5,6]  [10,20]
+```
+
+Insert 12
+```
+     [10]
+   /      \
+[5,6]  [10,12,20]
+
+3 keys > 2 ( max keys allowed) : split around median 12 + promoter separator key 12 to root
+
+        [ 10 , 12 ]
+       /     |      \
+   [5,6]   [10,12]  [20]
+   
+
+Simplified (merged by display form): 
+- [10,12] (two internal keys) is condensed to one split point [10]
+- The right child [10,12] and its promoted key 12 are visually merged with the next leaf [20] to look simpler.
+  
+
+     [10]
+    /    \
+ [5,6]    [12,20]
+```
+
+
+**4. Trie / Prefix Tree**
+- **Trie / Prefix Tree** – Depends only on key strings, not insertion order
+- **Property:** Based purely on key patterns (characters/strings), not insertion order.  
+- **Example:** (Keys = {"bat", "ball", "cat"}):
+
+```
+(root)
+ ├─ b
+ │   ├─ a
+ │   │   ├─ l ─ l (end: ball)
+ │   │   └─ t (end: bat)
+ └─ c
+     └─ a ─ t (end: cat)
+```
+
+##### **B. Unique Only for Given Insertion Order (Otherwise Different Structures Possible)**
+
+These trees’ structure depends on **insertion sequence**.
+
+
+**1. Binary Search Tree (BST)**
+- **Binary Search Tree (BST)** – Shape changes if insertion order changes
+- **Property:** Shape changes with insertion sequence.  
+- **Example:** 
+- Insert Order 1: 10, 5, 15, 2, 7
+```
+      10
+     /  \
+    5    15
+   / \
+  2   7
+```
+
+- Insert Order 2: 5, 2, 10, 7, 15
+```
+      5
+     / \
+    2   10
+       /  \
+      7    15
+```
+- (Same values, different shape)
+
+**2. AVL Tree**
+- **AVL Tree** – Rotations depend on insertion order
+- **Property:** Balanced BST; rotations depend on insertion order.  
+- **Example:**
+- Insert: 10, 20, 30  (Right rotation on 20 → final tree)
+```
+   20
+  /  \
+ 10  30
+```
+
+- Insert: 30, 20, 10  (Left rotation on 20 → final tree)
+```
+   20
+  /  \
+ 10  30
+```
+- (Same keys, different insertion order gives different rotation path)
+
+**3. Red-Black Tree**
+- **Red-Black Tree** – Color and rotation pattern depend on insertion order    
+- **Property:** Balancing (color and rotation) depends on insertion order.  
+- **Example:**  
+- Insert: 10, 20, 30 → right rotation at 20  
+- Insert: 20, 10, 30 → no rotation needed  
+- Both yield different intermediate color/rotation steps.
+
+
+**4. Splay Tree**
+- **Splay Tree** – Final structure depends on access/insertion order
+- **Property:** Final structure depends on the access or insertion sequence (recently accessed node moves to root).  
+- **Example:**  
+- Insert: 10, 20, 30 → After splaying, root = 30
+```
+   30
+  /
+ 20
+/
+10
+```
+
+- Access 10 again → After splay, root = 10
+```
+  10
+    \
+     30
+    /
+   20
+```
+- (Same values but final shape depends on access/insertion pattern)
+##### **C. Multiple Trees Even with Same Insertion Order**
+
+These allow **variation even with same insert sequence**, due to non-deterministic balancing or tie-breaking.
+- **Treap** – Random priorities cause different shapes
+- **Skip List (as tree variant)** – Random level assignment changes structure
+- **Randomized BST** – Uses randomization during insertion leading to multiple possible outcomes
+
+
+# B-Tree and B+ - Tree
+##### **B-Tree**
+- A **self-balancing search tree** that maintains sorted data and allows searches, insertions, deletions, and sequential access in logarithmic time.
+- **Used in databases and file systems.**
+
+**Properties**
+1. A B-Tree of **order m** can have:
+    - **At most m children.**
+    - **At most m−1 keys.**
+    - **At least ⌈m/2⌉ children** (except root).
+    - **At least ⌈m/2⌉−1 keys.**
+        
+2. All leaves appear at the same level.
+3. Keys within a node are sorted in ascending order.
+4. Subtrees between keys follow the same order property as in BST.
+5. The root can have minimum 2 children (if not a leaf).
+    
+
+**Search**
+- Similar to binary search within each node, then traverse the appropriate child.
+- Time Complexity: **O(logₘ n)**
+    
+**Insertion**
+- Insert key in proper leaf position.
+- If overflow (more than m−1 keys) occurs → **split** the node.
+- Middle key moves up to parent.
+
+**Deletion**
+- If underflow (less than ⌈m/2⌉−1 keys) occurs → **borrow** or **merge** from sibling.
+- Maintain balance after each operation.
+
+##### **B+ Tree**
+
+- An **extension of B-Tree** used in databases for efficient range queries.
+    
+- All actual data is stored only in **leaf nodes**, internal nodes store **keys for indexing**.
+    
+
+**Properties**
+1. A B+ Tree of **order d** can have:
+    - **Between d and 2d keys per node.**
+    - Hence, **between d+1 and 2d+1 children.**
+    - Root has at least 2 children if not a leaf.
+2. **Leaf nodes are linked** to form a **linked list** for sequential access.
+3. All leaves appear at the same level.
+4. Searching uses internal nodes; data found in leaves.
+
+**Search**
+- Traverse internal nodes like B-Tree → reach leaf → fetch actual record.
+- Time Complexity: **O(logₙ)**
+    
+**Insertion**
+- Insert in leaf → if overflow (more than 2d keys) → **split** leaf.
+- Middle key copied to parent (not moved).
+
+**Deletion**
+- Remove from leaf → if underflow (< d keys) → **borrow or merge** → update parent keys.
+
+**Differences Between B-Tree and B+ Tree**
+
+| Feature            | B-Tree                     | B+ Tree                            |
+| ------------------ | -------------------------- | ---------------------------------- |
+| Data Storage       | In internal and leaf nodes | Only in leaf nodes                 |
+| Leaf Linking       | Not linked                 | Linked sequentially                |
+| Range Queries      | Less efficient             | Very efficient                     |
+| Access Path Length | Variable                   | Always same (leaves at same level) |
+| Redundancy         | No repetition of keys      | Keys may repeat in internal nodes  |
+| Search Efficiency  | Slower for range           | Faster for range queries           |
+
+**Order Terminology Summary**
+
+|Convention|Definition|Keys per Node|Children per Node|
+|---|---|---|---|
+|B-Tree (order = m)|m = Max children|⌈m/2⌉−1 … m−1|⌈m/2⌉ … m|
+|B+ Tree (order = d)|d = Min keys|d … 2d|d+1 … 2d+1|
+
+# Data Structures by Use Case
+
+##### 1. **In-Memory Searching and Storage**
+
+**Trees/Graphs Used:**
+
+- Binary Search Tree (BST) – simple in-memory search, insert, delete
+- AVL Tree – balanced BST for guaranteed O(log n) search
+- Red-Black Tree – balanced BST with faster insertion/deletion
+- Hash Tables – fast key-value access (not a tree, but common)
+
+##### 2. **Disk-Based Databases / File Systems**
+
+**Trees/Graphs Used:**
+- B-Tree – disk-friendly, keeps tree shallow for fewer I/Os
+- B+ Tree – all data in leaves, linked leaves for range queries
+
+**Dense vs Shallow Indexing**
+- **B-Tree:** Can store keys and data in all nodes (internal + leaves). Used when you want **shallow indexing**, i.e., fewer levels to search for a key, but range queries are less efficient because data is scattered across nodes.
+    
+- **B+ Tree:** Stores all actual data only in the **leaf nodes**, while internal nodes only store keys for navigation. Leaf nodes are linked, making it **better for dense data and range queries**. It’s also more disk-efficient because internal nodes can have a higher fan-out, keeping the tree shallower.
+##### 3. **Priority Management**
+
+**Trees/Graphs Used:**
+- Heap (Min/Max) – efficient access to smallest/largest element
+- Fibonacci Heap – faster amortized decrease-key for algorithms like Dijkstra
+
+##### 4. **String Storage and Searching**
+
+**Trees/Graphs Used:**
+- Trie (Prefix Tree) – fast prefix search and autocomplete
+- Suffix Tree / Suffix Array – substring search, pattern matching
+
+#### 5. **Graph Modeling and Network Analysis**
+
+**Trees/Graphs Used:**
+- Adjacency List – sparse graph representation
+- Adjacency Matrix – dense graph representation
+- Directed/Undirected Graphs – for connectivity and path finding
+
+##### 6. **Range Queries / Interval Problems**
+
+**Trees/Graphs Used:**
+- Segment Tree – range sum/min/max queries with updates
+- Fenwick Tree (Binary Indexed Tree) – efficient prefix sums
+    
+
+##### 7. **Connectivity / Disjoint Components**
+
+**Trees/Graphs Used:**
+- Disjoint Set (Union-Find) – track connected components in a graph
+    
+##### 8. **Spatial Data / Geometric Problems**
+
+**Trees/Graphs Used:**
+- Quad-tree – 2D space partitioning, collision detection
+- Octree – 3D space partitioning, 3D graphics, simulations
+
+##### 9. **String Matching / Text Processing**
+
+**Trees/Graphs Used:**
+- Suffix Tree – substring search, pattern matching
+- Suffix Array – space-efficient alternative to suffix tree
+
+##### 10. **Event Scheduling / Simulation**
+**Trees/Graphs Used:**
+- Heap – manage events by priority/time efficiently

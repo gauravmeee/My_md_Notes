@@ -496,7 +496,7 @@ In Moore machines, **output is written inside the state**:
 
 ---
 
-### **Different Automata tuple representations.**
+### **Different Automata tuple representations.** ⭐
 
 Writing Order of 4 types of tuples: 
 -> `Sets → Functions → States -> Symbol -> Subset`

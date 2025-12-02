@@ -18,16 +18,16 @@
 - The data of an object can be accessed only by the function associated with that object. (However the function of one object can access the function of other object)
 -  *Example :* `C++, Java, Python, .NET`
 
-| OOP                                                 | POP                                                   |
-| --------------------------------------------------- | ----------------------------------------------------- |
-| Object Oriented                                     | Structural Oriented                                   |
-| Program is divide into objects                      | Program is divide into functions                      |
-| Bottom-Up Approach                                  | Top-Down Approach                                     |
-| Inheritance property is used                        | Inheritance property is not allowd                    |
-| It uses access specifier                            | It doesn't uses access specifier                      |
-| Encapsulation is used to hide the data              | No data hiding                                        |
-| Concept of Virtual Function                         | No virtual function                                   |
-| Object functions are linked through message passing | Parts of program are linked through parameter passing |
+| OOP                                                     | POP                                                       |
+| ------------------------------------------------------- | --------------------------------------------------------- |
+| Object Oriented                                         | Structural Oriented                                       |
+| Program is divide into objects                          | Program is divide into functions                          |
+| ==Bottom-Up Approach==                                  | ==Top-Down Approach==                                     |
+| Inheritance property is used                            | Inheritance property is not allowd                        |
+| It uses access specifier                                | It doesn't uses access specifier                          |
+| Encapsulation is used to hide the data                  | No data hiding                                            |
+| Concept of Virtual Function                             | No virtual function                                       |
+| Object functions are linked through ==message passing== | Parts of program are linked through ==parameter passing== |
 OOPS Follow DRY!
 ### Feature of OOPS
 1. Class
@@ -149,11 +149,11 @@ int main(){
 - Class Definition end with a semicolon `;`
 
 
-| Specifier     | Same Class | Derived Class | Outside Class |
-| ------------- | ---------- | ------------- | ------------- |
-| **Private**   | Yes        | ==No==        | ==No==        |
-| **Protected** | Yes        | Yes           | ==No==        |
-| **Public**    | Yes        | Yes           | Yes           |
+| Specifier     | Access in Same Class | Access Derived Class | Access Outside Class |
+| ------------- | -------------------- | -------------------- | -------------------- |
+| **Private**   | Yes                  | ==No==               | ==No==               |
+| **Protected** | Yes                  | Yes                  | ==No==               |
+| **Public**    | Yes                  | Yes                  | Yes                  |
 
 # [#22 OOPs Recap & Nesting of Member Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/d363dW0AeS8?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
@@ -223,8 +223,8 @@ int main(){
 	- It Can be accessed using member Function ( note:- it should be present in function declaration)
 - Private Member  function Can't be Access Directly
 	- It can be accessed using another member Function (it should be nested in other function)
-	- when declaring a function/constructor inside a class , you have the option to **omit parameter names** and only specify their data types. However, in the **definition** of the function you need to include both the data types and the parameter names.
-
+	- when ==declaring a function/constructor inside a class , you have the option to **omit parameter names**== and only specify their data types. However, in the ==**definition** of the function you need to include both the data types and the parameter names.==
+ 
 # [#23 # C++ Objects Memory Allocation & using Arrays in Classes | C++ Tutorials for Beginners](https://youtu.be/qq05D2yFIHA?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
 ### Object Memory allocation 
@@ -304,7 +304,7 @@ Class Employee{
 
 ## Static Members
 
-- A `Static Variable` have Common memory allocation for all objects in the class.
+- A `Static Variable` have ==Common memory allocation for all objects== in the class.
 - A `static function` can have access to only other static member functions/variable declared in the same class
 
 **why need?**
@@ -330,7 +330,7 @@ int Employee::count; // Default value is zero `count=0`
 
 ```cpp
 int main(){
-	Employee harry, rohan , lavish; // all three object share common count varibale
+	Employee harry, rohan, lavish; // all three object share common count varibale
 	
 	harry.setData(); // count++, count=1
 	harry.getData(); 
@@ -348,16 +348,16 @@ int main(){
 
 **Static Function**
 - Unlike non-static member function, **Static Function** of a class can be called without creating an instance (or object) of that class. 
-- Belongs to the **class**, not to any object.
-- Can be called using the class name directly.
+- ==Belongs to the **class**==, not to any object.
+- ==Can be called using the class name directly.==
 - Cannot access **non-static members** (since they belong to objects).
 
 
 ***Key Learnings :***
 - A Static function can't access non-static function/variable
 - Declare `count` inside Class, Define `Employee::count` outside Class
-- Default value is `zero` for all static variable
-- A Static function can be called without mentioning object name by class `Employee::getcoutn()`
+- ==Default value is `zero`== for all static variable
+- A Static function can be called without mentioning object name by class `Employee::getcount()`
 
 **Note:**
 - `static` in a function -> retains value between calls
@@ -459,7 +459,7 @@ int main(){
 
 ### Friend functions in C++
 
-A friend function in C++ is a function that is not a member of a class but has access to its private and protected members. It is declared using the `friend` keyword within the class.
+A friend function in C++ is a function that is not a member of a class but ==has access to its private and protected members==. It is declared using the `friend` keyword within the class.
 
 ```cpp
 class Complex{
@@ -574,7 +574,7 @@ return 0;
 }
 ```
 
-Forward Declaration
+==Forward Declaration==
 - it refers to the beforehand declaration of the syntax or signature or an identifier, variable, function, class, etc. prior to its usage ( Done later int the program)
 - In C++, forward declarations are usually used for classes, in this, the class pre-defined before its use so that it can be called and used by other classes that are defined before this
 
@@ -587,8 +587,8 @@ Forward Declaration
 
 **Constructor:**
 - Constructor is a special member function with the same name as of the class.
-- It si used to initialized the objects of its class
-- It is automatically invoked whenever an object is created
+- It is used to initialized the objects of its class
+- It is== automatically invoked whenever an object is created==
 
 ```cpp
 class Complex{
@@ -625,7 +625,7 @@ int main(){
 - They cannot return values and do not have return type
 - we cannot to their address
 - It can have default arguments like normal functions.
-- A default construct is constructor that takes no parameter
+- A ==default construct is constructor that takes no parameter==
 
 
 **Types of Constructors in C++ :**
@@ -636,17 +636,25 @@ int main(){
     ```cpp
     class A {
     public:
-        A() { }
+        A() {
+	        // Logic
+        }
     };
+    // Called automatically when an object is created without arguments. Used for basic initialization.
     ```
     
 2. **Parameterized Constructor** ⭐
     - Takes arguments to initialize data members 
     ```cpp
     class A {
+	    int x;
     public:
-        A(int x) { }
+        A(int x) {
+		    // Logic
+        }
     };
+    
+    // Accepts parameters to assign initial values to data members of an object.
     ```
     
 3. **Copy Constructor** ⭐
@@ -654,26 +662,40 @@ int main(){
     - Initializes an object from another object
     ```cpp
     class A {
+	    int x;
     public:
-        A(const A &obj) { }
+        A(const A &obj) {
+	        x = obj.x;
+        }
     };
+    // Creates a new object as a copy of an existing object using reference of the same class.
     ```
     
 4. **Defaulted Constructor (C++11)**
     ```cpp
     A() = default;
+    // Tells the compiler to generate its own default constructor when no custom logic is needed.
     ```
     
 5. **Deleted Constructor (C++11)**
     ```cpp
     A() = delete;
+    // Prevents object creation using that constructor. Often used to stop default construction or copying.
     ```
     
 6. **Move Constructor (C++11)**
-    
-    - Transfers resources from temporary objects
     ```cpp
-    A(A&& obj) { }
+    class A {
+		int* p;
+	public:
+		A(int x) : p(new int(x)) { }
+	
+		A(A&& obj) {
+			p = obj.p;
+			obj.p = nullptr;
+		}
+	};
+    // Used to move resources from a temporary (rvalue) object to a new object without deep copy, improving performance.
     ```
 # [#30 Parameterized and Default Constructors In C++ | C++ Tutorials for Beginners](https://youtu.be/CYXIlh5DURI?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
@@ -709,7 +731,7 @@ int main(){
 }
 ```
 
-*Note:* It is necessary to initialize while creating object in constructor. Declaring in one line and Defining in other show error. ⭐
+*Note:* It is ==necessary to initialize while creating object in constructor==. Declaring in one line and Defining in other show error. ⭐
 
 >Try it! :  From the class below Create a function (Hint: Make it a friend function) which takes 2 point objects and computes the distance b/w those 2 points.
 
@@ -811,7 +833,7 @@ MyClass(int a = 0, int b = 0) { ... }      // 5. ✅ Called using → MyClass ob
 MyClass(char) { ... }                      // 6. ✅ Called using → MyClass obj6('a');
 ```
 - Don't define both 1 and 5, or 2 and 4 together — causes ambiguity.
-- Best practice: define **only one constructor with default arguments** if needed.
+==- Best practice:== define **only one constructor with default arguments** if needed.
 
 
 # [#32 Constructors With Default Arguments In C++ | C++ Tutorials for Beginners](https://youtu.be/Ok-5YqcGl6c?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
@@ -930,9 +952,9 @@ int main(){
 ```
 
 *Note:*
-- When other Constructors are Defined ( in Dynamic initialization) , The default constructor  or Blank Constructor (`BankDeposit() {}`) is also required to allow object creation without initial parameters. without it there will be compile error.
-- Here, `bd1` and `bd2` is first created using the default constructor and then assigned a value using the parameterized constructor.
-- Here, `bd3` created using the default constructor and then assigned garbage values.
+- When other Constructors are Defined ( in Dynamic initialization) , ==The default constructor  or Blank Constructor (`BankDeposit() {}`) is also required to allow object creation without initial parameters==. without it there will be compile error.
+- Here, ==`bd1` and `bd2` is first created using the default constructor and then assigned a value using the parameterized constructor==.
+- Here, ==`bd3` created using the default constructor and then assigned garbage values==.
 
 # [Copy Constructor in C++ | C++ Tutorials for Beginners](https://youtu.be/jhZjyaNO4Wo?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
@@ -977,7 +999,7 @@ int main(){
 **Default Copy Constructor :**
 
 if the user define copy constructor is not declared & define, there will be no error in using
-`Number z2(z)` Because there is an inbuilt  `Default Copy Constructor` that  automatically invoked using `Number z2(z)`
+`Number z2(z)` Because ==there is an inbuilt  `Default Copy Constructor` that  automatically invoked using `Number z2(z)`==
 - But user define copy constructor overload it method, like we use to print the line "Copy Constructor is Called"
 
 # [#35 Destructor in C++ in Hindi | C++ Tutorials for Beginners](https://youtu.be/rm4tGxWBkqs?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
@@ -1045,17 +1067,17 @@ This is the time when my distructor is called for object number 1
 ```
 
 **What is Destructor :**
-- It is an instance member function which is invoked automatically whenever an object is going to be destroyed. Meaning, a destructor is the last function that is going to be called before an object is destroyed.
+- It is an instance member function which is invoked automatically whenever an object is going to be destroyed. Meaning, a ==destructor is the last function that is going to be called before an object is destroyed.==
 - Destructor is also a special member function like `constructor`. Destructor destroys the class objects created by constructor.
 - Destructor has the same name as their class name preceded by a `tilde(~)` symbol
 - It is not possible to define more than one destructor.
 - The destructor is only one way to destroy the object create by constructor. Hence destructor can-not be overloaded.
-- Destructor neither requires any argument nor returns any value.
+- Destructor ==neither requires any argument nor returns any value.==
 - It is automatically called when object goes out of scope.
 - Destructor release memory space occupied by the objects created by constructor 
 - In destructor, objects are destroyed in the reverse of an object creation.
 
-*Note:* If object is created by using `new` or the constructor uses `new` to allocate memory, which resides int the heap memory or the free store, the destructor should use `delete` to free the memory
+*Note:* ==If object is created by using `new`== or the constructor uses `new` to allocate memory, which resides int the heap memory or the free store, the ==destructor should use `delete` to free the memory==
 
 ---
 
@@ -1093,7 +1115,6 @@ Forms of Inheritance in C++
 3. Multilevel Inheritance
 4. Hierarchical Inheritance
 5. Hybrid Inheritance
-
 
 ### Single Inheritance
 A derived class with only one Base class : `B = A + (more)`
@@ -1198,8 +1219,8 @@ class derived_Class_Name : Visibility_Mode base_className{
 ```
 
 *Note:* 
-1. Visibility Mode -> Optional, Default mode is private
-2. visibility mode : 
+1. **Visibility Mode** -> Optional, ==Default mode is private==
+2. **Visibility Mode** : 
 	- Public: Public members of the base class becomes public members of the derived class
 	- Private: Public members of the base class becomes private members of the derived class.
 	- Private members of class are never inherited
@@ -1257,7 +1278,7 @@ int main(){
 
 # [#44 Virtual Base Class in C++ | C++ Tutorials for Beginners](https://youtu.be/kzMQpPX7TUY?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
-The virtual base class is a concept used in multiple inheritances to prevent ambiguity between multiple instances. 
+The **virtual base class** is a ==concept used in multiple inheritances to prevent ambiguity== between multiple instances. 
 
 ```
                 a
@@ -1271,11 +1292,11 @@ The virtual base class is a concept used in multiple inheritances to prevent amb
 1. Class “A” is a parent class of two classes “B” and “C”
 2. And both “B” and “C” classes are the parent of class “D”
 
-The main thing to note here is that the data members and member functions of class “A” will be inherited twice in class “D” because class “B” and “C” are the parent classes of class “D” and they both are being derived from class “A”.
+The main thing to note here is that the ==data members and member functions of class “A” will be inherited twice in class “D” because class “B” and “C” are the parent classes of class “D” and they both are being derived from class “A”==.
 
-So when the class “D” will try to access the data member or member function of class “A” it will cause ambiguity for the compiler and the compiler will throw an error. To solve this ambiguity we will make class “A” as a virtual base class. To make a virtual base class “virtual” keyword is used.
+So when the class “D” will try to access the data member or member function of class “A” it will cause ambiguity for the compiler and the compiler will throw an error. To solve this ambiguity we will ==make class “A” as a virtual base class==. To make a virtual base class “virtual” keyword is used.
 
-When one class is made virtual then only one copy of its data member and member function is passed to the classes inheriting it. So in our example when we will make class “A” a virtual class then only one copy of the data member and member function will be passed to the classes “B” and “C” which will be shared between all classes. This will help to solve the ambiguity.
+==When one class is made virtual then only one copy of its data member and member function is passed to the classes inheriting it==. So in our example when we will make class “A” a virtual class then only one copy of the data member and member function will be passed to the classes “B” and “C” which will be shared between all classes. This will help to solve the ambiguity.
 
 The syntax of the virtual base class is shown in the code snippet below,
 ```cpp
@@ -1297,9 +1318,9 @@ class D : public B, public C {
 ```
 
 Note:
-A **virtual class** refers to the **base class** that is inherited using virtual inheritance. In your case, **class `A`** is the **virtual base class**, and classes `B`, `C`, and `D` are derived from it either directly or indirectly.
+==A **virtual class** refers to the **base class** that is inherited using virtual inheritance==. In your case, **class `A`** is the **virtual base class**, and classes `B`, `C`, and `D` are derived from it either directly or indirectly.
 
-The **virtual** keyword in this context does not make `A` a "virtual class" globally. Instead, it only makes `A` a **virtual base class** **relative to** the inheritance relationship in `B` and `C`. Here's a clearer explanation:
+The **virtual** keyword in this context ==does not make `A` a "virtual class" globally==. Instead, it ==only makes `A` a **virtual base class** **relative to** the inheritance relationship in `B` and `C`==. Here's a clearer explanation:
 # [#45 Code Example Demonstrating Virtual Base Class in C++ | C++ Tutorials for Beginners](https://youtu.be/eYV-TohBaa0?list=PLISTUNloqsz0z9JJJke7g7PxRLvy6How9)
 
 ```
@@ -1410,12 +1431,13 @@ Object of Derived Class (B) will automatically called Constructor of Base Class 
 
 Note:
 - But if there are one or more arguments in the base class constructor, derived class need to pass arguments to the base class constructor
-- If both base and derived classes have constructors, base class constructor is executed first.
+- If both base and derived classes have constructors, ==base class constructor is executed first.==
 
 #### Constructor in Multiple Inheritance
 - In multiple inheritance, base classes are constructed in the order in which they appear in class declaration
 ```cpp
 class A : public B, public C { } // order of B and C
+// B -> A -> C
 ```
  
 - In multilevel inheritance, the constructors are executed in the order of inherit
@@ -1423,6 +1445,8 @@ class A : public B, public C { } // order of B and C
 // order of inheritance of B and C
 class B:  public A { }
 class C:  public B { }
+
+// A -> B -> C
 ```
 
 #### Special Syntax
@@ -1439,20 +1463,19 @@ class B { public: B(int z) {} };
 // Derived Class From A and B
 class C : public A, public B {
 	// Derived class constructor 
-	public: C(int x, int y, int z) : A(x, y), B(z) { 
+	public: C(int x, int y, int z) : A(x, y), B(z) { // ⭐
 	
 	} 
 };
 ```
 
 #### Special Case of Virtual Base Class
-- The constructors for virtual base classes are invoked before an nonvirtual base class
+- The ==constructors for virtual base classes are invoked before an nonvirtual base class==
 - If there are multiple virtual base class, they are invoked in the order declared.
 - Any non-virtual base class are then constructed before the derived class constructor is executed.
 
 ```
-Priority of Order:
-Virtual Base Class > Base Class > Derived Class
+Priority Order: Virtual Base Class > Base Class > Derived Class
 ```
 
 # [#47 Solution to Exercise on Cpp Inheritance | C++ Tutorials for Beginners ](https://youtu.be/eGhDSjWGXQc)
@@ -1567,7 +1590,7 @@ class Test
 
 public:
 	// i is assigne to a, j is assigned to b
-    Test(int i, int j) : a(i), b(j)
+    Test(int i, int j) : a(i), b(j) // ⭐
     {
         cout << "Constructor executed"<<endl;
     }
@@ -1785,7 +1808,7 @@ Note: In C++ Most priority is given to Local variables.
 
 #### `this` keyword
 
-This: `this` is a keyword which is a pointer which points to the object which invokes the member function
+This: ==`this` is a keyword which is a pointer which points to the object which invokes the member function==
 If you want to return an object, using  `this` is the only way.
 
 Use `this` keyword to refer the object
@@ -1847,9 +1870,9 @@ int main(){
 
 # [#54 Polymorphism in C++ | C++ Tutorials for Beginners](https://youtu.be/B-WWdC-H0zw)
 
-“Poly” means several and “morphism” means form. So we can say that polymorphism is something that has several forms or we can say it as one name and multiple forms. There are two types of polymorphism:
-- Compile-time polymorphism
-- Run time polymorphism
+==“Poly” means several== and ==“morphism” means form==. So we can say that polymorphism is something that has several forms or we can say it as one name and multiple forms. There are two types of polymorphism:
+- ==Compile-time polymorphism==
+- ==Run time polymorphism==
 
 ```
                          Polymorphism
@@ -1868,20 +1891,20 @@ int main(){
 
 ```
 
-1. **Compile Time Polymorphism**
-In compile-time polymorphism, it is already known which function will run. Compile-time polymorphism is also called **early binding**, which means that you are already bound to the function call and you know that this function is going to run. There are two types of compile-time polymorphism:
+**1. Compile Time Polymorphism**
+- In compile-time polymorphism, it is ==already known which function will run==. Compile-time polymorphism is also called ==**early binding**==, which means that ==you are already bound to the function call and you know that this function is going to run==. There are two types of compile-time polymorphism:
 
-- Function Overloading : This is a feature that lets us create more than one function and the functions have the same names but their parameters need to be different. If function overloading is done in the program and function calls are made the compiler already knows that which functions to execute.
+- Function Overloading : This is a feature that lets us ==create more than one function and the functions have the same names but their parameters need to be different==. If function overloading is done in the program and function calls are made the compiler already knows that which functions to execute.
 
-- Operator Overloading: This is a feature that lets us define operators working for some specific tasks. For example, we can overload the operator “+” and define its functionality to add two strings. Operator loading is also an example of compile-time polymorphism because the compiler already knows at the compile time which operator has to perform the task.
+- Operator Overloading: This is a feature that lets us define operators working for some specific tasks. For example, we can ==overload the operator “+” and define its functionality to add two strings==. Operator loading is also an example of compile-time polymorphism because the compiler already knows at the compile time which operator has to perform the task.
 
-2. **Run Time Polymorphism**
-In the run-time polymorphism, the compiler doesn’t know already what will happen at run time. Run time polymorphism is also called **late binding**. The run time polymorphism is considered slow because function calls are decided at run time. Run time polymorphism can be achieved from the virtual function.
+**2. Run Time Polymorphism**
+- In the run-time polymorphism, the ==compiler doesn’t know already what will happen at run time.== ==Run time polymorphism is also called **late binding**.== The run time polymorphism is considered ==slow because function calls are decided at run time==. Run time polymorphism can be ==achieved from the virtual function==.
 
--  Virtual Function: A function that is in the parent class but redefined in the child class is called a virtual function. “virtual” keyword is used to declare a virtual function.
+-  ==Virtual Function:== A function that is in the parent class but redefined in the child class is called a virtual function. “virtual” keyword is used to declare a virtual function.
 
 ---
-# [#55 Pointers to Derived Classes in C++ | C++ Tutorials for Beginners](https://youtu.be/0YQ_yhX46uk)
+# [#55 Pointers to Derived Classes in C++ | C++ Tutorials for Beginners](https://youtu.be/0YQ_yhX46uk) ⭐
 
 ```cpp
 // Base Class
@@ -1915,10 +1938,9 @@ base_class_pointer->display(); // ✅ member function of base class
 base_class_pointer->var_base = 34; // ✅ member variable of base class
 base_class_pointer->var_derived= 134; // ❌ Error
 ```
-- A **base class pointer** can point to a **derived class object**, but can only access **base class members**.
+- A ==**base class pointer** can point to a **derived class object**==, ==but can only access **base class members**==. ⭐
 - The **base class version** of an overridden function is called unless the function is **virtual** (due to **late binding**). 
-- The base class pointer **cannot access derived class members** (e.g., variables specific to the derived class).
-
+- The ==base class pointer **cannot access derived class members**== (e.g., variables specific to the derived class).
 
 #### 2. **Derived Class Pointer to Derived Class Object**:
 ```cpp
@@ -1932,35 +1954,37 @@ derived_class_pointer->var_base = 34; // ✅ member variable of base class
 derived_class_pointer->var_derived = 98; // ✅ member variable of Derived class
 ```
     
-- A **derived class pointer** can access both **base** and **derived class members**.
+- ==A **derived class pointer** can access both **base** and **derived class members**==.
 - The **derived class version** of an overridden function is called.
 
 
 #### 3. **Derived Class Pointer to Base Class Object (Downcasting)**: ❌
 
 - A **derived class pointer cannot point to a base class object** directly, resulting in a **compilation error**.
-- The base class lacks derived class-specific members, leading to **undefined behavior** if allowed.
-- This restriction prevents unsafe memory access since the Derived class expects a larger object layout than what the Base class provides.
+- ==The base class lacks derived class-specific members, leading to **undefined behavior** if allowed.== ⭐
+- This restriction prevents unsafe memory access since the ==Derived class expects a larger object layout than what the Base class provides==.
 
-| Case                                     | Behavior                                                      |
-| ---------------------------------------- | ------------------------------------------------------------- |
-| **1. Base Pointer to Base Object**       | Same as Base Object ✅                                         |
-| **2. Base Pointer to Derived Object**    | Acts like Base Object + Runtime Polymorphism (via virtual) 🙀 |
-| **3. Derived Pointer to Derived Object** | Same as Derived Object ✅                                      |
-| **4. Derived Pointer to Base Object**    | **Invalid** (Cannot be created) ❌                             |
+**Summary** ⭐
+
+| Case                                      | Behavior                                                      |
+| ----------------------------------------- | ------------------------------------------------------------- |
+| **1. Base Pointer to Base Object**        | Same as Base Object ✅                                         |
+| **2. Base Pointer to Derived Object**     | Acts like Base Object + Runtime Polymorphism (via virtual) 🙀 |
+| **3. Derived Pointer to Derived Object**  | Same as Derived Object ✅                                      |
+| **4. ==Derived Pointer to Base Object==** | **==Invalid==** (Cannot be created) ❌                         |
 
 ---
 # [#56 Virtual Functions in C++ | C++ Tutorials for Beginners](https://youtu.be/fB3JHNnlRfI)
 
 #### Virtual Functions in C++
 
-A member function in the base class which is declared using virtual keyword is called virtual functions. They can be redefined in the derived class.
+A ==member function in the base class which is declared using **virtual keyword**== is called virtual functions. They can be redefined in the derived class.
 
-Virtual allow derived classes to **override** methods from a base class so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer. 
+==Virtual functions allow derived classes to **override** methods from a base class so that the correct method is called==, depending on the type of object, even ==when the call is made through a base class reference or pointer. ==
 
 Why Virtual Function ??
 - **Base Class Interface**: If the function doesn’t exist in the base class, you can’t call it using a base class pointer or reference, losing polymorphism.
-- **Fallback to Base Function**: If a derived class doesn’t override the virtual function, the base class implementation is used, avoiding errors. Without the base function, the absence of an override would cause a compile-time error.
+- **Fallback to Base Function**: ==If a derived class doesn’t override the virtual function, the base class implementation is used==, avoiding errors. Without the base function, the absence of an override would cause a compile-time error.
 
 ```cpp
 // Base Class
@@ -1983,17 +2007,14 @@ class DerivedClass : public BaseClass{
 };
 ```
 
-**Base Class Pointer to Derived Class Object (Upcasting)**:
+**Base Class Pointer to Derived Class Object (Upcasting)**: ⭐
 ```cpp
 BaseClass * base_class_pointer;
 DerivedClass obj_derived;
 
 base_class_pointer = &obj_derived; 
 
-base_class_pointer->display(); // ✅ member function of base class 
-base_class_pointer->var_base = 34; // ✅ member variable of base class
-base_class_pointer->var_derived= 134; // ✅ member variable of Derived class
-// base_class_pointer->var_derived= 134; // ❌ Error if not used virtual
+base_class_pointer->display(); // ✅ Calls Derived class display() due to virtual
 ```
 
 ---
@@ -2001,9 +2022,9 @@ base_class_pointer->var_derived= 134; // ✅ member variable of Derived class
 
 
 **Without `Virtual`**:
- If we **don’t use the “virtual”** keyword with the “display” function of the base class then beside of the point that we have pointed our base call pointer to derived class object still the compiler would have called the “display” function of the base class because this is its default behavior
+==If we **don’t use the “virtual”** keyword with the “display” function== of the base class then beside of the point that we have pointed our base call pointer to derived class object still the ==compiler would have called the “display” function of the base class because this is its default behavior==
  
-But we have **used the “virtual”** keyword with the “display” function of the base class to make is **virtual function** so when the display function is called by using the base class pointer **the display function of the derived class will run** because the base class pointer is pointing to the derived class object.
+But we have **used the ==“virtual”** keyword with the “display” function of the base class to make is **virtual function** so when the display function is called by using the base class pointer **the display function of the derived class== will run** because the base class pointer is pointing to the derived class object.
 
 Note: It's Run-time polymorphism not means, that we can't guess which function will execute. actually here we can find out which function Base class or Derived Class will run.
 But runt-time polymorphism means, In actual ,the binding of compiler i.e., association of the function address to object is happen at runtime 
@@ -2042,19 +2063,18 @@ obj->display();  // Calls Derived::display() 🙀
 ---
 ### `Override` Keyword
 
-The `override` keyword in C++ is optional, and omitting it does not cause a runtime or compile-time error **as long as the function signature in the derived class correctly matches the one in the base class**. 
+The ==`override` keyword in C++ is optional==, and omitting it does not cause a runtime or compile-time error ==**as long as the function signature in the derived class correctly matches the one in the base class**. ==
 
 **Function Signature** -> Unique characteristics of a function that allow the compiler to identify it. 
 - Function Name: The name of the function.
 - Parameter Types: The number, types, and order of parameters.
 
-**Without `Override`**:
-If you do not use the `override` keyword in the derived class's `display()` method, the method will still be **overridden** if the base class function is virtual. However, there are some potential risks:
+**Without `Override`**: If you do not use the `override` keyword in the derived class's `display()` method, the method will still be **overridden** if the base class function is virtual. However, there are some potential risks:
 
-- If you accidentally change the method signature in the derived class (e.g., change the parameters or return type), the base class method will no longer be overridden, and you may not notice the issue. The compiler will not check if the method in the derived class is correctly overriding a base class method. It will treat the method as a new method in the derived class.
+- If you accidentally change the method signature in the derived class (e.g., change the parameters or return type), the base class method will no longer be overridden, and you may not notice the issue. The compiler will not check if the method in the derived class is correctly overriding a base class method. It will treat the method as a new method in the derived class. ⭐
 
 
-The `override` keyword in C++ ensures that the compiler checks whether a method in a derived class is **actually overriding** a virtual method in the base class. This helps prevent subtle bugs caused by mismatched function signatures.
+The ==`override` keyword in C++ ensures that the compiler checks whether a method in a derived class is **actually overriding** a virtual method in the base class.== This helps prevent subtle bugs caused by mismatched function signatures.
 
 *Example:* 
 
@@ -2206,9 +2226,9 @@ bogus code
 
 **late binding**, **overriding**, and **runtime polymorphism** indeed go **hand in hand**. They are tightly connected, and together they enable flexible and extensible object-oriented programming. Here's how they fit together
 
-- **Late Binding** is the mechanism.
-- **Overriding** is the act of redefining a function in the derived class.
-- **Runtime Polymorphism** is the result of late binding and overriding combined.
+- ==**Late Binding** is the mechanism==.
+- ==**Overriding** is the act of redefining a function== in the derived class.
+- ==**Runtime Polymorphism** is the result of late binding and overriding combined.==
 
 |**Concept**|**Definition**|**Connection**|
 |---|---|---|
@@ -2221,11 +2241,11 @@ bogus code
 
 
 #### Pure Virtual Functions
-**Pure virtual function** is a function that doesn’t perform any operation and the function is declared by assigning the value `0` to it. Pure virtual functions are declared in abstract classes.
+
+**Pure virtual function** is a ==function that doesn’t perform any operation and the function is declared by assigning the value `0`== to it. Pure virtual functions are declared in abstract classes.
 -> It make necessary for the Derived Class to override the virtual function and thus Abstraction class
 #### Abstract Base Class
-**Abstract base class** is a class that has at least one pure virtual function in its body. The classes which are inheriting the base class must need to override the virtual function of the abstract class **otherwise compiler will throw an error.**
-
+==**Abstract base class** is a class that has at least one pure virtual function in its body.== The ==classes which are inheriting the base class must need to override the virtual function== of the abstract class **otherwise compiler will throw an error.**
 ```cpp
 class Tutorial{
     protected:
@@ -2243,25 +2263,25 @@ class Tutorial{
 };
 ```
 
-> **abstraction** allows focusing on what an object does, rather than how it achieves it.
+> **abstraction** ==allows focusing on what an object does, rather than how it achieves it.==
 ### Advantages of Abstraction:
 
 1. **Reduces Complexity**: Users only need to know the interface and not the implementation details.
 2. **Improves Code Maintenance**: Implementation can change without affecting the users of the class.
-3. **Enhances Security**: Hides sensitive information from the user.
-
+3. **Enhances Security**: ==Hides sensitive information from the user.
+==
 
 Note:
-1. You can't Create Instance or Object of abstract class.  
-	However If you **were** calling the pure virtual function through object would lead to **undefined behavior** because there would be no actual implementation for that function in the object.
+1. You ==can't Create Instance or Object of abstract class==.  
+	However If you **were** calling the pure virtual function through object would ==lead to **undefined behavior**== because there would be no actual implementation for that function in the object.
 
-2. call a pure virtual function directly from the abstract class, it will result in a compilation error `ClassName::virtualFunc()`❌
+2. ==call a pure virtual function directly from the abstract class==, it will ==result in a compilation error== `ClassName::virtualFunc()`❌
 	You can define a non-virtual function in an abstract class and call it directly using `ClassName::NonVirtualFunc()` ✅
 	
-1. If you declare a function as `display() = 0;` without the `virtual` keyword 
-	It will not be considered a pure virtual function. Instead, this would lead to a compilation error ❌ , as it would not be valid to declare a function in this way in C++.
+3. If you ==declare a function as `display() = 0;` without the `virtual`== keyword 
+	It will not be considered a pure virtual function. Instead, this would ==lead to a compilation error== ❌ , as it would not be valid to declare a function in this way in C++.
 	
-1. Declaring a function as `display() = 0;` outside of a class is not valid in C++.  ❌
+4.== Declaring a function as `display() = 0;` outside of a class is not valid== in C++.  ❌
 	A pure virtual function declaration must occur within the context of a class. 
 
 
@@ -2271,8 +2291,8 @@ Note:
 Function overloading and operator overloading are considered part of OOP as they enable polymorphism, enhance code readability, and allow user-defined types to interact naturally with operators and functions. While they can exist independently, their integration within classes and objects is fundamental to the principles of Object-Oriented Programming.
 
 **Function overloading vs Operator Overloading**
-- operator overloading **cannot be done independently** without using classes or structs because it's meant to define custom behavior for operators when applied to user-defined types (like classes or structs). It can't be used with fundamental types or independently of user-defined types.
-- However, **function overloading** is different. Function overloading **can be done independently** of classes. You can overload functions with different parameter types or numbers, even if they don't belong to any class.
+- ==operator overloading **cannot be done independently** without using classes== ⭐ or structs because ==it's meant to define custom behavior for operators when applied to user-defined data types== (like classes or structs). It can't be used with fundamental types or independently of user-defined types.
+- However, **function overloading** is different. ==Function overloading **can be done independently** of classes.== You can overload functions with different parameter types or numbers, even if they don't belong to any class.
 # [Operator Overloading in C++ Programming | C++ Programming for Beginners](https://youtu.be/BO2KagRMS3M)
 
 Let take the example of `+` Operator
@@ -2304,7 +2324,7 @@ class Complex{
 		Complex ans;
 		ans.real = real + c.real; // real -> x.real
 		ans.img = img + c.img; // img -> x.img
-		return temp;
+		return ans;
 	}
 
 	// Unary Operator overloading: Negotion (-)
@@ -2331,6 +2351,6 @@ c4.print(); // Output: 14+18i
 ```
 
 
-Operator overloading is only relevant in Object-Oriented Programming (OOP) because it allows custom behavior for operators with user-defined types like classes or structs. Without OOP, operators already have predefined behavior for fundamental types, so overloading them has no significance.
+==**Operator overloading** is only relevant in Object-Oriented Programming (OOP) because it allows custom behavior for operators with user-defined types== like classes or structs. Without OOP, operators already have predefined behavior for fundamental types, so overloading them has no significance.
 
-Operator overloading cannot be used for fundamental data types (like `int`, `float`, etc.) because their operator behavior is predefined by the language. If you attempt to overload operators for these types, the compiler will produce an error, as C++ doesn't allow changing their built-in behavior.
+==Operator overloading cannot be used for fundamental data types== (like `int`, `float`, etc.) because their operator behavior is predefined by the language. If you attempt to overload operators for these types, the compiler will produce an error, as C++ doesn't allow changing their built-in behavior.

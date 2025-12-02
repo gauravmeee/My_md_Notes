@@ -1,9 +1,8 @@
 
 # [L-1.8: Fork System call with Example | Fork() system call questions](https://youtu.be/ixq5cpdEO2Q)
 
-Fork() - Create a Child Process that will be clone of the Parent Process
+**Fork()** - Create a Child Process that will be clone of the Parent Process
 - It is required if parent process is busy somewhere
-
 ```
                /  0 (Child)
 Fork() return  -  +1 (+ve) (Parent)

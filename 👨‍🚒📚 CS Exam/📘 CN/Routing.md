@@ -16,12 +16,12 @@
      - Example Protocols: **OSPF (Open Shortest Path First)**, **IS-IS**.
 
 
-| Feature                | Bellman-Ford (Distance Vector)      | Dijkstra (Link State)                        |
-| ---------------------- | ----------------------------------- | -------------------------------------------- |
-| **Information Shared** | Distance vectors (next-hop, cost).  | Complete topology (link states).             |
-| **Convergence Speed**  | Slower, due to iterative updates.   | Faster, once link states are known.          |
-| **Complexity**         | \(O(V \times E)\)                   | \(O(V^2)\) (or better with priority queues). |
-| **Loop Avoidance**     | Prone to loops (count-to-infinity). | Less prone to loops.                         |
+| Feature                | Bellman-Ford (Distance Vector)      | Dijkstra (Link State)                      |
+| ---------------------- | ----------------------------------- | ------------------------------------------ |
+| **Information Shared** | Distance vectors (next-hop, cost).  | Complete topology (link states).           |
+| **Convergence Speed**  | Slower, due to iterative updates.   | Faster, once link states are known.        |
+| **Complexity**         | `O(V * E)`                          | `O(V^2)` (or better with priority queues). |
+| **Loop Avoidance**     | Prone to loops (count-to-infinity). | Less prone to loops.                       |
 
 ##### Why Confusion Happens:
 - Both algorithms are used in **shortest path calculations**, but they are applied in different routing protocols.

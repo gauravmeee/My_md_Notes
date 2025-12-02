@@ -391,7 +391,7 @@ signal(full);
 - Allows ==CPU and I/O device to work concurrently==.
     
 **Error Handling:**
-- Performed by I/O controllers and drivers.
+- Performed by ==I/O controllers and drivers==.
 - Includes retries, timeouts, and interrupt signaling for failures.
 
 ### **7. OS Protection and Security**
@@ -402,15 +402,15 @@ signal(full);
 
 **Protection:**  Concerned with ==**controlled access**== to system resources among processes.  
 **Goals:**
-- Prevent interference between processes.
-- Enforce access control policies.
+- Prevent ==interference between processes==.
+- Enforce ==access control policies==.
     
-**Protection Domain:**
-- A set of (object, rights) pairs defining what operations a process can perform on objects.
+==**Protection Domain:**==
+- A set of (object, rights) pairs ==defining what operations a process can perform== on objects.
 - Each process operates within a domain; switching domains changes access rights.
     
-**Access Matrix Model:**
-- A matrix representation where rows represent **subjects (users/processes)** and columns represent **objects (files/devices)**.
+==**Access Matrix Model:**== ⭐
+- A ==matrix== representation where ==rows represent **subjects (users/processes)**== and ==columns represent **objects (files/devices)**==.
 - Entry (i, j) defines allowed operations of subject _i_ on object _j_.
 
 **Implementation Methods:**
@@ -419,12 +419,12 @@ signal(full);
 
 ##### **2. Security**  
 
-**Security:** Concerned with ==**defending the system**== against external or internal threats.
+**Security:** Concerned with ==**defending the system**== ==against external or internal threats==.
 
 **Goals of Security:**
-1. **Confidentiality:** Prevent unauthorized disclosure of data.
-2. **Integrity:** Prevent unauthorized modification of data.
-3. **Availability:** Ensure system resources are accessible to authorized users.
+1. **==Confidentiality:**== Prevent unauthorized disclosure of data.
+2. ==**Integrity:**== Prevent unauthorized modification of data.
+3. ==**Availability==:** Ensure system resources are accessible to authorized users.
     
 **Security Threats:**
 - **Malware:** Viruses, Worms, Trojans, Ransomware.
@@ -437,8 +437,8 @@ signal(full);
 1. **Authentication:** Verifies user identity (password, biometric, token).
 2. **Authorization:** Determines access rights after authentication.
 3. **Encryption:** Converts data into unreadable form using cryptographic keys (symmetric/asymmetric).
-4. **Audit and Logging:** Records system activities to detect and trace security breaches.
-5. **Intrusion Detection Systems (IDS):** Monitors and analyzes system behavior for suspicious activities.
+4. ==**Audit and Logging:**== Records system activities to detect and trace security breaches.
+5. ==**Intrusion Detection Systems (IDS):**== Monitors and analyzes system behavior for suspicious activities.
 
 **Protection Mechanisms:**
 - **User Modes:** Distinguish between user and kernel operations.
@@ -446,9 +446,9 @@ signal(full);
 - **File Protection:** Controlled through permissions (read/write/execute).
 - **I/O Protection:** Ensures safe and exclusive access to I/O devices.
     
-**Security Policies:**
-- Define rules for user access and data handling.
-- Examples: Discretionary Access Control (DAC), Mandatory Access Control (MAC), Role-Based Access Control (RBAC).
+==**Security Policies:**==
+- Define ==rules for user access and data handling.==
+- Examples: ==Discretionary Access Control (DAC)==, ==Mandatory Access Control (MAC)==, Role-==Based Access Control (RBAC)==.
     
 **Summary:**
 - **Protection** ensures controlled use of resources by processes.

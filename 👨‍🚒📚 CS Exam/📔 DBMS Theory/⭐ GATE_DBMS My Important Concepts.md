@@ -51,7 +51,6 @@
 - Focus on **conflict pairs** only, ignore same transaction conflicts
 - Draw quick **graph with T1, T2, …**
 - Edge direction = **first operation → second operation**
-    
 
 ---
 ### Relational Algebra Operations

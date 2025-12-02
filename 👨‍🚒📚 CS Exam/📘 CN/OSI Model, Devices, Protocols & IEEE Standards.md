@@ -18,7 +18,7 @@
 
 **7. Application Layer (Layer 7)**
 - **Function:** ==Interface between user and network==
-- **Unit of Data:** Data (Message)
+- **Unit of Data:** ==Data (Message)==
 - **Protocols:** ==HTTP, HTTPS, FTP, SMTP, DNS==, DHCP, SNMP, SSH
 - **Services:** File transfers, email, browsing, remote access
 - **Port Numbers:** Yes (e.g., HTTP – 80, HTTPS – 443)
@@ -40,15 +40,16 @@
 **4. Transport Layer (Layer 4)**
 - **Function:** ==End-to-end communication==, ==reliability==, ==error checking==
 - **Unit of Data:** ==Segments (TCP)== / ==Datagrams (UDP==)
-- **Devices:** ==Gateway== (in legacy context)
+- **Devices:** ==Gateway== (in legacy context) 
 - **Protocols:** TCP, UDP
 - **Ports:** Yes (Port Numbers like 80, 443, etc.)
 - **Flow Control:** ==TCP uses sliding window==
 - **Error Control:** Acknowledgements, retransmission
+- *Note:* Gateway is Layer 3 to 7 Device
 
 **3. Network Layer (Layer 3)**
 - **Function:** Routing, logical addressing, packet forwarding
-- **Unit of Data:** Packets
+- **Unit of Data:** ==Packets==
 - **Devices:** ==Router==, Layer-3 Switch
 - **Addresses:** IP Address (32-bit IPv4 / 128-bit IPv6)
 - **Protocols:** IP, ICMP, IGMP, ARP, RARP
@@ -56,7 +57,7 @@
 
 **2. Data Link Layer (Layer 2)**
 - **Function:** Node-to-node delivery, MAC addressing, framing
-- **Unit of Data:** Frames
+- **Unit of Data:** ==Frames==
 - **Devices:** ==Switch==, ==Bridge==
 - **Addresses:** MAC Address (48-bit)
 - **Protocols:** Ethernet, PPP, ==ARP==, STP
@@ -71,15 +72,15 @@
 - **Standards:** ==IEEE 802.3 (Ethernet)==, RS-232, DSL
 
 
-| Layer        | Data Unit | Device         | Address Type | Special Features                              |
-| ------------ | --------- | -------------- | ------------ | --------------------------------------------- |
-| Physical     | Bits      | Hub, Cable     | -            | Signals, Voltages, Media                      |
-| Data Link    | Frames    | Switch, Bridge | MAC Address  | Framing, ==Error detection, Flow control==    |
-| Network      | Packets   | Router         | IP Address   | Routing, Logical addressing                   |
-| Transport    | Segments  | -              | Port Numbers | Reliability, ==Flow & Error control==         |
-| Session      | Data      | -              | -            | Session setup, checkpointing, Synchronisation |
-| Presentation | Data      | -              | -            | Encryption, Translation, Compression          |
-| Application  | Data      | -              | -            | End-user apps, Protocols like HTTP, DNS       |
+| Layer        | Data Unit | Device                   | Address Type | Special Features                              |
+| ------------ | --------- | ------------------------ | ------------ | --------------------------------------------- |
+| Physical     | Bits      | ==Hub, Repeater, Cable== | -            | Signals, Voltages, Media                      |
+| Data Link    | Frames    | ==Switch, Bridge==       | MAC Address  | Framing, ==Error detection, Flow control==    |
+| Network      | Packets   | Router                   | IP Address   | Routing, Logical addressing                   |
+| Transport    | Segments  | -                        | Port Numbers | Reliability, ==Flow & Error control==         |
+| Session      | Data      | -                        | -            | Session setup, checkpointing, Synchronisation |
+| Presentation | Data      | -                        | -            | Encryption, Translation, Compression          |
+| Application  | Data      | -                        | -            | End-user apps, Protocols like HTTP, DNS       |
 
 ##### **Special concepts/features for each OSI layer**
 
@@ -334,11 +335,11 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 
 ##### **Network Devices and Their OSI Layers**
 
-| Layer 7: Application Layer Device | Function                                                         | Example(s)                 |
-| --------------------------------- | ---------------------------------------------------------------- | -------------------------- |
-| **Proxy Server**                  | Acts as intermediary; filters content, caches requests           | Squid Proxy, Web Proxy     |
-| **Gateway** ⭐                     | Translates between different protocols (e.g., HTTP to FTP, VoIP) | Cloud Gateway, IoT Gateway |
-| **Load Balancer**                 | Distributes HTTP/HTTPS traffic; can perform SSL termination      | AWS ELB, HAProxy           |
+| Layer 7: Application Layer Device   | Function                                                         | Example(s)                 |
+| ----------------------------------- | ---------------------------------------------------------------- | -------------------------- |
+| **Proxy Server**                    | Acts as intermediary; filters content, caches requests           | Squid Proxy, Web Proxy     |
+| **Gateway** (Layer 3 to 7 Device) ⭐ | Translates between different protocols (e.g., HTTP to FTP, VoIP) | Cloud Gateway, IoT Gateway |
+| **Load Balancer**                   | Distributes HTTP/HTTPS traffic; can perform SSL termination      | AWS ELB, HAProxy           |
 
 | Layer 4: Transport Layer Device | Function                                                | Example(s)              |
 | ------------------------------- | ------------------------------------------------------- | ----------------------- |
@@ -376,6 +377,14 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 |**Layer 6 – Presentation**|Translates data formats (encryption, compression, encoding)|Software (codecs, TLS/SSL libs)|
 
 ##### **Switch vs Bridge vs Hub vs Repeater**
+
+**Gateway**
+
+- A gateway can be ==any layer of the OSI model, from the network layer (Layer 3) up to the application layer (Layer 7)==. Unlike a router, which primarily works at the network layer, a gateway's defining
+- **Explanation:**
+- **Basic gateway (router-like)** → Works at **Layer 3 (Network Layer)** to connect networks using different protocols (e.g., IPv4 ↔ IPv6).
+- **Application gateway (proxy, firewall, etc.)** → Works at **Layer 7 (Application Layer)** to translate or filter application data.
+
 
 **Switch**
 - **Layer:** Works at **Data Link Layer (Layer 2)**

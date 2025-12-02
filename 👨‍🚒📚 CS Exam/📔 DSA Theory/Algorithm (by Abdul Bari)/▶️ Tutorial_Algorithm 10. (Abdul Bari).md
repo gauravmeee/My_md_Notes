@@ -9,3 +9,5 @@ max n
 min logn
 
 AVL - Adelson-Velsky and Landi -Hight Balanced Binary sear tree
+
+### [10.2 B Trees and B+ Trees. How they are useful in Databases](https://www.youtube.com/watch?v=aZjYr87r1b8)

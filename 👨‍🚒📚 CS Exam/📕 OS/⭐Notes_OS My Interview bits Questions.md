@@ -5,35 +5,35 @@
 
 1. **Process States and PCB**:
    - **Process States**: A process can be in several states such as **New** (being created), **Ready** (waiting for CPU), **Running** (executing), **Waiting** (awaiting an event), **Blocked** (waiting for a resource), and **Terminated** (finished). **Suspended Ready** and **Suspended Blocked** are additional states where a process is swapped out of memory.
-   - **Process Control Block (PCB)**: A PCB is a data structure used by the operating system to store information about a process, including its state, Process ID (PID), program counter, CPU registers, memory management details, I/O status, and accounting information. It is crucial for process management and context switching.
+   - **Process Control Block (PCB)**: A ==**PCB is a data structure** used by the operating system== to ==store information about a process==, including its state, Process ID (PID), program counter, CPU registers, memory management details, I/O status, and accounting information. It is crucial for process management and context switching.
 
 2. **Mutex vs Binary Semaphore**:
-   - **Mutex**: A mutual exclusion object used to protect shared resources from concurrent access by multiple threads. Only one thread can hold the mutex at a time.
-   - **Binary Semaphore**: A type of semaphore that has only two states, 0 and 1, used for synchronization. Unlike a mutex, it does not necessarily enforce ownership and can be signaled from different threads.
+   - **Mutex**: A mutual exclusion object used to protect shared resources from concurrent access by multiple threads. ==Only one thread can hold the mutex at a time==.
+   - **Binary Semaphore**: A type of semaphore that has only two states, 0 and 1, used for synchronization. ==Unlike a mutex, it does not necessarily enforce ownership== and can be signaled from different threads.
 
 3. **Process vs Thread**:
    - **Process**: An independent program in execution, with its own memory space and resources.
-   - **Thread**: A lightweight unit of execution within a process, sharing the same memory space and resources with other threads of the same process. Threads enable parallelism within a single process.
+   - **Thread**: ==A lightweight unit of execution within a process==, sharing the same memory space and resources with other threads of the same process. Threads enable parallelism within a single process.
 
 4. **Monolithic vs Microkernel**:
-   - **Monolithic Kernel**: A kernel architecture where the entire operating system runs in a single address space, leading to high performance but less modularity.
+   - **Monolithic Kernel**: A kernel architecture where the ==entire operating system runs in a single address space==, leading to high performance but less modularity.
    - **Microkernel**: A kernel architecture that runs only essential functions (e.g., communication, process management) in kernel mode, while other services run in user mode, providing better modularity and stability.
 
 5. **System Call**:
-   - A system call is a mechanism that allows user-level programs to request services from the operating system kernel, such as file operations, process management, and communication.
+   - A system call is a mechanism that ==allows user-level programs to request services from the operating system kernel==, such as file operations, process management, and communication.
 
 6. **Demand Paging**:
-   - A memory management scheme that loads pages into memory only when they are needed, rather than loading the entire program into memory at once. This helps in managing memory more efficiently.
+   - A memory management scheme that ==loads pages into memory only when they are needed==, rather than loading the entire program into memory at once. This helps in managing memory more efficiently.
 
 7. **Virtual Memory**:
-   - A memory management technique that provides an application with the illusion of a large, contiguous block of memory, while physical memory may be fragmented. It uses paging or segmentation to map virtual addresses to physical addresses.
+   - A memory management technique that provides an application with the i==llusion of a large, contiguous block of memory==, while physical memory may be fragmented. It uses paging or segmentation to map virtual addresses to physical addresses.
 
 8. **Chmod Command**:
    - The `chmod` command in Unix/Linux systems is used to change the permissions of files and directories. It allows users to set read, write, and execute permissions for the owner, group, and others.
 
 9. **Paging vs Segmentation**:
-   - **Paging**: A memory management scheme that divides the process's memory into fixed-size pages. It eliminates external fragmentation but can lead to internal fragmentation.
-   - **Segmentation**: A memory management scheme that divides memory into variable-sized segments based on logical divisions of the program. It provides better modularity but can lead to external fragmentation.
+   - **Paging**: A memory management scheme that ==divides the process's memory into fixed-size pages==. It eliminates external fragmentation but can lead to internal fragmentation.
+   - **Segmentation**: A memory management scheme that ==divides memory into variable-sized segments based on logical divisions of the program==. It provides better modularity but can lead to external fragmentation.
 
 10. **Internal vs External Fragmentation**:
     - **Internal Fragmentation**: Occurs when memory blocks are allocated larger than needed, leaving small unused spaces within allocated memory.
@@ -140,7 +140,7 @@
 - **`Signals`**:  Used to notify a process that an event has occurred (like interrupt or termination).
 
 ##### **What is Pipe and when it is used? ❓**
-- **Pipe** ->a connection among two or more processes that are interrelated to each other.
+- **Pipe** -> a connection among two or more processes that are interrelated to each other.
 - It is a mechanism that is used for -> inter-process communication using `message passing`.  ⭐
 - One can easily send information such as the output of one program process to another program process using a pipe.
 - It can be used when two processes want to communicate one-way i.e., `inter-process communication (IPC).`

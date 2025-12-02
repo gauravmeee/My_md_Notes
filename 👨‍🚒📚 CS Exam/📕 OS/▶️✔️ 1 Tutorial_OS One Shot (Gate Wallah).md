@@ -15,11 +15,24 @@
 - Accounting
 - ==Protection & Security==
 
-**Overall:**
-**1. Resource Management** : CPU, Memory, Storage -> for different tasks & Processes
-**2. File Management** : Structure for data storage,  File Operations (CRUD)
-**3. Process Management** : Schedule processes, inter-process communication 
-**4. Device Management** :  Communication btw H/w & S/w, I/O Operation
+**OS works Overall:**
+
+**1. Resource Management**  
+- ==Managing CPU, main memory, and storage allocation== for multiple tasks and processes, avoiding conflicts and ensuring fairness.
+- **Includes:** ==Memory Allocation==, ==Virtual Memory==, ==Paging==, ==Segmentation==, ==TLB==, Cache Management, Swapping, Memory Protection, ==Contiguous & Non-contiguous allocation==, Thrashing control.
+
+**2. File Management**  
+- ==Maintaining file system structure== and performing file operations (create, read, update, delete) with access control and security.
+- **Includes:** Directory Structure, File Allocation Methods (Contiguous, Linked, Indexed), Inodes, Journaling, Access Permissions, Free-space Management, Mounting & Unmounting, Backup & Recovery.
+
+**3. Process Management**  
+- ==Creating, scheduling, executing, and terminating processes== including context switching and inter-process communication to ensure efficient multitasking.
+- **Includes:** ==PCB==, ==Scheduling Algorithms (FCFS, SJF, RR, Priority, Multilevel Queue, Multilevel Feedback Queue)==, ==Context Switching==, Threads, IPC (Pipes, Shared Memory, Message Passing, Semaphores), Deadlock (Detection, Prevention, Avoidance, Banker's Algorithm), ==Starvation==, Critical Section, Synchronization.
+
+**4. Device Management**  
+- ==Managing communication between hardware devices and software== by handling I/O operations through device drivers and buffering.
+- **Includes:** Device Drivers, ==Interrupt Handling==, ==DMA (Direct Memory Access)==, Buffering, Spooling, I/O Scheduling, Polling vs Interrupts, ==Disk Scheduling Algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK)==.
+
 
 **Types of OS**:
 1. **Uni-Programming OS** 
@@ -64,7 +77,7 @@ CPU Utilization
 ```  
 ( Shell ( Kernel ) )
 ```
-- ==**Shell**== → ==Outer layer of OS==,== provides interface to user== via `GUI` or `CLI`
+- ==**Shell**== → ==Outer layer of OS==,==provides interface to user== via `GUI` or `CLI`
 - ==**Kernel**== → ==Core of OS==, directly ==interacts with **hardware**==; manages **CPU, memory, processes, I/O, and devices**
 
 **System Call:** -> A way for ==program to interact with the operating system==.
@@ -80,7 +93,7 @@ Kernel :                       ⬊                   ⬈
 		   						   ⬊          ⬈
 							     Execute system Call			
 ```
-- User mode ( mode bit = 1), Kernel mode (mode bit = 0)
+- User mode ( mode bit = 1), ==Kernel mode (mode bit = 0)==
 
 ### Processes
 
@@ -122,6 +135,7 @@ Main Memory        Program P1
 
 **PCB** -> Process Control Block
 - When Process load into CPU Process content like (instructions, Variables) not goes into CPU, only ==PCB goes into CPU== that ==stores Process ID, Process current state, Process Priority== etc.)
+
 ```
 Main Memory                OS
                   . ┌──────────────────┐
@@ -135,6 +149,7 @@ Main Memory                OS
 Attributes of PCB
 [ PID, PC, GPR, List of Devices, Type, Size, Memory Limits, Priority, State, List of Files]
 ```
+**Note:-** ==PCB is maintained in OS for all states== (new, ready, running, blocked/wait, suspended, terminated until cleanup). It is not limited to only ready and wait.
 
 **Context Switching:**
 - The ==content of PCB of a process are collectively knowns as 'Context'== of that process
@@ -204,30 +219,38 @@ Schedule & Dispatcher:**
 
 **Main Memory vs CPU stored state:** ⭐
 - `Running` -> Stored in both  CPU & Main Memory
-- `Ready, Blocked` -> Stored in Main memory Only 
+- ==`Ready, Blocked`== -> ==Stored in Main memory Only ==
 - `New & Terminated` -> Not stored
 
-**Two Transition are Voluntary by Process:**
-- Running to Terminated
-- Running to Blocked
+**Two Transition are Voluntary by Process:** ⭐
+- ==**Running** to **Terminated**==
+- ==**Running** to **Blocked**==
 
-**Process Types Based on Resource Usage**
-- **CPU Bound** - If the process is intensive in terms of CPU operations
-- **IO Bound** - If the process is intensive in terms of IO operations.
+**Process Types Based on Resource Usage** ⭐
+- ==**CPU Bound**== - If the process is intensive in terms of CPU operations
+- ==**IO Bound**== - If the process is intensive in terms of IO operations.
 
 **Note:**
 - A good blend of CPU Bound & IO Bound are made for better utilization
 - Running Process Can take only two decision by itself, `exit` and `waiting for I/O or event`. and all other are decide by OS
 
-**Scheduling Queues:**  -> Queues of PCB's of different state of process
-- **Job Queue** ->  New State
-- **Ready Queue** -> Ready State
-- **Device Queue**  -> Blocked State
+**Scheduling Queues:**  -> Queues of PCB's of different state of process ⭐
+- ==**Job Queue** ->  New State==
+- ==**Ready Queue** -> Ready State==
+- ==**Device Queue**  -> Blocked State==
 
-**Types of Schedulers:** ⭐
-- **Long-Term Scheduler (Job)** -> ==Decide process From `New` to `Ready` state==
-- **Short-Term Scheduler (CPU)** -> ==Decide process From `Ready` to `Running` state== -> CPU Scheduling Algorithms ⭐
-- **Mid-Term Scheduler(Medium Term)** -> Swap out Process (Ready or Blocked) from Main memory to new suspended state -> Swapping
+**Types of Schedulers:** (**Effect on Degree of Multiprogramming) ⭐
+
+**1.** ==**Long-Term Scheduler (Job)**== -> ==Decide process From `New` to `Ready` state==
+- ==Can Increase== Degree of Multiprogramming
+
+**2.** ==**Short-Term Scheduler (CPU)**== -> ==Decide process From `Ready` to `Running` state== -> CPU Scheduling Algorithms ⭐
+- ==No effect on== Degree of Multiprogramming X
+
+**3.** ==**Mid-Term Scheduler(Medium Term)**== -> Swap out Process ==(Ready or Blocked)== from Main memory to new suspended state ==(Suspended Ready or Suspended Blocked)==-> Swapping
+- ==Increase/Decrease (Swap in/out)== Degree of Multiprogramming
+- **Explanation:** It temporarily removes a process from main memory to control the load. When the system is overloaded, it ==**swaps out** a Ready/Blocked process to secondary storage (Decrease Degree of Multiprogramming)== and puts it in **Suspended Ready/Suspended Blocked**. When memory pressure reduces, it **==swaps in** the suspended process back to Main Memory Ready/Blocked State (Increase Degree of Multiprogramming)==.
+- It stabilizes memory usage and keeps the system responsive by balancing how many processes actually reside in main memory at a time.
 
 ```
                ┌-resume-->                     // other states connected
@@ -240,12 +263,9 @@ Schedule & Dispatcher:**
                   <-resume-┘
 ```
 
-**Effect of Scheduler on Degree of Multiprogramming:**
-- **Long Term** -> Can Increase
-- **Short Term** -> No effect X
-- **Mid-Term** -> Increase/Decrease (Swap in/out)
-
-Note: Swapping is also called **Roll Out** and **Roll In** if it is based on priority in OS.
+Note: 
+- ==ready and blocked/wait remain in **main memory==** while s==uspended ready and suspended blocked/wait reside in **secondary storage==**
+- Swapping is also called ==**Roll Out** and **Roll In**== if it is based on priority in OS.
 
 ### CPU Scheduling
 
@@ -261,6 +281,7 @@ Note: Swapping is also called **Roll Out** and **Roll In** if it is based on pri
 - Turnaround Time (TAT) = CT- AT ⭐
 - Waiting Time (WT) = TAT - BT ⭐
 ```
+- **Burst time** is total CPU time required by the process to complete its execution, not the time when the process starts
 
 **CPU Scheduling:**
 - Preemptive
@@ -270,7 +291,7 @@ Note: Swapping is also called **Roll Out** and **Roll In** if it is based on pri
 
 **1. FCFS (First Come First Serve)** -> Non Preemptive 
 - Criteria -> Smaller AT first (Tie breaker -> Smaller process_id)
-- Problem -> **Convoy Effect** : if a slow moving process schedule first, it will lead to all fast process to suffer.
+- Problem -> ==**Convoy Effect** :== if a ==slow moving process schedule first==, it will lead to all fast process to suffer.
 
 **2. SJF (Shortest Job First)** -> Non Preemptive
 - Criteria -> Smallest BT first (Tie breaker -> FCFS)
@@ -281,12 +302,16 @@ Note: Swapping is also called **Roll Out** and **Roll In** if it is based on pri
 
 **4. Priority based scheduling** -> Preemptive/Non-Preemptive
 - Criteria -> Priority static/dynamic (Tie breaker -> Given in Ques)
-- Problem -> **Starvation** : If lower priority waiting for too much (Solution-> aging (only for dynamic priority))
+- Problem -> ==**Starvation**:== If ==lower priority waiting for too much== (Solution-> aging (only for dynamic priority))
 
 **5. Round-Robin** -> Preemptive ⭐
 - Criteria -> ==Smaller AT first== + ==Time slice== (**Quantum**)
 - If two process coming to ready state, one from New State and another from CPU, New process will be forward in queue.
-- Quantum Value (Q) : very very small -> No Efficiency, Small -> Interactive, Large -> Less Interactive, Very very large -> RR degrades to FCFS
+- Quantum Value (Q) :
+	- Very very Small -> No Efficiency, 
+	- ==Small -> Interactive, ==
+	- Large -> Less Interactive, 
+	- Very very Large -> RR degrades to FCFS
 
 Note:⭐
 - Learn to make `Gantt Chart` for analyze process scheduling.
@@ -307,16 +332,16 @@ Background Processes
 	1. **Fixed priority Preemptive scheduling method :**
 		- Different Queue for Different Priority Processes, Higher Priority Queue Process will get CPU first
 		- Even if Lower Priority Process let Foreground Processes, are in CPU and if some process enter in ready state of Higher Priority Process ex: System Process Queue, Foreground process will be preempt and System Process will be processed first
-		- **Problem** : Starvation of Low Priority Processes
+		- **Problem** : ==Starvation of Low Priority Processes==
 	
 	2. **Time Slicing**
 		- Each Type of Process will be given certain Time limit. For ex in every 100ns, 60ns , 30ns and 10ns are given to System, Foreground and Background Process respectively
 		- **Problem** : The type of process with more time slice will be given more time
 
-**7. Multilevel Feedback Queue(MLFQ) Scheduling** ⭐⭐
+**7. Multilevel Feedback Queue(MLFQ) Scheduling** ⭐
 - Different Queue type of Processes with Flexible Priority
-- Criteria for Priorities of Queue can be changed based on Feedback
-- Round Robing is Used in Each Priority Queue
+- Criteria for Priorities of ==Queue can be changed based on Feedback==
+- ==Round Robing is Used in Each Priority Queue==
 - It is used in Modern day computers ⭐
 ```
 ┌─ System Processess
@@ -327,12 +352,22 @@ Foreground Processes ←┘
 ```
 
 
-**Advantage and Disadvantage of Each Scheduling Algorithm**
-1. **FCFS** -> (Easy to Implement, No complex Logic, ==No starvation==)✅ , (No Option of Preemption, ==Convoy Effect== Makes System Slow) ❌
-2. **SJF** -> (Minimum average waiting time among non-preemptive scheduling, Better throughput in continue run) ✅ , (No Practical Implementation because burst time is not known in advance, No option of preemption, ==Longer Processes may suffer from starvation==) ❌
-3. **SRTF** -> (Minimum Average waiting time among all algorithms, Better throughput in continue run) ✅, (==No practical implementation== because Burst time is not known in advance), (==Longer Processes may suffer from starvation==) ❌
-4. **Priority Based Algorithm** -> (Better response for real time situations)✅, (Low Priority Processes may suffer from starvation) ❌
-5. **Round Robin** -> (All processes execute one by one, so ==no starvation==, ==Better interactive-ness==, Burst time is not required to be known in advance) ✅, (Average waiting time and turnaround time is more, ==Can degrade to FCFS==) ❌
+**Advantage and Disadvantage of Each Scheduling Algorithm** ⭐
+1. **FCFS** : 
+	- **Advantage :** Easy to Implement, No complex Logic, ==No starvation==)✅ , 
+	- **Disadvantage :** No Option of Preemption, ==Convoy Effect== Makes System Slow) ❌
+2. **SJF** : 
+	- **Advantage :** Minimum average waiting time among non-preemptive scheduling, Better throughput in continue run) ✅ , 
+	- **Disadvantage :** No Practical Implementation because burst time is not known in advance, No option of preemption, ==Longer Processes may suffer from starvation==) ❌
+3. **SRTF** :
+	- **Advantage :** Minimum Average waiting time among all algorithms, Better throughput in continue run) ✅, 
+	- **Disadvantage :** No practical implementation== because Burst time is not known in advance), (==Longer Processes may suffer from starvation==) ❌
+4. **Priority Based Algorithm** :
+	- **Advantage :** ==Better respons==e for real time situations)✅, 
+	- **Disadvantage :** Low Priority Processes may suffer from ==starvation==) ❌
+5. **Round Robin** :
+	- **Advantage :** All processes execute one by one, so ==no starvation==, ==Better interactive-ness==, Burst time is not required to be known in advance) ✅, 
+	- **Disadvantage :** Average waiting time and turnaround time is more, ==Can degrade to FCFS==) ❌
 
 ---
 ### Synchronisation ⭐
@@ -744,19 +779,19 @@ p2 | Printer  | Keyboard
 
 **Deadlock Handling Techniques:**
 4. ==**Deadlock Prevention==:** Ensure ==at least one of the necessary conditions note meet==.
-5. ==**Deadlock Avoidance:**== Dynamically ==check resource allocation to avoid unsafe states== (e.g., Banker's Algorithm).
+5. ==**Deadlock Avoidance:**== **Dynamically ==check resource allocation** to avoid unsafe states== (e.g., Banker's Algorithm).
 6. ==**Deadlock Detection & Recovery:**== Allow deadlock to occur, ==detect it, and recover== by terminating or preempting processes.
 7. **==Deadlock Ignore:==** ==Do nothing== (used in systems like UNIX where deadlocks are rare).
 
 **A. Deadlock Prevention**->Prevent any 4 necessary condition:
-1. Mutual Exclusion
+1. **Mutual Exclusion**
 	- Make Each Process Independent such that no sharing or resources required? -> ❌ Not Possible
 	- or Made CPU with Intensive no. of resources so that each process can have there own? -> ❌ Costly
-2. Hold and Wait
+2. **Hold and Wait**
 	- Either Hold all Resources or Wait, Don't Hold Partially required Resources? -> ❌ But process Need to Required a long time, Bad CPU utilization
-3. No Preemption
+3. **No Preemption**
 	- Preempt a Process causing Deadlock? -> If a Process execution stuck in a case if resources is taken away from it, it may goes to a unstable state ❌
-4. Circular Wait
+4. **==Circular Wait==**
 	- Allow process to Request for Resource in a specific order, let Increasing Order. So if a Process P1 required Resources R1, R2 and R3. Allow P1 to Request for R3 if it Have R2 already, or Request R2 if it hold R1 already -> **While Holding a resources of lower no. you can request for higher no. resources** ✅
 
 **B. Deadlock Avoidance ->** OS tries to keep system in safe state
@@ -791,7 +826,7 @@ Deadlock Avoidance Algo:
 ```
 
 **C. Deadlock Detection**
-1. When all resources have single instance -> wait for Graph
+1. When all resources have single instance -> Wait for Graph
 2. When resources have multiple instances -> Deadlock Detection Algorithm
 
 - **Wait For Graph (WFG)**
@@ -819,7 +854,7 @@ If Cycle? Yes -> Deadlock
 
 - **Deadlock Detection Algorithm:**
 	- When resources have multiple instance, Deadlock detection is done using a specific algorithm
-	- Similar to Banker's Algorithm. In Banker's Algorithm we are given `Max` and `Alloc`, but in this algorithm `Request` and `Alloc` are there so no need to calculate `need(request)`
+	- Similar to **Banker's Algorithm**. In Banker's Algorithm we are given `Max` and `Alloc`, but in this algorithm `Request` and `Alloc` are there so no need to calculate `need(request)`
 ```
 | Processes | Alloc. | Request | Available |
 |           | A B C  |  A B C  |  A B C    |
@@ -828,6 +863,25 @@ If Cycle? Yes -> Deadlock
 |   ---     |   ---  |   ---   |    ---    |
 |   ---     |   ---  |   ---   |    ---    |
 ```
+
+##### **Resource Requirement Formula** ⭐
+
+**Formula 1. (for different resource requirement per process)**  
+- Processes require resources: `R1, R2, R3, ... , Rn`
+- Max resources such that deadlock can occur = `(R1−1) + (R2−1) + ... + (Rn−1)`
+- ==Min resources such that deadlock never occur== = 
+```
+= (R1−1) + (R2−1) + ... + (Rn−1) + 1
+```
+
+**Formula 2. (for equal resource requirement per process)**  
+- Each of the `n` processes requires `R` resources
+- Max resources such that deadlock can occur = `n(R−1)`
+- Min resources such that deadlock never occur = 
+```
+= n(R−1) + 1
+```
+
 
 **Ques:** Three Processes P1, P2, and P3. the process require Resources 5, 6 and 7 respectively to execute. The minimum no. of resources the system should have such that deadlock can never occur?
 **Ans:**
@@ -844,6 +898,7 @@ Min no. of Resources such that deadlock never occur:
 
 => 15 + 1 = 16
 ```
+
 
 **Ques:** Consider a system with n processes. All n processes require R resources each to execute. The minimum number of resources the system should have such that deadlock can never occur? ⭐
 ```
@@ -893,10 +948,10 @@ There are three basic approaches to recover from deadlock
 
 **Contiguous Memory Allocation** → The whole process is stored in a single continuous block of memory.
 
-1. ==**Fixed Partitioning**== → The memory is divided into a fixed number of partitions at system startup. When a process arrives, it is allocated to a partition based on the partition allocation method (e.g., first-fit, best-fit).
+1. ==**Fixed Partitioning**== → The ==memory is divided into a fixed number of partitions at system startup==. When a process arrives, it is allocated to a partition based on the partition allocation method (e.g., first-fit, best-fit).
 	-  **Problem**: ==**Internal Fragmentation**== → Wasted space inside partitions if the process is smaller than the partition size.
 
-2. ==**Variable Partitioning**== → No fixed partitions; memory is allocated dynamically as per the process's need. When a process arrives, a partition of exact size is created.
+2. ==**Variable Partitioning**== → No fixed partitions; ==memory is allocated dynamically as per the process's need==. When a process arrives, a partition of exact size is created.
 	- **Problem**: ==**External Fragmentation**== → Free memory exists, but it is scattered in non-contiguous blocks, making it unusable for larger processes.
 	- **Solution: Compaction** -> Rearranges memory contents to place all free memory together in one large block
 
@@ -908,14 +963,16 @@ There are three basic approaches to recover from deadlock
 - A page table maps each page to a frame in physical memory.
 - **Eliminates external fragmentation** but may cause **internal fragmentation** if the last page is not fully used.
 
-1. ==**Segmentation**== -> The ==process is divided into **logical segments**== (e.g., code, stack, heap), each of varying size.
-- A **segment table** keeps track of each segment’s base address and limit.
+1. ==**Segmentation**== -> The ==process is divided into **logical segments**== (e.g., code, stack, heap), each of ==varying size==.
+- ==A **segment table** keeps track of each segment’s base address and limit.== ⭐
 - **Eliminates internal fragmentation** but may cause **external fragmentation** (though less than variable partitioning).
 
-##### **Paging:**
+##### **Paging:** ⭐
 
-- ==Processes is divided in equal size of partitions called as ==`pages`
-- ==Physical memory is divided in same equal size of partitions called== `frames`
+> Formulas and Numerical important for GATE
+
+- ==**Processes** is divided in equal size of partitions called as== `pages`
+- ==**Physical memory** is divided in same equal size of partitions called== `frames`
 - Processor will have a view of process and its pages
 - Pages are scattered in frames
 - ==Page table ==is used to map a process page to a physical frame
@@ -926,7 +983,7 @@ There are three basic approaches to recover from deadlock
                                   ┌─────────┐
   Process         Page table      │         │ frame 0
 ┌────────┐         ┌─────┐        ├─────────┤
-│ Page 0 │  -->  0 │  3  │  \    /│ page 3  │ frame 1
+│ Page 0 │  -->  0 │  3  │  \    ⬈│ page 3  │ frame 1
 ├────────┤         ├─────┤   \  / ├─────────┤
 │ Page 1 │  -->  1 │  6  │  \ \/  │         │ frame 2
 ├────────┤         ├─────┤   |/\  ├─────────┤
@@ -940,21 +997,33 @@ There are three basic approaches to recover from deadlock
                                   ├─────────┤
                                   |         | frame 7
                                   └─────────┘
-                                  
-                             
+```
 
 
-Formulas: ⭐
-- No. of enries in P.T.  = No. of pages
-- 1 P.T entry size = (frame no. bits) + extra bits(if given)
-- P.T. size = (no. of entries in P.T) * (1 P.T. entry size)
+**Page Table Formulas: ⭐**
+```
+No. of entries in P.T.  ---> No. of pages
+1 P.T entry size ---> (frame no. bits) + extra bits (if any)
+P.T. size ---> (no. of entries in P.T) * (1 P.T. entry size)
+          ---> (No. of pages) * (frame no. bits) ⭐
+          ---> (No. of pages) * log2(No. of frames)
+```
 
+**Page-Frame Formula**
+```
+bits to represent page no --->  log2(No. of pages)
+bits to represent frame no ---> log2(No. of frames)
+
+1 frame size  <---> 1 page size 
 ```
 
 **Binary Representations of Page and Frames:**
 ```
-No. of pages = 4, bits to represent page no. = 2
-No. of frames = 8, bits to represent frame no. = 3
+Let
+No. of pages = 4,
+No. of frames = 8,
+Page size = 2 byte
+
 
                                  Physical Memory
                                    ┌─────────┐
@@ -974,25 +1043,34 @@ No. of frames = 8, bits to represent frame no. = 3
                                    ├─────────┤
                                    |         | frame 111
                                    └─────────┘
-
-let: page size = 2 byte, 
+then,     
+- bits to represent page no. = log(4) = 2
+- bits to represent frame no. = log(8) = 3
 - total process size = (no. of pages) x (page size) = 4 x 2 byte = 8 byte
-
-note: 1 frame size = 1 page size ⭐
-
 - total Main Memory size = (no. of frames) x (frame size) = 8 x 2 byte = 16 byte
 ```
 
-**Logical Address and Physical Address:**
+
+**Logical Address and Physical Address For:** ⭐
 ```
-2 byte -> 1 page or 1 frame
-1 byte -> 1 address
+1 page ( or frame ) = 2 byte
+1 address = 1 byte (Byte Addressable Memory) ⭐
 
-Physical Memory -> 16 byte -> 16 address 
--> Physical Address -> 4 bits
+Let, Physical Memory Size = 16 byte 
+-> No. of Address in Physical Memory = 16 address 
+-> No. of bits in Physical Address = log(16) = 4 bits
 
-Process -> 8 byte -> 8 address
--> Locgical Address -> 3 bits
+
+
+Let, Process = 8 byte 
+-> No. of Address in Logical Memory = 8 address
+-> No. of bits in Logical Address = log(8) = 3 bits
+
+Page & Frame (These are ) ⭐
+-> No. of pages = 8 byte / 2 byte = 4 pages
+-> No. of frame bits = log2(4) = 2 bits
+-> No. of frames = 16 byte /2 byte = 8 frames
+-> No. of frame bits = log2(8) = 3 bits
 
                                         Physical   Physical Memory
                                          Address  ┌─────────┐
@@ -1018,7 +1096,7 @@ Process -> 8 byte -> 8 address
                                              1101 |         |
                                                   ├─────────┤
                                              1110 |         | frame 111
-                                              111 |         |
+                                             1111 |         |
                                                   └─────────┘
 ```
 
@@ -1026,7 +1104,7 @@ Process -> 8 byte -> 8 address
 ```
 Logical Address
 ┌─────┬─────┐
-│  p  │  d  |     p:page no.  , d: offset
+│  p  │  d  |     p:page no.  ,  d: offset
 └─────┴─────┘                    |
                                  |
 Physical Address                 | equal
@@ -1038,33 +1116,73 @@ P.T 1 entry
 ┌─────┬─────────────┐ 
 │  f  │  extra bits |   
 └─────┴─────────────┘
-
-Note: Main Memory is Byte Addressable, i.e each address can store 1 byte
-
-Formula: ⭐
-- No. of bits in offset = log(page size)
-- No. of bits in page no. = log(no. of pages)
-- No. of bits in Logical Address = log(process size) = p+d
-- No. of bits in Physical Address = log(memory size)
-
-Reverse Formula:
-- Page size = 2^(no. of bits in offset)
-- No. of pages = 2^(No. of bits in page no.)
-- Process Size = 2^(No. of bits in Logical address) =  Page size x No. of pages
-- Physical Memory size = 2^(No. fo bits in Physical Address)
 ```
 
-Example
+
+**Note:** ==Main Memory is Byte Addressable==, i.e. each address can store 1 byte
+
+**Formula: ⭐⭐⭐**
+- No. of bits in offset = `log(page size)` = `d`
+- ==No. of bits in page no. = `log(no. of pages)`== = `p`
+- ==No. of bits in frame no. = `log(no. of frames)`==  `f`
+- No. of bits in Logical Address = `log(process size)` = `p+d`
+- No. of bits in Physical Address = `log(memory size)` = `f+d`
+
+**Reverse Formula:**
+- Page size = `2^(no. of bits in offset)` = `2^d`
+- No. of pages = `2^(No. of bits in page no.)` = `2^p`
+- No. of frames = `2^(No. of bits in frame no.)` = `2^f`
+- Process Size =  `Page size x No. of pages` =  `2^(No. of bits in Logical address)` = `2^(p+d)`
+- Physical Memory size = `frame size x No. of frames` = `2^(No. of bits in Physical Address)` = `2^(f+d)`
+
 ```
-Page size -> 2 byte (2 Address)
+                       Logical Address ---------2^(bits)---> = Process size
+						┌─────┬─────┐
+				page no.│  p  │  d  | offset
+					|	└─────┴─────┘   |  
+                    |                   |
+                  2^(bits)             2^(bits)
+                    ↓                   ↓
+            = No. of pages          = Page size
+                                        ↕ 
+            = No. of frames          = frame Size
+                   ↑                    ↑
+                2^(bits)              2^(bits)
+                   |                    |            
+				   |	┌─────┬─────┐   |
+			   frame no.│  f  │  d  | offset
+						└─────┴─────┘  
+                       Physical Address --------2^(bits)---> = Memory size
+                 
+
+						  Page Table Size = No. of Pages x (f + extra bits)
+						┌─────┬─────────────┐ -┐
+						│  f  │  extra bits |  | 
+						├─────┼─────────────┤  |  
+						│  f  │  extra bits |  | No. of entries
+						├─────┼─────────────┤  | = No. of Pages
+						│  f  │  extra bits |  |
+						├─────┼─────────────┤  |
+						│  f  │  extra bits |  |
+						├─────┼─────────────┤  |
+						│  f  │  extra bits |  | 
+						└─────┴─────────────┘ -┘
+```
+
+**Example**
+```
+If
+Page size = 2 byte (2 Address)
+No. of page = 4
+process size?
+
+Then
 -> no. of bits in offset(d) -> log(2) = 1 bit
-
-no. of page -> 4
 -> no. of bits in page no.(p) -> log(4) = 2 bits
-
-no. of bits in Logical address = 1+2 = 3 bits
+-> no. of bits in Logical address = 1+2 = 3 bits
 -> Process size = 2^3 = 8 byte
 ```
+
 
 ```
         Logical           Physical 
@@ -1082,15 +1200,17 @@ no. of bits in Logical address = 1+2 = 3 bits
                  Page Table
 ```
 
-**Ques:** Consider a paged memory system with logical address of 35-bits and physical address of 29-bits. The page size 2KB. Further consider that one page table entry size is 4 bytes.
+##### **Ques:** Consider a paged memory system with logical address of 35-bits and physical address of 29-bits. The page size 2KB. Further consider that one page table entry size is 4 bytes.
 Find the following:
+```
 A. Bits in page offset
-B. C. Bits for page number
+B. Bits for page number
 C. No. of pages in process
 D. Bits for frame number
 E. Number of frames in physical memory
 F. Page table size
 G. Extra bit per entry
+```
 
 **Ans:**
 ```
@@ -1131,7 +1251,8 @@ no. of bits in frame = 18 bits
 no. of extra bits = 32-18 = 14 bits
 ```
 
-**Ques:** Consider a machine with 64 MB physical memory and a 32-bit virtual address space. If page size is 4 KB, what is the approximate size of the page table.
+##### **Ques:** Consider a machine with 64 MB physical memory and a 32-bit virtual address space. If page size is 4 KB, what is the approximate size of the page table.
+
 **Ans:**
 ```
 Page Size = 4 KB = 2^12 B
@@ -1150,57 +1271,10 @@ Physical address
 [ f | d ] = 26 bits
   14  12
 
--> Size of Page table = (No. of entries) x (size of one entry) = (No. of pages) x (No. of bits in frame no.) = 2^12 x 8 = 2^20 x 14 = 14 Mb = 14/8 ~ 2 MB
+-> Size of Page table = (No. of entries) x (size of one entry) = (No. of pages) x (No. of bits in frame no.) = 2^12 x 8 = 2^20 x 14 = 14 Mb
+= 14 Mb = 14/8 ~ 2 MB
 
 Note: if extra bit not given, take it zero
-```
-
-
-Summary
-```
-                       Logical Address ---------2^(bits)---> = Process size
-						┌─────┬─────┐
-				page no.│  p  │  d  | offset
-					|	└─────┴─────┘   |  
-                    |                   |
-                  2^(bits)             2^(bits)
-                    ↓                   ↓
-            = No. of pages          = Page size
-                                        ↕ 
-            = No. of frames          = frame Size
-                   ↑                    ↑
-                2^(bits)              2^(bits)
-                   |                    |            
-				   |	┌─────┬─────┐   |
-			   frame no.│  f  │  d  | offset
-						└─────┴─────┘  
-                       Physical Address --------2^(bits)---> = Memory size
-                 
-
-						  Page Table Size = No. of Pages x (f + extra bits)
-						┌─────┬─────────────┐ -┐
-						│  f  │  extra bits |  | 
-						├─────┼─────────────┤  |  
-						│  f  │  extra bits |  | No. of entries
-						├─────┼─────────────┤  | = No. of Pages
-						│  f  │  extra bits |  |
-						├─────┼─────────────┤  |
-						│  f  │  extra bits |  |
-						├─────┼─────────────┤  |
-						│  f  │  extra bits |  | 
-						└─────┴─────────────┘ -┘
-
-Formula: ⭐
-- No. of bits in offset = log(page size)
-- No. of bits in page no. = log(no. of pages)
-- No. of bits in Logical Address = log(process size) = p+d
-- No. of bits in Physical Address = log(memory size)
-
-Reverse Formula:
-- Page size = 2^(no. of bits in offset)
-- No. of pages = 2^(No. of bits in page no.)
-- Process Size = 2^(No. of bits in Logical address) =  Page size x No. of pages
-- Physical Memory size = 2^(No. fo bits in Physical Address)
 ```
 
 
@@ -1219,7 +1293,10 @@ why 2*Tₘₘ?
 one `Tₘₘ` for accessing Page table (to get physical address) from Memory and another `Tₘₘ` to get the actual content from the Memory
 ```
 
-**Translation lookaside buffer (TLB)** -> Memory hardware that is used to reduce the time taken to access a user memory location or address translation
+##### **TLB**
+> Formulas & Numerical Important for GATE
+
+**Translation lookaside buffer (TLB)** -> ==**Memory hardware** that is used to reduce the time taken to access a user memory location or **address translation==**
 ```
 TLB[p] -> f
 
@@ -1249,13 +1326,24 @@ CPU --->[ p | d ]                                  ┌────────�
 
 ```
 
+**How T.L.B is different from P.T.**
+
+| TLB                                               | Page Table                                               |
+| ------------------------------------------------- | -------------------------------------------------------- |
+| Small, fast cache in hardware                     | Large data structure in main memory                      |
+| Stores ==only recently used page==–frame mappings | Stores all page–frame mappings                           |
+| Very fast access (near CPU speed)                 | Slower access (needs memory access)                      |
+| Hit gives frame number directly                   | ==Requires lookup and may need extra memory access==     |
+| Reduces address translation time                  | ==Performs full translation== without speed optimization |
+
+
 **Effective Memory Access Time (with TLB)**
 ```
 E.M.A.T = H*(tₗ + tₘ) + (1-H)(tₗ + 2*tₘ)
         =  tₗ + tₘ + (1-H)tₘ
 
 tₗ - TLB access time
-tₘ - Memory access tiem
+tₘ - Memory access time
 H - Hit Ratio
 ```
 
@@ -1482,13 +1570,13 @@ Total Page Table size = 1027 Pages * 2KB = 2054 KB
 
 ##### **Segmentation**
 
-- Divide Process in Logically related partitions (Segments)
-- Segments are scattered in physical memory
+- **Divide Process** in **Logically related partitions** (Segments)
+- Segments are ==scattered in physical memory==
 
-##### **Virtual Memory**
+##### **Virtual Memory** ⭐
 
 - Feature of OS
-- Enables to run larger process with smaller available memory
+- ==Enables to run larger process with smaller available memory==
 
 ```
 vb -> valid bit, is the process in Main memory?
@@ -1515,8 +1603,30 @@ process id  Valid bit
 (in M.M)    (is in M.M?)
 ```
 
-**Demand Paging:**
+**Detailed Virtual Memory Notes**
 
+- Virtual memory is a ==memory management technique== in operating systems that ==extends usable memory beyond physical RAM by using secondary storage (disk).==
+- It ==gives each process an illusion of having its own large, continuous address space== even if RAM is smaller.
+- Virtual memory ==maps logical addresses to physical addresses using paging==. Only the ==currently needed pages are loaded into RAM, remaining pages stay on disk== (page file).
+    
+
+- **Purpose**
+	- ==Run programs larger than available physical memory==
+	- ==Increase multiprogramming== by allowing more processes in memory
+	- ==Reduce internal and external fragmentation==
+	- Improve memory utilization without requiring huge physical RAM
+
+- **How it works**  
+	- Program generates logical addresses  
+	- Page table converts logical pages to physical frames  
+	- If a required page is not in RAM → page fault → OS loads it from disk  
+	- Least-used pages may be swapped out to disk to free space
+
+- ==**Key idea** : RAM + disk space together behave like a large continuous memory for each process.== 
+- ==**Paging without virtual memory:**== bring **all pages of a process** into main memory before execution. ⭐
+- **==Virtual memory using paging:==** bring **only the required pages** of a process into main memory; remaining pages stay on disk.
+
+**Demand Paging:**
 - Bring pages in memory when CPU demands
 - Pure Demand Paging -> Don't store any pages in Main Memory in starting of process.
 

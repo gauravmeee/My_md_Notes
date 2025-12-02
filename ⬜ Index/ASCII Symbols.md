@@ -4,6 +4,26 @@ Gurgaon companies
 Soho, JMD, Aria, PayU, AKM Global, ArgenBright Group, Spinny, Spaze, Spinny  skymark, spaze Arcus, EThiess, JMD Megapolis, Spazedge, RenewBuy.com, 
 
 ```
+Symbol Names
+
+~ tilde
+    
+! exclamation mark
+    
+^ caret
+    
+< > angle brackets, often read as less-than and greater-than signs in plain ASCII
+    
+- hyphen
+    
+_ underscore 
+    
+` backtick
+    
+@ at sign
+```
+
+```
 - Arrow - 
  ←→↑↓ ⭠⭢  
  ⬆ ⬅ ⬇ ➡
@@ -21,6 +41,7 @@ Soho, JMD, Aria, PayU, AKM Global, ArgenBright Group, Spinny, Spaze, Spinny  sky
 
 \╲
 ```
+
 ```
 ╭----╮ --------->
 | qd |

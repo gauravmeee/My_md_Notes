@@ -179,3 +179,55 @@ int a = b + 5;
 
 > **LL Parsers** → **Top-Down**, Left-to-right scan + **Leftmost derivation**  
 > **LR Parsers** → **Bottom-Up**, Left-to-right scan + **Rightmost derivation (in reverse)**
+
+---
+
+### Parser Types and Lookahead Meaning
+
+The value inside parentheses `(k)` denotes **number of lookahead symbols** used while making parsing decisions.
+
+ **LL(k) Parser**
+- **L** → Scans input from Left to right
+- **L** → Produces Leftmost derivation
+- **(k)** → Uses _k_ lookahead symbols
+- Common: **LL(1)** → Predictive or Recursive Descent Parser
+    
+**LR(0) Parser**
+- **L** → Scans input from Left to right
+- **R** → Produces Rightmost derivation in reverse
+- **(0)** → Uses 0 lookahead symbols
+- Simplest LR parser but least powerful
+
+**SLR(1) Parser** (Simple LR)
+- **L** → Scans input from Left to right
+- **R** → Produces Rightmost derivation in reverse
+- **(1)** → Uses 1 lookahead symbol
+- Based on **LR(0)** items + **FOLLOW sets** for reduce decisions
+- Easier to construct but less powerful
+
+**LALR(1) Parser** (Look-Ahead LR)
+- **LA** → Look-Ahead
+- **L** → Scans input from Left to right
+- **R** → Produces Rightmost derivation in reverse
+- **(1)** → Uses 1 lookahead symbol
+- Combines states of **LR(1)** having same core
+- Smaller table than LR(1), same power for most grammars
+- Used in **YACC**, **Bison**
+
+**Canonical LR(1) Parser**
+- **Canonical** → full, unmerged, standard form with **all LR(1) items distinct**.
+- **L** → Scans input from Left to right
+- **R** → Produces Rightmost derivation in reverse
+- **(1)** → Uses 1 lookahead symbol
+- Most general and powerful LR parser
+- Builds separate states for each unique lookahead
+- Large table size, but handles all deterministic context-free grammars
+
+
+| Parser          | Derivation | Parsing Type | Lookahead | Power           | Remarks                 |
+| --------------- | ---------- | ------------ | --------- | --------------- | ----------------------- |
+| LL(1)           | Leftmost   | ==Top-down== | 1         | Medium          | Predictive parser       |
+| LR(0)           | Rightmost  | Bottom-up    | ==0==     | ==Weak==        | Simple, less practical  |
+| SLR(1)          | Rightmost  | Bottom-up    | 1         | Medium          | Uses FOLLOW sets        |
+| LALR(1)         | Rightmost  | Bottom-up    | 1         | ==Strong==      | Efficient & widely used |
+| Canonical LR(1) | Rightmost  | Bottom-up    | 1         | ==Very Strong== | Large tables            |
