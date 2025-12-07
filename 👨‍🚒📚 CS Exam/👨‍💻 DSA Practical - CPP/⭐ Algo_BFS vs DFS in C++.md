@@ -195,8 +195,8 @@ int main() {
 ### Time Complexity of BFS and DFS
 
 The time complexity of BFS and DFS can be expressed in two forms:
-1. **In terms of the number of vertices (`V`) and edges (`E`)**: This is commonly used for graphs.
-2. **In terms of the number of nodes (`n`)**: This is commonly used for trees.
+1. **In terms of the number of v==ertices (`V`) and edges (`E`)**==: This is commonly used for graphs.
+2. **In terms of the number of ==nodes (`n`)**: ==This is commonly used for trees.
 
 #### 1. BFS & DFS
 - **Graph (in terms of `V` and `E`)**:  Each vertex is visited once (`O(V)`), Each edge is explored once (`O(E)`).
@@ -204,5 +204,5 @@ The time complexity of BFS and DFS can be expressed in two forms:
 
 | Algorithm | Graph (`V` + `E`) | Tree (`n`) |
 |-----------|-------------------|------------|
-| BFS       | O(V + E)          | O(n)       |
-| DFS       | O(V + E)          | O(n)       |
+| BFS       | `O(V + E)`        | `O(n)`     |
+| DFS       | `O(V + E)`        | `O(n)`     |

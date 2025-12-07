@@ -56,13 +56,13 @@
 
 **Important Stack-Based Problems**
 
-|Problem|Concept Applied|
-|---|---|
-|Valid Parentheses|Stack + Matching pairs|
-|Next Greater Element|Monotonic stack|
-|Largest Rectangle in Histogram|Stack for area calculation|
-|Evaluate Postfix/Prefix|Stack evaluation|
-|Min Stack|Stack with auxiliary min|
+| Problem                        | Concept Applied            |
+| ------------------------------ | -------------------------- |
+| ==Valid Parentheses==          | Stack + Matching pairs     |
+| ==Next Greater Element==       | Monotonic stack            |
+| Largest Rectangle in Histogram | Stack for area calculation |
+| Evaluate ==Postfix/Prefix==    | Stack evaluation           |
+| Min Stack                      | Stack with auxiliary min   |
 
 ---
 ##### **Queue Theory - Concepts & Properties
@@ -164,7 +164,7 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 - For a graph with `n` vertices and ==`k` connected components==, minimum edges required = ==`n−k`== ⭐
 
 - **Spanning Tree:**
-	- A **spanning tree** is a connected, acyclic ==subgraph== that includes all the vertices of the original graph with exactly minimum (`n−1`)  edges.
+	- A **spanning tree** is a connected, acyclic ==subgraph== that includes all the vertices of the original graph with exactly minimum ==(`n−1`)  edges.==
 	- **Every spanning tree is acyclic**, but **Not every acyclic graph is a spanning tree
 	- So, Every **spanning tree** is a **tree**, but **not every tree** is a **spanning tree**
     
@@ -212,9 +212,9 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 
 **10. Shortest Path Algorithms**
 
-- **Dijkstra**: Weighted graphs, no negative weights, greedy
-- **Bellman-Ford**: Handles negative weights, `O(VE)`
-- **Floyd-Warshall**: All-pairs shortest path, `O(V^3)`
+- **Dijkstra**: Weighted graphs, no negative weights, greedy ==`O((V + E) log V)`==
+- **Bellman-Ford**: Handles negative weights, ==`O(VE)`==
+- **Floyd-Warshall**: All-pairs shortest path, ==`O(V^3)`==
 
 
 **11. Bipartite Graph**
@@ -580,10 +580,10 @@ T(n) = a T(n - b) + f(n)
 
 **9. Tree Properties**
 
-- Tree with `n` nodes has `n-1` edges
+- ==Tree with `n` nodes has `n-1` edges==
 - Traversals: Inorder, Preorder, Postorder
 - BST: Left < Root < Right
-- Heap: Complete binary tree, Min/Max root
+- Heap: ==Complete binary tree==, Min/Max root
  
  
  **10. Hashing**
