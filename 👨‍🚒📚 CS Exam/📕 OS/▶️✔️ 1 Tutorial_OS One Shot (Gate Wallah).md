@@ -1605,7 +1605,7 @@ process id  Valid bit
 
 **Detailed Virtual Memory Notes**
 
-- Virtual memory is a ==memory management technique== in operating systems that ==extends usable memory beyond physical RAM by using secondary storage (disk).==
+- **Virtual memory** is a ==memory management technique== in operating systems that ==extends usable memory beyond physical RAM by using secondary storage (disk).==
 - It ==gives each process an illusion of having its own large, continuous address space== even if RAM is smaller.
 - Virtual memory ==maps logical addresses to physical addresses using paging==. Only the ==currently needed pages are loaded into RAM, remaining pages stay on disk== (page file).
     
@@ -1623,14 +1623,19 @@ process id  Valid bit
 	- Least-used pages may be swapped out to disk to free space
 
 - ==**Key idea** : RAM + disk space together behave like a large continuous memory for each process.== 
-- ==**Paging without virtual memory:**== bring **all pages of a process** into main memory before execution. ⭐
-- **==Virtual memory using paging:==** bring **only the required pages** of a process into main memory; remaining pages stay on disk.
+- Virtual memory can be implemented using
+    1. Paging    
+    2. Segmentation
+    
+- Normal Paging vs Virtual Memory with Paging
+    - **Paging without virtual memory:** ==entire process pages are loaded== into main memory before execution.
+    - **Virtual memory using paging:** only ==required pages are loaded== into main memory; the rest remain on disk.
 
 **Demand Paging:**
 - Bring pages in memory when CPU demands
 - Pure Demand Paging -> Don't store any pages in Main Memory in starting of process.
 
-**Page Fault** -> If the page demanding by CPU is not present in main memory.
+**Page Fault** -> If the ==page demanding by CPU is not present in main memory==.
 - Then we Replace page required pages from Secondary memory to Main memory using Page replacement policy
 
 **Page Replacement policy:**
@@ -1689,9 +1694,9 @@ M.M
 
 No. of Page References = 12
 No. of Page Fault = 9
-Hit Ration = 9/12
+Hit Ratio = 9/12
 ```
-- **Belady's Anomaly** (only in FIFO)-> Some Page references sequences are such that, Increasing the **No. of Frames (No. of Page stored in Memory)** Increases the no. of Fault
+- ==**Belady's Anomaly**== ==(only in FIFO)==-> Some Page references sequences are such that, Increasing the **No. of Frames (No. of Page stored in Memory)** Increases the no. of Fault
 
 - **Advantage of FIFO**
 	- Simple and easy to implement
@@ -1704,9 +1709,9 @@ Hit Ration = 9/12
 
 **2. Optimal Policy**
 - Replace page which will not be used for longest time
-Assume:
-- No. of frames = 3 (all empty Initially)
-- Page reference sequence: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+- Assume:
+	- No. of frames = 3 (all empty Initially)
+	- Page reference sequence: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
 
 ```
 M.M
@@ -1834,22 +1839,30 @@ Hit Ration = 10/12
 - If it is a single-user, single-tasking system, it's simple - all the frames belong to the user's process
 1. Equal Allocation
 2. Proportional Allocation
+
+---
 ### New EMAT Formula (with Page Fault)
 
-Effective Memory Access Time Formula (with Page Fault)
+Effective Memory Access Time Formula (with Page Fault) ⭐
 ```
 E.M.A.T = H*(tₗ + tₘ) + (1-H)(tₗ + tₘ + tnew)
 		                               ↓					
 tnew = (1-p)*tₘ + p*[(1-d)*(PFST with not dirty + d*(PFST with dirty]
 
 tₗ - TLB access time
-tₘ - Memory access tiem
+tₘ - Memory access time
+tnew - average page fault service time.
 H - Hit Ratio
 p - page fault rate
 d - dirty page fraction
 PFST  - Page Fault Service Time
 ```
 
+`tnew` = `(1 − p)*tₘ + p * [(1 − d) * PFST(not dirty) + d * PFST(dirty)]  `
+• `(1 − p)*tₘ` → case when no replacement is needed, simple memory access  
+•` p * (...)` → case when replacement happens  
+• `(1 − d) * PFST(not dirty)` → page swapped out is clean  
+• `d * PFST(dirty)` → page swapped out is dirty and must be written back before loading the new page
 
 ```
       If Page Fault (p)
@@ -1858,18 +1871,18 @@ dirty page (d)    not dirty page(1-d)
 ```
 
 - **Dirty Page:** A memory page that has been modified in RAM but not yet written back to disk.
-
 - **Not Dirty Page (Clean Page):** A page that is either unmodified or already saved to disk.
 
 **Page Fault Service Time**
 ```
-PFST for Not Dirty Page = 
- Page transfer time from disk to Main memory + (tₘ)
+PFST for Not Dirty Page 
+	= Page transfer time from disk to Main memory + (tₘ)
 
-PFST for Dirty Page = 
-Page transfer time from disk to Main memory + Page transfer time from dist to Main Memory  + (tₘ)
+PFST for Dirty Page 
+	= Page transfer time from Main memory to disk + Page transfer time from disk to Main Memory  + (tₘ)
 ```
 
+---
 ### Logical Address in Decimal to Physical Address?
 
 ```
@@ -1910,19 +1923,19 @@ After thrashing, the pages in main memory become **insufficient** to store the r
 ---
 ### File System
 
-**File** -> file is named collection of related information that is recorded on secondary storage
+**File** -> file is ==named collection of related information== that is ==recorded on secondary storage==
 
 **File Attributes**
-- Name, Extension, Size, Date, Author, (Created, Modified & Accessed), (Attributes: Read-only, hidden), Default Program, Security Details
+- ==Name==, ==Extension==, ==Size==, ==Date==, ==Author==, (Created, Modified & Accessed), (Attributes: Read-only, hidden), Default Program, Security Details
 
-**File System** -> Module of OS which manages, controls and organizes files and related structures.
+**File System** -> **Module of OS** which ==manages, controls and organizes files== and related structures.
 
-**Disk Blocks** -> smallest units of data storage on a disk, where files are divided and stored.
-- Two time of Disk Block Formatting
-1. Low Level (Physical) -> when manufactures making track and sectors on Disk
+**Disk Blocks** -> smallest units of data storage on a disk, where files are divided and stored. Two time of Disk Block Formatting:
+1. Low Level (Physical) -> when manufactures making **track** and **sectors** on Disk
 2. High Level (Logical) -> Disk Partition and Making drives, Making blocks
 
 **File Allocation Methods** -> determines how the disk's blocks are assigned to store file data.
+
 1. Contiguous Allocation
 ```
 Secondary Storage (Disk)
@@ -1983,13 +1996,13 @@ Pefromance:
 ---
 ### Unix I-node Structure
 
-The `inode` (index node) is a data structure in a Unix-style file system that describes a file-system object such as a file or a directory.
+The ==`inode` (index node) is a data structure== in a ==Unix-style file system== that ==describes a file-system object such as a file or a directory==.
 
 ```
 Disk Blocks                                 Index   Index
 ┌────┬────┬────┬────┬────┬────┬────┬────┐    ┌───┐  ┌───┐
 │    │    │    │    │    │    │    │    ──── │   |->│   | -> [] }
-└─|──┴──|─┴────┴──|─┴────┴────┴────┴────┘    │   |  └───┘ -> [] } Indeirect Access
+└─|──┴──|─┴────┴──|─┴────┴────┴────┴────┘    │   |  └───┘ -> [] } Indirect Access
   |     |         |                          │   |->┌───┐ -> [] } File blocks
 (  )   (  )       |                          └───┘  │   | -> [] }
 Direct Access   ┌───┐                               └───┘
@@ -1999,7 +2012,7 @@ blocks of file  │   │-> [] } Indirect Access
                 Index
 ```
 
-**Ques:** The index node (1inode) of a Unix-like file system has 12 direct, one single-indirect and one double-indirect pointer. The disk block size is 4 kB, and the disk block addresses 32-bits long. The maximum possible file size is (rounded off to 1 decimal place) ❓
+**Ques:** The **index node (inode)** of a Unix-like file system has 12 direct, one single-indirect and one double-indirect pointer. The disk block size is 4 kB, and the disk block addresses 32-bits long. The maximum possible file size is (rounded off to 1 decimal place) ❓
 **Ans:** 
 ```
 disk block size = 4KB

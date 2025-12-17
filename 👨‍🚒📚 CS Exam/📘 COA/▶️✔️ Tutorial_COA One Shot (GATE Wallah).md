@@ -254,8 +254,8 @@ E = all 1's
 
 
 **In short:**
-- _Implicit normalized_ → hidden (assumed) leading 1.
-- _Explicit (non-implicit) normalized_ → leading 1 is stored in memory.
+- ==_Implicit== normalized_ → hidden (assumed) leading 1.
+- ==_Explicit== (non-implicit) normalized_ → ==leading 1 is stored in memory==.
 
 ##### **Denormalized (Subnormal) Number?** (Optional⭐)
 

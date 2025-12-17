@@ -299,7 +299,8 @@ const port = process.env.PORT || 3000;
 ```
 
 Add `.env` to `.gitignore` to protect sensitive information.
-```.gitignore
+```sh
+#.gitignore
 .env
 ```
 ---
@@ -318,3 +319,60 @@ nodemon index.js
 npm run dev 
 ```
 *Note :* install with `--save-dev` is recommended for project-specific use rather than `-g` option
+
+---
+
+### NPM/React App Find and Stop
+
+##### **Stop npm / React App (Windows)**
+
+**Normal Stop**
+```sh
+Ctrl + C
+```
+
+**If not stopping**
+```sh
+Ctrl + Break
+```
+
+**Kill App by Port**
+```sh
+npx kill-port 3000
+```
+
+##### **Find Port Being Used**
+
+**List all active ports**
+```sh
+netstat -ano
+```
+
+**Filter specific port**
+```sh
+netstat -ano | findstr :3000
+```
+
+**Find any listening ports**
+```sh
+netstat -ano | findstr "LISTENING"
+```
+
+**List only Node processes**
+```sh
+tasklist | findstr node
+```
+
+##### **Kill App by PID**
+
+**From result of**
+```sh
+netstat -ano | findstr :3000 
+
+# PID appears at last column 
+```
+ 
+**Then run**
+```sh
+taskkill /PID <PID> /F
+```

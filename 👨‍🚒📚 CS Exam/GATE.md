@@ -72,7 +72,7 @@
 - BST and AVL properties, rotations  
 - Generic properties of data structures: time–space trade-offs
 
-Application-Based  
+**Application-Based**  
 - Trace C code and predict exact output (arrays, pointers arithmetic, double pointers)  
 - Predict recursion call pattern and final returned value  
 - Determine final linked list state after insert/delete operations  
@@ -81,7 +81,7 @@ Application-Based
 - Predict heap state after series of insert/delete-max operations  
 - Determine whether BST / AVL property is satisfied after updates
 
-Numerical / Complexity-Based  
+**Numerical / Complexity-Based**  
 - Time and space complexity of loops, nested loops, recursion  
 - Recurrence solving for recursive programs  
 - Maximum/minimum number of nodes/levels in BST/heap/complete tree  
@@ -90,7 +90,7 @@ Numerical / Complexity-Based
 - Amortized complexity of dynamic array / heap operations  
 - Cost of operations in union-find, tries, segment tree (when applicable)
 
-Implementation-Logic Based (high scoring and frequently asked)  
+**Implementation-Logic Based (high scoring and frequently asked)**  
 - Formulate recursive logic for tree + graph traversal  
 - Convert iterative code to recursive and vice-versa  
 - Write or reason through pointer-based code for linked list reversal, loop detection, merging  
