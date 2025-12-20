@@ -1,5 +1,5 @@
 
-# Number System and Base Conversion
+### Number System and Base Conversion
 
 
 ##### **1. From any base to Decimal (Base-10)**
@@ -56,7 +56,7 @@ Final:
 ```
 
 
-If the ==**decimal number is a float**==, you convert **integer part** and **fractional part** separately: ⭐
+If the ==**decimal number is a float**==, you convert ==**integer part** and **fractional part** separately==: ⭐
 
 **Steps:**
 
@@ -85,7 +85,6 @@ Final:
 (25.625)₁₀ = (11001.101)₂
 ```
 
-
 ##### **4. From One Non-Decimal Base to Another**
 
 - Convert to decimal first, then to target base.
@@ -101,7 +100,7 @@ Final:
 
 ---
 
-# Boolean Algebra Laws
+### Boolean Algebra Laws
 
 **1. Identity Laws**
 - `A + 0` = `A`    
@@ -111,7 +110,7 @@ Final:
 - `A + 1` = `1`
 -  `A ⋅ 0` = `0`
     
-**3. Idempotent Laws**
+**3. ==Idempotent Laws**==
 - `A + A` = `A`
 - `A ⋅ A` = `A`
     
@@ -130,7 +129,7 @@ Final:
 - `A + B` = `B + A`
 - `A ⋅ B` = `B ⋅ A`
     
-**8. Associative Laws**
+**8. Associative Laws** ⭐
 - `( A + B ) + C` = `A + (B + C)`
 - `( A ⋅ B ) ⋅ C` = `A . (B . C)
 
@@ -157,7 +156,6 @@ Final:
 **1. Distributive Laws**
 
 - (a) $A(B+C) = AB + AC$
-
 - (b) $(A+B)(A+C) = A + BC$
 
 $$\begin{aligned} (A + B)(A + C) &= A(A + C) + B(A + C) \\ &= A + AC + AB + BC \\ &= A + AB + AC + BC \\ &= A (1 + B + C) + BC \\ &= A + BC \end{aligned}$$
@@ -173,23 +171,49 @@ $$\begin{aligned} X + X'Y &= (X + X')(X + Y) \\ &= (1)(X + Y) \\ &= X + Y \end{a
 **3. Absorption Laws**
 
 - (a) $A+AB = A(1+B) = A(1) =A$ 
-
 - (b) $A(A+B)=AA+AB=A+AB=A$ 
 
 
 **4. De Morgan’s Laws**
 
 - (a) $(A+B)′=A′B′$
-
 - (b) $(AB)′=A′+B′$
 
 
 ---
 
-# 2'S Complement, BCD Code,  XS-3 Code, Gray Code
+### 2'S Complement, BCD Code,  XS-3 Code, Gray Code
 
+##### **n’s Complement**
 
-### 2’s Complement
+- For a number system with base **n**, **n’s complement** of a number is obtained by  
+    **subtracting the number from nᵏ**, where **k = number of digits**.
+    
+- **Formula**  
+    n’s complement of X = nᵏ − X
+    
+- **Types**
+    - Binary (n = 2) → **2’s complement**
+    - Decimal (n = 10) → **10’s complement**
+    - Octal (n = 8) → **8’s complement**
+    - Hexadecimal (n = 16) → **16’s complement**
+        
+- **Relation with (n−1)’s complement**   ⭐
+    ==n’s complement = (n−1)’s complement + 1==
+    
+- **Use**
+    - Subtraction using addition
+    - Representation of negative numbers
+        
+- **Example (Decimal)**  
+    Number = 275  
+    10’s complement = 1000 − 275 = 725
+    
+- **Example (Binary)**  
+    Number = 1010  
+    2’s complement = 0101 + 1 = 0110
+
+##### **2’s Complement**
 
 **Definition:** Binary number ==representation for signed integers== where negative numbers are obtained by taking the 1’s complement and adding 1.  
 **Use:** ==Simplifies subtraction== in digital systems.  
@@ -206,7 +230,7 @@ Example (–5 in 8-bit):
 +1   = 11111011  → –5
 ```
 
-### Excess-3 Code
+##### **1. Excess-3 Code**
 
 **Definition:** A self-complementary decimal code obtained by adding 3 to each decimal digit and converting to 4-bit binary.  
 **Use:** Error detection, decimal calculations.
@@ -226,7 +250,7 @@ Example table:
 |8|1000|1011 (11)|
 |9|1001|1100 (12)|
 
-### BCD (Binary Coded Decimal)
+##### **2. BCD (Binary Coded Decimal)**
 
 **Definition:** Represents each decimal digit separately in binary (4 bits per digit).  
 **Use:** Digital displays, calculators.
@@ -238,7 +262,7 @@ Example:
 Decimal 59 = (0101 1001) in BCD
 ```
 
-### Gray Code
+##### **3. Gray Code**
 
 **Definition:** A binary code where consecutive values differ by only 1 bit (minimizes errors in transitions).  
 **Use:** Position encoders, error reduction.
@@ -261,7 +285,7 @@ Example (3-bit Gray code):
 # Multiplexer & Demultiplexer
 
 
-### Multiplexer (MUX)
+##### **1. Multiplexer (MUX)**
 
 **Definition:**  
 A **Multiplexer** is a combinational circuit that ==selects one input line from multiple inputs and forwards it to a single output line==, based on select lines.
@@ -296,7 +320,7 @@ A **Multiplexer** is a combinational circuit that ==selects one input line from 
 |1|0|I2|
 |1|1|I3|
 
-### Demultiplexer (DEMUX)
+##### **2. Demultiplexer (DEMUX)**
 
 **Definition:**  
 A _Demultiplexer_ is a combinational circuit that takes a single input and routes it to one of several output lines, based on select lines.
@@ -346,10 +370,10 @@ IN ──| 1 x 4 |── O1
 
 ---
 
-# Encoder & Decoder
-### Encoder
+### Encoder & Decoder
 
-**Definition:**  
+##### **Encoder**
+
 An _Encoder_ is a combinational circuit that ==converts **2ⁿ input lines** into **n output lines** by ==encoding the active input into binary form.
 
 **Key Points:**
@@ -384,11 +408,9 @@ An _Encoder_ is a combinational circuit that ==converts **2ⁿ input lines** int
 |0|1|0|0|1|0|
 |1|0|0|0|1|1|
 
----
 
-### Decoder
+##### **Decoder**
 
-**Definition:**  
 A _Decoder_ is a combinational circuit that ==converts **n input lines** into **2ⁿ output lines**==, activating only one output for each input combination.
 
 **Key Points:**
@@ -434,10 +456,9 @@ A _Decoder_ is a combinational circuit that ==converts **n input lines** into **
 
 ---
 
-# Latch , Flip-flop and Shift Register
-### Latch
+### Latch , Flip-flop and Shift Register
+### **Latch**
 
-**Definition:**  
 A **Latch** is a level-triggered ==bistable circuit that stores 1 bit of data==. ==Output changes as long as the control signal (Enable) is active==.
 
 **Key Points:**
@@ -469,12 +490,12 @@ A **Latch** is a level-triggered ==bistable circuit that stores 1 bit of data==.
 >**SR latch** → Official/common term in books & PSU exams
 > **RS latch** → Same thing, just order of inputs swapped in naming
 
----
 
-### Flip-Flop
+##### **Flip-Flop**
 
-**Definition:**  
 A **Flip-Flop** is an **edge-triggered bistable circuit** that **==stores 1 bit of data==** and changes state only on a clock edge (rising or falling).
+OR
+A flip-flop is a ==**bistable sequential circuit** that stores **one bit (0 or 1)**==. It ==changes state on a **clock pulse**.==
 
 **Key Points:**
 - **Edge sensitive** (clock controlled)
@@ -505,15 +526,52 @@ A **Flip-Flop** is an **edge-triggered bistable circuit** that **==stores 1 bit 
 |↑|0|0|
 |↑|1|1|
 
----
+##### **1. SR Flip-Flop ==(Set–Reset)**==
 
-### Shift Register
+- Inputs: S (Set), R (Reset)
+- Operation
+    - S=1, R=0 → Set (Q=1)
+    - S=0, R=1 → Reset (Q=0)
+    - S=0, R=0 → No change
+    - ==S=1, R=1 → Invalid state==
+- ==Limitation: Invalid input condition==
+    
 
-**Definition:**  
+##### **2. JK Flip-Flop** ==(**J=Set** and **K=Reset**)== ⭐
+
+- Improvement over SR flip-flop
+- Inputs: J, K
+- Operation
+    - J=1, K=0 → Set
+    - J=0, K=1 → Reset
+    - J=0, K=0 → No change
+    - ==J=1, K=1 → Toggle==
+- ==Advantage: No invalid state==
+    
+
+##### **3. D Flip-Flop ==(Data / Delay)**==
+
+- Input: D
+- Output follows input on clock edge
+- Operation: Q = D
+- Advantage: Simple, widely used
+- Application: Registers, memory elements
+    
+##### **4. T Flip-Flop ==(Toggle)**==
+
+- Input: T
+- Operation
+    - ==T=0 → No change==
+    - ==T=1 → Toggle   == 
+- Application: Counters
+
+
+### **Shift Register**
+
 A **Shift Register** is a group of flip-flops connected in series, used to store and shift data bits left or right under clock control.
 
 **Key Points:**
-- Made using D Flip-Flops
+- ==Made using D Flip-Flops==
 - Modes: SISO, SIPO, PISO, PIPO
 - Used in data transfer, serialization, delay circuits
 
@@ -543,3 +601,65 @@ A **Shift Register** is a group of flip-flops connected in series, used to store
 |Latch|1|Level|Simple data storage|
 |Flip-Flop|1|Edge|Registers, counters|
 |Shift Register|n|Edge (Clock)|Data shift, storage, I/O|
+
+
+---
+
+### Gates
+##### **NAND as Universal Gate** ⭐
+
+- A **universal gate** can implement any logic function
+- NAND gate can form
+    - NOT
+    - AND
+    - OR
+
+- Reason: NAND combinations can generate all basic gates    
+- Advantage: Simplifies hardware design
+
+##### **XOR Gate** ⭐
+
+- Output is HIGH when inputs are **different**
+- Expression: ==A ⊕ B = A'B + AB'==
+- Truth
+    - 0 ⊕ 0 = 0
+    - 0 ⊕ 1 = 1
+    - 1 ⊕ 0 = 1
+    - 1 ⊕ 1 = 0
+        
+- Application
+    - ==Half adder==
+    - Parity generator
+    - Comparator
+        
+
+---
+### Half Adder and Full Adder ⭐
+
+##### **Half Adder**
+
+- Adds **two single-bit inputs**
+- Inputs: A, B
+- Outputs
+    - Sum = A ⊕ B
+    - Carry = A · B
+- Limitation: Cannot handle carry input
+    
+
+##### **Full Adder**
+
+- Adds **three bits** (A, B, Carry-in)
+- Inputs: A, B, Cin
+    
+- Outputs
+    - Sum = A ⊕ B ⊕ Cin
+    - Carry = AB + BCin + ACin
+        
+- Built using
+    - Two Half Adders
+    - One OR gate
+        
+- Application
+    - Multi-bit binary addition
+    - ALU design
+        

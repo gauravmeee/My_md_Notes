@@ -42,7 +42,8 @@
 	    - **Circular** - Managing buffers in computer systems (e.g., keyboard buffer).
 	    - **Deque** - Double-ended scheduling (e.g., job queue in multithreading).
 	    - **Priority Queue** - Task scheduling in operating systems or hospital triage.
-1. **Non-Linear Data Structures**
+
+2. **Non-Linear Data Structures**
     
     - **Trees**
         - **Binary Tree** - Represent hierarchical structures like family trees or folder structures.

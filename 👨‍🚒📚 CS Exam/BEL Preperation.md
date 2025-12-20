@@ -93,27 +93,6 @@ Below is a **corrected, completed, and better-categorized version** of your list
 
 ---
 
-**Digital Electronics**
-
-- Flip-Flops
-    
-    - SR, JK, D, T Flip-Flop
-        
-- NAND as Universal Gate
-    
-- XOR Gate
-    
-- Half Adder
-    
-    - Addition of Two Bits
-        
-- Full Adder
-    
-    - Addition of Three Bits
-        
-
----
-
 **COA (Computer Organization & Architecture)**
 
 - Complements
@@ -207,20 +186,6 @@ Below is a **corrected, completed, and better-categorized version** of your list
     - Inherited Attributes
         
 
----
-
-**Software Engineering**
-
-- Software Components ✅
-    - Control Component ✅
-    - Problem Domain Component ✅
-    - Infrastructure Component ✅
-- Unit Testing ✅
-- Transcendental View of Quality (David Garvin)
-- White-Box Testing ✅
-- Black-Box Testing ✅
-- Software Process Models    
-    - Iterative Waterfall Model (with Feedback Paths)
 
 **Hierarchical Storage System**
 - Online Storage

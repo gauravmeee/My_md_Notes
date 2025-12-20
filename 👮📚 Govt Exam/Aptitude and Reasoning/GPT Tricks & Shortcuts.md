@@ -106,7 +106,7 @@
 	**Now, CI – SI:**
 	- $CI - SI = \left( \frac{2PR}{100} + P \left( \frac{R}{100} \right)^2 \right) - \frac{2PR}{100} = P \left( \frac{R}{100} \right)^2$
 
-**Compound Interest (CI), When Compounding Time Period Changes :**
+**Compound Interest (CI), When Compounding Time Period Changes :** ⭐
 
 - **Formula for Amount:** $A= P\left(1 + \frac{R}{n \times 100} \right)^{nT}$
 - Where:
