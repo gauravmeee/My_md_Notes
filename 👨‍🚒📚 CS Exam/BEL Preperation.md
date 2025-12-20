@@ -5,9 +5,7 @@ Below is a **corrected, completed, and better-categorized version** of your list
 **Programming / DSA / C**
 
 - Deque (Double Ended Queue)
-    
 - Enqueue, Dequeue operations
-    
 - Internal Sorting vs External Sorting
     
 - Parts of C Program Stack Frame

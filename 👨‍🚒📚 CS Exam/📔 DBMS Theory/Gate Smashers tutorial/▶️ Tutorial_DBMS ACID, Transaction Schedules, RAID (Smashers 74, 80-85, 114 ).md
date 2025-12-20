@@ -385,12 +385,12 @@ R(A) W(B) │
 W(A) W(B) ┘
 ```
 
-If the variables differ, the pair is non-conflicting.
+- If the variables differ, the pair is non-conflicting.
 
 **Why Variables Matter**
 
 If one operation works on A and the other on B, they do not interfere.  
-So R(A)–W(B), R(B)–R(A), W(A)–R(B), etc., are all non-conflict pairs.
+So `R(A)–W(B)`,` R(B)–R(A)`, `W(A)–R(B)`, etc., are all non-conflict pairs.
 
 **Method: Swapping Adjacent Non-Conflict Pairs**
 Conflict equivalence is checked by swapping.
@@ -501,7 +501,7 @@ Therefore S is **not conflict-serializable** (cannot be transformed into any ser
 
 **Conflict Equivalence and Serializability**
 
-If a schedule **S** can be converted into another schedule **S'** using only adjacent **non-conflicting swaps**, then **S and S' are conflict equivalent**.  
+If a schedule **S** can be converted into another schedule **S'** using only adjacent **non-conflicting swaps**, then **S and S' are ==conflict equivalent**.  ==
 If such an **S'** exists, it will always be a **serial schedule**, meaning all operations of one transaction appear before the other.
 Thus, whenever conflict equivalence holds, **conflict serializability** also holds. This provides a direct method to test serializability through swapping.
 
@@ -633,7 +633,6 @@ Consistent
 
 # [Lec-85: Why View Serializability is Used | Introduction to View Serializability | DBMS](https://www.youtube.com/watch?v=8LKM_RWeroM)
 
-
 #### Conflict Serializability Failure
 
 The standard approach to determine if a parallel transaction schedule (S) is serializable is by checking for **Conflict Serializability**.
@@ -677,7 +676,7 @@ A cycle means conflict serializability cannot decide; the schedule becomes non-a
 
 When conflict serializability fails, view serializability checks if the schedule matches the input–read dependencies and final writes of some serial order.
 
-**View Equivalence:** Two schedules are **View Equivalent** if they produce the same final result, even if they do not look identical. View equivalence is achieved by checking if the schedule produces the same outcome as _some_ serial schedule.
+**View Equivalence:** Two schedules are ==**View Equivalent**== if they produce the same final result, even if they do not look identical. View equivalence is achieved by checking if the schedule produces the same outcome as _some_ serial schedule.
 
 **Example:**
 ```

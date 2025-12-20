@@ -399,13 +399,59 @@ git commit -m "fix(ui): fix button overlap on mobile"
 git commit -m "feat(ui): add dark mode toggle animation"
 ```
 
-**Good usage tips:**
 
-- Keep **commit messages short and meaningful**.
-    
-- Use **imperative mood** (`add`, `fix`, `update`).
-    
-- Use **scope** when multiple areas exist (`feat(navbar): ...`).
-    
+---
 
-If you want, I can make a **ready-to-use cheat sheet of 10–12 commit types with examples** for daily Git usage. It’s very handy. Do you want me to do that?
+### Miscellaneous
+
+##### **`cherry-pick`**
+- Apply **specific commit(s)** from one branch to another
+- Does **not merge full history**
+- Safe for recovery and selective fixes
+```bash
+git cherry-pick <commit>
+git cherry-pick A B C
+git cherry-pick --abort | --continue | --skip
+```
+- Use when: lost commits, hotfix from other branch
+
+##### **`pull --rebase`**
+- Fetch + replay local commits **on top of remote**
+- Keeps **linear history**
+- Avoids merge commits
+```bash
+git pull --rebase
+git rebase --abort | --continue
+```
+- Use when: clean history, solo work
+- Avoid on shared branches with pushed commits
+
+##### **`checkout`**
+- Switch branches or restore files (legacy command)
+```bash
+git checkout branch
+git checkout <commit>
+git checkout -- file.txt
+```
+- Detached HEAD when checkout commit
+- Modern replacement: `git switch`, `git restore`
+
+##### **`stash`**
+- Temporarily save **uncommitted changes**
+- Working tree becomes clean
+```bash
+git stash
+git stash push -m "msg"
+git stash list
+git stash apply
+git stash pop
+git stash drop
+```
+- Use before: pull, rebase, reset
+- Stash ≠ commit (local only)
+
+##### **strong opinion**
+- **Recovery:** cherry-pick > reset
+- **Daily work:** pull --rebase
+- **Quick context switch:** stash
+- **Modern habit:** prefer switch/restore over checkout

@@ -75,3 +75,44 @@ In Database Management Systems (DBMS), **keys** are crucial for identifying uniq
 
 10. **What are the advantages of using a Foreign Key in a database?**
     - **Answer**: Foreign keys enforce referential integrity, ensuring that relationships between tables remain consistent. It prevents invalid data from being entered and maintains the linkage between related tables.
+
+---
+
+### Referential Integrity Constraints (Notes)
+
+
+- **Referential Integrity (RI)** ensures that a **foreign key (FK)** in one relation **must match an existing primary key (PK)** value in another relation.
+- It maintains **consistency among related tables**.
+    
+**Key Rule**
+- If relation **R2** has a **Foreign Key (FK)** referring to the **Primary Key (PK)** of relation **R1**:
+- Every FK value in **R2** must either be:
+    - **NULL**, or
+    - **Exist as a PK** value in **R1**.
+
+**Possible Operations and Violations** ⭐
+
+| **Operation**           | **Effect on Referential Integrity** | **Reason**                                                                               |
+| ----------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------- |
+| **I. INSERT into R1**   | ✅ **No violation**                  | Adding new PK values in parent table (R1) does not break RI.                             |
+| **II. INSERT into R2**  | ❌ **May violate**                   | If the FK value inserted in R2 does **not exist in R1**, RI is violated.                 |
+| **III. DELETE from R1** | ❌ **May violate**                   | If a PK value is deleted from R1 while it is still **referenced in R2**, RI is violated. |
+| **IV. DELETE from R2**  | ✅ **No violation**                  | Removing child rows (R2) doesn’t affect references.                                      |
+
+**May cause violation:**
+- **II. INSERT into R2**
+- **III. DELETE from R1**
+
+**Handling Violations (Actions)**
+
+- To maintain referential integrity, DBMS can take predefined actions on **DELETE/UPDATE** in parent table (**R1**):
+	- **CASCADE:** Automatically delete or update matching rows in child (R2).
+	- **SET NULL:** Set FK values in child to NULL.
+	- **SET DEFAULT:** Set FK to a default valid value.
+	- **NO ACTION / RESTRICT:** Reject the operation.
+    
+**Summary**
+- Referential integrity ensures **consistency between related tables**.
+- **Violations occur** when:
+    - Inserting invalid FK in child (R2).
+    - Deleting referenced PK in parent (R1).
