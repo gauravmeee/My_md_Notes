@@ -1,6 +1,5 @@
 # Software Testing Notes
 
-
 ### Introduction
 
 - **Software Testing**: The process of ==executing a program== with the ==intent of finding errors==.
@@ -35,14 +34,14 @@
 5. **Test Execution** – Run test cases, log defects.
 6. **Test Closure** – Deliver reports, metrics, lessons learned.
     
-### Levels of Testing
+### Levels of Testing ⭐
 
-1. **Unit Testing**    
+1. **Unit Testing**    ⭐
     - ==Tests individual components (functions, classes).==
     - Usually automated.
     - Done by developers.
         
-2. **Integration Testing**
+2. **Integration Testing** ⭐
     - ==Tests interaction between integrated modules.==
     - Approaches:
         - Big-Bang Integration
@@ -58,8 +57,8 @@
     - ==Done by client/user.==
     - Confirms system meets business needs.
     - Types:
-        - ==Alpha Testing== (internal users).
-        - ==Beta Testing== (external users).
+        - ==Alpha Testing== (internal users). ⭐
+        - ==Beta Testing== (external users). ⭐
 
 ### Types of Testing
 
@@ -76,9 +75,9 @@
 - Regression Testing – ensures old functionality works after changes.
 - Re-testing – validates fixes of specific defects.
 
-### Testing Approaches
+### Two Testing Approaches ⭐
 
-1. **White Box Testing** ==(Structural)==
+1. **White Box Testing** ==(Structural)== ⭐ 
     - ==Internal logic tested.==
     - Techniques:
         - Statement Coverage
@@ -86,7 +85,7 @@
         - Path Coverage
         - Loop Testing
             
-2. **Black Box Testing** ==(Functional)==
+2. **Black Box Testing** ==(Functional)== ⭐
     - Ignores internal code, ==focuses on inputs/outputs.==
     - Techniques:
         - Equivalence Partitioning
@@ -94,7 +93,7 @@
         - ==Decision Table Testing==
         - State Transition Testing
             
-3. **Grey Box Testing**
+3. **Grey Box Testing** ⭐
     - Combines white + black box.
     - Tester has partial knowledge of system.
 
