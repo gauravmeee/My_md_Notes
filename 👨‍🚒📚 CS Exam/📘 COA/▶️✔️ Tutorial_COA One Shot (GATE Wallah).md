@@ -181,6 +181,8 @@ Mantissa Stored M = xxxxx
 ┌────────┬─────────┬─────────┐
 │  1 bit │ 8 bits  │ 23 bits |
 └────────┴─────────┴─────────┘
+   S         E          M
+   
 bias = 127
 Value range (Exponent) = 1 to 254 ⭐
 ```
@@ -191,10 +193,34 @@ Value range (Exponent) = 1 to 254 ⭐
 ┌────────┬─────────┬─────────┐
 │  1 bit │ 11 bits │ 52 bits |
 └────────┴─────────┴─────────┘
+   S         E          M
+   
 bias = 1023
 Value range (Exponent) = 1 to 2046 ⭐
 ```
 
+
+
+##### **Biasing in Floating-point representation**
+
+If the number is **unsigned**:
+- **8-bit:** $(0)$ to $(2^8 - 1)$ => $0$ to $255$
+- **11-bit:** $(0)$ to $(2^{11} - 1)$ => $0$ to $2047$
+
+For **signed numbers** / **two’s complement** (one bit for sign):
+- **8-bit signed:** $(-2^{7})$ to $(2^{7}-1)$ => $-128$ to $127$
+- **11-bit signed:** $(-2^{10})$ to $(2^{10}-1)$ => $-1024$ to $1023$
+
+**How bias works in floating-point representation:**
+- **8-bit exponent:** possible values : $(0)$ to $(2^8-1)$ => $0$ to $255$
+    - Bias = 127, $(E - \text{bias})$ => $(0-127)$ to $(255-127)$ => $-127$ to  $128$
+        
+- **11-bit exponent:** possible values $(0)$ to $(2^{11}-1)$ => $0$ to $2047$ 
+    - Bias = 1023, $(E - \text{bias})$ => $(0-1023)$ to $(2047-1023)$ => $-1023$ to $1024$
+        
+**Memory tip:** Bias just shifts the exponent range so it can represent negative and positive powers of 2.
+
+s
 ##### **Single Precision Representation**
 
 Special Numbers
@@ -203,16 +229,17 @@ E = all 0's
 or
 E = all 1's
 ```
- 
-| S   | E                 | M         | Number             | Example for Single Precision       |
-| --- | ----------------- | --------- | ------------------ | ---------------------------------- |
-| 0   | 00000000          | 000...0   | +0                 | (-1)^0 × 0.0 × 2^(1−127)           |
-| 1   | 00000000          | 000...0   | -0                 | (-1)^1 × 0.0 × 2^(1−127)           |
-| 0   | 11111111          | 000...0   | +∞                 | (-1)^0 × ∞                         |
-| 1   | 11111111          | 000...0   | -∞                 | (-1)^1 × ∞                         |
-| 0/1 | 11111111          | M ≠ 0...0 | Not a Number (NaN) | (-1)^S × (1.M) × 2^(255−127) → NaN |
-| 0/1 | 00000000          | M ≠ 0...0 | Denormalized       | (-1)^S × (0.M) × 2^(1−127)         |
-| 0/1 | 0...0 < E < 1...1 | x...x     | Normalized ⭐       | (-1)^S × (1.M) × 2^(E−127)         |
+
+
+| S   | E                 | M         | 0.M /1.M | Number             | Example for Single Precision                     |
+| --- | ----------------- | --------- | -------- | ------------------ | ------------------------------------------------ |
+| 0   | 00000000          | 000...0   | 1.M      | +0                 | $(-1)^0 \times 0.0 \times 2^{(1-127)}$           |
+| 1   | 00000000          | 000...0   | 1.M      | -0                 | $(-1)^1 \times  0.0 \times 2^{(1−127)}$          |
+| 0   | 11111111          | 000...0   | 1.M      | +∞                 | $(-1)^0 \times ∞$                                |
+| 1   | 11111111          | 000...0   | 1.M      | -∞                 | $(-1)^1 \times ∞$                                |
+| 0/1 | 11111111          | M ≠ 0...0 | 1.M      | Not a Number (NaN) | $(-1)^S \times (1.M) \times 2^{(255−127)}$ → NaN |
+| 0/1 | 00000000          | M ≠ 0...0 | ==0.M==  | ==Denormalized==   | $(-1)^S \times (0.M) \times 2^{(1−127)}$         |
+| 0/1 | 0...0 < E < 1...1 | x...x     | 1.M      | Normalized ⭐       | $(-1)^S \times (1.M) \times 2^{(E−127)}$         |
 
 - Bias = **127** (single precision)
 - Exponent = all 1s
@@ -226,15 +253,15 @@ E = all 1's
 - 0 < Exponent < all 1s (use **1.M**)
     - Any M → **Normalized****
 
-**Summary**
+**Summary** ⭐
 
-| S   | E                                 | M           | Number              |
-| --- | --------------------------------- | ----------- | ------------------- |
-| 0/1 | all 0's                           | all 0's     | +0 / -0             |
-| 0/1 | all 1's                           | all 0's     | +∞ / -∞             |
-| 0/1 | all 0's                           | M ≠ all 0's | Denormalized        |
-| 0/1 | all 1's                           | M ≠ all 0's | Not a Number (NaN)  |
-| 0/1 | Not all 0's<br>and<br>Not all 1's | any         | Implicit Normalized |
+| S   | E                                 | 0.M /1.M | M           | Number              |
+| --- | --------------------------------- | -------- | ----------- | ------------------- |
+| 0/1 | all 0's                           | 1.M      | all 0's     | +0 / -0             |
+| 0/1 | all 1's                           | 1.M      | all 0's     | +∞ / -∞             |
+| 0/1 | all 0's                           | ==0.M==  | M ≠ all 0's | Denormalized        |
+| 0/1 | all 1's                           | 1.M      | M ≠ all 0's | Not a Number (NaN)  |
+| 0/1 | Not all 0's<br>and<br>Not all 1's | 1.M      | any         | Implicit Normalized |
 
 - **Normal Case**: Numbers are stored as **implicitly normalized** (leading 1 is hidden).
 - **Very Small Numbers**: Stored as **denormalized** (leading 0, reduced precision).
@@ -259,20 +286,20 @@ E = all 1's
 
 ##### **Denormalized (Subnormal) Number?** (Optional⭐)
 
-A **denormalized** (also called **subnormal**) number is a **very small non-zero number** that cannot be represented in the _normalized_ (implicit) format — because the exponent would have to go below its minimum value.
+A ==**denormalized**== (also called ==**subnormal**==) number is a ==**very small non-zero number** that cannot be represented in the _normalized_ (implicit) format== — because the exponent would have to go below its minimum value.
 
 **Why It Exists**
 - In normalized form, exponent starts from `Emin = 1` (not 0).
-- But what if you need to represent numbers **smaller** than `2^(-126)` (for single precision)?
+- But what if you need to represent numbers ==**smaller** than `2^(-126)`== (for single precision)?
 - Denormalized numbers allow that — by **removing the implicit 1** and **fixing the exponent** to its smallest possible value.
 - This creates a **smooth, gradual transition** from the smallest normalized number down to **zero**.
 
 **How It Works**
 
-|Type|Exponent bits|Hidden bit|Formula|Range|
-|---|---|---|---|---|
-|**Normalized**|`E ≠ 0, E ≠ all 1s`|1 (implicit)|`(-1)^S × (1.M) × 2^(E−Bias)`|`≈ 2^(−126)` to `≈ 2^(+127)`|
-|**Denormalized**|`E = 0`|0 (no implicit 1)|`(-1)^S × (0.M) × 2^(1−Bias)`|`≈ 0` to `≈ 2^(−126)`|
+| Type             | Exponent bits       | Hidden bit        | Formula                       | Range                        |
+| ---------------- | ------------------- | ----------------- | ----------------------------- | ---------------------------- |
+| **Normalized**   | `E ≠ 0, E ≠ all 1s` | 1 (implicit)      | `(-1)^S × (1.M) × 2^(E−Bias)` | `≈ 2^(−126)` to `≈ 2^(+127)` |
+| **Denormalized** | `E = 0`             | 0 (no implicit 1) | `(-1)^S × (0.M) × 2^(1−Bias)` | `≈ 0` to `≈ 2^(−126)`        |
 
  **Example (Single Precision)**
 
