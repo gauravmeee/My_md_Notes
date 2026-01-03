@@ -71,31 +71,36 @@ Formula to Get value back if Biasing done in format
 **Ans:** `(-1)^0` x `0.10110` x `2^[6-8]`
 
 
----
-
-##
 
 ---
-
-## 
-
-
 ---
+# Interrupt
 
-## 
+
+## [I/O Interface in Computer Organization](https://www.youtube.com/watch?v=PM728r4oGcE&list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX&index=61&pp=iAQB)
 
 
 ---
 
-##
+## [Interrupts in 8085 microprocessor | Types of Interrupts in Computer Organization](https://www.youtube.com/watch?v=1aG3aFEKxyA&list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX&index=62&pp=iAQB)
 
 ---
 
-##
+
+## [Daisy Chaining in Priority Interrupt | Priority Based Interrupt in I/O Organization](https://www.youtube.com/watch?v=QvSmbkcmff0&list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX&index=63&pp=iAQB) ⭐
+
 
 ---
 
-##
+## [Parallel priority interrupt | I/O organization](https://www.youtube.com/watch?v=dXOH3Czy5aw&list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX&index=64&pp=iAQB)
+
+---
+
+## [Question on Interrupt Handling(I/O organization) | Computer Organization | UGC NTA NET June 2021](https://www.youtube.com/watch?v=-IlIVW1F5dw&list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX&index=65&pp=iAQB)
+
+---
+
+## [Question on DMA (Direct Memory Access) | Input/Output Organization| COA | UGC NTA NET June 2021](https://www.youtube.com/watch?v=qhbgkyi_fbw&list=PLxCzCOWd7aiHMonh3G6QNKq53C6oNXGrX&index=66&pp=iAQB)
 
 ---
 
