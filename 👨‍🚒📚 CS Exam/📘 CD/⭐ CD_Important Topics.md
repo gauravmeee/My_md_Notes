@@ -148,12 +148,12 @@ int a = b + 5;
 
 **LL Parsers Subtypes**
 
-|**Type**|**Full Form / Explanation**|
-|---|---|
-|**LL(1)**|Left-to-right scan, Leftmost derivation with **1 lookahead** symbol|
-|**LL(k)**|Left-to-right scan, Leftmost derivation with **k lookahead** symbols|
-|**Recursive Descent**|Manually written parser, uses recursive functions for each non-terminal (LL(k))|
-|**Predictive Parser**|Non-recursive LL(1) parser using a parsing table (no backtracking)|
+| **Type**              | **Full Form / Explanation**                                                     |
+| --------------------- | ------------------------------------------------------------------------------- |
+| **LL(1)**             | Left-to-right scan, Leftmost derivation with **1 lookahead** symbol             |
+| **LL(k)**             | Left-to-right scan, Leftmost derivation with **k lookahead** symbols            |
+| **Recursive Descent** | Manually written parser, uses recursive functions for each non-terminal (LL(k)) |
+| **Predictive Parser** | Non-recursive LL(1) parser using a parsing table (no backtracking)              |
 
 
 ##### **2. Bottom-Up Parsers**

@@ -72,14 +72,14 @@
 		- [[#Write Through (No Write Allocate)]]
 		- [[#Write Back (Write Allocate)]]
 	- [[#Cache Mapping]]
-	- [[#Direct Mapping ⭐⭐]]
-		- [[#Checking Hit/Miss in Direct Mapping]]
-	- [[#Set Associative Mapping]]
-		- [[#Checking Hit/Miss in Set Associative Mapping]]
-	- [[#Fully Associative Mapping]]
-		- [[#Checking hit/miss in Fully Associative Mapping]]
-	- [[#Comparisons of Different Mapping Techniques]]
-	- [[#Transition From Direct to Fully Associative Mapping]]
+		- [[#Direct Mapping ⭐⭐]]
+			- [[#Checking Hit/Miss in Direct Mapping]]
+		- [[#Set Associative Mapping]]
+			- [[#Checking Hit/Miss in Set Associative Mapping]]
+		- [[#Fully Associative Mapping]]
+			- [[#Checking hit/miss in Fully Associative Mapping]]
+		- [[#Comparisons of Different Mapping Techniques]]
+		- [[#Transition From Direct to Fully Associative Mapping]]
 	- [[#Cache Block Replacement]]
 	- [[#Cache Miss Penalty]]
 	- [[#Types of Cache Miss]]
@@ -1493,7 +1493,7 @@ or equivalently,
 	- ==Complex design==
 
 
-##### **Ques.** Consider a device operating on 2MBPS speed and transferring the data to memory using cycle stealing mode of DMA. If it takes 2 microseconds to transfer 16 bytes data to memory when it is ready/prepared. Then percentage of time CPU is blocked due to DMA is? Then percentage of time CPU is blocked due to DMA is?
+###### **Ques.** Consider a device operating on 2MBPS speed and transferring the data to memory using cycle stealing mode of DMA. If it takes 2 microseconds to transfer 16 bytes data to memory when it is ready/prepared. Then percentage of time CPU is blocked due to DMA is? Then percentage of time CPU is blocked due to DMA is?
 
 **Ans.**
 ```
@@ -1908,7 +1908,7 @@ Tavg = [ H * tcm ] + [ (1 - H) * (tcm + tmm) ]
 > In GATE, both interpretations (simultaneous or hierarchical) are generally accepted.
 > In **DRDO / ISRO** type exams, **simultaneous** is usually considered the default method.
 
-##### **Cache Write Policies**
+##### **Cache Write Policies** ⭐⭐⭐
 
 **Read**
 - On a cache miss → the block is **always copied from main memory to cache**.
@@ -1930,12 +1930,11 @@ Tavg = [ H * tcm ] + [ (1 - H) * (tcm + tmm) ]
 	    - A **Dirty Bit** is used:
         - Set = 1 → block in cache is updated but not yet written to main memory    
 	    - When the dirty block is replaced, its updated content is written back to main memory
-- 
-	- ==**Write Allocate**== → Typically used with **Write Allocate** policy
-	    
+	- ==**Write Allocate**== → On a write miss, the block is brought into cache and then written 
+
 
 **Doubt:** How can a write process result in a miss? We just need to write, not find.
-->  A write miss occurs when the block to be written is **not present in cache**. The cache must be checked first; if absent, it’s a miss.
+- **Ans:** A write miss occurs when the block to be written is **not present in cache**. The cache must be checked first; if absent, it’s a miss.
 
 ##### **Write Through (No Write Allocate)**
 
@@ -1961,16 +1960,16 @@ Tavg = [ H * tcm ] + [ (1 - H) * (tcm + tmm) ]
           Read                       Write 
         ⬋     ⬊                 ⬋            ⬊
      Hit       Miss          Hit               Miss 
-     ⬇           ⬇             ⬇                 ⬇ 
+     ⬇           ⬇              ⬋     ⬊                  ⬇ 
  Take from   Read from      Write in Cache      Bring block from
    Cache     Main Memory         +            Main Memory into Cache
                  +            Mark Dirty=1            +
           If Replace Block    ⭐(Write Back)   Update in Cache 
           is Dirty: Write Back                  i.e. write hit
-          Else: Replace Directly            ⭐ (write allocate)
+          Else: Replace Directly ⭐          ⭐ (write allocate)
 ```
 
-##### **Cache Mapping**
+### Cache Mapping
 
 CPU generates a **main memory address** for every memory access. Cache stores a subset of main memory for faster access. To locate data in cache, we use **mapping techniques**:
 
@@ -1979,9 +1978,9 @@ CPU generates a **main memory address** for every memory access. Cache stores a 
 3. **Fully Associative Mapping**
     
 
-##### **Direct Mapping** ⭐⭐
+##### **1. Direct Mapping** ⭐⭐
 
-- Each **block of main memory** maps to **exactly one cache line**.    
+- Each **block of main memory** maps to exactly **one cache line (block no.)**.    
 - Formula for mapping:
 
 ```
@@ -1992,8 +1991,8 @@ or simply,
 Cache block No. = (Main memory block no.) % (No. of blocks in cache)
 ```
 
+
 - If a CPU wants data from a memory block:
-    
     1. Calculate the cache line.
     2. Check the **tag** stored in cache.
     3. If it matches → **hit**, else → **miss**.
@@ -2018,8 +2017,8 @@ Memory 7 → Cache 3
 - When a new block comes that maps to an already occupied line, the old block is **replaced**. This is called a **conflict miss**.
 - This simple replacement policy keeps hardware simple but can cause frequent **replacements** if multiple blocks compete for the same line.
 
-- **Problem:** Multiple memory blocks map to the same cache line.  
-Solution: Use a **Tag field** to identify which memory block is stored.
+**Problem:** Multiple memory blocks map to the same cache line.  
+- **Solution:** Use a **Tag field** to identify which memory block is stored.
 
 **Need for Tag Bit**
 
@@ -2039,7 +2038,7 @@ Solution: Use a **Tag field** to identify which memory block is stored.
 		                           5  │     │ 
 		                              ├─────┤
 		                           6  │     │	                    
-		                              ├─────┤                            	                           7  │     │                
+		                              ├─────┤                            	                                          7  │     │                
 		                              └─────┘
 ```
 
@@ -2078,43 +2077,63 @@ Now divide into three parts for cache lookup:
 ┌─────────┬──────────────┬──────────────┐
 │  Tag    │ Cache Line   │ Byte Offset  │
 └─────────┴──────────────┴──────────────┘
-          <-- log2(Cache Memory Size) --> ⭐
+          <-- log₂(Cache Memory Size) --> ⭐
 ```
 
 
-**Formulas**
+###### **Formulas :**
 
-1. **Byte Offset Bits** ⭐
+**1. Byte Offset Bits** ⭐
 ```
+= Offset Bits
 = log₂(Block Size) 
 ```
 - Byte offset specifies which byte within a memory block is being accessed.
 - Ex: For a 16-byte block, 4 byte offset bits are needed because 2⁴ = 16.
 
-2. **Main Memory Block Bits**
+**2. Block Bits**
+
+- Main Memory Block Bits
 ```
+= Main Memory Block Bits
 = Address Bits – Offset Bits
+= log₂(Memory Size / Block Size)
+= log₂(No. of Main Memory Blocks)
 ```
 
-
-3. **Cache Line (Block) Bits** ⭐
+- Cache Line (Block) Bits ⭐
 ```
-= log₂(Number of Cache Blocks)
+= Cache Line Bits
+= Cache Line Bits - Offset Bits
 = log₂(Cache Size / Block Size)
+= log₂(Number of Cache Blocks)
 ```
 
-4. **Cache Memory Address Bits**
+**3. Address Bits**
+
+- Main Memory Address Bits
 ```
-= log₂(Cache Size)
-= log₂(No. of Cache Blocks × Block Size)
+= Main Memory Address Bits
+= Main Memory Block Bits + Byte Offset Bits
+= log₂(No. of Main Memory Blocks × Block Size)
+= log₂(Main Memory Size)
+```
+
+- Cache Memory Address Bits
+```
+= Cache Memory Address Bits
 = Cache Line Bits + Byte Offset Bits
+= log₂(No. of Cache Blocks × Block Size)
+= log₂(Cache Size)
 ```
 
-5. **Tag Bits** ⭐
+**4. Tag Bits** ⭐
 ```
-= (Main Memory Address Bits) – (Cache Line Bits + Byte Offset Bits)
+= Tag Bits
+= Main Memory Address Bits - Cache Memory Address Bits
 = log₂(Memory Size) – log₂(Cache Size)
 = log₂(Memory Size / Cache Size)
+= log₂(No. of Main Memory Blocks / No. of Cache Blocks)
 ```
 
 
@@ -2131,13 +2150,13 @@ Tag Directory Size = (No. of Cache Blocks) × (Tag + Extra bits)
 - **Address Division**: Tag + Cache Line + Offset.
 - **Tag**: Identifies which block is in cache.
 - **Formulas**:
-    - Offset = log2(Block Size)
-    - Cache Line = log2(Cache Blocks)
-    - Tag = log2(Memory Size / Cache Size)
-    - Tag Directory = Blocks × (Tag + Extra Bits)
+    - Offset = `log2(Block Size)`
+    - Cache Line = `log2(Cache Blocks)`
+    - Tag = `log2(Memory Size / Cache Size)`
+    - Tag Directory = `Blocks × (Tag + Extra Bits)`
 
 
-##### **Ques.** 
+###### **Ques.** 
 ```
 Block Size = 16 bytes
 Size of Cache memory = 32KB
@@ -2193,33 +2212,33 @@ Ans:
 4. Tag Directory size? -> 2^11 * 18
 
 
-##### **Checking Hit/Miss in Direct Mapping**
+###### ==**Checking Hit/Miss in Direct Mapping**==
 
-1.  CPU generates an address of main memory  
+1. CPU generates an address of main memory  
 2. Main memory address is sent to cache memory  
 3. Cache memory uses direct mapping to divide main memory = `[Tag | Cache Line | Byte Offset]`  
-4. From the address, we get the cache line (block) to which it maps  
-5. In that cache line, the stored tag is read  
-6. The stored tag is compared with the tag from the CPU-generated address  
+4. From the address, ==we get the cache line (block) to which it maps== 
+5. ==In that cache line, the stored tag is read==  
+6. The ==stored tag is compared with the tag from the CPU-generated== address  
 7. If equal → **hit**, else → **miss**
-
 
 ```
 Main Memory Address
 ┌─────┬────────────┬─────────────┐
 │ Tag │ Cache Line │ Byte Offset │
 └─────┴────────────┴─────────────┘
-    |          |                         ┌────────┐
-    |          └----------------------→  │ Cache  │
-    |           ┌-------------------[Tag]│  Line  │
-    |           |                        ├────────┤
-    |           |                        ├────────┤
-    ↓           ↓                        └────────┘
+    |          |                        ┌────────┐
+    |          └----------------------→ │ Cache  │
+    |          ┌-------------------[Tag]│  Line  │
+    |          |                        ├────────┤
+    |          |                        ├────────┤
+    ↓          ↓                        └────────┘
          [ Compare ]
 ```
-##### **Problem With Direct Mapping**
 
-In **direct-mapped cache**, each memory block has **exactly one cache line**. If **two blocks map to the same line** and are accessed frequently, they **continuously replace each other**, causing a **conflict miss** (also called **thrashing**).
+###### ==**Problem With Direct Mapping**==
+
+In **direct-mapped cache**, each memory block has **exactly one cache line**. If **two blocks map to the same line** and are accessed frequently, they **continuously replace each other**, causing a **conflict miss** ==(also called **thrashing**)==.
 
 Example (access pattern 1,5,1,5…):
 
@@ -2238,9 +2257,9 @@ Cache Line X:
 
 Solution – Set Associative Cache
 
-##### **Set Associative Mapping**
+##### **2. Set Associative Mapping** ⭐
 
-- Cache is divided into **sets**, each with **multiple lines (ways)**.
+- ==Cache is divided into **sets**==, each with **multiple lines (ways)**.
 - A memory block maps to a **set**, not a single line.
 - Any line in the set can store the block, reducing conflicts.
 - Example: 2-way set associative cache can hold blocks 1 and 5 in the same set without swapping.
@@ -2315,7 +2334,7 @@ Tag Directory Size = (No. of Cache Blocks) × (Tag + Extra bits)
 ```
 
 
-##### **Ques.** 
+###### **Ques.** 
 ```
 Block Size = 32 bytes
 Size of Cache memory = 128KB
@@ -2362,7 +2381,7 @@ Ans:
                = 17 x (2^12) bits
 ```
 
-##### **Ques.** The width of the physical address on a machine is 38 bits. The width of the tag field in a 64 KB 16-ways set associative cache is `____________`
+###### **Ques.** The width of the physical address on a machine is 38 bits. The width of the tag field in a 64 KB 16-ways set associative cache is `____________`
 
 **Ans:**
 ```
@@ -2386,7 +2405,7 @@ Ans:
 Ans: 26 bits
 ```
 
-##### **Checking Hit/Miss in Set Associative Mapping**
+###### ==**Checking Hit/Miss in Set Associative Mapping**==
 
 1. In set associative mapping, the main memory address is divided into 3 parts: `Tag`, `Set`, and `Byte Offset`.
 2. The `Set` field tells which set the given address maps to (comparison is only done within that set).
@@ -2411,7 +2430,7 @@ Main Memory address
 ```
 
 
-##### **Fully Associative Mapping**
+##### **3. Fully Associative Mapping**
 
 ```
     Tag0  Tag1   .n.... Tan
@@ -2518,7 +2537,7 @@ Fully Associative Mapping
 | Index | Fully  | Direct |
 | Tag   | Direct | Fully  |
 
-##### **Ques.**
+###### **Ques.**
 ```
 Cache Memory Size = 256 KB
 Block Size = 16 B
@@ -2718,7 +2737,7 @@ Prbability of access
 2. Second Level:  (1-H1)H2
 3. Third Level:   (1-H1)(1-H2)
 ```
-##### **Ques.**
+###### **Ques.**
 ```
 t1 = 10 ns
 t2 = 50 ns
@@ -2738,7 +2757,7 @@ tavg = 0.8(10) + 0.2( 0.9(10+50) + 0.1(10+50+500))
      = 30 ns
 ```
 
-##### **Ques.**
+###### **Ques.**
 ```
 t1 = 10ns
 t2 = 50ns
@@ -2902,7 +2921,7 @@ Average Rotational Latency = (1 Rotation Time) / 2
 1 Sector Transfer Time = (1 Rotation Time) / (Number of Sectors per Track)
 ```
 
-##### **Ques.**
+###### **Ques.**
 ```
 Seek Time = 10 ms
 Speed = 6000 RPM
@@ -2942,7 +2961,7 @@ where,
 1 Track Capacity = Number of Sectors per Track × 1 Sector Capacity
 ```
 
-##### **Ques.**
+###### **Ques.**
 ```
 1 Rotation Time = 10 ms
 Sectors per Track = 1K = 1000
@@ -3182,7 +3201,7 @@ Throughput ≈ 1 / tp
 ```
 - If ideal condition, maximum, or n is not given → assume ideal condition.
 
-##### **Ques.** Consider a non-pipelined processor with a clock rate of `100` megahertz and average cycles per instruction of `4`. The same processor is upgraded to pipelined processor with `6` stages; but due to the internal pipeline delay, the clock speed is reduced to `75` megahertz. Assume that there are no stalls in the pipeline.
+###### **Ques.** Consider a non-pipelined processor with a clock rate of `100` megahertz and average cycles per instruction of `4`. The same processor is upgraded to pipelined processor with `6` stages; but due to the internal pipeline delay, the clock speed is reduced to `75` megahertz. Assume that there are no stalls in the pipeline.
 
 ```
 1. The speed up achieved in this pipelined processor for 100 inputs?
@@ -3322,7 +3341,7 @@ Stalls = Target phase − 1     [default: EX = 4 ⇒ 3 stalls]
 **Note:** Target phase is the stage where it is decided whether to jump or not.  
 If target phase is not specified, take **Execution (EX)** as the default.
 
-##### **Ques.** Consider an instruction pipeline with **5 stages** without any branch prediction: Fetch Instruction **(Fl)**, Decode Instruction **(DI)**, Fetch Operand (**FO)**, Execute Instruction **(El)** and Write Operand **(WC)**. The stage delay for `Fl, DI, FO, El and WO` are `5` ns, `7` ns, `10` ns, `8` ns and `6` ns, respectively. There are intermediate storage buffer after each stage and the delay of each buffer is 1 ns. A program consisting of I2 instructions `I1, I2, I3, ......., I12` is executed in this pipelined processor. Instruction `I4` is only the branch instruction and its branch target is `19`. If the branch is taken during the execution of this program, the time (in ns) needed to complete the program is?
+###### **Ques.** Consider an instruction pipeline with **5 stages** without any branch prediction: Fetch Instruction **(Fl)**, Decode Instruction **(DI)**, Fetch Operand (**FO)**, Execute Instruction **(El)** and Write Operand **(WC)**. The stage delay for `Fl, DI, FO, El and WO` are `5` ns, `7` ns, `10` ns, `8` ns and `6` ns, respectively. There are intermediate storage buffer after each stage and the delay of each buffer is 1 ns. A program consisting of I2 instructions `I1, I2, I3, ......., I12` is executed in this pipelined processor. Instruction `I4` is only the branch instruction and its branch target is `19`. If the branch is taken during the execution of this program, the time (in ns) needed to complete the program is?
 
 **Ans.**
 ```
@@ -3455,7 +3474,7 @@ I2 : R2 <- R4 * R5
 	```
 
 
-##### **Ques.** Consider a pipelined processor with the following 4 stages:
+###### **Ques.** Consider a pipelined processor with the following 4 stages:
 ```
 IF: Instruction Fetch
 EX: Execute
@@ -3490,7 +3509,7 @@ Total stalls due to multi-cycle EX (structural) = 2
 Total cycles = base cycles + extra = 6 + 2 = 8
 ```
 
-##### **Ques.** The instruction pipeline of a RISC processor has the following stages: Instruction Fetch `(IF)`, Instruction Decode `(ID)`, Operand Fetch `(OF)`, Perform Operation `(PO)` and Writeback `(WB)`. The `IF`, `ID`, `OF` and `WB` stages take 1 clock cycle each for every instruction. Consider a sequence of `100` instructions. In the PO stage, `40` instructions take `3` clock cycles each, `35` instructions take `2` clock cycles each, and the remaining `25` instructions take `1` clock cycle each. Assume that there are no data hazards and no control hazards. The number of clock cycles required for completion of execution of the sequence of instruction is `______` ?
+###### **Ques.** The instruction pipeline of a RISC processor has the following stages: Instruction Fetch `(IF)`, Instruction Decode `(ID)`, Operand Fetch `(OF)`, Perform Operation `(PO)` and Writeback `(WB)`. The `IF`, `ID`, `OF` and `WB` stages take 1 clock cycle each for every instruction. Consider a sequence of `100` instructions. In the PO stage, `40` instructions take `3` clock cycles each, `35` instructions take `2` clock cycles each, and the remaining `25` instructions take `1` clock cycle each. Assume that there are no data hazards and no control hazards. The number of clock cycles required for completion of execution of the sequence of instruction is `______` ?
 
 **Ans.**
 ```
@@ -3534,7 +3553,7 @@ Efficiency = 0.8 = Achieved / Max
 - Efficiency decreases due to stalls (extra cycles increasing CPI)
     
 
-##### **Ques.** Consider a pipeline processor with 4 stages `S1` to `S4`. We want to execute the following loop:
+###### **Ques.** Consider a pipeline processor with 4 stages `S1` to `S4`. We want to execute the following loop:
 ```
 for (i=1; i<=1000; i++)
     {I1, I2, I3, I4}
@@ -3698,7 +3717,7 @@ Speedup = Tn / (CPI × Tp)
 Efficiency = 1 / [1 + (stall_freq × stall_cycles)]
 ```
 
-##### **Ques.** Consider a 5-stage instruction pipeline, where all stages are perfectly balanced. Assume that there is no cycle-time overhead of pipelining. When an application is executing on this 5-stage pipeline, the speedup achieved with respect to non-pipelined execution if 25% of the instructions incur 2 pipeline stall cycles is ?
+###### **Ques.** Consider a 5-stage instruction pipeline, where all stages are perfectly balanced. Assume that there is no cycle-time overhead of pipelining. When an application is executing on this 5-stage pipeline, the speedup achieved with respect to non-pipelined execution if 25% of the instructions incur 2 pipeline stall cycles is ?
 
 **Ans.**
 ```

@@ -1,6 +1,8 @@
 
+> updated in crl
 
-# SORTING
+### Sorting Algorithms
+
 ##### **Time and Space Complexity**
 
 
@@ -11,9 +13,9 @@
 | **Selection Sort**    | O(n^2)                    | O(n^2)                      | O(n^2)                   | O(1)                 |
 | **Bubble Sort**       | O(n^2)                    | O(n^2)                      | O(n) ⭐                   | O(1)                 |
 | **Insertion Sort**    | O(n^2)                    | O(n^2)                      | O(n) ⭐                   | O(1)                 |
-| **Quick Sort**        | O(n^2) ⭐                  | O(n * log n)                | O(n * log n)             | O(log n)             |
+| **Quick Sort**        | O(n^2) ⭐                  | O(n * log n)                | O(n * log n)             | O(log n) ⭐           |
 | **Merge Sort**        | O(n * log n)              | O(n * log n)                | O(n * log n)             | O(n)                 |
-| **Heap Sort**         | O(n * log n)              | O(n * log n)                | O(n * log n)             | O(1) ⭐               |
+| **Heap Sort** ⭐       | O(n * log n)              | O(n * log n)                | O(n * log n)             | O(1) ⭐               |
 
 > **Advance Sort :**
 
@@ -27,17 +29,63 @@
 
 ##### **Comparison Sort and Alternatives**
 
-**Fastest Sort : Quick Sort** -> `TC:O(n*logn)`
+> **Fastest Sort : Quick Sort** ->Average `TC:O(n*logn)`
 
->**Comparison Sorting**
+**Comparison Sorting**
+- Quicksort usually has a running time of `n x log(n)`, but is there an algorithm that can sort even faster? In general, this is not possible. ==Most sorting algorithms are comparison sorts==, i.e. they sort a list just by comparing the elements to one another. A ==comparison sort algorithm cannot beat `n x log(n)`== (worst-case) running time, since `n x log(n)` represents the minimum number of comparisons needed to know where to place each element. For more details, you can see these notes (PDF).
 
-Quicksort usually has a running time of `n x log(n)`, but is there an algorithm that can sort even faster? In general, this is not possible. Most sorting algorithms are comparison sorts, i.e. they sort a list just by comparing the elements to one another. A comparison sort algorithm cannot beat `n x log(n)` (worst-case) running time, since `n x log(n)` represents the minimum number of comparisons needed to know where to place each element. For more details, you can see these notes (PDF).
+**Alternative Sorting**
+- Another sorting method, the counting sort, does not require comparison. Instead, you create an integer array whose index range covers the entire range of values in your array to sort. Each time a value occurs in the original array, you increment the counter at that index. At the end, run through your counting array, printing the value of each non-zero valued index that number of times.
 
->**Alternative Sorting**
+### Stable, In-Place and Adaptive 
 
-Another sorting method, the counting sort, does not require comparison. Instead, you create an integer array whose index range covers the entire range of values in your array to sort. Each time a value occurs in the original array, you increment the counter at that index. At the end, run through your counting array, printing the value of each non-zero valued index that number of times.
+**Definition :**
 
-##### **Stable  vs Unstable Sort**
+| Term         | Definition                                                                                                                                                                                                     | Why it matters                                                                                                           |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **Stable**   | If ==two elements compare equal, their original relative order== is preserved after sorting.                                                                                                                   | Important when a list has secondary keys (e.g., sort by *last name* then keep the existing *first‑name* order).          |
+| **In‑place** | The algorithm uses only **O(1)** (or a very small constant) extra memory beyond the input array itself.                                                                                                        | Saves RAM – crucial for huge data sets or memory‑constrained environments.                                               |
+| **Adaptive** | The ==running time improves when the input is already partially ordered==.  Typically the cost is `O(n + f(disorder))` where *disorder* measures how far the list is from sorted (e.g., number of inversions). | Gives near‑linear performance on “almost‑sorted” data, which occurs a lot in real programs (log files, UI tables, etc.). |
+
+**Each Properties Satisfying Sort Algorithms**
+
+| Property     | Algorithms that have it                                                                                         |
+| ------------ | --------------------------------------------------------------------------------------------------------------- |
+| **Stable**   | Insertion, Bubble, Merge (classic), Counting, Radix, Tim Sort, Stable‑Quick Sort (extra memory)                 |
+| **In‑place** | QuickSort, HeapSort, Selection, Shell, Insertion, Bubble, Binary Insertion, (some variants of) Merge (complex)  |
+| **Adaptive** | Insertion, Bubble, Shell, TimSort, Counting/Radix (linear on already sorted keys), Bucket (when data clustered) |
+
+**Sort Algorithms that  satisfy all three properties :**  
+
+| Algorithm                                         | Reason it meets all three                                                                                                                                    |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Insertion Sort**                                | Stable by nature, works in‑place on the original array, and stops early when the input is already (or nearly) sorted (`O(n)` best).                          |
+| **Bubble Sort**                                   | Each pass swaps only adjacent out‑of‑order pairs → stable; uses only a few extra variables → in‑place; terminates when a full pass makes no swap → adaptive. |
+| **Binary Insertion Sort** (stable implementation) | Same as insertion sort, just finds the insertion point with binary search – still stable, in‑place, and adaptive.                                            |
+
+> **Practical tip:** For real‑world code you rarely use plain bubble sort because its constant factors are high. Insertion sort is excellent for small or nearly sorted sub‑arrays (e.g., as the “insertion‑sort fallback” inside TimSort or introsort). If you need a stable, adaptive algorithm on large data and can afford linear extra memory, TimSort is usually the best choice.
+
+
+**Sorting algorithms classified by these properties :**  
+
+| Algorithm                                               | Stable?                                                                          | In‑place?                                                                                          | Adaptive?                                     | Typical time complexity*                          |
+| ------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------- |
+| **Insertion Sort**                                      | ✅                                                                                | ✅                                                                                                  | ✅ (runs in `O(n + inv)`; `inv` = #inversions) | `O(n²)` worst, `O(n)` best                        |
+| **Bubble Sort**                                         | ✅                                                                                | ✅                                                                                                  | ✅ (stops early when no swaps)                 | `O(n²)` worst, `O(n)` best                        |
+| **Binary Insertion Sort**                               | ✅ (if insertion is stable)                                                       | ✅                                                                                                  | ✅ (same adaptivity as plain insertion)        | Same as insertion                                 |
+| **Shell Sort**                                          | ❌ (standard version)                                                             | ✅                                                                                                  | ✅ (faster on partially sorted data)           | `≈ O(n log² n)` depending on gap sequence         |
+| **TimSort** (Python’s/Java’s built‑in sort for objects) | ✅                                                                                | ⚠️ *Not strictly* in‑place – uses a temporary run buffer of size ≤ `n/2` (often `O(n)` worst case) | ✅ (detects runs, merges them)                 | `O(n log n)` worst, `O(n)` best on already sorted |
+| **Merge Sort** (classic top‑down)                       | ✅                                                                                | ❌ (`O(n)` extra array)                                                                             | ❌ (does not gain from presorted input)        | `O(n log n)` always                               |
+| **Bottom‑up Merge Sort with in‑place merging**          | ✅ (possible)                                                                     | ⚠️ *In‑place* variants exist but are complex and slower                                            | ❌ (still `O(n log n)`)                        | `O(n log n)`                                      |
+| ==**QuickSort** ==(Lomuto/Hoare partition)              | ❌ (standard)                                                                     | ✅                                                                                                  | ❌ (doesn’t adapt to order)                    | `O(n log n)` avg, `O(n²)` worst                   |
+| **Random‑pivot QuickSort**                              | ❌                                                                                | ✅                                                                                                  | ❌                                             | Same as QuickSort                                 |
+| **Stable QuickSort** (extra buffer or linked list)      | ✅ (with extra memory)                                                            | ❌ (needs O(n) aux)                                                                                 | ❌                                             | `O(n log n)`                                      |
+| ==**HeapSort**==                                        | ❌                                                                                | ✅                                                                                                  | ❌                                             | `O(n log n)` always                               |
+| **Selection Sort**                                      | ✅ (if you keep equal‑key order when swapping) *but* usually implemented unstable | ✅                                                                                                  | ❌ (always scans whole unsorted part)          | `O(n²)`                                           |
+| **Counting Sort / Radix Sort**                          | ✅                                                                                | ⚠️ *Not in‑place* – needs counting array or buckets (`O(k)` extra)                                 | ✅ (linear on already sorted keys)             | `O(n + k)`                                        |
+| **Bucket Sort**                                         | ✅ (if buckets keep order)                                                        | ⚠️ *Not strictly* in‑place (needs bucket storage)                                                  | ✅ (fast when data already clustered)          | `O(n + k)`                                        |
+
+##### **1. Stable  vs Unstable Sort**
 
 **Stable Sorting:**  If two elements have the same key (equal value), their **relative order** in the original array is preserved in the sorted output.
 
@@ -48,8 +96,7 @@ Array = `[4a, 3, 4b, 2]` (4a and 4b are equal but distinct items)
 - **Stable sort result:** `[2, 3, 4a, 4b]` (order of 4a before 4b is preserved)
 - **Unstable sort result:** `[2, 3, 4b, 4a]` (order of equal elements changed)
 
-##### **Stable Sorting Algorithms**
-
+**Stable Sorting Algorithms**
 - **Bubble Sort** → ✅ Stable → Swaps only adjacent elements, so equal elements never cross order.
 - **Insertion Sort** → ✅ Stable → Inserts element into sorted part without jumping equal elements ahead.
 - **Merge Sort** → ✅ Stable → During merge, if equal, it takes the left one first (preserves original order).
@@ -61,8 +108,7 @@ Array = `[4a, 3, 4b, 2]` (4a and 4b are equal but distinct items)
 - **Odd-Even Sort** → ✅ Stable → Adjacent comparisons like Bubble, order preserved.
 - **C++ stable_sort** → ✅ Stable → Explicitly implemented to keep equal order (uses Merge-like logic).
 
-##### **Unstable Sorting Algorithms**
-
+**Unstable Sorting Algorithms**
 - ==**Selection Sort**== → ❌ Unstable → Swaps non-adjacent elements; equal elements can jump over each other.
 - ==**Quick Sort**== → ❌ Unstable → Partition step may reorder equal elements around pivot.
 - ==**Heap Sort**== → ❌ Unstable → Heapify swaps elements far apart, disturbing order of equals.
@@ -78,7 +124,7 @@ Array = `[4a, 3, 4b, 2]` (4a and 4b are equal but distinct items)
 👉 **Shortcut Rule**:
 - Algorithms that ==**only swap neighbors**== (Bubble, Insertion, Odd-Even) → ==**Stable**==.
 - Algorithms that ==**move elements far apart**== (Selection, Quick, Heap, Shell) → ==**Unstable**==.
-##### **In-place vs Out-of-place Sorting** 
+##### **2. In-place vs Out-of-place Sorting** 
 
 **In-place Sorting Algorithms** (Use only constant or O(1) extra space, besides recursion stack)
 - **Bubble Sort** → In-place
@@ -96,51 +142,56 @@ Array = `[4a, 3, 4b, 2]` (4a and 4b are equal but distinct items)
 - **Bucket Sort** → Out-of-place (needs buckets)
 - **TimSort** → Out-of-place (needs temporary arrays)
 - **External Merge Sort** → Out-of-place (disk-based, very large data)
-    
+
+**Ques.** Why Quick Sort is In-Place if it take `O(logn)` space complexity
+- **In-place sorting** means: **the algorithm does not need extra arrays proportional to n**, it mostly rearranges elements in the **same array**. Quick Sort **only uses extra space for the recursion stack**, which is **O(log n) on average**. This **log n stack space is tiny compared to creating a full extra array of size n**, so it’s still considered **in-pla**
 
 👉 **Shortcut rule:**
 - Simple ==“swap-based” sorts== (Bubble, Insertion, Selection, Quick, Heap, Shell) → ==**In-place**==
 - ==“Auxiliary-array based” sorts== (Merge, Counting, Radix, Bucket, TimSort) → ==**Out-of-place**==
     
+---
+### Question & Answers
 
-# Question & Answers
 ##### **Important QA Concept**
 
 ### Basics
 
 1. Fastest average-case sorting? → Quick Sort
 2. Guaranteed O(n log n) sorting? → Merge Sort
-3. Sorting for linked list? → Merge Sort
-4. Sorting for priority queue? → Heap Sort
+3. ==Sorting for linked list? → Merge Sort==
+4. ==Sorting for priority queue? → Heap Sort==
 5. Non-comparison-based sorting? → Counting, Radix, Bucket
-6. Stable O(n log n) sorting? → Merge Sort, Timsort
-7. Unstable O(n log n) sorting? → Quick Sort, Heap Sort
-8. Adaptive sorting? → Insertion Sort, Bubble Sort, Timsort
-9. Non-adaptive sorting? → Selection Sort, Merge Sort
-10. In-place sorting? → Quick, Heap, Insertion, Selection
-11. Out-of-place sorting? → Merge, Counting, Bucket
-12. Sorting used in Python? → Timsort
-13. Sorting used in Java (primitives)? → Dual Pivot Quick Sort
-14. Sorting used in C++ STL sort()? → IntroSort
-15. Sorting with recursion risk? → Quick Sort
-16. Sorting with divide and conquer? → Merge, Quick, Heap
-17. Sorting with greedy idea? → Selection Sort
-18. Sorting with dynamic partitioning? → Quick Sort
-19. Sorting requiring O(k) space? → Counting Sort
-20. Sorting with digit-based grouping? → Radix Sort
-21. Stable O(n²) sorts? → Bubble, Insertion
-22. Unstable O(n²) sort? → Selection
-23. Stable O(n log n) sorts? → Merge, Radix, Timsort
-24. Unstable O(n log n) sorts? → Quick, Heap
-25. Sorting used in TimSort? → Merge + Insertion
-26. Sorting used in IntroSort? → Quick + Heap + Insertion
-27. Sorting good for cache locality? → Quick Sort
-28. Sorting bad for cache locality? → Merge Sort
-29. Sorting best for nearly sorted? → Insertion Sort
-30. Sorting for external memory? → Merge Sort
-31. Sorting for parallelization? → Merge Sort
-32. Sorting when swaps expensive? → Selection Sort
-33. Sorting considered fastest practical? → Quick Sort  
+
+**Stable, In-place, Adaptive**
+1. Stable O(n log n) sorting? → Merge Sort, Timsort
+2. Unstable O(n log n) sorting? → Quick Sort, Heap Sort
+3. Adaptive sorting? → Insertion Sort, Bubble Sort, Timsort
+4. Non-adaptive sorting? → Selection Sort, Merge Sort
+5. In-place sorting? → Quick, Heap, Insertion, Selection
+6. Out-of-place sorting? → Merge, Counting, Bucket
+7. Sorting used in Python? → Timsort
+8. Sorting used in Java (primitives)? → Dual Pivot Quick Sort
+9. Sorting used in C++ STL sort()? → IntroSort
+10. Sorting with recursion risk? → Quick Sort
+11. Sorting with divide and conquer? → Merge, Quick, Heap
+12. Sorting with greedy idea? → Selection Sort
+13. Sorting with dynamic partitioning? → Quick Sort
+14. Sorting requiring O(k) space? → Counting Sort
+15. Sorting with digit-based grouping? → Radix Sort
+16. Stable O(n²) sorts? → Bubble, Insertion
+17. Unstable O(n²) sort? → Selection
+18. Stable O(n log n) sorts? → Merge, Radix, Timsort
+19. Unstable O(n log n) sorts? → Quick, Heap
+20. Sorting used in TimSort? → Merge + Insertion
+21. Sorting used in IntroSort? → Quick + Heap + Insertion
+22. Sorting good for cache locality? → Quick Sort
+23. Sorting bad for cache locality? → Merge Sort
+24. Sorting best for nearly sorted? → Insertion Sort
+25. Sorting for external memory? → Merge Sort
+26. Sorting for parallelization? → Merge Sort
+27. Sorting when swaps expensive? → Selection Sort
+28. Sorting considered fastest practical? → Quick Sort  
 
 ### Bubble Sort
 
@@ -805,18 +856,3 @@ Array = `[4a, 3, 4b, 2]` (4a and 4b are equal but distinct items)
 50. **Does a comparison-based sort exist with O(n) time?**  
     No, but non-comparison sorts do for certain constraints (Counting/Radix/Bucket sort).[interviewkickstart](https://interviewkickstart.com/blogs/learn/sorting-algorithms)
     
-
----
-
-These advanced questions address sorting performance, internal optimization, special cases, real-world and theoretical concerns beyond textbook basics, as required in high-level technical interviews and competitive exams.[devinterview+4](https://devinterview.io/questions/data-structures-and-algorithms/sorting-algorithms-interview-questions/)
-
-1. [https://www.geeksforgeeks.org/dsa/top-sorting-interview-questions-and-problems/](https://www.geeksforgeeks.org/dsa/top-sorting-interview-questions-and-problems/)
-2. [https://www.finalroundai.com/blog/sorting-algorithms-interview-questions](https://www.finalroundai.com/blog/sorting-algorithms-interview-questions)
-3. [https://github.com/Devinterview-io/sorting-algorithms-interview-questions](https://github.com/Devinterview-io/sorting-algorithms-interview-questions)
-4. [https://www.geeksforgeeks.org/dsa/commonly-asked-data-structure-interview-questions-on-sorting/](https://www.geeksforgeeks.org/dsa/commonly-asked-data-structure-interview-questions-on-sorting/)
-5. [https://interviewing.io/sorting-interview-questions](https://interviewing.io/sorting-interview-questions)
-6. [https://interviewkickstart.com/blogs/learn/sorting-algorithms](https://interviewkickstart.com/blogs/learn/sorting-algorithms)
-7. [https://devinterview.io/questions/data-structures-and-algorithms/sorting-algorithms-interview-questions/](https://devinterview.io/questions/data-structures-and-algorithms/sorting-algorithms-interview-questions/)
-8. [https://www.interviewbit.com/algorithm-interview-questions/](https://www.interviewbit.com/algorithm-interview-questions/)
-9. [https://www.techinterviewhandbook.org/algorithms/sorting-searching/](https://www.techinterviewhandbook.org/algorithms/sorting-searching/)
-10. [https://softat.co.in/sorting-algorithm-interview-question/](https://softat.co.in/sorting-algorithm-interview-question/)

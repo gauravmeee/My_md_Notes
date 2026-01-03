@@ -180,7 +180,7 @@ Context Switch:
                          preemption    
                    ┌---------------------┐ 
                    |                     |
-       admitted    ↓                     |         exit
+       admitted    ↓      Execute        |         exit
 {New}--------->   {Ready} -------> {Running} ------------> {Terminated}
                    ↑                     |
  I/O or event done |                     | waiting for I/O or event
@@ -263,9 +263,12 @@ Schedule & Dispatcher:**
                   <-resume-┘
 ```
 
-Note: 
-- ==ready and blocked/wait remain in **main memory==** while s==uspended ready and suspended blocked/wait reside in **secondary storage==**
-- Swapping is also called ==**Roll Out** and **Roll In**== if it is based on priority in OS.
+**Effect of Scheduler on Degree of Multiprogramming:**
+- **Long Term** -> Can Increase
+- **Short Term** -> No effect X
+- **Mid-Term** -> Increase/Decrease (Swap in/out)
+
+Note: Swapping is also called **Roll Out** and **Roll In** if it is based on priority in OS.
 
 ### CPU Scheduling
 
@@ -1278,6 +1281,54 @@ Note: if extra bit not given, take it zero
 ```
 
 
+Summary
+```
+                       Logical Address ---------2^(bits)---> = Process size
+						┌─────┬─────┐
+				page no.│  p  │  d  | offset
+					|	└─────┴─────┘   |  
+                    |                   |
+                  2^(bits)             2^(bits)
+                    ↓                   ↓
+            = No. of pages          = Page size
+                                        ↕ 
+            = No. of frames          = frame Size
+                   ↑                    ↑
+                2^(bits)              2^(bits)
+                   |                    |            
+				   |	┌─────┬─────┐   |
+			   frame no.│  f  │  d  | offset
+						└─────┴─────┘  
+                       Physical Address --------2^(bits)---> = Memory size
+                 
+
+						  Page Table Size = No. of Pages x (f + extra bits)
+						┌─────┬─────────────┐ -┐
+						│  f  │  extra bits |  | 
+						├─────┼─────────────┤  |  
+						│  f  │  extra bits |  | No. of entries
+						├─────┼─────────────┤  | = No. of Pages
+						│  f  │  extra bits |  |
+						├─────┼─────────────┤  |
+						│  f  │  extra bits |  |
+						├─────┼─────────────┤  |
+						│  f  │  extra bits |  | 
+						└─────┴─────────────┘ -┘
+
+Formula: ⭐
+- No. of bits in offset = log(page size)
+- No. of bits in page no. = log(no. of pages)
+- No. of bits in Logical Address = log(process size) = p+d
+- No. of bits in Physical Address = log(memory size)
+
+Reverse Formula:
+- Page size = 2^(no. of bits in offset)
+- No. of pages = 2^(No. of bits in page no.)
+- Process Size = 2^(No. of bits in Logical address) =  Page size x No. of pages
+- Physical Memory size = 2^(No. fo bits in Physical Address)
+```
+
+
 **Time Required for Paging**
 ```
 Tₘₘ -> Memory Access Time
@@ -1632,6 +1683,7 @@ process id  Valid bit
     - **Virtual memory using paging:** only ==required pages are loaded== into main memory; the rest remain on disk.
 
 **Demand Paging:**
+
 - Bring pages in memory when CPU demands
 - Pure Demand Paging -> Don't store any pages in Main Memory in starting of process.
 

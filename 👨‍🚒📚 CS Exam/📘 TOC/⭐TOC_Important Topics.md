@@ -47,17 +47,7 @@ A language class is **closed under an operation** if applying that operation to 
 ##### **2. Closure Properties of Context-Free Languages (CFLs):** ⭐
 
 
-- **CFL and DCFL**:  
-    Follow → **Inverse Homomorphism**, **Regular ∩ CFL**   ✅
-    Not Follow → **Intersection** ❌
-    
-- **DCFL (in Comparison of CFL)**:  
-    Follow → **Complement** (extra over CFL)   ✅
-    Not Follow → **Rest All** ❌
-    
-- **CFL (in Comparison of DCFL)**:  
-    Follow → **All Except**  ✅
-    Not Follow  → **Complement**   ❌
+
 
 | **Operation**            | **CFL (Non-Det.) Closed?** | **DCFL Closed?** | **Reason / Explanation**                                                                                                                                      |
 | ------------------------ | -------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -72,19 +62,32 @@ A language class is **closed under an operation** if applying that operation to 
 | **Homomorphism**         | ✅ Yes                      | ❌ No             | CFLs are closed, but DCFLs are not—homomorphism may break determinism.                                                                                        |
 | **Inverse Homomorphism** | ✅ Yes                      | ✅ Yes            | Both closed; input symbol pre-image mapping preserves structure.                                                                                              |
 
+**For Remembering:**
+- **CFL and DCFL**:  
+    Follow → **Inverse Homomorphism**, **Regular ∩ CFL**   ✅
+    Not Follow → **Intersection** ❌
+    
+- **DCFL (in Comparison of CFL)**:  
+    Follow → **Complement** (extra over CFL)   ✅
+    Not Follow → **Rest All** ❌
+    
+- **CFL (in Comparison of DCFL)**:  
+    Follow → **All Except**  ✅
+    Not Follow  → **Complement**   ❌
+    
 > **Note:** Unlike other language classes, **Deterministic Context-Free Languages (DCFL)** form a **strict subset** of **Context-Free Languages (CFL)**. Therefore, **DCFLs do not share all closure properties of CFLs**, and must be treated separately.
 
 
 ---
 ### Language Classes - Deterministic vs Non-Deterministic ⭐
 
-| **Language Class**                     | **Non-Deterministic Form**                     | **Deterministic Form**          | Relationship                                                                          |
-| -------------------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------- |
-| **Regular Languages (RL)**             | NFA (Non-Deterministic FA)                     | DFA (Deterministic FA)          | Deterministic = Non-<br>Deterministic<br><br>both define same RL set                  |
-| **Context-Free Languages (CFL)**       | NPDA (Non-Deterministic PDA)                   | DPDA (Deterministic PDA)        | Deterministic ⊂ Non-Deterministic<br><br>(strict subset)                              |
-| **Context-Sensitive Languages**        | Non-deterministic LBA                          | Deterministic LBA (rarely used) | Unclear <br>(generally assumed equal)                                                 |
-| **Recursive Languages** <br>(⭐ Extra ) | Non-deterministic TM ~ (Linear Bound Automata) | Deterministic TM                | Deterministic = Non-Deterministic<br><br>Both accept same class (decidable languages) |
-| **Recursively Enumerable (RE)**        | Non-deterministic TM ~ (Linear Bound Automata) | Deterministic TM                | Deterministic = Non-Deterministic<br><br>Equivalent in power (semi-decidable)         |
+| **Language Class**                     | **Non-Deterministic Form**                     | **Deterministic Form**          | Relationship                                                                              |
+| -------------------------------------- | ---------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Regular Languages (RL)**             | NFA (Non-Deterministic FA)                     | DFA (Deterministic FA)          | ==Deterministic = Non-<br>Deterministic==<br><br>both define same RL set                  |
+| **Context-Free Languages (CFL)**       | NPDA (Non-Deterministic PDA)                   | DPDA (Deterministic PDA)        | ==Deterministic ⊂ Non-Deterministic==<br><br>(strict subset)                              |
+| **Context-Sensitive Languages**        | Non-deterministic LBA                          | Deterministic LBA (rarely used) | Unclear <br>(generally assumed equal)                                                     |
+| **Recursive Languages** <br>(⭐ Extra ) | Non-deterministic TM ~ (Linear Bound Automata) | Deterministic TM                | ==Deterministic = Non-Deterministic==<br><br>Both accept same class (decidable languages) |
+| **Recursively Enumerable (RE)**        | Non-deterministic TM ~ (Linear Bound Automata) | Deterministic TM                | ==Deterministic = Non-Deterministic==<br><br>Equivalent in power (semi-decidable)         |
 
 **Important Notes:**
 
@@ -120,9 +123,9 @@ Regular ⊆ DCFL ⊆ CFL ⊂ CSL ⊂ RE
 ### Different Language Acceptability
 
 
-##### **1. Languages Accepted by Turing Machine (Type 0)**
+##### **1. Languages Accepted by ==Turing Machine== ==(Type 0)**==
 
-These are called **Recursively Enumerable (RE)** languages.
+These are called ==**Recursively Enumerable (RE)** ==languages.
 
 **Definition:** A **Turing Machine (TM)** accepts **all languages that are computably enumerable**, i.e.,
 - There exists a TM that will **accept** any string in the language    
@@ -130,16 +133,16 @@ These are called **Recursively Enumerable (RE)** languages.
     
 **Key Characteristics:**
 
-- Grammar: **Unrestricted Grammar**
+- Grammar: ==**Unrestricted Grammar**==
 - Rules: Productions of the form `α → β`, where `α, β ∈ (V ∪ T)*` and `α ≠ ε`
 - Most powerful class of languages
 - Includes all **Type 1, 2, 3** languages
 - Turing Machines can simulate **any computation**
 
 **Not Accepted:**
-Turing Machines do **not** accept:
-- **Non-computable languages**, i.e., languages for which no TM exists at all
-- **Undecidable** languages can't be fully solved (TM might not halt), but they are **still RE**
+==Turing Machines do **not** accept:==
+- ==**Non-computable languages**==, i.e., languages for which no TM exists at all
+- ==**Undecidable**== languages can't be fully solved (TM might not halt), but they are **still RE**
 
 **Examples of Turing-Acceptable Languages:**
 
@@ -157,15 +160,13 @@ Turing Machines do **not** accept:
         
 
 **Examples of Not Turing-Acceptable Languages:**
-- `L = { ⟨M⟩ | M does not halt on input ⟨M⟩ }` → **Diagonalization language** (non-RE)
+- `L = { ⟨M⟩ | M does not halt on input ⟨M⟩ }` → ==**Diagonalization language** (non-RE)==
 
 **Conclusion:**
 - **Turing Machines accept the broadest class of languages**, including **all formal languages you can describe by any algorithm**.
 
-Here is the complete note in **same format** as above, for **Context-Sensitive Grammar (CSG) / Type 1**:
 
-
-##### **2. Languages Accepted by Linear Bounded Automata (Type 1 / CSG)**
+##### **2. Languages Accepted by ==Linear Bounded Automata== (==Type 1 / CSG==)**
 
 These are called **Context-Sensitive Languages (CSLs)**.
 
@@ -177,9 +178,9 @@ These are called **Context-Sensitive Languages (CSLs)**.
 
 **Key Characteristics:**
 
-- Grammar: **Context-Sensitive Grammar**
+- Grammar: ==**Context-Sensitive Grammar**==
 - Machine: **Linear Bounded Automaton (LBA)**
-- Memory: **Finite tape bounded by input size**
+- Memory: **==Finite tape bounded by input size==**
 - More powerful than PDA, but less powerful than TM
 - Can handle **multiple dependencies**    
 - Includes all **regular** and **context-free** languages
@@ -496,7 +497,7 @@ In Moore machines, **output is written inside the state**:
 
 ---
 
-### **Different Automata tuple representations.** ⭐
+### **Different Automata tuple representations.**
 
 Writing Order of 4 types of tuples: 
 -> `Sets → Functions → States -> Symbol -> Subset`

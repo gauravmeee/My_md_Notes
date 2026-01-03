@@ -335,22 +335,22 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 
 ##### **Network Devices and Their OSI Layers**
 
-| Layer 7: Application Layer Device   | Function                                                         | Example(s)                 |
-| ----------------------------------- | ---------------------------------------------------------------- | -------------------------- |
-| **Proxy Server**                    | Acts as intermediary; filters content, caches requests           | Squid Proxy, Web Proxy     |
-| **Gateway** (Layer 3 to 7 Device) ⭐ | Translates between different protocols (e.g., HTTP to FTP, VoIP) | Cloud Gateway, IoT Gateway |
-| **Load Balancer**                   | Distributes HTTP/HTTPS traffic; can perform SSL termination      | AWS ELB, HAProxy           |
+| Layer 7: Application Layer Device | Function                                                         | Example(s)                 |
+| --------------------------------- | ---------------------------------------------------------------- | -------------------------- |
+| **Proxy Server**                  | Acts as intermediary; filters content, caches requests           | Squid Proxy, Web Proxy     |
+| **Gateway** ⭐                     | Translates between different protocols (e.g., HTTP to FTP, VoIP) | Cloud Gateway, IoT Gateway |
+| **Load Balancer**                 | ==Distributes HTTP/HTTPS traffic==; can perform SSL termination  | AWS ELB, HAProxy           |
 
-| Layer 4: Transport Layer Device | Function                                                | Example(s)              |
-| ------------------------------- | ------------------------------------------------------- | ----------------------- |
-| **Firewall**                    | Inspects port numbers and transport protocols (TCP/UDP) | Stateful Firewall       |
-| **Load Balancer**               | Distributes TCP/UDP traffic across servers              | F5, NGINX Load Balancer |
+| Layer 4: Transport Layer Device | Function                                                    | Example(s)              |
+| ------------------------------- | ----------------------------------------------------------- | ----------------------- |
+| **Firewall**                    | ==Inspects port numbers and transport protocols (TCP/UDP)== | ==Stateful Firewall==   |
+| **Load Balancer**               | ==Distributes TCP/UDP traffic== across servers              | F5, NGINX Load Balancer |
 
 | Layer 3 : Network Layer Devices | Function                                                       | Example(s)                       |
 | ------------------------------- | -------------------------------------------------------------- | -------------------------------- |
 | **Router** ⭐                    | Connects different networks; routes packets using IP addresses | Home Router, Cisco Router        |
 | **Layer 3 Switch** ⭐            | Combines switching and routing at high speed                   | Core Switch, Distribution Switch |
-| **Firewall** (partially)        | Filters packets based on IP addresses and protocols            | Network Firewall                 |
+| **Firewall** (partially)        | ==Filters packets based on IP addresses and protocols==        | ==Network Firewall==             |
 | **Brouter**                     | Works as both Bridge (Layer 2) and Router (Layer 3)            | Hybrid Networking Device         |
 
 | Layer 2 :Data Link Layer Devices | Function                                                           | Example(s)                   |
@@ -376,7 +376,7 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 |**Layer 5 – Session**|Manages sessions (start, control, end of communication)|Software (APIs, sockets, OS)|
 |**Layer 6 – Presentation**|Translates data formats (encryption, compression, encoding)|Software (codecs, TLS/SSL libs)|
 
-##### **Switch vs Bridge vs Hub vs Repeater**
+##### **Gateway vs Switch vs Bridge vs Hub vs Repeater**
 
 **Gateway**
 

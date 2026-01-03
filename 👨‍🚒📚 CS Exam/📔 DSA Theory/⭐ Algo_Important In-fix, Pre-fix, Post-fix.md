@@ -1,11 +1,11 @@
 
 **1. Notations Overview**
 
-|Notation|Format Example|Operator Position|
-|---|---|---|
-|Infix|`A + B`|Between operands|
-|Prefix|`+ A B`|Before operands|
-|Postfix|`A B +`|After operands|
+| Notation | Format Example | Operator Position |
+| -------- | -------------- | ----------------- |
+| Infix    | `A + B`        | Between operands  |
+| Prefix   | `+ A B`        | Before operands   |
+| Postfix  | `A B +`        | After operands    |
 
 
 **2. Why Use Postfix/Prefix?**

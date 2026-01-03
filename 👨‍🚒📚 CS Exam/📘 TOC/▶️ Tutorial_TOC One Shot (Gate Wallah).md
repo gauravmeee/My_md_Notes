@@ -3,8 +3,8 @@
 
 ### 0. Introduction 
 
-- Decidable Problem - Problem for which Algorithm exist
-- Undecidable Problem - Problem for which no Algorithm exist.
+- **Decidable Problem** - Problem for which Algorithm exist
+- **Undecidable Problem** - Problem for which no Algorithm exist.
 - Turing Machine Concepts is used to tell if Algorithm exist or Not for a problem
 
 **Theory of Computation :**
@@ -12,10 +12,10 @@
 - or Study of Automata theory and formal Languages
 
 **Automata** -> Mathematical Model or Theoretical Machine 
-- Finite Automata -> Regular Language ⭐
-- Pushdown Automata -> Context-free Language ⭐
-- Linear-bounded Automata -> Context-sensitive Language
-- Turing Machine -> Recursive Enumerable Language
+- ==Finite Automata -> Regular Language== ⭐
+- ==Pushdown Automata -> Context-free Language== ⭐
+- ==Linear-bounded Automata -> Context-sensitive Language==
+- ==Turing Machine -> Recursive Enumerable Language==
 ### 1. Finite Automata
 
 **Finite Automata** -> Mathematical model which contains finite numbers of `states` and `transitions`
@@ -40,8 +40,8 @@ DFA is defined as
 DFA = (Q, ∑, q₀, F, ∂ )
 - Q : Fineite set of states
 - ∑ : Input alphabet
-- q₀ : initial state 
-- F : Seto of final states
+- q₀: initial state 
+- F : Set of final states
 - ∂ : Transition Function Q*∑ -> Q
 ```
 
@@ -204,9 +204,9 @@ L = {a, aa, aaa..., ab, abb, aabbb...}
 ```
 
 **Length of String `|w|` -> Min no. of DFA States** ⭐
-1. Length of the string exactly 4   -> `n+2`  (6) states 
-2. Length of the string at least 5 -> `n+1` (6) states
-3. Length of the string at most 4 -> `n+2`  (6) states
+1. Length of the string ==exactly== 4   -> `n+2`  (6) states 
+2. Length of the string ==at leas==t 5 -> `n+1` (6) states
+3. Length of the string ==at most== 4 -> `n+2`  (6) states
 4. Length of the string divisible by 4 -> `n` (4) states
 
 **No. of `#` Alphabets  `#`  Odd/Even-> Min no. of DFA States ** ⭐
