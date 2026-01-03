@@ -1,3 +1,6 @@
+# L-4: Deadlock
+
+### My Notes ⭐
 
 A **deadlock** in operating systems is a situation where :
 - a set of processes or threads are blocked because each one is waiting for a resource that another process is holding. None of the processes can proceed because they are all waiting for a condition that can never be true, leading to a "deadlock."
@@ -128,12 +131,25 @@ Here is the table with examples:
 ##### **Real-World Example**
 - Consider a system where two programs are trying to access two shared resources (like a printer and a scanner). If one program locks the printer and waits for the scanner while the other locks the scanner and waits for the printer, both will wait indefinitely—this is a deadlock situation.
 
-
----
 ---
 
+## [L-4.1: DEADLOCK concept | Example | Necessary condition | Operating System](https://www.youtube.com/watch?v=rWFH6PLOIEI&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p&index=38&pp=iAQB)
+---
 
-# [L-4.5: Deadlock Avoidance Banker's Algorithm with Example](https://www.youtube.com/watch?v=k8BHyy6gBls&ab_channel=GateSmashers)
+## [L-4.2: Resource Allocation Graph in Deadlock | Single Instance with example | Operating System](https://www.youtube.com/watch?v=BW74JYB3QOM&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p&index=39&pp=iAQB)
+
+---
+
+## [L-4.3: Multi-Instance Resource Allocation Graph with Example | Operating System](https://www.youtube.com/watch?v=hJhB2ddOQtg&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p&index=40&pp=iAQB)
+
+
+---
+## [L-4.4: Deadlock Handling Methods and Deadlock Prevention | Operating System](https://www.youtube.com/watch?v=pPM9Ajqmy_4&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p&index=41&pp=iAQB)
+
+
+---
+
+## [L-4.5: Deadlock Avoidance Banker's Algorithm with Example](https://www.youtube.com/watch?v=k8BHyy6gBls&ab_channel=GateSmashers)
 
 - Deadlock Avoidance
 - Also used for Deadlock Detection
@@ -213,11 +229,11 @@ P2 -> P4 -> P1 -> P5 -> P3
 P2 -> P5 -> P3 -> P1 -> P4 etc.
 
 
-
 Note: Banker's Algorithm is not possible In real life, because Process Resource Requirement are Dynamic and at Run time. And this approach require predefined knowledge of Total,  Allocated and Required Resources.
 
+---
 
-# [L-4.6: GATE 2018 Question on Banker's Algorithm | Deadlock avoidance | Operating System](https://youtu.be/k8BHyy6gBls)
+## [L-4.6: GATE 2018 Question on Banker's Algorithm | Deadlock avoidance | Operating System](https://youtu.be/k8BHyy6gBls)
 
 
 Ques: Find If it is Safe or Not??
@@ -244,7 +260,9 @@ Total Resource = Available + Allocated = (8  4  6)
 | P4        | 2   0    0     | 5   4   1 | 3    4     1 | 6      4      6 (+ P2 Free up)  |
 | **Total** | **5   1    6** |           |              | 8      4      6 (+ P4 Free up)  |
 
-# [L-4.7: Question Explaination on Deadlock | Operating System](deadlock avoidance in operating system)
+
+---
+## [L-4.7: Question Explaination on Deadlock | Operating System](deadlock avoidance in operating system)
 
 #### Ques. A System is having 3 process each require 2 units of resources `R` The Minimum no. of Units of `R` such that no deadlock will occur ?
  a) 3    b) 5   c) 6   d) 4
@@ -344,3 +362,10 @@ Max no. of Resources with Deadlock = 2+3 + 4 (+1) = 9
 - if  each process `P` Required same amount of Resources `R`
 1. Maximum Resource Required (for Deadlock) = `P * (R-1)`
 2. Minimum Resource Required (No Deadlock ) = `P * (R-1) + 1`
+
+---
+
+## [L-4.8: GATE 2018 Question Explaination on deadlock | Operating system](https://www.youtube.com/watch?v=6uEf_F1S-Jo&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p&index=45&pp=iAQB)
+
+---
+

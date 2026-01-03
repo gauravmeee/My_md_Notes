@@ -1,6 +1,7 @@
+## [L-4.1: Pipelining with real life example| Need of Pipelining | COA](https://www.youtube.com/watch?v=Al95Owan9Ck)
 
-# [# L-4.2: Pipelining Introduction and structure | Computer Organisation](https://youtu.be/nv0yAm5gc-E)
-
+---
+## [L-4.2: Pipelining Introduction and structure | Computer Organisation](https://youtu.be/nv0yAm5gc-E)
 
 **Definition of Pipelining**
 - Pipelining is the Process of arrangement of hardware elements of CPU such that Hs Overall Performance is increased
@@ -64,7 +65,7 @@ Input  /   R1          R2 /          R3           R4
     
 
 ---
-# [L-4.3: Pipelining Vs Non-Pipelining | Instruction Execution | Speedup, Efficiency, Utilization | COA](https://youtu.be/R9s34-lnd9k)
+## [L-4.3: Pipelining Vs Non-Pipelining | Instruction Execution | Speedup, Efficiency, Utilization | COA](https://youtu.be/R9s34-lnd9k)
 
 
 5 Stages Pipeline (ex: RISE) :
@@ -200,8 +201,9 @@ $$CPI=\frac{\text{Total CPU Cycles}}{\text{Number of Instructions}}$$
     - **Example 1:** No. of instructions = `8`, No. of stages = `12` → CPI > 1 because pipeline fill time dominates.
     - **Example 2:** No. of instructions = `1000`, No. of stages = `5` → Total cycles = `5 + (1000 - 1)` = `1004` ≈ `1000` → CPI ≈ 1.004 ≈ 1 for large instruction counts.
 
+---
 
-# [L-4.4: Stage Delay in Pipeline | Previous Year GATE Question | Computer Organisation & Architecture](https://youtu.be/-YtmPoGCdfM)
+## [L-4.4: Stage Delay in Pipeline | Previous Year GATE Question | Computer Organisation & Architecture](https://youtu.be/-YtmPoGCdfM)
 
 **Ques.** A 4-stage pipeline has stage delays as `150`, `120`, `160`, and `140` ns. Registers are used between stages and have a delay of `5` ns each. Assuming Const Clock rate, the total time taken to process `1000` data items on this pipeline will be?
 
@@ -244,74 +246,34 @@ Total time = (K + N - 1) CC
 
 ```
 
+---
+## [L-4.5: Numerical Question on Pipelining | Previous year GATE Question | COA](https://www.youtube.com/watch?v=BlnI-eZSt4M)
 
-# [Lec-10: Floating Point Representation with examples | Number System (Gate Smashers)](https://youtu.be/4gNs7B4ZTjc)
+---
 
-- **Fixed representation** -> has fixed number of bits for integer part and for fractional part.
-- ex: `10.` or `10.0`, `.15` or `0.15` decimal point is to the extreme left or right
+## [L-4.6: What is Hazard in Pipelining | various types of Hazards | computer Architecture](https://www.youtube.com/watch?v=srlgaJgaxRE)
 
-- **Floating point** -> refers to the fact that a number's radix point (decimal point, or, more commonly in computers, binary point) can "float"; that is, it can be placed anywhere relative to the significant digits of the number.
-- ex: `5.5` Fraction point is floating
+---
+## [L-4.7: Structural Hazards in Pipelining | Types of Hazards with Example in Hindi](https://www.youtube.com/watch?v=qn7zf_OSLsk)
 
-Floating Point is use to make Value Better Representative
-#### Floating Point
+---
+## [L-4.8: Control Hazards in Pipelining | Types of Hazards with Example in Hindi](https://www.youtube.com/watch?v=BuaIGznkhHQ)
 
-`101.1` Binary => `2^2 + 2^0 + 2^(-1)` => `5.5` Decimal
+---
+## [L-4.9: What is Read After Write(RAW) Hazards| Data Hazard in Pipelining with Example in Hindi | COA](https://www.youtube.com/watch?v=cMKn19y4_9E)
 
-Move binary point by `n` bit right =>  Multiply by`2^(-n)`
-Move binary point by `n` bit left => Multiply by `2^n`
+---
 
+## [L-4.10: Write After Read Hazard with Example|Data Hazards| Computer Organisation and Architecture](https://www.youtube.com/watch?v=PWz5VEMYDP8)
 
-**Example** 
-`101.1` 
-Move floating point by one bit right  
-`1011 * 2^(-1)` => `(2^3 + 2^1 + 2^0)` x `2^(-1)` => `101.1`
+---
 
+## [L-4.11: Write After Write Hazard | Data Hazards in Pipelining | Computer Organization &&Architecture](https://www.youtube.com/watch?v=-6JjmJNy3nA)
 
-#### Normalization
+---
 
-**Explicit:** `(-1)^S x 0.M x 2^E` -> Binary point to the immediate left of Most Significant `1` Bit
-- Ex : `101.1` =>`(-1)^0` x `.1011` x `2^3` 
+## [L-4.12: Register Renaming in Computer Organization | Data Hazard](https://www.youtube.com/watch?v=3NieJAgkYiw)
 
-**Implicit:** `(-1)^S x 1.M x 2^E` -> Binary point to the immediate right of Most Significant `1` Bit
-- Ex : `-101.1` =>`(-1)^1` x `1.011` x `2^2` 
+---
 
-**IEEE 754 format** : Common structure in floating-point representation
-
-`[ S | E | M ]`
-- `S`  -> (Sign) -> 0(+), 1(-)   Always 1 bit
-- `E` -> (Exponent) -> 2^`E`
-- `M` -> (Mantissa) -> significant digits of the number (Represent Precision)
-
-
-**Ques :**  Let `E` is of 4 bit , `M` is of 5 bit Represent `101.1`  Explicit in IEEE 754 format
-**Ans** :  `101.1` -> `(-1)^0` x `.1011` x `2^3`
-`E` -> `3` Decimal -> `11` binary -> `0011` (in 4 bit)
-`M` -> `1011` binary -> `10110` (in 5 bit)
-`[ S | E | M ]` => `[0 | 0011 | 10110 ]`
-
-Note:  
-- Without changing value, `0` can be added to the right most of a value after floating point, or left most of value before floating point
-- In Mantissa `.10110` : `M[10110]` -> `.101100`: `M[101100]` , `0` bit are added to the right most as we can't add it to left most because in Mantissa format, `.` exist at leftmost
-
-**Ques :**  Let `E` is of 4 bit , `M` is of 5 bit Represent `.0110`  Implicit in IEEE 754 format
-**Ans** :  `.0110` -> `(-1)^0` x `1.10` x `2^(-2)`
-`M` -> `1011` binary -> `10110` (in 5 bit)
-
-**Negative E by 2's Complement**
- `E` -> `-2` Decimal -> Represent Negative by 2's complement -> 2's complement of (`2`) -> 2's complement of (`10`) -> 2's complement of (`0010`) (in 4 bit) -> `0010` + `1101`(one value less than max) + `1` -> `1110`
-`[ S | E | M ]` => `[0 | 1110 | 10110 ]`
-
-or 
-
-**Negative E by Biasing**
-`E` -> `-2` Decimal + Excess Code ( 4 bit ) -> `-2` + Excess Code ( `-2^(4-1)` to `2^(4-1)-1`) -> `-2` + Excess code (`-8` to `7`) -> `-2` + `8` (max abs value) -> `6` -> `0110`
-`[ S | E | M ]` => `[0 | 0110 | 10110 ]`
-
-#### Biasing
-
-Formula to Get value back if Biasing done in format
-=> `(-1)^S` x `0.M` x `2^[E-B]`
-
-**Ques:** Find value of `[0 | 0110 | 10110 ]` if biasing was done on it.
-**Ans:** `(-1)^0` x `0.10110` x `2^[6-8]`
+## [L-4.13: Operand Forwarding in Computer Organization & Architecture | Data Hazard](https://www.youtube.com/watch?v=gkgqVEPi3Fk)

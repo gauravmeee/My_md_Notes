@@ -1,5 +1,9 @@
 
-# [5.1 Memory Management and Degree of Multiprogramming | Operating System](https://www.youtube.com/watch?v=eESIFJz7mJw&ab_channel=GateSmashers)
+# L-5: Memory Management
+
+---
+
+## [L-5.1: Memory Management and Degree of Multiprogramming | Operating System](https://www.youtube.com/watch?v=eESIFJz7mJw&ab_channel=GateSmashers)
 
 
 **Memory Management:** it is a kind of functionality to manage all the memory resources in a more and more efficient manner
@@ -76,7 +80,8 @@ RAM        Process                  K^4-> both process doing i/o operation
 	1. **Frequent allocation and deallocation of memory** as processes enter and leave RAM.
 	2. The CPU must ensure that each process uses only its allocated memory space to **prevent interference** between processes, ensuring **security and stability**.
 
-# [5.2 Contiguous and non-Contiguous ](https://www.youtube.com/watch?v=FrTttJLN7Kw&t=45s&ab_channel=GateSmashers)
+---
+## [L-5.2: Contiguous and non-Contiguous ](https://www.youtube.com/watch?v=FrTttJLN7Kw&t=45s&ab_channel=GateSmashers)
 
 
 ```
@@ -94,7 +99,8 @@ RAM        Process                  K^4-> both process doing i/o operation
 
 - **Ready State Process ∝ CPU Utilization Efficiency**
 
-# [5.3 Fixed Size Partitioning](https://www.youtube.com/watch?v=bK-VhQA512c&ab_channel=GateSmashers)
+---
+## [L-5.3: Fixed Size Partitioning](https://www.youtube.com/watch?v=bK-VhQA512c&ab_channel=GateSmashers)
 > Internal Fragmentation
 
 Whenever the process are coming into RAM, how we are allocating it the space
@@ -139,7 +145,8 @@ Whenever the process are coming into RAM, how we are allocating it the space
 3. **Limited Degree of Multiprogramming**: (The fixed number of partitions limits how many processes can be loaded into memory at once)
 4. **External Fragmentation**
 
-# [5.4 Variable Size Partitioning](https://www.youtube.com/watch?v=JdPmsrYqRDY&ab_channel=GateSmashers)
+---
+## [L-5.4: Variable Size Partitioning](https://www.youtube.com/watch?v=JdPmsrYqRDY&ab_channel=GateSmashers)
 
 Ram is empty. At runtime process are allocated to the RAM at runtime
 
@@ -208,7 +215,8 @@ P1 allocated
 
 In Which way we should put which new Process ? 
   ↓
-# [5.5 First fit, Next Fit, Best Fit, Worst fit Memory Allocation](https://www.youtube.com/watch?v=N3rG_1CEQkQ&ab_channel=GateSmashers)
+  
+## [L-5.5: First fit, Next Fit, Best Fit, Worst fit Memory Allocation](https://www.youtube.com/watch?v=N3rG_1CEQkQ&ab_channel=GateSmashers)
 
 1. **First Fit** -> Allocated the first hole that is big enough
 2. **Next Fit** -> Same as first fit (but start search always from last allocated hole i.e. pointer use)
@@ -218,12 +226,14 @@ In Which way we should put which new Process ?
 
 Examples .... skipped
 
-# [5.6 Gate Question Solved on Fits](https://www.youtube.com/watch?v=W7wDlABjCQI&ab_channel=GateSmashers)
+## [L-5.6: Gate Question Solved on Fits](https://www.youtube.com/watch?v=W7wDlABjCQI&ab_channel=GateSmashers)
 
-# [5.7 Gate 2007 Solved Questions on fits](https://www.youtube.com/watch?v=XOFTINaUZt8&ab_channel=GateSmashers)
+---
 
+## [L-5.7: Gate 2007 Solved Questions on fits](https://www.youtube.com/watch?v=XOFTINaUZt8&ab_channel=GateSmashers)
 
-# [5.8 Need of Paging | Memory Management | Operating System](https://www.youtube.com/watch?v=I2TbCGNv1xQ&ab_channel=GateSmashers)
+---
+## [L-5.8: Need of Paging | Memory Management | Operating System](https://www.youtube.com/watch?v=I2TbCGNv1xQ&ab_channel=GateSmashers)
 
 In contiguous memory allocation, one Process cannot be divided and put in different locations that leads to External Fragmentations.
 ### Non Contiguous Memory Allocation.
@@ -342,38 +352,63 @@ Memory 6KB
 P1 Done    
 ```
 
+---
+## [L-5.9: What is Paging](https://www.youtube.com/watch?v=6c-mOFZwP_8&ab_channel=GateSmashers)
 
-# [5.9 What is Paging](https://www.youtube.com/watch?v=6c-mOFZwP_8&ab_channel=GateSmashers)
+---
+## [L-5.10: Question Explanation on Logical address and Physical address space](https://www.youtube.com/watch?v=30P73tWmU0s&ab_channel=GateSmashers)
 
-# [5.10 Question Explanation on Logical address and Physical address space](https://www.youtube.com/watch?v=30P73tWmU0s&ab_channel=GateSmashers)
+---
+## [L-5.11: Question Explanation on Paging](https://www.youtube.com/watch?v=L80DakYu4uw&ab_channel=GateSmashers)
 
-# [5.11 Question Explanation on Paging](https://www.youtube.com/watch?v=L80DakYu4uw&ab_channel=GateSmashers)
+---
+## [L-5.12: Page Table Entries | Format of Page Table](https://www.youtube.com/watch?v=JyPMJnnkNmQ&ab_channel=GateSmashers)
 
-# [5.12 Page Table Entries | Format of Page Table](https://www.youtube.com/watch?v=JyPMJnnkNmQ&ab_channel=GateSmashers)
+---
+## [L-5.13: 2-Level Paging in Operating System | Multilevel Paging](https://www.youtube.com/watch?v=PiEq1CoP0ds&ab_channel=GateSmashers)
 
-# [5.13 2-Level Paging in Operating System | Multilevel Paging](https://www.youtube.com/watch?v=PiEq1CoP0ds&ab_channel=GateSmashers)
+---
+## [L-5.14: Inverted paging](https://www.youtube.com/watch?v=spApKfUa8BI&ab_channel=GateSmashers)
 
-# [5.14 Inverted paging](https://www.youtube.com/watch?v=spApKfUa8BI&ab_channel=GateSmashers)
+---
+## [L-5.15: Paging Questions Imp Question for all competitive exams](https://www.youtube.com/watch?v=ucNJMcX-duE&ab_channel=GateSmashers)
 
-# [5.15 Paging Questions Imp Question for all competitive exams](https://www.youtube.com/watch?v=ucNJMcX-duE&ab_channel=GateSmashers)
+---
+## [L-5.16: What is Thrashing](https://www.youtube.com/watch?v=IyWaK8pbN6A&ab_channel=GateSmashers)
 
-# [5.16 What is Thrashing](https://www.youtube.com/watch?v=IyWaK8pbN6A&ab_channel=GateSmashers)
+---
 
-# [5.17 Segmentation Vs Paging | Segmentation Working](https://www.youtube.com/watch?v=dz9Tk6KCMlQ&ab_channel=GateSmashers)
+## [L-5.17: Segmentation Vs Paging | Segmentation Working](https://www.youtube.com/watch?v=dz9Tk6KCMlQ&ab_channel=GateSmashers)
 
-# [5.18 Overlay  Memory Management](https://www.youtube.com/watch?v=Quj-Goz4VMA&ab_channel=GateSmashers)
+---
+## [L-5.18: Overlay  Memory Management](https://www.youtube.com/watch?v=Quj-Goz4VMA&ab_channel=GateSmashers)
 
-# [5.19 Virtual Memory | Page fault | Significance of virtual memory ](https://www.youtube.com/watch?v=o2_iCzS9-ZQ&ab_channel=GateSmashers)
+---
 
-# [5.20: Translation Lookaside Buffer(TLB)](https://www.youtube.com/watch?v=Z2T2vnyZl0o&ab_channel=GateSmashers)
+## [L-5.19: Virtual Memory | Page fault | Significance of virtual memory ](https://www.youtube.com/watch?v=o2_iCzS9-ZQ&ab_channel=GateSmashers)
 
-# [5.21 Numerical on Translation Lookaside Buffer (TLB)](https://www.youtube.com/watch?v=Z4vzWxCcDCY&ab_channel=GateSmashers)
-# [5.22 Page Replacement Introduction | FIFO Page Replacement algorithm ](https://www.youtube.com/watch?v=8rcUs5RutX0&ab_channel=GateSmashers)
+---
+## [L-5.20: Translation Lookaside Buffer(TLB)](https://www.youtube.com/watch?v=Z2T2vnyZl0o&ab_channel=GateSmashers)
 
-# [5.23 Belady's Anomaly in FIFO page Replacement with example](https://www.youtube.com/watch?v=pR1uhp--COc&ab_channel=GateSmashers)
+---
 
-# [5.24 Optimal Page Replacement algorithm](https://www.youtube.com/watch?v=q2BpMvPhhrY&ab_channel=GateSmashers)
+## [L-5.21: Numerical on Translation Lookaside Buffer (TLB)](https://www.youtube.com/watch?v=Z4vzWxCcDCY&ab_channel=GateSmashers)
 
-# [5.25 Least Recently Used Page Replacement Algorithm](https://www.youtube.com/watch?v=dYIoWkCvd6A&ab_channel=GateSmashers)
+---
+## [L-5.22: Page Replacement Introduction | FIFO Page Replacement algorithm ](https://www.youtube.com/watch?v=8rcUs5RutX0&ab_channel=GateSmashers)
 
-# [5.26 Most recently used page replacement algorithm](https://www.youtube.com/watch?v=H3BU_Do_l-Q&ab_channel=GateSmashers)
+---
+
+## [L-5.23: Belady's Anomaly in FIFO page Replacement with example](https://www.youtube.com/watch?v=pR1uhp--COc&ab_channel=GateSmashers)
+
+---
+
+## [L-5.24: Optimal Page Replacement algorithm](https://www.youtube.com/watch?v=q2BpMvPhhrY&ab_channel=GateSmashers)
+
+---
+
+## [L-5.25: Least Recently Used Page Replacement Algorithm](https://www.youtube.com/watch?v=dYIoWkCvd6A&ab_channel=GateSmashers)
+---
+
+## [L-5.26: Most recently used page replacement algorithm](https://www.youtube.com/watch?v=H3BU_Do_l-Q&ab_channel=GateSmashers)
+

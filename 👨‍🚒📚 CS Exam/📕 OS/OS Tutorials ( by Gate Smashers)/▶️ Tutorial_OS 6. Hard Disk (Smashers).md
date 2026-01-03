@@ -1,4 +1,5 @@
-# [L-6.1: Hard Disk Architecture in Operating System in Hindi](https://youtu.be/sveZw_GG_cs)
+# L-6: Hard Disk
+## [L-6.1: Hard Disk Architecture in Operating System in Hindi](https://youtu.be/sveZw_GG_cs)
 
 **Hard Disk Architecture**
 ![](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter10/10_01_DiskMechanism.jpg)
@@ -26,7 +27,7 @@ For Calculations Remember Powers of 2
 No. of Bits = log(2^40) = 40
 
 ---
-# [L-6.2: Disk Access Time with Example | Seek Time, Rotational Time and Transfer Time](https://youtu.be/udZi6uiR8bM)
+## [L-6.2: Disk Access Time with Example | Seek Time, Rotational Time and Transfer Time](https://youtu.be/udZi6uiR8bM)
 
 **Disk Access Time**
 - **Seek Time ->** Time taken by Read/write head to reach desired track.
@@ -36,7 +37,7 @@ No. of Bits = log(2^40) = 40
 - **Transfer Rate (Data Rate)** -> No. of Heads(or Surface) x Capacity of one Track x No. of Rotations per second
 
 ---
-# [L-6.3: Disk Scheduling Algorithm | Operating System](https://youtu.be/9uoa_p8q47Y)
+## [L-6.3: Disk Scheduling Algorithm | Operating System](https://youtu.be/9uoa_p8q47Y)
 
 Goal -> To minimize the seek time (no. of tracks Movement)
 - The whole track is read in one go, so the scheduling depends on the seek time (time to reach a track).
@@ -58,7 +59,7 @@ Goal -> To minimize the seek time (no. of tracks Movement)
 -> If R/W head takes 1ns to move from one track to another then total time taken ___ ?
 
 ---
-# [L-6.4: FCFS in Disk scheduling with Example | Operating System](https://youtu.be/yP89YlEGCqA)
+## [L-6.4: FCFS in Disk scheduling with Example | Operating System](https://youtu.be/yP89YlEGCqA)
 
 **FCFS**
 Advantage -> No Starvation
@@ -83,7 +84,7 @@ Total Time taken = 642ns
 ```
 
 ---
-# [L-6.5: SSTF in Disk scheduling with Example | Operating System](https://youtu.be/P_dA8VGJjA8)
+## [L-6.5: SSTF in Disk scheduling with Example | Operating System](https://youtu.be/P_dA8VGJjA8)
 
 **SSTF**
 - Advantage -> Least Seek time (Average cases), Less Response time
@@ -147,7 +148,7 @@ Total time taken = 314 ns
 ```
 
 ---
-# [L-6.8: C-SCAN Algorithm in Disk scheduling with Example | Operating System](https://youtu.be/vLqZ6ZMBkX8)
+## [L-6.8: C-SCAN Algorithm in Disk scheduling with Example | Operating System](https://youtu.be/vLqZ6ZMBkX8)
 
 C-SCAN -> Circular Scan
 
@@ -156,8 +157,13 @@ C-SCAN -> Circular Scan
 (199-50) + (199-0) + (43-0) = 391
 
 ---
-# [L-6.9: C-LOOK Algorithm in Disk scheduling with Example | Operating System](https://youtu.be/gwCgG5ORXW8)
+## [L-6.9: C-LOOK Algorithm in Disk scheduling with Example | Operating System](https://youtu.be/gwCgG5ORXW8)
 
 50->82->140->170->190-> Left ->16 -> 24 -> 43
 
 (199-50) + (190-16) + (43-16) = 341
+
+
+---
+
+## [L-6.10: Important Questions on Operating System | Must Watch | NTA NET June 2021](https://www.youtube.com/watch?v=AF3FoARvtcc&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p&index=81&pp=iAQB)
