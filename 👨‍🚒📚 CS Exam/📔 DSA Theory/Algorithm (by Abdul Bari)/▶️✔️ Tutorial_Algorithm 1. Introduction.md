@@ -15,22 +15,24 @@
 | **Who Writes It**          | Often written by individuals with **domain knowledge** about the problem and its solution. For example, an accountant for accounting software or a doctor for hospital applications. Programmers who also have domain knowledge can act as designers.                                                                                                                                                                                       | Primarily written by **programmers**, often university graduates familiar with programming languages like C.                                                                 |
 | **Post-Creation Activity** | Algorithms are ==**analysed to determine their correctness and efficiency**== in terms of time and space.                                                                                                                                                                                                                                                                                                                                   | Programs are ==**tested by running them**== to check their functionality.                                                                                                    |
 
-### [1.1 Priori Analysis and Posteriori Testing](https://www.youtube.com/watch?v=-JTq1BFBwmo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=2&pp=iAQB)
+---
+## [1.1 Priori Analysis and Posteriori Testing](https://www.youtube.com/watch?v=-JTq1BFBwmo&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=2&pp=iAQB)
 
-Two key terms used for evaluating algorithms and programs: **Priori Analysis** and **Posteriori Testing**.
+Two key terms used for evaluating algorithms and programs: **==Priori Analysis**== and ==**Posteriori Testing**.==
 
 **Priori Analysis vs Posteriori Testing**
 
 | Feature              | **Priori Analysis**                         | **Posteriori Testing**                            |
 | -------------------- | ------------------------------------------- | ------------------------------------------------- |
-| **Definition**       | Analysis of an algorithm                    | Testing of a program by executing it              |
+| **Definition**       | ==Analysis of an algorithm==                | ==Testing of a program by executing it==          |
 | **Done After**       | Algorithm is written (Design Phase)         | Program is written (Implementation Phase)         |
 | **What is Measured** | ==Time== and ==space== functions            | Actual execution time and memory usage            |
 | **Result Type**      | Functions (e.g., O(n), O(log n))            | ==Exact measured== values (e.g., 1.2 sec, 100 MB) |
 | **Independence**     | Language & hardware ==independent==         | Language, OS & hardware ==dependent==             |
 | **Purpose**          | ==Theoretical understanding== of efficiency | ==Practical evaluation== of performance           |
 
-### [1.2 Characteristics of Algorithm](https://youtu.be/FbYzBWdhMb0?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O)
+---
+## [1.2 Characteristics of Algorithm](https://youtu.be/FbYzBWdhMb0?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O)
 
 
 Characteristics that every algorithm must possess to be considered valid and effective.
@@ -64,7 +66,8 @@ Characteristics that every algorithm must possess to be considered valid and eff
 - **Purposeful Steps**: **Whatever statement you write, the objective is that it should do something** towards the purpose of the procedure.
     - _Explanation_: Every step taken should be productive and contribute to the intended outcome. For instance, in a recipe, you wouldn't boil a vegetable and then not use it in the dish. This ensures that the procedure is efficient and goal-oriented.
 
-### [1.3 How Write and Analyze Algorithm](https://youtu.be/xGYsEqe9Vl0?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O)
+---
+## [1.3 How Write and Analyze Algorithm](https://youtu.be/xGYsEqe9Vl0?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O)
 
 Practical aspects of creating and evaluating algorithms, covering how they are written and, crucially, the criteria and methods used for their analysis.
 
@@ -118,7 +121,8 @@ Practical aspects of creating and evaluating algorithms, covering how they are w
 - **Power Consumption**: Relevant for algorithms running on handheld devices like palm tops, laptops, and tablets.
 - **CPU Register Consumption**: A concern when developing algorithms for device drivers or system-level programming, where CPU register usage can be critical.
 
-### [1.4 Frequency Count Method](https://www.youtube.com/watch?v=1U3Uwct45IY&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=5&pp=iAQB0gcJCccJAYcqIYzv)
+---
+## [1.4 Frequency Count Method](https://www.youtube.com/watch?v=1U3Uwct45IY&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=5&pp=iAQB0gcJCccJAYcqIYzv)
 
 
 Practical method for ==determining the time complexity of an algorithm==, known as the Frequency Count Method.
@@ -128,7 +132,7 @@ Practical method for ==determining the time complexity of an algorithm==, known 
 
 **Methodology**:
 
-1. **Assign Unit Time**: Every simple statement in the algorithm is assumed to take **one unit of time**.
+1. **Assign Unit Time**: ==Every simple statement in the algorithm is assumed to take **one unit of time**.==
 2. **Count Frequency**: For statements that repeat (e.g., inside loops), calculate their **frequency of execution**.
 3. **Sum Frequencies**: Sum up the frequencies of all statements to derive the **time function F(n)**.
 
@@ -178,15 +182,19 @@ Practical method for ==determining the time complexity of an algorithm==, known 
         - Space: `3n^2 + 3 words`.
         - **Space Complexity**: The highest degree is `n^2`. So, the space complexity is **Order of N-squared**.
 
+---
+
+## 1.5 Time Complexity
+
 ### [1.5.1 Time Complexity (1)](https://www.youtube.com/watch?v=1U3Uwct45IY&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=5&pp=iAQB0gcJCccJAYcqIYzv)
 
 Delves into the time complexity of various types of `for` loops.
 
-**1. Linear Increment/Decrement Loops (Order of N)**
+##### **1. Linear Increment/Decrement Loops ==(Order of N)==** $O(N)$
 
-==- **Simple Increment**:==
+- ==**Simple Increment**:==
     - `for (i=0; i<n; i++) { // statement }`
-    - The statement inside the loop executes `n` times. The condition `i<n` is checked `n+1` times.
+    - The statement inside the loop executes ==`n`== times. The condition `i<n` is checked `n+1` times.
     - **Complexity**: **Order of N**.
 
 - **Simple Decrement**:
@@ -194,19 +202,19 @@ Delves into the time complexity of various types of `for` loops.
     - Similar to incrementing, the loop executes ==`n` ==times.
     - **Complexity**: **Order of N**.
 
-==- **Increment by Constant Step**:==
+- ==**Increment by Constant Step**:==
     - `for (i=1; i<n; i+=2) { // statement }` (incrementing by 2)
     - The statement executes `n/2` times. The degree of ==`F(n) = n/2` is still `n`.==
     - **Complexity**: Even if incremented by a larger constant (e.g., `i+=20`), it's still **Order of N**. This is because constant coefficients are ignored in asymptotic notation.
 
-**2. ==Standard Nested Loops== (Order of N-squared)**
+##### **2. ==Standard Nested Loops== (Order of N-squared)** ==`O(N^2)`==
 
 - `for (i=0; i<n; i++) { for (j=0; j<n; j++) { // statement } }`
 - The outer loop executes `n` times, and for each iteration of the outer loop, the inner loop executes `n` times.
 - The innermost statement executes ==`n * n = n^2` times.==
 - **Complexity**: **Order of N-squared**.
 
-**3. ==Nested Loops with Dependent Inner Loop== (Order of N-squared)**
+##### **3. ==Nested Loops with Dependent Inner Loop== ==(Order of N-squared)**== $O(N^2)$
 
 - `for (i=0; i<n; i++) { for (j=0; j<i; j++) { // statement } }`
 - The number of times the inner statement executes depends on `i`:
@@ -215,11 +223,11 @@ Delves into the time complexity of various types of `for` loops.
     - When `i=2`, inner loop runs **2** times (`j=0, 1`).
     - ...
     - When `i=n-1`, inner loop runs **n-1** times.
-- **Total executions**: `0 + 1 + 2 + ... + (n-1) = n * (n-1) / 2`.
+- **Total executions**: `0 + 1 + 2 + ... + (n-1)` = ==`n * (n-1) / 2`.==
 - **Time Function F(n)**: `n^2/2 - n/2`.
 - **Complexity**: The highest degree is ==`n^2`==. So, it's **Order of N-squared**.
 
-**4. Loops with Non-Linear Counter (Order of Root N)** ⭐
+##### **4. Loops with Non-Linear Counter ==(Order of Root N)**== $O(\sqrt N)$ ⭐⭐
 
 - Consider a loop like:
     
@@ -236,14 +244,13 @@ Delves into the time complexity of various types of `for` loops.
 - If the loop runs `k` times, `P` will be approximately `1 + 2 + ... + k = k * (k+1) / 2`.
 - The loop stops when `P` becomes greater than or equal to `n`. So, `k * (k+1) / 2 >= n`.
 - Roughly, `k^2 / 2 >= n`, which implies `k^2 >= 2n`, so ==`k >= sqrt(2n)`.==
-- **Complexity**: The number of iterations `k` is proportional to **Root N (sqrt(n))**.
-
+- **Complexity**: ==The number of iterations `k` is proportional to **Root N (sqrt(n))**.==
 
 ### [1.5.2 Time Complexity (2)](https://www.youtube.com/watch?v=9SgLBjXqwd4&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=7&pp=iAQB)
 
 Extends the analysis to loops where the counter variable is multiplied or divided.
 
-**1. ==Multiplicative Increment== Loop (Order of Log N)**
+##### **1. ==Multiplicative Increment== Loop ==(Order of Log N)==** $O(\log_2 N)$
 
 - `for (i=1; i<n; i*=2) { // statement }`
 - The variable `i` takes values: `1, 2, 4, 8, ..., 2^k`.
@@ -254,7 +261,7 @@ Extends the analysis to loops where the counter variable is multiplied or divide
     - **Note on Logarithm Base**: The base of the logarithm (e.g., base 2, base 3) does not change the overall order of complexity in asymptotic analysis. ==`log2(n)`== is asymptotically equivalent to `log3(n)`.
     - **Ceiling Function**: When `n` is not an exact power of the base, the number of executions will be `ceil(log_base(n))`. For example, `n=10`, `log2(10)` is approximately 3.32, but the loop executes 4 times (`1, 2, 4, 8` then `16` causes termination).
 
-**2. ==Multiplicative Decremen==t Loop (Order of Log N)**
+##### **2. ==Multiplicative Decrement== Loop ==(Order of Log N)**== $O(\log_2 N)$
 
 - `for (i=n; i>1; i/=2) { // statement }`
 - The variable `i` takes values: `n, n/2, n/4, ..., n/2^k`.
@@ -263,7 +270,7 @@ Extends the analysis to loops where the counter variable is multiplied or divide
 - **Number of iterations**: `k` is proportional to ==`log2(n)`.==
 - **Complexity**: **Order of Log N** (base 2).
 
-**3. ==Independent Loops== (Additive Complexity)**
+##### **3. ==Independent Loops== (Additive Complexity)**
 
 - `for (i=0; i<n; i++) { ... }`
 - `for (j=0; j<n; j++) { ... }`
@@ -271,7 +278,7 @@ Extends the analysis to loops where the counter variable is multiplied or divide
 - Each loop has a complexity of **Order of N**.
 - **Combined Complexity**: ==`N + N = 2N`.== In asymptotic analysis, constant coefficients are dropped, so the complexity is still **Order of N**.
 
-**4. Complex Independent Loops (Log of Log N)**
+##### **4. Complex Independent Loops (Log of Log N)**
 
 - Consider two independent loops where one's output influences the other's range in a multiplicative way:
     - Outer loop: `for (I = 1; I <= N; I *= 2)` (This iterates `log N` times). Let `P` be a variable that takes values related to `I` or the number of iterations of this loop.
@@ -279,7 +286,7 @@ Extends the analysis to loops where the counter variable is multiplied or divide
     - If `P` in the inner loop's condition is directly related to the _number of iterations_ of the outer loop (which is `log N`), then `P` can effectively be `log N`.
     - **Complexity**: The inner loop then executes `log(log N)` times. So, the overall time complexity is **Order of Log(Log N)**.
 
-**5. ==Nested Loops== with ==One Multiplicative Counter== (Order of N Log N)**
+##### **5. ==Nested Loops== with ==One Multiplicative Counter== (Order of N Log N)**
 - `for (i=0; i<n; i++) { for (j=1; j<n; j*=2) { // statement } }`
 - Outer loop is a linear increment loop, running **Order of N** times.
 - Inner loop is a multiplicative increment loop, running **Order of Log N** times for each iteration of the outer loop.
@@ -290,7 +297,7 @@ Extends the analysis to loops where the counter variable is multiplied or divide
 
 Discusses how to analyze `while` loops and conditional (`if`) statements, and provides a broader context for loop analysis.
 
-**1. While Loops vs. For Loops**:
+##### **1. While Loops vs. For Loops**:
 
 - **C Language Flexibility**: In C, `while` loops and `for` loops are highly flexible and can often be interconverted without changing their time complexity.
 - **Older Languages**: Historically, `for` loops in languages like Pascal had a more rigid structure (e.g., implicitly incrementing by 1), making `while` loops essential for more complex iteration patterns.
@@ -327,7 +334,7 @@ Discusses how to analyze `while` loops and conditional (`if`) statements, and pr
     - **Best Case**: Occurs when `M` and `N` are already equal, or very close. The loop executes 0 or 1 time.
         - **Complexity**: **Order of 1** (constant time).
 
-**2. Conditional Statements (`if-else`)**:
+##### **2. Conditional Statements (`if-else`)**:
 
 - The presence of `if-else` can lead to **different execution times** depending on which branch is taken.
 - **Example**:
@@ -345,7 +352,8 @@ Discusses how to analyze `while` loops and conditional (`if`) statements, and pr
 
 - **Important Note**: An `if` statement doesn't inherently create "best/worst cases" unless it fundamentally alters the algorithm's iteration count or computation based on the input condition. If the `if` condition simply chooses between two fixed paths, it's analyzed based on the chosen path, not necessarily as a "case" in the performance sense
 
-### [1.6 Classes of functions](https://www.youtube.com/watch?v=p1EnSvS3urU&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=8&pp=iAQB)
+---
+## [1.6 Classes of functions](https://www.youtube.com/watch?v=p1EnSvS3urU&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=8&pp=iAQB)
 
 
 **Types of time functions** or **time complexities** obtained from algorithm analysis. These are also referred to as "classes of functions" or "categories".
@@ -379,7 +387,8 @@ Discusses how to analyze `while` loops and conditional (`if`) statements, and pr
     - **Description**: Functions like `2^n`, `3^n`, or `n^n` represent exponential time complexity.
     - **Meaning**: This signifies a **very rapid growth** in execution time as the input size `n` increases. Algorithms with exponential complexity are generally considered inefficient for large inputs.
 
-### [1.7 Compare Class of Functions](https://www.youtube.com/watch?v=5v-tKX2uRAk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=10&pp=iAQB)
+---
+## [1.7 Compare Class of Functions](https://www.youtube.com/watch?v=5v-tKX2uRAk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=10&pp=iAQB)
 
 
 **Comparing these classes of functions** based on their growth rate, arranging them in increasing order of "weight" or magnitude. This comparison is crucial for understanding which algorithms are more efficient, especially for large input sizes.
@@ -416,6 +425,10 @@ The **increasing order of growth** for common function classes is as follows:
 
 - **Importance of Order**: The arranged order of these function classes is **very important** as it helps in understanding the relative efficiency and scalability of different algorithms. An algorithm with `log n` complexity is generally much more efficient than one with `n²` or `2^n` complexity, especially for large inputs.
 
+---
+
+## 1.8 Asymptotic Notation
+
 ### [1.8.1 Asymptotic Notations Big Oh - Omega - Theta (1)](https://www.youtube.com/watch?v=A03oI0znAoc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=11&pp=iAQB0gcJCccJAYcqIYzv)
 
 
@@ -449,7 +462,6 @@ The three main asymptotic notations are:
         - **Theta notation is generally the most preferred and recommended** because it gives the most precise representation of an algorithm's asymptotic behaviour.
 
 - **Important Clarification**: Asymptotic notations ==(Big O, Omega, Theta) are **not directly related to best-case, worst-case, or average-case analysis**== of an algorithm. ==They describe the growth rate of a _function_==, which could be the function representing the best, worst, or average case time, but the notations themselves don't imply the case.
-
 
 
 | Notation | Name  | Use Case                                                                     |
@@ -492,7 +504,8 @@ Examples to solidify the understanding of asymptotic notations, especially focus
     - ==**Big O and Big Omega are useful when a tight bound is difficult== or impossible to determine** (e.g., for `n!`) or when you only need to specify an upper or lower performance limit.
     - Even when using Big O or Big Omega, it is **best practice to provide the tightest possible bound** (e.g., for `2n+3`, `O(n)` is useful, `O(n^2)` is correct but less useful). The lecturer uses an analogy of quoting a mobile phone price: giving `£20,000` is useful, but `£2,000` (too low) or `£200,000` (too high) are correct but not meaningful.
 
-### [1.9 Properties of Asymptotic Notations](https://www.youtube.com/watch?v=NI4OKSvGAgM&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=13&pp=iAQB)
+---
+## [1.9 Properties of Asymptotic Notations](https://www.youtube.com/watch?v=NI4OKSvGAgM&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=13&pp=iAQB)
 
 Several properties that asymptotic notations follow, which are derived from their mathematical definitions. These properties help in manipulating and understanding the relationship between functions.
 
@@ -530,6 +543,10 @@ Several properties that asymptotic notations follow, which are derived from thei
     - **Multiplication**: If `f(n) = O(g(n))` and `d(n) = O(e(n))`, then `f(n) * d(n) = O(g(n) * e(n))`.
         - **Explanation**: When multiplying two functions, their asymptotic complexities also multiply.
         - **Example**: If `f(n)` is `O(n)` and `d(n)` is `O(n²)`, then `f(n) * d(n)` (which is `n * n²`) is `O(n * n²)`, resulting in `O(n³)`.
+
+---
+
+# 1.10 Comparison of Functions
 
 ### [1.10.1 Comparison of Functions (1)](https://www.youtube.com/watch?v=mwN18xfwNhk&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=14&pp=iAQB)
 
@@ -600,7 +617,8 @@ More examples of function comparison, particularly using the logarithm method.
     - `n log n = O(n)`: **False**. `n log n` grows faster than `n`. So `n` cannot be an upper bound.
     - `n^log n = O(n)`: **False**. This means `n^log n` should be less than or equal to `C*n`. This is clearly not true as `log n` can be greater than 1 for `n > 2`.
 
-### [1.11 Best Worst and Average Case Analysis](https://www.youtube.com/watch?v=lj3E24nnPjI&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=16&pp=iAQB)
+---
+## [1.11 Best Worst and Average Case Analysis](https://www.youtube.com/watch?v=lj3E24nnPjI&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=16&pp=iAQB)
 
 Different types of **performance analysis** for algorithms: best case, worst case, and average case. It's crucial to understand that these are **analysis types** and are **not directly related to asymptotic notations** (Big O, Omega, Theta). Any notation can be used to represent the complexity of any case (best, worst, or average).
 
@@ -642,7 +660,8 @@ Different types of **performance analysis** for algorithms: best case, worst cas
                 - **Time Complexity**: **O(n)**.
         - Therefore, the worst-case time for a BST search can range from `O(log n)` to `O(n)` depending on the tree's balance.
 
-### [1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find](https://www.youtube.com/watch?v=wU6udHRIkcc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=17&pp=iAQB0gcJCccJAYcqIYzv)
+---
+## [1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find](https://www.youtube.com/watch?v=wU6udHRIkcc&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&index=17&pp=iAQB0gcJCccJAYcqIYzv)
 
 **Disjoint Sets**, a ==data structure primarily used to manage a collection of non-overlapping (disjoint) sets==. They are particularly useful for **detecting cycles in undirected graphs**, a common application seen in algorithms like Kruskal's algorithm for finding Minimum Spanning Trees.
 
