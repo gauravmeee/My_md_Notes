@@ -1,7 +1,7 @@
-
+> Edited in crl
 ### Remove Files and Directories (`rm`)
 
-**`rm`** is used to remove both files and directories (with the `-r` flag). It is a powerful command, and the `-rf` option can delete entire directories without any confirmation, so use it carefully.
+**`rm`** is used to ==remove both files and directories== (with the `-r` flag). It is a powerful command, and the `-rf` option can delete entire directories without any confirmation, so use it carefully.
 
 **Syntax:**
 ```sh
@@ -9,12 +9,12 @@ rm [OPTION] <file/directory>
 ```
 
 **Options:**
-1. -r, --recursive : Remove directories and their contents
-2. -f, --force  : Force remove without prompting (ignores non-existent files)
-3. -i : Prompt before each removal
-4. -v, --verbose : Show verbose output (which files are being removed)
-5. -d : Remove empty directories
-6. --help : Display help message for usage
+1. `-r`, `--recursive` : Remove directories and their contents
+2. `-f`, `--force`  : Force remove without prompting (ignores non-existent files)
+3. `-i`: Prompt before each removal
+4. `-v`, `--verbose` : Show verbose output (which files are being removed)
+5. `-d` : Remove empty directories
+6. `--help` : Display help message for usage
 
 ```sh
 # Remove a single file
@@ -37,11 +37,11 @@ rm file1.txt file2.txt file3.txt
 
 # Remove only empty directories (fails if directory is not empty)
 rm -d emptyfolder/  
-
 ```
+
 **Notes:**
-- rm is permanent and cannot recover deleted files unless using recovery tools.
-- Use "rm -rf" with caution as it will delete everything inside the specified directory.
+- `rm` is permanent and cannot recover deleted files unless using recovery tools.
+- Use "`rm -rf`" with caution as it will delete everything inside the specified directory.
 - Be mindful of using rm on system files and directories as it can cause irreparable damage.
 
 ### Remove Empty Directories(`rmdir`) 
@@ -54,9 +54,9 @@ rmdir [OPTION] <directory>
 ```
 
 **Options:**
-1. -p : Removes the specified directory and its empty parent directories (if they are empty)
-2. /s : Removes directory and all of its subdirectories (Windows-only option)
-3. /q : Quiet mode, removes without prompting for confirmation (Windows-only option)
+1. `-p` : Removes the specified directory and its empty parent directories (if they are empty)
+2. `/s` : Removes directory and all of its subdirectories (Windows-only option)
+3. `/q` : Quiet mode, removes without prompting for confirmation (Windows-only option)
 
 ```sh
 # Remove an empty directory
