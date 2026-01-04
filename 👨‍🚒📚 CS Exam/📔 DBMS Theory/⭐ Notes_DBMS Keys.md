@@ -1,12 +1,12 @@
 Attribute - field - column 
 Tuple - Data - Row
 
----
 # Keys
+
 
 In Database Management Systems (DBMS), **keys** are crucial for identifying unique rows in tables and establishing relationships between different tables. Here are the different types of keys and their significance, along with some **common interview questions** about keys in DBMS:
 
-### **Types of Keys in DBMS:**
+### Types of Keys in DBMS:
 
 1. **Primary Key**:
    - A column (or combination of columns) that uniquely identifies each row in a table.
@@ -116,3 +116,46 @@ In Database Management Systems (DBMS), **keys** are crucial for identifying uniq
 - **Violations occur** when:
     - Inserting invalid FK in child (R2).
     - Deleting referenced PK in parent (R1).
+
+---
+
+**Prime Attribute (Key Attribute)  vs Primary Key**
+
+- **Prime Attribute**
+	- Attribute that is part of **any candidate key**.
+	- May appear in **multiple candidate keys**.
+	- Used mainly in **normalization (2NF, 3NF)**.
+	- Example:
+	    - Candidate keys: `{A, B}`, `{A, C}`        
+	    - **Prime attributes:** `A, B, C`
+
+- **Primary Key**
+	- **One selected candidate key** used to uniquely identify records.
+	- Must be **unique** and **NOT NULL**.
+	- Exactly **one primary key** per table.
+	- Can be **composite**.
+
+---
+
+### Clear Comparison (Exam-Ready)
+
+|Feature|Prime Attribute|Key Attribute|Primary Key|
+|---|---|---|---|
+|Part of candidate key|Yes|Yes|Yes|
+|All candidate keys|Yes|Usually yes|No (only chosen one)|
+|Uniqueness guarantee|Indirect|Indirect|Direct|
+|NULL allowed|Depends|Depends|Not allowed|
+|Used in normalization|Yes ⭐|No|No|
+
+---
+
+### One-Line Rule (No Confusion)
+
+```
+Candidate Key → attributes are Prime
+Chosen Candidate Key → Primary Key
+```
+
+**Best Opinion:**  
+In exams, treat **prime attribute = attribute of any candidate key**.  
+Ignore the term **key attribute** unless explicitly defined—it often causes confusion.

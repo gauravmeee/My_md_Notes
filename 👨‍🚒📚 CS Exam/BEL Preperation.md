@@ -78,16 +78,7 @@ Below is a **corrected, completed, and better-categorized version** of your list
     - Linear Discriminant Analysis (LDA)
         
     - Not: K-Means, K-Medians, Expectation Maximization
-        
-
----
-
-**DBMS**
-
-- Query By Example (QBE)
-    
-- Boyce-Codd Normal Form (BCNF)
-    
+         
 
 ---
 

@@ -27,7 +27,6 @@ These properties are:
 Together, these properties ensure the reliability and correctness of database operations in multi-transactional environments.
 
 ---
----
 
 # RAID
 
