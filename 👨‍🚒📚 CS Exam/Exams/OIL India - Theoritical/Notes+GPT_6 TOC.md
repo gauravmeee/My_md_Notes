@@ -19,19 +19,12 @@ Finite Automata is a mathematical model used to recognize **regular languages**.
 1. **Deterministic Finite Automata (DFA)**
     
     - Each state has **exactly one** transition for each input symbol.
-        
     - No ε-moves (null transitions).
-        
     - Formally, DFA = (Q, Σ, δ, q₀, F)
-        
         - Q: finite set of states
-            
         - Σ: input alphabet
-            
         - δ: transition function (Q × Σ → Q)
-            
         - q₀: start state
-            
         - F: set of final states
             
 2. **Non-Deterministic Finite Automata (NFA)**

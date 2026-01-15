@@ -170,8 +170,8 @@ Undirected Grpah
 |       |    D(3) = 3
 |       |    D(4) = 2
 (5)----(3)   D(1) = 2
- ╲      ╱    Degree of Graph = 2*6 = 12
-    (4)
+ ╲     ╱     Degree of Graph = 2*6 = 12
+   (4)
 
 Degree (for Undirected Graph) - The no. of edges attach to the node
 
@@ -197,11 +197,11 @@ Outdegree - the no. of outgoing edges to the node
 ### Edge Weight
 
 ```
-()---3---()----5---()╲ 
-|         |         |  ╲6  
+()---3---()----5---()╲  6 
+|         |         |  ╲  
 |2        |1        |5  ()
-|         |         |  ╱7
-()---2----()---1---()╱
+|         |         |  ╱ 
+()---2----()---1---()╱  7 
 
 If Weight not given - Assume all unity 
 ```
@@ -242,7 +242,7 @@ Interpretation (Undirected Graph)
 2   5    edge1 : 2--5
 4   5    edge1 : 4--5
 
-- Nodes- No. of Node Constant
+- Nodes - No. of Node Constant
 - Edges - No. of Edges Variable (if we join more two nodes in same graph no. of edges increase)
 ```
 
@@ -272,7 +272,7 @@ adj[4][5]=1 # and adj[5][4]=1         ,,
 2	| 0 | 1 | 0 | 0 | 1 | 1 |
 	|---+---+---+---+---+---|
 3	| 0 | 1 | 0 | 0 | 1 | 0 |
-	+---+---+---+---+---+---|
+	|---+---+---+---+---+---|
 4	| 0 | 0 | 1 | 1 | 0 | 1 |
 	|---+---+---+---+---+---|
 5	| 0 | 0 | 1 | 0 | 1 | 0 |
@@ -310,7 +310,7 @@ adj[3] -> {1,4}
 adj[4] -> {3,2,5}
 adj[5] -> {2,4}
 
-Space Complexit - 2*E  (Each edges is considered twice)
+Space Complexity - 2*E  (Each edges is considered twice)
 ```
 
 **Implementation of Adjacency List in C++**
@@ -320,7 +320,7 @@ int main(){
 	 int n, m;
 	 cin>>n>>m;
 	//List here
-	vector<vector<int> adj(n+1);
+	vector<vector<int>> adj(n+1);
 	for(int i=0; i<m; i++){
 		int u, v;
 		cin>>u>>v;
@@ -334,15 +334,16 @@ int main(){
 ### Directed Graph
 
 For Directed Graph , Implementation is Same,
-but keep keep in mind if `(1)--->(2)` than only consider `adj[1][2]` not `adj[2][1]`
+but keep  in mind if `(1)--->(2)` than only consider `adj[1][2]` not `adj[2][1]`
 ```
 for matrix only : adj[1][2] =1
 for list only : adj[1].push(2)
 ```
 
-*Note:* We will use Adjacency list in Every Problem  because of better Space complexity
+> *Note:* We will use Adjacency list in Every Problem  because of better Space complexity
 
-Weighted Graph:
+**Weighted Graph:**
+
 ```
 (1)--2---(2)
  |        |  ╲6 
@@ -382,14 +383,14 @@ vector<vector<pair<int, int>>> adj(n + 1);
 adj[0] -> {}
 adj[1] -> {(2,2), (3,3)}
 adj[2] -> {(1,2), (4,1), (5,6)}
-adj[3] -> {(1,3),(4,3)}
-adj[4] -> {(3,4), (2,1) ,(5,3)}
-adj[5] -> {(2,6),(4,3)}
+adj[3] -> {(1,3), (4,3)}
+adj[4] -> {(3,4), (2,1), (5,3)}
+adj[5] -> {(2,6), (4,3)}
 ```
 
 # [G-3. Graph Representation in Java | Two Ways to Represent](https://youtu.be/OsNklbh9gYI?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn) ^G3
 
-For Java So Skipped.
+> For Java So Skipped.
 
 # [G-4. What are Connected Components ?](https://youtu.be/lea-Wl_uWXY?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn) ^G4
 
@@ -427,7 +428,9 @@ Vis = [ 0 0 0 0 0 0 0 0 0 0 0]
 
 ⭐ Always use the for loop in any traversal. so that our traversing not end, on disconnected components i.e. when have multiple components.
 
-*Note:* To Handle any Traversal Algorithm/Function to Handle not connected components use the for loop:
+*Note:* To Handle any Traversal Algorithm/Function to Handle not connected components use the 
+
+for loop:
 ```cpp
 for(i=0->10)
 	if(!vis[i]) // whenever other component's node appear, pass to function.
@@ -436,9 +439,9 @@ for(i=0->10)
 ```
 ```                     
                         0 1 2 3 4 5 6 7 8 9 10
-traversal(0) -> Vis = [ 0 1 1 1 1 0 0 0 0 0 0]
-traversal(5) -> Vis = [ 0 1 1 1 1 1 1 1 0 0 0]
-traversal(8) -> Vis = [ 0 1 1 1 1 1 1 1 1 1 0]
+traversal(0)  -> Vis = [ 0 1 1 1 1 0 0 0 0 0 0]
+traversal(5)  -> Vis = [ 0 1 1 1 1 1 1 1 0 0 0]
+traversal(8)  -> Vis = [ 0 1 1 1 1 1 1 1 1 1 0]
 traversal(10) -> Vis = [ 0 1 1 1 1 1 1 1 1 1 1]
 ```
 
@@ -487,7 +490,7 @@ if Starting Node -> (6)
 						   (5)
 				            ⬉level2
 
-Print :   6  1 8 7   2 5  4
+Print :   6  1 8 7   2 5  4 3
 Level :  _0_ __1__   _2_  _3_
 ```
 
@@ -498,7 +501,7 @@ Node 5 : level 3 ✔️
 6 -> 7 -> 5
 
 Node 5 : level 4  X (it should be counted in earlier level)
-6 -> 1 -> 4 -> 5
+6 -> 1 -> 2 -> 4 -> 5
 ```
 
 
@@ -523,7 +526,7 @@ Ajacency List:
 4 -> {2, 5 ,8}
 5 -> {4, 8}
 6 -> {1,7,9}
-7 -> {6, 9}
+7 -> {6}
 8 -> {4 ,5}
 9 -> {6}
 ```
@@ -553,10 +556,10 @@ printed :
 Queue :
 | 6 | <- push 6
 | 2 | <- push 2
-|  ---> pop 1
+| x --> pop 1
 |___|
 
-visited array (n+1) z:
+visited array (n+1) :
 [ 0  1  1  0  0  0  1  0  0  0 ]  -> mark vis[2] & vis[6] as `1`
   0  1  2  3  4  5  6  7  8  9
 
@@ -571,7 +574,7 @@ Queue :
 | 4 | <- push 4
 | 3 | <- push 3
 | 6 |
-|  ---> pop 2
+| x --> pop 2
 |___|
 
 visited array (n+1) :
@@ -590,7 +593,7 @@ Queue :
 | 7 | <- push 7
 | 4 |
 | 3 |
-|  ---> pop 6
+| x --> pop 6
 |___|
 
 visited array (n+1) :
@@ -608,7 +611,7 @@ Queue :
 | 9 |
 | 7 |
 | 4 |
-|  ---> pop 3
+| x --> pop 3
 |___|
 
 printed : 1 2 6 3 <- print popped node
@@ -622,7 +625,7 @@ Queue :
 | 5 | <- push 5
 | 9 |
 | 7 |
-|  ---> pop 4
+| x --> pop 4
 |___|
 
 visited array (n+1) :
@@ -640,7 +643,7 @@ Queue :
 | 8 | <- push 8
 | 5 |
 | 9 |
-|  ---> pop 7
+| x --> pop 7
 |___|
 
 visited array (n+1) :
@@ -656,7 +659,7 @@ printed : 1 2 6 3 4 7 <- print popped node
 Queue :
 | 8 |
 | 5 |
-|  ---> pop 9
+| x --> pop 9
 |___|
 
 printed : 1 2 6 3 4 7 9 <- print popped node
@@ -667,7 +670,7 @@ printed : 1 2 6 3 4 7 9 <- print popped node
 ```
 Queue :
 | 8 |
-|  ---> pop 5
+| x --> pop 5
 |___|
 
 printed : 1 2 6 3 4 7 9 5 <- print popped node
@@ -678,7 +681,7 @@ printed : 1 2 6 3 4 7 9 5 <- print popped node
 ```
 Queue :
 |   |
-|  ---> pop 8
+| x --> pop 8
 |___|
 
 printed : 1 2 6 3 4 7 9 5 8<- print popped node
@@ -712,9 +715,9 @@ class Solution {
     // Function to return Breadth First Traversal of given graph.
     vector<int> bfsOfGraph(int V, vector<int> adj[]) {
         int vis[V] = {0}; 
-        vis[0] = 1; 
         queue<int> q;
         // push the initial starting node 
+        vis[0] = 1; 
         q.push(0); 
         vector<int> bfs; 
         // iterate till the queue is empty 
@@ -738,7 +741,9 @@ class Solution {
 };
 // Return BFS Traversal Order
 ```
-*Note:* Code for both Directed and Undirected Graph is Same, Because whether it is directed or undirected, one can't go from node B to A, if it already gone through A to B because of visited array
+
+
+***Note:*** Code for both Directed and Undirected Graph is Same, Because whether it is directed or undirected, one can't go from node B to A, if it already gone through A to B because of visited array
 
 Extra Function (To make adjacent array)
 ```
@@ -1003,7 +1008,7 @@ For a Source, Traverse its, Upper, Lower, Left and Right Cells.
 ```sh
 1. Create ans[][] = image[][]. # to store output
 2. Store iniColor = image[sr][sc].
-3. Define delRow[] = {-1, 0, +1, 0}, delCol[] = {0, +1, 0, -1}.
+3. Define delRow[] = {-1, 0, +1, 0}, delCol[] = {0, +1, 0, -1}. 
 4. Call DFS(sr, sc):
     a. Set ans[row][col] = newColor.
     b. For 4 neighbours (nrow, ncol):
@@ -1054,7 +1059,7 @@ public:
 };
 ```
 
-**Version 2:**
+**Version 2:** (My ⭐)
 ```cpp
 vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         int old = image[sr][sc];
@@ -1551,7 +1556,7 @@ for the above list [4 5 2 3 1 0]
 ```
 
 **Note:**
-**Topological Sort (Topo Sort)** → Only valid on **Directed Acyclic Graphs (DAG)** ✅
+- **Topological Sort (Topo Sort)** → Only valid on **Directed Acyclic Graphs (DAG)** ✅
 - **If the graph is not Acyclic (contains cycles)** →  There may be two connected vertices, `u` and `v`, such that the order in which they appear depends on the path direction. In a cycle, traversing **clockwise** or **anticlockwise** leads to conflicting orders.
 - **If the graph is not Directed (Undirected)** →  There may be two connected vertices, `u` and `v`, with both `u → v` and `v → u` being valid. This creates ambiguity, making it impossible to decide which vertex comes first.
 
@@ -1573,17 +1578,6 @@ for the above list [4 5 2 3 1 0]
 3 -> {1}
 4 -> {0,1}
 5 -> {0,2}
-```
-
-```
-0 ->
-1 ->
-2 -> {0,5}
-3 -> {1}
-4 -> {0,1}
-5 -> {3}
-
-0 1 2
 ```
 
 ```
@@ -1750,7 +1744,7 @@ Indegree:
 Indegree
 ```
 
-**Topological Sort - Indegree Rule**
+**Indegree Rule -> Topological Sort**
 - **Nodes with lower indegree** will appear **before** nodes with higher indegree in the topological ordering.
 - **Nodes with the same indegree** can appear in **any order** relative to each other.
 

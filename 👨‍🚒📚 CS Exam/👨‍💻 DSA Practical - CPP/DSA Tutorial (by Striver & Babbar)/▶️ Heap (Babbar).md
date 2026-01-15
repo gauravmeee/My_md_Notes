@@ -7,14 +7,13 @@ Heap is a complete Binary Tree that comes with a Heap order Property ⭐
 - Every level is completely filled except the lowest one , which is filled from the left
 
 **What is Heap order Property**
-- **Max Heap** -A Max Heap is a complete binary tree where the value of each parent node is greater than or equal to its children, with the largest element always at the root.
+- **Max Heap** - A Max Heap is a complete binary tree where the value of each parent node is greater than or equal to its children, with the largest element always at the root.
 
 - **Min Heap** - A Min Heap is a complete binary tree where the value of each parent node is less than or equal to its children, with the smallest element always at the root.
 
 
 **How BST is different ?**
 A BST is a binary tree where each node has a value greater than all nodes in its left subtree and less than all nodes in its right subtree, enabling efficient searching, insertion, and deletion.
-
 
 ### Max Heap Implementation (With Array)
 

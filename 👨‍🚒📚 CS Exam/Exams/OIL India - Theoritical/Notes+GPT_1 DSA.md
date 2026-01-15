@@ -21,20 +21,14 @@ A **stack** is a linear data structure that follows **LIFO (Last In, First Out)*
 ### Basic Operations
 
 - **push(x):** Insert element x on top of stack
-    
 - **pop():** Remove top element
-    
 - **peek()/top():** Return top element without removing
-    
 - **isEmpty():** Check if stack is empty
-    
 - **isFull():** Check if stack is full (in case of fixed-size stack)
-    
 
 ### Implementation
 
 1. **Using Array** – Simple but fixed size
-    
 2. **Using Linked List** – Dynamic size
     
 
@@ -53,17 +47,10 @@ struct Stack {
 ### Applications
 
 - Function call management (Recursion)
-    
 - Expression evaluation & conversion (Infix, Prefix, Postfix)
-    
 - Undo/Redo operations
-    
 - Syntax parsing
-    
 - Backtracking (e.g., maze, N-Queens)
-    
-
----
 
 ## Queue
 
@@ -71,25 +58,18 @@ A **queue** is a linear data structure that follows **FIFO (First In, First Out)
 
 ### Basic Operations
 
-- **enqueue(x):** Insert element x at rear
-    
+- **enqueue(x):** Insert element x at rear    
 - **dequeue():** Remove element from front
-    
 - **front():** Access first element
-    
 - **rear():** Access last element
-    
 - **isEmpty():** Check if empty
-    
 - **isFull():** Check if full (for fixed size)
     
 
 ### Implementation
 
 1. **Array-based Queue** (uses two indices `front`, `rear`)
-    
 2. **Linked List Queue**
-    
 3. **Circular Queue** – Solves wasted space issue
     
 
@@ -113,20 +93,15 @@ struct Queue {
 ### Variants
 
 - **Circular Queue:** Connects rear to front
-    
 - **Deque (Double-Ended Queue):** Insertion/deletion from both ends
-    
 - **Priority Queue:** Each element has priority; highest priority dequeued first
     
 
 ### Applications
 
 - Scheduling (CPU, Disk, Print)
-    
 - Buffer management (I/O queues)
-    
 - BFS (Breadth-First Search)
-    
 - Handling requests in order
     
 
@@ -152,20 +127,17 @@ An **array** is a collection of elements stored in **contiguous memory locations
 ### Characteristics
 
 - Fixed size (static memory allocation)
-    
 - Random access using index
-    
 - Homogeneous elements (same data type)
-    
 
 ### Time Complexities
 
-|Operation|Time|
-|---|---|
-|Access|O(1)|
-|Search|O(n)|
-|Insertion|O(n)|
-|Deletion|O(n)|
+| Operation | Time |
+| --------- | ---- |
+| Access    | O(1) |
+| Search    | O(n) |
+| Insertion | O(n) |
+| Deletion  | O(n) |
 
 ### Implementation Example
 
@@ -177,18 +149,14 @@ for(int i=0; i<5; i++) cout<<arr[i]<<" ";
 ### Advantages
 
 - Direct element access
-    
 - Simple and cache-friendly
-    
 
 ### Disadvantages
 
-- Fixed size
-    
+- Fixed size    
 - Costly insertion/deletion (shifting elements)
-    
 - Inefficient memory use if sparsely filled
-    
+
 
 ---
 
@@ -199,11 +167,8 @@ A **linked list** is a collection of **nodes** where each node contains **data**
 ### Types
 
 1. **Singly Linked List** – Each node points to the next node
-    
-2. **Doubly Linked List** – Each node points to both next and previous nodes
-    
+2. **Doubly Linked List** – Each node points to both next and previous nodes    
 3. **Circular Linked List** – Last node points back to first node
-    
 
 ### Node Structure
 

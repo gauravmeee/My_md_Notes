@@ -34,10 +34,27 @@ Unordered Map :
 uses hash tables for faster lookups.
 The average time complexity for insertion, deletion, and access is `O(1)`, but in the worst case, it can degrade to `O(n)` if there are many hash collisions.
 
-
----
-
 # Time Complexity in Competitive Programming
+
+
+
+##### **Summary** ⭐
+
+- Most competitive programming platforms allow **~10^8 operations per second**.    
+- Generally allowed time limit: 1–2 seconds.
+- So, our algorithm should have **≤ 10^8 steps/operations**.
+
+(Assume 1 input = 1 operation)
+
+- $O(1) ≤ 10^8$ -----→ N can be very large (practically infinite)
+- $O(log N) ≤ 10^8$ -----→ $N ≤ 2^{10^{8}}$ (extremely large, practically infinite)
+- $O(N) ≤ 10^8$ -----→ $N ≤ 10^8$
+- $O(N log N) ≤ 10^8$ -----→ $N ≤ 10^8 / log2(10^8) ≈ 3.7 × 10^6$
+- $O(N^2) ≤ 10^8$ -----→ $N ≤ √(10^8) ≈ 10^4$
+- $O(N^3) ≤ 10^8$ -----→ $N ≤ ∛(10^8) ≈ 464$
+- $O(2^N) ≤ 10^8$ -----→ $N ≤ log2(10^8) ≈ 27$
+- $O(N!) ≤ 10^8$ -----→ $N ≤ 12$
+
 
 ### 1. How to Analyze Required Time Complexity for a Problem
 

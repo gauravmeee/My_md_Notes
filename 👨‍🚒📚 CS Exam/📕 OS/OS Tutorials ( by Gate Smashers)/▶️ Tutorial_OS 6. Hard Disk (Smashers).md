@@ -4,7 +4,7 @@
 **Hard Disk Architecture**
 ![](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter10/10_01_DiskMechanism.jpg)
 
-- **Rotation** -> Uni direction -> Clockwise or Anticlockwise
+- **Rotation** -> Uni-direction -> Clockwise or Anticlockwise
 - **Platter** -> Surface -> Track -> Sectors -> Data
 - **Total Disk Size** = No. of Platters x No. of Surface in Each Platter x No. of Tracks in Each Surface x No. of Sector in Each Track x Data Per Sector
 
@@ -22,19 +22,22 @@ For Calculations Remember Powers of 2
 **Ques:** Find No. of bits Required and Memory Size of the Disk With.  8 Platters, 256 Tracks on each surface, 512 Sector on Each Track and 512KB on each Sector
 
 **Ans:** Memory Size = `P * 2 Surface By default * T * S * D`
-= 8 x 2 x 256 x 512 x 512KB = 2^3 x 2^1 x 2^8 x 2^9 + 2^9(2^10) = 2^40 = 1 TB
+= $8 * 2 * 256 * 512 * 512KB = 2^3 * 2^1 * 2^8 * 2^9 + 2^9(2^{10}) = 2^{40} = 1 TB$
 
-No. of Bits = log(2^40) = 40
+No. of Bits = $log(2^{40}) = 40$
 
 ---
-## [L-6.2: Disk Access Time with Example | Seek Time, Rotational Time and Transfer Time](https://youtu.be/udZi6uiR8bM)
+## [L-6.2: Disk Access Time with Example | Seek Time, Rotational Time and Transfer Time](https://youtu.be/udZi6uiR8bM) 
 
 **Disk Access Time**
 - **Seek Time ->** Time taken by Read/write head to reach desired track.
 - **Rotation time** -> Time taken for one full Rotation (360.)
-- **Rotational Latency** -> Time taken to reach desired sector. (Half of Rotation Time) ~ Average of All rotations
-- **Transfer Time** -> Data to be Transfer / Transfer Rate
-- **Transfer Rate (Data Rate)** -> No. of Heads(or Surface) x Capacity of one Track x No. of Rotations per second
+- **Rotational Latency** -> Time taken to reach desired sector. 
+	- $\text{Rotation Time} / 2$ ~ Average of All rotations
+- **Transfer Time** -> 
+	- $\text {Data to be Transfer / Transfer Rate}$
+- **Transfer Rate (Data Rate)** -> 
+	- $\text{ No. of Heads(or Surface) x Capacity of one Track x No. of Rotations per second}$
 
 ---
 ## [L-6.3: Disk Scheduling Algorithm | Operating System](https://youtu.be/9uoa_p8q47Y)
