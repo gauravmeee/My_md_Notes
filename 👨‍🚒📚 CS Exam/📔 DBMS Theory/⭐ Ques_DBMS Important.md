@@ -10,6 +10,50 @@
 	- **Intension** - represents the ==**structure** (schema) of a database relation== — includes name, attributes, data types, and constraints.
 	- **Extension** - refers to the ==**set of tuples (rows)** in a relation== **at a particular point in time**.
 
+##### **Ques. What is Inverted File Organisation** ⭐⭐
+
+Inverted file organization is a file organization technique where separate indexes are built on secondary (non-primary) keys, and each index entry stores a list of pointers to all records having that key value.
+
+Two files are maintained:
+- **Data file** → actual records stored normally
+- **Inverted index file** → key value mapped to a list of record addresses
+
+```
+Key Value → [Record Pointer 1, Record Pointer 2, ...]
+```
+
+**working**
+- Choose one or more secondary attributes
+- For each distinct value of the attribute, create an index entry
+- Each entry points to all records containing that value
+- On query, system directly follows pointers instead of scanning data file
+
+**example**
+```
+Occupation index
+ENG → 2, 7, 15
+DOC → 1, 9
+MUS → 4, 10, 21
+```
+
+**why efficient**
+- Eliminates full file scan for secondary key searches
+- Supports many-to-many relationships
+- Multiple secondary keys can be indexed simultaneously
+
+**advantages**
+- Very fast retrieval using secondary keys
+- Supports complex queries on non-primary attributes
+- Good for read-heavy databases
+
+**disadvantages**
+- Extra storage for pointer lists
+- Update overhead on insert/delete
+- Pointer lists can become large
+
+**why called “inverted”**  
+- Traditional file: record → field values  
+- Inverted file: field value → list of records
 ##### **Ques. Which of the following is NOT an aggregate function in SQL? **
 
 - `Round()`  -> As it operates on a **single value** -> ✅ Not a Aggregate Function 

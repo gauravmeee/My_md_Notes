@@ -2966,6 +2966,7 @@ where,
 1 Rotation Time = 10 ms
 Sectors per Track = 1K = 1000
 1 Sector Capacity = 1 KB
+---
 Track capacity?
 Track Rate?
 ```
