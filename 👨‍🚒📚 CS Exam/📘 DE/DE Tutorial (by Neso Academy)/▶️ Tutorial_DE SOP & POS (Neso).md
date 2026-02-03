@@ -68,7 +68,6 @@ The **Standard or Canonical SOP form** is the sum (OR) of all these product term
 ```
             SOP Form
     ╭-------------------------------╮
-    
 F = A'BC' + AB'C' + AB'C + ABC' + ABC
 ```
 
@@ -79,7 +78,6 @@ F = A'BC' + AB'C' + AB'C + ABC' + ABC
 
 A **min term** is a ==product term where all variables of the function appear, either in their true form or complemented form==.
 - Example: Minterm `m3 = A' B C`
-
 
 **In Detail:**
 - A **min term** is a `AND` of all variables (each in true or complemented form) that gives **1 for exactly one combination** of inputs. 
@@ -120,7 +118,7 @@ This can also be concisely written using the summation notation:
 ```
              Summation of Min Terms = SOP
              ╭--------------------╮
-F(A, B, C) = Σm(2, 4, 5, 6, 7)
+F(A, B, C) =   Σm(2, 4, 5, 6, 7)
 ```
 
 The summation symbol (`Σ`) indicates that you are taking the s`um (OR operation)` of these min terms. 

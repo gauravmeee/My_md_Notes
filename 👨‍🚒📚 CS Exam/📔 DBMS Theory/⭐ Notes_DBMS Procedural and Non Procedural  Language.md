@@ -23,7 +23,7 @@
 - Specify desired attribute in result
 - Give condition on tuples (no explicit operation order)
 
-##### **1. Relational Algebra Operations**
+##### **1. Relational Algebra Operations** ⭐
 
 **Primitive (Basic) Operations:**
 - Selection (σ)

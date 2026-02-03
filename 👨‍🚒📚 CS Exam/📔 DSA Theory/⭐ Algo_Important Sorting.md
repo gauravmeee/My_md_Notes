@@ -8,14 +8,14 @@
 
 > **Basic Sort :**
 
-| **Sorting Algorithm** | **Worst Time Complexity** | **Average Time Complexity** | **Best Time Complexity** | **Space Complexity** |
-| --------------------- | ------------------------- | --------------------------- | ------------------------ | -------------------- |
-| **Selection Sort**    | O(n^2)                    | O(n^2)                      | O(n^2)                   | O(1)                 |
-| **Bubble Sort**       | O(n^2)                    | O(n^2)                      | O(n) ⭐                   | O(1)                 |
-| **Insertion Sort**    | O(n^2)                    | O(n^2)                      | O(n) ⭐                   | O(1)                 |
-| **Quick Sort**        | O(n^2) ⭐                  | O(n * log n)                | O(n * log n)             | O(log n) ⭐           |
-| **Merge Sort**        | O(n * log n)              | O(n * log n)                | O(n * log n)             | O(n)                 |
-| **Heap Sort** ⭐       | O(n * log n)              | O(n * log n)                | O(n * log n)             | O(1) ⭐               |
+| **Sorting Algorithm** | **Worst Time Complexity** | **Average Time Complexity** | **Best Time Complexity**               | **Space Complexity**                                        |
+| --------------------- | ------------------------- | --------------------------- | -------------------------------------- | ----------------------------------------------------------- |
+| **Selection Sort**    | O(n^2)                    | O(n^2)                      | O(n^2)                                 | O(1)                                                        |
+| **Bubble Sort**       | O(n^2)                    | O(n^2)                      | O(n) ⭐ _(with swap-flag optimization)_ | O(1)                                                        |
+| **Insertion Sort**    | O(n^2)                    | O(n^2)                      | O(n) ⭐ _(already sorted)_              | O(1)                                                        |
+| **Quick Sort**        | O(n^2) ⭐                  | O(n * log n)                | O(n * log n)                           | `O(log n)` _(avg recursion)_ / `O(n)` _(worst recursion)_ ⭐ |
+| **Merge Sort**        | O(n * log n)              | O(n * log n)                | O(n * log n)                           | O(n)                                                        |
+| **Heap Sort** ⭐       | O(n * log n)              | O(n * log n)                | O(n * log n)                           | O(1) ⭐(aux space)                                           |
 
 > **Advance Sort :**
 
@@ -23,7 +23,7 @@
 | --------------------- | ------------------------ | --------------------------- | ------------------------- | -------------------- |
 | **Shell Sort**        | O(n * log n)             | O(n * log^2 n)              | O(n^2)                    | O(1)                 |
 | **Counting Sort**     | O(n + k)                 | O(n + k)                    | O(n + k)                  | O(k)                 |
-| **Radix Sort**        | O(nk)                    | O(nk)                       | O(nk)                     | O(n + k)             |
+| **Radix Sort** ⭐      | O(nk)                    | O(nk)                       | O(nk)                     | O(n + k)             |
 | **Bucket Sort**       | O(n + k)                 | O(n + k)                    | O(n^2)                    | O(n + k)             |
 | **Tim Sort**          | O(n)                     | O(n * log n)                | O(n * log n)              | O(n)                 |
 

@@ -1918,8 +1918,9 @@ Tavg = [ H * tcm ] + [ (1 - H) * (tcm + tmm) ]
     - On CPU write → data ==written to **cache** and **main memory simultaneously**==
     - **Advantage** → Memory consistency (cache and main memory always in sync)
     - **Disadvantage** → ==Time-consuming==, ==higher memory traffic== ⭐
-    - **Write Allocate** → On a write miss, the block is brought into cache and then written
-    - ==**No Write Allocate**== → On a write miss, only main memory is updated; cache not updated
+    - ==**No Write Allocate**== (Common) → On a write miss, only main memory is updated; cache not updated
+    - ==**Write Allocate**== (Not Common) →On a **write miss**, the block is **brought into cache**, and the write is performed to **both cache and main memory**.
+    
         
 2. **Write Back**    
 	- On CPU write → ==data written **only in cache**==, and the block’s **dirty bit** is set to 1. When the block is replaced later, the updated cache content is first written back to **main memory** before replacement.
@@ -1930,7 +1931,7 @@ Tavg = [ H * tcm ] + [ (1 - H) * (tcm + tmm) ]
 	    - A **Dirty Bit** is used:
         - Set = 1 → block in cache is updated but not yet written to main memory    
 	    - When the dirty block is replaced, its updated content is written back to main memory
-	- ==**Write Allocate**== → On a write miss, the block is brought into cache and then written 
+	- ==**Write Allocate**== → On a **write miss**, the block is **brought into cache**, and the write is performed **only in cache** (dirty bit set); main memory is updated **later on eviction**.
 
 
 **Doubt:** How can a write process result in a miss? We just need to write, not find.
@@ -1959,8 +1960,8 @@ Tavg = [ H * tcm ] + [ (1 - H) * (tcm + tmm) ]
               ⬋                  ⬊
           Read                       Write 
         ⬋     ⬊                 ⬋            ⬊
-     Hit       Miss          Hit               Miss 
-     ⬇           ⬇              ⬋     ⬊                  ⬇ 
+     Hit       Miss          Hit                  Miss 
+     ⬇           ⬇              ⬋     ⬊              ⬇ 
  Take from   Read from      Write in Cache      Bring block from
    Cache     Main Memory         +            Main Memory into Cache
                  +            Mark Dirty=1            +
@@ -1968,6 +1969,21 @@ Tavg = [ H * tcm ] + [ (1 - H) * (tcm + tmm) ]
           is Dirty: Write Back                  i.e. write hit
           Else: Replace Directly ⭐          ⭐ (write allocate)
 ```
+
+
+**To Memorize (My Point)**
+
+- **Write Hit** (If Hit in Cache)
+    1. **Write Through** _(Favor of M.M only)_  → Write in **C.M + along with M.M**
+    2. **Write Back** _(Favor of C.M only)_  → Write in **C.M only** (M.M updated later on eviction)
+        
+- **Write Miss** (If Miss in Cache)
+    1. **No Write Allocate** _(Favor of M.M only)_  → Write in **M.M only** (Cache not updated)
+    2. **Write Allocate** _(Favor of C.M only)_  → **Bring block to C.M, then write**  ( M.M updated only if write-through else later )
+        
+- **Grouping**
+    1. **Write Through + No Write Allocate**  → Favor **M.M** → **Used together**
+    2. **Write Back + Write Allocate**  → Favor **C.M** → **Used together**
 
 ### Cache Mapping
 

@@ -45,10 +45,10 @@ void selectionSort(int arr[], int n){
 }
 ```
 
-
 - Select minimum between `i=0 & n-1` and Swap it with `0th` position. 
 - Select minimum between `i=1 & n-1` and Swap it with `1th` position. 
 - Select minimum between `i=2 & n-1` and Swap it with `2th` position. 
+
 And so on till `i=n-2` ( note:- `n-1` will automatically sorted.)
 
 Example:-
@@ -279,7 +279,7 @@ Start by Taking `arr[0]` as and array, and include it right in every step.
 [(9, 14, 15, 12), 6, 8, 13] -> right shift (element > 12) -> [9, 12, 14, 15]
 [(9, 12, 14, 15, 6), 8, 13] -> right shift (element > 6) -> [6, 9, 12, 14, 15]
 [(6, 9, 12, 14, 15, 8), 13] -> right shift (element > 8) -> [6, 8, 9, 12, 14, 15]
-[(6, 8, 9, 12, 14, 15, 13)] -> right shift (element >13) -> [6, 8, 9, 12, 13, 14 ,15]
+[(6, 8, 9, 12, 14, 15, 13)] -> right shift (element > 13) -> [6, 8, 9, 12, 13, 14 ,15]
 
 [6, 8, 9, 12, 13, 14 ,15] ✅
 ```

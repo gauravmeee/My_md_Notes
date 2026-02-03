@@ -48,7 +48,7 @@ Note:
 
 
 ---
-## do-while loop
+## do-while loop ⭐
 
 ```cpp
 int i = 0;
@@ -59,7 +59,7 @@ do {
 ```
 Note: Unlike `while` , in `do-while` loop Condition is checked after the loop. The loop is guaranteed to execute at least once, even if the condition is `false` from the beginning.
 
-## goto
+## goto ⭐
 
 ```cpp
 int num = 1;
@@ -73,12 +73,12 @@ if (num <= 5)
 	goto start;  // Jump back to the label
 ```
 
-Note: The `goto` statement in C++ is used to transfer control to a labeled statement within the same function. It allows for jumping to different parts of code unconditionally.
+Note: The `goto` statement in C++ is used to ==transfer control to a labeled statement== within the same function. It allows for jumping to different parts of code unconditionally.
 
-- it's use is generally discouraged because it makes the code harder to read and maintain (spaghetti code).
+- it's ==use is generally discouraged== because ==it makes the code harder to read and maintain== (spaghetti code). ⭐
 - Use Structured programming with loops and functions
 
-## switch-case
+## switch-case ⭐
 
 ```cpp
 int day = 3;
