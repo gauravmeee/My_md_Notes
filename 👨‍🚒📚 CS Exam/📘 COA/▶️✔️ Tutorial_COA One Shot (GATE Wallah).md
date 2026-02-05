@@ -372,7 +372,7 @@ S=0, E = 00...0, M = 00...1
 │     │ <--- Control Bus --->|  IO Device  │
 └─────┘                      └─────────────┘
 ```
-- ==Address Bus is only **uni-directional**==
+- ==Address Bus is only **uni-directional**== ⭐
 - ==Address and Instructions can be transferred through Data Bus== as Data example :- in effective addressing, and storing program counter address at Stack
 
 ##### **CPU Registers**
@@ -475,8 +475,8 @@ Instruction
 │  Opcode  │ Operand Info.  │
 └──────────┴────────────────┘ 
 ```
-- `Opcode` is Mandatory ( for any instruction to tell which type of operation)
-- `Operand Info` is optional
+- ==`Opcode` is Mandatory== ( for any instruction to tell which type of operation)
+- ==`Operand Info` is optional==
 - Example: if 3 bits Opcode  => 2^3 = 8 distinct instructions support
 
 **Types of Instruction**
@@ -583,7 +583,7 @@ Note:
 
 - The **address of the operand** in a computation-type instruction, or the **target address** in a branch-type instruction.
 
-##### **Instruction Cycle**
+##### **Instruction Cycle (6 Phase)** ⭐⭐
 
 1. **Instruction Fetch (IF)**
     - Program Counter (PC) holds the address of the next instruction.
@@ -618,13 +618,14 @@ Note:
 	- Operand Fetch
 	- Execution
 	- Write Back
-##### **Two types of Instruction**
+##### **Two types of Instruction** ⭐
 
-**Fixed Length Instruction**
+**1. Fixed Length Instruction**
 - ==Instruction size is constant== (e.g., 32 bits).
 - ==Opcode length may vary== within that fixed size.
-- Whole instruction is fetched in a single step.
-- Program Counter (PC) increments by instruction length.
+- **Step:**
+	- Whole instruction is fetched in a single step.
+	- Program Counter (PC) increments by instruction length.
 ```
 <---------- Fixed --------->
 ┌──────────────┬────────────┐
@@ -633,12 +634,13 @@ Note:
 <-- variable -->
 ```
 
-**Variable Length Instruction**
+**2. Variable Length Instruction**
 - ==Instruction size is not constant==.
 - ==Opcode field size is fixed==.
-- While fetching, CPU doesn’t know total instruction length.
-- CPU first fetches opcode (since fixed size).
-- After decoding opcode, CPU knows how many additional bytes to fetch.
+- **Step:**
+	- While fetching, CPU doesn’t know total instruction length. ⭐
+	- CPU first fetches opcode (since fixed size).
+	- After decoding opcode, CPU knows how many additional bytes to fetch.
 ```
 <-------- Variable -------->
 ┌──────────────┬────────────┐
@@ -662,24 +664,25 @@ Specifies how and from where the operands are obtained for an instruction.
 
 **Types of Addressing Mode**
 
-1. **Non-Computable**
-    - Implied
-    - Immediate
-    - Register
-    - Register Indirect
-    - Direct
-    - Indirect
+- **Non-Computable**
+	1. ==Implied==
+	2. ==Immediate==
+	3. ==Direct=
+	4. ==Indirect==
+	5. Register
+	6. Register Indirect
+    
         
-2. **Computable**
-    - Autoincrement / Autodecrement
-    - Indexed
-    - PC-Relative
-    - Base Register Mode
+- **Computable**
+	1. Autoincrement / Autodecrement
+	2. Indexed
+	3. ==PC-Relative==
+	4. ==Base Register Mode==
         
 
 **Note:** 
 - ==**Base register** (inter-segment)== mode and ==**PC-relative** (intra-segment)== addressing are used ==**only for branching**==; all other addressing modes are used for **computation instructions**.
-##### **1. Implied Mode**
+##### **1.1 Implied Mode**
 
 Operand is defined by the opcode itself.
 
@@ -692,18 +695,41 @@ Operand is defined by the opcode itself.
    Operand
 ```
 
-##### **2. Immediate Mode (Pointer)**
+##### **1.2 Immediate Mode**
 
-Address field contains the operand itself.
+Address field contains the **operand itself** (constant data). No memory access required for operand.
 
 ```
 ┌──────────┬──────────┬─────────┐
 │  Opcode  │   Mode   │ Address │
 └──────────┴──────────┴───⬇─────┘
                          Operand
+                         
+Operand = Address field
 ```
 
-##### **3. Indirect Mode (Pointer)**
+##### **1.3 Direct Mode**
+
+Address field contains the **effective address (E.A)** of the operand.
+
+```
+┌──────────┬──────────┬─────────┐
+│  Opcode  │   Mode   │ Address │
+└──────────┴──────────┴───⬇─────┘
+                         E.A
+                          │
+                          │   ┌──────────┐
+                          │   │          │
+                          │   ├──────────┤
+                          └─→ │ Operand  │
+                              ├──────────┤
+                              │          │
+                              └──────────┘
+E.A = Address field
+Operand = M[E.A]
+```
+
+##### **1.4 Indirect Mode (Pointer)**
 
 Address field points to a memory location that holds the effective address (E.A).
 
@@ -726,7 +752,7 @@ Address field points to a memory location that holds the effective address (E.A)
 E.A = Effective Address
 ```
 
-##### **4. Register Mode**
+##### **1.5. Register Mode**
 
 Address field specifies a register which contains the operand.
 
@@ -746,9 +772,35 @@ Address field specifies a register which contains the operand.
 							 └──────────┘
 ```
 
-##### **5. Autoincrement / Autodecrement Mode**
+##### **1.6. Register Indirect Mode**
 
-Variant of register indirect mode; register is automatically incremented/decremented after accessing operand.
+Address field specifies a register which contains the **effective address (E.A)** of the operand.
+
+```
+┌──────────┬──────────┬─────────┐     ┌──────────┐
+│  Opcode  │   Mode   │ Address ────→ │ Register │
+└──────────┴──────────┴─────────┘     └──────────┘
+                                            │
+                                            │ contains E.A
+                                            │
+	                         ┌──────────┐   │
+	                         │          │   │
+						  	 ├──────────┤ ←─┘
+						     │   E.A    │ ──┐
+							 ├──────────┤   │
+							 │          │   │
+							 ├──────────┤   │
+							 │ Operand  │ ←─┘
+							 ├──────────┤
+							 │          │
+							 └──────────┘
+E.A = (Register)
+Operand = M[E.A]
+```
+
+##### **2.1. Autoincrement / Autodecrement Mode**
+
+==Variant of **register indirect mode**==; register is automatically ==incremented/decremented== after accessing operand.
 
 ```
 ┌──────────┬──────────┬─────────┐     ┌──────────┐
@@ -769,7 +821,7 @@ Variant of register indirect mode; register is automatically incremented/decreme
 Increment/Decrement amount depends on size of data accessed.
 ```
 
-##### **6. Indexed Mode** ⭐
+##### **2.2. Indexed Mode** ⭐
 
 Effective address = Base address from instruction + index from index register.
 
@@ -793,7 +845,7 @@ Effective address = Base address from instruction + index from index register.
 Address = Base Address
 ```
 
-##### **7. PC-Relative Mode (Position Independent Mode)** ⭐
+##### **2.3. PC-Relative Mode (Position Independent Mode)** ⭐
 
 Effective address = PC + offset (from instruction).
 
@@ -816,14 +868,14 @@ Effective address = PC + offset (from instruction).
 							 │           │
 							 └───────────┘
 							 
-Used for intra-segment jumps.
+Used for intra-segment jumps. ⭐
 PC stores address of next instruction, not current.
 	 
 Forward jump: +ve offset  
 Backward jump: -ve offset  
 ```
 
-##### **8. Base Register Mode (Inter-Segment Branch)**
+##### **2.4. Base Register Mode (Inter-Segment Branch)**
 
 Effective address = Base register + offset (from instruction).
 
@@ -1223,13 +1275,13 @@ Memory
 
 ##### **Memory Mapped IO vs IO Mapped IO**
 
-| S. No. | Memory Mapped I/O                                  | I/O Mapped (Isolated) I/O                        |
-| ------ | -------------------------------------------------- | ------------------------------------------------ |
-| 1.     | ==Memory wastage==                                 | No memory wastage                                |
-| 2.     | All memory access instructions are used for I/O    | I/O and memory access instructions are different |
-| 3.     | No separate address space for I/O                  | I/O has its own ==separate address space==       |
-| 4.     | ==More instructions required for I/O access==      | Fewer instructions required for I/O access       |
-| 5.     | ==More addressing modes available for I/O access== | Limited addressing modes for I/O access          |
+| S. No. | I/O Mapped (Isolated) I/O                        | Memory Mapped I/O                                  |
+| ------ | ------------------------------------------------ | -------------------------------------------------- |
+| 1.     | No memory wastage                                | ==Memory wastage==                                 |
+| 2.     | I/O and memory access instructions are different | All memory access instructions are used for I/O    |
+| 3.     | I/O has its own ==separate address space==       | No separate address space for I/O                  |
+| 4.     | Fewer instructions required for I/O access       | ==More instructions required for I/O access==      |
+| 5.     | Limited addressing modes for I/O access          | ==More addressing modes available for I/O access== |
 
 **Note:**
 - **Memory Mapped I/O** -> uses the ==**common address, data, and control buses**==, which can lead to **wastage of memory**.
@@ -1299,7 +1351,7 @@ Efficiency = (Character bits) / (Total bits sent per character)
 **Handling Multiple / Simultaneous Interrupts:**
 - When ==multiple devices interrupt== simultaneously, the CPU uses ==**Priority-Based Interrupt Handling**.==
 1. **Software Solution:** The CPU runs a program to ==check the priority== of each interrupting device to decide which to service first.
-2. **Hardware Solution:** Priority is resolved by hardware. Examples include ==**Daisy Chaining (serial priority)** or **Parallel Priority hardware**.==
+2. **Hardware Solution:** Priority is resolved by hardware. Examples include ==**Daisy Chaining (serial priority)** or **Parallel Priority hardware**.== ⭐
 
 **Maskable vs Non-Maskable
 - **Maskable Interrupts:**  CPU can ==accept or reject== the interrupt

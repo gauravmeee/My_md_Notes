@@ -6,7 +6,7 @@
 **Definition of Pipelining**
 - Pipelining is the Process of arrangement of hardware elements of CPU such that Hs Overall Performance is increased
 - Simultaneous execution of more than one instructor takes place in pipelined processor
-- In pipelining multiple instructions are overlapped in execution
+- In pipelining ==multiple instructions are overlapped in execution==
 - Example – Reduced Instruction Set (RISC) Pipeline
 ```
                      
@@ -19,10 +19,10 @@ Input  /   R1          R2 /          R3           R4
     └──────┴──────┴─────┴──────┴─────┴──────┴─────┴ Clock
 ```
 
-- **IR (Interface Register)**: Latches placed **after each stage** to store intermediate results between stages.
+- ==**IR (Interface Register)**==: Latches placed **after each stage** to store intermediate results between stages.
 - They isolate stages so each can work in parallel during the same clock cycle.
 - Common in **RISC architectures** to achieve high instruction throughput.
-- **Clock Pulse**: Synchronizes all pipeline stages so each stage starts its operation at the same time. On each clock edge, IRs transfer stored data to the next stage, enabling overlapped execution of multiple instructions.
+- ==**Clock Pulse**:== Synchronizes all pipeline stages so each stage starts its operation at the same time. On each clock edge, IRs transfer stored data to the next stage, enabling overlapped execution of multiple instructions.
 
 **Standard:**
 - In a pipeline, the **registers (pipeline registers)** are placed **after each stage**, not before.
@@ -32,7 +32,7 @@ Input  /   R1          R2 /          R3           R4
 
 
 
-**Common Pipeline Stage Configurations**
+**Common Pipeline Stage Configurations** ⭐
 
 - **3-stage pipeline** (simple microcontrollers, early ARM)
     1. IF – Instruction Fetch
@@ -53,7 +53,7 @@ Input  /   R1          R2 /          R3           R4
     4. MEM – Memory Access ➕
     5. WB – Write Back
         
-- **6-stage pipeline** (higher clock speed)
+- **6-stage pipeline** (higher clock speed) ⭐
     1. IF – Instruction Fetch
     2. ID – Instruction Decode
     3. OF – Operand Fetch ➕
@@ -178,7 +178,7 @@ Total Time = (1.K + (N-1).1)
 		   = 12 CC
 ```
 
-
+**Speedup & Efficiency**
 ```
 Speedup = Non Pipeline / Pipeline
 		= 40 CC / 12 CC = 3 (aprrox 3 x times)
@@ -188,9 +188,9 @@ Efficiency = Cells Utilised / Totan no. of Cells
 		   = 2/3
 ```
 
-**Goal of Pipeline:** To make **Cycles Per Instruction (CPI) ≈ 1**
+==**Goal of Pipeline:**== To make **Cycles Per Instruction (CPI) ≈ 1**
 
-**CPI formula:**
+==**CPI formula:**==
 
 $$CPI=\frac{\text{Total CPU Cycles}}{\text{Number of Instructions}}$$
 
@@ -198,8 +198,15 @@ $$CPI=\frac{\text{Total CPU Cycles}}{\text{Number of Instructions}}$$
 - It’s practically not possible to achieve exactly 1 due to hazards and stalls.
     
 - But theoretically, for ideal pipelining:
-    - **Example 1:** No. of instructions = `8`, No. of stages = `12` → CPI > 1 because pipeline fill time dominates.
-    - **Example 2:** No. of instructions = `1000`, No. of stages = `5` → Total cycles = `5 + (1000 - 1)` = `1004` ≈ `1000` → CPI ≈ 1.004 ≈ 1 for large instruction counts.
+    - **Example 1:** No. of instructions = `8`, No. of stages = `12`
+	    → Total cycles = `12 + (8 - 1)` = `19`  
+	    → CPI  = `19/8` ≈ `2.3` ❓
+		→ CPI >> 1 because pipeline fill time dominates. ⭐
+- 
+    - **Example 2:** No. of instructions = `1000`, No. of stages = `5`
+	    → Total cycles = `5 + (1000 - 1)` = `1004` ≈ `1000` 
+	    → CPI = `1004/1000` ≈ `1.004` 
+	    → CPI ≈ 1 for large instruction counts.
 
 ---
 

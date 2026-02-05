@@ -2,6 +2,7 @@
 ### Composition of Functions –  (GATE Detailed Notes)
 
 
+
 ### Injective & Surjective
 
 
@@ -9,17 +10,20 @@
 
 A function $f: A \to B$ maps **each element of set A to exactly one element of set B**.
 
+```
+A         f         B
+|  a  ─────────▶  b |
+```
 
 ##### **Injective (One-to-One)**
 
 ```
-A                  B
-|                  |
-|  a1  ─────────▶  b1
-|  a2  ─────────▶  b2
-|  a3  ─────────▶  b3
-|                  |
-
+A                     B
+|                     |
+|  a1  ─────────▶  b1 |
+|  a2  ─────────▶  b2 |
+|  a3  ─────────▶  b3 |
+|                     |
 ```
 
 A function $f: A \to B$  is **injective** if:  
@@ -32,12 +36,11 @@ $$f(a_1) = f(a_2) \Rightarrow a_1 = a_2  $$
 ##### **Surjective (Onto)**
 
 ```
-A                  B
-|                  |
-|  a1  ─────────▶  b1
-|  a2  ─────┐
-|           └────▶ b2
-
+A                     B
+|                     |
+|  a1  ─────────▶  b1 |
+|  a2  ─────┐         |
+|           └────▶ b2 |
 ```
 
 A function $f: A \to B$  is **surjective** if:  
@@ -51,7 +54,91 @@ A function that is **both injective and surjective**.
 
 
 ---
+
+### Cardinality Rules for Functions (Finite Sets): Injective / Surjective / Bijective (Made by me) ⭐
+
+```
+A         f         B (finite sets)
+|  a  ─────────▶  b |
+```
+
+Let 
+	$|A| = m$ 
+	$|B| = n$
+
+##### **Necessary Conditions for Injective & Surjective Functions (Size Constraints)**
+
+**1. if f is Surjective (Onto)**  
+- $|A| >= |B|$ (`m >= n`)
+	**Reason**: Surjective means $f(A) = B$ 
+	So number of **distinct outputs** = `n`  
+	But distinct outputs ≤ number of inputs = m  
+	=> `n ≤ m`
+
+**2. if f is Injective (One-One)**  
+- $|A| <= |B|$ (`m <= n`)
+	**Reason:** Injective means all inputs give distinct outputs  
+	So number of distinct outputs = `m`  
+	But outputs are inside B which has size n  
+	=> m ≤ n
+
+**3. if f is both Injective and Surjective (Bijective)**  
+- $|A| = |B|$ (`m = n`)
+	**Reason:** From surjective => `m >= n`  
+	and from injective => `m <= n`  
+	So `m = n`
+
+##### **Possibility Table using Sizes of Sets (`m<n`, `m>n`, `m=n`) + Pigeonhole Principle**
+
+**1. if $|A| < |B|$ (`m < n`)**  
+
+- **Can ==not be Surjective==.**  
+	**Reason:** Surjective means every element of B must be hit. But A has only m elements, so f(A) has at most m images. If `m < n`, cannot cover all n elements of B.  
+- **Can or cannot be Injective.**  
+	**Reason:** Injective only needs different A elements go to different B elements. Since B is larger, it is possible. 
+	(Example: `A={1,2}`, `B={a,b,c}`, `f(1)=a`, `f(2)=b` is injective)
+
+
+**2. if $|A| > |B|$ (`m > n`)**
+
+- **Can ==not be Injective.**==  
+	Reason: By ==pigeonhole principle==: more elements in A than B, so at least two elements of A must map to same element of B.  
+- **Can or cannot be Surjective.**  
+	Reason: Surjective is possible if all elements of B are covered. 
+	(Example: `A={1,2,3}`, `B={a,b}`,` f(1)=a`, `f(2)=b`, `f(3)=a` is surjective)
+
+**3. if $|A| = |B|$ (`m = n`)**  
+
+- **Can be Surjective.** 
+	**also**, If surjective then injective otherwise not injective.  
+	**Reason:** For finite sets with same size, surjective ⇒ injective. If it was not injective, two A map to same B, then some B would be missed, so not surjective.  
+- **Can be Injective.** 
+	**also**, If injective then surjective otherwise not surjective.  
+	**Reason:** For finite sets with same size, injective ⇒ surjective. If some b in B is not hit, then only n-1 elements are hit, impossible with injective mapping of n elements.
+
+- Key fact (only for finite sets):  
+	`|A|=|B|`⇒ Injective ⇔ Surjective (and both mean Bijective).
+
+
+**Note:**
+
+> **Pigeonhole Principle**  
+- If you put **more objects than boxes**, then **at least one box will contain 2 or more objects**.
+- Mathematically:  If `m > n` and `m` items are distributed into `n` boxes, then some box has **≥ 2** items.
+- In functions:  If `|A| > |B|` then **f cannot be injective** (two elements of A must map to same element of B).
+
+
+---
+
+
+
+---
 ### Composition of Functions
+
+```
+A         g       B     f         C
+|  a  ─────────▶  b  ─────────▶ c |
+```
 
 If:
 - $g: A \to B$ 
@@ -170,23 +257,40 @@ $f \circ g$ is **surjective**
 - Here, $g$ is **not surjective**, but $f \circ g$ is surjective.
 > Note: $f$ can map multiple elements of $B$ to the same element in $C$ as long as the image of $g$ covers $C$.
 
----
 
-If you want, I can **also make a clean table of all 6 injective/surjective combinations with their guarantees**, fully formatted in LaTeX for easy study.
 
-Do you want me to do that?
+##### **Composition of Functions (`f ∘ g`) : Injective / Surjective Implications** (Made by me ⭐)
 
-##### **Memory Rule**
+```
+g       f
+A ───▶ B ───▶ C
+```
 
+
+**1. `f ∘ g` -> injective**
+
+- if `f ∘ g` is injective then `g` must be injective.  
+    **Reason:** If `g:A->B` is not injective, then multiple elements of A can point to the same element of B.  
+    Then applying `f` on that same B gives same output in C.  
+    So two different elements of A will map to same element in C, hence `A->C` will not be injective.  
+    So `g` must be injective.
+- Injective ⇒ blame **earlier function (g)**
+
+**2. `f ∘ g` -> surjective**
+
+- if `f ∘ g` is surjective then `f` must be surjective.  
+    **Reason:** If `f:B->C` is not surjective, then some elements of C are not covered by f.  
+    Then no matter what g does (A->B), those missing elements of C can never be reached.  
+    So `A->C` also cannot be surjective.  
+    Hence `f` must be surjective.
+- Surjective ⇒ blame **later function (f)**
+
+**Note:** ⭐
 > **Injectivity flows backward**  
 > **Surjectivity flows forward**
 
-- Injective ⇒ blame **earlier function (g)**
-- Surjective ⇒ blame **later function (f)**
-
 
 ##### **Common GATE Traps ⚠️**
-
 
 - Confusing injective and surjective implications
 - Assuming bijection without proof
