@@ -11,8 +11,6 @@ A **Latch** is a level-triggered ==bistable circuit that stores 1 bit of data==.
 	1. ==SR Latch==, 
 	2. ==D Latch==
 - **Built using** ==NAND/NOR== gates
-	- External behavior is **identical** in both cases
-	- Difference is only **internal active-HIGH vs active-LOW realization**
 ##### **1. SR Latch**
 
 An **SR Latch** is a basic ==**bistable memory circuit**== formed using **cross-coupled NAND or NOR gates**. It stores **1 bit** of data.
@@ -105,7 +103,7 @@ A **D Latch** stores the value of **D** when **Enable (E) is active**, and holds
 	- **R = D̅ · E**
 
 2. **(NAND-based, active-LOW SR core):**
-	- **S̅ = (D · E)̅ **
+	- **S̅ = (D · E)̅**
 	- **R̅ = (D̅ · E)̅**
 
 **Operation:**
@@ -118,6 +116,8 @@ A **D Latch** stores the value of **D** when **Enable (E) is active**, and holds
 	- **E = 1** → **Q follows D** (Transparent mode)
 	- **E = 0** → **Q holds previous value**
     
+- ==External behavior is **identical** in both cases==
+- Difference is only **internal active-HIGH vs active-LOW realization
 
 **Truth Table:**
 
