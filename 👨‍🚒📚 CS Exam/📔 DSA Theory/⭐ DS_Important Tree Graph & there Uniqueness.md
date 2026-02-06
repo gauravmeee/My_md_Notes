@@ -17,18 +17,18 @@
 1. **Tree**
     - **Binary**
         - **BST** (Binary Search Tree)
-            - **AVL** (Self-balancing Binary Search Tree) ⭐
-            - **Red-Black** (Self-balancing Binary Search Tree) ⭐
+            - **AVL** (==Self-balancing== BST) ⭐
+            - **Red-Black** (Self-balancing BST) ⭐
         - **Balanced** (Binary trees where the height difference between subtrees is minimized)
         - **Full** (Each node has 0 or 2 children)
         - **Complete** (All levels are fully filled except possibly the last level, filled left to right)
         - **Perfect** (A Full Binary Tree where all leaf nodes are at the same level)
-        - **Skewed**
+        - **Skewed** ⭐
             - **Left-Skewed** (All nodes have left children only)
             - **Right-Skewed** (All nodes have right children only)
         - **Degenerate** (Resembling a linked list where each parent node has only one child)
     - **Multi-way**
-        - **B-Tree** (Balanced multi-way search tree, used for indexing in databases) ⭐
+        - **B-Tree** (Balanced ==multi-way search tree==, used for indexing in databases) ⭐
         - **B+ Tree** (Variant of B-Tree with all data in leaf nodes, used for efficient range queries) ⭐
         - **Trie** (Prefix Tree, used for efficient storage and retrieval of strings) ⭐
         - **Segment Tree** (Used for storing intervals or segments, supporting range queries)
@@ -37,7 +37,7 @@
         - **Splay Tree** (Self-adjusting Binary Search Tree that moves frequently accessed elements to the root)
         - **K-D Tree** (Space-partitioning tree used for multidimensional search problems like nearest neighbor search)
 
-# More Trees (That do not fit in above Categories)
+##### **More Trees (That do not fit in above Categories)**
 
 - **Heap**
 	- **Max-Heap** (Binary tree where the parent node is larger than its children)
@@ -51,10 +51,29 @@
 	- **Cartesian Tree** (A tree where in-order traversal gives a sequence while maintaining the heap property)
 	- **K-D Tree** (Used in multidimensional search problems)
 
+##### **Key Points** ⭐
 
----
+> **Terms** 
+- **Binary tree** → A tree where each node has **at most two children** (left and right)
+- **Multiway search tree** → A search tree where each node can have **more than two children** and keys are kept in **sorted order**
+- **Balanced tree** → A tree where the **height difference** between subtrees is bounded, ensuring **O(log n)** operations
+- **m-ary tree** → A tree where each node has **at most m children**
 
-# Important Trees
+> **_Complete graph_ ≠ _complete tree_**
+- **Complete binary tree** → A binary tree where all levels are full except possibly the last, filled left to right  
+- **Complete graph** → A graph in which every pair of distinct vertices is connected by an edge
+
+> **Tree ⊂ Forest ⊂ Graph**
+- **Graph** → A set of **vertices and edges** with no restriction on cycles or connectivity
+- **Forest** → ==**acyclic graph**==
+- **Tree** → A ==**connected==, ==acyclic graph**== with a hierarchical structure
+
+> **AVL ⊂ BST**  & **Red-Black ⊂ BST**
+- **BST (Binary Search Tree)** → A ==binary tree== where ==**left < root < right**==
+- **AVL tree** → A ==**self-balancing BST**== with  **Strict Balancing** (**==height difference ≤ 1==)**
+- **Red-Black tree** → ==A **self-balancing BST**== with **Relaxed Balancing** ( using **==color rules to limit height==**)
+
+##### **Important Trees**
 
 1. **Binary Tree**:
    - A ==tree== where each node has ==at most two children==, typically referred to as the left and right child.
@@ -65,15 +84,15 @@
 3. **Binary Search Tree (BST)**:
    - A ==binary tree ==where for each node, the ==left child’s value is less than the node’s value==, and the ==right child’s value is greater==. This property allows efficient searching, insertion, and deletion operations.
 
-3. **Balanced Binary Search Trees**:
+1. **Balanced Binary Search Trees**: ⭐
    - **AVL Tree**: A ==self-balancing binary search tree== where the ==heights of two child subtrees of any node differ by== no more than one.
    - **Red-Black Tree**: A ==self-balancing binary search tree== with additional properties to ensure that the ==tree remains approximately balanced== during ==insertions and deletions.==
 
 4. **B-Tree**:
-   - A ==self-balancing tree== data structure that ==maintains sorted data== and ==allows searches, sequential access, insertions, and deletions== in logarithmic time. It is commonly used in ==databases and file systems.==
+   - A ==self-balancing tree== data structure that **==maintains sorted data==** and ==allows **searches, sequential access, insertions, and deletions**== in **logarithmic time**. It is commonly used in ==databases and file systems.==
 
 5. **B+ Tree**:
-   - A ==variation of the B-tree== where all ==values are stored at the leaf level==, and internal nodes only store keys. It is used extensively in ==database indexing.==
+   - A ==variation of the B-tree== where all ==**values are stored at the leaf level**==, and internal nodes only store keys. It is used extensively in ==database indexing.==
 
 **More:**
 
@@ -87,10 +106,28 @@
    - A data structure that provides efficient methods for querying and updating prefix sums in an array.
 
 
-# Classification of Trees Based on Structural Uniqueness ⭐
+---
+## Classification of Trees Based on Structural Uniqueness ⭐
+
+##### Uniqueness Order Dependent vs Order Indepedent 
+
+**A. Insertion order-independent structures (shape)**
+- **Heap** → Complete tree shape enforced
+- **AVL tree** → Strict height balance via rotations
+- **Red-Black tree** → Relaxed balance via coloring rules
+- **B-tree** → Multiway balanced tree; node split/merge removes order effect
+- **B+ tree** → Balanced multiway tree with fixed-height leaves
+
+**B. Insertion order-dependent structures (shape)**
+- **BST** → Shape depends on insertion order (only local ordering, no shape constraint)
+- **Unbalanced binary tree** → No balancing or shape rules
 
 
-##### **A. Unique with Given Set of Values (Insertion Order Doesn’t Matter)**
+> **Heap vs BST Structure Uniqueness Intuition:**
+- **Heap** → Structure depends only on **value hierarchy** (max/min property), not insertion order → for a given set, the heap ==shape is **fixed** once heapified==.    
+- **BST** → Structure depends on **insertion order**; different orders produce ==**different shapes** while maintaining BST property==.
+
+##### **A. Unique Shape (structure) with Given Set of Values (Insertion Order Doesn’t Matter)**
 
 These trees have a **fixed structure** for a given set of keys.
 
@@ -297,9 +334,7 @@ Simplified (merged by display form):
      └─ a ─ t (end: cat)
 ```
 
-##### **B. Unique Only for Given Insertion Order (Otherwise Different Structures Possible)**
-
-These trees’ structure depends on **insertion sequence**.
+##### **B. Unique Shape (structure) Only for Given Insertion Order (Otherwise Different Structures Possible)**
 
 
 **1. Binary Search Tree (BST)**
@@ -375,13 +410,6 @@ These trees’ structure depends on **insertion sequence**.
    20
 ```
 - (Same values but final shape depends on access/insertion pattern)
-##### **C. Multiple Trees Even with Same Insertion Order**
-
-These allow **variation even with same insert sequence**, due to non-deterministic balancing or tie-breaking.
-- **Treap** – Random priorities cause different shapes
-- **Skip List (as tree variant)** – Random level assignment changes structure
-- **Randomized BST** – Uses randomization during insertion leading to multiple possible outcomes
-
 
 # B-Tree and B+ - Tree
 ##### **B-Tree**

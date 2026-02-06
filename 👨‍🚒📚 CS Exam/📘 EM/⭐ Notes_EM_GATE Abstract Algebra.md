@@ -266,14 +266,14 @@ A **bijective homomorphism**
 
 ##### **17) Quick Summary Table**
 
-|     | Structure     | Operations | Key Condition                    |
-| --- | ------------- | ---------- | -------------------------------- |
-| 1   | Semigroup     | $*$        | associative                      |
-| 2   | Monoid        | $*$        | associative + identity           |
-| 3   | Group         | $*$        | monoid + inverse                 |
-| 4   | Abelian Group | $*$        | group + commutative              |
-| 5   | Ring          | $+,×$      | $+$ abelian group + distributive |
-| 6   | Field         | $+,×$      | ring + every nonzero has inverse |
+|     | Structure     | Operations | Key Condition                          |
+| --- | ------------- | ---------- | -------------------------------------- |
+| 1   | Semigroup     | $*$        | closure + associative                  |
+| 2   | Monoid        | $*$        | **semigroup** + ==identity==           |
+| 3   | Group         | $*$        | **monoid** + inverse                   |
+| 4   | Abelian Group | $*$        | group + commutative                    |
+| 5   | Ring          | $+,×$      | ($+$) **abelian group** + distributive |
+| 6   | Field         | $+,×$      | **ring** + every nonzero has inverse   |
 
 
 ---

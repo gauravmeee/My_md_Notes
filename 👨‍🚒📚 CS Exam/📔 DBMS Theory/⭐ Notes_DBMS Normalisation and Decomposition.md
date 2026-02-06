@@ -1,6 +1,37 @@
 
 
 
+**Normalization (Normal Forms Comparison)**
+- **Unnormalized Form**: Repeating groups, high redundancy, all anomalies present
+- **1NF**: Atomic attributes only, redundancy still exists
+- **2NF**: No partial dependency, reduced redundancy
+- **3NF**: No transitive dependency, dependency preserving, acceptable anomalies only
+- **BCNF**: Stronger than 3NF, removes all FD-based anomalies
+- **4NF**: Removes multivalued dependencies
+- **5NF**: Removes join dependencies, fully decomposed schema
+Corrected table (DBMS-accurate):
+
+| Normal Form  | Lossless / Lossy | Dependency Preserving | Anomalies Present                                      |
+| ------------ | ---------------- | --------------------- | ------------------------------------------------------ |
+| Unnormalized | ==Lossy==        | No                    | Insertion, Deletion, Update                            |
+| 1NF          | ==Lossy==        | No                    | Insertion, Deletion, Update                            |
+| 2NF          | ==Lossy==        | No                    | Insertion, Deletion, Update (==reduced==)              |
+| 3NF          | Lossless         | ==Yes==               | ==No Major anomalies==                                 |
+| BCNF         | Lossless         | No (not guaranteed)   | **No Anomalies** (No functional dependency anomalies)  |
+| 4NF          | Lossless         | No                    | **No Anomalies** (No multivalued dependency anomalies) |
+| 5NF          | Lossless         | No                    | **No Anomalies** (No join dependency anomalies)        |
+ 
+> 3NF **can still have anomalies**, but they are **theoretically acceptable**; only BCNF and above remove FD-based anomalies completely.
+
+**important points**:
+- ==**Lossless decomposition**== is ==**guaranteed from 3NF onward**==, not strictly by 1NF/2NF
+- ==**Dependency preservation**== is **guaranteed ==only in 3NF**==, not in BCNF, 4NF, 5NF
+- **3NF is always achievable** without losing dependencies
+- **BCNF may require sacrificing dependency preservation**
+- **4NF deals with multivalued dependencies (MVDs)**
+- **5NF deals with join dependencies (JD)**
+- Higher normal forms **reduce redundancy but increase number of relations**
+- Practical databases usually stop at **3NF or BCNF**
 ## Normalisation
 
 - Systematic process of organizing relations to **reduce redundancy**, **avoid anomalies**, and **ensure data integrity**
@@ -28,7 +59,7 @@
 ##### **1. 1NF (First Normal Form)**
 
 **Rule**
-- Attributes must have **atomic (indivisible) values**
+- Attributes must have ==**atomic (indivisible)== values**
 - No repeating groups or multi-valued attributes
 
 **Violation Example**
@@ -51,26 +82,33 @@ STUDENT(SID, Name, Phone)
 
 **Rule**
 - Must be in 1NF    
-- No **partial dependency**
-- Non-prime attribute must depend on **whole candidate key**
-    
+- ==No **partial dependency**==
+- **Non-prime attribute** must depend on **whole candidate key**
+
 **Partial Dependency**
 - Attribute depends on part of a composite key
-    
+
+>**Candidate key** → A ==**minimal set of attributes**== that ==uniquely identifies== a tuple  
+>**Composite key** → A **candidate key consisting of more than one attribute**
+
+> **Key Attribute** (prime attribute)  → If an attribute ==appears in any candidate key==
+> **Non-key attribute** (non-prime attribute) →  If it ==does not appear in any candidate key== 
+
+
 
 **Violation Example**
 ```
 ENROLL(SID, CID, SName, CName)
 Key = (SID, CID)
 FDs:
-SID → SName
-CID → CName
+	SID → SName
+	CID → CName
 ```
 
 **Problem**
 - `SName` depends only on `SID`    
 - `CName` depends only on `CID`
-    
+
 
 **Decomposition**
 ```
@@ -86,7 +124,7 @@ ENROLL(SID, CID)
 
 **Rule**
 - Must be in 2NF
-- No **transitive dependency**
+- ==No **transitive dependency**==
 - For every FD `X → A`:
     - `X` is a super key OR
     - `A` is a prime attribute
@@ -94,17 +132,24 @@ ENROLL(SID, CID)
 **Transitive Dependency**
 - Key → Non-key → Non-key
 
+>**Candidate key** → A ==**minimal set of attributes**== that ==uniquely identifies== a tuple  
+>**Super key** → A **set of attributes** that uniquely identifies a tuple, **may contain extra (non-minimal) attributes**
+
+> **Key Attribute** (prime attribute)  → If an attribute ==appears in any candidate key==
+> **Non-key attribute** (non-prime attribute) →  If it ==does not appear in any candidate key== 
+
+
 **Violation Example**
 ```
 EMP(EID, EName, DeptID, DeptName)
 Key = EID
 FDs:
-EID → DeptID
-DeptID → DeptName
+	EID → DeptID
+	DeptID → DeptName
 ```
 
 **Problem**
-- DeptName indirectly depends on EID
+- `DeptName` indirectly depends on `EID`
 
 **Decomposition**
 ```
@@ -118,24 +163,23 @@ DEPT(DeptID, DeptName)
 ##### **4. BCNF (Boyce-Codd Normal Form)**
 
 **Rule**
-
 - Stronger than 3NF
-    
-- For every FD `X → Y`, `X` must be a **super key**
-    
+- For every FD `X → Y`, `X` must be a **super key** ⭐
+
+>**Candidate key** → A ==**minimal set of attributes**== that ==uniquely identifies== a tuple  
+>**Super key** → A **set of attributes** that uniquely identifies a tuple, **may contain extra (non-minimal) attributes**
+
 
 **Violation Example (3NF but not BCNF)**
-
 ```
 TEACH(SID, Course, Instructor)
 FDs:
-Instructor → Course
-(SID, Course) → Instructor
+	Instructor → Course
+	(SID, Course) → Instructor
 ```
 
 **Problem**
-- Instructor is not a super key
-    
+- `Instructor` is not a super key
 
 **Decomposition**
 ```
@@ -154,6 +198,11 @@ STUD(SID, Instructor)
 - Must be in BCNF
 - No **non-trivial multivalued dependency**
 - If `X →→ Y`, then `X` must be a super key
+
+
+>**Trivial functional dependency** → X → Y where **Y ⊆ X**  
+>**Non-trivial functional dependency** → X → Y where **Y ⊄ X**
+
 
 **Violation Example**
 ```

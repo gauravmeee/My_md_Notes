@@ -144,9 +144,9 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 - **Directed Graph (Digraph)**: Edges have direction
     
 
-**2. Number of Edges**
-- **Undirected Graph**: ==Max edges = `n(n−1)/2`== ⭐
-- **Directed Graph**:  Max edges = `n(n−1)`  = ==2 * Max Edge (Directed Graph)==
+**2. Number of Edges** ⭐
+- **Undirected Graph**: `n(n−1)/2` 
+- **Directed Graph**:  Max edges = `n(n−1)`
 - **With Self-loops**:  Add `n` possible self-loops (directed)
 - **Complete Graph `K_n`**:  `n(n−1)/2`
 - **Complete Directed Graph**:  `n(n−1)` edges
@@ -211,10 +211,11 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 
 **10. Shortest Path Algorithms**
 
-- **Dijkstra**: Weighted graphs, no negative weights, greedy ==`O((V + E) log V)`==
-- **Bellman-Ford**: Handles negative weights, ==`O(VE)`==
-- **Floyd-Warshall**: All-pairs shortest path, ==`O(V^3)`==
+- **Dijkstra** → Weighted graphs ( but **no negative weights**), greedy  **`O((V + E) log V)`** with priority queue
+- **Bellman-Ford** → Handles **negative weights** ( but **no negative cycles)**, DP  **`O(VE)`**
+- **Floyd-Warshall** → **All-pairs shortest path**, works with negative weights ( but **no negative cycles** ), DP **`O(V³)`**`==
 
+> **All three fail to give correct shortest paths** if a negative cycle exists ⭐
 
 **11. Bipartite Graph**
 

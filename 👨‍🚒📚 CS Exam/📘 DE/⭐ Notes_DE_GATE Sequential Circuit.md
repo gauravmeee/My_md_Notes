@@ -1,5 +1,4 @@
 
-
 ## Latch , Flip-flop and Shift Register
 
 ### **Latch**

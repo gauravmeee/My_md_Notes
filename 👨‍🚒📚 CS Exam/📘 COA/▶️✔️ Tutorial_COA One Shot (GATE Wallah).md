@@ -1751,6 +1751,7 @@ Vertical Arrangement = 256 x 8 bits
 ```
 - Total addresses = sum of individual chip addresses
 - Data per address = same across all chips
+- ==Number of Address ↑ Increase ==
 
 
 ##### **Horizontal Arrangement**
@@ -1788,6 +1789,7 @@ Vertical Arrangement = 128 x 16 bits
 ```
 - Bits per address = sum of bits across chips
 - Number of addresses = same as individual chip
+- ==Data Per Address ↑ Increase ==
 
 ##### **Hybrid Arrangement**
 
@@ -1828,8 +1830,8 @@ chip 4 = 128 x 8 bits
 ----------------------
 Hybrid Arrangement = 256 x 16 bits
 ```
-- Number of addresses = increased (vertical extension)
-- Data per address = increased (horizontal extension)
+- Number of addresses  ↑ increased (vertical extension)
+- Data per address ↑ increased (horizontal extension)
 
 
 ---

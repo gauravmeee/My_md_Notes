@@ -36,6 +36,7 @@ OR
 4. Recursive Language -> Closed under all operations ✅
 5. Recursive Enumerable Language -> Complement ❌, Difference ❌
 ```
+
 ##### **1. Regular languages (RL)** -> closed under ==all== operations: ⭐
 
 | Operation                | Meaning                                                         | Closed? | Notes ⭐                                                                                                                          |
@@ -55,7 +56,6 @@ OR
 
 ##### **2. Context-Free Languages (CFL):** -> Closed Under ==following== Operations ⭐
 
-
 | **Operation**                                             | **CFL (Non-Det.) Closed?** ⭐ For Exam | **DCFL Closed?** | **Reason / Explanation**                                                                                                                                      |
 | --------------------------------------------------------- | ------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Union**                                                 | ✅ Yes                                 | ❌ No             | CFLs can be unioned by using nondeterminism in PDA. DCFLs can't use nondeterminism, so union may lead to ambiguity.                                           |
@@ -69,20 +69,13 @@ OR
 | **Homomorphism**                                          | ✅ Yes                                 | ❌ No             | CFLs are closed, but DCFLs are not—homomorphism may break determinism.                                                                                        |
 | ==**Inverse Homomorphism**==                              | ✅ Yes                                 | ✅ ==Yes==        | Both closed; input symbol pre-image mapping preserves structure.                                                                                              |
 
-**For Remembering:**
-- **CFL and DCFL**:  
-    Follow → **Inverse Homomorphism**, **Regular ∩ CFL**   ✅
-    Not Follow → **Intersection** ❌
-    
-- **DCFL (in Comparison of CFL)**:  
-    Follow → **Complement** (extra over CFL)   ✅
-    Not Follow → **Rest All** ❌
-    
-- **CFL (in Comparison of DCFL)**:  
-    Follow → **All Except**  ✅
-    Not Follow  → **Complement**   ❌
-    
-> **Note:** Unlike other language classes, **Deterministic Context-Free Languages (DCFL)** form a **strict subset** of **Context-Free Languages (CFL)**. Therefore, **DCFLs do not share all closure properties of CFLs**, and must be treated separately.
+**For Remember:** ⭐
+- **CFL** not Follow  → **Complement** and **Intersection** 
+- **DCFL** only Follow → **Complement** , **Intersection with Regular language**, **Inverse Homomorphism**
+
+**Note:** 
+- Unlike other language classes, **Deterministic Context-Free Languages (DCFL)** form a **strict subset** of **Context-Free Languages (CFL)**. i.e.  **DCFL ⊂ CFL**
+- Therefore, **DCFLs do not share all closure properties of CFLs**, and must be treated separately.
 
 
 ##### **3. Context-Sensitive Languages (CSL)** → Closed under **most operations** ⭐
@@ -99,13 +92,14 @@ OR
 | ==**Homomorphism**==     | ❌ ==No==    | Can shrink strings and break length constraints.                          |
 | **Inverse Homomorphism** | ✅ Yes       | Pre-image mapping does not increase space.                                |
 
-**Remember:**  
-CSL = **NSPACE(n)**  
-Key highlight → **Complement is closed** (unlike CFL)
+**For Remember:**  ⭐
+- **CSL**  not Follow  → **Homomorphism**
 
----
+**Note:**
+- CSL = **NSPACE(n)**  
+- Key highlight → **Complement is closed** (unlike CFL)
 
-##### **4. Recursive (Decidable) Languages** → Closed under **all standard operations** ⭐⭐
+##### **4. Recursive (Decidable) Languages** → ==Closed under **all== standard operations** ⭐⭐
 
 |**Operation**|**Closed?**|**Reason / Explanation**|
 |---|---|---|
@@ -119,9 +113,9 @@ Key highlight → **Complement is closed** (unlike CFL)
 |**Homomorphism**|✅ Yes|Transform input, then decide.|
 |**Inverse Homomorphism**|✅ Yes|Decide on all mapped strings.|
 
-**Remember:**  
-Recursive languages = **Total Turing Machines**  
-→ **Best closure behavior after Regular languages**
+**Note:**  
+- Recursive languages = **Total Turing Machines**  
+- **Best closure behavior after Regular languages**
 
 
 ##### **5. Recursive Enumerable (RE / Semi-Decidable) Languages** → Closed under **many but NOT complement** ❗
@@ -138,22 +132,25 @@ Recursive languages = **Total Turing Machines**
 | **Homomorphism**         | ✅ Yes       | Map then enumerate.                        |
 | **Inverse Homomorphism** | ✅ Yes       | Pre-image enumeration.                     |
 
-**Remember:**  
-RE = **TM that may not halt**  
-Biggest class before **Undecidable**
+**For Remember:**  ⭐
+- **CSL**  not Follow  → **Complement** and **Difference**
 
-##### **Final Big Picture (Strict Hierarchy)** ⭐⭐⭐
+
+**Note:**  
+- RE = **TM that may not halt**  
+- Biggest class before **Undecidable**
+
+##### **Closure Summary** ⭐⭐⭐
 
 `RL ⊂ DCFL ⊂ CFL ⊂ CSL ⊂ Recursive ⊂ RE`
 
-- **RL** → closed under ==everything==
-- **DCFL** → only strong property: **Complement**
-- **CFL** → powerful but **==no complement==, ==no intersection==**
-- **CSL** → complement closed (big jump)
-- **Recursive** → ==fully decidable==, ==perfect closure==
-- **RE** → expressive but **not complement closed**
+1. **RL** → ( Closed under ==all== )
+2. **DCFL** → (Closed under ==only== ) → **Complement** , **Intersection with RL** , **Inverse Homomorphism**
+3. **CFL** → (==Not== closed under)   ==**Complement** and **Intersection**==
+4. **CSL** →  (==Not== closed under) → **Homomorphism**
+5. **Recursive** → ( closed under ==all== )
+6. **RE**  → (==Not== closed under)→ ==**Complement** and **Difference**==
 
-This hierarchy is **strict** and **exam-critical**.
 
 ---
 

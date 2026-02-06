@@ -50,7 +50,7 @@
 - USART
 
 **6. Digital Logic**
-- Half Adder
+- Half Adder, Full Adder ☑️
 - D Flip Flop
 - D Latch
 - Fraction to Binary
@@ -65,13 +65,13 @@
 
 
 **8. CD**
-- Closure Rule Revision (specially CFG)
+- Closure Rule Revision (specially CFG) ☑️
 
 **9. Algorithm**
-- Heap, BST etc. Sequence of Insertion vs Uniqueness
+- Heap, BST etc. Sequence of Insertion vs Uniqueness ☑️
 - Heap properties/formulas (why heap array is not ascending/descending sorted)
 - Hashing - Types of Hashing Techniques
-- Big O, Big Omega, Big Theta
+- Big O, Big Omega, Big Theta ☑️
 - Graphs, tree min height, distance etc dependency formula (in my notes)
 - Master’s Theorem
 
@@ -82,8 +82,8 @@
 > User level vs Kernel level thread  ☑️
 > Mantissa, Exponent, Floating point representation etc  
 > Group, Ring, Monoid, Abelian ☑️
-> Normalisation Forms Revision (Anomalies, Lossless vs Lossy Decomposition)  
-> Master Theorem
+> Normalisation Forms Revision (Anomalies, Lossless Decomposition, Dependency Preserving)  ☑️
+> Master Theorem 
 
 
 ---

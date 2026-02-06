@@ -155,244 +155,7 @@ Array = `[4a, 3, 4b, 2]` (4a and 4b are equal but distinct items)
 
 ##### **Important QA Concept**
 
-### Basics
 
-1. Fastest average-case sorting? → Quick Sort
-2. Guaranteed O(n log n) sorting? → Merge Sort
-3. ==Sorting for linked list? → Merge Sort==
-4. ==Sorting for priority queue? → Heap Sort==
-5. Non-comparison-based sorting? → Counting, Radix, Bucket
-
-**Stable, In-place, Adaptive**
-1. Stable O(n log n) sorting? → Merge Sort, Timsort
-2. Unstable O(n log n) sorting? → Quick Sort, Heap Sort
-3. Adaptive sorting? → Insertion Sort, Bubble Sort, Timsort
-4. Non-adaptive sorting? → Selection Sort, Merge Sort
-5. In-place sorting? → Quick, Heap, Insertion, Selection
-6. Out-of-place sorting? → Merge, Counting, Bucket
-7. Sorting used in Python? → Timsort
-8. Sorting used in Java (primitives)? → Dual Pivot Quick Sort
-9. Sorting used in C++ STL sort()? → IntroSort
-10. Sorting with recursion risk? → Quick Sort
-11. Sorting with divide and conquer? → Merge, Quick, Heap
-12. Sorting with greedy idea? → Selection Sort
-13. Sorting with dynamic partitioning? → Quick Sort
-14. Sorting requiring O(k) space? → Counting Sort
-15. Sorting with digit-based grouping? → Radix Sort
-16. Stable O(n²) sorts? → Bubble, Insertion
-17. Unstable O(n²) sort? → Selection
-18. Stable O(n log n) sorts? → Merge, Radix, Timsort
-19. Unstable O(n log n) sorts? → Quick, Heap
-20. Sorting used in TimSort? → Merge + Insertion
-21. Sorting used in IntroSort? → Quick + Heap + Insertion
-22. Sorting good for cache locality? → Quick Sort
-23. Sorting bad for cache locality? → Merge Sort
-24. Sorting best for nearly sorted? → Insertion Sort
-25. Sorting for external memory? → Merge Sort
-26. Sorting for parallelization? → Merge Sort
-27. Sorting when swaps expensive? → Selection Sort
-28. Sorting considered fastest practical? → Quick Sort  
-
-### Bubble Sort
-
-21. Best case TC? → O(n)
-    
-22. Worst case TC? → O(n²)
-    
-23. Stable? → Yes
-    
-24. In-place? → Yes
-    
-25. Space complexity? → O(1)
-    
-26. Adaptive? → Yes
-    
-27. Swaps maximum? → O(n²)
-    
-28. Use case? → Educational / very small data
-    
-
-### Selection Sort
-
-29. Best case TC? → O(n²)
-    
-30. Worst case TC? → O(n²)
-    
-31. Stable? → No
-    
-32. In-place? → Yes
-    
-33. Space complexity? → O(1)
-    
-34. Swaps? → O(n)
-    
-35. Adaptive? → No
-    
-36. Approach used? → Greedy
-    
-37. Best when? → Low swap requirement
-    
-
-### Insertion Sort
-
-38. Best case TC? → O(n)
-    
-39. Worst case TC? → O(n²)
-    
-40. Stable? → Yes
-    
-41. In-place? → Yes
-    
-42. Space complexity? → O(1)
-    
-43. Adaptive? → Yes
-    
-44. Best for? → Nearly sorted / small arrays
-    
-45. Comparisons in worst case? → O(n²)
-    
-46. Used in hybrid sorts? → Yes
-    
-
-### Merge Sort
-
-47. Best case TC? → O(n log n)
-    
-48. Worst case TC? → O(n log n)
-    
-49. Stable? → Yes
-    
-50. In-place? → No
-    
-51. Space complexity? → O(n)
-    
-52. Adaptive? → No
-    
-53. Technique? → Divide and Conquer
-    
-54. Suitable for? → Linked lists, external sorting
-    
-55. Merging cost? → O(n)
-    
-56. Preferred when? → Stable sort needed
-    
-
-### Quick Sort
-
-57. Best case TC? → O(n log n)
-    
-58. Average case TC? → O(n log n)
-    
-59. Worst case TC? → O(n²)
-    
-60. Stable? → No
-    
-61. In-place? → Yes
-    
-62. Space complexity? → O(log n) (stack)
-    
-63. Adaptive? → No
-    
-64. Technique? → Divide and Conquer
-    
-65. Partitioning cost? → O(n)
-    
-66. Worst case input? → Already sorted (if poor pivot)
-    
-67. Fast in practice? → Yes
-    
-68. Library use? → Java, C++ (hybridized)
-    
-
-### Heap Sort
-
-69. Best case TC? → O(n log n)
-    
-70. Worst case TC? → O(n log n)
-    
-71. Stable? → No
-    
-72. In-place? → Yes
-    
-73. Space complexity? → O(1)
-    
-74. Adaptive? → No
-    
-75. Structure used? → Binary Heap
-    
-76. Priority queue sorting? → Yes
-    
-77. Heapify cost? → O(n)
-    
-78. Practical library use? → Rare
-    
-
-### Counting Sort
-
-79. Best case TC? → O(n+k)
-    
-80. Worst case TC? → O(n+k)
-    
-81. Stable? → Yes
-    
-82. In-place? → No
-    
-83. Space complexity? → O(n+k)
-    
-84. Adaptive? → No
-    
-85. Suitable for? → Small integer range
-    
-86. Not suitable for? → Large k or negative numbers
-    
-87. Category? → Non-comparison
-    
-88. Uses? → Histogram / frequency sorting
-    
-
-### Radix Sort
-
-89. Best case TC? → O(nk)
-    
-90. Worst case TC? → O(nk)
-    
-91. Stable? → Yes
-    
-92. In-place? → No
-    
-93. Space complexity? → O(n+k)
-    
-94. Adaptive? → No
-    
-95. Technique? → Digit-wise sorting
-    
-96. Needs stable sub-sort? → Yes (Counting Sort)
-    
-97. Suitable for? → Integers, strings
-    
-98. Category? → Non-comparison
-    
-
-### Bucket Sort
-
-99. Best case TC? → O(n+k)
-    
-100. Worst case TC? → O(n²)
-    
-101. Stable? → Depends on inner sort
-    
-102. In-place? → No
-    
-103. Space complexity? → O(n+k)
-    
-104. Adaptive? → No
-    
-105. Suitable for? → Uniform distribution
-    
-106. Category? → Non-comparison
-    
-107. Often combined with? → Insertion Sort
-    
 
 
 ---
@@ -401,154 +164,169 @@ Array = `[4a, 3, 4b, 2]` (4a and 4b are equal but distinct items)
 
 ##### **Easy Sorting Q/A**
 
-1. **Which sort is ==best for small arrays==?**  
+1. **Fastest average-case sorting?**
+	Quick Sort
+
+2. **Guaranteed O(n log n) sorting?**
+	Merge Sort
+
+3. **==Sorting for linked list?==**
+	Merge Sort
+
+4. **==Sorting for priority queue?==**  
+	Heap Sort
+
+5. **Non-comparison-based sorting?**
+	Counting, ==Radix, Bucket==
+
+6. **Which sort is ==best for small arrays==?**  
     ==Insertion Sort==; Time: $O(n^2)$, Space: $O(1)$.
     
-2. **Which sorting algorithm is stable and has ==$O(n \log n)$ worst-case time==?**  
+7. **Which sorting algorithm is stable and has ==$O(n \log n)$ worst-case time==?**  
     ==Merge Sort==; Time: $O(n \log n)$, Stable.
     
-3. **Which algorithm is used for heap-based priority queues?**  
+8. **Which algorithm is used for heap-based priority queues?**  
     ==Heap Sort==; Time: $O(n \log n)$, Space: $O(1)$
     
-4. **Which sorting is ==fastest in average case==?**  
+9. **Which sorting is ==fastest in average case==?**  
     ==Quick Sort==; Time: $(n \log n)$ average, Space: $O(\log n)$.
     
-5. **Which algorithm is ==guaranteed stable and out-of-place==?**  
+10. **Which algorithm is ==guaranteed stable and out-of-place==?**  
     ==Merge Sort==; Space: $O(n)$
     
-6. **Which sort is ==in-place but unstable==?**  
+11. **Which sort is ==in-place but unstable==?**  
     ==Heap Sort==; Space: ==O(1)==, Unstable.
     
-7. **Which sort is good for ==linked lists==?**  
+12. **Which sort is good for ==linked lists==?**  
     ==Merge Sort==.
     
-8. **Which sorting is ==non-comparison based==?**  
+13. **Which sorting is ==non-comparison based==?**  
     ==Counting Sort==; Time: $O(n + k)$
     
-9. **Which sort works using ==digit grouping==?**  
+14. **Which sort works using ==digit grouping==?**  
     ==Radix Sort==; Time: $O(dn)$, where $d$ is digits.
     
-10. **Which algorithm is used by ==Python’s built-in sort==?**   ⭐⭐⭐
+15. **Which algorithm is used by ==Python’s built-in sort==?**   ⭐⭐⭐
     ==Timsort== (Hybrid of Merge and Insertion Sort).
     
-11. **Which sort is ==unstable but in-place==?**  
+16. **Which sort is ==unstable but in-place==?**  
     ==Quick Sort==; Space: $O(log n)$.
     
-12. **Which sort is ==stable and in-place for small arrays==?**  
+17. **Which sort is ==stable and in-place for small arrays==?**  
     ==Insertion Sort.==
     
-13. **Which sort ==swaps minimum element to correct place each time==?**  
+18. **Which sort ==swaps minimum element to correct place each time==?**  
     ===Selection Sort===; Time: $O(n^2)$, Space: $O(1)$.
     
-14. **Which sort is ==best for nearly sorted data==?**  
+19. **Which sort is ==best for nearly sorted data==?**  
     ==Insertion Sort==; Time: $O(n)$ best case.
     
-15. **Which sorting is ==divide and conquer== + merging?**  
+20. **Which sorting is ==divide and conquer== + merging?**  
     ==Merge Sort==.
     
-16. **Which sorting algorithm uses a ==pivot for partitioning==?**  
+21. **Which sorting algorithm uses a ==pivot for partitioning==?**  
     ==Quick Sort==.
     
-17. **What is the worst-case time complexity of Bubble Sort?**  
+22. **What is the worst-case time complexity of Bubble Sort?**  
     Time: $O(n^2)$
     
-18. **Which sort is both ==adaptive and stable==?**  
+23. **Which sort is both ==adaptive and stable==?**  
     ==Insertion Sort==.
     
-19. **Which sort ==requires range information== for $O(n)$ time?**  
+24. **Which sort ==requires range information== for $O(n)$ time?**  
     ==Counting Sort==.
     
-20. **Which sort is s==low but simple for small data==?**  
+25. **Which sort is s==low but simple for small data==?**  
     ==Bubble Sort==; Time: $O(n^2$).
     
-21. **Which sort uses ==heap data structure==?**  
+26. **Which sort uses ==heap data structure==?**  
     ==Heap Sort==; Space: $O(1)$.
     
-22. **Which sort is ==good for external sorting== (large files)?**  
+27. **Which sort is ==good for external sorting== (large files)?**  
     ==Merge Sort==; Space: $O(n)$.
     
-23. **Which sort is ==not stable by default==?**  
+28. **Which sort is ==not stable by default==?**  
     ==Heap Sort==; Unstable.
     
-24. **Which sort requires ==extra space for merging==?**  
+29. **Which sort requires ==extra space for merging==?**  
     ==Merge Sort==; Space: $O(n)$.
     
-25. **Which sort is best for ==large unsorted arrays==?**  
+30. **Which sort is best for ==large unsorted arrays==?**  
     ==Quick Sort==; Time: $O(n\log⁡n)$ average case.
     
-26. **Which ==sort is used in Java for primitives==?**   ⭐⭐⭐
+31. **Which ==sort is used in Java for primitives==?**   ⭐⭐⭐
     ==Dual-Pivot Quick Sort.==
     
-27. **Which sorting uses ==minimum assignment operations==?**  
+32. **Which sorting uses ==minimum assignment operations==?**  
     ==Selection Sort==. ⭐
     
-28. **Which sort can ==detect sorted input to finish early==?**  
+33. **Which sort can ==detect sorted input to finish early==?**  
     ==Bubble Sort== (with optimization).
     
-29. **Which sort is ==good for repeated keys==?**  
+34. **Which sort is ==good for repeated keys==?**  
     ==Counting Sort==. ⭐
     
-30. **Which sort is ==bad for large datasets==?**  
+35. **Which sort is ==bad for large datasets==?**  
     ==Bubble Sort==; Time: $O(n^2)$. ❓
     
-31. **Which sort is both ==non-adaptive and unstable==?**  
+36. **Which sort is both ==non-adaptive and unstable==?**  
     ==Selection Sort==.
     
-32. **Which sort merges ==two sorted lists efficiently==?**  
+37. **Which sort merges ==two sorted lists efficiently==?**  
     ==Merge Sort==.
     
-33. **Which sort’s worst case is when data is sorted?**  
+38. **Which sort’s worst case is when data is sorted?**  
     Quick Sort (with poor pivot).
     
-34. **Which sort uses a heap for sorting in-place?**  
+39. **Which sort uses a heap for sorting in-place?**  
     ==Heap Sort==.
     
-35. **Which sort is used in ==STL C++ sort()==?**  ⭐⭐⭐
+40. **Which sort is used in ==STL C++ sort()==?**  ⭐⭐⭐
     ==IntroSort (Hybrid)==.
     
-36. **Which sort ==compares every adjacent pair repeatedly==?**  
+41. **Which sort ==compares every adjacent pair repeatedly==?**  
     ==Bubble Sort==.
     
-37. **Which sort ==fills sorted position in every pass==?**  
+42. **Which sort ==fills sorted position in every pass==?**  
     ==Selection Sort==.
     
-38. **Which sort is ==highly parallelizable==?**  
+43. **Which sort is ==highly parallelizable==?**  
     ==Merge Sort==. ⭐
     
-39. **Which sort’s ==best case and worst case is same==?**  
+44. **Which sort’s ==best case and worst case is same==?**  
     ==Selection Sort==; Time: $O(n^2)$. ❓
     
-40. **Which ==sort partitions around a pivot==?**  
+45. **Which ==sort partitions around a pivot==?**  
     ==Quick Sort==.
     
-41. **Which sort is ==stable and works well for small files==?**  
+46. **Which sort is ==stable and works well for small files==?**  
     ==Insertion Sort==.
     
-42. **Which sort is ==not in-place==?**  
+47. **Which sort is ==not in-place==?**  
     ==Merge Sort==; Space: $O(n)$.
     
-43. **Which sort is ==in-place and simple to implement==?**  
+48. **Which sort is ==in-place and simple to implement==?**  
     ==Insertion Sort==. ❓
     
-44. **Which sort ==divides array until one element subarrays==?**  
+49. **Which sort ==divides array until one element subarrays==?**  
     ==Merge Sort==.
     
-45. **Which sort prefers ==swap over comparison cost==?**  
+50. **Which sort prefers ==swap over comparison cost==?**  
     ==Selection Sort==. ⭐
     
-46. **Which sort is ==fastest for random large arrays==?**  
+51. **Which sort is ==fastest for random large arrays==?**  
     ==Quick Sort== (on average).
     
-47. **Which sort’s basic operation is ==bubble-up or bubble-down==?**  
+52. **Which sort’s basic operation is ==bubble-up or bubble-down==?**  
     ==Heap Sort==. ⭐
     
-48. **Which ==sort’s performance unaffected by input order==?**  
+53. **Which ==sort’s performance unaffected by input order==?**  
     ==Merge Sort==. ⭐
     
-49. **Which sort is ==unstable unless== modified for stability?**  
+54. **Which sort is ==unstable unless== modified for stability?**  
     ==Quick Sort==. ⭐
     
-50. **Which sort is optimal for ==sorting strings or digits==?**  
+55. **Which sort is optimal for ==sorting strings or digits==?**  
     ==Radix Sort==; Time: $O(nd)$.
     
 ##### **Medium Sorting Questions and Answers**

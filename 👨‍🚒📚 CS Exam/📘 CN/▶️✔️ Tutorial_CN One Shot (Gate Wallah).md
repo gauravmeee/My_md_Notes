@@ -61,13 +61,13 @@ Topics to be covered**
 - **Higher Layers** Order to its Subordinates Lower Layer
 - **Lower layers** then Provide Services to its upper layer
 
-| Layer          | Provide Services (to its upper layer)                                                                                                                                                                      | Data Unit Transferred          |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| Application    | ❌ No Upper Layer                                                                                                                                                                                           | Message                        |
-| Transport      | ==Process-to-Process== Communication <br>                   OR <br>Two Processes (on different devices) communicate via socket<br>                   OR<br>==Socket-to-Socket== (End-to-End) Communication | Segment (TCP) / Datagram (UDP) |
-| Network        | ==Host-to-Host== Communication<br>                   OR<br>**==end‑system to end‑system**== communication<br>                   OR<br>Routing                                                              | Packet                         |
-| Data Link      | Node-to-Node Communication<br>                 OR<br>Responsible for delivering frames to **adjacent nodes**                                                                                               | Frame                          |
-| Physical Layer | Between Nodes on Medium<br><br>                                                                                                                                                                            | Bits (0s and 1s)               |
+| Layer          | Provide Services (to its upper layer)                                                                                                                                                                  | Data Unit Transferred          |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------ |
+| Application    | ❌ No Upper Layer                                                                                                                                                                                       | Message                        |
+| Transport      | ==Process-to-Process== Communication <br>                   OR <br>Two Processes (on different devices) communicate via socket<br>                   OR<br>Socket-to-Socket (End-to-End) Communication | Segment (TCP) / Datagram (UDP) |
+| Network        | ==Host-to-Host== Communication<br>                   OR<br>**end‑system to end‑system** communication<br>                   OR<br>Routing                                                              | Packet                         |
+| Data Link      | ==Node-to-Node== Communication<br>                 OR<br>Responsible for delivering frames to **adjacent nodes**                                                                                       | Frame                          |
+| Physical Layer | Between Nodes on Medium<br><br>                                                                                                                                                                        | Bits (0s and 1s)               |
 
 
 **Quick reference**
@@ -117,7 +117,6 @@ Topics to be covered**
 
 - For **Network Layer**  Communication Node must be a **network device (Layer 3 or above)**, **not a Layer 2 device** like a Hub, Switch or Bridge
 
-
 ##### **Data Flow in a Network Stack** ⭐
 
 > Added by me
@@ -134,7 +133,7 @@ Topics to be covered**
 - The application message is passed to the **Transport Layer** (TCP or UDP), which adds its own header.
 - **TCP**: Adds source port, destination port, sequence number, etc.
 - **UDP**: Adds simpler headers.
-- Now it becomes a **segment**.
+- Now it becomes a **segment** (or **Datagram** if UDP).
 
 Example:  ⭐
 ``` 
@@ -193,7 +192,7 @@ The segment is passed to the **Network Layer (IP)**, which adds the IP header.
 | Data Link Layer    | Switch / Bridge (Layer 2) ⭐      |
 | Physical Layer     | Hub / Repeater / Modem (Layer 1) |
 
-❌ **Gateway is No more in GATE Syllabus**
+>  **Gateway is No more in GATE Syllabus**
 
 **Note:**
 - **Both Gateway and Router** used for routing and connect two different network. The difference is that
@@ -208,7 +207,6 @@ The segment is passed to the **Network Layer (IP)**, which adds the IP header.
     - No physical device
     - Handles **logical end-to-end communication** (e.g., TCP/UDP)
 
-❌ **Gateway is No more in GATE Syllabus**
 
 
 ---
