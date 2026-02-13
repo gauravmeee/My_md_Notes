@@ -1,6 +1,8 @@
-# [#14Structures, Unions & Enums in C++ | C++ Tutorials for Beginners](https://youtu.be/jCfR7CFlzts?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL)
+# ▶️ Tutorial\_CPP (Harry)
 
-### Structures
+## [#14Structures, Unions & Enums in C++ | C++ Tutorials for Beginners](https://youtu.be/jCfR7CFlzts?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL)
+
+#### Structures
 
 The structure is a user-defined data type that is available in C++. Structures are used to combine different types of data types, just like an array is used to combine the same type of data types.
 
@@ -32,12 +34,14 @@ int main() {
 **Use typedef**
 
 `typedef` for inbuilt data type
+
 ```cpp
 typedef long long ll
 ll number;
 ```
 
 `typedef` for Structure
+
 ```cpp
 typedef struct employee
 {
@@ -58,13 +62,13 @@ int main() {
 }
 ```
 
-### Unions
+#### Unions
 
-Unions are similar to structures but they provide better memory management then structures.  Unions use shared memory so only 1 variable can be used at a time.
+Unions are similar to structures but they provide better memory management then structures.  Unions use shared memory so only 1 variable can be used at a time.
 
-- Memory between variables are shared 
-- in union, we can use only one variable at a time. 
-- Previous allocated variable will be deallocated to a garbage value.
+* Memory between variables are shared
+* in union, we can use only one variable at a time.
+* Previous allocated variable will be deallocated to a garbage value.
 
 ```cpp
 union money{
@@ -74,8 +78,7 @@ union money{
 }
 ```
 
-size of struct = sum of size of all data = 4+1+4 = 9
-size of union = maximum data size in union = 4
+size of struct = sum of size of all data = 4+1+4 = 9 size of union = maximum data size in union = 4
 
 ```cpp
 union money m1;
@@ -87,11 +90,12 @@ cout<<m1.bitCoin; // 'C'
 cout<<m1.rupees; // Garbage Value
 ```
 
-### Enumeration ⭐
+#### Enumeration ⭐
 
 **Enums** are ==user-defined types== which consist of ==named integral constants==. Enums are used to make the program more readable.
-- It is used to ==assign names to a set of values, making code easier to read and maintain==.
-- Each name in an **enum** represents an integer value, starting from 0 by default (unless you explicitly set values).
+
+* It is used to ==assign names to a set of values, making code easier to read and maintain==.
+* Each name in an **enum** represents an integer value, starting from 0 by default (unless you explicitly set values).
 
 ```cpp
 int main(){
@@ -115,14 +119,16 @@ int main() {
     return 0;
 }
 ```
-# [#63 C++ Templates: Must for Competitive Programming | C++ Tutorials for Beginners](https://youtu.be/kKJeekDKU30)
+
+## [#63 C++ Templates: Must for Competitive Programming | C++ Tutorials for Beginners](https://youtu.be/kKJeekDKU30)
 
 ```
 Class -> Object
 Template -> Class
 ```
 
-If we want to make array variable  `arr` with different datatype: int, float, char at same time
+If we want to make array variable `arr` with different datatype: int, float, char at same time
+
 ```cpp
 class intVector{
 int *arr;
@@ -140,9 +146,10 @@ char *arr;
 }
 ```
 
-- It ==violates Don-Not-Repeat (DRY)== principle.
+* It ==violates Don-Not-Repeat (DRY)== principle.
 
-#### Template
+**Template**
+
 ```cpp
 template <class T>
 class vector{
@@ -159,14 +166,15 @@ vector<int> intVec
 vector<char> charVec(4) // constructor invoke
 }
 ```
+
 where T= `int`, `float` or `char` etc.
 
-**Template Syntax**
-Through template, we can make class one time, and for different different datatypes class will be automatically formed. and so Templates are sometime called **parameterised class**.
+**Template Syntax** Through template, we can make class one time, and for different different datatypes class will be automatically formed. and so Templates are sometime called **parameterised class**.
 
 Why use Template
-- To follow DRY principle
-- Generic Programming (that is generalization of programming)
-- Much use in competitive programming
+
+* To follow DRY principle
+* Generic Programming (that is generalization of programming)
+* Much use in competitive programming
 
 `STL + Template` : master or give an edge in competitive programming.

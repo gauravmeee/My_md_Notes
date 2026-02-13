@@ -1,4 +1,7 @@
-# [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+# ⭐💡 My\_DSA\_Solutions DP
+
+## [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
 ```cpp
 int maxProfit(vector<int>& prices) {
 	int n = prices.size();
@@ -13,8 +16,7 @@ int maxProfit(vector<int>& prices) {
 }
 ```
 
-
-# [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) ⭐
+## [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) ⭐
 
 ```
                 Pascals Triangle
@@ -29,32 +31,27 @@ r=6, r-6=5  1   5   10   10   5   1
 
 3 Problems:
 
-### 1. Give Row `r` and column  `c`, find the element at that place
-Note: `r` and `c` zero based. 
-first row = r - 1 =  1- 1 =0
-first column = c - 1 = 1 -1 =0
+#### 1. Give Row `r` and column `c`, find the element at that place
 
-Formula of Combination: ${}^nC_r = \frac{n!}{r!(n-r)!}$
+Note: `r` and `c` zero based. first row = r - 1 = 1- 1 =0 first column = c - 1 = 1 -1 =0
 
-Formula to find `rth` row, and `Cth` column : ${}^{r-1}C_{c-1} = \frac{r!}{c!(r-c)!}$
+Formula of Combination: ${}^nC\_r = \frac{n!}{r!(n-r)!}$
 
->Direct Calculating
+Formula to find `rth` row, and `Cth` column : ${}^{r-1}C\_{c-1} = \frac{r!}{c!(r-c)!}$
+
+> Direct Calculating
 
 Total Time Complexity : O(r!) + O(c!) + O(r-c)!
 
-
 > Better approach
 
-Note r>=c, because for any `rth` column, there are only `r` no. of  columns, so we could choose any columns from starting up-to `r`
+Note r>=c, because for any `rth` column, there are only `r` no. of columns, so we could choose any columns from starting up-to `r`
 
-let r = 5, c =3 ----> ${}^{5-1}C_{3-1} = \frac{4!}{2!(4-2)!} = \frac{4*3}{2*1}$
+let r = 5, c =3 ----> ${}^{5-1}C\_{3-1} = \frac{4!}{2!(4-2)!} = \frac{&#x34;_&#x33;}{&#x32;_&#x31;}$
 
-Similarly r=7, c=4 ----> $\frac{6*4*3}{3*2*1}$
+Similarly r=7, c=4 ----> $\frac{&#x36;_&#x34;_&#x33;}{&#x33;_&#x32;_&#x31;}$
 
-Conclusion:
-for any `r` and `c`  $\frac{(r-1)*(r-2)*(r-3)....(C-1)*times}{1*2*3 ....(C-1)*times}$ i.e $\frac{r-1}{1} * \frac{r-2}{2} * \frac{r-3}{3} ... (c-1)*times$
-
-
+Conclusion: for any `r` and `c` $\frac{(r-1)_(r-2)_(r-3)....(C-1)_times}{&#x31;_&#x32;\*3 ....(C-1)\*times}$ i.e $\frac{r-1}{1} \* \frac{r-2}{2} \* \frac{r-3}{3} ... (c-1)\*times$
 
 ```cpp
 //pass nCr(r-1, c-1)
@@ -67,10 +64,12 @@ int nCr(int n, int r){
 }
 ```
 
----
+***
 
-1. Doubt : why  this will not work if we update `res` in for loop `res=res/(r-1)` i.e. `r-i` decreasing in each iteration.
-- Reason : Because, in each iteration it is not necessary `r-1` divide `res` completely.
+1. Doubt : why this will not work if we update `res` in for loop `res=res/(r-1)` i.e. `r-i` decreasing in each iteration.
+
+* Reason : Because, in each iteration it is not necessary `r-1` divide `res` completely.
+
 ```cpp
 for(int i=0; i<r; i++){
 	res = res*(n-i); // multipling intermediate result with intermediate numerator
@@ -79,6 +78,7 @@ for(int i=0; i<r; i++){
 	res = res/(r-i); //multipling intermediate result with intermediate denominator
 }
 ```
+
 ```
  n   (n-1)   (n-2)        (n-r+1)
 -- * ----- * ----- *...* ------  ❌ Incorrect answer
@@ -86,9 +86,11 @@ for(int i=0; i<r; i++){
 ```
 
 2. Doubt : What is the guarantee that it, `i+1` will divide `res` completely
-- Proof : In `n` consecutive sequence of number, it is obvious that, one of the number will be multiple of `n`. because multiple of `n` come after each `n` counting.
-- ex: - In  3 no. consecutive (5,6,7) , (22,23,24), (56, 57, 58) there will be one multiple of `3` i.e 6, 24, and 57.
-- So in  `ith` iteration of for loop, `res` will have been multiplied by some `i`  no. consecutive number. So there will be some number in numerator that would be multiple of `i`,  and so on dividing by denominator  `i` perfect.
+
+* Proof : In `n` consecutive sequence of number, it is obvious that, one of the number will be multiple of `n`. because multiple of `n` come after each `n` counting.
+* ex: - In 3 no. consecutive (5,6,7) , (22,23,24), (56, 57, 58) there will be one multiple of `3` i.e 6, 24, and 57.
+* So in `ith` iteration of for loop, `res` will have been multiplied by some `i` no. consecutive number. So there will be some number in numerator that would be multiple of `i`, and so on dividing by denominator `i` perfect.
+
 ```cpp
 for(int i=0; i<r; i++){
 	res = res*(n-i);  // multipling intermediate result with intermediate numerator
@@ -96,6 +98,7 @@ for(int i=0; i<r; i++){
 	res = res/(i+1); //multipling intermediate result with intermediate denominator
 }
 ```
+
 ```
 n    (n-1)   (n-2)       (n-r+1)
 _ *  ----   * ---- *...* -------  ✅ Correct answer
@@ -103,6 +106,7 @@ _ *  ----   * ---- *...* -------  ✅ Correct answer
 ```
 
 3. Simply calculating numerator and denominator separately, and then finally calculating result would be easy, but required two extra variable `num` and `denom`
+
 ```cpp
 for(int i=0; i<r; i++){
 	num = res*(n-i);  // numerator calculate in one go
@@ -110,29 +114,31 @@ for(int i=0; i<r; i++){
 }
 res = num/denom ; // dividing overall numerator with overall dunemerator
 ```
+
 ```
 n * (n-1) * (n-2).... (n-r+1)   
 -----------------------------  ✅ Obvious it will give correct answer
 r * (r-1) * (r-2) .... 1       
 ```
 
----
+***
 
+Total Time Complexity : O(c) ✅ and SC:O(1)
 
-Total Time Complexity : O(c) ✅  and SC:O(1)
-
-
-### 2. Print any row `r` of the pascal triangle
+#### 2. Print any row `r` of the pascal triangle
 
 > Brute force : using the formula `nCr()`
+
 ```cpp
 for(c=1; c<n; c++){
 	cout<<nCr(n-1,c-1)<<" "; // nCr():TC=O(n)
 }
 ```
-Time Complexity : O(n * r)
+
+Time Complexity : O(n \* r)
 
 > Better Approach
+
 ```cpp
 long long ans =1; // in starting there is always 1
 cout<<ans<<" "; // print the starting 1
@@ -143,10 +149,13 @@ for(i=1; i<n; i++){
 	cout<<ans<<" ";
 }
 ```
+
 TC: O(n) and SC: O(n)
-### 3. Provide list of  Pascal Triangle up to `nth` row
+
+#### 3. Provide list of Pascal Triangle up to `nth` row
 
 > Brute Force
+
 ```cpp
 ans = []
 for(row = 1->n){
@@ -159,10 +168,10 @@ for(row = 1->n){
 return ans;
 ```
 
-TC: O(n * n * r) , 
-Note: ans is used to store answer `SC:O(n*n)`, not for computation, so its obvious to use the space. In such cases no extra space is used, and we didn't talk about space complexity. 
+TC: O(n \* n \* r) , Note: ans is used to store answer `SC:O(n*n)`, not for computation, so its obvious to use the space. In such cases no extra space is used, and we didn't talk about space complexity.
 
 > Better Approach : using type 2 , to generate row
+
 ```cpp
 // r * times
 vector<int> generateRow(int row){
@@ -187,26 +196,25 @@ vector<vector<itn>> pascalTriangle(int N){
 }
 ```
 
-TC: O(n * r)
+TC: O(n \* r)
 
+***
 
----
+## [Ninja’s Training](https://www.naukri.com/code360/problems/ninja-s-training_3621003?source=youtube\&campaign=striver_dp_videos\&utm_source=youtube\&utm_medium=affiliate\&utm_campaign=striver_dp_videos\&leftPanelTabValue=PROBLEM)
 
-# [Ninja’s Training](https://www.naukri.com/code360/problems/ninja-s-training_3621003?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos&leftPanelTabValue=PROBLEM)
 Memoization ✅ Tabulation(+space optimization) ✅
 
 My Code Better TC then Striver 😃😃
-- On the first day, you have **3 choices** (task 0, task 1, or task 2), resulting in **3 recursive calls**.
-- On every subsequent day, for a given task `p`, you have exactly **2 choices** (the other two tasks), resulting in **2 recursive calls** from that point onwards.
-- So time complexity is $O(3 * 2^{n-1}))$
 
+* On the first day, you have **3 choices** (task 0, task 1, or task 2), resulting in **3 recursive calls**.
+* On every subsequent day, for a given task `p`, you have exactly **2 choices** (the other two tasks), resulting in **2 recursive calls** from that point onwards.
+* So time complexity is $O(3 \* 2^{n-1}))$
 
 Striver : He was calling all three calls, and then finding max of the two whose p previous choosen is not same. (Wasting 1 call)
-- So his time complexity was $O(3^n)$
 
-Conclusion : - 
-I was make recursive call, only with `non same task` i.e pre choosen.
-He was choosing out of three calls, 2 which `previous task is not same`
+* So his time complexity was $O(3^n)$
+
+Conclusion : - I was make recursive call, only with `non same task` i.e pre choosen. He was choosing out of three calls, 2 which `previous task is not same`
 
 ```cpp
 // d -> day, p-> last point
@@ -250,16 +258,18 @@ int ninjaTraining(int n, vector<vector<int>> &points)
     return func(points, 0, 3, dp);
 }
 ```
-TC : O(2^n),  SC:O(n)
 
-Note:
-If `DP size = n` not n+1  and passing initial p=-1 `func(points, 0, -1, dp)`  Then Required Changes in `func()` would be
-1. using `(p!=-1)` constraint in the equation ` if(dp[d][p]!=-1) return dp[d][p];`
-2. `if(p!=-1) return dp[d][p] = max(ans1, max(ans2, ans3))`  `return max(ans1, max(ans2, ans3))`;
+TC : O(2^n), SC:O(n)
 
-### Why 1D dp not work
+Note: If `DP size = n` not n+1 and passing initial p=-1 `func(points, 0, -1, dp)` Then Required Changes in `func()` would be
+
+1. using `(p!=-1)` constraint in the equation `if(dp[d][p]!=-1) return dp[d][p];`
+2. `if(p!=-1) return dp[d][p] = max(ans1, max(ans2, ans3))`  `return max(ans1, max(ans2, ans3))`;
+
+#### Why 1D dp not work
 
 Using 1 DP Array ❌
+
 ```cpp
 int func(vector<vector<int>> arr, int d, int p, vector<int>& dp){
     if(d>=arr.size()) return 0;
@@ -295,6 +305,7 @@ array = 3  1  1
 ```
 
 Without Memoisation
+
 ```
  f(d,p) = ans=11
                                       |11
@@ -312,7 +323,8 @@ Without Memoisation
   0       0       0    0      0        0      0        0     0      0    0     0 
 ```
 
-With 1D DP  Wrong Answer ❌
+With 1D DP Wrong Answer ❌
+
 ```
  f(d,p) , ans=9
                                       | 9
@@ -343,6 +355,7 @@ Sp we Required a 2D DP
 ```
 
 Tabulation + Space optimization (Chatgpt + me)
+
 ```cpp
 int ninjaTraining(int n, vector<vector<int>>& points) {   
 
@@ -376,12 +389,15 @@ int ninjaTraining(int n, vector<vector<int>>& points) {   
     return max(task0, max(task1, task2));  // Return overall maximum points
 }
 ```
----
-# [Unique Paths](https://www.naukri.com/code360/problems/total-unique-paths_1081470?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos) 
+
+***
+
+## [Unique Paths](https://www.naukri.com/code360/problems/total-unique-paths_1081470?source=youtube\&campaign=striver_dp_videos\&utm_source=youtube\&utm_medium=affiliate\&utm_campaign=striver_dp_videos)
 
 Memoization , Tabulation, Space Optimsation✅
 
 Memoisation by me
+
 ```cpp
 int solve(int m, int n, vector<vector<int>>& dp){
 
@@ -424,6 +440,7 @@ int uniquePaths(int m, int n) {
 ```
 
 Tabulation by me
+
 ```cpp
 int solve(int m, int n, vector<vector<int>>& dp){
 
@@ -458,6 +475,7 @@ int uniquePaths(int m, int n) {
 ```
 
 Space Optimization by me.
+
 ```cpp
 int uniquePaths(int n, int m) {
 	// Setting first row of DP matrics
@@ -476,8 +494,9 @@ int uniquePaths(int n, int m) {
 }
 ```
 
----
-# [Unique Path II](https://www.naukri.com/code360/problems/maze-obstacles_977241?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos&leftPanelTabValue=PROBLEM)
+***
+
+## [Unique Path II](https://www.naukri.com/code360/problems/maze-obstacles_977241?source=youtube\&campaign=striver_dp_videos\&utm_source=youtube\&utm_medium=affiliate\&utm_campaign=striver_dp_videos\&leftPanelTabValue=PROBLEM)
 
 Memoization ✅, Tabulation ✅
 
@@ -502,6 +521,7 @@ int mazeObstacles(int n, int m, vector< vector< int> > &mat) {
 ```
 
 Space optimisation (because use already matrix ) by me
+
 ```cpp
 const int MOD = 1e9 + 7;
 
@@ -527,4 +547,3 @@ int mazeObstacles(int n, int m, vector< vector< int> > &mat) {
     return mat[n-1][m-1];
 }
 ```
-

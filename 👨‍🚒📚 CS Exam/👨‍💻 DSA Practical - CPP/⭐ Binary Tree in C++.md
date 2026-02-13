@@ -1,13 +1,12 @@
+# ⭐ Binary Tree in C++
 
+***
 
-
-
----
-# Binary Tree in C++
+## Binary Tree in C++
 
 > Revise Linked List Notes, to Better Understand this Tree Notes
 
-### Binary Tree Node Definition
+#### Binary Tree Node Definition
 
 ```cpp
 #include <iostream>
@@ -22,7 +21,7 @@ struct TreeNode {
 };
 ```
 
-### Create Binary Tree
+#### Create Binary Tree
 
 **i. Create Binary Tree Dot Notation ( for direct instances )**
 
@@ -34,7 +33,8 @@ root.left -> new Node(5)
 
 root.right -> new Node(15)
 ```
-- Accessing value using `root.left.val` 
+
+* Accessing value using `root.left.val`
 
 **ii. Create Binary Tree using `Arrow Notation` ( for pointers)**
 
@@ -56,7 +56,8 @@ root->right = new TreeNode(15);
 // cleanup
 delete root;
 ```
-- Accessing value using `root->left->val`
+
+* Accessing value using `root->left->val`
 
 ```cpp
 TreeNode* root = new TreeNode(10);
@@ -64,19 +65,21 @@ root->left = new TreeNode(5);
 root->right = new TreeNode(15);
 ```
 
----
-# Operations in Binary Tree
+***
 
-### 1. Traversal
+## Operations in Binary Tree
 
+#### 1. Traversal
 
->DFS (Depth-First Search) Traversal
-- **Traversal order:** Preorder, Inorder, Postorder
-- **Time complexity:** `O(|E| + |V|)`
-- **Space complexity:** `O(|V|)`
-- **Use cases:** Finding connected components, topological sorting, and finding strongly connected components.
+> DFS (Depth-First Search) Traversal
+
+* **Traversal order:** Preorder, Inorder, Postorder
+* **Time complexity:** `O(|E| + |V|)`
+* **Space complexity:** `O(|V|)`
+* **Use cases:** Finding connected components, topological sorting, and finding strongly connected components.
 
 **i. In-order Traversal**
+
 ```cpp
 void inOrder(TreeNode* root) {
     if (root == nullptr) {
@@ -89,6 +92,7 @@ void inOrder(TreeNode* root) {
 ```
 
 **ii. Pre-order Traversal**
+
 ```cpp
 void preOrder(TreeNode* root) {
     if (root == nullptr) {
@@ -101,6 +105,7 @@ void preOrder(TreeNode* root) {
 ```
 
 **iii. Post-order Traversal**
+
 ```cpp
 void postOrder(TreeNode* root) {
     if (root == nullptr) {
@@ -112,14 +117,15 @@ void postOrder(TreeNode* root) {
 }
 ```
 
->BFS (Breadth-First Search) Traversal
-- **Traversal order:** Level by level, from left to right.
-- **Time complexity:** `O(|E| + |V|)`
-- **Space complexity:** `O(|V|)`
-- Use cases: Finding shortest paths, minimum spanning trees, and network traversal.
+> BFS (Breadth-First Search) Traversal
 
+* **Traversal order:** Level by level, from left to right.
+* **Time complexity:** `O(|E| + |V|)`
+* **Space complexity:** `O(|V|)`
+* Use cases: Finding shortest paths, minimum spanning trees, and network traversal.
 
 **iv. Level-order Traversal (BFS)**
+
 ```cpp
 void levelOrder(TreeNode* root) {
     if (root == nullptr) {
@@ -141,8 +147,8 @@ void levelOrder(TreeNode* root) {
 }
 ```
 
+#### 2. Insertion
 
-### 2. Insertion
 ```cpp
 TreeNode* insert(TreeNode* root, int value) {
     if (root == nullptr) {
@@ -157,7 +163,7 @@ TreeNode* insert(TreeNode* root, int value) {
 }
 ```
 
-### 3. Searching
+#### 3. Searching
 
 ```cpp
 TreeNode* search(TreeNode* root, int value) {
@@ -171,7 +177,7 @@ TreeNode* search(TreeNode* root, int value) {
 }
 ```
 
-### 4. Deletion
+#### 4. Deletion
 
 ```cpp
 TreeNode* findMin(TreeNode* root) {
@@ -207,7 +213,8 @@ TreeNode* deleteNode(TreeNode* root, int value) {
 }
 ```
 
-### 5. Finding the Height of the Tree
+#### 5. Finding the Height of the Tree
+
 ```cpp
 int height(TreeNode* root) {
     if (root == nullptr) {
@@ -219,59 +226,66 @@ int height(TreeNode* root) {
 }
 ```
 
+***
 
----
-# Construct Binary Tree from (Preorder + Inorder) traversals.
+## Construct Binary Tree from (Preorder + Inorder) traversals.
 
+**Given**
 
-##### Given
-- **Preorder** (Root → Left → Right): `F A E K C D H G B`    
-- **Inorder** (Left → Root → Right): `E A C K F H D B G`
-    
-##### Key Idea:
+* **Preorder** (Root → Left → Right): `F A E K C D H G B`
+* **Inorder** (Left → Root → Right): `E A C K F H D B G`
+
+**Key Idea:**
+
 1. **Preorder** gives the **root** of current subtree.
 2. **Inorder** splits the tree into **left** and **right** subtrees around the root.
-    
-##### Step-by-Step Process:
+
+**Step-by-Step Process:**
 
 **Step 1:**
-- `Preorder[0] = F` → This is the **root**.
-- In `Inorder`, elements **left** of `F` → `{E A C K}` (left subtree)  
-    elements **right** of `F` → `{H D B G}` (right subtree)
+
+* `Preorder[0] = F` → This is the **root**.
+* In `Inorder`, elements **left** of `F` → `{E A C K}` (left subtree)\
+  elements **right** of `F` → `{H D B G}` (right subtree)
 
 **Step 2: Left Subtree of F**
-- Next root in preorder → `A`
-- In `{E A C K}`, `A` is root  
-    Left of A → `{E}` → left subtree of A  
-    Right of A → `{C K}` → right subtree of A
-    
-**Step 3: Left Subtree of A**
-- Preorder next → `E`  
-    In `{E}`, it's a leaf node
-    
-**Step 4: Right Subtree of A**
-- Preorder next → `K`  
-    In `{C K}`, `K` is root  
-    Left of K → `{C}` → left child  
-    Right of K → `[]` → NULL
-    
-**Step 5: Right Subtree of F**
-- Next preorder → `D`  
-    In `{H D B G}`, `D` is root  
-    Left of D → `{H}`  
-    Right of D → `{B G}`
-    
-**Step 6: Left Subtree of D**
-- Preorder → `H` → leaf
-    
-**Step 7: Right Subtree of D**
-- Preorder → `G`  
-    In `{B G}`, `G` is root  
-    Left → `{B}` → leaf  
-    Right → `[]`
-    
 
-##### Final Binary Tree:
+* Next root in preorder → `A`
+* In `{E A C K}`, `A` is root\
+  Left of A → `{E}` → left subtree of A\
+  Right of A → `{C K}` → right subtree of A
+
+**Step 3: Left Subtree of A**
+
+* Preorder next → `E`\
+  In `{E}`, it's a leaf node
+
+**Step 4: Right Subtree of A**
+
+* Preorder next → `K`\
+  In `{C K}`, `K` is root\
+  Left of K → `{C}` → left child\
+  Right of K → `[]` → NULL
+
+**Step 5: Right Subtree of F**
+
+* Next preorder → `D`\
+  In `{H D B G}`, `D` is root\
+  Left of D → `{H}`\
+  Right of D → `{B G}`
+
+**Step 6: Left Subtree of D**
+
+* Preorder → `H` → leaf
+
+**Step 7: Right Subtree of D**
+
+* Preorder → `G`\
+  In `{B G}`, `G` is root\
+  Left → `{B}` → leaf\
+  Right → `[]`
+
+**Final Binary Tree:**
 
 ```
           F
@@ -283,12 +297,12 @@ int height(TreeNode* root) {
        C     B
 ```
 
-##### Time & Space
+**Time & Space**
 
-- Time: O(n)
-- Space: O(n) (for recursion and `hashmap` for `inorder` indices)
-    
-##### More Order Combinations to Construct Tree
+* Time: O(n)
+* Space: O(n) (for recursion and `hashmap` for `inorder` indices)
+
+**More Order Combinations to Construct Tree**
 
 | Traversal Combinations                        | Can Construct Tree? | Notes                                                             |
 | --------------------------------------------- | ------------------- | ----------------------------------------------------------------- |
@@ -298,20 +312,18 @@ int height(TreeNode* root) {
 | Preorder + Postorder                          | ❌ Not always        | **Ambiguous** unless it's a **full binary tree**.                 |
 | Preorder + Levelorder, Postorder + Levelorder | ❌ No                | Not enough information for unique construction.                   |
 
+***
 
+***
 
----
----
+## Binary Search Tree (BST)
 
-# Binary Search Tree (BST)
+**Balanced->** **Insertion** : `O(logn)` **Find** : `O(logn)`✅ **Unbalanced->** **Insertion** : `O(n)` **Find** : `O(n)` ❌
 
-**Balanced->** **Insertion** : `O(logn)` **Find** : `O(logn)`✅
-**Unbalanced->** **Insertion** : `O(n)` **Find** : `O(n)` ❌
+#### Implementing a Binary Search Tree
 
+**Node Class**
 
-### Implementing a Binary Search Tree
-
-#### Node Class
 ```cpp
 class Node {
 public:
@@ -327,7 +339,8 @@ public:
 };
 ```
 
-#### Insert Method
+**Insert Method**
+
 ```cpp
 void insert(Node*& root, int value) {
     if (root == nullptr) {
@@ -340,7 +353,8 @@ void insert(Node*& root, int value) {
 }
 ```
 
-#### Contains Method
+**Contains Method**
+
 ```cpp
 bool contains(Node* root, int value) {
     if (root == nullptr) {
@@ -355,7 +369,8 @@ bool contains(Node* root, int value) {
 }
 ```
 
-#### Inorder Traversal Method
+**Inorder Traversal Method**
+
 ```cpp
 void printInOrder(Node* root) {
     if (root != nullptr) {
@@ -366,7 +381,8 @@ void printInOrder(Node* root) {
 }
 ```
 
-### Example Usage
+#### Example Usage
+
 ```cpp
 int main() {
     Node* root = nullptr;
@@ -385,14 +401,14 @@ int main() {
 }
 ```
 
-### Summary
+#### Summary
+
 Understanding the structure and operations of binary search trees is crucial for efficiently managing hierarchical data. The key operations—insert, contains, and various traversals—are fundamental for working with BSTs. Mastering these concepts and their implementation will significantly enhance your problem-solving skills in data structures and algorithms.
 
----
+***
 
-# [L39. Introduction to Binary Search Tree | BST](https://www.youtube.com/watch?v=p7-9UvDQZ3w&list=PLkjdNRgDmcc0Pom5erUBU4ZayeU9AyRRu&index=39&ab_channel=takeUforward)
+## [L39. Introduction to Binary Search Tree | BST](https://www.youtube.com/watch?v=p7-9UvDQZ3w\&list=PLkjdNRgDmcc0Pom5erUBU4ZayeU9AyRRu\&index=39\&ab_channel=takeUforward)
 
-# [L40. Search in a Binary Search Tree | BST | C++ | Java](https://www.youtube.com/watch?v=KcNt6v_56cc&list=PLkjdNRgDmcc0Pom5erUBU4ZayeU9AyRRu&index=40&ab_channel=takeUforward)
+## [L40. Search in a Binary Search Tree | BST | C++ | Java](https://www.youtube.com/watch?v=KcNt6v_56cc\&list=PLkjdNRgDmcc0Pom5erUBU4ZayeU9AyRRu\&index=40\&ab_channel=takeUforward)
 
-# [L46. Check if a tree is a BST or BT | Validate a BST](https://www.youtube.com/watch?v=f-sj7I5oXEI&ab_channel=takeUforward)
-
+## [L46. Check if a tree is a BST or BT | Validate a BST](https://www.youtube.com/watch?v=f-sj7I5oXEI\&ab_channel=takeUforward)

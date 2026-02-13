@@ -1,7 +1,9 @@
+# ⭐ OOPS\_Important Concepts
 
-### Syntax Cheat Sheet
+#### Syntax Cheat Sheet
 
 **Access Specifiers** (`private`, `protected`, `public`)
+
 ```cpp
 class MyClass {
 
@@ -20,6 +22,7 @@ public:       // Accessible from anywhere
 ```
 
 **Modes of Inheritance**
+
 ```cpp
 // public inheritance
 class Derived : public Base { };   
@@ -32,6 +35,7 @@ class Derived : private Base { };
 ```
 
 **Friend Keyword**
+
 ```cpp
 class MyClass {
 private:
@@ -43,6 +47,7 @@ public:
 ```
 
 **Static Keyword**
+
 ```cpp
 class Test {
     // static variable (shared by all objects)
@@ -57,6 +62,7 @@ int Test::count = 0;
 ```
 
 **Const Keyword**
+
 ```cpp
 // const function (does not modify member variables) 
 void display() const {...};  // 'const' variable written after function ⭐
@@ -69,6 +75,7 @@ const MyClass obj;
 ```
 
 **Constructor & Destructor**
+
 ```cpp
 class Test {
 public:
@@ -78,6 +85,7 @@ public:
 ```
 
 **Virtual and Overridden Function**
+
 ```cpp
 class Base {
 public:
@@ -94,6 +102,7 @@ public:
 ```
 
 **Pure Virtual Function (Abstract Class)**
+
 ```cpp
 class Shape {
 public:
@@ -101,9 +110,9 @@ public:
 };
 ```
 
----
+***
 
-### Const vs Static
+#### Const vs Static
 
 Here’s a short **Static vs Const** comparison for C++:
 
@@ -128,41 +137,46 @@ public:
 };
 ```
 
----
+***
 
-### Function Signature
+#### Function Signature
 
-**Function Signature**  - In C++, the _function signature_ is the part of the function declaration that the compiler uses to uniquely identify a function.  
+**Function Signature** - In C++, the _function signature_ is the part of the function declaration that the compiler uses to uniquely identify a function.\
 It **includes**:
+
 1. Function name
 2. Number of parameters
 3. Types of parameters (including their order)
-    
+
 It **does not include**:
-- Return type
-- Parameter names
-- `const` qualifier on the function itself (though it can affect overloading in member functions)
-    
+
+* Return type
+* Parameter names
+* `const` qualifier on the function itself (though it can affect overloading in member functions)
+
 **Example:**
+
 ```cpp
 void show(int, double);   // signature: show(int, double)
 void show(double, int);   // different signature
 ```
 
-
 **Significance in Polymorphism**
 
-1. **Compile-time Polymorphism (Function Overloading)**
-    - ==Overloading is possible only if function **signatures** differ.==
-    - Changing only the return type does **not** change the signature, so it won’t overload.
+1.  **Compile-time Polymorphism (Function Overloading)**
+
+    * \==Overloading is possible only if function **signatures** differ.==
+    * Changing only the return type does **not** change the signature, so it won’t overload.
+
     ```cpp
     int fun(int);    // OK
     void fun(int);   // ❌ Error: same signature as above
     ```
-    
-2. **Runtime Polymorphism (Virtual Functions)**
-    - ==For overriding in inheritance, the **signature must match exactly**== (including const-ness)        
-    - If the signature is different, it becomes **function hiding**, not overriding.
+2.  **Runtime Polymorphism (Virtual Functions)**
+
+    * \==For overriding in inheritance, the **signature must match exactly**== (including const-ness)
+    * If the signature is different, it becomes **function hiding**, not overriding.
+
     ```cpp
     class Base {
         virtual void show(int);
@@ -171,8 +185,8 @@ void show(double, int);   // different signature
         void show(int) override; // ✅ Same signature → overriding
     };
     ```
-    
+
 In short:
-- **Overloading** → Different signatures.
-- **Overriding** → Same signatures.
-    
+
+* **Overloading** → Different signatures.
+* **Overriding** → Same signatures.

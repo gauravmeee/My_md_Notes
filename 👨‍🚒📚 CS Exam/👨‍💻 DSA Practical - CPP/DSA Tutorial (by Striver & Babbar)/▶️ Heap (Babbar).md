@@ -1,23 +1,24 @@
-# [# Lecture 74: Heaps in C++ || Heap Sort || Insertion/Deletion in Heap || Priority Queue STL](https://youtu.be/NKJnHewiGdc)
+# ▶️ Heap (Babbar)
 
-**What is Heap?**
-Heap is a complete Binary Tree that comes with a Heap order Property ⭐
+## [# Lecture 74: Heaps in C++ || Heap Sort || Insertion/Deletion in Heap || Priority Queue STL](https://youtu.be/NKJnHewiGdc)
+
+**What is Heap?** Heap is a complete Binary Tree that comes with a Heap order Property ⭐
 
 **What is CBT(Complete Binary Tree)?**
-- Every level is completely filled except the lowest one , which is filled from the left
+
+* Every level is completely filled except the lowest one , which is filled from the left
 
 **What is Heap order Property**
-- **Max Heap** - A Max Heap is a complete binary tree where the value of each parent node is greater than or equal to its children, with the largest element always at the root.
 
-- **Min Heap** - A Min Heap is a complete binary tree where the value of each parent node is less than or equal to its children, with the smallest element always at the root.
+* **Max Heap** - A Max Heap is a complete binary tree where the value of each parent node is greater than or equal to its children, with the largest element always at the root.
+* **Min Heap** - A Min Heap is a complete binary tree where the value of each parent node is less than or equal to its children, with the smallest element always at the root.
 
+**How BST is different ?** A BST is a binary tree where each node has a value greater than all nodes in its left subtree and less than all nodes in its right subtree, enabling efficient searching, insertion, and deletion.
 
-**How BST is different ?**
-A BST is a binary tree where each node has a value greater than all nodes in its left subtree and less than all nodes in its right subtree, enabling efficient searching, insertion, and deletion.
+#### Max Heap Implementation (With Array)
 
-### Max Heap Implementation (With Array)
+_**Heap:**_
 
-***Heap:***
 ```cpp
 class heap{
 	public:
@@ -31,15 +32,18 @@ class heap{
 };
 ```
 
-We used **1 based indexing** to simplify parent child node find formula
-*Note:* If a Node is at  `(i)th` index in, than 
-- left child will be at `(2*i)th` index  
-- right child will be at `(2*i+1)th` index
-- Parent of the node will be at `(i/2)th` index
----
-#### Max Heap Insertion
+We used **1 based indexing** to simplify parent child node find formula _Note:_ If a Node is at `(i)th` index in, than
+
+* left child will be at `(2*i)th` index
+* right child will be at `(2*i+1)th` index
+* Parent of the node will be at `(i/2)th` index
+
+***
+
+**Max Heap Insertion**
 
 Let Consider Current Heap
+
 ```
          60
 	 /      \
@@ -54,6 +58,7 @@ Let Consider Current Heap
 Rule: Add a node at the last, if its parents is small, than swap it with parent, and do this swap again and again, till max heap property is satisfied
 
 Insert 55
+
 ```
 # Insert 55 at last -> 6th index
          60
@@ -84,6 +89,7 @@ Parent -> 3rd/2 -> 1st node -> (60)
 ```
 
 Insert 70
+
 ```
 # Insert 70 at last -> 7th index
          60
@@ -122,7 +128,8 @@ Parent-> 3rd/2->1st node -> (60)
   0  1    2   3   4   5   6   7
 ```
 
-***Max Heap Insertion Code:***
+_**Max Heap Insertion Code:**_
+
 ```cpp
 # Insertion Function
 void insert(int val){
@@ -145,17 +152,20 @@ void insert(int val){
 }
 ```
 
-#### TC: `O(logn)` 
-`n` number of nodes. each node with `2` children. `2^k=n`  `k=height=logn` than maximum swaps will be the height of tree , i.e. `logn`
+**TC: `O(logn)`**
 
----
-#### Max Heap Delete ( Deleting the Root Node)
+`n` number of nodes. each node with `2` children. `2^k=n` `k=height=logn` than maximum swaps will be the height of tree , i.e. `logn`
+
+***
+
+**Max Heap Delete ( Deleting the Root Node)**
 
 1. Swap `root` node with the `last` node;
-2.  Remove last node (that will contain the previous root node value)
-3.  Check if all nodes are satisfying heap property, if not swap accordingly
+2. Remove last node (that will contain the previous root node value)
+3. Check if all nodes are satisfying heap property, if not swap accordingly
 
 Let consider the heap
+
 ```
          55
        /    \
@@ -164,7 +174,8 @@ Let consider the heap
    50   52
 ```
 
-Delete 
+Delete
+
 ```
 Swap last node (52) with root node (55)
 
@@ -193,7 +204,8 @@ Delete Last node
 52>50? ✅
 ```
 
-***Max Heap Deletion Code:***
+_**Max Heap Deletion Code:**_
+
 ```cpp
 # Delete Function
 void deleteFromHeap(){
@@ -230,14 +242,16 @@ void deleteFromHeap(){
 	}
 }
 ```
-#### TC: `O(logn)` 
+
+**TC: `O(logn)`**
+
 `n` number of nodes, than maximum swaps will be the height of tree , i.e. `logn`
 
----
+***
 
-## Heapify Algorithm
+### Heapify Algorithm
 
-*Note:* in a CBT(complete binary tree)  the leaf nodes are from  : `(n/2+1)th` to `nth node
+_Note:_ in a CBT(complete binary tree) the leaf nodes are from : `(n/2+1)th` to \`nth node
 
 ```
      54(1)
@@ -248,31 +262,36 @@ void deleteFromHeap(){
 
 ```
 
-In heapify we will Check and Correct  if any node is not a heap from Last node to root node 
+In heapify we will Check and Correct if any node is not a heap from Last node to root node
 
 node 5 : heap ✅, Single node satisfy heap rule
+
 ```
 50(5) 
 ```
 
 node 4 : heap ✅, Single node satisfy heap rule
+
 ```
 52(4)
 ```
 
 node 3 : heap ✅, Single node satisfy heap rule
+
 ```
 55(3)
 ```
 
-node 2 :  heap ✅, 52<53 and 50<53
+node 2 : heap ✅, 52<53 and 50<53
+
 ```
        53(2)
      /      \
     52(4)  50(5)  
 ```
 
-node 1 :node 2 :  Not heap ❌, 53<54 but !55<54
+node 1 :node 2 : Not heap ❌, 53<54 but !55<54
+
 ```
      54(1)
     /     \
@@ -281,7 +300,8 @@ node 1 :node 2 :  Not heap ❌, 53<54 but !55<54
 52 (4)  50 (5)
 ```
 
-So Heapify it -> Swap (Parent, Incorrect Node) 
+So Heapify it -> Swap (Parent, Incorrect Node)
+
 ```
      55(1)
     /     \
@@ -292,13 +312,14 @@ So Heapify it -> Swap (Parent, Incorrect Node)
 
 Heapify Done ✅
 
-- The non-leaf nodes are positioned from the root up to the parent of the last node. The parent of the last node is at index `n/2` (using integer division).
-- Thus, the leaf nodes are positioned from index `n/2 + 1` to `n`.
-- In above example Leaf node are from `5/2+1` to `5` =>  `3` to `5`
+* The non-leaf nodes are positioned from the root up to the parent of the last node. The parent of the last node is at index `n/2` (using integer division).
+* Thus, the leaf nodes are positioned from index `n/2 + 1` to `n`.
+* In above example Leaf node are from `5/2+1` to `5` => `3` to `5`
 
-Leaf Node, or Individual Nodes are always heap , so we need not to Heapify nodes leaf nodes and will only heapify nod es from  backward from `n/2` to `1` 
+Leaf Node, or Individual Nodes are always heap , so we need not to Heapify nodes leaf nodes and will only heapify nod es from backward from `n/2` to `1`
 
-***Max Heapify Code :***
+_**Max Heapify Code :**_
+
 ```cpp
 void heapify(int arr[], int n, int i){
 	int largest =i;
@@ -336,26 +357,30 @@ int main(){
 }
 
 ```
-#### heapify() TC: `O(logn)` 
-#### Building the Heap TC: `O(n)` 
 
-### Time Complexity of `heapify` Function:
+**heapify() TC: `O(logn)`**
 
-Heapify: The `heapify` function compares the current node with its left and right children, and swaps it with the largest child if necessary, then recursively calls itself on the affected child. The worst case occurs when the recursion needs to go all the way down to the leaf nodes. The height of a binary is  the time complexity of `heapify` i.e. `O(log n)`.
+**Building the Heap TC: `O(n)`**
 
-Heap Construction:  In the `main` function, there's a loop where `heapify` is called for each node starting from the last non-leaf node up to the root node. This is part of the heap construction process.
-The loop starts at `i = n/2` and goes down to `1`. For each call to `heapify`, the maximum number of comparisons and swaps that might be needed is proportional to the height of the tree, which decreases as you move from the bottom of the heap to the top.
-The overall complexity of building a heap using this method is `O(n)`.
+#### Time Complexity of `heapify` Function:
 
----
-#### Now Try Mean Heap, but with **0-based Indexing** and **Given Vector**
+Heapify: The `heapify` function compares the current node with its left and right children, and swaps it with the largest child if necessary, then recursively calls itself on the affected child. The worst case occurs when the recursion needs to go all the way down to the leaf nodes. The height of a binary is the time complexity of `heapify` i.e. `O(log n)`.
+
+Heap Construction: In the `main` function, there's a loop where `heapify` is called for each node starting from the last non-leaf node up to the root node. This is part of the heap construction process. The loop starts at `i = n/2` and goes down to `1`. For each call to `heapify`, the maximum number of comparisons and swaps that might be needed is proportional to the height of the tree, which decreases as you move from the bottom of the heap to the top. The overall complexity of building a heap using this method is `O(n)`.
+
+***
+
+**Now Try Mean Heap, but with 0-based Indexing and Given Vector**
+
 In zero based Indexing :-
-- left child -> `2*i + 1`
-- right child -> `2*i + 2`
-- Parent -> `(i-1)/2`
-- Leaf Node from `n/2` to `n-1`
 
-***Min Heapify Code :***
+* left child -> `2*i + 1`
+* right child -> `2*i + 2`
+* Parent -> `(i-1)/2`
+* Leaf Node from `n/2` to `n-1`
+
+_**Min Heapify Code :**_
+
 ```cpp
 void heapify(int vector<int> &arr, int n, int i){
 	int smallest =i;
@@ -382,22 +407,29 @@ vector<int> buildMinHeap(vector<int> arr){
 	return arr;
 }
 ```
-*Note :* We will not heapify leaf Nodes ( from `n/2` to `nth` node), because a single Individual node i.e. leaf node is heap in itself
-#### heapify() TC: `O(logn)` 
-#### buildMinHeap() TC: `O(n)` 
 
----
+_Note :_ We will not heapify leaf Nodes ( from `n/2` to `nth` node), because a single Individual node i.e. leaf node is heap in itself
 
-## Heap Sort 
+**heapify() TC: `O(logn)`**
 
-- **Max-Heap**: Used for sorting in **ascending order**.
-- **Min-Heap**: Used for sorting in **descending order**.
-#### Algorithm
+**buildMinHeap() TC: `O(n)`**
+
+***
+
+### Heap Sort
+
+* **Max-Heap**: Used for sorting in **ascending order**.
+* **Min-Heap**: Used for sorting in **descending order**.
+
+**Algorithm**
+
 `while(size>1):`
+
 1. Swap `root` and `last` element -> `swap(arr[i], arr[n])` & Remove Last Node -> `size--`
 2. take root node to correct position. -> Heapify Root Node-> `heapify(1)`
 
- Let Max Heap:
+Let Max Heap:
+
 ```
 		        70
 		      /   \
@@ -411,6 +443,7 @@ size = 5
 ```
 
 1.1 Swap first(70) & last(50) and Remove Last Node (70)
+
 ```
 		       50
 		      /   \
@@ -424,6 +457,7 @@ size--, size = 4
 ```
 
 1.2 Heapify Root Node -> Already a heap
+
 ```
 		       60
 		      /   \
@@ -436,6 +470,7 @@ size--, size = 4
 ```
 
 2.1 Swap first(60) and last(45) and Remove Last Node (60)
+
 ```
 		       45
 		      /   \
@@ -449,6 +484,7 @@ size--, size = 3
 ```
 
 2.2 Heapify Root Node -> Swap 45 and 55(greater then current and left)
+
 ```
 		       55
 		      /   \
@@ -459,6 +495,7 @@ size--, size = 3
 ```
 
 3.1 Swap first(55) and last(45) node, and remove last element (50)
+
 ```
 		       45
 		      /   \
@@ -470,6 +507,7 @@ size--, size = 2
 ```
 
 3.2 Heapify -> swap 45 and 50
+
 ```
 		       50
 		      /
@@ -480,6 +518,7 @@ size--, size = 2
 ```
 
 3.3 Swap first(50) and last(45) node, and remove last element(50)
+
 ```
 		       45
 		      /
@@ -491,11 +530,13 @@ size--, size == 1
 ```
 
 size>1 ?? No -> Stop Array Sorted ✅
+
 ```
 [45, 50, 55, 60, 70]
 ```
 
-***Heap Sort :***
+_**Heap Sort :**_
+
 ```cpp
 heapSort(int arr[], int n){
 	int size = n;
@@ -511,22 +552,22 @@ heapSort(int arr[], int n){
 }
 ```
 
-*Note :* Do same process with min-Heap to sort in descending order
-#### TC:** `O(nlogn)`  
+_Note :_ Do same process with min-Heap to sort in descending order
 
-**Time Complexity Analysis:**1. **Building the Heap**:  Building a Max-Heap from an unsorted array takes `O(n)` time.
-2. **Sorting Process**: The sorting process involves repeatedly extracting the maximum element and heapifying the reduced heap.
-     - **While Loop**: The loop runs `n - 1` times, where `n` is the initial size of the array.
-    -  **Heapify Operation**: Each call to `heapify` takes `O(log k)`, where `k` is the current size of the heap. Initially, `k = n`, then `k = n-1`, and so on, down to `1`.
-    
-    **Total Cost of Heapify**: `O(log⁡n)+O(log⁡(n−1))+O(log⁡(n−2))+…+O(log⁡1) = O(n*log n)
+**TC:\*\* `O(nlogn)`**
 
----
-## STL Heap - `Priority Queue`
-- `#include <queue>
-- Default -> MaxHeap
+\*\*Time Complexity Analysis:\*\*1. **Building the Heap**: Building a Max-Heap from an unsorted array takes `O(n)` time. 2. **Sorting Process**: The sorting process involves repeatedly extracting the maximum element and heapifying the reduced heap. - **While Loop**: The loop runs `n - 1` times, where `n` is the initial size of the array. - **Heapify Operation**: Each call to `heapify` takes `O(log k)`, where `k` is the current size of the heap. Initially, `k = n`, then `k = n-1`, and so on, down to `1`.
 
+```
+**Total Cost of Heapify**: `O(log⁡n)+O(log⁡(n−1))+O(log⁡(n−2))+…+O(log⁡1) = O(n*log n)
+```
 
+***
+
+### STL Heap - `Priority Queue`
+
+* \`#include
+* Default -> MaxHeap
 
 ```cpp
 // max-heap
@@ -556,33 +597,36 @@ minheap.size(); // size of element -> 3
 minheap.empty(); // is empty?? -> 0 -> false
 ```
 
----
-# [Lecture 75: Heaps in C++ || Interview Questions || Part - 1](https://youtu.be/_9F2VgZcvdw)
+***
 
-## Q1 Find `kth` Smallest Element from a heap.
+## [Lecture 75: Heaps in C++ || Interview Questions || Part - 1](https://youtu.be/_9F2VgZcvdw)
+
+### Q1 Find `kth` Smallest Element from a heap.
 
 Example
+
 ```
 {7, 10, 4, 3, 20, 15} 
 3rd Smallest = 7
 4th Smallest = 15
 ```
 
-### Approach 1
+#### Approach 1
 
-- Step 1: Sort Array in Increasing Order using any sort method.
-- Step 2: Return `ans = arr[k-1]`
-- minimum TC: `nlogn` if used optimized sort algorithm
+* Step 1: Sort Array in Increasing Order using any sort method.
+* Step 2: Return `ans = arr[k-1]`
+* minimum TC: `nlogn` if used optimized sort algorithm
 
-### Approach 2
+#### Approach 2
 
-- Step 1: Create a Max-Heap First K element `0 to kth` element
-- Step 2: For rest elements `kth to (n-1)th`, if `element < heap.top()`, then `heap.pop()` and `heap.push(element)`. 
-- Now the heap of size `k` will only contains the smallest k number of elements from the array. because this will pop out element in heap greater than `kth` smallest element , and push the all the smallest element up to `k`.
-- Step 3: Heapify. the biggest element i.e. on top() or root of heap will be the kth smallest element.
-- TC: `O((n)⋅logk)`
+* Step 1: Create a Max-Heap First K element `0 to kth` element
+* Step 2: For rest elements `kth to (n-1)th`, if `element < heap.top()`, then `heap.pop()` and `heap.push(element)`.
+* Now the heap of size `k` will only contains the smallest k number of elements from the array. because this will pop out element in heap greater than `kth` smallest element , and push the all the smallest element up to `k`.
+* Step 3: Heapify. the biggest element i.e. on top() or root of heap will be the kth smallest element.
+* TC: `O((n)⋅logk)`
 
 dry run
+
 ```
 arr = {7, 10, 4, 20, 15} k =4
 ```
@@ -618,7 +662,8 @@ Heap.top() = 15 -> kth smallest element
 ans = 15
 ```
 
-**C++ Code **
+\*\*C++ Code \*\*
+
 ```cpp
 int kthSmallest(vector<int> &arr, int k) {
 	int n= arr.size();
@@ -636,25 +681,30 @@ int kthSmallest(vector<int> &arr, int k) {
 	return ans = pq.top();
 }
 ```
-#### TC: `O(n*logk)`
-push + heapify first k elements:  `O(k * log k)`
-worst case, swap all rest `n-k` element with heapify top one by one : `O((n-k) * log k)`
-#### SC : O(k)
-*Note :* similarly you can find kth largest element using min heap
 
---- 
-## Q2 Is Given Binary Tree Heap??
+**TC: `O(n*logk)`**
+
+push + heapify first k elements: `O(k * log k)` worst case, swap all rest `n-k` element with heapify top one by one : `O((n-k) * log k)`
+
+**SC : O(k)**
+
+_Note :_ similarly you can find kth largest element using min heap
+
+***
+
+### Q2 Is Given Binary Tree Heap??
 
 Heap - It is a Complete binary Tree (CBT) that satisfy heap property
 
 Approach:
-- Check if binary Tree is CBT
-- Check if binary tree satisfying heap order (let Max heap)
+
+* Check if binary Tree is CBT
+* Check if binary tree satisfying heap order (let Max heap)
 
 We will create two function to , one for checking CBT property and other for heap property
 
-
 1. **Main function**
+
 ```
 solve(){
 -> f( isCBT() && isMaxOrder) return true
@@ -662,12 +712,12 @@ solve(){
 }
 ```
 
-
 2. **Check CBT??**
 
-In `0` based indexing,  if `node=i` then `left= 2i+1` and `right=2i+2`
+In `0` based indexing, if `node=i` then `left= 2i+1` and `right=2i+2`
 
 Let there is a binary Tree:
+
 ```
                   (1)
                  /    \
@@ -675,9 +725,11 @@ Let there is a binary Tree:
               /  \       \
              (4) (5)  6?  (7)
 ```
+
 `Total no. of nodes(6) < Last Node(7th)` : not a CBT
 
 Algorithm for CBT Check
+
 ```
 isCBT( root, i, nodeCount){
 -> if(root\==NULL) return True;
@@ -707,6 +759,7 @@ if you passed the CBT test, its mean that a node can be any out of these
 ```
 
 Algorithm for Max Order Check
+
 ```
 isMaxOrder(){
 -> if (leaf Node) return true
@@ -722,6 +775,7 @@ isMaxOrder(){
 ```
 
 **C++ Code**
+
 ```cpp
 bool isHeap(struct Node* root){
 	ind index = 0;
@@ -735,6 +789,7 @@ bool isHeap(struct Node* root){
 ```
 
 Count Nodes
+
 ```cpp
 int countNodes(struct Node* root){
 	if(root == NULL)
@@ -746,6 +801,7 @@ int countNodes(struct Node* root){
 ```
 
 CBT
+
 ```cpp
 bool isCBT(struct Node* root, int index, int cnt){
 	if(root=NULL)
@@ -761,6 +817,7 @@ bool isCBT(struct Node* root, int index, int cnt){
 ```
 
 Max Order
+
 ```cpp
 bool isMaxOrder(struct Node* root){
 	if(root->left == NULL && root->right ==NULL)
@@ -778,40 +835,38 @@ bool isMaxOrder(struct Node* root){
 }
 ```
 
-#### TC : `O(3n)`
+**TC : `O(3n)`**
+
 each count, max order, and CBT traverse tree -> 3 times `O(n)`
-#### SC : `O(3logn)`
-each count, max order, and CBT stack space equal to  height of tree -> 3 times `O(logn)` 
 
+**SC : `O(3logn)`**
 
-## Q3. Merge two Binary Max-Heap
+each count, max order, and CBT stack space equal to height of tree -> 3 times `O(logn)`
 
-Steps:
-Max `Heap 1` -> `Vector a`
-Max `Heap 2` -> `Vector b`
-`Vector C` = `Vector a` + `Vector b`  (push both's element into another)
-Heapify `Vector C` 
+### Q3. Merge two Binary Max-Heap
 
-#### TC : `O(n+m)`
-Merge Vector a and b of size m and n -> `o(m+n)`
-Heapify Vector c of size m + n ->  `O(m+n)`
-#### SC : `O(n_m)`
+Steps: Max `Heap 1` -> `Vector a` Max `Heap 2` -> `Vector b` `Vector C` = `Vector a` + `Vector b` (push both's element into another) Heapify `Vector C`
 
+**TC : `O(n+m)`**
 
-## Q4. Minimum Costs of Ropes
+Merge Vector a and b of size m and n -> `o(m+n)` Heapify Vector c of size m + n -> `O(m+n)`
 
-*Problem Statement:*
-There are given `N`  ropes of different lengths, we need to connect these ropes into one rope. The costs to connect two ropes is equal to sum of their lengths. The task is to connect the ropes with minimum costs
+**SC : `O(n_m)`**
 
-*Approach:*
-Minimum cost will be when, we start from combining smallest ropes.
-- Store the `ropes[]` in heap;
-- take out smallest `rope1` from the top of heap
-- take out other smallest `rope2` from the top of heap
-- Combine `rope1+rope2` and push into the heap.
-- Repeat. do this till heap contain only single row
+### Q4. Minimum Costs of Ropes
 
-***C++ Code:****
+_Problem Statement:_ There are given `N` ropes of different lengths, we need to connect these ropes into one rope. The costs to connect two ropes is equal to sum of their lengths. The task is to connect the ropes with minimum costs
+
+_Approach:_ Minimum cost will be when, we start from combining smallest ropes.
+
+* Store the `ropes[]` in heap;
+* take out smallest `rope1` from the top of heap
+* take out other smallest `rope2` from the top of heap
+* Combine `rope1+rope2` and push into the heap.
+* Repeat. do this till heap contain only single row
+
+_**C++ Code:**_\*
+
 ```cpp
 long long mincost(long long arr[], long long[]){
 	priority_queue<long long, vector<long long>, greater<long long>> pq;
@@ -834,11 +889,9 @@ long long mincost(long long arr[], long long[]){
 }
 ```
 
+### Q5. Convert BST to Minheap
 
-## Q5. Convert BST to Minheap
-
-*Problem Statement:*
-Convert Complete Binary Search Tree into Minheap, with condition that all left child should be smaller than right child
+_Problem Statement:_ Convert Complete Binary Search Tree into Minheap, with condition that all left child should be smaller than right child
 
 ```
 Input: BST
@@ -870,16 +923,14 @@ MinHeap : Node < Left < Right
 MinHeap Preorder : 1 2 3 4 5 6 7 8
 ```
 
-*Note:*
-Inorder of BST is sorted 
-Preorder of MinHeap is sorted
+_Note:_ Inorder of BST is sorted Preorder of MinHeap is sorted
 
 So from the Inorder array left to right, We need to build the heap by, filling the elements in Preorder way, First Node, then Left, then Right.
 
 Structure of Heap and BST is same, so we would use BST and modify its structure by assigning value in preorder form.
 
+_Algorithm:_
 
-*Algorithm:*
 ```cpp
 getInorder(root, vector){
 	getInorder(root->left)
@@ -897,6 +948,7 @@ fillPreOrder(root, inorder, index){
 ```
 
 1
+
 ```
 1 2 3 4 5 6 7
 ^ 
@@ -907,9 +959,10 @@ node
            2      6
          /  \    /  \
         1    3   5   7
-``````
+```
 
 2
+
 ```
 1 2 3 4 5 6 7
   ^ 
@@ -920,9 +973,10 @@ node->left
           (2)      6
          /  \    /  \
         1    3   5   7
-``````
+```
 
 3
+
 ```
 1 2 3 4 5 6 7
     ^ 
@@ -933,13 +987,14 @@ node->left->left
            2      6
          /  \    /  \
        (3)   3   5   7
-``````
+```
 
 ```
 node->left->left = null !
 ```
 
 4
+
 ```
 1 2 3 4 5 6 7
       ^ 
@@ -950,13 +1005,14 @@ node->left->right
            2      6
          /  \    /  \
         3   (4)  5   7
-``````
+```
 
 ```
 node->left->right = null !
 ```
 
 5
+
 ```
 1 2 3 4 5 6 7
         ^ 
@@ -967,9 +1023,10 @@ node->right
            2     (5)
          /  \    /  \
         3    4  5    7
-``````
+```
 
 6
+
 ```
 1 2 3 4 5 6 7
           ^ 
@@ -980,13 +1037,14 @@ node->right->left
            2      5
          /  \    /  \
         3    4 (6)    7
-``````
+```
 
 ```
 node->right->left = null !
 ```
 
 7
+
 ```
 1 2 3 4 5 6 7
             ^ 
@@ -997,6 +1055,6 @@ node->right->right
            2      5
          /  \    /  \
         3    4  6   (7)
-``````
+```
 
 Inorder Traversed successfully -> Minheap done

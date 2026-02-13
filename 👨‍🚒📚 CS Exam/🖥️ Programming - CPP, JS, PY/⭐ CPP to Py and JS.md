@@ -1,6 +1,6 @@
+# ⭐ CPP to Py and JS
 
-
-#### **Basic Syntax**
+**Basic Syntax**
 
 | **Feature**               | **C++**                             | **Python**                       | **JavaScript**                            |
 | ------------------------- | ----------------------------------- | -------------------------------- | ----------------------------------------- |
@@ -19,15 +19,19 @@
 | String                    | Mutable, needs `<string>`           | Immutable, built-in              | Immutable, built-in                       |
 
 `and`/`or`
-- In **Python**, only the keywords `and` and `or` are used for logical AND/OR.
-- In **C++** and **JavaScript**, only the symbols `&&` and `||` are used for logical AND/OR, but in **C++**, the keywords `and` and `or` also work if `#include <iso646.h>` is added.
+
+* In **Python**, only the keywords `and` and `or` are used for logical AND/OR.
+* In **C++** and **JavaScript**, only the symbols `&&` and `||` are used for logical AND/OR, but in **C++**, the keywords `and` and `or` also work if `#include <iso646.h>` is added.
 
 **`print`**
-- **Javascript & Python** : Both `print()` in Python and `console.log()` in JavaScript automatically add **whitespace** between **comma-separated values** when printing.
-- **Python:** `print()` **automatically adds a newline (`\n`)** after printing. use `end=""` to prevent new line, `print("Hello", end="")` ⭐
+
+* **Javascript & Python** : Both `print()` in Python and `console.log()` in JavaScript automatically add **whitespace** between **comma-separated values** when printing.
+* **Python:** `print()` **automatically adds a newline (`\n`)** after printing. use `end=""` to prevent new line, `print("Hello", end="")` ⭐
 
 **Comments**
-- **Python:** Python does not have a built-in syntax for multi-line comments, but **Triple Quotes (`'''` or `"""`)** can be used for multi-line strings, if comment is not assigned to a variable.
+
+* **Python:** Python does not have a built-in syntax for multi-line comments, but **Triple Quotes (`'''` or `"""`)** can be used for multi-line strings, if comment is not assigned to a variable.
+
 ```python
 '''
 This is a multi-line comment.
@@ -36,38 +40,42 @@ You can write multiple lines here.
 print("Hello, World!")
 ```
 
----
-#### **Variable Declaration**
+***
 
-| **C++**                       | **JavaScript**             | **Python**                              |
-| ----------------------------- | -------------------------- | --------------------------------------- |
-| `std::string s = "Hello";`    | `let s = "Hello";`         | `s = "Hello"`                           |
-| `char c = 'A';`               | `let c = 'A';`             | `c = 'A'`                               |
-| `int n = 5;`                  | `let n = 5;`               | `n = 5`                                 |
-| `const int n = 5;`            | `const n = 5;`             | `n = 5` (use `final` in advanced cases) |
-| `auto x = 3.14;`              | `let x = 3.14;`            | `x = 3.14`                              |
-| `const char* s = "Hi";`       | `const s = "Hi";`          | `s = "Hi"`                              |
-| `int a, b = 0;` ✅ (a=garbage) | `a, b = 0` (a = b = 2  ) ✅ | `let a, b = 0;` ✅ (a=undefined)         |
-| `int a, b = 1, 2;` ❌ Invalid  | `a, b = 1, 2` ✅            | `int a, b = 1, 2;` ❌ Invalid            |
-|                               |                            |                                         |
+**Variable Declaration**
+
+| **C++**                       | **JavaScript**            | **Python**                              |
+| ----------------------------- | ------------------------- | --------------------------------------- |
+| `std::string s = "Hello";`    | `let s = "Hello";`        | `s = "Hello"`                           |
+| `char c = 'A';`               | `let c = 'A';`            | `c = 'A'`                               |
+| `int n = 5;`                  | `let n = 5;`              | `n = 5`                                 |
+| `const int n = 5;`            | `const n = 5;`            | `n = 5` (use `final` in advanced cases) |
+| `auto x = 3.14;`              | `let x = 3.14;`           | `x = 3.14`                              |
+| `const char* s = "Hi";`       | `const s = "Hi";`         | `s = "Hi"`                              |
+| `int a, b = 0;` ✅ (a=garbage) | `a, b = 0` (a = b = 2 ) ✅ | `let a, b = 0;` ✅ (a=undefined)         |
+| `int a, b = 1, 2;` ❌ Invalid  | `a, b = 1, 2` ✅           | `int a, b = 1, 2;` ❌ Invalid            |
+|                               |                           |                                         |
 
 **Data types**
-- **C++**: Requires explicit data types (`int`, `char`, `string`). `auto` for type inference.
-- **JavaScript**: Dynamic typing using `let`, `const`, and `var` (deprecated).
-- **Python**: Dynamic typing, no explicit type declaration.
+
+* **C++**: Requires explicit data types (`int`, `char`, `string`). `auto` for type inference.
+* **JavaScript**: Dynamic typing using `let`, `const`, and `var` (deprecated).
+* **Python**: Dynamic typing, no explicit type declaration.
 
 **Constant**
-- **C++**: Use `const` for constant variables.
-- **JavaScript**: Use `const` to declare immutable variables.
-- **Python**: No native constant, but conventionally, uppercase names (`PI = 3.14`) indicate constants.
-**`""` vs `''`**
-- **JavaScript & Python**: No distinction between char and string—both use `' '` or `" "`.
+
+* **C++**: Use `const` for constant variables.
+* **JavaScript**: Use `const` to declare immutable variables.
+* **Python**: No native constant, but conventionally, uppercase names (`PI = 3.14`) indicate constants. **`""` vs `''`**
+* **JavaScript & Python**: No distinction between char and string—both use `' '` or `" "`.
 
 **`a,b=2`**
-- **Python** `a, b = 2` is **valid** in Python, but it assigns `2` only to `b`, while `a` becomes `2` as well due to implicit unpacking.
 
----
-#### **Loops**
+* **Python** `a, b = 2` is **valid** in Python, but it assigns `2` only to `b`, while `a` becomes `2` as well due to implicit unpacking.
+
+***
+
+**Loops**
 
 | **C++**                         | **Python**                 | **JavaScript**                   |
 | ------------------------------- | -------------------------- | -------------------------------- |
@@ -76,10 +84,12 @@ print("Hello, World!")
 | `for(int i = 1; i < 5; i += 2)` | `for i in range(1, 5, 2):` | `for (let i = 1; i < 5; i += 2)` |
 | `for(auto i : str)`             | `for i in "string":`       | `for (let i of "string")`        |
 | `for(auto i : arr)`             | `for i in (1,6,9):`        | `for (let i of [1,6,9])`         |
-- **C++/JavaScript**: Uses **curly braces `{}`** for multi-line blocks.
 
----
-#### **Conditionals**
+* **C++/JavaScript**: Uses **curly braces `{}`** for multi-line blocks.
+
+***
+
+**Conditionals**
 
 | **Python**                                                     | **C++**                                                    | **JavaScript**                                                |
 | -------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------- |
@@ -87,12 +97,15 @@ print("Hello, World!")
 | `elif x > 2:`                                                  | `else if (x > 2)`                                          | `else if (x > 2)`                                             |
 | `else:`                                                        | `else`                                                     | `else`                                                        |
 | `string result = (x == 1) ? "1" : (x == 2) ? "2" : "Invalid";` | `result = "1" if x == 1 else "2" if x == 2 else "Invalid"` | `let result = (x === 1) ? "1" : (x === 2) ? "2" : "Invalid";` |
-- **C++/JavaScript**: Uses **curly braces `{}`** for multi-line blocks.
-- **Python**:  Parenthesis `()` is Optional (`if x > 1:` works fine).
-- **Python**: No native `switch` statement (use `if-elif-else`).
+
+* **C++/JavaScript**: Uses **curly braces `{}`** for multi-line blocks.
+* **Python**: Parenthesis `()` is Optional (`if x > 1:` works fine).
+* **Python**: No native `switch` statement (use `if-elif-else`).
 
 **Switch**
-- **Python use `match-case` in 3.10+**
+
+* **Python use `match-case` in 3.10+**
+
 ```python
 x = 2  
 match x:  
@@ -105,7 +118,8 @@ match x:
 # Output: Two  
 ```
 
-- **C++/JavaScript**: Supports `switch` for multi-branch conditions
+* **C++/JavaScript**: Supports `switch` for multi-branch conditions
+
 ```javascript
 // Javascript                // C++
 
@@ -126,8 +140,9 @@ switch (x) {
 // Output: Two  
 ```
 
----
-#### **Data Structures**
+***
+
+**Data Structures**
 
 | **C++**                                                             | **Python**                          | **JavaScript**                              |
 | ------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------- |
@@ -136,23 +151,26 @@ switch (x) {
 | `std::map<string, string> my_map = { {"k1", "v1"}, {"k2", "v2"} };` | `myDict = {'k1': 'v1', 'k2': 'v2'}` | `let myObj = { 'k1': 'v1', 'k2': 'v2' };`   |
 | `const int arr[] = {1, 2, 3};`                                      | `myTuple = (1, 2, 3)`               | `const myTuple = Object.freeze([1, 2, 3]);` |
 
-- **C++:** Use `std::vector` for dynamic arrays (preferred for modern C++).  Use `int arr[]` for fixed-size arrays.
-- **Python & JavaScript** : Lists or Array Use same Syntax (`[]`) and  are dynamic and mutable.
-- **Javascript and C++**: No native tuples like Python, but `const`(for both) and `Object.freeze()`(for JS) provides immutability. ⭐
-- **C++**: `std::map` is an ordered associative container (like a dictionary) and but `std::unordered_map` is unordered
-- **JavaScript**: Objects (`{}`) are similar to python dictionaries but unordered by default. Use `Map` for better handling of key-value pairs.
+* **C++:** Use `std::vector` for dynamic arrays (preferred for modern C++). Use `int arr[]` for fixed-size arrays.
+* **Python & JavaScript** : Lists or Array Use same Syntax (`[]`) and are dynamic and mutable.
+* **Javascript and C++**: No native tuples like Python, but `const`(for both) and `Object.freeze()`(for JS) provides immutability. ⭐
+* **C++**: `std::map` is an ordered associative container (like a dictionary) and but `std::unordered_map` is unordered
+* **JavaScript**: Objects (`{}`) are similar to python dictionaries but unordered by default. Use `Map` for better handling of key-value pairs.
 
----
-####  **Comments**
+***
+
+**Comments**
 
 | **C++**            | **JavaScript**     | **Python**           |
 | ------------------ | ------------------ | -------------------- |
 | `// Single-line`   | `// Single-line`   | `# Single-line`      |
 | `/* Multi-line */` | `/* Multi-line */` | `""" Multi-line """` |
-- **Javascript** and **C++** : Same syntax for comments
 
----
-#### **Boolean and Falsy Values Comparison**
+* **Javascript** and **C++** : Same syntax for comments
+
+***
+
+**Boolean and Falsy Values Comparison**
 
 | **C++**                | **JavaScript**       | **Python**              |
 | ---------------------- | -------------------- | ----------------------- |
@@ -168,13 +186,13 @@ switch (x) {
 | N/A                    | `undefined`          | N/A                     |
 | N/A                    | `NaN` (Not-a-Number) | N/A                     |
 
-- **Falsy values** evaluate to `False` in condition checks.
-- **C++** doesn't have as many implicit falsy values—only `0`, `NULL`, and `false` are considered false.
-- **JavaScript** has additional falsy values like `undefined` and `NaN`.
+* **Falsy values** evaluate to `False` in condition checks.
+* **C++** doesn't have as many implicit falsy values—only `0`, `NULL`, and `false` are considered false.
+* **JavaScript** has additional falsy values like `undefined` and `NaN`.
 
----
-# Similarities and Differences By GPT
+***
 
+## Similarities and Differences By GPT
 
 🟢 **Similarities in functionality**
 
@@ -190,8 +208,7 @@ switch (x) {
 | **Boolean Values**     | `true`, `false`               | `True`, `False` ⭐     | `true`, `false`                    |
 | **Lambda Functions**   | Yes (`[=](int x){return x;}`) | Yes (`lambda x: x+1`) | Yes (`(x) => x + 1`)               |
 
-
-- 🔴 **Differences in Functionality**
+* 🔴 **Differences in Functionality**
 
 | Feature               | C++                            | Python                         | JavaScript                           |
 | --------------------- | ------------------------------ | ------------------------------ | ------------------------------------ |

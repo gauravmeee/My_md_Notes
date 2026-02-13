@@ -1,110 +1,131 @@
+# ▶️ Tutorial\_JavaScript Part 1(Harry Old)
 
 [Code With Harry JS PDF Notes](https://cwh-full-next-space.fra1.cdn.digitaloceanspaces.com/notes/JS_Chapterwise_Notes.pdf)
 
-# [JavaScript Tutorial In Hindi](https://youtu.be/hKB-YGF14SY)
+## [JavaScript Tutorial In Hindi](https://youtu.be/hKB-YGF14SY)
 
+* JavaScript which is often known as JS, is a **high-level dynamic interpreted** programming language.
+* It allows **client-side scripting** to create completely dynamic web applications and websites
+* initially designed for making pages "alives"
+* can be executed on the browser(client) ans well as the server
 
-- JavaScript which is often known as JS, is a **high-level dynamic interpreted** programming language.
-- It allows **client-side scripting** to create completely dynamic web applications and websites
-- initially designed for making pages "alives"
+***
 
-- can be executed on the browser(client) ans well as the server
+### try out
 
----
-## try out
 Try these codes on console of Google Chrome.
->Google Chrome -> right Click -> Inspect -> console.
-- `alert("Hello world")`
-- `console.log("Hello world")`
-- `34+897`
-- `931`
 
-Right click and `Inspect HTML` documents, and find some class let - "button1" and some  `Id` let - "navbar1"\
+> Google Chrome -> right Click -> Inspect -> console.
+
+* `alert("Hello world")`
+* `console.log("Hello world")`
+* `34+897`
+* `931`
+
+Right click and `Inspect HTML` documents, and find some class let - "button1" and some `Id` let - "navbar1"\
 try (use dot before name for class)\
 Let Do some DOM Manipulatoin
-- > `document.querySelector(".button1")`
-- > `document.querySelector(".button1").click()`
-- > `document.getElementById("navbar1")`
-- > `document.getElementById("navbar1").click()`
 
-- `> button1`
-- > `button1.innerHTML ="Hello Harry";
-- > `document.getElementsByTagName('h1')`
-- > `document.getElementsByTagName('h1')[0]`
-- > `document.getElementsByTagName('h1')[0].style.fontSize = "99px"`
-- > `document.getElementsByTagName('h1')[0].style.background = "red"`
-- > `document.getElementsByTagName('h1')[0].style.visibility = "hidden"`
-- > `document.getElementsByTagName('h1')[0].style.display = "none"`
+* > `document.querySelector(".button1")`
+* > `document.querySelector(".button1").click()`
+* > `document.getElementById("navbar1")`
+* > `document.getElementById("navbar1").click()`
+* `> button1`
+* > \`button1.innerHTML ="Hello Harry";
+* > `document.getElementsByTagName('h1')`
+* > `document.getElementsByTagName('h1')[0]`
+* > `document.getElementsByTagName('h1')[0].style.fontSize = "99px"`
+* > `document.getElementsByTagName('h1')[0].style.background = "red"`
+* > `document.getElementsByTagName('h1')[0].style.visibility = "hidden"`
+* > `document.getElementsByTagName('h1')[0].style.display = "none"`
 
->this is **client side javascript**
+> this is **client side javascript**
 
----
-## Website
+***
+
+### Website
 
 ```
 HTML (Structure) + CSS(Design) + JavaScript(Client side Scripting) = WebPage
 ```
 
-## How website work
+### How website work
+
 `Browser(Client) ---request---> Server`
-- request like (Get `www.google.com`)
+
+* request like (Get `www.google.com`)
 
 `Browser(Client) <---response--- Server`
-- response like (HTML with CSS and JS embedded in it)
+
+* response like (HTML with CSS and JS embedded in it)
 
 Website:
-- Client Side -> only java script
-- Server Side -> JavaScript(NodeJS), Python(Django) etc.
 
----
-## Lets work on .html file
+* Client Side -> only java script
+* Server Side -> JavaScript(NodeJS), Python(Django) etc.
+
+***
+
+### Lets work on .html file
 
 **Inline JavaScript**
+
 ```html
 ...
 <body> Hello World! </body>
 <script> console.log("Hello World"); </script>
 ...
 ```
+
 "Hellow World" is shown on browser->inspect->console
 
 similarly, add these in html, and check what is shown on browser's document, console etc
 
-```html
+````html
 <script> alert("me") </script>
 
 ```html
 <script> document.write("I am writing") </script>
-```
+````
+
 ```html
 <script> console.warn("this is a warning")</script>
 ```
+
 ```html
 <script> console.error("this is an error")</script>
 ```
+
 ```html
 <script> console.assert(4==(6-2))</script>
 ```
+
 ```html
 <script> console.log("Hello World", 4+6,"Another log")</script>
 ```
-# `.js` file
+
+## `.js` file
 
 **External Java Script** : add this line in .html
+
 ```html
 <script src ="index.js" >  </script>
 ```
+
 now use index.js file seperately , the Javascript engine in browser will automaticlly embed it in html
 
----
-## **Java Script Variables**
+***
+
+### **Java Script Variables**
 
 variables -> container to store data values
+
 ```js
 var num1 = 34;
 var num2 = 56;
 console.log(num1 + num2);
 ```
+
 **No**, `var` will **not** give an error if used inside a block like `if`, `for`.
 
 Because `var` is **function scoped**, not block scoped — it gets **hoisted** to the function level.
@@ -130,12 +151,14 @@ console.log(x); // ❌ ReferenceError (x not defined globally)
 ```
 
 So:
-- `var` is accessible **outside block**, but **not outside function**
-- `let`/`const` are **not accessible outside block**
 
-##### Variable without `var`, `let` and `const`
+* `var` is accessible **outside block**, but **not outside function**
+* `let`/`const` are **not accessible outside block**
 
-- In **non-strict mode**, JavaScript allows a variable to be assigned **without** `var`, `let`, or `const`, and it becomes a **global variable** (even if inside a function).
+**Variable without `var`, `let` and `const`**
+
+* In **non-strict mode**, JavaScript allows a variable to be assigned **without** `var`, `let`, or `const`, and it becomes a **global variable** (even if inside a function).
+
 ```js
 	function test() {
 	  if (true) {
@@ -144,28 +167,32 @@ So:
 	}
 	console.log(x);
 ```
-- It's considered **bad practice**
-- In **strict mode** (`'use strict';`), it throws an **error**
 
----
-## **Comments**
+* It's considered **bad practice**
+* In **strict mode** (`'use strict';`), it throws an **error**
 
-Comments -> for developers readability ,but to ignore by the compiler
-`//` -> single line comment\
+***
+
+### **Comments**
+
+Comments -> for developers readability ,but to ignore by the compiler `//` -> single line comment\
 `/* */` -> multi line comment
+
 ```js
 // single line comment
 /* Multi line comment */
 ```
 
----
-## **Data Types**
+***
+
+### **Data Types**
 
 In java Script , there are two types of Data Type,i.e **Primitive data types** & **Reference data types**
 
-#### Primitive Data Types
+**Primitive Data Types**
 
-- `number`, `string`, `boolean`, `undefined`, `null`, `symbol`
+* `number`, `string`, `boolean`, `undefined`, `null`, `symbol`
+
 ```js
 // Number
 var num1 = 455;
@@ -187,21 +214,24 @@ var n = null;
 symbol('')// not much imprtant, leave it
 ```
 
-*Note:*
-- in javascript, you can use, comma `,` between objects during functions like `console.log(a,b)` to separate print value by White space (` `)
- - Semicolon is important in JavaScript but Java Script is very forgiving language 🥹, it provide flexibilities such as not using `;`, `let` etc 
-- `''` and `" "` are the same in JavaScript for defining strings, but template literals `` ` ` `` allow for multi-line strings and string interpolation.
+_Note:_
 
-#### Reference Datatype 
+* in javascript, you can use, comma `,` between objects during functions like `console.log(a,b)` to separate print value by White space ( )
+* Semicolon is important in JavaScript but Java Script is very forgiving language 🥹, it provide flexibilities such as not using `;`, `let` etc
+* `''` and `" "` are the same in JavaScript for defining strings, but template literals `` ` ` `` allow for multi-line strings and string interpolation.
+
+**Reference Datatype**
 
 `Array`, `Objects`
+
 ```js
 //Array
 var arr = [1,2,"doe",4,5]
 console.log(arr) // 0:1 1:2 3:"doe" 4:5
 console.log(arr[0]) //print 1
 ```
-*Note:-* Arrays (or lists) in Python and JavaScript can store different datatypes. Unlike arrays in C++ which can store a single data type.
+
+_Note:-_ Arrays (or lists) in Python and JavaScript can store different datatypes. Unlike arrays in C++ which can store a single data type.
 
 ```js
 // Objects
@@ -212,8 +242,9 @@ var marks = {
     //try console.log(marks);
 ```
 
----
-## **Operators in JS**
+***
+
+### **Operators in JS**
 
 ```js
 x @ y = z -> Statement
@@ -221,7 +252,8 @@ x @ y = z -> Statement
 // @ ->Operator
 ```
 
-#### Assignment Operators
+**Assignment Operators**
+
 ```js
 var b = 5
 var c
@@ -233,7 +265,8 @@ c*=b
 c/=b
 ```
 
-#### Arithmetic Operators
+**Arithmetic Operators**
+
 ```js
 var a = 100
 var b = 10
@@ -244,7 +277,8 @@ a*b  // 1000
 a/b  // 10
 ```
 
-#### Comparison Operators
+**Comparison Operators**
+
 ```js
 var x = 34
 var y = 56
@@ -256,10 +290,11 @@ x <= y // true
 x >=y // false
 ```
 
-#### Logical Operators
+**Logical Operators**
 
-- `&&`  -> for AND
-- `||` -> for OR
+* `&&` -> for AND
+* `||` -> for OR
+
 ```js
 true && true // true
 true && false // false
@@ -274,19 +309,22 @@ false || false // false
 !false // true
 !true // false
 ```
+
 Note:- Unlike other languages like Python & C++, JavaScript does not support using words `and` or `or` directly. Instead, it uses `&&` for logical AND and `||` for logical
-#### Bitwise Operator
+
+**Bitwise Operator**
 
 `&` and `|`
 
 // 1:23:05 Functions
 
----
-## Functions
+***
 
-- Works on DRY Principle
-- DRY = Do not repeat yourself
-- Reuse peace of code/logic
+### Functions
+
+* Works on DRY Principle
+* DRY = Do not repeat yourself
+* Reuse peace of code/logic
 
 ```js
 function avg(a,b){
@@ -295,9 +333,10 @@ function avg(a,b){
 avg(4,6) //call avg()
 ```
 
-#### Types of Functions in JavaScript:
+**Types of Functions in JavaScript:**
 
 1. **Anonymous Function**
+
 ```javascript
 // Anonymous Function Expression
 const funcVar = function() { };
@@ -311,9 +350,11 @@ setTimeout(function() {}, time);
 // Event Handler Example
 document.getElementById("elementId").addEventListener("event", function() {});
 ```
-- **Note**: Anonymous functions do not have a name. They need to be assigned to a variable if you need to use them later, except when used as an IIFE or in contexts like callbacks and event handlers.
+
+* **Note**: Anonymous functions do not have a name. They need to be assigned to a variable if you need to use them later, except when used as an IIFE or in contexts like callbacks and event handlers.
 
 2. **Named Function (Assigning to variable is optional)**
+
 ```javascript
 // Named Function Declaration
 function funcName() { }
@@ -324,9 +365,11 @@ const funcVar = function funcName() { };
 // Named Function Expression with Immediate Invocation
 (function funcName() {})();
 ```
-- **Note**: Named function expressions can be used for recursion and debugging but are not hoisted.
+
+* **Note**: Named function expressions can be used for recursion and debugging but are not hoisted.
 
 3. **Arrow Function**
+
 ```javascript
 // Arrow Function
 const funcName = () => { };
@@ -334,12 +377,14 @@ const funcName = () => { };
 // Immediately Invoked Arrow Function
 (() => {})();
 ```
-- **Note**: Arrow functions have a concise syntax and **capture the `this` value from their surrounding context**. They also need to be wrapped in parentheses for immediate invocation.
 
-*Note :* **Call Back Function** callback function is a function passed as an argument to another function, which is then executed after some operation has completed. It’s a general programming concept used to ensure that certain code is executed after a task finishes
+* **Note**: Arrow functions have a concise syntax and **capture the `this` value from their surrounding context**. They also need to be wrapped in parentheses for immediate invocation.
 
----
-## Conditionals in JavaScript
+_Note :_ **Call Back Function** callback function is a function passed as an argument to another function, which is then executed after some operation has completed. It’s a general programming concept used to ensure that certain code is executed after a task finishes
+
+***
+
+### Conditionals in JavaScript
 
 1. single if statement : only if condition.
 2. if - else statement : both if and else condition
@@ -359,10 +404,12 @@ else{
 }
 ```
 
----
-## Loop
+***
 
-##### **`for`**
+### Loop
+
+**`for`**
+
 ```js
 var arr[1,2,3,4,5,6,7]
 
@@ -372,18 +419,22 @@ for(var i =0;arr.length; i++){
 //1234567
 } 
 ```
+
 `for loop:` best to iterate from a lower bound value to upper bound value
 
-##### **`forEach`**
+**`forEach`**
+
 ```js
 // for-Each loop ⭐
 arr.forEach(functions(element){
     console.log(element)
 }) //1234567
 ```
+
 `forEach loop` : best to iterate over elements of sequence - array, string etc.
 
-##### **`while`**
+**`while`**
+
 ```js
 //while loop
 while(j<arr.length){
@@ -391,9 +442,11 @@ while(j<arr.length){
     j++;
 } //1234567
 ```
+
 `while loop` : Iterate until a given condition is true
 
-##### **`do-while`**
+**`do-while`**
+
 ```js
 //do-while loop ⭐
 do{
@@ -401,9 +454,11 @@ do{
     j++;
 }while (j < arr.length);
 ```
+
 `do while` : best when we have to run a loop,at least one time.
 
-## Break and Continue;
+### Break and Continue;
+
 ```js
 //breaks;
 for( var i = 0; i<10; i++){
@@ -413,6 +468,7 @@ for( var i = 0; i<10; i++){
     console.log(i)
 } //123
 ```
+
 `break`: terminate loop based on condition
 
 ```js
@@ -422,23 +478,28 @@ for( var i = 0; i<10; i++){
     }
 } //1235678
 ```
+
 `continue`: skip loop's execution for a condition
 
----
-## let var const ⭐
+***
+
+### let var const ⭐
 
 `var` :
-- Function-scoped
-- hoisted & initialized with `undefined`
-- Can be re-declared
 
-`let` : 
-- Block-scoped (`{}`)
-- hoisted but not initialized.
-- Cannot be re-declared (only re-assign possible)
+* Function-scoped
+* hoisted & initialized with `undefined`
+* Can be re-declared
+
+`let` :
+
+* Block-scoped (`{}`)
+* hoisted but not initialized.
+* Cannot be re-declared (only re-assign possible)
 
 `const` : can't updated once after initialisation
-- neither be re-declared nor re-assigned
+
+* neither be re-declared nor re-assigned
 
 ```js
 var a
@@ -447,14 +508,16 @@ const c
 ```
 
 Note: - Hoisted mean moving declarations to the top of their scope (either global or function scope) before the code execution begins.\
-This means that you can use variables and functions before they are formally declared in the code. 
+This means that you can use variables and functions before they are formally declared in the code.
 
 'var' is a old js standard, we should use 'let' and 'const' whenever possible possible, that make temporary variables in blocks, without appending the global one.
 
----
-## Methods in JavaScript
+***
 
-####  Methods on array 
+### Methods in JavaScript
+
+**Methods on array**
+
 ```js
 let myArray = ["Fan", "Camera", 34, null, true ]
 
@@ -486,9 +549,11 @@ myArr.toString() // "Harry,Fan,Camer,34,,true"
 let d = [1,4,6,43,23,32324]
 d.sort() // [1, 23, 32324, 4, 43, 6]
 ```
+
 Note: javascript allow storing different datatypes in single array
 
-#### String Methods in JS
+**String Methods in JS**
+
 ```js
 let myLovelyString = "Gaurav is a good boy, Gaurav";
 
@@ -508,7 +573,8 @@ myLovelyString.slice(0,3) // "Gau
 myLovelyString.replace("Gaurav","Meena") //"Meena is a good boy, Gaurav"
 ```
 
-#### Date-Time Method in JS
+**Date-Time Method in JS**
+
 ```js
 // Date
 let myDate = new Date(); // Mon July 01 2024 22:47:00 GMT+0530 (Indian Standard Time)
@@ -520,19 +586,20 @@ myDate.getDay() //1   (sun = 0 to sat =6)
 myDate.getMinutes()
 myDate.getHours()
 ```
+
 Note: In JavaScript, the `new` keyword is used to create instances of objects that have a constructor function.
 
 Note: JS Methods are generally in `camelCase` in format
 
----
-# Document Object Model (DOM)
-DOM - Everything inside body of browser is DOM
-`document` is used to access HTML page's element and apply DOM manipulation
+***
 
-## Get Element 
+## Document Object Model (DOM)
 
-`document.getElementById('click').click()`
-`document.getElementById('click').style.border = '2px solid blue'`
+DOM - Everything inside body of browser is DOM `document` is used to access HTML page's element and apply DOM manipulation
+
+### Get Element
+
+`document.getElementById('click').click()` `document.getElementById('click').style.border = '2px solid blue'`
 
 ```js
 // Get HTML elment by Id
@@ -568,11 +635,9 @@ document.getElementsByTagName('div`)
 
 Tired of typing `getElementById` , `getElementByClassName` type 'gebi', 'gebcn' as shortcut respectively in **Vscode** , explore more
 
-Tag Name : tag names refer to the names of HTML elements used to structure and display content on a web page. Here’s an overview:
-`<body>`, `<div>`, `<img>`
+Tag Name : tag names refer to the names of HTML elements used to structure and display content on a web page. Here’s an overview: `<body>`, `<div>`, `<img>`
 
->`getElementsByClassName` , `getElementsByTagName` , `getElementsByName`=  Elements (plural)
->`getElementById` = Element (Singular)
+> `getElementsByClassName` , `getElementsByTagName` , `getElementsByName`= Elements (plural) `getElementById` = Element (Singular)
 
 ```js
 // Create a Element <p></p>
@@ -593,18 +658,11 @@ tn[0].replaceChild(createdElment2,createdElement )
 tn[0].removeChild(createdElment2)
 ```
 
-`document.location`- many information like href,  hostname, origin, port etc
-`document.title`
-`document.URL`
-`document.scripts` // collection of JS scripts
-`document.links`
-`document.images`
-`document.forms`
-`document.domain`
+`document.location`- many information like href, hostname, origin, port etc `document.title` `document.URL` `document.scripts` // collection of JS scripts `document.links` `document.images` `document.forms` `document.domain`
 
-*Note:* focus on singular plural words, in js it worked as they are written
+_Note:_ focus on singular plural words, in js it worked as they are written
 
-## Selecting using Query /CSS
+### Selecting using Query /CSS
 
 the `querySelector` and `querySelectorAll` methods provide a concise and powerful way to select elements using CSS selectors, demonstrating their flexibility and ease of use compared to traditional `getElement` methods.
 
@@ -616,16 +674,20 @@ sel = document.querySelector('.container')
 // Select all element using Id
 sel = document.querySelectorAll('.container')
 ```
----
-# Events in JS 
+
+***
+
+## Events in JS
 
 `onclick`
+
 ```html
 <!--Add function call in HTML Element Manually-->
 <button id="click"> onclick="clicked()"> Click Me </button>
 ```
 
 //call function `clicked()` when `onclick` event occured
+
 ```js
 //function definition 
 function clicked(){
@@ -634,6 +696,7 @@ function clicked(){
 ```
 
 More events
+
 ```js
 mouseover
 onmouseout
@@ -648,6 +711,7 @@ document.onload = function(){
     }
 }
 ```
+
 ```js
 // Add event on firstContainer class using js EventListener
 firstContainer.addEventListener('click',fucntion()){  //you can direct access html element like firstContainer here
@@ -656,13 +720,10 @@ firstContainer.addEventListener('click',fucntion()){  //you can direct access ht
 
 ```
 
-you can add more events in place of 'click' like:
-`mouseup` : when mouse is released after click
-`mousedown` : when mouse is released after hold
-`mouseover`: when mouse go on an element
-`mouseout` : when mouse go out of an element
+you can add more events in place of 'click' like: `mouseup` : when mouse is released after click `mousedown` : when mouse is released after hold `mouseover`: when mouse go on an element `mouseout` : when mouse go out of an element
 
 To change html element on click
+
 ```js
 let prevHTML = document.querySelectorAll(.container)[1].innerHTML;
 
@@ -677,8 +738,10 @@ firstContainer.addEventListener('mousedown', function(){ document.querySelectorA
     console.log("Clicked on Container Released"))
 ```
 
----
+***
+
 Arrow Functions
+
 ```js
 //normal function
 function sum(a,b){
@@ -689,8 +752,10 @@ sum =(a,b)=>{return a+b;}
 
 //arrow function is used when we have to insert function in between
 ```
----
-# setTimeout and setInterval
+
+***
+
+## setTimeout and setInterval
 
 ```js
 logKaro = () => {
@@ -698,21 +763,25 @@ logKaro = () => {
     console.log("I am your log")
 }
 ```
-#### setTimeout: -> Schedule a function to execute after some millisecond of time
+
+**setTimeout: -> Schedule a function to execute after some millisecond of time**
 
 `setTimeout(function, Time_in_ms)`
+
 ```js
 // Execute logKaro() after 2 second
 setTimeout(logKaro, 2000); //2000 ms => 2 second
 ```
 
-#### Set Interval -> repeatedly execute function after in fixed time interval
+**Set Interval -> repeatedly execute function after in fixed time interval**
 
 `setInterval(function,time)`
+
 ```js
 // Execute logKaro() after every 2 second
 setInterval(logkaro, 2000);
 ```
+
 ```js
 // setTimeout return Id to 'timeoutId'
 timeoutId = setTimeout(logkaro, 2000);
@@ -720,6 +789,7 @@ timeoutId = setTimeout(logkaro, 2000);
 // setInterval return Id to 'intervalId'
 intervalId = setInterval(logkaro, 2000);
 ```
+
 ```js
 // pass the Id to cancel the setTimeout  
 clearTimeout(timeoutId)
@@ -728,7 +798,7 @@ clearTimeout(timeoutId)
 clearInterval(intervalId)
 ```
 
-# JavaScript local storage
+## JavaScript local storage
 
 ```js
 // set local storage
@@ -744,12 +814,13 @@ localStorage.clear()
 localStorage.getItem('name') // 'gaurav'
 ```
 
-# JSON
+## JSON
 
 **JavaScript Object Notation** is a lightweight data-interchange format.
-- Easy for humans to read/write
-- Easy for machines to parse/generate
-- Based on a subset of JavaScript (ECMA-262 3rd Edition - Dec 1999)
+
+* Easy for humans to read/write
+* Easy for machines to parse/generate
+* Based on a subset of JavaScript (ECMA-262 3rd Edition - Dec 1999)
 
 ```js
 obj = {name: "harry", length: 1}
@@ -774,7 +845,9 @@ obj2 = {name: "harry", length: 1, a:{this:'tha"t'}} // valid JS object even afte
 jso = JSON.stringify(obj2);
 console.log(jso) // obj2 = {"name": "harry", "length": "1", a:{"this":"tha\"t"}}
 ```
+
 similarly it behaves
+
 ```
 "tha\ "t" -> "tha \"t"
 "tha\"t" -> "tha\"t"
@@ -795,25 +868,25 @@ console.log(parsed);
 // direct json string to Object
 JSON.parse(`{"name": "harry", "length": "1", a:{"this":"that"}}`) // we can write string in backticks "`"
 ```
-- JSON as standard requires double quotes and will not accept single quotes.
-it convert `'tha"t'` to `"tha\"t"`. 
-- it changes single quotes to double , and uses backslash so that to ignore 2nd " as end of string. 
 
-# ECMAScript
+* JSON as standard requires double quotes and will not accept single quotes. it convert `'tha"t'` to `"tha\"t"`.
+* it changes single quotes to double , and uses backslash so that to ignore 2nd " as end of string.
 
-**ECMAScript** is a scripting language specification standardized by **Ecma International**.  
+## ECMAScript
+
+**ECMAScript** is a scripting language specification standardized by **Ecma International**.\
 It was created to standardize JavaScript and support multiple implementations.
 
-- **1st – 5th Edition** → JavaScript
-- **6th – 10th Edition** → ECMAScript (2015–2019)
-    
+* **1st – 5th Edition** → JavaScript
+* **6th – 10th Edition** → ECMAScript (2015–2019)
+
 **ES6 = ECMAScript 2015 (6th Edition)**
 
 **Introduced features like:**
-- `let`, `const`
-- Arrow functions
-- Template literals (`backticks`)
-- Destructuring
-- Classes, Modules
-- Promises, etc.
 
+* `let`, `const`
+* Arrow functions
+* Template literals (`backticks`)
+* Destructuring
+* Classes, Modules
+* Promises, etc.

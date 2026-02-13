@@ -1,5 +1,8 @@
+---
+hidden: true
+---
 
-### Euler Motors OA
+# Euler Motors OA
 
 ```
 Which of the following describes the concept of "stack overflow"?
@@ -108,6 +111,7 @@ Which algorithm is used to find the shortest path in an unweighted graph?
 int arr[5] = {1, 2, 3, 4, 5}; 
 cout << arr[5]; 
 ```
+
 ```
 output
 - Runtime Error : out of bound array access ✅
@@ -117,6 +121,7 @@ output
 Int arr[3];
 cout arr[2];
 ```
+
 ```
 output
 - garbage value ✅
@@ -126,6 +131,7 @@ output
 int x = 10, y = 5;
 cout << (x > y ? x : y);
 ```
+
 ```
 output
 - 10 ✅
@@ -138,6 +144,7 @@ int &ref = x;
 ref++; 
 cout << x;
 ```
+
 ```
 output
 - 6
@@ -148,6 +155,7 @@ int x = 5;
 int *Ptr = &x;
 cout << Ptr;
 ```
+
 ```
 output
 - Address of x
@@ -165,6 +173,7 @@ int main() {
     return 0;
 }
 ```
+
 ```
 output
 - 321

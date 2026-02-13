@@ -1,45 +1,51 @@
-Steps
-Recursion -> Memoization(Recursion + extra) -> Tabulation -> Space Optimsation (Tabulation)
+# ▶️ Dynamic Programming (Striver)
 
-Memoization (Recursion) -> Top-Down Approach 
-Tabulation (For Loop) -> Bottom  Up-Approach
+Steps Recursion -> Memoization(Recursion + extra) -> Tabulation -> Space Optimsation (Tabulation)
 
- ---
-#### Recursion
-- **Time Complexity (TC):** `O(2^n)`
-  - The recursive solution explores all possible subsets of the array. For each element, it has two choices: either to pick or not pick the element, leading to an exponential time complexity of `O(2^n)`.
-- **Space Complexity (SC):** `O(n)`
-  - The maximum depth of the recursion tree in the worst case is `n`. Therefore, the space complexity is `O(n)` due to the recursive call stack.
+Memoization (Recursion) -> Top-Down Approach Tabulation (For Loop) -> Bottom Up-Approach
 
-### Memoization
-- **Time Complexity (TC):** `O(n)`
-  - By storing the results of subproblems, memoization avoids recalculating them, reducing the time complexity to `O(n)` since each state is computed once.
-- **Space Complexity (SC):** `O(n) + O(n)`
-  - **Recursive Call Stack:** The space used by the recursive call stack is `O(n)`.
-  - **DP Array:** An additional `O(n)` space is required to store the results of subproblems.
-  - **Total Space Complexity:** `O(n) + O(n) = O(n)`
+***
 
-### Tabulation
-- **Time Complexity (TC):** `O(n)`
-  - The tabulation method iteratively computes the result for each index from `0` to `n`, leading to a linear time complexity of `O(n)`.
-- **Space Complexity (SC):** `O(n)`
-  - The space required is `O(n)` for storing the DP table, where each entry corresponds to a subproblem solution.
+**Recursion**
 
-### Space Optimization
-- **Time Complexity (TC):** `O(n)`
-  - The time complexity remains `O(n)` as we still compute the result iteratively for each index from `0` to `n`.
-- **Space Complexity (SC):** `O(1)`
-  - Instead of maintaining an entire DP array, we only keep track of the last two states (because each state depends only on the previous two). Thus, the space complexity is reduced to `O(1)`.
+* **Time Complexity (TC):** `O(2^n)`
+  * The recursive solution explores all possible subsets of the array. For each element, it has two choices: either to pick or not pick the element, leading to an exponential time complexity of `O(2^n)`.
+* **Space Complexity (SC):** `O(n)`
+  * The maximum depth of the recursion tree in the worst case is `n`. Therefore, the space complexity is `O(n)` due to the recursive call stack.
 
----
+#### Memoization
 
-# [DP 5. Maximum Sum of Non-Adjacent Elements | House Robber | 1-D | DP on Subsequences](https://youtu.be/GrMBfJNk_NY?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY)
+* **Time Complexity (TC):** `O(n)`
+  * By storing the results of subproblems, memoization avoids recalculating them, reducing the time complexity to `O(n)` since each state is computed once.
+* **Space Complexity (SC):** `O(n) + O(n)`
+  * **Recursive Call Stack:** The space used by the recursive call stack is `O(n)`.
+  * **DP Array:** An additional `O(n)` space is required to store the results of subproblems.
+  * **Total Space Complexity:** `O(n) + O(n) = O(n)`
 
->Ques.  Given an array of ‘N’  positive integers, we need to return the maximum sum of the subsequence such that no two elements of the subsequence are adjacent elements in the array.
+#### Tabulation
 
- -> pick the one with the maximum sum -> try  all subsequences -> recursion -> pick or not pick
+* **Time Complexity (TC):** `O(n)`
+  * The tabulation method iteratively computes the result for each index from `0` to `n`, leading to a linear time complexity of `O(n)`.
+* **Space Complexity (SC):** `O(n)`
+  * The space required is `O(n)` for storing the DP table, where each entry corresponds to a subproblem solution.
 
-### Recursion ✅
+#### Space Optimization
+
+* **Time Complexity (TC):** `O(n)`
+  * The time complexity remains `O(n)` as we still compute the result iteratively for each index from `0` to `n`.
+* **Space Complexity (SC):** `O(1)`
+  * Instead of maintaining an entire DP array, we only keep track of the last two states (because each state depends only on the previous two). Thus, the space complexity is reduced to `O(1)`.
+
+***
+
+## [DP 5. Maximum Sum of Non-Adjacent Elements | House Robber | 1-D | DP on Subsequences](https://youtu.be/GrMBfJNk_NY?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY)
+
+> Ques. Given an array of ‘N’  positive integers, we need to return the maximum sum of the subsequence such that no two elements of the subsequence are adjacent elements in the array.
+
+-> pick the one with the maximum sum -> try all subsequences -> recursion -> pick or not pick
+
+#### Recursion ✅
+
 ```cpp
 f(ind, arr){
 	// reached to `ind==0` mean -> not picked `ind==1`
@@ -52,10 +58,12 @@ f(ind, arr){
 }
 // Call f(n, arr)
 ```
-- TC: `O(2^n)`
--  SC: `O(n)`
 
-### Memoization ✅
+* TC: `O(2^n)`
+* SC: `O(n)`
+
+#### Memoization ✅
+
 ```cpp
 f(ind, arr, dp){
 	if(ind == 0) return a[ind];
@@ -68,10 +76,12 @@ f(ind, arr, dp){
 }
 // Call f(n, arr)
 ```
-- TC: `O(n)`
-- SC: `O(n) + O(n)`
 
-### Tabulation ✅
+* TC: `O(n)`
+* SC: `O(n) + O(n)`
+
+#### Tabulation ✅
+
 ```cpp
 f(ind, arr, dp){
 	dp[0] = arr[0];
@@ -84,9 +94,12 @@ f(ind, arr, dp){
 }
 // Call f(n, arr)
 ```
-- TC: `O(n)`
-- SC: `O(n)`
-### Space Optimization ✅
+
+* TC: `O(n)`
+* SC: `O(n)`
+
+#### Space Optimization ✅
+
 ```cpp
 f(ind, arr){
 	int prev = a[0];
@@ -103,10 +116,12 @@ f(ind, arr){
 }
 // Call f(n, arr)
 ```
-- TC: `O(n)`
-- SC: `O(1)`
 
-***C++ Code :***
+* TC: `O(n)`
+* SC: `O(1)`
+
+_**C++ Code :**_
+
 ```cpp
 int solve(int n, vector<int>& arr) {
     int prev = arr[0];   // Initialize the maximum sum ending at the previous element
@@ -138,32 +153,32 @@ int main() {
 }
 ```
 
-# [ DP 6. House Robber 2 | 1D DP | DP on Subsequences](https://youtu.be/3WaxQMELSkw) 
+## [DP 6. House Robber 2 | 1D DP | DP on Subsequences](https://youtu.be/3WaxQMELSkw)
+
 > Ques. A thief needs to rob money in a street. The houses in the street are arranged in a circular manner. Therefore the first and the last house are adjacent to each other. The security system in the street is such that if adjacent houses are robbed, the police will get notified.
-> 
->Given an array of integers “Arr'' which represents money at each house, we need to return the maximum amount of money that the thief can rob without alerting the police.
+>
+> Given an array of integers “Arr'' which represents money at each house, we need to return the maximum amount of money that the thief can rob without alerting the police.
 
 Conclusion : First and Last element are also adjacent
 
-Example:
-`arr = [2, 4, 3]`
-According to the last question 2 & 3 are not adjacent and can be picked `max = 5`
-But now, `first` and `last` i.e. 2 and 3 are adjacent and Cannot be picked, so `max = 4`
+Example: `arr = [2, 4, 3]` According to the last question 2 & 3 are not adjacent and can be picked `max = 5` But now, `first` and `last` i.e. 2 and 3 are adjacent and Cannot be picked, so `max = 4`
 
-Solution:
-skip the last element and apply the ques 5 function()
+Solution: skip the last element and apply the ques 5 function()
+
 ```
  0 1 2 3 ...... n
 [             ] X
 ```
 
 skip the first element and apply the ques 5 function()
+
 ```
 X  0 1 2 3 ...... n
   [                ]
 ```
 
-*Changes: *
+\*Changes: \*
+
 ```cpp
 temp1[] : arr[0 -> n-1] // skipped last
 ans1 = f(temp1[])
@@ -174,11 +189,13 @@ ans2 = f(temp2[])
 return max(ans1 , ans2)
 
 ```
-- TC: `O(n)`
-- SC: `O(1)`
 
-### Space Optimization
-```cpp
+* TC: `O(n)`
+* SC: `O(1)`
+
+#### Space Optimization
+
+````cpp
 ```cpp
 // function from question 5.
 /*
@@ -229,11 +246,12 @@ int main() {
   int n=arr.size();
   cout<<robStreet(n,arr);
 }
-```
+````
 
-# [DP 7. Ninja's Training | MUST WATCH for 2D CONCEPTS 🔥 | Vacation | Atcoder | 2D DP |](https://youtu.be/AE39gJYuRog)
+## [DP 7. Ninja's Training | MUST WATCH for 2D CONCEPTS 🔥 | Vacation | Atcoder | 2D DP |](https://youtu.be/AE39gJYuRog)
 
-### Recursion 
+#### Recursion
+
 ```cpp
 f(day, last){
 
@@ -261,9 +279,12 @@ f(day, last){
 // if(day<0) return 0;
 // no require to calculate if(day==0) in base condition, it could be done by recursion
 ```
-- TC: `O(3*(2^(n-1))`
-- SC: `O(n)`
-### Memoization 
+
+* TC: `O(3*(2^(n-1))`
+* SC: `O(n)`
+
+#### Memoization
+
 ```cpp
 f(day, last){
 	else if(day == 0){
@@ -285,14 +306,18 @@ f(day, last){
 	return dp[day][l] = maxi // assign dp 
 }
 ```
+
 ```
 2D DP : dp[N][4]
 N -> Days
 4 -> [ 0, 1, 2, 3 ] -> Tasks  ( state 3 for none of the task done yet)
 ```
-- TC: `O(n*4)*3` : `4` is the no. of possible choices (state) of the last task plus a state for not having chosen a task, and for each state running for loop of size `3`
-- SC: `O(n)+O(n*4)` : n\*4 for dp table
-### Tabulation
+
+* TC: `O(n*4)*3` : `4` is the no. of possible choices (state) of the last task plus a state for not having chosen a task, and for each state running for loop of size `3`
+* SC: `O(n)+O(n*4)` : n\*4 for dp table
+
+#### Tabulation
+
 ```cpp
 int f(int n, points[][]){
 	vector<vector<int>> dp(n, vector<int>(4,0));
@@ -317,9 +342,12 @@ int f(int n, points[][]){
 	return dp[n-1][3];
 }
 ```
-- TC: `O(n*4*3)` 
-- SC: `O(n*4)` : recursion stack reduced
-### Space Optimization
+
+* TC: `O(n*4*3)`
+* SC: `O(n*4)` : recursion stack reduced
+
+#### Space Optimization
+
 ```cpp
 int f(int n, points[][]){
 	vector<vector<int>> prev(4,0);
@@ -354,20 +382,23 @@ int f(int n, points[][]){
 	return prev[3];
 }
 ```
-- TC: `O(n*4*3)` 
-- SC: `O(4)` 
 
-# [DP 8. Grid Unique Paths | Learn Everything about DP on Grids | ALL TECHNIQUES 🔥](https://youtu.be/sdE0A2Oxofw)
+* TC: `O(n*4*3)`
+* SC: `O(4)`
+
+## [DP 8. Grid Unique Paths | Learn Everything about DP on Grids | ALL TECHNIQUES 🔥](https://youtu.be/sdE0A2Oxofw)
 
 DP on Grids/ 2D Matrix
-- Count paths
-- Count Paths with obstacles
-- Min Path Sum
-- Max Path Sum
-- Triangle Problem
-- 2 Start points
+
+* Count paths
+* Count Paths with obstacles
+* Min Path Sum
+* Max Path Sum
+* Triangle Problem
+* 2 Start points
 
 Revisiting Recursion Lecture 7
+
 ```
 count ways()
 	// base case
@@ -380,23 +411,25 @@ count ways()
 	return l+r
 ```
 
+> Ques .
 
->Ques .
+## [Unique Paths II](https://www.naukri.com/code360/problems/maze-obstacles_977241?source=youtube\&campaign=striver_dp_videos\&utm_source=youtube\&utm_medium=affiliate\&utm_campaign=striver_dp_videos\&leftPanelTabValue=PROBLEM)
 
-# [Unique Paths II](https://www.naukri.com/code360/problems/maze-obstacles_977241?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos&leftPanelTabValue=PROBLEM)
-
->Ques. Given a ‘N’ * ’M’ maze with obstacles, count and return the number of unique paths to reach the right-bottom cell from the top-left cell. A cell in the given maze has a value '-1' if it is a blockage or dead-end, else 0. From a given cell, we are allowed to move to cells (i+1, j) and (i, j+1) only. 
+> Ques. Given a ‘N’ \* ’M’ maze with obstacles, count and return the number of unique paths to reach the right-bottom cell from the top-left cell. A cell in the given maze has a value '-1' if it is a blockage or dead-end, else 0. From a given cell, we are allowed to move to cells (i+1, j) and (i, j+1) only.
 
 Note: Since the answer can be large, print it modulo 10^9 + 7.
 
-*Input: *
+\*Input: \*
+
 ```
 Consider the maze below :
 0   0   0 
 0  -1   0 
 0   0   0
 ```
-*Output:*
+
+_Output:_
+
 ```
 2
 
@@ -404,9 +437,10 @@ path 1: (1, 1) -> (1, 2) -> (1, 3) -> (2, 3) -> (3, 3)
 path 2: (1, 1) -> (2, 1) -> (3, 1) -> (3, 2) -> (3, 3)
 ```
 
-Unique Path II  = Unique Path I + Condition for Obstacle/dead Cell
+Unique Path II = Unique Path I + Condition for Obstacle/dead Cell
 
-#### Recursion
+**Recursion**
+
 ```cpp
 
 const int MOD = 1e9 + 7
@@ -428,7 +462,8 @@ f(i,j){
 }
 ```
 
-#### Recursion
+**Recursion**
+
 ```cpp
 // bottome right corner to top left corner
 f(i,j){

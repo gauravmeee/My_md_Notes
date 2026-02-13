@@ -1,8 +1,11 @@
-# Trie
+# ▶️ Trie (Striver)
 
-# [L1. Implement TRIE | INSERT | SEARCH | STARTSWITH](https://youtu.be/dBGUmUQhjaM?list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp)
+## Trie
+
+## [L1. Implement TRIE | INSERT | SEARCH | STARTSWITH](https://youtu.be/dBGUmUQhjaM?list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp)
 
 Trie - Class/Struct , it has a `array of size 26` & `bool flag`
+
 ```
 Trie Structure [char|flag]
 ```
@@ -13,11 +16,13 @@ Trie{
     bool flag; // 1/0 -> true/false
 }
 ```
+
 if word completed at `char` `flag=1`
 
-#### Insert
+**Insert**
 
 Inserting `'apple'`
+
 ```
 1. [ |0]
 2. [a|0] -> [ |0]
@@ -28,6 +33,7 @@ Inserting `'apple'`
 ```
 
 Similarly Adding, `apps, 'apxl', 'bac', 'bat'`
+
 ```
 apple
 1.          [a|0] -> [p|0] -> [p|0] -> [l|0] -> [e|0] -> `[ |1]` 
@@ -43,7 +49,7 @@ bac           |
                                    ^
 bat                                |
 4.                                [c,t|0] -> [ |1]                
-```         
+```
 
 ```
                            [a,b|0]
@@ -60,9 +66,10 @@ bat                                |
 	         apple
 ```
 
-#### Search
+**Search**
 
 `'apple'` Exist??
+
 ```
 // Starts with root [a,b|0] 
 
@@ -85,6 +92,7 @@ reference to variable -> [|1]
 ```
 
 `'appx'` exist?
+
 ```
 // Starts with root [a,b|0] 
 
@@ -101,6 +109,7 @@ reference to variable -> [l,s|0]
 ```
 
 `'app'` exist?
+
 ```
 // Starts with root [a,b|0] 
 
@@ -116,12 +125,15 @@ reference to variable -> [l,s|0]
 [l,s|0] : app : flag==1? -> No ❌ -> app not exist ❌
 ```
 
-*Note:* Let in appx, to check if a char 'x' exist or not, we will see if x is not point to null, 
-- if `x` in `trie`  is pointing to `null`-> x does not exist
-- if `x` in `trie` is pointing to `reference variable` -> x exist
-#### Starts with
+_Note:_ Let in appx, to check if a char 'x' exist or not, we will see if x is not point to null,
+
+* if `x` in `trie` is pointing to `null`-> x does not exist
+* if `x` in `trie` is pointing to `reference variable` -> x exist
+
+**Starts with**
 
 `'app'` Prefix exist?
+
 ```
 // Starts with root [a,b|0] 
 
@@ -138,6 +150,7 @@ reference to variable -> [l,s|0]
 ```
 
 `'apd'` prefix?
+
 ```
 // Starts with root [a,b|0] 
 
@@ -150,8 +163,9 @@ reference to variable -> [p,x|0]
 [p,x|0] : ap(d) :'d' exist? -> 'd' point to null -> not exist ❌ -> apd not exist as prefix
 ```
 
----
-#### *Implementation Code :*
+***
+
+_**Implementation Code :**_
 
 ```cpp
 #include <iostream>
@@ -249,10 +263,7 @@ public:
 };
 ```
 
-<ins> **Time Complexity** </ins>
-insert() TC:`O(n)`
- search() TC:`O(n)`
- startsWith() TC:`O(n)`
+**Time Complexity** insert() TC:`O(n)` search() TC:`O(n)` startsWith() TC:`O(n)`
 
 ```cpp
 

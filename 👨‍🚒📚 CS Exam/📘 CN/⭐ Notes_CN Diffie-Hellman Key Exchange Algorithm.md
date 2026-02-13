@@ -1,66 +1,39 @@
+# Diffie-Hellman algorithm:
 
+The Diffie-Hellman algorithm is being used to establish a shared secret that can be used for secret communications while exchanging data over a public network using the elliptic curve to generate points and get the secret key using the parameters. &#x20;
 
-### ****Diffie-Hellman algorithm:****
+* For the sake of simplicity and practical implementation of the algorithm, we will consider only 4 variables, one prime P and G (a primitive root of P) and two private values a and b.
+* P and G are both publicly available numbers. Users (say Alice and Bob) pick private values a and b and they generate a key and exchange it publicly. The opposite person receives the key and that generates a secret key, after which they have the same secret key to encrypt.
 
-The Diffie-Hellman algorithm is being used to establish a shared secret that can be used for secret communications while exchanging data over a public network using the elliptic curve to generate points and get the secret key using the parameters.  
+| Alice                                                             | Bob                                                        |
+| ----------------------------------------------------------------- | ---------------------------------------------------------- |
+| Public Keys available = P, G                                      | Public Keys available = P, G                               |
+| Private Key Selected = a                                          | Private Key Selected = b                                   |
+| Key generated = x = G<sup>a</sup> mod P                           | Key generated = y = G<sup>b</sup> mod P                    |
+| Exchange of generated keys takes place                            |                                                            |
+| Key received = y                                                  | Key received = x                                           |
+| Generated Secret Key = k<sub>a</sub> = y<sup>a</sup> mod P        | Generated Secret Key = k<sub>b</sub> = x<sup>b</sup> mod P |
+| Algebraically, it can be shown that k<sub>a</sub> = k<sub>b</sub> |                                                            |
+| Users now have a symmetric secret key to encrypt                  |                                                            |
 
-- For the sake of simplicity and practical implementation of the algorithm, we will consider only 4 variables, one prime P and G (a primitive root of P) and two private values a and b.
-- P and G are both publicly available numbers. Users (say Alice and Bob) pick private values a and b and they generate a key and exchange it publicly. The opposite person receives the key and that generates a secret key, after which they have the same secret key to encrypt.
+**Example:**&#x20;
 
-<table border="1" cellpadding="10">
-  <tr>
-    <td>Alice</td>
-    <td>Bob</td>
-  </tr>
-  <tr>
-    <td>Public Keys available = P, G</td>
-    <td>Public Keys available = P, G</td>
-  </tr>
-  <tr>
-    <td>Private Key Selected = a</td>
-    <td>Private Key Selected = b</td>
-  </tr>
-  <tr>
-    <td>Key generated = x = G<sup>a</sup> mod P</td>
-    <td>Key generated = y = G<sup>b</sup> mod P</td>
-  </tr>
-  <tr>
-    <td colspan="2"  style="text-align: center;">Exchange of generated keys takes place</td>
-  </tr>
-  <tr>
-    <td>Key received = y</td>
-    <td>Key received = x</td>
-  </tr>
-  <tr>
-    <td>Generated Secret Key = k<sub>a</sub> = y<sup>a</sup> mod P</td>
-    <td>Generated Secret Key = k<sub>b</sub> = x<sup>b</sup> mod P</td>
-  </tr>
-  <tr>
-    <td colspan="2"  style="text-align: center;">Algebraically, it can be shown that k<sub>a</sub> = k<sub>b</sub></td>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: center;">Users now have a symmetric secret key to encrypt</td>
-  </tr>
-</table>
+Step 1: Alice and Bob get public numbers P = 23, G = 9\
+Step 2: Alice selected a private key a = 4 and\
+Bob selected a private key b = 3\
+Step 3: Alice and Bob compute public values\
+Alice: $x =(9^4 mod 23)$ = (6561 mod 23) = 6\
+Bob: $y = (9^3 mod 23)$ = (729 mod 23) = 16\
+Step 4: Alice and Bob exchange public numbers\
+Step 5: Alice receives public key y =16 and\
+Bob receives public key x = 6\
+Step 6: Alice and Bob compute symmetric keys\
+Alice: $ka = y^a mod p$ = 65536 mod 23 = 9\
+Bob: $kb = x^b mod p$ = 216 mod 23 = 9\
+Step 7: 9 is the shared secret.
 
+**Implementation:** &#x20;
 
-****Example:**** 
-
-Step 1: Alice and Bob get public numbers P = 23, G = 9  
-Step 2: Alice selected a private key a = 4 and  
-        Bob selected a private key b = 3  
-Step 3: Alice and Bob compute public values  
-		Alice:    $x =(9^4 mod 23)$ = (6561 mod 23) = 6  
-        Bob:    $y = (9^3 mod 23)$ = (729 mod 23)  = 16  
-Step 4: Alice and Bob exchange public numbers  
-Step 5: Alice receives public key y =16 and  
-        Bob receives public key x = 6  
-Step 6: Alice and Bob compute symmetric keys  
-        Alice:  $ka = y^a mod p$ = 65536 mod 23 = 9  
-        Bob:    $kb = x^b mod p$ = 216 mod 23 = 9  
-Step 7: 9 is the shared secret.  
-
-****Implementation:****  
 ```cpp
 /* This program calculates the Key for two persons
 using the Diffie-Hellman Key exchange algorithm using C++ */
@@ -118,12 +91,7 @@ int main()
 // This code is contributed by Pranay Arora
 
 ```
-  
+
 **Output**
 
-The value of P : 23
-The value of G : 9
-The private key a for Alice : 4
-The private key b for Bob : 3
-Secret key for the Alice is : 9
-Secret key for the Bob is : 9
+The value of P : 23 The value of G : 9 The private key a for Alice : 4 The private key b for Bob : 3 Secret key for the Alice is : 9 Secret key for the Bob is : 9

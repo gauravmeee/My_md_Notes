@@ -1,33 +1,32 @@
+# ⭐ Notes\_EM\_Gate Probability Advance
 
-
-### Conditional Probability, Law of Total Probability
-
+#### Conditional Probability, Law of Total Probability
 
 Probability of event **A given that B has occurred**.
-  
+
 $$\boxed{P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \quad (P(B) > 0)}$$
 
 **Meaning (Intuition)**
-- Sample space **shrinks to B**
-- We ask: _within B, how often does A occur?_
-    
+
+* Sample space **shrinks to B**
+* We ask: _within B, how often does A occur?_
+
 **Rearranged Forms (Very Useful ⭐)**
 
-- $P(A \cap B) = P(A \mid B).P(B)$  
-- $P(A \cap B) = P(B \mid A) . P(A)$
-
+* $P(A \cap B) = P(A \mid B).P(B)$
+* $P(A \cap B) = P(B \mid A) . P(A)$
 
 If A and B are **independent**:
 
 $$\boxed{P(A \mid B) = P(A)}$$
 
-##### **Law of Total Probability** ⭐⭐
+**Law of Total Probability ⭐⭐**
 
-### 🔹 Statement
+#### 🔹 Statement
 
-If  $A_1, A_2, \dots, A_n$  are **mutually exclusive and exhaustive events**, then for any event B:
+If $A\_1, A\_2, \dots, A\_n$ are **mutually exclusive and exhaustive events**, then for any event B:
 
-$$\boxed{  
+$$$
 P(B) = \sum_{i=1}^{n} P(B \mid A_i)P(A_i)  
 }$$
 
@@ -110,12 +109,11 @@ Using **Conditional Probability**
 $$\boxed{P(A_i \mid B) = \frac{P(B \mid A_i)P(A_i)}{P(B)}}$$
 
 **Using Law of Total Probability**
+$$$
 
+P(B) = \sum\_{i=1}^{n} P(B \mid A\_i)P(A\_i)
 
-$$ 
-P(B) = \sum_{i=1}^{n} P(B \mid A_i)P(A_i)  
-$$
-
+$$$
 - Substitute this value of $P(B)$ into Bayes’ formula:
 
 $$\boxed{  
@@ -142,3 +140,4 @@ P(A_i \mid B) =
 2. Forgetting denominator (total probability)
 3. Not checking **mutually exclusive & exhaustive**
 4. Using Bayes when **simple conditional probability** is enough
+$$$

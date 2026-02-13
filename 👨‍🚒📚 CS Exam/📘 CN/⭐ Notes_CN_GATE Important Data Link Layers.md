@@ -1,63 +1,70 @@
+# ⭐ Notes\_CN\_GATE Important Data Link Layers
 
-### Data Link Layer - Important Topics Done
+#### Data Link Layer - Important Topics Done
 
 **1. Framing**
-- Character count
-- Byte stuffing
-- Bit stuffing   
-- Flag-based framing
+
+* Character count
+* Byte stuffing
+* Bit stuffing
+* Flag-based framing
 
 **2. Error Detection & Correction**
-- Parity check
-- Checksum
-- CRC (VERY IMPORTANT)
+
+* Parity check
+* Checksum
+* CRC (VERY IMPORTANT)
 
 **3. Flow Control** ⭐
-- **Stop-and-Wait** ✅
-- Sliding Window
-    - Go-Back-N
-    - Selective Repeat
+
+* **Stop-and-Wait** ✅
+* Sliding Window
+  * Go-Back-N
+  * Selective Repeat
 
 **4. Error Control** ⭐
-- Stop-and-Wait ARQ
-- Go-Back-N ARQ    
-- Selective Repeat ARQ
 
- **5. Multiple Access Protocols** ⭐⭐⭐
-- **CSMA/CD** ✅
-- CSMA/CA
-- ALOHA
-- Slotted ALOHA
-- Token Passing (Token Ring, FDDI)
-    
- **6. LAN Technologies**
-- Ethernet (IEEE 802.3)
-- MAC address
-- Frame format
-- Minimum & maximum frame size
+* Stop-and-Wait ARQ
+* Go-Back-N ARQ
+* Selective Repeat ARQ
 
----
+**5. Multiple Access Protocols** ⭐⭐⭐
 
+* **CSMA/CD** ✅
+* CSMA/CA
+* ALOHA
+* Slotted ALOHA
+* Token Passing (Token Ring, FDDI)
 
-### Stop-and-Wait Protocol
+**6. LAN Technologies**
 
-##### 1. What is Stop-and-Wait?
+* Ethernet (IEEE 802.3)
+* MAC address
+* Frame format
+* Minimum & maximum frame size
 
-**Definition:**  Stop-and-Wait is a **flow control and error control protocol** in which the sender transmits **one frame at a time** and waits for an acknowledgment (ACK) from the receiver before sending the next frame.
+***
+
+#### Stop-and-Wait Protocol
+
+**1. What is Stop-and-Wait?**
+
+**Definition:** Stop-and-Wait is a **flow control and error control protocol** in which the sender transmits **one frame at a time** and waits for an acknowledgment (ACK) from the receiver before sending the next frame.
 
 -> At any instant, **only one unacknowledged frame** can be present in the network.
 
-##### 2. Why Stop-and-Wait is Needed (Reason)
+**2. Why Stop-and-Wait is Needed (Reason)**
 
-- Sender and receiver may operate at **different speeds**
-- Network may introduce **errors or losses**    
-- Prevents sender from **overrunning the receiver**
+* Sender and receiver may operate at **different speeds**
+* Network may introduce **errors or losses**
+* Prevents sender from **overrunning the receiver**
 
 Hence, Stop-and-Wait ensures:
-- **Reliability**
-- **Flow control**
 
-##### 3. Working Principle (Step-by-Step)
+* **Reliability**
+* **Flow control**
+
+**3. Working Principle (Step-by-Step)**
 
 1. Sender sends **Frame 0**
 2. Sender **stops and waits**
@@ -67,27 +74,22 @@ Hence, Stop-and-Wait ensures:
 
 -> Uses **sequence numbers (0 and 1)** to detect duplicates.
 
+**4. Delays Involved**
 
-##### **4. Delays Involved**
+* Transmission delay: ( $T\_x$ )
+* Propagation delay: ( $T\_p$ )
+* ACK transmission delay (usually negligible)
+* **Round Trip Time (RTT) :** $RTT \approx 2T\_p$
 
-- Transmission delay: ( $T_x$ )
-- Propagation delay: ( $T_p$ )
-- ACK transmission delay (usually negligible)
-- **Round Trip Time (RTT) :** $RTT \approx 2T_p$
+**5. Timing of One Transmission Cycle**
 
-##### **5. Timing of One Transmission Cycle**
+* Total time for sending **one frame and receiving its ACK**: $T\_{\text{cycle\}} = T\_x + 2T\_p$
+* Useful transmission time:\
+  $T\_{\text{useful\}} = T\_x$
 
-- Total time for sending **one frame and receiving its ACK**:
-	$T_{\text{cycle}} = T_x + 2T_p$
+**6. Link Utilization ⭐**
 
-- Useful transmission time:  
-	$T_{\text{useful}} = T_x$
-
-
-##### **6. Link Utilization** ⭐
-
-
-$$\boxed{  
+$$$
 U = \frac{T_x}{T_x + 2T_p}  
 } $$
 
@@ -111,11 +113,11 @@ Case 1: $( 2T_p \gg T_x )$
 
 
 ##### Boundary Condition ⭐
+$$$
 
-$$  
-\boxed{T_x = 2T_p}  
-$$
+\boxed{T\_x = 2T\_p}
 
+$$$
 Sender finishes transmission exactly when ACK arrives.
 
 ##### **8. Error Handling in Stop-and-Wait**
@@ -295,4 +297,4 @@ $$\boxed{
 - Confusing minimum frame size with MTU
 - Assuming CSMA/CD works in full-duplex Ethernet    
 - Using CSMA/CD for Wi-Fi ❌
-
+$$$

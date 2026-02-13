@@ -1,15 +1,17 @@
+# ▶️ Tutorial\_C (Harry)
 
-# #17 `Goto` Statement In C
+## #17 `Goto` Statement In C
 
-# #37 Structures In C
+## #37 Structures In C
 
-# [#38 Typedef In C](https://youtu.be/sxQ4hRHLVAc?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR)
+## [#38 Typedef In C](https://youtu.be/sxQ4hRHLVAc?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR)
 
-- In C and C++, the `typedef` keyword is used to ==give a new name (alias) to an existing data type==.(`int`, `char`, `int*`, `struct`, etc.) 
-- This can improve code readability, simplify complex data types, and make code easier to maintain.
-- Syntax `typedef <previous_name> <alias_name>;`
+* In C and C++, the `typedef` keyword is used to ==give a new name (alias) to an existing data type==.(`int`, `char`, `int*`, `struct`, etc.)
+* This can improve code readability, simplify complex data types, and make code easier to maintain.
+* Syntax `typedef <previous_name> <alias_name>;`
 
 `typedef` for Inbuilt datatype
+
 ```c
 #include <stdio.h>
 typedef long long ll // ll : long long
@@ -26,6 +28,7 @@ int main()
 ```
 
 `typedef` for Structure ⭐
+
 ```c
 typdef struct Student
 {
@@ -53,82 +56,92 @@ a = &c;
 b = c;
 ```
 
-# [#42 Static Variables In C]()
-# [#58 C Pre-processor Introduction & Working](https://youtu.be/P9IAfh89EK8?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR)
+## [#42 Static Variables In C](<▶️ Tutorial_C (Harry).md>)
 
-- Compiler ==converts textual== form of a ==c program== into an ==executable==.
-- There are four phases for a C program to become an executable: 
+## [#58 C Pre-processor Introduction & Working](https://youtu.be/P9IAfh89EK8?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR)
+
+* Compiler ==converts textual== form of a ==c program== into an ==executable==.
+* There are four phases for a C program to become an executable:
+
 ```
      1              2              3            4
 PreProcessing -> Compilation -> Assembly -> Linking ⭐
 ```
+
 1. **Pre-Processing** : ==Removal of comments==, ==Expansion of macros==, ==Expansion of include files==
 2. **Compilation** : ==Assembly level== instructions are generated
 3. **Assembly** : make `.o` or `.exe`, `printf` are not resolved , ==Assembly Level Instructions are converted to machine code==.
 4. **Links** the function implementations
 
 **What is a C Pre-Processor**
-- C preprocessor comes under action before the actual compilation process.
-- C preprocessor is ==not a part of the c compiler==
-- It is a ==text substitution tool==
-- All ==preprocessor commands== begin with a ==hash symbol `#`==
+
+* C preprocessor comes under action before the actual compilation process.
+* C preprocessor is ==not a part of the c compiler==
+* It is a ==text substitution tool==
+* All ==preprocessor commands== begin with a ==hash symbol `#`==
 
 **Preprocessor Commands:**
-- **`#define`**: Used to ==define a macro==.  
-- **`#include`**: ==Include an external header file==.  
-- **`#undef`**: Undefine preprocessor macros.  
-- **`#ifdef`**: Check if a macro is defined (defined: 1, not defined: 0).  
-- **`#ifndef`**: Check if a macro is not defined (defined: 0, not defined: 1).  
-- **`#if`**: If any compile-time condition is true.  
-- **`#elif`**: Alternative of `if`; if not true, then it is checked.  
-- **`#else`**: Execute if no condition is true.  
-- **`#endif`**: Ends a conditional preprocessor directive.  
-- `#pragma`: To issue some special commands to the compiler.
+
+* **`#define`**: Used to ==define a macro==.
+* **`#include`**: ==Include an external header file==.
+* **`#undef`**: Undefine preprocessor macros.
+* **`#ifdef`**: Check if a macro is defined (defined: 1, not defined: 0).
+* **`#ifndef`**: Check if a macro is not defined (defined: 0, not defined: 1).
+* **`#if`**: If any compile-time condition is true.
+* **`#elif`**: Alternative of `if`; if not true, then it is checked.
+* **`#else`**: Execute if no condition is true.
+* **`#endif`**: Ends a conditional preprocessor directive.
+* `#pragma`: To issue some special commands to the compiler.
 
 **Include:**
+
 ```
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 ```
 
-# [#59 `#define` and `#include` Preprocessor Directives: C Tutorial In Hindi](https://youtu.be/qDIpHL8Al20?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR)
+## [#59 `#define` and `#include` Preprocessor Directives: C Tutorial In Hindi](https://youtu.be/qDIpHL8Al20?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR)
 
-- The `#include` directive causes the preprocessor to fetch the contents of some other file to be included in the present file
-- This file may in turn `#include` some other file(s) which may in turn do the same. Most commonly the `#inlcuded` files have a "`.h`" extension, indicating that they are header files.
+* The `#include` directive causes the preprocessor to fetch the contents of some other file to be included in the present file
+* This file may in turn `#include` some other file(s) which may in turn do the same. Most commonly the `#inlcuded` files have a "`.h`" extension, indicating that they are header files.
 
-##### `#Include`
+**`#Include`**
 
 ```
 mostly header files have promises i.e. is function prototypes.
 ```
 
 In C programming there are two common formats for `#includes`:
-1. ==**`#include < headerFiIe.h >`**== // The angle brackets say to ==look in the standard system== directories
-2. ==**`#include " myFile.h"`**== // The quotation marks say to ==look in the current directory==.
+
+1. \==**`#include < headerFiIe.h >`**== // The angle brackets say to ==look in the standard system== directories
+2. \==**`#include " myFile.h"`**== // The quotation marks say to ==look in the current directory==.
 
 Disk drive full path is allowed, but discouraged since it is not portable:
-- `#include <C:\Program Files\Harry\bhai\somefile.h>` → **Discouraged** ✅
-    - Uses ==absolute disk path==
-    - Not portable (will break on other systems / compilers / OS)
-    
-- `#include <sys/file.h>` → **Encouraged** ❌
-    - Refers to header in system include directories        
-    - **Relative & Portable** across systems where the header exists
 
-##### `#define`
+* `#include <C:\Program Files\Harry\bhai\somefile.h>` → **Discouraged** ✅
+  * Uses ==absolute disk path==
+  * Not portable (will break on other systems / compilers / OS)
+* `#include <sys/file.h>` → **Encouraged** ❌
+  * Refers to header in system include directories
+  * **Relative & Portable** across systems where the header exists
 
-- The `#define` ==directive is used to "define" preprocessor "variables"==
-- The `#define` preprocessor directive can be used to ==globally replace a word with a number==.
-- It acts as if an editor did a global search-and-replace edit of the file.
+**`#define`**
+
+* The `#define` ==directive is used to "define" preprocessor "variables"==
+* The `#define` preprocessor directive can be used to ==globally replace a word with a number==.
+* It acts as if an editor did a global search-and-replace edit of the file.
+
 ```
 #define PI 3.141
 ```
 
 **1. `#define` for Debugging**
-- `#define` directive ==can be used for debugging== 
-- We can have ==printing statements that we only want active when debugging==.
-- We can "protect" them in a "`ifdef`" block as follows: ⭐
+
+* `#define` directive ==can be used for debugging==
+* We can have ==printing statements that we only want active when debugging==.
+* We can "protect" them in a "`ifdef`" block as follows: ⭐
+
 ```
 #define DEBUG
 #ifdef DEBUG {print statement...}
@@ -137,8 +150,10 @@ Disk drive full path is allowed, but discouraged since it is not portable:
 ```
 
 **2. Macros using `#define`**
-- We ==can create macros== using `#define`
-- Macros operate much like functions, but because they are expanded in place and are generally faster
+
+* We ==can create macros== using `#define`
+* Macros operate much like functions, but because they are expanded in place and are generally faster
+
 ```
 #define SQUARE(x) x*x
 float PI = 3.141
@@ -147,9 +162,10 @@ area = PI * SQUARE (radius);
 
 Notes: Macros are resolved at, preprocessing and so faster and efficient than functions.
 
-##### **Use case `#include` & `#define`**
+**Use case `#include` & `#define`**
 
 `#Include` directive
+
 ```c
 #include <stdio.h>
 #include "Tutorial2.c"  // contain functionDangling();
@@ -162,6 +178,7 @@ int main()
 ```
 
 `#Define` directive
+
 ```c
 # define PI 3.141
 
@@ -174,6 +191,7 @@ int main()
 ```
 
 `#define` Macros
+
 ```c
 #define SQUARE(r) r*r
 
@@ -184,23 +202,22 @@ int main()
 }
 ```
 
-# [#60 Predefined Macros & Other Pre-processor Directives: C Tutorial In Hindi](https://youtu.be/iOTf_ZgrU20)
+## [#60 Predefined Macros & Other Pre-processor Directives: C Tutorial In Hindi](https://youtu.be/iOTf_ZgrU20)
 
+* Preprocessor is a kind of automated editor that modifies a copy of the original source code
+* The `#include` directive causes the preprocessor to fetch the contents of some other file to be included in the present file
+* In C programming there are two common formats for `#includes`
+* This file may in turn `#include` some other file(s) which may in turn do the same.
+* Most commonly the `#include` files have a "`.h`" extension, indicating that they are header files.
+* The `#define` directive is used to "`define`" preprocessor "`variables`"
 
-- Preprocessor is a kind of automated editor that modifies a copy of the original source code 
-- The `#include` directive causes the preprocessor to fetch the contents of some other file to be included in the present file
-- In C programming there are two common formats for `#includes`
-- This  file may in turn `#include` some other file(s) which may in turn do the same.
-- Most commonly the `#include` files have a "`.h`" extension, indicating that they are header files.
-- The `#define` directive is used to "`define`" preprocessor "`variables`"
-
-##### **Predefined Macros in C**
+**Predefined Macros in C**
 
 1. **`__DATE__`:** The ==current date== as character literal in **=="MMM DD YYYY"==** format
-2.  **`__TIME__`:** This contains the ==current time== as a character literal in **=="HH:MM:SS"==** format.
-3.  **`__FILE__`:** The ==current filename as== a string literal.
-4.  **`__LINE__`:** The ==current line number== as a decimal constant.
-5.  **`__STDC__`:** Define as 1(one) when the compiler complies with the ANSI standard.
+2. **`__TIME__`:** This contains the ==current time== as a character literal in **=="HH:MM:SS"==** format.
+3. **`__FILE__`:** The ==current filename as== a string literal.
+4. **`__LINE__`:** The ==current line number== as a decimal constant.
+5. **`__STDC__`:** Define as 1(one) when the compiler complies with the ANSI standard.
 
 ```c
 int main()
@@ -213,47 +230,49 @@ int main()
 }
 ```
 
-# [#47 Dynamic Memory Allocation Malloc Calloc Realloc & Free(): C Tutorial In Hindi](https://youtu.be/q8j8EqCZcWM) ⭐
+## [#47 Dynamic Memory Allocation Malloc Calloc Realloc & Free(): C Tutorial In Hindi](https://youtu.be/q8j8EqCZcWM) ⭐
 
-##### **Recap**
+**Recap**
 
-- A **statically allocated variable/array** has a fixed size in memory.
-- **Dynamic Memory Allocation** allows the size of a data structure to be changed at runtime.
-- Memory assigned to a program is divided into four segments:
-    1. **Code**
-    2. **Global/Static Variables**
-    3. **Stack**
-    4. **Heap**
-        
+* A **statically allocated variable/array** has a fixed size in memory.
+* **Dynamic Memory Allocation** allows the size of a data structure to be changed at runtime.
+* Memory assigned to a program is divided into four segments:
+  1. **Code**
+  2. **Global/Static Variables**
+  3. **Stack**
+  4. **Heap**
 
 **Stack**
-- Example: `int arr[10];`
-- Example: `int a;`
-- ==Stores local variables==, function calls, function parameters.
-- Memory is automatically allocated and freed when functions are called/returned.
-    
+
+* Example: `int arr[10];`
+* Example: `int a;`
+* \==Stores local variables==, function calls, function parameters.
+* Memory is automatically allocated and freed when functions are called/returned.
 
 **Global and Static Variables**
-- Example: `int g;` (global)
-- Example: `static int s;` (static local or file scope)
-- ==Lifetime== is throughout the execution of the program.
-- ==Stored in **Global/Static segment**==, not on the stack.
-    
+
+* Example: `int g;` (global)
+* Example: `static int s;` (static local or file scope)
+* \==Lifetime== is throughout the execution of the program.
+* \==Stored in **Global/Static segment**==, not on the stack.
+
 **Heap**
-- Used for dynamic memory allocation.
-- Example: `int* p = (int*)malloc(10 * sizeof(int));`
-- Memory must be explicitly freed (`free(p);`).
 
-### **Functions for Dynamic Memory Allocation in C** ⭐
+* Used for dynamic memory allocation.
+* Example: `int* p = (int*)malloc(10 * sizeof(int));`
+* Memory must be explicitly freed (`free(p);`).
 
-- In Dynamic memory allocation, the memory is allocated at runtime from the heap segment 
-- We have four functions that help us achieve this task:
+#### **Functions for Dynamic Memory Allocation in C** ⭐
+
+* In Dynamic memory allocation, the memory is allocated at runtime from the heap segment
+* We have four functions that help us achieve this task:
+
 1. `malloc`
 2. `calloc`
 3. `realloc`
 4. `free`
 
-##### **MALLOC & CALLOC**
+**MALLOC & CALLOC**
 
 ```
               |--------|
@@ -261,86 +280,93 @@ int *ptr ------> Heap  |
               |________|
 ```
 
-- The ==return value is a **void pointer**== (`void*`) to the ==allocated space==
-- Therefore the void pointer needs to be casted to the appropriate type as per the requirements
-- However, if the space is insufficient. allocation of memory fails and it returns a NULL pointer.
+* The ==return value is a **void pointer**== (`void*`) to the ==allocated space==
+* Therefore the void pointer needs to be casted to the appropriate type as per the requirements
+* However, if the space is insufficient. allocation of memory fails and it returns a NULL pointer.
 
+**C `malloc()`**
 
-##### **C `malloc()`**
-- `malloc()` stands for **memory allocation**
-- Reserves a block of memory with the given number of bytes
-- Values in allocated memory are **uninitialized (garbage values)**
-- Syntax:
+* `malloc()` stands for **memory allocation**
+* Reserves a block of memory with the given number of bytes
+* Values in allocated memory are **uninitialized (garbage values)**
+*   Syntax:
+
     ```c
     ptr = (ptr_type*) malloc(size_in_bytes);
     ```
-    
-- Example (array of 3 integers):
+*   Example (array of 3 integers):
+
     ```c
     ptr = (int*) malloc(3 * sizeof(int));
     ```
-    
 
-##### **C `calloc()`**
-- `calloc()` stands for **contiguous allocation**
-- Reserves **n blocks** of memory, each of given size    
-- All values in allocated memory are **initialized to 0**
-- Syntax:
+**C `calloc()`**
+
+* `calloc()` stands for **contiguous allocation**
+* Reserves **n blocks** of memory, each of given size
+* All values in allocated memory are **initialized to 0**
+*   Syntax:
+
     ```c
     ptr = (ptr_type*) calloc(n, size_in_bytes);
     ```
+*   Example (array of 3 integers):
 
-- Example (array of 3 integers):
     ```c
     ptr = (int*) calloc(3, sizeof(int));
     ```
-    
-##### **C `realloc()`**
-- `realloc()` stands for **reallocation**
-- Used to **resize previously allocated memory** (via malloc/calloc)
-- Preserves existing data up to the new size
-- Syntax:    
+
+**C `realloc()`**
+
+* `realloc()` stands for **reallocation**
+* Used to **resize previously allocated memory** (via malloc/calloc)
+* Preserves existing data up to the new size
+*   Syntax:
+
     ```c
     ptr = (ptr_type*) realloc(ptr, new_size_in_bytes);
     ```
+*   Example (resize array to 4 integers):
 
-- Example (resize array to 4 integers):
     ```c
     ptr = (int*) realloc(ptr, 4 * sizeof(int));
     ```
 
-
 **`void*` Pointer**
-- A `void*` is a **generic pointer** that can point to any data type
-- Cannot be dereferenced directly without typecasting
-- Used in memory allocation functions (`malloc`, `calloc`, `realloc`)
+
+* A `void*` is a **generic pointer** that can point to any data type
+* Cannot be dereferenced directly without typecasting
+* Used in memory allocation functions (`malloc`, `calloc`, `realloc`)
 
 **`(int*)` Type Cast Operator**
-- It tells the compiler: "Treat this value as a pointer to int".
-	- `int* p = (int*) malloc(sizeof(int));`
-- `malloc` returns a `void*` (generic pointer). In **C**:
-	- `void*` can be assigned to any pointer type **without cast**.
-	- So this works fine too: `int* p = malloc(sizeof(int));`
-	- Implicit conversion from `void*` to other pointers is **not allowed**.
-	- That’s why we must use `(int*)malloc(...)` in C++.
 
-##### **C `free()`**
+* It tells the compiler: "Treat this value as a pointer to int".
+  * `int* p = (int*) malloc(sizeof(int));`
+* `malloc` returns a `void*` (generic pointer). In **C**:
+  * `void*` can be assigned to any pointer type **without cast**.
+  * So this works fine too: `int* p = malloc(sizeof(int));`
+  * Implicit conversion from `void*` to other pointers is **not allowed**.
+  * That’s why we must use `(int*)malloc(...)` in C++.
 
-- fee() is used to free the allocated memory
-- If the dynamically allocated memory is not required anymore, we can free it using free function.
-- This will free the memory being used by the program in the heap
-- Syntax: `free(ptr)`
+**C `free()`**
 
+* fee() is used to free the allocated memory
+* If the dynamically allocated memory is not required anymore, we can free it using free function.
+* This will free the memory being used by the program in the heap
+* Syntax: `free(ptr)`
 
 Note: `Malloc()` vs `Calloc()`
-- **`malloc`**: Allocates a block of memory but **does not initialize** the memory. The memory block will contain **garbage values**.
-- **`calloc`**: Allocates memory and **initializes all bits to zero**. This means all the values in the allocated memory will initially be set to zero.
 
-##### **Example**
-- We can use dynamic memory allocation to allocate memory during runtime.
-- Dynamic memory allocation functions are under `<stdilib.h>` file
+* **`malloc`**: Allocates a block of memory but **does not initialize** the memory. The memory block will contain **garbage values**.
+* **`calloc`**: Allocates memory and **initializes all bits to zero**. This means all the values in the allocated memory will initially be set to zero.
 
-**1. Malloc Use Case** 
+**Example**
+
+* We can use dynamic memory allocation to allocate memory during runtime.
+* Dynamic memory allocation functions are under `<stdilib.h>` file
+
+**1. Malloc Use Case**
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -391,8 +417,8 @@ The value at 2 of this array is 7
 print("The value at ptr[3] is %d\n", ptr[3]); // 12838462834 Garbage Value
 ```
 
-
 **2. Calloc Use Case**
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -431,8 +457,8 @@ The value at 2 of this array is 0
 The value at 2 of this array is 0
 ```
 
-
 **3. Realloc** : Consider Code Connected after the Calloc i.e ptr assigne 4 byte of memory
+
 ```cpp
 // Use of calloc
 printf("Enter the size of the new array you want to create\n");
@@ -479,6 +505,7 @@ The new value at 5 of this array is 6
 ```
 
 **4. Free**
+
 ```c
 free(ptr);  // its a good practice to use free
 ```

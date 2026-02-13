@@ -1,22 +1,28 @@
-# Joins
+# ⭐ Notes\_DBMS Join
+
+## Joins
 
 ![](https://i.sstatic.net/UI25E.jpg)
 
 **Inner Join** = Intersection
-  - **Definition**: Retrieves matching records from both tables.  
-  - **Equivalent to**: Intersection of two sets.
+
+* **Definition**: Retrieves matching records from both tables.
+* **Equivalent to**: Intersection of two sets.
 
 **Outer Join** = Inner Join + Left + Right = Union
-  - **Definition**: Retrieves all records from one or both tables, including non-matching ones. 
-  - **Equivalent to**: Union of **Inner Join**, **Left Outer Join**, and **Right Outer Join**.
 
-**Left Outer Join** = Inner Join + Left 
-  - **Definition**: Retrieves all records from the left table and matching records from the right table (with NULLs for non-matches).  
-  - **Equivalent to**: Inner Join + Left records.
+* **Definition**: Retrieves all records from one or both tables, including non-matching ones.
+* **Equivalent to**: Union of **Inner Join**, **Left Outer Join**, and **Right Outer Join**.
+
+**Left Outer Join** = Inner Join + Left
+
+* **Definition**: Retrieves all records from the left table and matching records from the right table (with NULLs for non-matches).
+* **Equivalent to**: Inner Join + Left records.
 
 **Right Outer Join** = Inner Join + Right
-  - **Definition**: Retrieves all records from the right table and matching records from the left table (with NULLs for non-matches).  
-  - **Equivalent to**: Inner Join + Right records.
+
+* **Definition**: Retrieves all records from the right table and matching records from the left table (with NULLs for non-matches).
+* **Equivalent to**: Inner Join + Right records.
 
 ```mysql
 /*In SQL You can the syntax can be interchanchably used*/
@@ -27,9 +33,10 @@ Full Outer Join /*Full or Outer is Not optional*/
 
 ```
 
-# Natural Join vs Equi Join vs Inner Join
+## Natural Join vs Equi Join vs Inner Join
 
 **Equi Join** is a specific case of **Inner Join** focused on equality conditions.
+
 ```sql
 SELECT *
 FROM TableA
@@ -38,14 +45,15 @@ ON TableA.id = TableB.id;
 ```
 
 **Natural Join** simplifies the process by automatically matching columns with the same names, removing duplicates in the output.
+
 ```mysql
 SELECT *
 FROM TableA
 NATURAL JOIN TableB;
 ```
 
-
 **Inner Join** is the most general form, allowing various conditions to determine how tables are joined.
+
 ```mysql
 SELECT *
 FROM TableA
@@ -60,4 +68,3 @@ ON TableA.id = TableB.id;
 | **Duplicate Columns** | Retains duplicate columns unless specified.     | Removes duplicate columns from the result.             | Retains all columns based on specified conditions, may contain duplicates. |
 | **Use Case**          | Used for specific equality-based relationships. | Used for joining on all common columns automatically.  | Used for combining related data based on defined criteria.                 |
 | **Result Set**        | Includes all matched records.                   | Includes all matched records, no duplicates.           | Includes all matched records based on the join condition.                  |
-

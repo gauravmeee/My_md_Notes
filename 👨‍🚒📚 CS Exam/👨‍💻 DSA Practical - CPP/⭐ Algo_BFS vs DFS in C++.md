@@ -1,9 +1,13 @@
+# ⭐ Algo\_BFS vs DFS in C++
+
 Breadth-First Search (BFS) and Depth-First Search (DFS) are fundamental graph traversal algorithms used to explore nodes and edges in trees and graphs. Below are the C++ implementations for both BFS and DFS on trees and graphs.
 
-### 1. **Breadth-First Search (BFS)**
+#### 1. **Breadth-First Search (BFS)**
+
 BFS explores all the nodes at the present depth before moving on to nodes at the next depth level. It uses a queue to keep track of nodes to be explored.
 
-#### **BFS in a Graph:**
+**BFS in a Graph:**
+
 ```
 #include <iostream>
 #include <vector>
@@ -54,7 +58,8 @@ int main() {
 }
 ```
 
-#### **BFS in a Tree:**
+**BFS in a Tree:**
+
 ```
 #include <iostream>
 #include <vector>
@@ -103,10 +108,12 @@ int main() {
 }
 ```
 
-### 2. **Depth-First Search (DFS)**
+#### 2. **Depth-First Search (DFS)**
+
 DFS explores as far as possible along a branch before backtracking. It can be implemented using either recursion or a stack.
 
-#### **DFS in a Graph:**
+**DFS in a Graph:**
+
 ```
 #include <iostream>
 #include <vector>
@@ -148,7 +155,8 @@ int main() {
 }
 ```
 
-#### **DFS in a Tree:**
+**DFS in a Tree:**
+
 ```
 #include <iostream>
 using namespace std;
@@ -187,22 +195,25 @@ int main() {
 }
 ```
 
-### Summary:
-- **BFS** is implemented using a queue and explores the nodes level by level.
-- **DFS** is implemented using recursion (or a stack) and explores as deep as possible along a branch before backtracking.
-- Both algorithms work similarly for trees and graphs, with minor differences based on the data structure used.
+#### Summary:
 
-### Time Complexity of BFS and DFS
+* **BFS** is implemented using a queue and explores the nodes level by level.
+* **DFS** is implemented using recursion (or a stack) and explores as deep as possible along a branch before backtracking.
+* Both algorithms work similarly for trees and graphs, with minor differences based on the data structure used.
+
+#### Time Complexity of BFS and DFS
 
 The time complexity of BFS and DFS can be expressed in two forms:
+
 1. **In terms of the number of v==ertices (`V`) and edges (`E`)**==: This is commonly used for graphs.
 2. **In terms of the number of ==nodes (`n`)**: ==This is commonly used for trees.
 
-#### 1. BFS & DFS
-- **Graph (in terms of `V` and `E`)**:  Each vertex is visited once (`O(V)`), Each edge is explored once (`O(E)`).
-- **Tree (in terms of `n`)**: Each node is visited once.
+**1. BFS & DFS**
+
+* **Graph (in terms of `V` and `E`)**: Each vertex is visited once (`O(V)`), Each edge is explored once (`O(E)`).
+* **Tree (in terms of `n`)**: Each node is visited once.
 
 | Algorithm | Graph (`V` + `E`) | Tree (`n`) |
-|-----------|-------------------|------------|
+| --------- | ----------------- | ---------- |
 | BFS       | `O(V + E)`        | `O(n)`     |
 | DFS       | `O(V + E)`        | `O(n)`     |

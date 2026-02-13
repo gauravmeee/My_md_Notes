@@ -1,8 +1,8 @@
+# ⭐ Algo\_Important My Methods in C++
 
+### ✅ **String (C++)**
 
-## ✅ **String (C++)**
-
-### Longest Palindromic Substring
+#### Longest Palindromic Substring
 
 ```cpp
 string longestPalindrome(string s) {
@@ -29,7 +29,7 @@ string longestPalindrome(string s) {
 }
 ```
 
-### String Compression
+#### String Compression
 
 ```cpp
 string compress(string s) {
@@ -47,7 +47,7 @@ string compress(string s) {
 }
 ```
 
-### Character Frequency
+#### Character Frequency
 
 ```cpp
 void freq(string s) {
@@ -58,11 +58,11 @@ void freq(string s) {
 }
 ```
 
----
+***
 
-## ✅ **Array (C++)**
+### ✅ **Array (C++)**
 
-### QuickSort
+#### QuickSort
 
 ```cpp
 void quicksort(int arr[], int low, int high) {
@@ -77,7 +77,7 @@ void quicksort(int arr[], int low, int high) {
 }
 ```
 
-### Kth Largest Element
+#### Kth Largest Element
 
 ```cpp
 int kthLargest(vector<int>& arr, int k) {
@@ -90,7 +90,7 @@ int kthLargest(vector<int>& arr, int k) {
 }
 ```
 
-### Rotate NxN Matrix 90°
+#### Rotate NxN Matrix 90°
 
 ```cpp
 void rotate(vector<vector<int>>& mat) {
@@ -103,11 +103,11 @@ void rotate(vector<vector<int>>& mat) {
 }
 ```
 
----
+***
 
-## ✅ **Pointers & Memory (C / C++)**
+### ✅ **Pointers & Memory (C / C++)**
 
-### Swap Using Pointers
+#### Swap Using Pointers
 
 ```c
 void swap(int *a, int *b) {
@@ -117,7 +117,7 @@ void swap(int *a, int *b) {
 }
 ```
 
-### Dynamic Array Allocation
+#### Dynamic Array Allocation
 
 ```c
 void handleArray() {
@@ -129,11 +129,11 @@ void handleArray() {
 }
 ```
 
----
+***
 
-## ✅ **String (C)**
+### ✅ **String (C)**
 
-### Reverse String Without `strrev`
+#### Reverse String Without `strrev`
 
 ```c
 void reverse(char* str) {
@@ -143,11 +143,11 @@ void reverse(char* str) {
 }
 ```
 
----
+***
 
-## ✅ **Math / Logic (C++)**
+### ✅ **Math / Logic (C++)**
 
-### Fibonacci Without Recursion
+#### Fibonacci Without Recursion
 
 ```cpp
 void fib(int N) {

@@ -1,45 +1,45 @@
+# ⭐ CD\_GATE Code Optimisation
 
-### AST vs DAG vs CFG Graphs
+#### AST vs DAG vs CFG Graphs
 
-##### **Directed Acyclic Graph (DAG)** ⭐
+**Directed Acyclic Graph (DAG) ⭐**
 
-- Used for **code optimization** inside a **basic block**
-- Graph with **directed edges** and **no cycles**
-- Nodes represent variables, constants, or operations
-- Same subexpression → **single node**
-- Helps in: ⭐
-    - ==Common subexpression elimination==
-    - ==Dead code elimination==
-    - Code motion
-- Scope: **local optimization only**
-    
-##### **Abstract Syntax Tree (AST)**
+* Used for **code optimization** inside a **basic block**
+* Graph with **directed edges** and **no cycles**
+* Nodes represent variables, constants, or operations
+* Same subexpression → **single node**
+* Helps in: ⭐
+  * \==Common subexpression elimination==
+  * \==Dead code elimination==
+  * Code motion
+* Scope: **local optimization only**
 
-- Tree representation of **program syntax**    
-- Generated after parsing
-- Interior nodes → operators / constructs
-- Leaf nodes → identifiers / constants
-- Removes unnecessary grammar symbols (unlike parse tree)
-- Used for: ⭐
-    - ==Syntax analysis==
-    - ==Semantic analysis==
-    - Intermediate code generation
+**Abstract Syntax Tree (AST)**
 
-- Structure: **tree (hierarchical)**
-    
-##### **Control Flow Graph (CFG)** ⭐
+* Tree representation of **program syntax**
+* Generated after parsing
+* Interior nodes → operators / constructs
+* Leaf nodes → identifiers / constants
+* Removes unnecessary grammar symbols (unlike parse tree)
+* Used for: ⭐
+  * \==Syntax analysis==
+  * \==Semantic analysis==
+  * Intermediate code generation
+* Structure: **tree (hierarchical)**
 
-- Graph representing **flow of control**
-- Nodes → basic blocks
-- Edges → possible control transfers
-- Used for:
-    - Loop detection
-    - Reachability analysis
-    - Data flow analysis
-    - Global optimization
-- May contain **cycles** (loops)
-    
-##### **Key Differences (Exam-Oriented)**
+**Control Flow Graph (CFG) ⭐**
+
+* Graph representing **flow of control**
+* Nodes → basic blocks
+* Edges → possible control transfers
+* Used for:
+  * Loop detection
+  * Reachability analysis
+  * Data flow analysis
+  * Global optimization
+* May contain **cycles** (loops)
+
+**Key Differences (Exam-Oriented)**
 
 | Feature      | DAG                      | AST            | CFG              |
 | ------------ | ------------------------ | -------------- | ---------------- |
@@ -50,40 +50,44 @@
 | Focus        | ==Computation==          | Syntax         | Control          |
 
 **One-Line Memory Hooks**
-- **AST** → how code is written  → for ==meaning==
-- **DAG** → how expressions are optimized → for ==efficiency==
-- **CFG** → how control flows → for ==execution flow==
 
----
-### Nodes and Edges in DAG
+* **AST** → how code is written → for ==meaning==
+* **DAG** → how expressions are optimized → for ==efficiency==
+* **CFG** → how control flows → for ==execution flow==
 
-==Directed Acyclic Graph (DAG)== is used to ==represent **basic blocks**== in compiler optimization to ==eliminate redundant computations.==
-##### **Nodes**
+***
+
+#### Nodes and Edges in DAG
+
+\==Directed Acyclic Graph (DAG)== is used to ==represent **basic blocks**== in compiler optimization to ==eliminate redundant computations.==
+
+**Nodes**
 
 Each node represents:
-- A variable (leaf node)
-- A constant (leaf node)
-- An operator with operands (`+`, `-`, `*`, `/`, etc.)
-So,
-- ==**Number of nodes== = ==No. of distinct variables== + ==No. of constants== + ==No. of distinct operations**==
-- Common subexpressions share the **same node**
 
-##### Edges
+* A variable (leaf node)
+* A constant (leaf node)
+* An operator with operands (`+`, `-`, `*`, `/`, etc.) So,
+* \==**Number of nodes== = ==No. of distinct variables== + ==No. of constants== + ==No. of distinct operations**==
+* Common subexpressions share the **same node**
+
+**Edges**
 
 Edges represent **data dependency**:
-- **Directed** from ==operand → operator==
-- If an operator has `k` operands, it contributes `k` incoming edges
-So,
-- ==**Number of edges== = ==sum of operands of all operator nodes==**
-- Unary operator → 1 edge
-- Binary operator → 2 edges
+
+* **Directed** from ==operand → operator==
+* If an operator has `k` operands, it contributes `k` incoming edges So,
+* \==**Number of edges== = ==sum of operands of all operator nodes==**
+* Unary operator → 1 edge
+* Binary operator → 2 edges
 
 **Key Point**
 
 DAG minimizes nodes and edges by:
-- Merging identical subexpressions
-- Avoiding recomputation
-    
+
+* Merging identical subexpressions
+* Avoiding recomputation
+
 **Example**
 
 ```
@@ -91,8 +95,8 @@ a = b + c
 d = b + c
 ```
 
-- Nodes: `b`, `c`, `(b+c)`, `a`, `d` → **5 nodes**
-- Edges:  `b → (b+c)`, `c → (b+c)`, `(b+c) → a`, `(b+c) → d` → **4 edges**
+* Nodes: `b`, `c`, `(b+c)`, `a`, `d` → **5 nodes**
+* Edges: `b → (b+c)`, `c → (b+c)`, `(b+c) → a`, `(b+c) → d` → **4 edges**
 
 ```
       b     c
@@ -105,103 +109,110 @@ d = b + c
 
 Best view: **Fewer nodes and edges = more optimized code**
 
----
-### Data Flow Analysis & Code Optimisation
+***
 
-##### **Data Flow Analysis (DFA)** ⭐
+#### Data Flow Analysis & Code Optimisation
 
-- Technique to ==collect information about **program variables and expressions**== at different program points    
-- Performed on ==**Control Flow Graph (CFG)**==
-- Foundation for **global code optimization**
-- Based on **iterative equations** until fixed point
-    
+**Data Flow Analysis (DFA) ⭐**
+
+* Technique to ==collect information about **program variables and expressions**== at different program points
+* Performed on ==**Control Flow Graph (CFG)**==
+* Foundation for **global code optimization**
+* Based on **iterative equations** until fixed point
+
 **Basic Terms**
-- **Basic Block**: maximal sequence of statements with single entry and exit
-- **CFG Node**: basic block
-- **CFG Edge**: possible control transfer
-- ==**`IN[B]`**: information before block B==
-- ==**`OUT[B]`**: information after block B==
-- **`GEN[B]`**: information generated by block B
-- **`KILL[B]`**: information invalidated by block B
+
+* **Basic Block**: maximal sequence of statements with single entry and exit
+* **CFG Node**: basic block
+* **CFG Edge**: possible control transfer
+* \==**`IN[B]`**: information before block B==
+* \==**`OUT[B]`**: information after block B==
+* **`GEN[B]`**: information generated by block B
+* **`KILL[B]`**: information invalidated by block B
 
 **Direction of Analysis**
-- ==**Forward== Analysis**: information ==flows along control flow==  
-    Example: Available Expression    
-- ==**Backward== Analysis**: information ==flows opposite to control flow==  
-    Example: Live Variable
+
+* \==**Forward== Analysis**: information ==flows along control flow==\
+  Example: Available Expression
+* \==**Backward== Analysis**: information ==flows opposite to control flow==\
+  Example: Live Variable
 
 **Data Flow Equation (General)**
 
-- Forward:
+*   Forward:
+
     ```
     IN[B]  = ⋂ / ⋃ OUT[P]  for all predecessors P
     OUT[B] = GEN[B] ∪ (IN[B] − KILL[B])
     ```
+*   Backward:
 
-- Backward:
     ```
     OUT[B] = ⋂ / ⋃ IN[S]  for all successors S
     IN[B]  = GEN[B] ∪ (OUT[B] − KILL[B])
     ```
-    
-**Meet Operator**
-- **Union (⋃)**: may analysis
-- **Intersection (⋂)**: must analysis
 
+**Meet Operator**
+
+* **Union (⋃)**: may analysis
+* **Intersection (⋂)**: must analysis
 
 **A. ==Live Variable Analysis**== ⭐
-- ==Variable is **live**== if its ==value may be used later==
-- Type: ==**Backward analysis**==
-- Meet: ==**Union**==
-- GEN: variables used before definition
-- KILL: variables defined
-- Used for: ==**Dead Code Elimination**==
+
+* \==Variable is **live**== if its ==value may be used later==
+* Type: ==**Backward analysis**==
+* Meet: ==**Union**==
+* GEN: variables used before definition
+* KILL: variables defined
+* Used for: ==**Dead Code Elimination**==
 
 **B. Available Expression Analysis** ⭐
-- ==Expression is available== if ==already computed and not killed
-- Type: ==**Forward analysis**==
-- Meet: ==**Intersection**==
-- GEN: expressions computed
-- KILL: operands redefined
-- Used for: ==**Common Sub-expression Elimination**==
 
-##### **Code Optimization**
+* \==Expression is available== if ==already computed and not killed
+* Type: ==**Forward analysis**==
+* Meet: ==**Intersection**==
+* GEN: expressions computed
+* KILL: operands redefined
+* Used for: ==**Common Sub-expression Elimination**==
 
-- Process of improving code **without changing semantics**
-- Goal: reduce execution time, memory, power
-- Performed on **Intermediate Representation (IR)**
-    
+**Code Optimization**
+
+* Process of improving code **without changing semantics**
+* Goal: reduce execution time, memory, power
+* Performed on **Intermediate Representation (IR)**
 
 **Types of Optimization**
 
 1. **Machine Independent**
 2. **Machine Dependent**
 
-
 **A. Local Optimization**
-- Applied within a **basic block**
-- Techniques:
-    - ==Common sub-expression elimination== (via DAG)
-    - ==Constant folding==
-    - ==Dead code elimination==
+
+* Applied within a **basic block**
+* Techniques:
+  * \==Common sub-expression elimination== (via DAG)
+  * \==Constant folding==
+  * \==Dead code elimination==
 
 **B. Global Optimization**
-- Applied across **multiple basic blocks**
-- Requires **Data Flow Analysis**
-- Techniques:
-    - ==Live variable based== ==dead code elimination==
-    - Global sub-expression elimination
-    - ==Code motion== ⭐
+
+* Applied across **multiple basic blocks**
+* Requires **Data Flow Analysis**
+* Techniques:
+  * \==Live variable based== ==dead code elimination==
+  * Global sub-expression elimination
+  * \==Code motion== ⭐
 
 **C. Loop Optimization**
-- Improves frequently executed loops
-- Techniques:
-    1. ==**Loop Invariant Code Motion**==  ⭐
-    2. ==**Strength Reduction**==  ⭐
-        Example: `i * 2 → i + i` ⭐
-    3. ==**Induction Variable Elimination**== 
+
+* Improves frequently executed loops
+* Techniques:
+  1. \==**Loop Invariant Code Motion**== ⭐
+  2. \==**Strength Reduction**== ⭐ Example: `i * 2 → i + i` ⭐
+  3. \==**Induction Variable Elimination**==
 
 **Techniques:** ⭐⭐
+
 1. **Dead Code Elimination** – Removes statements whose results are never used (based on live variable analysis)
 2. **Common Sub-Expression Elimination** – Computes an expression once and reuses its value instead of recomputing
 3. **Loop Invariant Code Motion** – Moves computations that do not change inside a loop to outside the loop
@@ -215,15 +226,15 @@ Best view: **Fewer nodes and edges = more optimized code**
 11. **Unreachable Code Elimination** – Removes code that can never be executed
 12. **Peephole Optimization** – Performs small local optimizations on a short sequence of instructions
 
-##### **GATE Focus Points**
+**GATE Focus Points**
 
-- Direction of analysis
-- Meet operator choice
-- GEN/KILL construction
-- Mapping:  
-    DFA → enables optimization  
-    Optimization → improves performance
+* Direction of analysis
+* Meet operator choice
+* GEN/KILL construction
+* Mapping:\
+  DFA → enables optimization\
+  Optimization → improves performance
 
 **One-Line Memory Rule**
 
-- **CFG + DFA = Global Optimization**
+* **CFG + DFA = Global Optimization**

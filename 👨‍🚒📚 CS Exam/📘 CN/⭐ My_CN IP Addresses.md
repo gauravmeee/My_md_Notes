@@ -1,9 +1,11 @@
+# ⭐ My\_CN IP Addresses
 
 IP address network classifications are divided into **five classes (A, B, C, D, and E)** based on their **first few bits** and **value range**.
 
 IP Address `xxxxxxxx`.`xxxxxxxx`.`xxxxxxxx`.`xxxxxxxx` (32 bits)
 
 00000000 = 0 and 11111111 = 255
+
 ```
 [ Network id | Host id ]
 Below we enclose network bit's inside '()' like (xxxxx)
@@ -41,7 +43,6 @@ D : 224.0.0.0 - 239.255.255.255
 E : 240.0.0.0 - 255.255.255.255
 ```
 
-
 | Class | First Bits | Starting IP Range | Ending IP Range     | Default Subnet Mask | No. of Hosts |
 | ----- | ---------- | ----------------- | ------------------- | ------------------- | ------------ |
 | **A** | 0xxxxxxx   | **1.0.0.0**       | **127.255.255.255** | 255.0.0.0           | 16,777,214   |
@@ -50,10 +51,10 @@ E : 240.0.0.0 - 255.255.255.255
 | **D** | 1110xxxx   | **224.0.0.0**     | **239.255.255.255** | N/A (Multicast)     | N/A          |
 | **E** | 1111xxxx   | **240.0.0.0**     | **255.255.255.255** | N/A (Reserved)      | N/A          |
 
-### Key Points:
+#### Key Points:
 
-- **Class A**: Used for **large networks** (Governments, Large Orgs)
-- **Class B**: Used for **medium-sized networks**
-- **Class C**: Used for **small networks** (Most common for businesses)
-- **Class D**: Used for **Multicasting** (No subnetting)
-- **Class E**: Reserved for **Experimental** purposes
+* **Class A**: Used for **large networks** (Governments, Large Orgs)
+* **Class B**: Used for **medium-sized networks**
+* **Class C**: Used for **small networks** (Most common for businesses)
+* **Class D**: Used for **Multicasting** (No subnetting)
+* **Class E**: Reserved for **Experimental** purposes

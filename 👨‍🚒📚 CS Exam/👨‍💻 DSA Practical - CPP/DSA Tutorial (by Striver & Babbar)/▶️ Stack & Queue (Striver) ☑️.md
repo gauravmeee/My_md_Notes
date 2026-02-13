@@ -1,8 +1,9 @@
+# ▶️ Stack & Queue (Striver) ☑️
 
-Stack - LIFO (Last in First Out) : 
-Queue - FIFO (First in First Out)
+Stack - LIFO (Last in First Out) : Queue - FIFO (First in First Out)
 
 **Stack Operations in C++**
+
 ```cpp
 #include <stack>
 stack<int> st;
@@ -14,6 +15,7 @@ st.empty();      // check if empty
 ```
 
 **Queue Operations in C++**
+
 ```cpp
 #include <queue>
 queue<int> q;
@@ -24,10 +26,12 @@ q.pop();         // remove front element
 q.empty();       // check if empty
 ```
 
----
-# Implementation of Stack using Arrays
+***
+
+## Implementation of Stack using Arrays
 
 Example:
+
 ```
 arr[5] = [  |  |  |  |  ]
 ```
@@ -63,11 +67,10 @@ pop(): top--
 	  <- top
 ```
 
-`top` :Index from which element will be popped
-`top+1` : Index where next element will be pushed
-`top+1` number of element stored in Stack
+`top` :Index from which element will be popped `top+1` : Index where next element will be pushed `top+1` number of element stored in Stack
 
-*Pseudocode:*
+_Pseudocode:_
+
 ```cpp
 arr[5] // array to be used as stack
 top = -1 // index of the last elment
@@ -98,14 +101,16 @@ isempty(){
 }
 ```
 
-more functions `Print stack`, 
+more functions `Print stack`,
 
----
-# Implementation of Queue using Arrays
+***
+
+## Implementation of Queue using Arrays
 
 Here we are using circular array
-- Circular array can easily be done using `rear%Array.size`. i.e **Modulo-n Concept**
-- Let array Size `n=3`
+
+* Circular array can easily be done using `rear%Array.size`. i.e **Modulo-n Concept**
+* Let array Size `n=3`
 
 ```
 rear < n
@@ -120,16 +125,17 @@ rear < n
 ```
 
 Example:
+
 ```
 arr[3] = [  |  |  |  |  ]
 n = 3
 ```
 
-- `f `: front
-- `r` : rear
-- `c` : count
+* `f` : front
+* `r` : rear
+* `c` : count
 
-```  
+```
 [   |   |   ] c=0
   f
   r
@@ -163,12 +169,10 @@ push(5): arr[r%3]=arr[0]=5, r++, c++
 	       f   r=4
 ```
 
+`front`: Index from which element will be popped (In stack `top`) `rear` : Index where next element will be pushed (In stack `top+1`) `count` : number of element stored in queue (In stack `top+1`)
 
-`front`: Index from which element will be popped (In stack `top`)
-`rear` : Index where next element will be pushed (In stack `top+1`)
-`count` : number of element stored in queue (In stack `top+1`)
+_Pseudocode:_
 
-*Pseudocode:*
 ```cpp
 arr[5] // array to be used as 
 n = 5
@@ -239,19 +243,20 @@ int front(){
 
 > ☑️ 22-04-2025 Revised Upto here
 
----
-# Implement Stack Using Queue
+***
 
-### Approach 1:  2 queue -> stack ⭐
+## Implement Stack Using Queue
+
+#### Approach 1: 2 queue -> stack ⭐
 
 Steps:
-- push(x)
-	1.  Add x -> q2
-	2. q1 -> q2 (element by element from top)
-	3. swap( q1 <-> q2)
-- pop()
-	 1. Remove the front element of q1
-	 
+
+* push(x)
+  1. Add x -> q2
+  2. q1 -> q2 (element by element from top)
+  3. swap( q1 <-> q2)
+* pop()
+  1. Remove the front element of q1
 
 ```
 |   |  |   |
@@ -294,7 +299,8 @@ pop()  -> remove last added element (queues front element)
 Top: queue.front() -> 3
 ```
 
-*Pseudocode:*
+_Pseudocode:_
+
 ```cpp
 Push(x){
 	q2.push(x)
@@ -314,20 +320,19 @@ Top(){
 }
 ```
 
-<Ins>Time Complexity :</ins>  TC:`O(n)`
-push(x) Swapping/pushing `n` element from `q2` to `q1` -> O(n)
+Time Complexity : TC:`O(n)` push(x) Swapping/pushing `n` element from `q2` to `q1` -> O(n)
 
-<Ins>Space Complexity :</ins>   SC:`O(2n)`
-2 Queue -> O(2n)
-1 more variable using to Swap -> O(1)
-### Approach 2: 1 queue -> stack (Optimised)
+Space Complexity : SC:`O(2n)` 2 Queue -> O(2n) 1 more variable using to Swap -> O(1)
+
+#### Approach 2: 1 queue -> stack (Optimised)
 
 Steps:
-- push(x)
-	1.  Add x -> q1
-	2. q1 : move `size-1` element from front one by one (i.e push the adding element to front)
-- pop()
-	 1. Remove the front : q.pop()
+
+* push(x)
+  1. Add x -> q1
+  2. q1 : move `size-1` element from front one by one (i.e push the adding element to front)
+* pop()
+  1. Remove the front : q.pop()
 
 ```
 push(3)     add 3->q1    move front `size-1=0` element to back
@@ -358,7 +363,8 @@ pop()  -> remove last added element (queues front element)
 Top(): queue.front() -> 2
 ```
 
-*Pseudocode:*
+_Pseudocode:_
+
 ```cpp
 Push(x){
 	q.push(x)
@@ -377,24 +383,24 @@ Top(){
 }
 ```
 
-<Ins>Time Complexity :</ins>  TC:`O(n)`
-push `size-1` or `n-1` front elment to back -> O(n)
+Time Complexity : TC:`O(n)` push `size-1` or `n-1` front elment to back -> O(n)
 
-<Ins>Space Complexity :</ins>   SC:`O(n)`
-1 Queue -> O(n)
+Space Complexity : SC:`O(n)` 1 Queue -> O(n)
 
----
-# Implement Queue using Stack
+***
 
-### Approach 1: 2 Stack -> queue ⭐
+## Implement Queue using Stack
+
+#### Approach 1: 2 Stack -> queue ⭐
 
 Steps:
-- push(x)
-	1.  s1 -> s2 (element by element from back)
-	2. add x-> s1
-	3. s2 -> s1 (element by element from back)
-- pop()
-	 1. Remove the top: s.pop()
+
+* push(x)
+  1. s1 -> s2 (element by element from back)
+  2. add x-> s1
+  3. s2 -> s1 (element by element from back)
+* pop()
+  1. Remove the top: s.pop()
 
 ```
 
@@ -430,32 +436,20 @@ Front(): stack.top() -> 3
 
 ```
 
-<Ins>Time Complexity :</ins>  TC:`O(n)`
-push(x) Swapping/pushing `n` element from `s2` to `s1` and then `s1` to `s2` -> O(2n)
+Time Complexity : TC:`O(n)` push(x) Swapping/pushing `n` element from `s2` to `s1` and then `s1` to `s2` -> O(2n)
 
-<Ins>Space Complexity :</ins>   SC:`O(2n)`
-2 Stack -> O(2n)
-### Approach 2: 1 Stack -> queue (Optimized)
+Space Complexity : SC:`O(2n)` 2 Stack -> O(2n)
+
+#### Approach 2: 1 Stack -> queue (Optimized)
 
 Steps:
-- push(x)
-	1. add x-> input
-- pop()
-	 1. if(output not empty){
-			output.pop()
-	     } 
-		else(){
-			input -> output (from back one by one)
-			output.pop()
-		 }
-- top()
-	1. if(output not empty){
-			return output.front()
-		 }
-	  else(){
-		  input -> output (from back one by one)
-		  output.top()
-	     }
+
+* push(x)
+  1. add x-> input
+* pop()
+  1. if(output not empty){ output.pop() } else(){ input -> output (from back one by one) output.pop() }
+* top()
+  1. if(output not empty){ return output.front() } else(){ input -> output (from back one by one) output.top() }
 
 ```
 push(2)            add 2-> input
@@ -507,7 +501,8 @@ output.pop() -> 5
 input  output      input   output
 ```
 
-*Pseudocode:*
+_Pseudocode:_
+
 ```cpp
 Push(x){
 	input.push(x)
@@ -526,27 +521,20 @@ Pop(){
 }
 ```
 
-<Ins>Time Complexity :</ins>  TC:`O(1)`
-Push -> O(1)
-Pop -> O(1) Amortised ~ Average
-Because in most of the cases TC->O(n) except some/very few with O(n).
+Time Complexity : TC:`O(1)` Push -> O(1) Pop -> O(1) Amortised \~ Average Because in most of the cases TC->O(n) except some/very few with O(n).
 
-<Ins>Space Complexity :</ins>   SC:`O(n)`
- 1 Stack -> O(n)
+Space Complexity : SC:`O(n)` 1 Stack -> O(n)
 
+***
 
----
+## **My Doubt Clearing Notes ⭐**
 
+**2 Queue to Stack**
 
-# **My Doubt Clearing Notes ⭐**
-
-
-##### **2 Queue to Stack**
-
-- In both Stack and Queue, **push** works normally.
-- For **pop()**, Queue removes the **first added** element (FIFO), but Stack should remove the **last added** element (LIFO).
-- So, to convert Queue to Stack:  
-    → **Take `front()` to act as `top()`**
+* In both Stack and Queue, **push** works normally.
+* For **pop()**, Queue removes the **first added** element (FIFO), but Stack should remove the **last added** element (LIFO).
+* So, to convert Queue to Stack:\
+  → **Take `front()` to act as `top()`**
 
 ```mysql
 Push 1, 2, 3, 4
@@ -561,6 +549,7 @@ So we need to reverse the order
 ```
 
 Push `1` to `q2`
+
 ```
 1. Move all from q1 → q2
 
@@ -579,6 +568,7 @@ Push `1` to `q2`
 ```
 
 Push `2` to `q2`
+
 ```
 1. Move all from q1 → q2
 
@@ -598,15 +588,16 @@ Push `2` to `q2`
   1
 [q1] ← [q2]
 ```
+
 → And so on...
 
-##### **2 Stack to Queue**
+**2 Stack to Queue**
 
-- In both Stack and Queue, **push** works normally.
-- For **pop()**, Stack removes the **last added** element (LIFO), but Queue should remove the **first added** element (FIFO).
-- So, to convert Stack to Queue:  
-    → **Take `top()` to act as `front()`**
-    
+* In both Stack and Queue, **push** works normally.
+* For **pop()**, Stack removes the **last added** element (LIFO), but Queue should remove the **first added** element (FIFO).
+* So, to convert Stack to Queue:\
+  → **Take `top()` to act as `front()`**
+
 ```
 Push 1, 2, 3, 4
 Stack pop order will be:     4, 3, 2, 1
@@ -621,6 +612,7 @@ Continous insert allowed
 ```
 
 Push `1`, `2`, `3`, `4` in s2
+
 ```
        ↓
        4
@@ -637,10 +629,11 @@ Now move all s2 → s1
   4  
 [s1] ← [s2]
 ```
+
 → Now pop() from `s1` gives Queue order ✅
 
+Bit Better Approach (Striver). If last added element should go to bottom, Then don't push into s2 first and then reverse. Directly insert it in bottom via s1 itself.
 
-Bit Better Approach (Striver). If last added element should go to bottom,  Then don't push into s2 first and then reverse.  Directly insert it in bottom via s1 itself.
 ```
 Already in s2 → 1
 Push 2 → insert in bottom of s1
@@ -668,16 +661,16 @@ Now move all s1 → s2
 
 → Now pop from `s1` gives Queue order ✅
 
-##### **1 Queue to 1 Stack**
+**1 Queue to 1 Stack**
 
-- In both, **push** is normal.
-- But Queue is **FIFO**, Stack is **LIFO**,
-- So we want to reverse the order while popping  
-    → **Take `front()` to act as `top()`**
-- Reverse the queue using recursion or loop and store in stack style
-    
+* In both, **push** is normal.
+* But Queue is **FIFO**, Stack is **LIFO**,
+* So we want to reverse the order while popping\
+  → **Take `front()` to act as `top()`**
+* Reverse the queue using recursion or loop and store in stack style
 
 Example:
+
 ```mysql
 Initial Queue:     1 → 2 → 3 → 4
 
@@ -686,6 +679,7 @@ We want stack pop order:      4, 3, 2, 1
 ```
 
 Reverse via Recursion:
+
 ```mysql
 1. Pop front element → Hold it
 2. Recurse on rest of queue
@@ -699,22 +693,23 @@ Recursive reverse(q):
 ```
 
 Final:
+
 ```mysql
 Queue (after reverse): 4 → 3 → 2 → 1
 
 Now pop() behaves like Stack ✅
 ```
 
+**1 Stack to 1 Queue**
 
-##### **1 Stack to 1 Queue**
+* Again, **push** is normal
+* Stack is **LIFO**, Queue is **FIFO**
+* So we want to reverse the order while popping\
+  → **Take `top()` to act as `front()`**
+* Reverse the stack and use queue to store
 
-- Again, **push** is normal
-- Stack is **LIFO**, Queue is **FIFO**
-- So we want to reverse the order while popping  
-    → **Take `top()` to act as `front()`**
-- Reverse the stack and use queue to store
-    
 Example:
+
 ```mysql
 Initial Stack (top ↓):
 4
@@ -727,6 +722,7 @@ We want queue order:     1, 2, 3, 4
 ```
 
 Reverse using Recursion:
+
 ```mysql
 1. Pop top element → Hold it
 2. Recurse on rest of stack
@@ -746,6 +742,7 @@ Function insertAtBottom(s, x):
 ```
 
 After Reverse:
+
 ```mysql
 Stack: 1 (top), then 2, 3, 4
 Transfer to queue:
@@ -753,9 +750,9 @@ Transfer to queue:
 Queue: 1 → 2 → 3 → 4 ✅
 ```
 
+***
 
----
-# Valid Pranthesis
+## Valid Pranthesis
 
 ```
 Valid
@@ -782,7 +779,7 @@ s = [ ( ] ) one `(` inside a `[]` pari |  one `]` inside a pair `( )`
       ^   ^
 ```
 
-Approach to check if parentheses valid or not?  (using `stack` )
+Approach to check if parentheses valid or not? (using `stack` )
 
 ```
 s = [ ( ) [ { ( ) } ] ]
@@ -865,7 +862,8 @@ s = ] ( )
 Did't find opeining (top()==`{`) one for `}` -> not balanced X
 ```
 
-*CPP Code: *
+\*CPP Code: \*
+
 ```cpp
 stack <int> st;
 for(i=0; i<n; i++){
@@ -881,5 +879,4 @@ if(st.empty()) return true;
 return false;
 ```
 
-<Ins>Time Complexity :</ins>  TC:`O(n)`
-<Ins>Space Complexity :</ins>   SC:`O(n)`
+Time Complexity : TC:`O(n)` Space Complexity : SC:`O(n)`
