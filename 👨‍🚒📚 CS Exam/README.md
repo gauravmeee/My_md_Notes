@@ -9,6 +9,58 @@ icon: book-open-lines
 
 
 
+{% content-ref url="dbms-practical-sql/" %}
+[dbms-practical-sql](dbms-practical-sql/)
+{% endcontent-ref %}
+
+{% content-ref url="dsa-practical-cpp/" %}
+[dsa-practical-cpp](dsa-practical-cpp/)
+{% endcontent-ref %}
+
+{% content-ref url="dbms-theory/" %}
+[dbms-theory](dbms-theory/)
+{% endcontent-ref %}
+
+{% content-ref url="dsa-theory/" %}
+[dsa-theory](dsa-theory/)
+{% endcontent-ref %}
+
+{% content-ref url="oops/" %}
+[oops](oops/)
+{% endcontent-ref %}
+
+{% content-ref url="coa/" %}
+[coa](coa/)
+{% endcontent-ref %}
+
+{% content-ref url="os/" %}
+[os](os/)
+{% endcontent-ref %}
+
+{% content-ref url="cn/" %}
+[cn](cn/)
+{% endcontent-ref %}
+
+{% content-ref url="toc/" %}
+[toc](toc/)
+{% endcontent-ref %}
+
+{% content-ref url="cd/" %}
+[cd](cd/)
+{% endcontent-ref %}
+
+{% content-ref url="de/" %}
+[de](de/)
+{% endcontent-ref %}
+
+{% content-ref url="dm/" %}
+[dm](dm/)
+{% endcontent-ref %}
+
+{% content-ref url="em/" %}
+[em](em/)
+{% endcontent-ref %}
+
 ### Coursework & Hands-on Notes
 
 {% tabs %}
