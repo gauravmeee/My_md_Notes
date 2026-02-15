@@ -91,12 +91,12 @@ layout:
 * 📔 DSA
 * 📕 OOPS
 * 📕 Operating Systems
-* 📗 Computer Networks
-* 📗 Compiler Design
-* 📗 Computer Organization & Architecture
-* 📗 Digital Electronics
-* 📘 Discrete Mathematics
-* 📘 Engineering Mathematics
+* 📘 Computer Networks
+* 📘 Compiler Design
+* 📘 Computer Organization & Architecture
+* 📘 Digital Electronics
+* 📚 Discrete Mathematics
+* 📚 Engineering Mathematics
 
 {% hint style="info" %}
 • Notes focus on **important and frequently asked topics**, not full textbooks\
