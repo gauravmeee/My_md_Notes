@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Exam-Grade Notes (PSU • GATE • DSA)](README.md)
+* [My Core CS & DSA Notes](README.md)
 * [My Phone Notes](<My Phone Notes.md>)
 * [Exams](exams/README.md)
   * [SJVN 2019 Executive Trainee PYQ](<Exams/SJVN 2019 Executive Trainee PYQ.md>)

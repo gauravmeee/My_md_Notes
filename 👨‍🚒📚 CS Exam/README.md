@@ -1,81 +1,112 @@
 ---
-description: Fast revision + concept clarity for PSU exams, GATE, and software interviews.
+description: >-
+  Fast revision + concept clarity for PSU exams, GATE, DSA and software
+  interviews.
 icon: book-open-lines
 ---
 
-# Exam-Grade Notes (PSU • GATE • DSA)
+# My Core CS & DSA Notes
 
-**What this contains**\
-• DBMS Practical (SQL): Important queries, patterns, interview-grade questions\
-• DSA Practical (C++): Core algorithms, patterns, methods, quick logic\
-• Subject-wise core CS notes: DBMS, DSA, OOPS, OS, CN, CD, COA, DE, DM, EM\
-• Tutorial-based notes from Striver, Love Babbar, and other reliable sources\
-• Doubts-clearing notes + traps + exam-important points
 
-**Philosophy**\
-• Revision-first, not textbook\
-• Only what is asked in exams/interviews\
-• Clear, compact, and continuously improved
 
-**Status**\
-Notes are **actively updated** as learning progresses. Grow together.
+### Coursework & Hands-on Notes
 
-#### Main Page (Landing Page) Structure
+{% tabs %}
+{% tab title="Subject Notes" %}
+> Focused on important topics for **GATE, PSU Exams**
 
-**1. Start Here**\
-\- How to use these notes\
-\- Who these notes are for\
-\- How to revise in minimum time
+* 📔 DBMS
+* 📔 DSA
+* 📕 OOPS
+* 📕 Operating Systems
+* 📗 Computer Networks
+* 📗 Compiler Design
+* 📗 Computer Organization & Architecture
+* 📗 Digital Electronics
+* 📘 Discrete Mathematics
+* 📘 Engineering Mathematics
 
-**2. DSA Practical (C++)**\
-\- Arrays, Strings, Recursion\
-\- Linked List, Stack, Queue\
-\- Trees, Graphs, DP\
-\- Patterns + Interview Logic
+{% hint style="info" %}
+• Notes focus on **important and frequently asked topics**, not full textbooks\
+• Some subjects/sections are **complete or near-complete**\
+• Remaining topics are **continuously added and improved** as learning progresses
+{% endhint %}
+{% endtab %}
 
-**3. DBMS Practical (SQL)**\
-\- Basic to advanced queries\
-\- Joins, Subqueries, Indexing\
-\- PSU/GATE-oriented questions
+{% tab title="Practical Notes" %}
+> Hands-on clarity and fast revision for **software Engineering interviews**.
 
-**4. Core CS Subjects**\
-\- DBMS (Theory)\
-\- OS\
-\- CN\
-\- OOPS\
-\- COA\
-\- CD\
-\- DE, DM, EM
+* 👨‍💻 DBMS Practical (SQL)
+* 👨‍💻 DSA Practical (C++)
 
-**5. Tutorial Notes**\
-• Striver DSA Notes\
-• Love Babbar Notes\
-• Other clarified resources
+{% hint style="info" %}
+Focused on **important and commonly used practical topics**, not exhaustive coverage\
+• Some practical sections are **complete or near-complete**\
+• Remaining practical topics are **continuously updated** as learning progresses
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 
-**6. Quick Revision Zone**\
-• One-page summaries\
-• Last-day revision points
+### Types of Content Included
 
-**7. Doubts & Tricky Concepts**\
-• Common confusions\
-• Mistakes to avoid
+<details>
 
-**8. Updates & Roadmap**\
-• Recently added topics\
-• What’s coming next
+<summary><strong>1. Tutorial-Based Notes</strong></summary>
 
-#### GitBook Features to Make Main Page Sharp
+• Notes derived from **Striver**, **Love Babbar**, **Code With Harry**, and other reliable sources\
+• Only important explanations, patterns, and takeaways\
+• Simplified and rewritten for clarity and revision
 
-• **Callout blocks** → “Exam Tip”, “Interview Trap”, “Must Remember”\
-• **Tabs** → Switch between GATE / PSU / Interview focus\
-• **Page icons & emojis (minimal)** → Faster visual scanning\
-• **Summary pages** → Auto-generated TOC for each subject\
-• **Internal backlinks** → Connect theory ↔ DSA ↔ SQL\
-• **Version history** → Show learning evolution\
-• **Pinned pages** → Keep “Quick Revision” always visible
+</details>
 
-#### Strong Final Advice
+<details>
 
-Treat this GitBook like a **personal standard reference**, not notes dump.\
-Consistency + structure > volume.\
-This format is scalable, exam-ready, and interview-serious.
+<summary><strong>2. Practical &#x26; Exam-Focused Notes</strong></summary>
+
+• DBMS practical notes (SQL topics, queries, patterns, questions)\
+• DSA practical notes in C++ (algorithms, data structures, methods)\
+• Exam-asked and interview-relevant points only
+
+</details>
+
+<details>
+
+<summary><strong>3. Quick Revision Notes</strong></summary>
+
+• One-page summaries per topic\
+• Condensed formulas, logic, and steps\
+• Suitable for last-day and last-week revision
+
+</details>
+
+<details>
+
+<summary><strong>4. Doubts &#x26; Tricky Concepts</strong></summary>
+
+• Common confusions faced while learning\
+• Conceptual traps and edge cases\
+• Mistakes frequently made in exams/interviews
+
+</details>
+
+<details>
+
+<summary><strong>5. Important Points Collection</strong></summary>
+
+• Repeatedly asked exam points\
+• Short notes for fast recall\
+• Not full theory, only high-yield content
+
+</details>
+
+<details>
+
+<summary><strong>6. Updates &#x26; Learning Roadmap</strong></summary>
+
+• Recently added or updated topics\
+• Ongoing sections clearly evolving\
+• Topics planned to be added next
+
+</details>
+
+####
