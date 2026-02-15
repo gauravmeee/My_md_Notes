@@ -33,9 +33,9 @@ layout:
 
 **Sorting - II**
 
-| \[\[#^4]] | Merge Sort | Algorithm | ✅ | A2Z🟠 |
-| --------- | ---------- | --------- | - | ----- |
-| \[\[#^5]] | Quick Sort | Algorithm | ✅ | A2Z🟢 |
+| \[\[#^4]] | Merge Sort | Algorithm | ✅   | A2Z🟠 |
+| --------- | ---------- | --------- | --- | ----- |
+| \[\[#^5]] | Quick Sort | Algorithm | ✅   | A2Z🟢 |
 
 ***
 
