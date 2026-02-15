@@ -1,9 +1,33 @@
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
+# ⭐💡 MY\_SQL Problems Solutions Easy
 
-## Q. report the first name, last name, city, and state of each person in the `Person` table. If the address of a `personId` is not present in the `Address` table, report `null` instead.
+## <mark style="color:$success;">**SQL Basic Problems & Solutions**</mark>
 
+***
+
+### Q. report the first name, last name, city, and state of each person in the `Person` table. If the address of a `personId` is not present in the `Address` table, report `null` instead.
 
 **Input**
+
 ```
 Person
 +----------+----------+-----------+
@@ -16,13 +40,14 @@ Address
 ```
 
 **Output**
+
 ```
 +-----------+----------+---------------+----------+
 | firstName | lastName | city          | state    |
 +-----------+----------+---------------+----------+
 ```
 
-#### Solution.
+**Solution.**
 
 ```mysql
 Select p.firstName, p.lastName, a.city, a.state
@@ -30,27 +55,28 @@ Select p.firstName, p.lastName, a.city, a.state
     LEFT JOIN Address a ON p.personId=a.personId;
 -- ✅
 ```
+
 OR
 
-```Mysql
+```mysql
 Select p.firstName, p.lastName, a.city, a.state
 	FROM Person p
 	NATURAL LEFT JOIN Address a;
 -- ✅
 ```
 
-if `FULL OUTER JOIN` ❌ Extra Right Table  `Address` data, for which  `Person` not exist in  Left Table
-if `RIGHT JOIN` ❌ Missed Left table `Person` data, for which `Address` not exist in Right Table
-IF `LEFT JOIN` ✅
+if `FULL OUTER JOIN` ❌ Extra Right Table `Address` data, for which `Person` not exist in Left Table if `RIGHT JOIN` ❌ Missed Left table `Person` data, for which `Address` not exist in Right Table IF `LEFT JOIN` ✅
 
----
-## Q. Write a solution to find the second highest **distinct** salary from the `Employee` table. If there is no second highest salary, return `null (return None in Pandas)`.
+***
+
+### Q. Write a solution to find the second highest **distinct** salary from the `Employee` table. If there is no second highest salary, return `null (return None in Pandas)`.
 
 The result format is in the following example.
 
 **Example 1:**
 
-**Input:** 
+**Input:**
+
 ```
 Employee table:
 +----+--------+
@@ -62,7 +88,8 @@ Employee table:
 +----+--------+
 ```
 
-**Output:** 
+**Output:**
+
 ```
 +---------------------+
 | SecondHighestSalary |
@@ -73,18 +100,20 @@ Employee table:
 
 **Solution:**
 
-Order by (sort) salaries in descending order,  and skips the first  (`OFFSET 1`), then Fetch the Top value (`LIMIT 1`) i.e. 2nd Largest
-```Mysql
+Order by (sort) salaries in descending order, and skips the first (`OFFSET 1`), then Fetch the Top value (`LIMIT 1`) i.e. 2nd Largest
+
+```mysql
 Select salary as SecondHighestSalary  from Employee
 Order by Salary DESC
 LIMIT 1 OFFSET 1 # Offset N-1 = 2nd -1 = 1
 
 -- ❌ If Second Highest Salary Not Exist, It doesnot Return `NULL`
 -- ⬇️ 
- ```
+```
 
 If `N` exceeds the number of rows, the subquery returns `NULL`.
-``` MySQL
+
+```mysql
 Select (Select salary  from Employee
 Order by Salary DESC
 LIMIT 1 OFFSET 1) as SecondHighestSalary
@@ -93,19 +122,21 @@ LIMIT 1 OFFSET 1) as SecondHighestSalary
 -- ⬇️
 ```
 
-use the `DISTINCT` keyword 
-```Mysql
+use the `DISTINCT` keyword
+
+```mysql
 Select (Select Distinct salary  from Employee
 Order by Salary DESC
 LIMIT 1 OFFSET 1) as SecondHighestSalary
 -- ✅
 ```
 
----
-## Q. Write a solution to find the employees who earn more than their managers.
+***
 
+### Q. Write a solution to find the employees who earn more than their managers.
 
-**Input:** 
+**Input:**
+
 ```
 Employee table:
 +----+-------+--------+-----------+
@@ -118,7 +149,8 @@ Employee table:
 +----+-------+--------+-----------+
 ```
 
-**Output:** 
+**Output:**
+
 ```
 +----------+
 | Employee |
@@ -130,7 +162,8 @@ Employee table:
 **Solutions:**
 
 Without using join (My 😃)
-```Mysql
+
+```mysql
 Select name as Employee 
 	from employee e1 
 	where salary > (Select salary 
@@ -139,6 +172,7 @@ Select name as Employee
 ```
 
 using join (GPT 🤖)
+
 ```mysql
 SELECT e1.name AS Employee
 FROM Employee e1
@@ -147,13 +181,12 @@ JOIN Employee e2
 WHERE e1.salary > e2.salary;
 ```
 
----
+***
 
+#### Q. Write a solution to report all the duplicate emails. Note that it's guaranteed that the email field is not NULL.
 
-### Q. Write a solution to report all the duplicate emails. Note that it's guaranteed that the email field is not NULL.
+**Input:**
 
-
-**Input:** 
 ```
 Person table:
 +----+---------+
@@ -177,7 +210,8 @@ Person table:
 **Solution:**
 
 using `Join` (My 😃)
-```Mysql
+
+```mysql
 Select Distinct p1.email as Email
 from Person p1
 join Person p2
@@ -186,6 +220,7 @@ where p1.email=p2.email;
 ```
 
 Using `Group` and `Having` (GPT 🤖)
+
 ```mysql
 SELECT email
 FROM Person
@@ -193,16 +228,16 @@ GROUP BY email
 HAVING COUNT(email) > 1;
 ```
 
----
+***
 
-### Q. Write a solution to find all customers who never order anything.
+#### Q. Write a solution to find all customers who never order anything.
 
 > Left Join ⭐
 
-
 **Example 1:**
 
-**Input:** 
+**Input:**
+
 ```
 Customers table:
 +----+-------+
@@ -225,7 +260,8 @@ Orders table:
 +----+------------+
 ```
 
-**Output:** 
+**Output:**
+
 ```
 +-----------+
 | Customers |
@@ -238,6 +274,7 @@ Orders table:
 **Solution:**
 
 My + gpt same 😃
+
 ```mysql
 Select name as Customers
 from customers c
@@ -246,20 +283,20 @@ left join orders o
     where customerId IS NULL; # or `o.id IS NULL`
 ```
 
-**Learnings:**
-`customerId = NULL` ❌
-`customerId IS NULL` ✅
+**Learnings:** `customerId = NULL` ❌ `customerId IS NULL` ✅
 
----
+***
 
-### Q. Write a solution to **delete** all duplicate emails, keeping only one unique email with the smallest `id`. ⭐
+#### Q. Write a solution to **delete** all duplicate emails, keeping only one unique email with the smallest `id`. ⭐
+
 > `delete`
 
-Note:  write a `DELETE` statement and not a `SELECT` one.
+Note: write a `DELETE` statement and not a `SELECT` one.
 
 **Example 1:**
 
-**Input:** 
+**Input:**
+
 ```
 Person table:
 +----+------------------+
@@ -271,7 +308,8 @@ Person table:
 +----+------------------+
 ```
 
-**Output:** 
+**Output:**
+
 ```
 +----+------------------+
 | id | email            |
@@ -284,6 +322,7 @@ Person table:
 **Solution:**
 
 `using` Conditional Join
+
 ```mysql
 DELETE p1
 FROM person p1
@@ -293,6 +332,7 @@ JOIN person p2
 ```
 
 using `Where` on Cross Join
+
 ```mysql
 Delete p2
 from person p1
@@ -301,17 +341,18 @@ where p1.email=p2.email AND p2.id>p1.id
 ```
 
 In case we have to write `select` statement
+
 ```mysql
 Select MIN(id), email from person group by email
 ```
 
----
+***
 
-### Q. Write a solution to find all dates' `id` with higher temperatures compared to its previous dates (yesterday).
+#### Q. Write a solution to find all dates' `id` with higher temperatures compared to its previous dates (yesterday).
 
 **Example 1:**
 
-**Input:** 
+**Input:**
 
 ```
 Weather table:
@@ -325,7 +366,8 @@ Weather table:
 +----+------------+-------------+
 ```
 
-**Output:** 
+**Output:**
+
 ```
 +----+
 | id |
@@ -338,13 +380,15 @@ Weather table:
 **Solutions:**
 
 Without using `DATE_ADD()` OR `DATE_SUB` (My Ans)
-```Mysql
+
+```mysql
 Select w2.id from weather w1
 join weather w2
 on (w1.recordDate=w2.recordDate - INTERVAL 1 day) AND w2.temperature>w1.temperature;
 ```
 
 Using `DATE_SUB()`
+
 ```mysql
 SELECT w1.id
 FROM Weather w1
@@ -355,28 +399,30 @@ WHERE w1.temperature > w2.temperature;
 ```
 
 **Learnings ⭐**
+
 ```mysql
 SELECT CURDATE()-1 ; # ERROR ❌
 ```
 
 Previous Day
-```MYSQL
+
+```mysql
 SELECT CURDATE() - INTERVAL 1 DAY; # previous day ✅
 # or
 SELECT DATE_SUB(CURDATE(), INTERVAL 1 DAY); # Using Subtract previous day ✅
 ```
 
 Next Day
-```MYSQL
+
+```mysql
 SELECT CURDATE() + INTERVAL 1 DAY; # Next day ✅
 # or
 SELECT DATE_ADD(CURDATE(), INTERVAL 1 DAY); # Using Add Next day ✅
 ```
 
+***
 
----
-
-### Q. Write a solution to find, for each `event_type` registered **more than once**, the difference between the **latest** and **second latest** value (based on `time`). Return the result ordered by `event_type`. ⭐⭐
+#### Q. Write a solution to find, for each `event_type` registered **more than once**, the difference between the **latest** and **second latest** value (based on `time`). Return the result ordered by `event_type`. ⭐⭐
 
 **Table Schema:**
 
@@ -415,9 +461,9 @@ CREATE TABLE events (
 +------------+--------+
 ```
 
----
+***
 
-### Solution (Using `ROW_NUMBER()`):
+#### Solution (Using `ROW_NUMBER()`):
 
 ```sql
 WITH ranked_events AS (
@@ -443,23 +489,27 @@ FROM filtered
 ORDER BY event_type;
 ```
 
----
+***
 
-### Learnings ⭐
+#### Learnings ⭐
 
-#### Row Ranking
+**Row Ranking**
+
 ```sql
 ROW_NUMBER() OVER (PARTITION BY col ORDER BY col DESC); -- assigns 1,2,3,... within group
 ```
 
-#### Group Filtering
+**Group Filtering**
+
 ```sql
 HAVING COUNT(*) > 1; -- ensures only event_type with more than one row
 ```
 
-#### Aggregating Conditionals
+**Aggregating Conditionals**
+
 ```sql
 MAX(CASE WHEN rn = 1 THEN value END); -- pick latest value
 MAX(CASE WHEN rn = 2 THEN value END); -- pick second latest value
 ```
+
 This ensures clean selection of **top 2 values** per group using window functions and conditional aggregation.

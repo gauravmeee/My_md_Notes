@@ -1,4 +1,28 @@
+---
+description: From Striver's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+---
+
 # ▶️ Dynamic Programming (Striver)
+
+## <mark style="color:blue;">**Algorithm: Dynamic Programming**</mark>
+
+***
 
 Steps Recursion -> Memoization(Recursion + extra) -> Tabulation -> Space Optimsation (Tabulation)
 

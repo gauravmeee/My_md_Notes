@@ -1,4 +1,28 @@
+---
+description: From Striver's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
 # ▶️ Stack & Queue (Striver) ☑️
+
+## <mark style="color:blue;">**Data Structure: Stack & Queue**</mark>
+
+***
 
 Stack - LIFO (Last in First Out) : Queue - FIFO (First in First Out)
 

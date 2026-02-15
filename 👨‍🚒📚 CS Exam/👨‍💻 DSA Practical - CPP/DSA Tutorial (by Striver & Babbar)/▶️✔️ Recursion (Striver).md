@@ -1,4 +1,28 @@
+---
+description: From Striver's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
 # ▶️✔️ Recursion (Striver)
+
+## <mark style="color:blue;">**Algorithm: Recursion**</mark>
+
+***
 
 **Learn Recursion**
 

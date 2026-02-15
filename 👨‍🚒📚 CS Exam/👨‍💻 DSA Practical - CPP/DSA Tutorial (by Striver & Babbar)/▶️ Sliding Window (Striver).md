@@ -1,4 +1,28 @@
+---
+description: From Striver's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
 # ▶️ Sliding Window (Striver)
+
+## <mark style="color:blue;">**Algorithm: Sliding Window**</mark>
+
+***
 
 ## Sliding Window / 2 Pointer
 

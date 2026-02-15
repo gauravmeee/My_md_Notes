@@ -1,4 +1,28 @@
+---
+description: From Striver's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+---
+
 # ▶️ Graph (Striver)
+
+## **Data Structure: Graph**
+
+***
 
 #### Content
 

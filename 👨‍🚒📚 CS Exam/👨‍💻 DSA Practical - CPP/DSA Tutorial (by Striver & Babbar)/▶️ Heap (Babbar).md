@@ -1,4 +1,28 @@
+---
+description: From Love Babbar's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
 # ▶️ Heap (Babbar)
+
+## <mark style="color:blue;">**Data Structure: Heap**</mark>
+
+***
 
 ## [# Lecture 74: Heaps in C++ || Heap Sort || Insertion/Deletion in Heap || Priority Queue STL](https://youtu.be/NKJnHewiGdc)
 

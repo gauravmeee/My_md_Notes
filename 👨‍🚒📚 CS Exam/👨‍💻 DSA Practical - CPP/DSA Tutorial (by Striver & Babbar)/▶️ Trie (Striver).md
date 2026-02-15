@@ -1,6 +1,28 @@
+---
+description: From Striver's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
 # ▶️ Trie (Striver)
 
-## Trie
+## <mark style="color:blue;">**Data Structure: Trie**</mark>
+
+***
 
 ## [L1. Implement TRIE | INSERT | SEARCH | STARTSWITH](https://youtu.be/dBGUmUQhjaM?list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp)
 

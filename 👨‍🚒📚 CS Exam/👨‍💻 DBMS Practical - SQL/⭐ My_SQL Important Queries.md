@@ -1,8 +1,9 @@
 ---
+description: Made by Me 💚
 layout:
   width: wide
   title:
-    visible: true
+    visible: false
   description:
     visible: true
   tableOfContents:
@@ -10,14 +11,18 @@ layout:
   outline:
     visible: true
   pagination:
-    visible: true
+    visible: false
   metadata:
-    visible: true
+    visible: false
   tags:
     visible: true
 ---
 
 # ⭐ My\_SQL Important Queries
+
+## <mark style="color:$success;">**SQL Important Queries**</mark>
+
+***
 
 #### Print the top 5 rows
 

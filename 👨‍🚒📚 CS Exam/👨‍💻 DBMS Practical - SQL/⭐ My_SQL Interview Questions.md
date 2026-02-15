@@ -1,4 +1,28 @@
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
 # ⭐ My\_SQL Interview Questions
+
+## <mark style="color:$success;">**SQL Interview Questions**</mark>
+
+***
 
 [SQL Interview Questions](https://www.geeksforgeeks.org/sql-interview-questions/)
 

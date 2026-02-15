@@ -1,32 +1,56 @@
+---
+description: From Striver's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: false
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-### Content
+# ▶️✔️ Sorting (Striver) ☑️
+
+## <mark style="color:blue;">**Algorithm: Sorting**</mark>
+
+***
 
 **Sorting - I**
 
-| [[#^1]] | Selection Sort | Algorithm | ✅   | A2Z🟢 |
-| ------- | -------------- | --------- | --- | ----- |
-| [[#^2]] | Bubble Sort    | Algorithm | ✅   | A2Z🟢 |
-| [[#^3]] | Insertion Sort | Algorithm | ✅   | A2Z🟢 |
+| \[\[#^1]] | Selection Sort | Algorithm | ✅ | A2Z🟢 |
+| --------- | -------------- | --------- | - | ----- |
+| \[\[#^2]] | Bubble Sort    | Algorithm | ✅ | A2Z🟢 |
+| \[\[#^3]] | Insertion Sort | Algorithm | ✅ | A2Z🟢 |
 
 **Sorting - II**
 
-| [[#^4]] | Merge Sort | Algorithm | ✅   | A2Z🟠 |
-| ------- | ---------- | --------- | --- | ----- |
-| [[#^5]] | Quick Sort | Algorithm | ✅   | A2Z🟢 |
+| \[\[#^4]] | Merge Sort | Algorithm | ✅ | A2Z🟠 |
+| --------- | ---------- | --------- | - | ----- |
+| \[\[#^5]] | Quick Sort | Algorithm | ✅ | A2Z🟢 |
 
+***
 
----
+**Sorting Algorithms 1️⃣2️⃣3️⃣**
 
-# Sorting Algorithms 1️⃣2️⃣3️⃣
+[**Sorting - Part 1 | Selection Sort, Bubble Sort, Insertion Sort | Strivers A2Z DSA Course**](https://youtu.be/HGk_ypEuS24)
 
-# [Sorting - Part 1 | Selection Sort, Bubble Sort, Insertion Sort | Strivers A2Z DSA Course](https://youtu.be/HGk_ypEuS24)
-## 1. Selection Sort  ^1
-- Select Minimum & Swap with its desired position
+**1. Selection Sort ^1**
 
->**Best, Average, Worst TC : `O(n^2)`**
->**SC** : `O(1)`
+* Select Minimum & Swap with its desired position
 
-***Selection Sort Code :***
+> **Best, Average, Worst TC : `O(n^2)`** **SC** : `O(1)`
+
+_**Selection Sort Code :**_
+
 ```cpp
 void selectionSort(int arr[], int n){
 	// In each Iteration, We set min to left side and exclude index from left
@@ -45,65 +69,63 @@ void selectionSort(int arr[], int n){
 }
 ```
 
-- Select minimum between `i=0 & n-1` and Swap it with `0th` position. 
-- Select minimum between `i=1 & n-1` and Swap it with `1th` position. 
-- Select minimum between `i=2 & n-1` and Swap it with `2th` position. 
+* Select minimum between `i=0 & n-1` and Swap it with `0th` position.
+* Select minimum between `i=1 & n-1` and Swap it with `1th` position.
+* Select minimum between `i=2 & n-1` and Swap it with `2th` position.
 
 And so on till `i=n-2` ( note:- `n-1` will automatically sorted.)
 
 Example:-
+
 ```
 [13, 46, 24, 52, 20, 9]
 ```
 
 1. `min=9`, swap it with `arr[0] = 13`
+
 ```
 [9, 46, 24, 52, 20, 13]
 ```
 
 2. next `min=13`, swap it with `arr[1] = 46`
+
 ```
 [9, 13, 24, 52, 20, 46]
 ```
 
-3. next `min=20`, swap it with `arr[2] = 24
+3. next `min=20`, swap it with \`arr\[2] = 24
+
 ```
 [9, 13, 20, 52, 24, 46]
 ```
 
-4. next `min=24`, swap it with `arr[3] = 52
+4. next `min=24`, swap it with \`arr\[3] = 52
+
 ```
 [9, 13, 20, 24, 52, 46]
 ```
 
-3. next `min=46`, swap it with `arr[4] = 52
+3. next `min=46`, swap it with \`arr\[4] = 52
+
 ```
 [9, 13, 20, 24, 46, 52]
 ```
 
-
-<Ins>Time Complexity :</ins>  
+Time Complexity :\
 Best, worst, average `TC:O( n^2)`
 
-Outer Loop : `0` to `n-2` ->  `n-1*` times
-Inner Loop : `i` to `n-1`  -> Inner loop x Outer Loop`*` times
-`i = 0` : `0` to `n-1`  ->  `n*`  Times
-`i = 1` : `1` to `n-1` ->  `n-1*`  Times
-`i = 2` : `2` to `n-1`  -> `n-2*`  Times
-...so on
-`i = n-2` : `n-2` to `n-1`  ->  `1*`  Times
+Outer Loop : `0` to `n-2` -> `n-1*` times Inner Loop : `i` to `n-1` -> Inner loop x Outer Loop`*` times `i = 0` : `0` to `n-1` -> `n*` Times `i = 1` : `1` to `n-1` -> `n-1*` Times `i = 2` : `2` to `n-1` -> `n-2*` Times ...so on `i = n-2` : `n-2` to `n-1` -> `1*` Times
 
-TC : 1 + 2 + 3 +. . . + n  = n(n+1)/2 = (n^2)/2 + n/2
+TC : 1 + 2 + 3 +. . . + n = n(n+1)/2 = (n^2)/2 + n/2
 
-<hr>
-## 2. Bubble Sort ^2
-- Push the Maximum to the last, by adjacent swaps (adjacent swap is the key over here)
+***
 
->**Average, Worst TC : `O(n^2)`**
->**Best TC : `O(n)`**
->SC: O(1)
+\## 2. Bubble Sort ^2 - Push the Maximum to the last, by adjacent swaps (adjacent swap is the key over here)
 
-***Bubble Sort(Average, Worst) Code :***
+> **Average, Worst TC : `O(n^2)`** **Best TC : `O(n)`** SC: O(1)
+
+_**Bubble Sort(Average, Worst) Code :**_
+
 ```cpp
 void bubbleSort(int arr[], int n){
 	// In each Iteration, We set max to Right side and exclude index from right
@@ -119,7 +141,8 @@ void bubbleSort(int arr[], int n){
 }
 ```
 
-***Bubble Sort (Best ) Code :***
+_**Bubble Sort (Best ) Code :**_
+
 ```cpp
 void bubbleSort(int arr[], int n){
 	for(int i=n-1; i>=0; i--){
@@ -137,13 +160,12 @@ void bubbleSort(int arr[], int n){
 }
 ```
 
+* Compare Adjacent from `i = 0` to `n-1`, swap if not sorted
+* Compare Adjacent from `i = 0` to `n-2`, swap if not sorted
+* Compare Adjacent from `i = 0` to `n-3`, swap if not sorted And so on till `i = 0 to 1`
 
-- Compare Adjacent from `i = 0 ` to  `n-1`, swap if not sorted
-- Compare Adjacent from `i = 0 ` to  `n-2`, swap if not sorted
-- Compare Adjacent from `i = 0 ` to  `n-3`, swap if not sorted
-And so on till `i = 0 to 1`
+Example :
 
-Example : 
 ```
 [13, 46, 24 , 52, 20, 9 ]
 ```
@@ -190,48 +212,39 @@ next maximum = 13 pushed to the n-5th == 1st position
 All Sorted ✅
 ```
 
-
-<ins>Time Complexity: </ins>  
+Time Complexity:\
 Worst, Average `TC:O(n^2)`
 
-Outer Loop `i= n-1` to `0`  ->  `n*` times
-Inner Loop  `j=0` to `i-1` -> Inner Loop x Outer Loop`*` times
-i = n-1 : 0 to i-1=n-2 : 0&1 ,1&2, ... n-2&n-1 -> n-1* Times
-i = n-2 : 0 to i-1=n-3 : 0&1 ,1&2, ... n-3&n-3 -> n-2* Times
-i = n-3 : 0 to i-1 = n-4 : 0&1 ,1&2, ... n-4&n-3 -> n-3* Times
-... so on
-i = 1 : 0 to i-1= 0 : 0&1. 1* Times
+Outer Loop `i= n-1` to `0` -> `n*` times Inner Loop `j=0` to `i-1` -> Inner Loop x Outer Loop`*` times i = n-1 : 0 to i-1=n-2 : 0&1 ,1&2, ... n-2\&n-1 -> n-1\* Times i = n-2 : 0 to i-1=n-3 : 0&1 ,1&2, ... n-3\&n-3 -> n-2\* Times i = n-3 : 0 to i-1 = n-4 : 0&1 ,1&2, ... n-4\&n-3 -> n-3\* Times ... so on i = 1 : 0 to i-1= 0 : 0&1. 1\* Times
 
-TC: n-1 + n-2 + n-3 .... +1 = n*(n+1)/2 = n^2/2 + n/2
+TC: n-1 + n-2 + n-3 .... +1 = n\*(n+1)/2 = n^2/2 + n/2
 
->Optimization for Best Case
+> Optimization for Best Case
 
 ```
 [ 1, 2, 3, 4, 5]
 ```
-If every adjacent element is in correct order -> Array is sorted
-In one traversal,  if you didn't find any wrong order -> Array is sorted ->  Break the loop.
 
-<ins> Time Complexity: </ins>  
+If every adjacent element is in correct order -> Array is sorted In one traversal, if you didn't find any wrong order -> Array is sorted -> Break the loop.
+
+Time Complexity:\
 Best `TC:O(n)`
 
-Best, If every element is sorted
-Outer Loop `1*` Times
-Inner Loop  `j=0 to i-1 = n-1` -> `n*` Times
+Best, If every element is sorted Outer Loop `1*` Times Inner Loop `j=0 to i-1 = n-1` -> `n*` Times
 
 > ☑️ 22-04-2025 Revised Upto here
 
----
-## 3. Insertion Sort ^3
+***
 
-- Takes an element and place it in its correct position in new array
-- Make array of size 1, include only `arr[0]`, then add new element  in it in correct position in each iteration
+**3. Insertion Sort ^3**
 
->**Average, Worst TC : `O(n^2)`**
->**Best TC : `O(n)
->SC : `O(1)`
+* Takes an element and place it in its correct position in new array
+* Make array of size 1, include only `arr[0]`, then add new element in it in correct position in each iteration
 
-***Insertion Sort (Average, Worst) Code :***
+> **Average, Worst TC : `O(n^2)`** \*\*Best TC : `O(n) SC :` O(1)\`
+
+_**Insertion Sort (Average, Worst) Code :**_
+
 ```cpp
 void insertionSort(int arr[], int n){
 	for(int i=0; i<=n-1; i++){
@@ -248,7 +261,8 @@ void insertionSort(int arr[], int n){
 }
 ```
 
-***Insertion Sort (Best) Code :***
+_**Insertion Sort (Best) Code :**_
+
 ```cpp
 void insertionSort(int arr[], int n){
 	for(int i=0; i<=n-1; i++){
@@ -267,11 +281,13 @@ void insertionSort(int arr[], int n){
 ```
 
 Example:
+
 ```
 [ 14, 9, 15, 12, 6, 8, 13]
 ```
 
 Start by Taking `arr[0]` as and array, and include it right in every step.
+
 ```
 [ (14), 9, 15, 12, 6, 8, 13] -> [14] sorted ✅
 [(14, 9), 15, 12, 6, 8, 13] -> right shift (element > 9) -> [9, 14]
@@ -284,16 +300,9 @@ Start by Taking `arr[0]` as and array, and include it right in every step.
 [6, 8, 9, 12, 13, 14 ,15] ✅
 ```
 
+Time Complexity : Average, worst `TC:O(n^2)`
 
-<ins> Time Complexity : </ins>
-Average, worst `TC:O(n^2)`
-
-Outer loop : 0 to n-1 -> n* Times
-Inner Loop: Inner Loop x Outer Loop `*` Times
-i=0 : j=1->0 -> 1* Times
-i=1 : j=2->0-> 2* Times
-.. so on
-i = n-1 : -> n* Times
+Outer loop : 0 to n-1 -> n\* Times Inner Loop: Inner Loop x Outer Loop `*` Times i=0 : j=1->0 -> 1\* Times i=1 : j=2->0-> 2\* Times .. so on i = n-1 : -> n\* Times
 
 TC = 1 + 2 + ...+ n = n(n+1)/2 = n^2/2 + n/2
 
@@ -301,77 +310,74 @@ TC = 1 + 2 + ...+ n = n(n+1)/2 = n^2/2 + n/2
 
 if subarray is already sorted from size 1 till include all -> Array is sorted -> break
 
-<ins>Time Complexity :</ins>
-Best `TC:O(n)`
+Time Complexity : Best `TC:O(n)`
 
-Best, If every element is sorted
-Outer Loop `1*` Times
-Inner Loop  `j-1` to `0` -> `n*` Times
+Best, If every element is sorted Outer Loop `1*` Times Inner Loop `j-1` to `0` -> `n*` Times
 
+[**Merge Sort | Algorithm | Pseudocode | Dry Run | Code | Strivers A2Z DSA Course**](https://youtu.be/ogjf7ORKfd8) **^4**
 
+* Divide , Sort & Merge
 
-# [Merge Sort | Algorithm | Pseudocode | Dry Run | Code | Strivers A2Z DSA Course](https://youtu.be/ogjf7ORKfd8) ^4
-
-- Divide , Sort & Merge
-
-> best, average, worst  TC: `O(nlog(n))`  
+> best, average, worst TC: `O(nlog(n))`\
 > SC: `O(n)`
 
+1. _**Merge Sort algorithm:**_
 
-1. ***Merge Sort algorithm:***
- ```cpp
-  low = 0  //first element index
-  high = n-1; //last element index
- mergesort(arr, low, high){
-    if(low >= high) return;
-    mid = (low + high)/2
-    mergesort(arr, low, mid)  //(arr, low , mid-1) also valid
-    mergesort(arr, mid+1, high)   //(arr, mid , high) also valid
-    merge(arr, low, mid, high)      
- }
- ```
- 
-2. ***Merge algorithm***
- ```cpp
- merge(arr, low, mid, length){
-        temp=[]
-        left = low
-        right = mid+1
-    
-    //check that left and right pointer not reach to end
-    while(left<=mid && right<=high ){ 
-        if(arr[left] <= arr[right]){
-            temp.add(arr[left])
-            left++
-            }
-        else{
-            temp.add(arr[right])
-            right++
-        }
-        
-    }
+```cpp
+ low = 0  //first element index
+ high = n-1; //last element index
+mergesort(arr, low, high){
+   if(low >= high) return;
+   mid = (low + high)/2
+   mergesort(arr, low, mid)  //(arr, low , mid-1) also valid
+   mergesort(arr, mid+1, high)   //(arr, mid , high) also valid
+   merge(arr, low, mid, high)      
+}
+```
 
-    // if left array exhausted
-    while(left<=mid){
-        temp.add(arr[left])
-        left++
-    }
-    //If right array exhausted
-    while(right<=high){
-        temp.add(arr[right])
-        right++
-    }
+2. _**Merge algorithm**_
 
-    //transfer from temporary array to main
-    for( i=low -> high){
-        arr[i] = temp[i-low] // logic: to correctly place element to right indexing
+```cpp
+merge(arr, low, mid, length){
+       temp=[]
+       left = low
+       right = mid+1
+   
+   //check that left and right pointer not reach to end
+   while(left<=mid && right<=high ){ 
+       if(arr[left] <= arr[right]){
+           temp.add(arr[left])
+           left++
+           }
+       else{
+           temp.add(arr[right])
+           right++
+       }
+       
+   }
 
-        //Important : understand it
-    }
- }
- ```
+   // if left array exhausted
+   while(left<=mid){
+       temp.add(arr[left])
+       left++
+   }
+   //If right array exhausted
+   while(right<=high){
+       temp.add(arr[right])
+       right++
+   }
 
-Example: 
+   //transfer from temporary array to main
+   for( i=low -> high){
+       arr[i] = temp[i-low] // logic: to correctly place element to right indexing
+
+       //Important : understand it
+   }
+}
+```
+
+Example:
+
 ```
 [3, 1, 2, 4, 1, 5, 2, 6, 4]
 ```
@@ -405,92 +411,85 @@ sorted + sorted => sorted
 8. [1, 1, 2, 3, 4] + [2, 4, 5, 6] => [1, 1, 2, 3, 3, 4, 4, 5, 6]
 ```
 
-<ins>Time Complexity :</ins>
-Average, Worst, Best `TC: O(nlog(n))` 
+Time Complexity : Average, Worst, Best `TC: O(nlog(n))`
 
-                [n]
-        [n/2]         [n/2]
-    [n/4]   [n/4]  [n/4]  [n/4] 
+```
+            [n]
+    [n/2]         [n/2]
+[n/4]   [n/4]  [n/4]  [n/4] 
+```
 
+1. if **recursion** call k...\*times times, then
 
-1. if **recursion** call k...*times times, then 
+n = 2^k => log2n = k => no. of times -> time complexity 2. **merge()** -> Traversing aray: TC: worst case O(n)
 
-n = 2^k
-=> log2n = k 
-=> no. of times -> time complexity
-2. **merge()** -> Traversing aray: TC: worst case O(n)
+Space Complexity : `SC:O(n)` temporary array in merge of n size() -> SC: O(n) Recursion stack space -> SC:O(log(n))
 
- 
-<ins>Space Complexity :</ins>
-`SC:O(n)`
-temporary array in merge of n size() -> SC: O(n)
-Recursion stack space -> SC:O(log(n))
+_**C++ code :**_
 
- ***C++ code :***
- ```cpp
- void merge(vector<int> &arr, int low, int mid, int high){
-    vector<int> temp;
-    //[low...mid]
-    ///[mid+1...high]
-    int left = low;
-    int right = mid+1;
-    while(left <= mid && right <=high){
+```cpp
+void merge(vector<int> &arr, int low, int mid, int high){
+   vector<int> temp;
+   //[low...mid]
+   ///[mid+1...high]
+   int left = low;
+   int right = mid+1;
+   while(left <= mid && right <=high){
 
-        //left is smaller
-        if(arr[left]<=arr[right]){
-            temp.push_back(arr[left]);
-            left++;
-        }
-        //right is smaller
-        else{
-            temp.push_back(arr[right]);
-            right++;
-        }
-    }
-    //if right exhausted
-    while(left<=mid){
-        temp.push_back(arr[left]);
-        left++;
-    }
+       //left is smaller
+       if(arr[left]<=arr[right]){
+           temp.push_back(arr[left]);
+           left++;
+       }
+       //right is smaller
+       else{
+           temp.push_back(arr[right]);
+           right++;
+       }
+   }
+   //if right exhausted
+   while(left<=mid){
+       temp.push_back(arr[left]);
+       left++;
+   }
 
-    //if left exhausted
-    while(right<=mid){
-        temp.push_back(arr[right]);
-        right++;
-    }
-    //transfer to the main array
-    for(int i=low; i<=high ; i++){
-        arr[i] = temp [ i- low]; //everything is by reference, so numbers will rearrange themselve in the array 
-    }
+   //if left exhausted
+   while(right<=mid){
+       temp.push_back(arr[right]);
+       right++;
+   }
+   //transfer to the main array
+   for(int i=low; i<=high ; i++){
+       arr[i] = temp [ i- low]; //everything is by reference, so numbers will rearrange themselve in the array 
+   }
 }
 
 void mergesort(vector<int> &arr, int low, int high){
-    if(low == high) return;
-    int mid = (low+ high) /2;
-    mergesort(arr, low, mid);
-    mergesort(arr, mid+1, high);
-    merge(arr, low, mid, high);
+   if(low == high) return;
+   int mid = (low+ high) /2;
+   mergesort(arr, low, mid);
+   mergesort(arr, mid+1, high);
+   merge(arr, low, mid, high);
 }
 
 void callMergeSort(vector<int> & arr, int n){
-    callMergeSort(arr, 0, n-1);
+   callMergeSort(arr, 0, n-1);
 }
- ```
+```
 
-# [Quick Sort For Beginners | Strivers A2Z DSA Course](https://youtu.be/WIrA4YexLRQ) ^5
+[**Quick Sort For Beginners | Strivers A2Z DSA Course**](https://youtu.be/WIrA4YexLRQ) **^5**
 
-- Divide and Conquer
+* Divide and Conquer
+
 1. pick any (first, last, right, random, etc.) element as `pivot` & place it in its correct place in the sorted array
-2.  Smaller element than `pivot` goes on its left , larger goes on the right
+2. Smaller element than `pivot` goes on its left , larger goes on the right
 
-TC: Best, Average `O(n*log(n))`
-TC : Worst `O(n^2)`
-SC: Best, Average`O(logn)`
-SC: Worst `O(n)`
+TC: Best, Average `O(n*log(n))` TC : Worst `O(n^2)` SC: Best, Average`O(logn)` SC: Worst `O(n)`
 
-But how to put `pivot`  in its correct position??
+But how to put `pivot` in its correct position??
 
-***Quick Sort:***
+_**Quick Sort:**_
+
 ```cpp
 qs(arr, low, high){
 	//array should contain more than one element i.e. `low!=high`
@@ -506,7 +505,8 @@ qs(arr, low, high){
 }
 ```
 
-***Swap and Return Partition:***
+_**Swap and Return Partition:**_
+
 ```cpp
 int partition(arr, low, high){
 	pivot = arr[low] // let choose `arr[low]` as pivot
@@ -533,12 +533,14 @@ int partition(arr, low, high){
 }
 ```
 
-Example: 
+Example:
+
 ```
 [ 4 6 2 5 7 9 1 3 ]
 ```
 
-In this Case, we will choose `arr[low]` as our `pivot`  (it might not be optimal)
+In this Case, we will choose `arr[low]` as our `pivot` (it might not be optimal)
+
 ```
 1. 
 arr = [ 4 6 2 5 7 9 1 3 ] : let pivot = 4
@@ -635,8 +637,7 @@ arr = [9]
 low == high -> Single element -> Already sorted ✅
 ```
 
-<ins>Time Complexity :</ins>
-Average, Worst, Best `TC: O(nlog(n))` 
+Time Complexity : Average, Worst, Best `TC: O(nlog(n))`
 
 ```
 				[n]
@@ -644,22 +645,16 @@ Average, Worst, Best `TC: O(nlog(n))`
     [n/4]   [n/4]  [n/4]  [n/4] 
 ```
 
+1. if **recursion call** k...\*times times, then
 
-1. if **recursion call** k...*times times, then 
+n = 2^k => log2n = k (height of tree) => no. of times -> time complexity
 
-n = 2^k
-=> log2n = k (height of tree)
-=> no. of times -> time complexity
-
- 
 2. **partition()** function going to entire array : TC :O(n)
 
- 
-<ins>Space Complexity :</ins>
-`SC:O(logn)`
-Recursion stack space -> SC:O(log(n))
+Space Complexity : `SC:O(logn)` Recursion stack space -> SC:O(log(n))
 
-***C++ Code:***
+_**C++ Code:**_
+
 ```cpp
 int partition(vector<int> &arr, int low, int hig){
     int pivot = arr[low]; // choosing `arr[low]` as pivot
@@ -693,5 +688,4 @@ vector<int> quickSort(vector<int> arr){
 }
 ```
 
-
----
+***
