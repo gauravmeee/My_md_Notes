@@ -1,9 +1,7 @@
 # Table of contents
 
-* [My Phone Notes](README.md)
-* [.trash](.trash/README.md)
-  * [Untitled 1](<.trash/Untitled 1.md>)
-  * [Untitled](.trash/Untitled.md)
+* [Exam-Grade Notes (PSU • GATE • DSA)](README.md)
+* [My Phone Notes](<My Phone Notes.md>)
 * [Exams](exams/README.md)
   * [SJVN 2019 Executive Trainee PYQ](<Exams/SJVN 2019 Executive Trainee PYQ.md>)
   * [BEL 2025 Probationary Engineer 2025](exams/bel-2025-probationary-engineer-2025/README.md)

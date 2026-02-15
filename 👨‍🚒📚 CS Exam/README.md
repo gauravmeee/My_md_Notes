@@ -1,29 +1,81 @@
 ---
-hidden: true
+description: Fast revision + concept clarity for PSU exams, GATE, and software interviews.
+icon: book-open-lines
 ---
 
-# My Phone Notes
+# Exam-Grade Notes (PSU • GATE • DSA)
 
-Radix -4 - base 4 Live variable D flip flop More and Ethernet IEEE standard TCP - RTT , rate, amdaximum life segment to max sequence number Persistant and non persistant http
+**What this contains**\
+• DBMS Practical (SQL): Important queries, patterns, interview-grade questions\
+• DSA Practical (C++): Core algorithms, patterns, methods, quick logic\
+• Subject-wise core CS notes: DBMS, DSA, OOPS, OS, CN, CD, COA, DE, DM, EM\
+• Tutorial-based notes from Striver, Love Babbar, and other reliable sources\
+• Doubts-clearing notes + traps + exam-important points
 
-Matrix, Augmented Matrix, eigne value, eigen vector
+**Philosophy**\
+• Revision-first, not textbook\
+• Only what is asked in exams/interviews\
+• Clear, compact, and continuously improved
 
-```
-cd ~/storage/documents/My_md_Notes
-git config --global --add safe.directory /storage/emulated/0/Documents/My_md_Notes
-git config --global pull.rebase true
-git pull --rebase origin master
-git add .
-git commit -m "update phone notes"
-git push origin master
-```
+**Status**\
+Notes are **actively updated** as learning progresses. Grow together.
 
-```
-cd ~/storage/documents/My_md_Notes
-git pull --rebase origin master
-git add .
-git commit -m "update phone notes"
-git push origin master
-```
+#### Main Page (Landing Page) Structure
 
-**2025** Q23 - Matrix, Augmented Matrix Q28 - NFA States < N, DFA states < 2^n Q30 - Permutation Q38 - Os Scheduling Q41 - Eigne value. Eigen value of A = x, eigne Value of A^n = x^n Q51 - Internal Fragment, waste memory Q57 - MTU, fragment Q58 - Integration & Probability Q59 - FSM, minimimum state Q60 - D flip flop
+**1. Start Here**\
+\- How to use these notes\
+\- Who these notes are for\
+\- How to revise in minimum time
+
+**2. DSA Practical (C++)**\
+\- Arrays, Strings, Recursion\
+\- Linked List, Stack, Queue\
+\- Trees, Graphs, DP\
+\- Patterns + Interview Logic
+
+**3. DBMS Practical (SQL)**\
+\- Basic to advanced queries\
+\- Joins, Subqueries, Indexing\
+\- PSU/GATE-oriented questions
+
+**4. Core CS Subjects**\
+\- DBMS (Theory)\
+\- OS\
+\- CN\
+\- OOPS\
+\- COA\
+\- CD\
+\- DE, DM, EM
+
+**5. Tutorial Notes**\
+• Striver DSA Notes\
+• Love Babbar Notes\
+• Other clarified resources
+
+**6. Quick Revision Zone**\
+• One-page summaries\
+• Last-day revision points
+
+**7. Doubts & Tricky Concepts**\
+• Common confusions\
+• Mistakes to avoid
+
+**8. Updates & Roadmap**\
+• Recently added topics\
+• What’s coming next
+
+#### GitBook Features to Make Main Page Sharp
+
+• **Callout blocks** → “Exam Tip”, “Interview Trap”, “Must Remember”\
+• **Tabs** → Switch between GATE / PSU / Interview focus\
+• **Page icons & emojis (minimal)** → Faster visual scanning\
+• **Summary pages** → Auto-generated TOC for each subject\
+• **Internal backlinks** → Connect theory ↔ DSA ↔ SQL\
+• **Version history** → Show learning evolution\
+• **Pinned pages** → Keep “Quick Revision” always visible
+
+#### Strong Final Advice
+
+Treat this GitBook like a **personal standard reference**, not notes dump.\
+Consistency + structure > volume.\
+This format is scalable, exam-ready, and interview-serious.
