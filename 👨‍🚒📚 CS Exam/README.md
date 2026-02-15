@@ -31,12 +31,12 @@ layout:
 [dsa-practical-cpp](dsa-practical-cpp/)
 {% endcontent-ref %}
 
-{% content-ref url="dbms-theory/" %}
-[dbms-theory](dbms-theory/)
+{% content-ref url="dbms/" %}
+[dbms](dbms/)
 {% endcontent-ref %}
 
-{% content-ref url="dsa-theory/" %}
-[dsa-theory](dsa-theory/)
+{% content-ref url="dsa/" %}
+[dsa](dsa/)
 {% endcontent-ref %}
 
 {% content-ref url="oops/" %}

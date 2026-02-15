@@ -1,4 +1,24 @@
-# ⭐ Notes\_DBMS Procedural and Non Procedural  Language
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Procedural and Non Procedural Language
 
 ## Procedural Language (DBMS)
 

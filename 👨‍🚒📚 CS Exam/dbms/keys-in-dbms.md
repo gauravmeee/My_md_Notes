@@ -1,8 +1,26 @@
-# ⭐ Notes\_DBMS Keys
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Keys in DBMS
 
 Attribute - field - column Tuple - Data - Row
-
-## Keys
 
 In Database Management Systems (DBMS), **keys** are crucial for identifying unique rows in tables and establishing relationships between different tables. Here are the different types of keys and their significance, along with some **common interview questions** about keys in DBMS:
 

@@ -1,6 +1,7 @@
 ---
+description: By Gate Wallah's Tutorial ▶️
 layout:
-  width: default
+  width: wide
   title:
     visible: true
   description:
@@ -10,14 +11,14 @@ layout:
   outline:
     visible: true
   pagination:
-    visible: true
+    visible: false
   metadata:
-    visible: true
+    visible: false
   tags:
     visible: true
 ---
 
-# ▶️✔️ Tutorial\_DBMS One Shot (Gate Wallah)
+# DBMS One Shot Tutorial
 
 ## [Database Management System One Shot | CS & IT Engineering | DA | Maha Revision | Target GATE 2025](https://youtu.be/k6rDS0qQiO0)
 

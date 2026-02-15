@@ -1,4 +1,24 @@
-# ▶️ Tutorial\_DBMS ACID, Transaction Schedules, RAID (Smashers 74, 80-85, 114 )
+---
+description: From Gate Smasher's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# ACID, Transaction Schedules, RAID
 
 ## [Lec-74: ACID Properties of a Transaction | Database Management System](https://youtu.be/-GS0OxFJsYQ)
 

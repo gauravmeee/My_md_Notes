@@ -1,2 +1,0 @@
-# Gate Smashers tutorial
-

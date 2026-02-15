@@ -1,4 +1,24 @@
-# ⭐ Ques\_DBMS My Interview Bits Questions
+---
+description: From Interview Bits 📋
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Important Questions (Interview Bits)
 
 ## [DBMS Interview Questions](https://www.interviewbit.com/dbms-interview-questions/)
 
