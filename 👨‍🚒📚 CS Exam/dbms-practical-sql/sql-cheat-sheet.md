@@ -3,7 +3,7 @@ description: Made by Me 💚
 layout:
   width: wide
   title:
-    visible: false
+    visible: true
   description:
     visible: true
   tableOfContents:
@@ -18,11 +18,7 @@ layout:
     visible: true
 ---
 
-# ⭐⚡ My\_SQL Cheat Sheet
-
-## <mark style="color:$success;">**SQL Cheat Sheet**</mark>
-
-***
+# SQL Cheat Sheet
 
 #### Types of Language in SQL
 

@@ -3,7 +3,7 @@ description: From Striver's Tutorial ▶️
 layout:
   width: wide
   title:
-    visible: false
+    visible: true
   description:
     visible: true
   tableOfContents:
@@ -18,13 +18,11 @@ layout:
     visible: true
 ---
 
-# ▶️ Stack & Queue (Striver) ☑️
-
-## <mark style="color:blue;">**Data Structure: Stack & Queue**</mark>
-
-***
+# Data Structure: Stack & Queue
 
 Stack - LIFO (Last in First Out) : Queue - FIFO (First in First Out)
+
+
 
 **Stack Operations in C++**
 

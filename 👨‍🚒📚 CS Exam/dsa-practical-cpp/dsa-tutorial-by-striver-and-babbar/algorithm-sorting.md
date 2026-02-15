@@ -3,7 +3,7 @@ description: From Striver's Tutorial ▶️
 layout:
   width: wide
   title:
-    visible: false
+    visible: true
   description:
     visible: true
   tableOfContents:
@@ -20,9 +20,7 @@ layout:
 
 # ▶️✔️ Sorting (Striver) ☑️
 
-## <mark style="color:blue;">**Algorithm: Sorting**</mark>
 
-***
 
 **Sorting - I**
 
@@ -33,9 +31,9 @@ layout:
 
 **Sorting - II**
 
-| \[\[#^4]] | Merge Sort | Algorithm | ✅   | A2Z🟠 |
-| --------- | ---------- | --------- | --- | ----- |
-| \[\[#^5]] | Quick Sort | Algorithm | ✅   | A2Z🟢 |
+| \[\[#^4]] | Merge Sort | Algorithm | ✅ | A2Z🟠 |
+| --------- | ---------- | --------- | - | ----- |
+| \[\[#^5]] | Quick Sort | Algorithm | ✅ | A2Z🟢 |
 
 ***
 

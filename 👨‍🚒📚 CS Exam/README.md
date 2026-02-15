@@ -3,11 +3,25 @@ description: >-
   Fast revision + concept clarity for PSU exams, GATE, DSA and software
   interviews.
 icon: book-open-lines
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
 ---
 
-# My Core CS & DSA Notes
-
-
+# Core CS & DSA Notes
 
 {% content-ref url="dbms-practical-sql/" %}
 [dbms-practical-sql](dbms-practical-sql/)

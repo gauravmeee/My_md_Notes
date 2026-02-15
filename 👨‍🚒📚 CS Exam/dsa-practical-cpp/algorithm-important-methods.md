@@ -1,7 +1,27 @@
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-# C++ Important Methods.
+# Algorithm: Important Methods
 
 **Reverse a String**
+
 ```cpp
 for (int i = 0; i < n / 2; ++i) {
         swap(str[i], str[n - i - 1]);
@@ -9,6 +29,7 @@ for (int i = 0; i < n / 2; ++i) {
 ```
 
 **No. of ways to climb**
+
 ```cpp
 // no. of ways to climb(possible step 1,2)
 int climbStairs(int n) {
@@ -17,6 +38,7 @@ int climbStairs(int n) {
         return climbStairs(n-1) + climbStairs(n-2);
     }
 ```
+
 ```cpp
 // no. of ways to climb(possible step 1,2,3) using DP
 int climbStairs(int n) {
@@ -31,6 +53,7 @@ int climbStairs(int n) {
 ```
 
 **Graph Edge**
+
 ```cpp
 // Graph Edge
 a = [[0,1] , [1,0] , [1,2], [2,1]]
@@ -43,6 +66,7 @@ a= [ [0 1 0]
 ```
 
 **Two methods in Recursive Call :**
+
 ```cpp
 //Sum of all number in arr = [1, 3, 4, 5], n = 4
 
@@ -63,7 +87,6 @@ a= [ [0 1 0]
 		}
 ```
 
-
 ```cpp
 // a = 6, b = 4
 
@@ -79,6 +102,7 @@ a = a - b // a = (10-6) = 4
 ```
 
 **Swap Function**
+
 ```cpp
 int x=5, y=10;
 
@@ -111,8 +135,8 @@ void swap(int &a, int &b){
 }
 ```
 
+**Find Combination&#x20;**<sup>**n**</sup>**C**<sub>**r**</sub>**&#x20;formula**
 
-**Find Combination <sup>n</sup>C<sub>r</sub> formula**
 ```cpp
 int nCr(int n, int r){
 	long long res =1;
@@ -150,8 +174,10 @@ bool isPerfectSquare(int num) {
 }
 ```
 
----
+***
+
 **Calculate Ceil (x/y)**
+
 ```cpp
 // (x + y - 1) / y calculates ceil(x / y):
 
@@ -167,5 +193,5 @@ int result2 = (x2 + y2 - 1) / y2;  // result2 = 3 (same as ceil(7 / 3))
 //It does not handle floating-point numbers or decimals directly.
 // (6.1 + 3 - 1)/3 = 6/3 != ceil(6/3)
 ```
-ceil(6/3) = (3 + 6 - 1 )/3 = (1 + 2 - 1/3) =  1 + 2 -1 = 2
-ceil(7/3) = (3 + 7 -1)/3 = (1 + 3 -1/3) = 1 + 3 - 1 = 3
+
+ceil(6/3) = (3 + 6 - 1 )/3 = (1 + 2 - 1/3) = 1 + 2 -1 = 2 ceil(7/3) = (3 + 7 -1)/3 = (1 + 3 -1/3) = 1 + 3 - 1 = 3

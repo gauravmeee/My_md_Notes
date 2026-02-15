@@ -1,4 +1,24 @@
-# ⭐ Algo\_BFS vs DFS in C++
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Algorithm: BFS vs DFS
 
 Breadth-First Search (BFS) and Depth-First Search (DFS) are fundamental graph traversal algorithms used to explore nodes and edges in trees and graphs. Below are the C++ implementations for both BFS and DFS on trees and graphs.
 

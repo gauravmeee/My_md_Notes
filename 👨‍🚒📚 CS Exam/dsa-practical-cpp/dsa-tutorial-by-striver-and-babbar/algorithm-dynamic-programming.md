@@ -3,7 +3,7 @@ description: From Striver's Tutorial ▶️
 layout:
   width: wide
   title:
-    visible: false
+    visible: true
   description:
     visible: true
   tableOfContents:
@@ -18,11 +18,7 @@ layout:
     visible: true
 ---
 
-# ▶️ Dynamic Programming (Striver)
-
-## <mark style="color:blue;">**Algorithm: Dynamic Programming**</mark>
-
-***
+# Algorithm: Dynamic Programming
 
 Steps Recursion -> Memoization(Recursion + extra) -> Tabulation -> Space Optimsation (Tabulation)
 

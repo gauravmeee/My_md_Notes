@@ -3,7 +3,7 @@ description: From Striver's Tutorial ▶️
 layout:
   width: wide
   title:
-    visible: false
+    visible: true
   description:
     visible: true
   tableOfContents:
@@ -18,11 +18,7 @@ layout:
     visible: true
 ---
 
-# ▶️ Graph (Striver)
-
-## **Data Structure: Graph**
-
-***
+# Data Structure: Graph
 
 #### Content
 

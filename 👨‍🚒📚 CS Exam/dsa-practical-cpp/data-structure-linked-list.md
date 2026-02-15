@@ -1,6 +1,24 @@
-# ⭐ DS\_Linked List in C++ ☑️
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-***
+# Data Structure: Linked List
 
 ## Introduction to Linked List
 

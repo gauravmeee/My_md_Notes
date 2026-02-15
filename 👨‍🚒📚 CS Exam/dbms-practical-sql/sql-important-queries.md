@@ -3,7 +3,7 @@ description: Made by Me 💚
 layout:
   width: wide
   title:
-    visible: false
+    visible: true
   description:
     visible: true
   tableOfContents:
@@ -18,11 +18,7 @@ layout:
     visible: true
 ---
 
-# ⭐ My\_SQL Important Queries
-
-## <mark style="color:$success;">**SQL Important Queries**</mark>
-
-***
+# SQL Important Queries
 
 #### Print the top 5 rows
 

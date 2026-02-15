@@ -1,9 +1,9 @@
 ---
 description: From Striver's & Love Babbar's Tutorial ▶️
 layout:
-  width: wide
+  width: default
   title:
-    visible: false
+    visible: true
   description:
     visible: true
   tableOfContents:

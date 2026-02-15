@@ -3,7 +3,7 @@ description: Made by Me 💚
 layout:
   width: wide
   title:
-    visible: false
+    visible: true
   description:
     visible: true
   tableOfContents:
@@ -18,11 +18,7 @@ layout:
     visible: true
 ---
 
-# ⭐💡 MY\_SQL Problems Solutions Easy
-
-## <mark style="color:$success;">**SQL Basic Problems & Solutions**</mark>
-
-***
+# SQL Basic Problems & Solutions
 
 ### Q. report the first name, last name, city, and state of each person in the `Person` table. If the address of a `personId` is not present in the `Address` table, report `null` instead.
 
