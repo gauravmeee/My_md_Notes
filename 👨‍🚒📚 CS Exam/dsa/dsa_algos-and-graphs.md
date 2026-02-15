@@ -1,4 +1,24 @@
-# ⭐ DSA\_Important Algos - Graph, etc
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# DSA: Algorithms & Graphs
 
 #### Graph Algorithms & their key properties
 

@@ -1,4 +1,24 @@
-# ⭐ DS\_Important All Data Structures (By Google)
+---
+description: By Google 🏛️
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Data Structure: All Data Structures
 
 > Resources
 

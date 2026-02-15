@@ -1,4 +1,24 @@
-# ⭐ Algo\_Important In-fix, Pre-fix, Post-fix
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Algorithm: Infix, Prefix and Postfix Traversal
 
 **1. Notations Overview**
 
