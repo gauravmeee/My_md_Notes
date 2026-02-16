@@ -3,8 +3,12 @@ description: >-
   Fast revision + concept clarity for PSU exams, GATE, DSA and software
   interviews.
 icon: book-open-lines
-cover: >-
-  .gitbook/assets/IIT-That-has-the-Oldest-Department-of-Computer-Science-1762866456475.jpg
+cover:
+  light: >-
+    .gitbook/assets/IIT-That-has-the-Oldest-Department-of-Computer-Science-1762866456475
+    (1).jpg
+  dark: >-
+    .gitbook/assets/IIT-That-has-the-Oldest-Department-of-Computer-Science-1762866456475.jpg
 coverY: 0
 layout:
   width: default
@@ -27,7 +31,7 @@ layout:
     visible: true
 ---
 
-# CS & DSA Exam Grade Notes
+# Exam Grade CS Notes
 
 {% content-ref url="dbms-practical-sql/" %}
 [dbms-practical-sql](dbms-practical-sql/)
