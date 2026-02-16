@@ -1,7 +1,29 @@
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-# [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/description/)
+# Stack Problems
+
+## [Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/description/)
 
 By Me : )
+
 ```cpp
 vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
 	vector<int> num(nums1.size(),0);
@@ -37,7 +59,8 @@ vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
 }
 ```
 
-By GPT  (Same approach as mine : ) )
+By GPT (Same approach as mine : ) )
+
 ```python
 def nextGreaterElement(nums1, nums2):
     stack = []
@@ -61,13 +84,11 @@ def nextGreaterElement(nums1, nums2):
     return result
 ```
 
-TC: $O(n+m)$, 
-SC:$O(n+m)$ n, m size of nums2 and nums1
+TC: $O(n+m)$, SC:$O(n+m)$ n, m size of nums2 and nums1
 
+***
 
----
-
-# [Brackets](https://app.codility.com/programmers/lessons/7-stacks_and_queues/brackets/)
+## [Brackets](https://app.codility.com/programmers/lessons/7-stacks_and_queues/brackets/)
 
 ```cpp
 #include <bits/stdc++.h>
@@ -97,10 +118,10 @@ int solution(string &S) {
 
 ```
 
----
-
+***
 
 **My Solution** ⭐
+
 ```cpp
 int solution(vector<int> &A, vector<int> &B) {
     int n = A.size();
@@ -119,18 +140,22 @@ int solution(vector<int> &A, vector<int> &B) {
     return st.size();
 }
 ```
+
 **TC:** `O(N)` Each fish is pushed & popped **at most once**.
 
 **Issues:**
-- You're processing from **right to left** (`i = n-1 to 0`), but the fish are defined **from upstream to downstream**, i.e., **left to right**.  
-    This **violates the problem constraint**: fish `P < Q`, i.e., smaller index is upstream.
-- It works on some test cases due to incidental symmetry but is **not reliable or standard**.
+
+* You're processing from **right to left** (`i = n-1 to 0`), but the fish are defined **from upstream to downstream**, i.e., **left to right**.\
+  This **violates the problem constraint**: fish `P < Q`, i.e., smaller index is upstream.
+* It works on some test cases due to incidental symmetry but is **not reliable or standard**.
 
 **Improvement:**
-- Use a **stack to store downstream fish only** as we iterate **left to right**.  
-- When we encounter an **upstream fish**, we resolve fights against fish in the stack.
+
+* Use a **stack to store downstream fish only** as we iterate **left to right**.
+* When we encounter an **upstream fish**, we resolve fights against fish in the stack.
 
 **Correct Approach:**
+
 ```cpp
 int solution(vector<int> &A, vector<int> &B) {
     stack<int> downstream;
@@ -150,5 +175,5 @@ int solution(vector<int> &A, vector<int> &B) {
     return survivors + downstream.size();
 }
 ```
-**TC:** `O(N)` — each fish enters and leaves the stack at most once.
 
+**TC:** `O(N)` — each fish enters and leaves the stack at most once.

@@ -1,4 +1,25 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
 # Important Question & Answers
+
+#### Euler Motor's MCQ
 
 ```
 Which of the following describes the concept of "stack overflow"?

@@ -1,6 +1,27 @@
-# [Reverse a Linked List](https://leetcode.com/problems/reverse-linked-list/)
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Reverse Linked List
 
 ### Brute Force: Reverse Links in Place Recursion
+
 ```cpp
 ListNode* reverseList(ListNode* head) {
         ListNode* temp = head;
@@ -20,6 +41,7 @@ ListNode* reverseList(ListNode* head) {
 ```
 
 ### Optimal Approach-I Reverse Links in Place (Iterative)
+
 ```cpp
 ListNode* reverseList(ListNode* head) {
         ListNode* prev = NULL; 
@@ -36,35 +58,38 @@ ListNode* reverseList(ListNode* head) {
 ```
 
 Initial `prev=NULL`, `prev=temp=head`
+
 ```
 NULL    [1|●]--->[2|●]--->[3|●]--->[4|●]--->NULL
 prev     temp     
 ```
 
-`front=temp->next`, `temp->next = prev` , `prev=temp`, `temp=front` 
+`front=temp->next`, `temp->next = prev` , `prev=temp`, `temp=front`
+
 ```
 NULL<---[1|●]    [2|●]--->[3|●]--->[4|●]--->NULL
 		prev     temp     front
 ```
 
-`front=temp->next`, `temp->next = prev`, `prev=temp`, `temp=front` 
+`front=temp->next`, `temp->next = prev`, `prev=temp`, `temp=front`
+
 ```
 NULL<---[1|●]<---[2|●]    [3|●]--->[4|●]--->NULL
 		          prev     temp     front
 ```
 
-`front=temp->next`, `temp->next = prev`, `prev=temp`, `temp=front` 
+`front=temp->next`, `temp->next = prev`, `prev=temp`, `temp=front`
+
 ```
 NULL<---[1|●]<---[2|●]<---[3|●]<---[4|●]--->NULL
 		                   prev     temp    front
 ```
 
-`front=temp->next`, `temp->next = prev`, `prev=temp`, `temp=front` 
+`front=temp->next`, `temp->next = prev`, `prev=temp`, `temp=front`
+
 ```
 NULL<---[1|●]<---[2|●]<---[3|●]<---[4|●]    NULL
 		                            prev    temp    front
 ```
 
 `temp==NULL` Stop
-
-

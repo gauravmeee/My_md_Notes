@@ -1,5 +1,27 @@
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-# [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
+# String Problems
+
+## [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
+
 ```
 Input: 
 s = "the sky is blue"
@@ -9,6 +31,7 @@ Output:
 ```
 
 By Me :)
+
 ```cpp
 string reverseWords(string s) {
 	int n = s.length();
@@ -44,7 +67,8 @@ string reverseWords(string s) {
 // SC -> O(n)
 ```
 
-by [Reverse Words in a String | LeetCode 151 | C++, Java, Python](https://www.youtube.com/watch?v=vhnRAaJybpA&ab_channel=KnowledgeCenter)
+by [Reverse Words in a String | LeetCode 151 | C++, Java, Python](https://www.youtube.com/watch?v=vhnRAaJybpA\&ab_channel=KnowledgeCenter)
+
 ```cpp
 string reverseWords(string s) {
 	int n = s.length();
@@ -82,9 +106,9 @@ string reverseWords(string s) {
 // SC -> O(n)
 ```
 
----
+***
 
-# [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
+## [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 
 By me :)
 
@@ -134,8 +158,8 @@ string longestPalindrome(string s) {
 // SC -> O(1)
 ```
 
+by [Longest Palindromic Substring - Python - Leetcode 5](https://www.youtube.com/watch?v=XYQecbcd6_c\&ab_channel=NeetCode)
 
-by [Longest Palindromic Substring - Python - Leetcode 5](https://www.youtube.com/watch?v=XYQecbcd6_c&ab_channel=NeetCode)
 ```python
 def longestPalindrome(self, s):
         res = ""
@@ -164,25 +188,29 @@ def longestPalindrome(self, s):
 # SC -> O(1)
 ```
 
----
+***
 
-### **Ques.** Write a C++ program to find the **word with the highest frequency** in a given string. If multiple words have the same maximum frequency, print the one that appears **first** in the string.
- 
-Input:  
+#### **Ques.** Write a C++ program to find the **word with the highest frequency** in a given string. If multiple words have the same maximum frequency, print the one that appears **first** in the string.
+
+Input:
+
 ```
 "apple banana apple orange banana apple"
 ```
 
-Output:  
+Output:
+
 ```
 apple
 ```
 
 **Constraints:**
-- The input string contains only lowercase English letters and spaces.
-- Words are separated by a single space.
+
+* The input string contains only lowercase English letters and spaces.
+* Words are separated by a single space.
 
 **Solution by GPT** ⭐
+
 ```cpp
 #include <iostream>
 #include <sstream>
@@ -213,7 +241,7 @@ int main() {
 ```
 
 **Note:** `>>` Operator in `while (ss >> word)`
-- the `>>` is the **stream extraction operator** (same as in `cin >> x`).
-- `ss` is a `stringstream` initialized with the input string.
-- `ss >> word` extracts the **next word** (separated by whitespace) from the stream and stores it in the variable `word`.
-    
+
+* the `>>` is the **stream extraction operator** (same as in `cin >> x`).
+* `ss` is a `stringstream` initialized with the input string.
+* `ss >> word` extracts the **next word** (separated by whitespace) from the stream and stores it in the variable `word`.

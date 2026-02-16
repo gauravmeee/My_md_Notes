@@ -1,9 +1,29 @@
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-# [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
+# Set Matrix Zeroes
 
->Brute Force
+> Brute Force
 
 Main Function
+
 ```cpp
 vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
 
@@ -33,7 +53,9 @@ vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
     return matrix;
 }
 ```
+
 Helping Function
+
 ```cpp
 // TC: markRow: O(m)
 void markRow(vector<vector<int>> &matrix, int n, int m, int i) {
@@ -56,9 +78,10 @@ void markCol(vector<vector<int>> &matrix, int n, int m, int j) {
 }
 ```
 
-TC : O(n * m )(n + m) + O(n + m)
+TC : O(n \* m )(n + m) + O(n + m)
 
 > Better Approach
+
 ```cpp
 vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
 
@@ -94,10 +117,11 @@ vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
     return matrix;
 }
 ```
-TC : 2* (n* m)
-SC: O(n + m)
+
+TC : 2\* (n\* m) SC: O(n + m)
 
 > Optimal
+
 ```cpp
 \
 vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
@@ -160,5 +184,4 @@ vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
 }
 ```
 
-TC : 2* O((n-1)* (m-1)) + O(n) + O(m) -> 2 * O(n* m)
-SC : O(1)
+TC : 2\* O((n-1)\* (m-1)) + O(n) + O(m) -> 2 \* O(n\* m) SC : O(1)

@@ -1,7 +1,27 @@
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-# [ CPU Task Scheduler ](https://www.naukri.com/code360/problems/cpu-task-scheduler_2248081?leftPanelTabValue=PROBLEM)
+# CPU Task Scheduler
 
 My Approach After learning Heap : )
+
 ```cpp
 int cpuTaskScheduler(int n, vector<vector<int>> arr) {
 	// min heap to store the ending time of processes.
@@ -34,5 +54,3 @@ int cpuTaskScheduler(int n, vector<vector<int>> arr) {
 
 }
 ```
-
-

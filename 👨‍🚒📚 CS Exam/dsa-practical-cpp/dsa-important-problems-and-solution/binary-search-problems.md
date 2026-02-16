@@ -1,8 +1,52 @@
+---
+description: Made by Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-# [MinMaxDivision](https://app.codility.com/programmers/lessons/14-binary_search_algorithm/min_max_division/) ⭐
+# Binary Search Problems
 
+```cpp
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int l = 0, r = nums.size() - 1;
+        
+        while (l <= r) {
+            int mid = (l + r) / 2;  // Find the middle index
+            
+            if (nums[mid] == target) {
+                return mid;  // Target found, return the index
+            } else if (nums[mid] < target) {
+                l = mid + 1;  // Search in the right half
+            } else {
+                r = mid - 1;  // Search in the left half
+            }
+        }
+        
+        return -1;  // Target not found
+    }
+};
+```
+
+## [MinMaxDivision](https://app.codility.com/programmers/lessons/14-binary_search_algorithm/min_max_division/) ⭐
 
 **Learned from GPT**
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -55,9 +99,10 @@ int solution(int K, int M, vector<int> &A) {
 
 ```
 
-# [NailingPlanks](https://app.codility.com/programmers/lessons/14-binary_search_algorithm/nailing_planks/)
+## [NailingPlanks](https://app.codility.com/programmers/lessons/14-binary_search_algorithm/nailing_planks/)
 
 My Solution -> Wrong Approach (Without Binary Tree) ❌
+
 ```cpp
 int solution(vector<int> &A, vector<int> &B, vector<int> &C) {
     int n = A.size();
@@ -82,38 +127,37 @@ int solution(vector<int> &A, vector<int> &B, vector<int> &C) {
 }
 ```
 
-Your current approach **cannot be fixed by small modifications**. Even with the new condition. 
+Your current approach **cannot be fixed by small modifications**. Even with the new condition.
 
 It is **still fundamentally flawed**, because:
-- Checking only **one plank at a time** (`plankNailed`)
-- Trying to progress based on **only the current nail**
-- Missing that a nail can hit a plank **out of order**
-    
+
+* Checking only **one plank at a time** (`plankNailed`)
+* Trying to progress based on **only the current nail**
+* Missing that a nail can hit a plank **out of order**
+
 **Why Binary Search (or Other Efficient Method) is Needed:**
+
 1. **Use nails in order** from `C[0]` to `C[J]`
 2. **Ensure all planks are nailed using only first J nails**
 3. Check for each plank: is **any** nail in that subarray in its range?
-    
 
 This can be done using:
-- Binary Search over `J` (min nails needed)
-- Prefix minimums to speed up checking whether a plank can be nailed
-    
 
----
+* Binary Search over `J` (min nails needed)
+* Prefix minimums to speed up checking whether a plank can be nailed
 
-### ✅ Recommendation:
+***
+
+#### ✅ Recommendation:
 
 Use a binary search solution with:
 
-- Binary search on `J` (min # of nails)
-    
-- Preprocess `C` with index
-    
-- For each plank, check if any nail in [A[i], B[i]] exists within first `J` nails using a segment tree or prefix minimum
-    
+* Binary search on `J` (min # of nails)
+* Preprocess `C` with index
+* For each plank, check if any nail in \[A\[i], B\[i]] exists within first `J` nails using a segment tree or prefix minimum
 
 My `Binary Search` Solution with Help of GPT ✅
+
 ```cpp
 int solution(vector<int> &A, vector<int> &B, vector<int> &C) {
     int n = A.size();
