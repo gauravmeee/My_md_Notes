@@ -1,8 +1,4 @@
----
-hidden: true
----
-
-# Euler Motors OA
+# Important Question & Answers
 
 ```
 Which of the following describes the concept of "stack overflow"?
