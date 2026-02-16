@@ -1,45 +1,68 @@
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-
-
+# OOPS Cheat Sheet
 
 **POP**
-- major emphasis is on `PROCEDURE` (functions) and not on the data
-- Program is divide into functions
-- Top-Down Approach
-- Ex: `C`, `Cobol`, `Fortan`, `Pascal`
+
+* major emphasis is on `PROCEDURE` (functions) and not on the data
+* Program is divide into functions
+* Top-Down Approach
+* Ex: `C`, `Cobol`, `Fortan`, `Pascal`
 
 **OOP**
-- Major emphasis is on `DATA` rather than `PROCEDURE`
-- Program is divide into objects
-- Bottom-Up Approach
-- Ex: `C++`, `Java`, `Python`, `.NET`
 
-*OOPS Follow DRY!*
+* Major emphasis is on `DATA` rather than `PROCEDURE`
+* Program is divide into objects
+* Bottom-Up Approach
+* Ex: `C++`, `Java`, `Python`, `.NET`
+
+_OOPS Follow DRY!_
 
 **4-Principle of OOP**
-- **Encapsulation**: 
-	- Binding data and functions into a single unit (via Classes, objects).
-	- Hiding the data for purpose of protection (via Access Specifier)
-- **Inheritance**: 
-	- deriving a new class from an existing class.
-- **Abstraction**: 
-	- Hides Implementation details and just exposes the features. (via virtual functions, abstract classes).
-	- Reduces code complexity
-- **Polymorphism**: 
-	- Object to take many forms (via overloading and overriding).
+
+* **Encapsulation**:
+  * Binding data and functions into a single unit (via Classes, objects).
+  * Hiding the data for purpose of protection (via Access Specifier)
+* **Inheritance**:
+  * deriving a new class from an existing class.
+* **Abstraction**:
+  * Hides Implementation details and just exposes the features. (via virtual functions, abstract classes).
+  * Reduces code complexity
+* **Polymorphism**:
+  * Object to take many forms (via overloading and overriding).
 
 **Concepts:**
-- **Class:** A class is a template to create objects
-- **Object:** An Instance of Class
-- **Message Passing:** object interact with one another by sending messages, typically through method calls.
-- **Dynamic Binding** - code which will execute is not known until the programs run
 
+* **Class:** A class is a template to create objects
+* **Object:** An Instance of Class
+* **Message Passing:** object interact with one another by sending messages, typically through method calls.
+* **Dynamic Binding** - code which will execute is not known until the programs run
 
----
-### Classes
+***
+
+#### Classes
 
 Create Class
-```cpp 
+
+```cpp
 class MyClass{    
     private:
         int pvtData;
@@ -51,11 +74,13 @@ class MyClass{
 ```
 
 Create Object
+
 ```cpp
 MyClass obj;
 ```
 
 Only public member can be Accessed Directly
+
 ```cpp
 obj.pvtData;  // OR obj.pvtFunc() ❌ Private
 obj.pubData; // OR obj.pubFun() ✅ public
@@ -63,6 +88,7 @@ obj.pubData; // OR obj.pubFun() ✅ public
 ```
 
 Define Function outside Class
+
 ```cpp
 class MyClass{   
 	// Declared (parameter name omitted ⭐)
@@ -72,7 +98,8 @@ class MyClass{
 void MyClass::myFunc(int a, float b){...}; 
 ```
 
-Parameter name can be **omitted** in declaration for any function : member function, friend function, independent function etc. 
+Parameter name can be **omitted** in declaration for any function : member function, friend function, independent function etc.
+
 ```cpp
 // Function declaration (parameter names omitted)
 int add(int, int); 
@@ -84,13 +111,14 @@ int add(int a, int b) {
 ```
 
 Declare objects along with the class declaration like this:
+
 ```cpp
 Class Employee{
 	//class definition
 } harry, rohan, lavish;
 ```
 
-### Nesting of Member Function
+#### Nesting of Member Function
 
 ```cpp
 class MyClass {
@@ -105,42 +133,42 @@ void MyClass::pubFunc(void) {
     pvtFunc(); // pvtFunc() nested inside pubFunc()
 }
 ```
-- In **C++**:  
-    ✅ `func()` and `func(void)` → **both mean no parameters**
-- In **C**:  
-    ✅ `func(void)` → no parameters  
-    ⚠️ `func()` → **unspecified parameters** (can take any arguments)
 
-### Access Specifier
+* In **C++**:\
+  ✅ `func()` and `func(void)` → **both mean no parameters**
+* In **C**:\
+  ✅ `func(void)` → no parameters\
+  ⚠️ `func()` → **unspecified parameters** (can take any arguments)
 
- - `private`(Default) : Can only be Accessed within Same Class, and by Friend function.
- - `protected` : private + can also be accessed in Derived Class ⭐
- - `public` :  protected + can also accessed outside the Class
+#### Access Specifier
+
+* `private`(Default) : Can only be Accessed within Same Class, and by Friend function.
+* `protected` : private + can also be accessed in Derived Class ⭐
+* `public` : protected + can also accessed outside the Class
 
 Accessing Nested Private/Public Member using Public Function
+
 ```cpp
 MyClass obj;
 
 obj.pubFunc() // Accessing private function through another function
 ```
 
-### Static
+#### Static
 
-- `static variable`
-	- class-level variable shared by all instances.
-    - Declared using the `static` keyword.
-    - Can be ==accessed by both `static` and `non-static` functions.==
-    - Can be accessed **without creating an object** of the class. ⭐
-    - `static variable` inside a class **must** be ==defined outside the class== **unless** it is a `constexpr` or `const static` integral type, which can be initialized inside the class.
-    - If **not explicitly initialized**, it is ==**automatically initialized to 0**==.
-        
-- **`static function`**
-    - ==Can access **only `static` members**== (variables/functions) of the class.
-    - Since it has ==no `this` pointer==, it ==can’t access non-static variables/functions.==
-    - Useful for operations not tied to a specific object.
-    - Can be called **without creating an instance**. ⭐
-    - **Static functions** ==cannot be virtual== because they don’t belong to a specific object instance.
-
+* `static variable`
+  * class-level variable shared by all instances.
+  * Declared using the `static` keyword.
+  * Can be ==accessed by both `static` and `non-static` functions.==
+  * Can be accessed **without creating an object** of the class. ⭐
+  * `static variable` inside a class **must** be ==defined outside the class== **unless** it is a `constexpr` or `const static` integral type, which can be initialized inside the class.
+  * If **not explicitly initialized**, it is ==**automatically initialized to 0**==.
+* **`static function`**
+  * \==Can access **only `static` members**== (variables/functions) of the class.
+  * Since it has ==no `this` pointer==, it ==can’t access non-static variables/functions.==
+  * Useful for operations not tied to a specific object.
+  * Can be called **without creating an instance**. ⭐
+  * **Static functions** ==cannot be virtual== because they don’t belong to a specific object instance.
 
 ```cpp
 class MyClass{
@@ -173,14 +201,15 @@ MyClass::pubFunc(); // ✅ Accessing Private static member using public static F
 
 MyClass::pubFunc2(): // ❌ Non-static member cannot be called without creating an object
 ```
+
 `Default` value is `0` for all static variable (unlike local variable)
 
-### Object Memory Allocation
+#### Object Memory Allocation
 
 The memory of a class in C++ is primarily determined by its **instance variables** (data members).
 
-- `Variable` in class get their `own memories`
-- Member `function` and `static variables` in class have `common memory` allocation for different objects
+* `Variable` in class get their `own memories`
+* Member `function` and `static variables` in class have `common memory` allocation for different objects
 
 ```
 __________________________________
@@ -193,8 +222,7 @@ __________________________________
 |________________________________|
 ```
 
-### Passing Objects as a Function Argument
-
+#### Passing Objects as a Function Argument
 
 ```cpp
 class MyClass{
@@ -207,7 +235,8 @@ class MyClass{
 		}
 }
 ```
-- Defining Function inside Class so that member functions can directly access private/protected data.
+
+* Defining Function inside Class so that member functions can directly access private/protected data.
 
 ```cpp
 // pass by value
@@ -222,20 +251,22 @@ void myFunc(MyClass &obj) { // reference to the object is passed
 void myFunc(MyClass *obj) { // object address is passed
 }
 ```
-- use `pass by value` if not want to affect the original object. but it creates overhead if the object is large.
-- Use the `pointer` or `reference` to access or modify the original object.
 
----
-### Friend Functions
+* use `pass by value` if not want to affect the original object. but it creates overhead if the object is large.
+* Use the `pointer` or `reference` to access or modify the original object.
+
+***
+
+#### Friend Functions
 
 **Friend function** - > function that is ==not a member of a class but has access to its private and protected members.==
-- Declared inside class using `friend` keyword.
-- Take  `object` as an argument. (to access its private member)
-- Can be also declared inside of `private` section of the class ⭐
-- It can be ==**invoked without the help of object**==
 
+* Declared inside class using `friend` keyword.
+* Take `object` as an argument. (to access its private member)
+* Can be also declared inside of `private` section of the class ⭐
+* It can be ==**invoked without the help of object**==
+* Writing `friend int friendFunc(int pvtData);` or `friend int friendFunc(int pubData);` does not give the function access to the class's `pvtData` or `pubData` directly.
 
-- Writing `friend int friendFunc(int pvtData);` or `friend int friendFunc(int pubData);` does not give the function access to the class's `pvtData` or `pubData` directly.
 ```cpp
 class MyClass{
 	int pvtData;
@@ -248,9 +279,10 @@ class MyClass{
 int friendFunc(MyClass obj1, MyClass obj2){obj1.pvtData + obj2.pvtData} // accessing `pvtData` of objects
 ```
 
-##### **Friend Class**
+**Friend Class**
 
 Instead of making individual functions friends, **==you can declare the entire class as a friend==** of another class.
+
 ```cpp
 class MyClass1 // forward declaration
 
@@ -265,7 +297,7 @@ class MyClass1{
 }
 ```
 
-##### **Member Friend Function**
+**Member Friend Function**
 
 Friend Functions that are member of other class (not independent
 
@@ -282,13 +314,14 @@ class MyClass2{
 
 **Forward declaration** -> this lets the compiler or interpreter know about the entity beforehand, such as `class`, `function`, `structs`, `enums`, `typedef`, `template`
 
-### Constructor
+#### Constructor
 
 **Constructor:** -> Special member function with ==same name as of the class.==
-- It is used to initialized the objects of its class
-- It is ==automatically invoked== whenever an object is created
--  It should be ==declared in the `public` section== of the class ⭐
-- Cannot `return` values and do n==ot have `return` type== ⭐
+
+* It is used to initialized the objects of its class
+* It is ==automatically invoked== whenever an object is created
+* It should be ==declared in the `public` section== of the class ⭐
+* Cannot `return` values and do n==ot have `return` type== ⭐
 
 ```cpp
 class MyClass{
@@ -300,6 +333,7 @@ class MyClass{
 ```
 
 **Default Constructor** -> No argument
+
 ```cpp
 class MyClass{
 	Public:
@@ -314,6 +348,7 @@ int main(){
 ```
 
 **Parameterized Constructor** - One or more argument
+
 ```cpp
 class MyClass{
 	public:
@@ -327,8 +362,8 @@ int main(){
 }
 ```
 
-
 **Constructor with Default Argument** -> If argument not passed, default value is used
+
 ```cpp
 MyClass{
 	public:
@@ -342,14 +377,16 @@ int main(){
 	MyClass obj3(5); // a=5, Default argument(b=0)
 }
 ```
-- **`MyClass obj2();`**  This will **not create an object**, it declare a function which takes no argument and returns a `MyClass` object ⭐
 
-Note 
-- `MyClass(int a, int b=0) { ... }`   ✅
-- `MyClass(int a = 0, int b) { ... }`// ❌ Invalid: Default arguments must be from **right to left**
+* **`MyClass obj2();`** This will **not create an object**, it declare a function which takes no argument and returns a `MyClass` object ⭐
 
+Note
+
+* `MyClass(int a, int b=0) { ... }` ✅
+* `MyClass(int a = 0, int b) { ... }`// ❌ Invalid: Default arguments must be from **right to left**
 
 **Constructor Overloading** -> Multiple constructor with different signature
+
 ```cpp
 class MyClass {
 public:
@@ -371,10 +408,11 @@ int main() {
     MyClass obj6('a');       // ✅ 6 is used (char)
 }
 ```
+
 `MyClass obj1` -> If no argument passed, and both `default constructor` and `constructor with no argument` are there, `default constructor` is called. then use explicitly `Constructor with Default argument` by `MyClass obj3=MyClass()` without passing single data
 
-
 **Dynamic Initialization of Objects using Constructor**
+
 ```cpp
 class MyClass{
 	public:
@@ -394,11 +432,12 @@ int main(){
 	bd2 = MyClass(1, 3, 3); // Reassigned
 }
 ```
-- ==Default Constructor is required to create object without passing initial parameter ==(otherwise error).
-- Initially `bd1` & `bd2` created using the default constructor and  assigned garbage values.
-- `bd1` & `bd2` then ==reassigned a value using the parameterized constructor==.
 
-##### **Copy Constructor**
+* \==Default Constructor is required to create object without passing initial parameter ==(otherwise error).
+* Initially `bd1` & `bd2` created using the default constructor and assigned garbage values.
+* `bd1` & `bd2` then ==reassigned a value using the parameterized constructor==.
+
+**Copy Constructor**
 
 ```cpp
 class MyClass{
@@ -417,13 +456,15 @@ int main(){
 }
 ```
 
-**Default Copy Constructor :** There is no error to use `MyClass obj2(obj)` even if copy constructor is not defined by user.  ⭐ Because **it is inbuilt**. But user define copy constructor overload it.
+**Default Copy Constructor :** There is no error to use `MyClass obj2(obj)` even if copy constructor is not defined by user. ⭐ Because **it is inbuilt**. But user define copy constructor overload it.
 
 **Destructor** -> an instance member function which is invoked automatically whenever an object is going to be destroyed
-- Destructor neither requires any argument nor returns any value.
-- Destructor has the same name as their class name preceded by a `tilde(~)` symbol
-- It is not possible to define more than one destructor. 
-- In ==destructor, objects are destroyed in the reverse of an object creation.==
+
+* Destructor neither requires any argument nor returns any value.
+* Destructor has the same name as their class name preceded by a `tilde(~)` symbol
+* It is not possible to define more than one destructor.
+* In ==destructor, objects are destroyed in the reverse of an object creation.==
+
 ```cpp
 Class MyClass{
 	MyClas(){cout<<"constructor called";}
@@ -437,14 +478,17 @@ int main(){
 	} // "Destructor called" (for obj2, automatically due to scope end)
 } // "Destructor called" (for obj1, automatically due to scope end)
 ```
-- If object is created by using `new` or the constructor uses `new` to allocate memory, which resides int the heap memory or the free store, the destructor should use `delete` to free the memory
 
-### Inheritance
+* If object is created by using `new` or the constructor uses `new` to allocate memory, which resides int the heap memory or the free store, the destructor should use `delete` to free the memory
+
+#### Inheritance
 
 **Inheritance** -> Deriving a Class from another Class
-- It allows a class to inherit properties and behaviors from another class.
+
+* It allows a class to inherit properties and behaviors from another class.
 
 **1. Simple** Inheritance -> A derived class with only one Base class : `B = A + (more)`
+
 ```
 	base
 	[A]  
@@ -452,11 +496,13 @@ int main(){
 	[B]
 	derives
 ```
+
 ```cpp
 class B : public A { }
 ```
 
 **2. Multiple** Inheritance -> A derived class with more than one base class : `C = A + B + (more)`
+
 ```
    Base    Base
    [A]     [B]
@@ -464,11 +510,13 @@ class B : public A { }
        [C]
      Derived
 ```
+
 ```cpp
 class C : public A, public B { }
 ```
 
 **3. Multilevel** Inheritance -> Deriving a class from already derived class : `B = A + more` & `C = B + more`
+
 ```
 	base
 	[A]  
@@ -478,12 +526,14 @@ class C : public A, public B { }
 	[C]
 	derives
 ```
+
 ```cpp
 class B:  public A { }
 class C:  public B { }
 ```
 
 **4. Hierarchical** Inheritance -> Several Derived Classes from a single base class: `A = C + more` & `B = C + more`
+
 ```
 	  Blase 
        [C]
@@ -491,12 +541,14 @@ class C:  public B { }
    [A]     [B]
 Derived   Derived
 ```
+
 ```cpp
 class A:  public C { }
 class B:  public C { }
 ```
 
 **5. Hybrid** Inheritance -> combination of two or more types of inheritance (e.g., single, multiple, multilevel, hierarchical)
+
 ```
 	  Blase 
        [C]
@@ -506,6 +558,7 @@ class B:  public C { }
        [D]
      Derived
 ```
+
 ```cpp
 class A:  public C { }
 class B:  public C { }
@@ -513,7 +566,8 @@ class D : public A, public B { }
 ```
 
 **Visibility Modes in Inheritance** -> how the members (attributes and methods) of the parent class are inherited in the child class.
-- Default visibility -> mode is private
+
+* Default visibility -> mode is private
 
 | **Base Class Member**  | **Private Members** | **Protected Members** | **Public Members** |
 | ---------------------- | ------------------- | --------------------- | ------------------ |
@@ -527,14 +581,14 @@ class DerivedClass : protected BaseClass{
 }
 ```
 
-
 **Virtual Base Class** -> Concept used in multiple inheritances to prevent ambiguity between multiple instances
-- solve the **diamond problem** in multiple inheritance, ensuring that a single shared instance of a base class is inherited, even when multiple paths lead to it.
-- `virtual` keyword is applied during inheritance, not when defining the base class.
-- The order of `virtual` keyword and `visibility mode` keyword  does not matter ⭐
 
-- Without Virtual Base Class
-- Ambiguity -> Compile-time error
+* solve the **diamond problem** in multiple inheritance, ensuring that a single shared instance of a base class is inherited, even when multiple paths lead to it.
+* `virtual` keyword is applied during inheritance, not when defining the base class.
+* The order of `virtual` keyword and `visibility mode` keyword does not matter ⭐
+* Without Virtual Base Class
+* Ambiguity -> Compile-time error
+
 ```
                 A 
              (int x)
@@ -547,9 +601,10 @@ class DerivedClass : protected BaseClass{
                 
 ```
 
-- To solve this ambiguity we will make class `A` as a virtual base class.
-- Now class `D` inherits a single instance of `A` through `B` and `C`, preventing ambiguity.
-```cpp 
+* To solve this ambiguity we will make class `A` as a virtual base class.
+* Now class `D` inherits a single instance of `A` through `B` and `C`, preventing ambiguity.
+
+```cpp
 class A {  // Class A Logic
 };
 
@@ -561,10 +616,12 @@ class D : public B, public C { // Single instance of A in D
 }; 
 ```
 
-##### **Constructor in Derived Class**
-- if the **visibility mode** of the base class constructor is not `public`, then the constructor is **not inherited** in the derived class.
+**Constructor in Derived Class**
+
+* if the **visibility mode** of the base class constructor is not `public`, then the constructor is **not inherited** in the derived class.
 
 **Default constructor** of the base class -> automatically called when an object of the derived class is created.
+
 ```cpp
 BaseClass{
 	public:
@@ -576,6 +633,7 @@ class DerivedClass:public BaseClass{
 ```
 
 **Parameterized constructor** of the base class -> constructor **must explicitly call** in Derived class and pass argument to use it ⭐
+
 ```cpp
 BaseClass{
 	public:
@@ -590,8 +648,10 @@ class DerivedClass:public BaseClass{
 
 **Constructor Execution Order**
 
-1. **Case 1: Constructor in Simple Inheritance** -> If both base and derived classes have constructors, **==base class constructor is executed first==**. 
-- Constructor order for `B`'s Instance where Inheritance `A->B`
+1. **Case 1: Constructor in Simple Inheritance** -> If both base and derived classes have constructors, **==base class constructor is executed first==**.
+
+* Constructor order for `B`'s Instance where Inheritance `A->B`
+
 ```cpp
 class B: public A{
 	//Constructor execution Order -> A() -> B()
@@ -599,7 +659,9 @@ class B: public A{
 ```
 
 2. **Case 2 : Constructor in Multiple Inheritance** -> base classes are constructed in the **==order in which they appear==** in class declaration.
-- Constructor order for `C`'s Instance where Inheritance `A->C, B->C`
+
+* Constructor order for `C`'s Instance where Inheritance `A->C, B->C`
+
 ```cpp
 class C: public A, public B{
 	//Constructor execution Order -> A() -> B() -> C()
@@ -607,15 +669,19 @@ class C: public A, public B{
 ```
 
 3. **Case 3 : Constructor in Multilevel Inheritance** -> the constructors are **==executed in the order of inherit==**
--  Constructor order for `C`'s Instance where Inheritance `A->B->C` ⭐
+
+* Constructor order for `C`'s Instance where Inheritance `A->B->C` ⭐
+
 ```cpp
  // For Object `C` Constructor order : A() -> B() -> C() 
 class B:  public A { }
 class C:  public B { }
 ```
 
-4. **Case 4 : Virtual Base Class** ->  constructors for **==virtual base classes are invoked before an non-virtual base class==**. If there are multiple virtual base class, they are invoked in the order declared.
--  Constructor order for `C`'s Instance multiple inheritance.
+4. **Case 4 : Virtual Base Class** -> constructors for **==virtual base classes are invoked before an non-virtual base class==**. If there are multiple virtual base class, they are invoked in the order declared.
+
+* Constructor order for `C`'s Instance multiple inheritance.
+
 ```cpp
 class C: public A, virtual public B{
 	//Constructor execution Order -> B() -> A() -> C()
@@ -623,6 +689,7 @@ class C: public A, virtual public B{
 ```
 
 Order of Constructor execution on Derived Class ⭐
+
 ```
 Rule 1:
 Virtual Base Class  -> Base Class ->  Derived Class
@@ -633,13 +700,15 @@ Order of Declaration
 Rule 1 > Rule 2
 ```
 
----
+***
 
 **Special Syntax for Passing Arguments to Multiple Base Classes through derived constructor**
-- The constructor of the derived class receives all the arguments at once and then it will pass the calls to the respective base classes
-- The body is called after all the constructors are finished executing. ⭐
+
+* The constructor of the derived class receives all the arguments at once and then it will pass the calls to the respective base classes
+* The body is called after all the constructors are finished executing. ⭐
 
 `A->B->C`
+
 ```cpp
 class A { public: A(int x, int y) {} }; 
 class B { public: B(int z) {} }; 
@@ -652,8 +721,8 @@ class C : public A, public B {
 };
 ```
 
-
 `A->C`, `B->C`
+
 ```cpp
 class C : public A, public B{
 	int x, y;
@@ -662,8 +731,9 @@ class C : public A, public B{
 }
 ```
 
----
-##### **Initialization list in Constructor**
+***
+
+**Initialization list in Constructor**
 
 ```cpp
 class MyClass
@@ -683,38 +753,46 @@ public:
 **Order of Initialization:** The order of initialization in the initializer list follows the **declaration order** of class members, not the order in the list itself. ⭐
 
 **Case 1: Modification of argument in the body**:
+
 ```cpp
 MyClass(int i, int j) : a(i), b(j) {
 	i++, ++j;
 }
 ```
-- Final values of `a=i` and `b=j` are captured by the initializer list.
-- Modifications to `i` and `j` in the body do **not** affect the already-initialized `a` and `b`.
+
+* Final values of `a=i` and `b=j` are captured by the initializer list.
+* Modifications to `i` and `j` in the body do **not** affect the already-initialized `a` and `b`.
 
 **Case 2: Using Post-incremented `i++` for `a` and Pre-incremented `++j` for `b`**
+
 ```cpp
 MyClass(int i, int j) : a(i++), b(++j)
 ```
-- Final value of `a=i` and `b=j+1` 
-- **Post-increment** means assigned then increment, **Pre-Increment** means increment then assigned
+
+* Final value of `a=i` and `b=j+1`
+* **Post-increment** means assigned then increment, **Pre-Increment** means increment then assigned
 
 **Case 3: Using incremented `i` for `a` and a relation for `b`**:
+
 ```cpp
 MyClass(int i, int j) : a(i), b(a+j)
 ```
-- Final value of `a=i` and `b=a+j` 
-- `a` is initialized first with `i` and then `b` is initialized using the already-initialized value of `a` and `j`.
 
+* Final value of `a=i` and `b=a+j`
+* `a` is initialized first with `i` and then `b` is initialized using the already-initialized value of `a` and `j`.
 
-**Case 4: **Order mismatch in declaration and initializer list**:**
+**Case 4: Order mismatch in declaration and initializer list:**
+
 ```cpp
 MyClass(int i, int j) : b(j), a(i+b)
 ```
-- Final value of `a=i+garabage value` and `b=j`
-- Even though `b` is listed before `a` in the initializer list, `a` is declared before `b` in the class.
 
----
-### Pointers to Objects
+* Final value of `a=i+garabage value` and `b=j`
+* Even though `b` is listed before `a` in the initializer list, `a` is declared before `b` in the class.
+
+***
+
+#### Pointers to Objects
 
 ```cpp
 class MyClass{
@@ -725,6 +803,7 @@ class MyClass{
 ```
 
 Actual object
+
 ```cpp
 MyClass obj;
 
@@ -734,6 +813,7 @@ obj.func();
 ```
 
 Pointer to Object
+
 ```cpp
 MyClass *ptr = new MyClass;
 
@@ -745,9 +825,12 @@ MyClass *ptr = new MyClass;
 ptr->a; // same as (*ptr).a
 ptr->func() // same a (*ptr).func()
 ```
-- It is important to use `()` because, precedence of `.` is more than `*` ⭐
-- The arrow operator (`->`) in C++ can be thought of as a combination of dereferencing a pointer and using the dot operator to access a member of a class or structure
-##### **Array of Objects**
+
+* It is important to use `()` because, precedence of `.` is more than `*` ⭐
+* The arrow operator (`->`) in C++ can be thought of as a combination of dereferencing a pointer and using the dot operator to access a member of a class or structure
+
+**Array of Objects**
+
 ```cpp
 MyClass objArr[3]; // 3 elements -> 3 instance
 // Accessing using dot operator
@@ -761,7 +844,8 @@ objArr[2].a
 | objArr[0] | objArr[1] | 0bjArr[2] |
 └-----------┴-----------┴-----------┘
 ```
-- dynamically allot block of `size` x `memory`( required for 1 object )
+
+* dynamically allot block of `size` x `memory`( required for 1 object )
 
 ```cpp
 MyClass *ptrArr = new MyClass[3]; // Complex arr[]
@@ -775,11 +859,14 @@ ptrArr->a; // same as (*ptrArr).a
 (ptrArr+1)->a;// same as (*(ptrArr+1)).a
 ptrArr+1->a;// paranthesis '()' is optional.
 ```
-- paranthesis `()` is optional as, precedence of `+` is more than `->` ⭐
+
+* paranthesis `()` is optional as, precedence of `+` is more than `->` ⭐
 
 **`this` pointer** -> Refer to the object
-- `this` is a keyword which is a pointer which points to the object which invokes the member function.
-- If you want to return an object, using  `this` is the only way.
+
+* `this` is a keyword which is a pointer which points to the object which invokes the member function.
+* If you want to return an object, using `this` is the only way.
+
 ```cpp
 class MyClass{
 	int a;
@@ -807,7 +894,9 @@ int main(){
 	return 0;
 }
 ```
-##### **Use case Example (pointer and array)**
+
+**Use case Example (pointer and array)**
+
 ```cpp
 class ShopItem
 {
@@ -826,11 +915,13 @@ int main(){
     int size = 3;
     ShopItem *ptr = new ShopItem [size];
 ```
+
 ```
 address  0  1  2
 		 ^
 		 ptr  
 ```
+
 ```cpp
 	int id;
     float price;
@@ -842,16 +933,18 @@ address  0  1  2
         ptr++;
     }
 ```
+
 ```
 address  0  1  2
 		       ^
 		       ptr  
 ```
+
 ```
 }
 ```
 
-### **Polymorphism**
+#### **Polymorphism**
 
 “Poly” means several and “morphism” means form.
 
@@ -866,22 +959,21 @@ address  0  1  2
         Overloading    Overloading        Function
 ```
 
+**Compile Time Polymorphism**
 
-##### **Compile Time Polymorphism**
+* **Compile time** -> The compiler determines which method or operator to invoke based on the function signature or operator context at compile time.
+* **Early binding (`Static Binding`)** -> Resolved during compilation.
+* **Achieved through `overloading` (Ad-hoc Polymorphism)** -> works within the same class and allows multiple functions (with the **same name** but **different parameter** lists)
 
-- **Compile time** -> The compiler determines which method or operator to invoke based on the function signature or operator context at compile time.
-- **Early binding (`Static Binding`)** -> Resolved during compilation.
-- **Achieved through `overloading` (Ad-hoc Polymorphism)** -> works within the same class and allows multiple functions (with the **same name** but **different parameter** lists)
+**Run Time Polymorphism**
 
-##### **Run Time Polymorphism**
-
-- **Run time** -> The method to invoke is determined during runtime based on the actual type of the object, even if it is accessed through a base class pointer or reference.
-- **Late binding (`Dynamic Binding`)** -> Resolved during execution.
-- **Achieved through `overriding`** -> works across base and derived classes and requires the use of virtual functions in the base class (with **same signature**)
+* **Run time** -> The method to invoke is determined during runtime based on the actual type of the object, even if it is accessed through a base class pointer or reference.
+* **Late binding (`Dynamic Binding`)** -> Resolved during execution.
+* **Achieved through `overriding`** -> works across base and derived classes and requires the use of virtual functions in the base class (with **same signature**)
 
 Note: The run time polymorphism is considered slow because function calls are decided at run time
 
-##### **Pointer to Derived Class**
+**Pointer to Derived Class**
 
 ```cpp
 // Base Class
@@ -899,6 +991,7 @@ class DerivedClass : public BaseClass {
 ```
 
 **Base Class Pointer to Derived Class Object (Upcasting)**:
+
 ```cpp
 BaseClass *base_class_ptr; // Base Class Pointer
 DerivedClass obj_derived; // Derived Class object
@@ -915,19 +1008,19 @@ base_class_pointer->display(); // BaseClass::Display()
 ```
 
 1. **Base Class Pointer to Base Class Object** & **Derived Class Pointer to Derived Class Object** -> same as there object.
-
 2. **Base Class Pointer to Derived Class Object**(upcasting) -> Same as Base Class Object + Polymorphism (if virtual functions are used) ✅
-- it can invoke overridden functions in the Derived class via virtual functions 
 
-1. **Derived Class Pointer to Base Class Object**(downcasting) -> Cannot Point  ( because the Base class does not have the additional members or methods of the Derived class). ❌⭐
+* it can invoke overridden functions in the Derived class via virtual functions
 
-##### **Virtual Function**
+1. **Derived Class Pointer to Base Class Object**(downcasting) -> Cannot Point ( because the Base class does not have the additional members or methods of the Derived class). ❌⭐
 
-- **Virtual Function** -> A member function in the base class which is **declared using virtual keyword** is called virtual functions. 
-- ==Virtual allow derived classes to **override** methods from a base class== so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer. 
-- **Use of Virtual Function :**
-	- if not exist in base class -> you can’t call it using a base class pointer.
-	- If a derived class not override -> the base class implementation is used, avoiding errors.
+**Virtual Function**
+
+* **Virtual Function** -> A member function in the base class which is **declared using virtual keyword** is called virtual functions.
+* \==Virtual allow derived classes to **override** methods from a base class== so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer.
+* **Use of Virtual Function :**
+  * if not exist in base class -> you can’t call it using a base class pointer.
+  * If a derived class not override -> the base class implementation is used, avoiding errors.
 
 ```cpp
 // Base Class
@@ -956,15 +1049,17 @@ base_class_pointer->display(); // DerivedClass::Display()
 
 `virtual` keyword make sure that when the **virtual** function is called by using the base class pointer the `overriden` function of the derived class will run ⭐
 
-==`override` keyword ensures that the compiler checks whether a method in a derived class is **actually overriding** a virtual method== even If you accidentally change the method signature in the derived class. `override` Ensure correct matching, Catch typos, Avoid silent bugs.
+\==`override` keyword ensures that the compiler checks whether a method in a derived class is **actually overriding** a virtual method== even If you accidentally change the method signature in the derived class. `override` Ensure correct matching, Catch typos, Avoid silent bugs.
 
 **virtual functions can be overridden without the `override` keyword**, but using `override` is **strongly recommended**.
 
 Note:
-- If function **not declared virtual**, it will be resolved at **compile time** based on the type of the object or pointer/reference.
-- **constructors cannot be virtual** in C++.
 
-#### Without `override` Keyword ⭐
+* If function **not declared virtual**, it will be resolved at **compile time** based on the type of the object or pointer/reference.
+* **constructors cannot be virtual** in C++.
+
+**Without `override` Keyword ⭐**
+
 ```cpp
 class Base {
 public:
@@ -981,7 +1076,8 @@ public:
 };
 ```
 
-#### With `override` Keyword 
+**With `override` Keyword**
+
 ```cpp
 class Base {
 public:
@@ -998,22 +1094,24 @@ public:
 };
 ```
 
-
 **Function Signature Include:**
+
 1. Function name
 2. No. of Parameter + Its Types
 3. `const` qualifier (if member function)
 
 **Function Signature Don't Include:**
+
 1. Return type
 2. Parameter names
 3. `static` keyword
 4. `virtual` keyword
 
-##### Use of `const` Qualifier ⭐
-- `const` helps prevent accidental changes to data
-- `const` after a function promise not to change object state and so it **cannot modify any member variables** of the object.
-- `const` also allows calling the function on `const` objects:
+**Use of `const` Qualifier ⭐**
+
+* `const` helps prevent accidental changes to data
+* `const` after a function promise not to change object state and so it **cannot modify any member variables** of the object.
+* `const` also allows calling the function on `const` objects:
 
 ```cpp
 class Test {
@@ -1032,13 +1130,15 @@ t.show1() // ✅ OK as show() is const
 t.show2() // Not const → ❌ can't call on const object
 ```
 
----
-##### **Pure Virtual Functions**
+***
 
-**Pure virtual function** ->  function that doesn’t perform any operation 
-- it is declared by assigning the value `zero` to virtual function i.e. `virtual void func()=0`
-- declaring a function as `display() = 0;` without the `virtual` keyword and outside of a class is not valid.
-- It make necessary for the Derived Class to override the virtual function and thus Abstraction class
+**Pure Virtual Functions**
+
+**Pure virtual function** -> function that doesn’t perform any operation
+
+* it is declared by assigning the value `zero` to virtual function i.e. `virtual void func()=0`
+* declaring a function as `display() = 0;` without the `virtual` keyword and outside of a class is not valid.
+* It make necessary for the Derived Class to override the virtual function and thus Abstraction class
 
 ```cpp
 MyClass{
@@ -1047,45 +1147,49 @@ MyClass{
 };
 ```
 
-##### **Abstract Base Class**
+**Abstract Base Class**
 
 **Abstract base class** -> class that has ==at least one pure virtual function in its body==.
-- The classes which are inheriting the base class must need to override the virtual function of the abstract class **otherwise compiler will throw an error.**
-- You can't Create Instance or Object of abstract class.  
-- Virtual function can't be called directly from abstract class `MyClass::virtualFunc()` (compilation error)
-- Non virtual function can be called directly from abstract class `MyClass::NonVirtualFunc()` .
 
---- 
+* The classes which are inheriting the base class must need to override the virtual function of the abstract class **otherwise compiler will throw an error.**
+* You can't Create Instance or Object of abstract class.
+* Virtual function can't be called directly from abstract class `MyClass::virtualFunc()` (compilation error)
+* Non virtual function can be called directly from abstract class `MyClass::NonVirtualFunc()` .
+
+***
 
 The End ❌
 
----
----
+***
 
-### Key Points
+***
 
-- In **C++**: `func()` and `func(void)` → both mean no parameters    
-- In **C**: `func()` → unknown arguments, `func(void)` → no argument
-    
-###### `static` Members
+#### Key Points
 
-- Can be called without creating an object
-- Default value: `0` (unlike local variables)
-- Share **common memory** across all objects
-- Can be declared in the `private` section of class
-###### Access Specifiers
+* In **C++**: `func()` and `func(void)` → both mean no parameters
+* In **C**: `func()` → unknown arguments, `func(void)` → no argument
 
-- `private`, `protected` → can't be accessed outside the class directly
-- Accessible through **class functions**
-- `protected` → accessible in derived class, treated as `private`
-- `friend` function → can access both `private` and `protected`
-    
-###### Constructors
-- Default Constructor: `MyClass obj;`
-- Constructor with default arguments: `MyClass obj;`
-- **Wrong:** `MyClass obj();` → interpreted as function declaration
+**`static` Members**
 
-###### Constructor Overloading
+* Can be called without creating an object
+* Default value: `0` (unlike local variables)
+* Share **common memory** across all objects
+* Can be declared in the `private` section of class
+
+**Access Specifiers**
+
+* `private`, `protected` → can't be accessed outside the class directly
+* Accessible through **class functions**
+* `protected` → accessible in derived class, treated as `private`
+* `friend` function → can access both `private` and `protected`
+
+**Constructors**
+
+* Default Constructor: `MyClass obj;`
+* Constructor with default arguments: `MyClass obj;`
+* **Wrong:** `MyClass obj();` → interpreted as function declaration
+
+**Constructor Overloading**
 
 ```cpp
 class MyClass {
@@ -1098,32 +1202,33 @@ public:
 	MyClass(char) { }                      // 6. ✅ obj6('a')
 };
 ```
-###### Copy Constructor & Destructor
 
-- Custom Copy Constructor:  `MyClass(MyClass &obj) { a = obj.a; }`
-- Custom Destructor:  `~MyClass() { cout << "destructor called"; }`
-- Both are provided by default
-- Copy constructor auto-called on `MyClass obj2(obj1)`
-- Destructor auto-called at object end of scope
-###### Inheritance
+**Copy Constructor & Destructor**
+
+* Custom Copy Constructor: `MyClass(MyClass &obj) { a = obj.a; }`
+* Custom Destructor: `~MyClass() { cout << "destructor called"; }`
+* Both are provided by default
+* Copy constructor auto-called on `MyClass obj2(obj1)`
+* Destructor auto-called at object end of scope
+
+**Inheritance**
 
 ```cpp
 class A : public C { };  // A inherits from C
 ```
 
-- Modes: `private` (default), `protected`, `public`
-- `private` members → not inherited
-- Inheritance Access Changes:
+* Modes: `private` (default), `protected`, `public`
+* `private` members → not inherited
+* Inheritance Access Changes:
 
-|Base \ Derived|private|protected|public|
-|---|---|---|---|
-|private|❌|❌|❌|
-|protected|private|protected|protected|
-|public|private|protected|public|
+| Base \ Derived | private | protected | public    |
+| -------------- | ------- | --------- | --------- |
+| private        | ❌       | ❌         | ❌         |
+| protected      | private | protected | protected |
+| public         | private | protected | public    |
 
+**Ambiguity in Inheritance (Without `virtual` base)**
 
-
-###### Ambiguity in Inheritance (Without `virtual` base)
 ```
         A
      (int x)
@@ -1135,11 +1240,11 @@ class A : public C { };  // A inherits from C
 (x?) → ❌ Ambiguity                
 ```
 
-###### Virtual Base Class (Solution)
+**Virtual Base Class (Solution)**
 
- - To solve this ambiguity we will make class `A` as a virtual base class.
-- `virtual` keyword is used during inheritance. not when defining the base class.
-- Order of `virtual` & `visibility` doesn’t matter.
+* To solve this ambiguity we will make class `A` as a virtual base class.
+* `virtual` keyword is used during inheritance. not when defining the base class.
+* Order of `virtual` & `visibility` doesn’t matter.
 
 ```cpp
 class A {...};
@@ -1148,12 +1253,13 @@ class B : public virtual A {...}; // virtual inheritence
 class C : virtual public A {...};  // virtual inheritence 
 class D : public B, public C {...};  // Single instance of A in D
 ```
-- Now class `D` inherits a single instance of `A` through `B` and `C`, preventing ambiguity.
 
-###### Constructor 
+* Now class `D` inherits a single instance of `A` through `B` and `C`, preventing ambiguity.
 
-- constructor is **not inherited** in the derived class, if the visibility mode of the base class constructor is not `public`
-- Parameterized constructor of the base class **must explicitly call** in Derived class and pass argument to use it ⭐
+**Constructor**
+
+* constructor is **not inherited** in the derived class, if the visibility mode of the base class constructor is not `public`
+* Parameterized constructor of the base class **must explicitly call** in Derived class and pass argument to use it ⭐
 
 ```cpp
 class Derived:public Base{
@@ -1164,11 +1270,12 @@ class Derived:public Base{
 ```
 
 **Constructor Call Order**
-- Rule 1: Virtual Base Class  -> Base Class ->  Derived Class
-- Rule 2: Order of Declaration
 
+* Rule 1: Virtual Base Class -> Base Class -> Derived Class
+* Rule 2: Order of Declaration
 
-**Special Syntax : Passing Args to Multiple Base Classes
+\*\*Special Syntax : Passing Args to Multiple Base Classes
+
 ```cpp
 // Derived Class From A and B
 class C : public A, public B {
@@ -1177,6 +1284,7 @@ class C : public A, public B {
 ```
 
 **Initialization list in Constructor**
+
 ```cpp
 // data assigned a=i, b=j, without actually defining assignment in body
 class MyClass
@@ -1187,12 +1295,12 @@ class MyClass
 	MyClass(int i, int j) : a(i), b(j) {...}};
 ```
 
-**Order of Initialization should follow  order of Declaration** of class members not the order in the list itself.
-
+**Order of Initialization should follow order of Declaration** of class members not the order in the list itself.
 
 **Object Pointer & Array**
 
 **Pointer to Object**
+
 ```cpp
 // Object Pointer
 MyClass *ptr = new MyClass;
@@ -1206,9 +1314,11 @@ MyClass *ptrArr = new MyClass[3]; // Complex arr[]
 ptrArr->a; // same as (*ptrArr).a and so objArr[0]
 ptrArr+1->a; // same as (*(ptrArr+1)) and so objArr[1]
 ```
+
 **Precedence**: `.` > `*` > `+` > `->`
 
-###### Polymorphism
+**Polymorphism**
+
 ```
                            Polymorphism
                          /              \
@@ -1225,8 +1335,8 @@ ptrArr+1->a; // same as (*(ptrArr+1)) and so objArr[1]
      compile time       time            functions
 ```
 
-
 **Base Class Pointer can point to Derived Class Object -> Upcasting**:
+
 ```cpp
 Base *bp; // Base Class Pointer
 Derived d; // Derived Class object
@@ -1253,12 +1363,13 @@ base_class_pointer->display_derived(); // BaseClass::Display()
                                         (if virtual functions are used) ✅
 ```
 
-- it can invoke overridden functions in the Derived class via virtual functions 
-- Downcasting ❌ (unsafe without cast)
+* it can invoke overridden functions in the Derived class via virtual functions
+* Downcasting ❌ (unsafe without cast)
 
-###### Virtual Function
-- Virtual function is a member function in the base class declared using virtual 'keyword'.
-- Virtual function  allow derived classes to **override** methods from a base class so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer. 
+**Virtual Function**
+
+* Virtual function is a member function in the base class declared using virtual 'keyword'.
+* Virtual function allow derived classes to **override** methods from a base class so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer.
 
 ```cpp
 // Base Class
@@ -1273,22 +1384,25 @@ class DerivedClass : public BaseClass {
 `override` Ensure correct matching, Catch typos, Avoid silent bugs.
 
 **Function Signature Include:**
+
 1. Function name
 2. Parameter types
 3. `const` qualifier (if member function)
 
 **Use of `const` Qualifier** ⭐
-- `const` helps prevent accidental changes to data
-- `const` after a function promise not to change object state and so it **cannot modify any member variables** of the object.
-- `const` also allows calling the function on `const` objects:
-###### Pure Virtual Function
 
-- it is declared by assigning the value `zero` to virtual function i.e. `virtual void func()=0`
-- It make necessary for the Derived Class to override the virtual function and thus Abstraction class
+* `const` helps prevent accidental changes to data
+* `const` after a function promise not to change object state and so it **cannot modify any member variables** of the object.
+* `const` also allows calling the function on `const` objects:
 
-###### Abstract base class
-- Abstract class - class that has at least one pure virtual function in its body.
-- The classes which are inheriting the base class must need to override the virtual function of the abstract class **otherwise compiler will throw an error.**
+**Pure Virtual Function**
 
-- You can't Create Instance or Object of abstract class.  
-- Virtual function can't be called directly from abstract class `MyClass::virtualFunc()` (compilation error)
+* it is declared by assigning the value `zero` to virtual function i.e. `virtual void func()=0`
+* It make necessary for the Derived Class to override the virtual function and thus Abstraction class
+
+**Abstract base class**
+
+* Abstract class - class that has at least one pure virtual function in its body.
+* The classes which are inheriting the base class must need to override the virtual function of the abstract class **otherwise compiler will throw an error.**
+* You can't Create Instance or Object of abstract class.
+* Virtual function can't be called directly from abstract class `MyClass::virtualFunc()` (compilation error)

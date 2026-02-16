@@ -1,7 +1,7 @@
 ---
-description: From Gate Smasher's Tutorial ▶️
+description: From Gate Gate Smasher's Tutorial ▶️
 layout:
-  width: default
+  width: wide
   title:
     visible: true
   description:
@@ -18,5 +18,5 @@ layout:
     visible: true
 ---
 
-# OS Tutorials (Gate Smashers)
+# L-8: Protection & Security in OS
 

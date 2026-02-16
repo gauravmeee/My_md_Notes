@@ -1,5 +1,8 @@
+---
+hidden: true
+---
 
-### Euler Motors OA
+# Euler Motors OA
 
 ```
 Which of the following best defines the concept of 'Polymorphism' in C++?
@@ -37,7 +40,6 @@ What is a dangling pointer?
 - A pointer that points to a variable that has been deallocated ✅
 ```
 
-
 ```
 What is the function of the `new` keyword in C++?
 - To create a new variable
@@ -61,7 +63,6 @@ Which operators cannot be overloaded in C++?
 - ?: ✅
 ```
 
-
 **C++ Code Predict Output**
 
 ```cpp
@@ -81,7 +82,9 @@ int main() {
     return 0;  // Destructor is called here when obj goes out of scope
 }
 ```
+
 or
+
 ```cpp
 int main() {
     syntaxwizard *obj = new syntaxwizard(); // Constructor will be called here
@@ -89,6 +92,7 @@ int main() {
     return 0;
 }
 ```
+
 ```
 output
 - Constructor called Destructor called ✅
@@ -112,6 +116,7 @@ int main() {
     return 0;
 }
 ```
+
 ```
 output
 - 2 ✅
@@ -130,6 +135,7 @@ int main() {
     return 0;
 }
 ```
+
 ```
 output
 - Compilation Error: cannot declare variable 'obj' to be of abstract type 'Base' ✅
@@ -162,6 +168,7 @@ int main() {
     return 0;
 }
 ```
+
 ```
 output
 - num = 10
@@ -174,6 +181,7 @@ output
 ```
 Predict the output of the following code snippet
 ```
+
 ```python
 class MyClass:
     def __init__(self):  # Constructor method
@@ -188,19 +196,22 @@ obj = MyClass()
 price = obj.calc_price(10)  # Calling calc_price method with 10 as argument
 print(price, type(price))  # Print the result and its type of `self.quantity` which was 2 at starting, and print in integer until not return in float explicityly
 ```
+
 ```
 output
 - 20 <class 'int'>
 ```
 
 Learnings ⭐
-- `__init__`: The constructor method in Python that is used for initializing an object’s attributes.
-- **`self`**: A reference to the current object, used to access its attributes and methods within the class.
-- `def func() -> float` : The return to suggests that the method is expected to return a floating-point number. However, in the current code, the result of `self.quantity * 10` is an integer (`20`), until explictly return float
+
+* `__init__`: The constructor method in Python that is used for initializing an object’s attributes.
+* **`self`**: A reference to the current object, used to access its attributes and methods within the class.
+* `def func() -> float` : The return to suggests that the method is expected to return a floating-point number. However, in the current code, the result of `self.quantity * 10` is an integer (`20`), until explictly return float
 
 ```
 Predict the output of the following code snippet
 ```
+
 ```python
 class Base:
     def display(self):
@@ -217,6 +228,7 @@ obj1.display()  # Calls Base class method
 obj2.display()  # Calls Derived class method
 Base.display(Derived)  # This line will cause an error
 ```
+
 ```
 Base Derived
 AttributeError: unbound method display() must be called with Base instance as first argument (got type Derived instead)

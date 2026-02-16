@@ -1,4 +1,23 @@
-# Notes\_OS My Important QA
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# OS Important Questions (PSU)
 
 ## # [SJVN Executive Trainee - IT](https://solutionsadda.in/wp-content/uploads/2019/07/SJVNL_1569050019_1258O1990S2D67E1.pdf) PYQ
 

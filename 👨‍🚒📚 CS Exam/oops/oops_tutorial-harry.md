@@ -1,4 +1,24 @@
-# ▶️✔️ Tutorial\_OOPS (Harry)
+---
+description: From Code With Harry's Tutorial 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# OOPS Tutorial (by Harry)
 
 ### Procedure Oriented Programming (POP)
 

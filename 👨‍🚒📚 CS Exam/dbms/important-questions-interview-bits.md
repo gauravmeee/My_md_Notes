@@ -1,5 +1,5 @@
 ---
-description: From Interview Bits 📋
+description: From Interview Bits Blog 📋
 layout:
   width: wide
   title:
@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Important Questions (Interview Bits)
+# DBMS Important Questions (Interview Bits)
 
 ## [DBMS Interview Questions](https://www.interviewbit.com/dbms-interview-questions/)
 

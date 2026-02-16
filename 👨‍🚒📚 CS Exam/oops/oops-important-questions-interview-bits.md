@@ -1,6 +1,26 @@
-# ⭐ My\_Notes+MCQ\_OOPS InterviewBits
+---
+description: From Interview Bits Blog 📋
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-\##[OOPSs MCQ InterviewBits](https://www.interviewbit.com/oops-mcq/)
+# OOPS Important Questions (Interview Bits)
+
+### [OOPSs MCQ InterviewBits](https://www.interviewbit.com/oops-mcq/)
 
 #### Overview of OOPS
 

@@ -1,4 +1,24 @@
-# ⭐ Notes\_OS My Interview bits Questions
+---
+description: From Interview Bits Blog 📋
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# OS Questions (Interview bits)
 
 ## [Top 15 OS Interview Questions | Operating System Interview | Placement Strategy](https://youtu.be/K1GFwYzCQlw)
 

@@ -1,5 +1,5 @@
 ---
-description: By Gate Wallah's Tutorial ▶️
+description: From Gate Wallah's Tutorial ▶️
 layout:
   width: wide
   title:
@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# DBMS One Shot Tutorial
+# DBMS Tutorial (Gate Wallah)
 
 ## [Database Management System One Shot | CS & IT Engineering | DA | Maha Revision | Target GATE 2025](https://youtu.be/k6rDS0qQiO0)
 
