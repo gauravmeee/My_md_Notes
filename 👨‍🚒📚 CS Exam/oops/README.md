@@ -23,23 +23,4 @@ layout:
 
 ### Syllabus
 
-| Topic                      | Subtopics / What to Cover                                                                                        |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Introduction to OOPS       | <p>Procedural vs OOP ⭐</p><p>Need of OOPS</p>                                                                    |
-| Basic OOPS Concepts        | <p>Class ⭐</p><p>Object ⭐</p><p>Abstraction ⭐</p><p>Encapsulation ⭐</p><p>Inheritance ⭐</p><p>Polymorphism ⭐</p> |
-| Encapsulation              | <p>Data hiding ⭐</p><p>Access specifiers ⭐</p>                                                                   |
-| Abstraction                | <p>Abstract class ⭐</p><p>Interface ⭐</p>                                                                        |
-| Inheritance                | <p>Types of inheritance ⭐</p><p>Method overriding ⭐</p>                                                          |
-| Polymorphism               | <p>Compile-time ⭐</p><p>Run-time ⭐</p>                                                                           |
-| Binding                    | <p>Early binding</p><p>Late binding ⭐</p>                                                                        |
-| Constructors & Destructors | <p>Default constructor ⭐</p><p>Parameterized constructor ⭐</p><p>Destructor</p>                                  |
-| Virtual Functions          | <p>Virtual function concept ⭐</p><p>Virtual destructor ⭐</p>                                                     |
-| Function Overloading       | <p>Rules ⭐</p><p>Operator overloading</p>                                                                        |
-| Memory Management          | <p>Stack vs Heap ⭐</p><p>Dynamic memory</p>                                                                      |
-| Shallow vs Deep Copy       | <p>Copy constructor ⭐</p><p>Assignment operator</p>                                                              |
-| Exception Handling         | <p>try-catch ⭐</p><p>Multiple catch</p><p>finally / throw</p>                                                    |
-| Object Relationships       | <p>Association ⭐</p><p>Aggregation ⭐</p><p>Composition ⭐</p>                                                     |
-| SOLID Principles           | <p>SRP</p><p>OCP</p><p>LSP</p><p>ISP </p><p>DIP </p>                                                             |
-| UML Basics                 | Class diagram                                                                                                    |
-| OOPS in C++                | <p>this pointer ⭐</p><p>const correctness</p>                                                                    |
-| OOPS in Java (Intro)       | <p>JVM basics</p><p>Garbage collection</p>                                                                       |
+<table><thead><tr><th width="300">Topic</th><th width="399.60009765625">Subtopics / What to Cover</th></tr></thead><tbody><tr><td>Introduction to OOPS</td><td><p>Procedural vs OOP ⭐</p><p>Need of OOPS</p></td></tr><tr><td>Basic OOPS Concepts</td><td><p>Class ⭐</p><p>Object ⭐</p><p>Abstraction ⭐</p><p>Encapsulation ⭐</p><p>Inheritance ⭐</p><p>Polymorphism ⭐</p></td></tr><tr><td>Encapsulation</td><td><p>Data hiding ⭐</p><p>Access specifiers ⭐</p></td></tr><tr><td>Abstraction</td><td><p>Abstract class ⭐</p><p>Interface ⭐</p></td></tr><tr><td>Inheritance</td><td><p>Types of inheritance ⭐</p><p>Method overriding ⭐</p></td></tr><tr><td>Polymorphism</td><td><p>Compile-time ⭐</p><p>Run-time ⭐</p></td></tr><tr><td>Binding</td><td><p>Early binding</p><p>Late binding ⭐</p></td></tr><tr><td>Constructors &#x26; Destructors</td><td><p>Default constructor ⭐</p><p>Parameterized constructor ⭐</p><p>Destructor</p></td></tr><tr><td>Virtual Functions</td><td><p>Virtual function concept ⭐</p><p>Virtual destructor ⭐</p></td></tr><tr><td>Function Overloading</td><td><p>Rules ⭐</p><p>Operator overloading</p></td></tr><tr><td>Memory Management</td><td><p>Stack vs Heap ⭐</p><p>Dynamic memory</p></td></tr><tr><td>Shallow vs Deep Copy</td><td><p>Copy constructor ⭐</p><p>Assignment operator</p></td></tr><tr><td>Exception Handling</td><td><p>try-catch ⭐</p><p>Multiple catch</p><p>finally / throw</p></td></tr><tr><td>Object Relationships</td><td><p>Association ⭐</p><p>Aggregation ⭐</p><p>Composition ⭐</p></td></tr><tr><td>SOLID Principles</td><td><p>SRP</p><p>OCP</p><p>LSP</p><p>ISP </p><p>DIP </p></td></tr><tr><td>UML Basics</td><td>Class diagram</td></tr><tr><td>OOPS in C++</td><td><p>this pointer ⭐</p><p>const correctness</p></td></tr><tr><td>OOPS in Java (Intro)</td><td><p>JVM basics</p><p>Garbage collection</p></td></tr></tbody></table>

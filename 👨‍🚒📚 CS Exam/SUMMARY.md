@@ -1,6 +1,6 @@
 # Table of contents
 
-* [CS & DSA Exam Grade Notes](README.md)
+* [Exam Grade CS Notes](README.md)
 * [My Phone Notes](<My Phone Notes.md>)
 * [Exams](exams/README.md)
   * [SJVN 2019 Executive Trainee PYQ](<Exams/SJVN 2019 Executive Trainee PYQ.md>)
