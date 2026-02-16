@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-# 📘 COA
+# COA
 
 ### Syllabus
 

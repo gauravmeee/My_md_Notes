@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-# 👨‍💻 DSA Practical (C++)
+# DSA Practical (C++)
 
 ### Syllabus
 

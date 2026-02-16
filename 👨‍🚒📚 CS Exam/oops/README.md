@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-# 📕 OOPS
+# OOPS
 
 ### Syllabus
 

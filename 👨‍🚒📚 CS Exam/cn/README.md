@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-# 📘 CN
+# CN
 
 ### Syllabus
 

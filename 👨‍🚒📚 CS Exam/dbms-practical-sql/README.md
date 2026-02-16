@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-# 👨‍💻 DBMS Practical (SQL)
+# DBMS Practical (SQL)
 
 ### Syllabus
 
