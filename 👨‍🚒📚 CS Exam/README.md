@@ -129,7 +129,7 @@ Focused on **important and commonly used practical topics**, not exhaustive cove
 
 <summary><strong>1. Tutorial-Based Notes</strong></summary>
 
-• Notes derived from **Striver**, **Love Babbar**, **Code With Harry**, and other reliable sources\
+• Notes derived from **Striver**, **Love Babbar**, **Code With Harry, Gate Smashers, Abdul Bari, Gate wallah**, and other reliable sources\
 • Only important explanations, patterns, and takeaways\
 • Simplified and rewritten for clarity and revision
 
@@ -149,7 +149,7 @@ Focused on **important and commonly used practical topics**, not exhaustive cove
 
 <summary><strong>3. Quick Revision Notes</strong></summary>
 
-• One-page summaries per topic\
+• One-page summaries of important topics\
 • Condensed formulas, logic, and steps\
 • Suitable for last-day and last-week revision
 
@@ -159,8 +159,8 @@ Focused on **important and commonly used practical topics**, not exhaustive cove
 
 <summary><strong>4. Doubts &#x26; Tricky Concepts</strong></summary>
 
-• Common confusions faced while learning\
-• Conceptual traps and edge cases\
+• Common confusions faced topics notes\
+• Conceptual traps and edge cases clarities\
 • Mistakes frequently made in exams/interviews
 
 </details>
