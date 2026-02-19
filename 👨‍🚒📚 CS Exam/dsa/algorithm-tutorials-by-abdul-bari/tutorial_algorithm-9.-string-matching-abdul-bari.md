@@ -1,5 +1,5 @@
 ---
-description: From Abdul Bari's Tutorial ▶️
+description: From Abdul Bari's Tutorials ▶️
 layout:
   width: wide
   title:

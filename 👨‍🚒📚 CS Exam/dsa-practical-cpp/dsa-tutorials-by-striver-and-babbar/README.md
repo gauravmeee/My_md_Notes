@@ -1,5 +1,5 @@
 ---
-description: From Striver's & Love Babbar's Tutorial ▶️
+description: From Striver's & Love Babbar's Tutorials ▶️
 layout:
   width: default
   title:
@@ -18,5 +18,5 @@ layout:
     visible: true
 ---
 
-# DSA Tutorial (by Striver & Babbar)
+# DSA Tutorials (Striver & Babbar)
 

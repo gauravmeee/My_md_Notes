@@ -20,8 +20,6 @@ layout:
 
 # Combinational Circuit
 
-
-
 **Definition**
 
 A **Combinational Logic Circuit (CLC)** is a digital circuit whose **output depends only on the present inputs**. There is **no memory** of past inputs.

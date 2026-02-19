@@ -1,5 +1,5 @@
 ---
-description: From Gate Smasher's Tutorial ▶️
+description: From Gate Smasher's Tutorials ▶️
 layout:
   width: wide
   title:
