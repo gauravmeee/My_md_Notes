@@ -1,6 +1,7 @@
 ---
+description: Made By Me 💚
 layout:
-  width: wide
+  width: default
   title:
     visible: true
   description:
@@ -17,5 +18,5 @@ layout:
     visible: true
 ---
 
-# Important Question and Answers
+# OOPS Hirign Questions and Answers
 

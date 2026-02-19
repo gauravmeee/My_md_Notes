@@ -1,7 +1,7 @@
 ---
 description: Made by Me 💚
 layout:
-  width: wide
+  width: default
   title:
     visible: true
   description:
@@ -18,5 +18,5 @@ layout:
     visible: true
 ---
 
-# Set Matrix Zeroes
+# DSA Hiring Question and Answers
 

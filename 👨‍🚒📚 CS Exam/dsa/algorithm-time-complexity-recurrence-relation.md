@@ -18,7 +18,7 @@ layout:
     visible: true
 ---
 
-# Algorithm: Recurrence Relation
+# Algorithm: Time Complexity Recurrence Relation
 
 **1. What is a Recurrence Relation?**
 
@@ -129,7 +129,7 @@ Here’s the same format for **Decreasing Type Recurrence**:
 
 ***
 
-#### **Topic: Recurrence of Decreasing Type (Linear Decrease)**
+### **Recurrence of Decreasing Type (Linear Decrease)**
 
 **General Form**
 
@@ -169,7 +169,7 @@ T(n) = Θ(a^{n/b} · f(n))
 
 ***
 
-**Master Theorem (Dividing Type Recurrence)**
+### **Master Theorem (Dividing Type Recurrence)**
 
 **General Form**
 
