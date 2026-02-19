@@ -1,5 +1,6 @@
 ---
 description: Engineer Mathemati
+hidden: true
 icon: integral
 layout:
   width: default

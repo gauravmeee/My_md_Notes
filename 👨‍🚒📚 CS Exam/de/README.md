@@ -1,5 +1,6 @@
 ---
 description: Digital Electronics
+hidden: true
 icon: binary
 layout:
   width: default

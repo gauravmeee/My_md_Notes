@@ -1,4 +1,24 @@
-# ⭐ CD\_GATE Code Optimisation
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Code Optimisation
 
 #### AST vs DAG vs CFG Graphs
 

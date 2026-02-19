@@ -2,6 +2,7 @@
 description: >-
   Fast revision + concept clarity for PSU exams, GATE, DSA and software
   interviews.
+hidden: true
 icon: book-open-lines
 cover:
   light: >-

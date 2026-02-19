@@ -1,4 +1,24 @@
-# Theory of Computation One Shot | CS & IT Engineering Maha Revision | Target GATE 2025
+---
+description: From Gate Wallah's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# TOC Tutorial (GATE Wallah)
 
 ### 0. Introduction
 

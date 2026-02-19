@@ -1,4 +1,24 @@
-# ⭐TOC\_Grammar & Automata
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Grammar and Automata
 
 Below is the **Compiler Design (CD) Course table**, aligned with **GATE + PSU prep**, same structure as your other courses, **theory-focused and exam-oriented**.
 
