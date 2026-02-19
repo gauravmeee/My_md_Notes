@@ -1,8 +1,24 @@
 ---
-hidden: true
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
 ---
 
-# True / False
+# TOC Practice Questions True/False
 
 ### **Ques.** For every **Non-Deterministic Turing Machine (NTM)**, there exists an **equivalent Deterministic Turing Machine (DTM)**. -> True ✅
 

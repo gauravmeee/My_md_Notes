@@ -1,6 +1,24 @@
-# ⭐ Notes\_DE\_GATE SOP & POS, Maxterm & Minterm, Karnaugh Graph
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
 
-You're absolutely right! Let me fix that with proper numbering:
+# SOP & POS, Maxterm & Minterm, Karnaugh Graph
 
 ### SOP and POS Notes (GATE – Digital Logic)
 

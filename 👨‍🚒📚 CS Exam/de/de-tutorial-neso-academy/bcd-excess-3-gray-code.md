@@ -1,4 +1,24 @@
-# ▶️ Tutorial\_DE  BCD , Excess-3 , Gray Code (Neso) ⭐
+---
+description: From Gate Neso Academy's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# BCD, Excess-3, Gray Code
 
 #### [Binary Coded Decimal (BCD) Code](https://www.youtube.com/watch?v=0rLiYpy2CqQ)
 

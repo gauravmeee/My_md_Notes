@@ -1,7 +1,7 @@
 ---
-description: Made by Me 💚
+description: From Gate Neso Academy's Tutorial ▶️
 layout:
-  width: wide
+  width: default
   title:
     visible: true
   description:
@@ -18,5 +18,5 @@ layout:
     visible: true
 ---
 
-# String Problems
+# DE Tutorial (Neso Academy)
 

@@ -18,5 +18,5 @@ layout:
     visible: true
 ---
 
-# String Problems
+# Dynamic Programmic Problems
 
