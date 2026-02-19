@@ -1,4 +1,24 @@
-# ▶️ Tutorial\_COA 4. Pipelining (Smashers) ⭐
+---
+description: From Gate Smasher's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# L4: Pipelining
 
 ### [L-4.1: Pipelining with real life example| Need of Pipelining | COA](https://www.youtube.com/watch?v=Al95Owan9Ck)
 

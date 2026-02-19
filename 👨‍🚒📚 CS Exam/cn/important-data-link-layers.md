@@ -1,4 +1,24 @@
-# ⭐ Notes\_CN\_GATE Important Data Link Layers
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Important Data Link Layers
 
 #### Data Link Layer - Important Topics Done
 

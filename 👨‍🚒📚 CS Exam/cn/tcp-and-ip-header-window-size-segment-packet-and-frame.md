@@ -1,4 +1,24 @@
-# ⭐ Notes\_CN\_GATE TCP & IP Header, Window Size, Segment, Packet & Frame
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# TCP & IP Header, Window Size, Segment, Packet & Frame
 
 #### TCP Header vs IP Header
 

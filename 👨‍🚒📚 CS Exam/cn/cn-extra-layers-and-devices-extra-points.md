@@ -1,4 +1,24 @@
-# ⭐ Notes\_CN Extra Points Layers and Devices
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# CN Layers and Devices (Extra Points)
 
 > Added at LAB
 

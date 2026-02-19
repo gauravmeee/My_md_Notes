@@ -1,4 +1,24 @@
-# Computer Organization and Architecture One Shot | Maha Revision | CS & IT | Target GATE 2025
+---
+description: From Gate Wallah's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# COA Tutorial (Gate Wallah)
 
 ### Topics
 

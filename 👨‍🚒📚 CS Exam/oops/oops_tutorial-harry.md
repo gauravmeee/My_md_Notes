@@ -1,5 +1,5 @@
 ---
-description: From Code With Harry's Tutorial 💚
+description: From Code With Harry's Tutorial ▶️
 layout:
   width: wide
   title:

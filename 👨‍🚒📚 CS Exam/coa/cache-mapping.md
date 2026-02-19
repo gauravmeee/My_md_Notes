@@ -1,3 +1,25 @@
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Cache Mapping
+
 > Created at CRL
 
 ```
@@ -11,25 +33,23 @@ Main Memory Address :
 └──────────┴───────────────────────────┴────────────────────┘
 ```
 
-### Direct Mapping
-
+#### Direct Mapping
 
 **Formulas :**
-- **Offset Bits :** Represent **block size (words/bytes inside a block)**
-	- Offset Bits = `log₂(Block Size)`
 
-- **Tag Bits :** Represents **number of main memory blocks** competing for one cache line
-	- Tag Bits = `log₂(Memory Size / Cache Size)` or `log₂(No. of Main Memory Blocks / No. of Cache Blocks)`
-
-- **Block No. / Line** : Represent No. of Blocks
-	- Main Memory Block Bits = `log₂(No. of Main Memory Blocks)`
-	- Cache Line Bits = `log₂(Number of Cache Blocks)`
-
-- **Address Bits :** Represent **addressable memory size**
-	- Main Memory Address Bits = `log₂(Main Memory Size)`
-	- Cache Memory Address Bits = `log₂(Cache Size)`
+* **Offset Bits :** Represent **block size (words/bytes inside a block)**
+  * Offset Bits = `log₂(Block Size)`
+* **Tag Bits :** Represents **number of main memory blocks** competing for one cache line
+  * Tag Bits = `log₂(Memory Size / Cache Size)` or `log₂(No. of Main Memory Blocks / No. of Cache Blocks)`
+* **Block No. / Line** : Represent No. of Blocks
+  * Main Memory Block Bits = `log₂(No. of Main Memory Blocks)`
+  * Cache Line Bits = `log₂(Number of Cache Blocks)`
+* **Address Bits :** Represent **addressable memory size**
+  * Main Memory Address Bits = `log₂(Main Memory Size)`
+  * Cache Memory Address Bits = `log₂(Cache Size)`
 
 **Mental model**
+
 ```
 • Byte offset for Cache and Main Memory is SAME
   → Block size is SAME
@@ -55,7 +75,9 @@ INDEX  → selects the cache line
 TAG    → identifies which memory block is in that line
 OFFSET → selects data inside the block
 ```
-##### **Main Memory Address**
+
+**Main Memory Address**
+
 ```
 ┌──────────┬───────────────────────────┬────────────────────┐
 │     Tag  │         Cache Line        │   Byte Offset      │
@@ -80,8 +102,8 @@ OFFSET → selects data inside the block
          log₂(No. of Main Memory Blocks)     log₂(Block Size)
 ```
 
+**Cache Memory Address**
 
-##### **Cache Memory Address**
 ```
 ┌──────────┬───────────────────────────┬────────────────────┐
 │     Tag  │         Cache Line        │   Byte Offset      │

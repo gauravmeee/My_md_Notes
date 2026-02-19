@@ -1,4 +1,24 @@
-# ⭐ My\_CN IP Addresses
+---
+description: Made By Me 💚
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# IP Addresses
 
 IP address network classifications are divided into **five classes (A, B, C, D, and E)** based on their **first few bits** and **value range**.
 

@@ -1,4 +1,24 @@
-# ▶️ Tutorial\_COA More Importants (Smasher) ⭐
+---
+description: From Gate Smasher's Tutorial ▶️
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# L: Other Important Lectures
 
 ### [Lec-10: Floating Point Representation with examples | Number System (Gate Smashers)](https://youtu.be/4gNs7B4ZTjc)
 
