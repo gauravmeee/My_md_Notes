@@ -38,8 +38,8 @@ layout:
 [dbms-practical-sql](dbms-practical-sql/)
 {% endcontent-ref %}
 
-{% content-ref url="dsa-practical-c++/" %}
-[dsa-practical-c++](dsa-practical-c++/)
+{% content-ref url="dsa-practical-cpp/" %}
+[dsa-practical-cpp](dsa-practical-cpp/)
 {% endcontent-ref %}
 
 {% content-ref url="dbms/" %}

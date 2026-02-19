@@ -1,5 +1,5 @@
 ---
-description: Made By Me 💚
+description: From Abdul Bari's Tutorials ▶️
 layout:
   width: default
   title:
@@ -18,5 +18,5 @@ layout:
     visible: true
 ---
 
-# COA Important Topics
+# DSA Tutorials (by Abdul Bari)
 

@@ -1,7 +1,7 @@
 ---
-description: Made By Me 💚
+description: From Gate Smasher's Tutorial ▶️
 layout:
-  width: default
+  width: wide
   title:
     visible: true
   description:
@@ -18,5 +18,5 @@ layout:
     visible: true
 ---
 
-# COA Important Topics
+# L-8: Protection and Security in OS
 
