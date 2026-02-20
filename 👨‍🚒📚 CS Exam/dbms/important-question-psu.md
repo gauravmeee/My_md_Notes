@@ -1,6 +1,5 @@
 ---
 description: From Interview Bits 🏛️
-icon: dot
 layout:
   width: wide
   title:

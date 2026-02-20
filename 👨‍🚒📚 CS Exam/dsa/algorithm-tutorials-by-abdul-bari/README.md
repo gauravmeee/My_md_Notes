@@ -1,6 +1,5 @@
 ---
 description: From Abdul Bari's Tutorials ▶️
-icon: dot
 layout:
   width: default
   title:

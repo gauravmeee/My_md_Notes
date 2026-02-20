@@ -1,6 +1,5 @@
 ---
 description: Made From Gate Smasher's Tutorials ▶️
-icon: dot
 layout:
   width: default
   title:

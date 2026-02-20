@@ -1,6 +1,5 @@
 ---
 description: Made by Me 💚
-icon: dot
 ---
 
 # OOPS Doubt Concepts

@@ -1,5 +1,4 @@
 ---
-icon: dot
 layout:
   width: wide
   title:

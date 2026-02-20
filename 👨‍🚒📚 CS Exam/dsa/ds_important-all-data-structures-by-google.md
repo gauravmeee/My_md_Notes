@@ -1,6 +1,5 @@
 ---
 description: By Google 🏛️
-icon: dot
 layout:
   width: wide
   title:

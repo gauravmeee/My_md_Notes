@@ -1,6 +1,5 @@
 ---
 description: From Code With Harry's Tutorial ▶️
-icon: dot
 layout:
   width: wide
   title:
