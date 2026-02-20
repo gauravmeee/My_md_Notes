@@ -56,7 +56,7 @@ a = &c;
 b = c;
 ```
 
-## [#42 Static Variables In C](<▶️ Tutorial_C (Harry).md>)
+## [#42 Static Variables In C](tutorial_c-harry.md)
 
 ## [#58 C Pre-processor Introduction & Working](https://youtu.be/P9IAfh89EK8?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR)
 

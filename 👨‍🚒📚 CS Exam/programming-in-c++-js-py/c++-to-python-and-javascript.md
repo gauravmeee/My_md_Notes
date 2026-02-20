@@ -1,4 +1,8 @@
-# ⭐ CPP to Py and JS
+---
+description: C++ Code to Python & JavaScript
+---
+
+# C++ to Python and JavaScript
 
 **Basic Syntax**
 
