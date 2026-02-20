@@ -1,6 +1,5 @@
 ---
 description: Discrete Mathematics
-hidden: true
 icon: arrows-turn-to-dots
 layout:
   width: default

@@ -21,6 +21,3 @@ layout:
 
 # C++
 
-{% content-ref url="../../programming-in-c++-js-py/c++/c-c++-tutorial/" %}
-[c-c++-tutorial](../../programming-in-c++-js-py/c++/c-c++-tutorial/)
-{% endcontent-ref %}

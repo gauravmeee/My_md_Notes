@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Exam Grade CS Notes](README.md)
+* [Program in Py/Js/C++](program-in-py-js-c++.md)
 * [Guide](guide.md)
 * [My Phone Notes](<My Phone Notes.md>)
 * [Exams](exams/README.md)
