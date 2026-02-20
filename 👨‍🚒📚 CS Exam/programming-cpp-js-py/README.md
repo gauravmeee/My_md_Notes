@@ -1,5 +1,6 @@
 ---
 description: Programming in C++, JavaScript, Python
+hidden: true
 layout:
   width: default
   title:
