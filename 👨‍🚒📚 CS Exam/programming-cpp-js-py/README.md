@@ -21,3 +21,22 @@ layout:
 
 # Programming in C++, JS, PY
 
+{% content-ref url="cpp/" %}
+[cpp](cpp/)
+{% endcontent-ref %}
+
+{% content-ref url="python/" %}
+[python](python/)
+{% endcontent-ref %}
+
+{% content-ref url="javascript/" %}
+[javascript](javascript/)
+{% endcontent-ref %}
+
+{% content-ref url="../programming-in-c++-js-py/c++-vs-python-vs-javascript.md" %}
+[c++-vs-python-vs-javascript.md](../programming-in-c++-js-py/c++-vs-python-vs-javascript.md)
+{% endcontent-ref %}
+
+{% content-ref url="../programming-in-c++-js-py/pseudocode-pascal-notations.md" %}
+[pseudocode-pascal-notations.md](../programming-in-c++-js-py/pseudocode-pascal-notations.md)
+{% endcontent-ref %}
