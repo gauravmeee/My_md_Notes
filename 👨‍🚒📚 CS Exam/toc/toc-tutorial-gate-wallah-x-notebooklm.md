@@ -1,5 +1,6 @@
 ---
 description: From Gate Wallah's Tutorial ▶️ using Google NotebookLM 🔮
+icon: dot
 layout:
   width: wide
   title:

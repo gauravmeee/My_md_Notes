@@ -1,5 +1,6 @@
 ---
 description: From Gate Wallah's Tutorial ▶️
+icon: dot
 layout:
   width: wide
   title:

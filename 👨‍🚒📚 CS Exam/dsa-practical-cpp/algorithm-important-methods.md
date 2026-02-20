@@ -1,5 +1,6 @@
 ---
 description: Made by Me 💚
+icon: dot
 layout:
   width: wide
   title:

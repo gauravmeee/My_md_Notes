@@ -1,5 +1,6 @@
 ---
 description: From Striver's & Love Babbar's Tutorials ▶️
+icon: dot
 layout:
   width: default
   title:
