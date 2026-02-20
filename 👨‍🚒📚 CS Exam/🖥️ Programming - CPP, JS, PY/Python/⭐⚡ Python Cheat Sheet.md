@@ -1,4 +1,6 @@
 ---
+description: Made By Me 💚
+icon: dot
 layout:
   width: wide
   title:
@@ -17,5 +19,5 @@ layout:
     visible: true
 ---
 
-# ⭐⚡ Python Cheat Sheet
+# Python Cheat Sheet
 

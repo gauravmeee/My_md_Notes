@@ -1,4 +1,5 @@
 ---
+icon: js
 layout:
   width: default
   title:

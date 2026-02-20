@@ -1,5 +1,5 @@
 ---
-icon: python
+description: Made By Me 💚
 layout:
   width: default
   title:
@@ -18,5 +18,5 @@ layout:
     visible: true
 ---
 
-# Python
+# Python Important Topics
 

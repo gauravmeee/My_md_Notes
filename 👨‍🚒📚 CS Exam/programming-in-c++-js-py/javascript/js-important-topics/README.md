@@ -1,5 +1,6 @@
 ---
-icon: python
+description: Made By Me 💚
+icon: dot
 layout:
   width: default
   title:
@@ -18,5 +19,5 @@ layout:
     visible: true
 ---
 
-# Python
+# JS Important Topics
 

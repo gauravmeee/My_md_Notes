@@ -1,4 +1,5 @@
 ---
+icon: c
 layout:
   width: default
   title:

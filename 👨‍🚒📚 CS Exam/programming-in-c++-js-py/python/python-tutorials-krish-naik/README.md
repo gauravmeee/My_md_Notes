@@ -1,5 +1,6 @@
 ---
-icon: python
+description: Made from Krish Naik's Tutorial ▶️
+icon: dot
 layout:
   width: default
   title:
@@ -18,5 +19,5 @@ layout:
     visible: true
 ---
 
-# Python
+# Python Tutorials (Krish Naik)
 
