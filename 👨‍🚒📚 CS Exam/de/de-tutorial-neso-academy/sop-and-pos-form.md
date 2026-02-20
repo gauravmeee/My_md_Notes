@@ -1,5 +1,6 @@
 ---
 description: From Gate Neso Academy's Tutorial ▶️
+icon: dot
 layout:
   width: wide
   title:

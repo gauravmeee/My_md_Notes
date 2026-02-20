@@ -1,5 +1,6 @@
 ---
 description: From Love Babbar's Tutorial ▶️
+icon: dot
 layout:
   width: wide
   title:

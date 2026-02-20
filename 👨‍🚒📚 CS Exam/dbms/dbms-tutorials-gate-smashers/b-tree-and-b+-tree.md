@@ -1,5 +1,6 @@
 ---
 description: From Gate Smasher's Tutorials ▶️
+icon: dot
 layout:
   width: wide
   title:
@@ -18,7 +19,7 @@ layout:
     visible: true
 ---
 
-# B Tree & B+ Tree
+# B Tree and B+ Tree
 
 #### [Lec-100: Introduction to B-Tree and its Structure | Block Pointer, Record Pointer, Key](https://youtu.be/KcApkM5WYGw)
 

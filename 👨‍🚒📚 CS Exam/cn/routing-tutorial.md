@@ -1,5 +1,6 @@
 ---
 description: From Gate Smasher's ▶️
+icon: dot
 layout:
   width: wide
   title:

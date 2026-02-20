@@ -1,5 +1,6 @@
 ---
 description: From Gate Wallah's Tutorial ▶️ using Google NotebookLM 🔮
+icon: dot
 layout:
   width: wide
   title:
@@ -18,7 +19,7 @@ layout:
     visible: true
 ---
 
-# TOC Tutorial (GATE Wallah x NotebookLM)&#x20;
+# TOC Tutorial (GATE Wallah x NotebookLM)
 
 ### **1. Introduction to Theory of Computation (ToC)**
 
