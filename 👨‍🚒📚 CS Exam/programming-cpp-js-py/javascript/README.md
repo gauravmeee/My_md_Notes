@@ -1,4 +1,5 @@
 ---
+description: Programming in JavaScript
 icon: js
 layout:
   width: default

@@ -1,4 +1,5 @@
 ---
+description: Programming in Python
 icon: python
 layout:
   width: default
