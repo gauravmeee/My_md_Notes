@@ -1,6 +1,6 @@
 ---
-description: Discrete Mathematics
-icon: arrows-turn-to-dots
+description: Engineer Mathemati
+icon: dot
 layout:
   width: default
   title:
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DM
+# Engineering Mathematics
 

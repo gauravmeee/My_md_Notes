@@ -1,7 +1,8 @@
 ---
+description: Discrete Mathematics
 icon: dot
 layout:
-  width: wide
+  width: default
   title:
     visible: true
   description:
@@ -18,5 +19,5 @@ layout:
     visible: true
 ---
 
-# 5 Tutorial\_Mathematics One shot (Gate Wallah)
+# Discrete Mathematics
 

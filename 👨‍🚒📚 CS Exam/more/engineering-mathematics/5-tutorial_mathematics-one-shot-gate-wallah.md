@@ -1,8 +1,8 @@
 ---
-description: Engineer Mathemati
-icon: integral
+description: From Gate Wallah's Tutorial ▶️
+icon: dot
 layout:
-  width: default
+  width: wide
   title:
     visible: true
   description:
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# EM
+# Engineering Mathematics Tutorial (Gate Walaah)
 
