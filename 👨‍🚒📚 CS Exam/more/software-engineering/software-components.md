@@ -1,3 +1,26 @@
+---
+description: Software Components
+icon: list-check
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Software Components
+
 # ⭐ Notes\_SE Software Components
 
 **Software Component** - A software component is a ==**self-contained, modular unit** of a software system== that performs a specific function and interacts with other components through **well-defined interfaces**. Components are designed for **reuse, replaceability, and independent development**.

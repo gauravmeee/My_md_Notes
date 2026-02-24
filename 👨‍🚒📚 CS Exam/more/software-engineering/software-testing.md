@@ -1,4 +1,25 @@
-# Software Testing Notes
+---
+description: Software Testing
+icon: list-check
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Software Testing
 
 ### Introduction
 
@@ -33,69 +54,67 @@
 4. **Environment Setup** – Hardware, software, network readiness.
 5. **Test Execution** – Run test cases, log defects.
 6. **Test Closure** – Deliver reports, metrics, lessons learned.
-    
+
 ### Levels of Testing ⭐
 
-1. **Unit Testing**    ⭐
-    - ==Tests individual components (functions, classes).==
-    - Usually automated.
-    - Done by developers.
-        
+1. **Unit Testing** ⭐
+   - ==Tests individual components (functions, classes).==
+   - Usually automated.
+   - Done by developers.
 2. **Integration Testing** ⭐
-    - ==Tests interaction between integrated modules.==
-    - Approaches:
-        - Big-Bang Integration
-        - Top-Down
-        - Bottom-Up
-        - Sandwich/Hybrid
-            
+   - ==Tests interaction between integrated modules.==
+   - Approaches:
+     - Big-Bang Integration
+     - Top-Down
+     - Bottom-Up
+     - Sandwich/Hybrid
 3. **System Testing**
-    - ==Tests complete system as a whole.==
-    - Validates functional + non-functional requirements.
-        
+   - ==Tests complete system as a whole.==
+   - Validates functional + non-functional requirements.
 4. **Acceptance Testing**
-    - ==Done by client/user.==
-    - Confirms system meets business needs.
-    - Types:
-        - ==Alpha Testing== (internal users). ⭐
-        - ==Beta Testing== (external users). ⭐
+   - ==Done by client/user.==
+   - Confirms system meets business needs.
+   - Types:
+     - ==Alpha Testing== (internal users). ⭐
+     - ==Beta Testing== (external users). ⭐
 
 ### Types of Testing
 
 **Functional Testing**
+
 - Validates software functions as per requirements.
 - Examples: Unit testing, integration, system, UAT, regression, smoke, sanity.
-    
+
 **Non-Functional Testing**
+
 - Checks performance, scalability, security, usability, reliability.
 - Examples: Load testing, stress testing, volume testing, compatibility, recovery testing.
-    
+
 **Maintenance Testing**
+
 - After deployment, when software is modified.
 - Regression Testing – ensures old functionality works after changes.
 - Re-testing – validates fixes of specific defects.
 
 ### Two Testing Approaches ⭐
 
-1. **White Box Testing** ==(Structural)== ⭐ 
-    - ==Internal logic tested.==
-    - Techniques:
-        - Statement Coverage
-        - Branch Coverage
-        - Path Coverage
-        - Loop Testing
-            
+1. **White Box Testing** ==(Structural)== ⭐
+   - ==Internal logic tested.==
+   - Techniques:
+     - Statement Coverage
+     - Branch Coverage
+     - Path Coverage
+     - Loop Testing
 2. **Black Box Testing** ==(Functional)== ⭐
-    - Ignores internal code, ==focuses on inputs/outputs.==
-    - Techniques:
-        - Equivalence Partitioning
-        - ==Boundary Value Analysis==
-        - ==Decision Table Testing==
-        - State Transition Testing
-            
+   - Ignores internal code, ==focuses on inputs/outputs.==
+   - Techniques:
+     - Equivalence Partitioning
+     - ==Boundary Value Analysis==
+     - ==Decision Table Testing==
+     - State Transition Testing
 3. **Grey Box Testing** ⭐
-    - Combines white + black box.
-    - Tester has partial knowledge of system.
+   - Combines white + black box.
+   - Tester has partial knowledge of system.
 
 ### Test Documentation
 
@@ -129,6 +148,7 @@
 - **IEEE 829** – Test documentation.
 - **ISO/IEC/IEEE 29119** – Software testing standards.
 - **ISO/IEC 9126** – Software quality metrics.
+
 ### Challenges in Testing
 
 - Limited time and resources.
@@ -136,7 +156,7 @@
 - Test environment issues.
 - Maintaining automation scripts.
 - Communication gaps with stakeholders.
-    
+
 ### Best Practices
 
 - Start testing early.
@@ -145,4 +165,3 @@
 - Use automation for regression and performance tests.
 - Regular reviews of test cases and plans.
 - Continuous testing in DevOps/Agile.
-    

@@ -1,3 +1,25 @@
+---
+description: Software Documentation
+icon: list-check
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: false
+  metadata:
+    visible: false
+  tags:
+    visible: true
+---
+
+# Software Documentation
 
 # Software Documentation Notes
 
@@ -6,33 +28,34 @@
 - **Software Documentation**: Any ==written or graphical material== describing the ==creation==, ==architecture==, ==functionality==, or ==usage== of a software system.
 - Produced throughout the **Software Development Life Cycle (SDLC)**.
 - Helps users, developers, testers, and maintainers understand and use the software effectively.
-    
+
 ### Classification of Documentation
 
 ##### **1. Product Documentation**
+
 Describes the **actual software product**.
 
 - **User Documentation**
-    - ==Guides for end-users, administrators, operators.==
-    - Types:
-        - User Manuals
-        - Tutorials and Training Materials
-        - Online Help Systems (Help menus, FAQs)
-        - Reference Manuals
-    - Written in **non-technical** language.
-        
+  - ==Guides for end-users, administrators, operators.==
+  - Types:
+    - User Manuals
+    - Tutorials and Training Materials
+    - Online Help Systems (Help menus, FAQs)
+    - Reference Manuals
+  - Written in **non-technical** language.
 - **System Documentation**
-    - ==For developers, designers, maintainers.==
-    - Includes:
-        - Software Requirement Specification (SRS)
-        - Architecture Diagrams
-        - Source Code Documentation (comments, inline explanations)
-        - API Documentation
-        - Data Dictionary
+  - ==For developers, designers, maintainers.==
+  - Includes:
+    - Software Requirement Specification (SRS)
+    - Architecture Diagrams
+    - Source Code Documentation (comments, inline explanations)
+    - API Documentation
+    - Data Dictionary
 
 ##### **2. Process Documentation**
 
 Describes the **process of software development**.
+
 - ==Project Plans, Schedules, Progress Reports==
 - Development Standards & Guidelines
 - Meeting Notes, Decision Logs
@@ -42,34 +65,18 @@ Describes the **process of software development**.
 
 ### Stages of Documentation in SDLC
 
-==1. **Requirement Stage**==
-    - ==SRS== (Software Requirement Specification)
-    - Feasibility Study Document
-    - Use Case Diagrams
-        
-==2. **Design Stage**==
-    - ==High-Level Design (HLD)==: architecture, data flow diagrams.
-    - ==Low-Level Design (LLD)==: module details, algorithms.
-        
-==3. **Implementation Stage**==
-    - Source ==Code== Comments
-    - ==API== Documentation
-        
-==4. **Testing Stage**==
-    - Test ==Plan==, Test ==Strategy==
-    - Test ==Cases==, Test ==Scripts==, Test ==Reports==
-    - Defect Reports
-        
-==5. **Deployment Stage**==
-    - ==Installation Guides==
-    - Configuration Manuals
-    - ==Release Notes==
-        
-==6. **Maintenance Stage**==
-    - Maintenance Manuals
-    - Update/Patch Notes
-    - Known Issues Documentation
-        
+==1. **Requirement Stage**== - ==SRS== (Software Requirement Specification) - Feasibility Study Document - Use Case Diagrams
+
+==2. **Design Stage**== - ==High-Level Design (HLD)==: architecture, data flow diagrams. - ==Low-Level Design (LLD)==: module details, algorithms.
+
+==3. **Implementation Stage**== - Source ==Code== Comments - ==API== Documentation
+
+==4. **Testing Stage**== - Test ==Plan==, Test ==Strategy== - Test ==Cases==, Test ==Scripts==, Test ==Reports== - Defect Reports
+
+==5. **Deployment Stage**== - ==Installation Guides== - Configuration Manuals - ==Release Notes==
+
+==6. **Maintenance Stage**== - Maintenance Manuals - Update/Patch Notes - Known Issues Documentation
+
 ### Importance of Documentation
 
 - Acts as **contract** between client & developers.
@@ -81,7 +88,7 @@ Describes the **process of software development**.
 
 ### Qualities of Good Documentation
 
-- **Accuracy** – No contradictions.    
+- **Accuracy** – No contradictions.
 - **Clarity** – Easy to understand, no ambiguity.
 - **Completeness** – Covers all required details.
 - **Consistency** – Standard terminology & formatting.
@@ -108,32 +115,28 @@ Describes the **process of software development**.
 ### Types of Documents in Detail
 
 1. **Requirements Documents**
-    - Business Requirements Document (BRD)
-    - Software Requirements Specification (SRS)
-    - Use Case Documents
-        
+   - Business Requirements Document (BRD)
+   - Software Requirements Specification (SRS)
+   - Use Case Documents
 2. **Design Documents** (+Implement)
-    - High-Level Design (architecture, modules)
-    - Low-Level Design (algorithms, database schema)
-        
+   - High-Level Design (architecture, modules)
+   - Low-Level Design (algorithms, database schema)
 3. **Testing Documents**
-    - Test Plan
-    - Test Case Specifications
-    - Test Reports
-    - Defect Reports
-        
+   - Test Plan
+   - Test Case Specifications
+   - Test Reports
+   - Defect Reports
 4. **User Documents** (Deployment)
-    - User Manuals
-    - Installation Guides
-    - Troubleshooting Guides
-    - FAQs, Online Help
-        
+   - User Manuals
+   - Installation Guides
+   - Troubleshooting Guides
+   - FAQs, Online Help
 5. **Maintenance Documents**
-    - Change Request Documents (CR)
-    - Release Notes
-    - Version History
-    - Maintenance Procedures
-        
+   - Change Request Documents (CR)
+   - Release Notes
+   - Version History
+   - Maintenance Procedures
+
 ### Benefits of Documentation
 
 - **For Developers**: ==Easier debugging, maintenance, onboarding.==
@@ -150,11 +153,10 @@ Describes the **process of software development**.
 - Balancing detail vs readability.
 
 ### Best Practices
+
 - ==Maintain documentation **parallel** to development.==
 - Use ==**standard templates** (IEEE, ISO).==
 - Keep **living documentation** (auto-generated, updated regularly).
 - Use **version control** (Git, SVN).
 - Involve all stakeholders in review.
 - Focus on **end-user needs** for usability.
-    
-

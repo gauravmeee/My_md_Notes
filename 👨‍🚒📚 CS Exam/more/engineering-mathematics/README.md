@@ -1,5 +1,5 @@
 ---
-description: Engineer Mathemati
+description: Engineering Mathematics
 icon: dot
 layout:
   width: default
