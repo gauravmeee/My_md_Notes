@@ -1,7 +1,7 @@
 ---
-description: Programming in C++, JavaScript, Python
+icon: dot
 layout:
-  width: default
+  width: wide
   title:
     visible: true
   description:
@@ -18,5 +18,5 @@ layout:
     visible: true
 ---
 
-# Programming in C++, JS, PY
+# Probability Advance
 

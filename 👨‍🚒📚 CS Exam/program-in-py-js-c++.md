@@ -22,23 +22,23 @@ layout:
 
 # Program in Py/Js/C++
 
-{% content-ref url="programming-cpp-js-py/cpp/" %}
-[cpp](programming-cpp-js-py/cpp/)
+{% content-ref url="more/programming-in-c++-js-py/c++/" %}
+[c++](more/programming-in-c++-js-py/c++/)
 {% endcontent-ref %}
 
-{% content-ref url="programming-cpp-js-py/javascript/" %}
-[javascript](programming-cpp-js-py/javascript/)
+{% content-ref url="more/programming-in-c++-js-py/javascript/" %}
+[javascript](more/programming-in-c++-js-py/javascript/)
 {% endcontent-ref %}
 
-{% content-ref url="programming-cpp-js-py/python/" %}
-[python](programming-cpp-js-py/python/)
+{% content-ref url="more/programming-in-c++-js-py/python/" %}
+[python](more/programming-in-c++-js-py/python/)
 {% endcontent-ref %}
 
-{% content-ref url="programming-in-c++-js-py/c++-vs-python-vs-javascript.md" %}
-[c++-vs-python-vs-javascript.md](programming-in-c++-js-py/c++-vs-python-vs-javascript.md)
+{% content-ref url="more/programming-in-c++-js-py/c++-vs-python-vs-javascript.md" %}
+[c++-vs-python-vs-javascript.md](more/programming-in-c++-js-py/c++-vs-python-vs-javascript.md)
 {% endcontent-ref %}
 
-{% content-ref url="programming-in-c++-js-py/pseudocode-pascal-notations.md" %}
-[pseudocode-pascal-notations.md](programming-in-c++-js-py/pseudocode-pascal-notations.md)
+{% content-ref url="more/programming-in-c++-js-py/pseudocode-pascal-notations.md" %}
+[pseudocode-pascal-notations.md](more/programming-in-c++-js-py/pseudocode-pascal-notations.md)
 {% endcontent-ref %}
 

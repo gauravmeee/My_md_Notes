@@ -163,7 +163,7 @@ Class methods are defined with the [`@classmethod` decorator](https://www.geeksf
 
 #### 19. What is the difference between `staticmethod` and `classmethod`?
 
-In Python, both [@staticmethod and @classmethod](https://www.geeksforgeeks.org/class-method-vs-static-method-python/) [`@staticmethod` and `@classmethod`](../../../%F0%9F%91%A8%E2%80%8D%F0%9F%9A%92%F0%9F%93%9A%20CS%20Exam/%F0%9F%96%A5%EF%B8%8F%20Programming%20-%20CPP,%20JS,%20PY/Python/https:/) are used to define methods that are not bound to the instance of the class (i.e., they can be called on the class itself).
+In Python, both [@staticmethod and @classmethod](https://www.geeksforgeeks.org/class-method-vs-static-method-python/) [`@staticmethod` and `@classmethod`](../../../../%F0%9F%91%A8%E2%80%8D%F0%9F%9A%92%F0%9F%93%9A%20CS%20Exam/%F0%9F%96%A5%EF%B8%8F%20Programming%20-%20CPP,%20JS,%20PY/Python/https:/) are used to define methods that are not bound to the instance of the class (i.e., they can be called on the class itself).
 
 | Aspect                             | ### `staticmethod`                                   | ### `classmethod`                                                   |
 | ---------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------- |
