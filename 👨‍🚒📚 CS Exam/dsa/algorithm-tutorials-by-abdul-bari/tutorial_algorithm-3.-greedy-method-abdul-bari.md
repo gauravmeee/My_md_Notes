@@ -25,7 +25,7 @@ layout:
 
 ### [3.2 Job Sequencing with Deadlines - Greedy Method](https://www.youtube.com/watch?v=zPtI8q9gvX8\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=41\&pp=iAQB)
 
-### \[3.3 Optimal Merge Pattern - Greedy Method]\(https://www.youtube.com/watch?v=HHIc5JZyenI\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs\_O\&index=42&
+### [3.3 Optimal Merge Pattern - Greedy Method](https://www.youtube.com/watch?v=HHIc5JZyenI\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=42)
 
 ### [3.4 Huffman Coding - Greedy Method](https://www.youtube.com/watch?v=co4_ahEDCho\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=43\&pp=iAQB)
 
