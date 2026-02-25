@@ -1,5 +1,5 @@
 ---
-description: Made By Me 💚
+description: Made by Me 💚
 icon: dot
 layout:
   width: wide
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DSA: Hashing
+# Algorithm: Bit Manipulation
 

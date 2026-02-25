@@ -1,5 +1,5 @@
 ---
-description: Made By Me 💚
+description: By Google 🏛️
 icon: dot
 layout:
   width: wide
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DSA: Hashing
+# Data Structure: All Data Structures
 

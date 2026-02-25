@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DSA: Hashing
+# Data Structure: Tree Graph and there Uniqueness
 

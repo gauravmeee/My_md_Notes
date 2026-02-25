@@ -1,5 +1,5 @@
 ---
-description: Made By Me 💚
+description: From Striver's Tutorial ▶️
 icon: dot
 layout:
   width: wide
@@ -12,12 +12,12 @@ layout:
   outline:
     visible: true
   pagination:
-    visible: false
+    visible: true
   metadata:
-    visible: false
+    visible: true
   tags:
     visible: true
 ---
 
-# DSA: Hashing
+# Data Structure: Graph
 

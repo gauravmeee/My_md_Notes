@@ -1,6 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
+description: Data Structure & Algorithm
+icon: list-check
 layout:
   width: wide
   title:
@@ -12,12 +12,12 @@ layout:
   outline:
     visible: true
   pagination:
-    visible: false
+    visible: true
   metadata:
-    visible: false
+    visible: true
   tags:
     visible: true
 ---
 
-# DSA: Hashing
+# DSA Syllabus
 

@@ -1,8 +1,8 @@
 ---
-description: Made By Me 💚
+description: From Striver's & Love Babbar's Tutorials ▶️
 icon: dot
 layout:
-  width: wide
+  width: default
   title:
     visible: true
   description:
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DSA: Hashing
+# DSA Tutorials (Striver & Babbar)
 

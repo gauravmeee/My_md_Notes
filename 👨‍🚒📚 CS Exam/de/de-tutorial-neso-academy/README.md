@@ -1,8 +1,8 @@
 ---
-description: Made By Me 💚
+description: From Gate Neso Academy's Tutorial ▶️
 icon: dot
 layout:
-  width: wide
+  width: default
   title:
     visible: true
   description:
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DSA: Hashing
+# DE Tutorial (Neso Academy)
 

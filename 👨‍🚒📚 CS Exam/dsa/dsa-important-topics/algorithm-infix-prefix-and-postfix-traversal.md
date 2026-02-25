@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DSA: Hashing
+# Algorithm: Infix, Prefix and Postfix Traversal
 

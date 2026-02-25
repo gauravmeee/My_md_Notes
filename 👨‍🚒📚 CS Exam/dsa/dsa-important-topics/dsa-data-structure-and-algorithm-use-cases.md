@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DSA: Hashing
+# DSA: Data Structure and Algorithm Use-Cases
 

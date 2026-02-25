@@ -1,5 +1,5 @@
 ---
-description: Made By Me 💚
+description: From Striver's Tutorial ▶️
 icon: dot
 layout:
   width: wide
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DSA: Hashing
+# Algorithm: Recursion
 

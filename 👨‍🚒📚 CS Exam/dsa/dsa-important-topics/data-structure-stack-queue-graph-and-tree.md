@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# DSA: Hashing
+# Data Structure: Stack, Queue, Graph and Tree
 
