@@ -35,11 +35,11 @@ layout:
 
 **1. What is SQL?**
 
-* SQL (Structured Query Language) -> standard programming language used to ==communicate with **relational databases**==. It allows users to create, read, update, and delete data, and provides commands to define **database schema** and ==manage database security==.
+* SQL (Structured Query Language) -> standard programming language used to <mark>communicate with **relational databases**</mark>. It allows users to create, read, update, and delete data, and provides commands to define **database schema** and <mark>manage database security</mark>.
 
 **2. What is a database?**
 
-* A **database** -> an ==**organized collection of data** stored== electronically, typically structured in tables with rows and columns.
+* A **database** -> an <mark>**organized collection of data** stored</mark> electronically, typically structured in tables with rows and columns.
 * It is managed by a **database management system** (DBMS), which allows for efficient **storage, retrieval, and manipulation** of data.
 
 **3. What are the main types of SQL commands?**
@@ -53,50 +53,50 @@ layout:
 
 **4. What is the difference between CHAR and VARCHAR2 data types?**
 
-* **CHAR:** Fixed-length storage. -> If the defined length is not fully used, it is ==padded with spaces==.
+* **CHAR:** Fixed-length storage. -> If the defined length is not fully used, it is <mark>padded with spaces</mark>.
 * **VARCHAR2:** Variable-length storage. -> Only the actual data is stored, saving space when the full length is not needed.
 
 **5. What is a primary key?**
 
-* A **primary key** -> a ==unique identifier for each record ==in a table.
+* A **primary key** -> a <mark>unique identifier for each record <mark>in a table.
 * It ensures that no two rows have the same value in the primary key column(s), and it does not allow NULL values.
 
 **6. What is a foreign key?**
 
-* A **foreign key** -> a column (or set of columns) in one table that ==refers to the primary key in another table==.
+* A **foreign key** -> a column (or set of columns) in one table that <mark>refers to the primary key in another table</mark>.
 * It establishes and **enforces a relationship** between the two tables, **ensuring data integrity**. ⭐
 
 **7. What is the purpose of the DEFAULT constraint?**
 
 * The **DEFAULT** constraint -> assigns a default value to a column when no value is provided during an **INSERT operation**.
-* This helps ==maintain consistent data and **simplifies data entry**==.
+* This helps <mark>maintain consistent data and **simplifies data entry**</mark>.
 
 **8. What is normalization in databases? ⭐**
 
 * **Normalization** -> the process of organizing data in a database to **reduce redundancy** and **improve data integrity**.
-* This involves ==dividing large tables into smaller==, related tables and defining relationships between them to **ensure consistency** and **avoid anomalies.**
+* This involves <mark>dividing large tables into smaller</mark>, related tables and defining relationships between them to **ensure consistency** and **avoid anomalies.**
 
 **9. What is denormalization, and when is it used?**
 
-* **Denormalization** -> the process of ==combining **normalized tables** into larger tables== for performance reasons.
-* It is used when **complex queries** and joins slow down data retrieval, and the ==performance benefits outweigh the **drawbacks of redundancy**== ⭐
+* **Denormalization** -> the process of <mark>combining **normalized tables** into larger tables</mark> for performance reasons.
+* It is used when **complex queries** and joins slow down data retrieval, and the <mark>performance benefits outweigh the **drawbacks of redundancy**</mark> ⭐
 
 **10. What is a query in SQL?**
 
-* A ==query is a SQL statement used to retrieve, update, or manipulate data in a **database**.== The most common type of query is a **SELECT statement**, which fetches data from one or more tables based on specified conditions.
+* A <mark>query is a SQL statement used to retrieve, update, or manipulate data in a **database**.</mark> The most common type of query is a **SELECT statement**, which fetches data from one or more tables based on specified conditions.
 
 **11. What are the different operators available in SQL?**
 
 1. **Arithmetic Operators:** +, -, \*, /, %
-2. **Comparison Operators:** =, !=, ==<>==, >, <, >=, <=
+2. **Comparison Operators:** =, !=, <mark><></mark>, >, <, >=, <=
 3. **Logical Operators:** AND, OR, NOT
-4. **Set Operators:** UNION, INTERSECT, ==EXCEPT==
-5. **Special Operators:** BETWEEN, IN, ==LIKE==, IS NULL
+4. **Set Operators:** UNION, INTERSECT, <mark>EXCEPT</mark>
+5. **Special Operators:** BETWEEN, IN, <mark>LIKE</mark>, IS NULL
 
 **12. What is a view in SQL?**
 
 * A **view** -> a **virtual table** created by a **SELECT query**.
-* It does not store data itself, but ==presents data from one or more tables== in a structured way. ⭐
+* It does not store data itself, but <mark>presents data from one or more tables</mark> in a structured way. ⭐
 * Views simplify complex queries, improve readability, and enhance security by restricting access to specific rows or columns.
 
 **13. What is the purpose of the UNIQUE constraint?**
@@ -105,26 +105,26 @@ layout:
 
 **14. What are the different types of joins in SQL?**
 
-1. **INNER JOIN:** Returns rows that have ==matching values== in both tables.
-2. **LEFT JOIN (LEFT OUTER JOIN):** Returns ==all rows from the left table==, and ==matching rows from the right table==.
-3. **RIGHT JOIN (RIGHT OUTER JOIN):** Returns ==all rows from the right table==, and ==matching rows from the left table==.
-4. **FULL JOIN (FULL OUTER JOIN):** Returns ==all rows when there is a match in either table==.
-5. **CROSS JOIN:** Produces the ==Cartesian product== of two tables.
+1. **INNER JOIN:** Returns rows that have <mark>matching values</mark> in both tables.
+2. **LEFT JOIN (LEFT OUTER JOIN):** Returns <mark>all rows from the left table</mark>, and <mark>matching rows from the right table</mark>.
+3. **RIGHT JOIN (RIGHT OUTER JOIN):** Returns <mark>all rows from the right table</mark>, and <mark>matching rows from the left table</mark>.
+4. **FULL JOIN (FULL OUTER JOIN):** Returns <mark>all rows when there is a match in either table</mark>.
+5. **CROSS JOIN:** Produces the <mark>Cartesian product</mark> of two tables.
 
 **15. What is the difference between INNER JOIN and OUTER JOIN?**
 
 * **INNER JOIN:** Returns only rows where there is a match in both tables.
-* **OUTER JOIN:** Returns ==all rows from one table== (LEFT, RIGHT, or FULL), and ==the matching rows from the other table==.
+* **OUTER JOIN:** Returns <mark>all rows from one table</mark> (LEFT, RIGHT, or FULL), and <mark>the matching rows from the other table</mark>.
 * If there is no match, **NULL** values are returned for the non-matching side. ⭐
 
 **16. What is the purpose of the GROUP BY clause?**
 
-* The **GROUP BY** clause is used to ==arrange **identical data** into **groups**==.
+* The **GROUP BY** clause is used to <mark>arrange **identical data** into **groups**</mark>.
 * It is typically used with aggregate functions (such as COUNT, SUM, AVG) to perform calculations on each group rather than on the entire dataset.
 
 **17. What are aggregate functions in SQL?**
 
-Aggregate functions ->==perform calculations on a set of values== and ==return a single value==. Common aggregate functions include:
+Aggregate functions -></mark>perform calculations on a set of values</mark> and <mark>return a single value</mark>. Common aggregate functions include:
 
 * `COUNT()`-> Returns the number of rows.
 * `SUM()`-> Returns the total sum of values.
@@ -136,38 +136,38 @@ Aggregate functions ->==perform calculations on a set of values== and ==return a
 
 **18. What is a subquery? ⭐**
 
-* A **subquery** -> a ==query nested within another query==. It is often used in the **WHERE clause** to filter data based on the results of another query, making it easier to handle complex conditions.
+* A **subquery** -> a <mark>query nested within another query</mark>. It is often used in the **WHERE clause** to filter data based on the results of another query, making it easier to handle complex conditions.
 
 > Practice Subquery Questions
 
 **19. What is the difference between the WHERE and HAVING clauses?**
 
 * **WHERE:** Filters rows before any grouping takes place. (i.e. applies to individual rows)
-* **HAVING:** Filters grouped data after the GROUP BY clause has been applied. (i.e. ==applies to groups==)
+* **HAVING:** Filters grouped data after the GROUP BY clause has been applied. (i.e. <mark>applies to groups</mark>)
 
 **20. What are indexes, and why are they used? ⭐**
 
-* **Indexes** -> **database objects** that ==improve query performance== by ==allowing **faster retrieval== of rows**.
+* **Indexes** -> **database objects** that <mark>improve query performance</mark> by <mark>allowing **faster retrieval</mark> of rows**.
 * They function like a book’s index, making it quicker to find specific data without scanning the entire table.
 * However, indexes require **additional storage** and can slightly slow down **data modification** operations.
 
 **21. What is the difference between DELETE and TRUNCATE commands?**
 
-* **DELETE:** Removes rows one at a time and ==records each deletion in the transaction log==, allowing rollback. It can have a WHERE clause.
-* **TRUNCATE:** Removes all rows at once ==without logging individual row deletions==. It cannot have a WHERE clause and is faster than DELETE for large data sets.
+* **DELETE:** Removes rows one at a time and <mark>records each deletion in the transaction log</mark>, allowing rollback. It can have a WHERE clause.
+* **TRUNCATE:** Removes all rows at once <mark>without logging individual row deletions</mark>. It cannot have a WHERE clause and is faster than DELETE for large data sets.
 
 **22. What is the purpose of the SQL ORDER BY clause?**
 
-* The **ORDER BY** clause ==sorts the result set of a query== in either **ascending** (default) or **descending order**, based on one or more columns.
+* The **ORDER BY** clause <mark>sorts the result set of a query</mark> in either **ascending** (default) or **descending order**, based on one or more columns.
 * This helps present the data in a more meaningful or readable sequence.
 
 **23. What are the differences between SQL and NoSQL databases?**
 
 * **SQL Databases:**
   * Use structured tables with rows and columns.
-  * Rely on a ==fixed schema==. ==- Offer **ACID**== properties.
+  * Rely on a <mark>fixed schema</mark>. <mark>- Offer **ACID**</mark> properties.
 * **NoSQL Databases:**
-  * Use ==flexible, schema-less structures== (e.g., key-value pairs, document stores).
+  * Use <mark>flexible, schema-less structures</mark> (e.g., key-value pairs, document stores).
   * Are designed for horizontal scaling. ⭐
   * Often focus on performance and scalability over strict consistency.
 
@@ -175,7 +175,7 @@ Note : **Horizontal scaling** (also called **scaling out**) means adding more ma
 
 **24. What is a table in SQL?**
 
-* A table is a ==**structured collection** of related data organized into rows and columns==. Columns define the type of data stored, while rows contain individual records.
+* A table is a <mark>**structured collection** of related data organized into rows and columns</mark>. Columns define the type of data stored, while rows contain individual records.
 
 **25. What are the types of constraints in SQL?**
 
@@ -184,7 +184,7 @@ Common constraints include:
 * **NOT NULL ->** Ensures a column cannot have NULL values.
 * **UNIQUE:** Ensures all values in a column are distinct.
 * **PRIMARY KEY ->** Uniquely identifies each row in a table.
-* **FOREIGN KEY ->** Ensures ==referential integrity== by linking to a primary key in another table.
+* **FOREIGN KEY ->** Ensures <mark>referential integrity</mark> by linking to a primary key in another table.
 * **CHECK ->** Ensures that all values in a column satisfy a specific condition.
 * **DEFAULT ->** Sets a default value for a column when no value is specified.
 

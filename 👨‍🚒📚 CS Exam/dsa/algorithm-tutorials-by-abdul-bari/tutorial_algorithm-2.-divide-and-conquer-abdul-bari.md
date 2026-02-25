@@ -23,25 +23,25 @@ layout:
 
 **Introduction to Divide and Conquer Strategy**
 
-* The "Divide and Conquer" ==strategy is a **design approach for solving computational problems**==.
-* It is one of several problem-solving strategies in algorithms, a==longside methods like the greedy method, dynamic programming, backtracking==, and branch and bound.
-* There's ==no strict formula to determine if this strategy is applicable to a problem==; suitability is often understood through practice, following a few general guidelines.
+* The "Divide and Conquer" <mark>strategy is a **design approach for solving computational problems**</mark>.
+* It is one of several problem-solving strategies in algorithms, a <mark>longside methods like the greedy method, dynamic programming, backtracking</mark>, and branch and bound.
+* There's <mark>no strict formula to determine if this strategy is applicable to a problem</mark>; suitability is often understood through practice, following a few general guidelines.
 
 **The Core Principle of Divide and Conquer**
 
-The fundamental idea is to ==tackle large problems by breaking them into smaller==, more manageable parts:
+The fundamental idea is to <mark>tackle large problems by breaking them into smaller</mark>, more manageable parts:
 
-**1. Divide**: If a problem **P** of a large input size **n** is given, ==**break it down into smaller subproblems**== (e.g., P1, P2, P3, up to PK). The initial large problem is thus broken into smaller-sized problems.
+**1. Divide**: If a problem **P** of a large input size **n** is given, <mark>**break it down into smaller subproblems**</mark> (e.g., P1, P2, P3, up to PK). The initial large problem is thus broken into smaller-sized problems.
 
-**2. Conquer**: ==**Solve these smaller subproblems== individually** to obtain their respective solutions (e.g., solution1, solution2, solution3, up to solutionK). If a subproblem is still large, the Divide and Conquer strategy is applied recursively to it.
+**2. Conquer**: <mark>**Solve these smaller subproblems</mark> individually** to obtain their respective solutions (e.g., solution1, solution2, solution3, up to solutionK). If a subproblem is still large, the Divide and Conquer strategy is applied recursively to it.
 
-**3. Combine**: Once solutions for the subproblems are obtained, **these solutions are then ==combined to derive the overall solution== for the original, main problem**.
+**3. Combine**: Once solutions for the subproblems are obtained, **these solutions are then <mark>combined to derive the overall solution</mark> for the original, main problem**.
 
 **Key Characteristics and Guidelines for Divide and Conquer**
 
 For a problem to be solvable using the Divide and Conquer strategy, it must adhere to certain characteristics:
 
-**1. Homogeneous Subproblems**: ==**The subproblems created must be of the same type as the original problem**==.
+**1. Homogeneous Subproblems**: <mark>**The subproblems created must be of the same type as the original problem**</mark>.
 
 * For example, if the main problem is to sort a list, then the subproblems must also be sorting problems. This ensures the strategy is recursive in nature.
 * An example of what is _not_ Divide and Conquer would be breaking down a workshop into different tasks like preparing invitations and arranging speakers, as these are different tasks, not smaller versions of the "conduct workshop" problem.
@@ -50,7 +50,7 @@ For a problem to be solvable using the Divide and Conquer strategy, it must adhe
 
 * If the individual subproblem solutions cannot be effectively combined, this strategy is not suitable.
 
-**3. Recursive Nature**: Due to the property of breaking problems into smaller, identical subproblems and recursively solving them, ==**Divide and Conquer algorithms are inherently recursive**.==
+**3. Recursive Nature**: Due to the property of breaking problems into smaller, identical subproblems and recursively solving them, <mark>**Divide and Conquer algorithms are inherently recursive**.</mark>
 
 **General Method for Divide and Conquer Strategy**
 
@@ -148,7 +148,7 @@ test(n) {
 
 **3. Solving the Recurrence Relation**
 
-There are ==two primary methods to solve recurrence relations:== Recursion Tree Method and Back Substitution Method.
+There are <mark>two primary methods to solve recurrence relations:</mark> Recursion Tree Method and Back Substitution Method.
 
 **a) Recursion Tree Method:**
 
@@ -175,7 +175,7 @@ There are ==two primary methods to solve recurrence relations:== Recursion Tree 
   * There are `n` levels where `1` unit of work is done (from `T(n)` down to `T(1)`).
   * Plus, the base case `T(0)` also takes `1` unit of time.
   * Total time `T(n) = (1 + 1 + ... + 1) + T(0)` (n times for the '1's).
-  * \==`T(n) = n + 1`.==
+  * <mark>`T(n) = n + 1`.</mark>
 
 **b) Back Substitution Method:**
 
@@ -184,10 +184,10 @@ There are ==two primary methods to solve recurrence relations:== Recursion Tree 
 1. Start with the recurrence relation: **`T(n) = T(n-1) + 1`**
 2. Substitute `T(n-1)`: Since `T(n-1) = T((n-1)-1) + 1 = T(n-2) + 1`, substitute this into the first equation: `T(n) = (T(n-2) + 1) + 1` **`T(n) = T(n-2) + 2`**
 3. Substitute `T(n-2)`: Since `T(n-2) = T((n-2)-1) + 1 = T(n-3) + 1`, substitute this: `T(n) = (T(n-3) + 1) + 2` **`T(n) = T(n-3) + 3`**
-4. Observe the pattern: After `k` substitutions, the pattern is ==`T(n) = T(n-k) + k`.==
+4. Observe the pattern: After `k` substitutions, the pattern is <mark>`T(n) = T(n-k) + k`.</mark>
 5. Determine `k` using the base case: We know `T(0) = 1`. To reach the base case, we set the argument `n-k` to `0`. `n - k = 0` Therefore, **`k = n`**.
 6. Substitute `k = n` back into the general pattern: `T(n) = T(n-n) + n` `T(n) = T(0) + n`
-7. Substitute the value of `T(0)`: ==`T(n) = 1 + n`==
+7. Substitute the value of `T(0)`: <mark>`T(n) = 1 + n`</mark>
 
 **4. Time Complexity**
 
@@ -249,20 +249,20 @@ For the base case, when `n = 0`, the function does nothing but returns. So, `T(0
           T(0)  --> Cost = 1 (Base case)
     ```
 * **Summing the Costs:** The total time is the sum of the costs at each level.
-  * \==`T(n) = n + (n-1) + (n-2) + ... + 1 + T(0)`==
+  * <mark>`T(n) = n + (n-1) + (n-2) + ... + 1 + T(0)`</mark>
   * The sum `n + (n-1) + ... + 1` is the sum of the first `n` natural numbers.
   * This sum is given by the formula `n(n+1)/2`.
-  * So, ==`T(n) = n(n+1)/2 + T(0) = n(n+1)/2 + 1`.==
+  * So, <mark>`T(n) = n(n+1)/2 + T(0) = n(n+1)/2 + 1`.</mark>
 
 **b) Back Substitution Method:**
 
 1. Start with the recurrence relation: **`T(n) = T(n-1) + n`**
 2. Substitute `T(n-1)`: Since `T(n-1) = T((n-1)-1) + (n-1) = T(n-2) + (n-1)`, substitute this into the first equation: `T(n) = (T(n-2) + (n-1)) + n` **`T(n) = T(n-2) + (n-1) + n`**
 3. Substitute `T(n-2)`: Since `T(n-2) = T((n-2)-1) + (n-2) = T(n-3) + (n-2)`, substitute this: `T(n) = (T(n-3) + (n-2)) + (n-1) + n` **`T(n) = T(n-3) + (n-2) + (n-1) + n`**
-4. Observe the pattern: After `k` substitutions, the pattern is: ==`T(n) = T(n-k) + (n-k+1) + ... + (n-1) + n`==
+4. Observe the pattern: After `k` substitutions, the pattern is: <mark>`T(n) = T(n-k) + (n-k+1) + ... + (n-1) + n`</mark>
 5. Determine `k` using the base case: Set `n-k` to `0`. `n - k = 0` Therefore, **`k = n`**.
-6. Substitute `k = n` back into the general pattern: ==`T(n) = T(n-n) + (n-n+1) + ... + (n-1) + n` `T(n) = T(0) + 1 + 2 + ... + (n-1) + n`==
-7. Substitute the value of `T(0)` and sum the series: ==`T(n) = 1 + n(n+1)/2`==
+6. Substitute `k = n` back into the general pattern: <mark>`T(n) = T(n-n) + (n-n+1) + ... + (n-1) + n` `T(n) = T(0) + 1 + 2 + ... + (n-1) + n`</mark>
+7. Substitute the value of `T(0)` and sum the series: <mark>`T(n) = 1 + n(n+1)/2`</mark>
 
 **4. Time Complexity Both methods confirm that `T(n)` is approximately `n²/2`. In asymptotic notation, this is O(n²) or Θ(n²), indicating quadratic time complexity.**
 
@@ -322,10 +322,10 @@ For the base case, `T(0)` is a **constant (e.g., 1)**. **`T(0) = 1`**
           T(0)  --> Cost = 1 (Base case)
     ```
 * **Summing the Costs:** The total time is the sum of the costs at each level.
-  * \==`T(n) = log n + log(n-1) + log(n-2) + ... + log 1 + T(0)`==
+  * <mark>`T(n) = log n + log(n-1) + log(n-2) + ... + log 1 + T(0)`</mark>
   * Using the logarithm property `log a + log b = log (a * b)`: `log n + log(n-1) + ... + log 1 = log(n * (n-1) * ... * 1) = log(n!)`
   * So, `T(n) = log(n!) + T(0) = log(n!) + 1`.
-  * Asymptotically, `log(n!)` is ==approximated by `n log n` (e.g., using Stirling's approximation== or the ==upper bound `log(n^n) = n log n`==).
+  * Asymptotically, `log(n!)` is <mark>approximated by `n log n` (e.g., using Stirling's approximation</mark> or the <mark>upper bound `log(n^n) = n log n`</mark>).
 
 **b) Back Substitution Method:**
 

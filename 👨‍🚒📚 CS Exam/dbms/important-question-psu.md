@@ -28,8 +28,8 @@ layout:
 * **Intension** - represents the number of tuples presented in a database relation (table) at any instance. ❌
 * **Extension** - gives the name, structure and constraint of a database relation (table). ❌
 * **Corrected:** ✅
-  * **Intension** - represents the ==**structure** (schema) of a database relation== — includes name, attributes, data types, and constraints.
-  * **Extension** - refers to the ==**set of tuples (rows)** in a relation== **at a particular point in time**.
+  * **Intension** - represents the <mark>**structure** (schema) of a database relation</mark> — includes name, attributes, data types, and constraints.
+  * **Extension** - refers to the <mark>**set of tuples (rows)** in a relation</mark> **at a particular point in time**.
 
 **Ques. What is Inverted File Organisation ⭐⭐**
 
@@ -100,36 +100,36 @@ MUS → 4, 10, 21
 **Indexing in DBMS ⭐**
 
 1. **What is Indexing?**
-   * Indexing is a ==**data structure technique** to efficiently access records== in a database file.
-   * It ==**reduces the time complexity** of searching from **O(n) to O(log n)** ==(e.g., using B+ Trees).
+   * Indexing is a <mark>**data structure technique** to efficiently access records</mark> in a database file.
+   * It <mark>**reduces the time complexity** of searching from **O(n) to O(log n)** <mark>(e.g., using B+ Trees).
 2. **How Indexing Works**
-   * An **index** is ==created on one or more columns.==
+   * An **index** is <mark>created on one or more columns.</mark>
    * It maintains **pointers** to actual data locations (record/block addresses).
    * Think of it like a **book index**: You search via keyword and find the page quickly.
 3. **Types of Indexing** ⭐
    * **A. Primary Index**
-     * \==Based on **primary key**== (unique, sorted).
+     * <mark>Based on **primary key**</mark> (unique, sorted).
      * One entry per block (in sparse index).
      * **Sparse Index** → Common for primary index.
    * **B. Secondary Index**
-     * Based on ==**key or non-key attributes**== (excluding the primary access path).
+     * Based on <mark>**key or non-key attributes**</mark> (excluding the primary access path).
      * Can be **dense Index** (entry for every record).
-     * \==Multiple secondary indexes possible.==
+     *<mark>ultiple secondary indexes possible.</mark>
    * **C. Clustering Index**
-     * Based on ==**non-key** field,== but records are **physically ordered** by this field.
+     * Based on <mark>**non-key** field,</mark> but records are **physically ordered** by this field.
      * One per table.
      * Useful for range-based queries.
    * **D. Dense Index** ⭐
-     * Contains ==**entry for every record**==.
+     * Contains <mark>**entry for every record**</mark>.
      * Faster searches, more space required.
    * **E. Sparse Index** ⭐
-     * Contains ==**entry for only some records**.==
+     * Contains <mark>**entry for only some records**.</mark>
      * Used when records are **sorted**.
    * **F. Multilevel Index**
      * Index is large → Build index on index.
      * **Reduces I/O** using B-tree or B+ tree structure.
    * **G. Composite Index**
-     * Index on ==**multiple columns**==.
+     * Index on <mark>**multiple columns**</mark>.
      * E.g., `INDEX(emp_name, emp_id)`.
 4. **Indexing Data Structures**
 
@@ -162,12 +162,12 @@ MUS → 4, 10, 21
 **Entity Relationship Model (Weak Entity Representation)**
 
 * **Weak Entity:** ⭐\`
-  * A **weak entity** is an ==entity that **cannot exist without** a related strong entity.==
+  * A **weak entity** is an <mark>entity that **cannot exist without** a related strong entity.</mark>
   * It **doesn't have a primary key** of its own.
   * Relies on the **primary key of the owner entity** + its **partial key**.
   * Example : `Dependent` (like a child or spouse) cannot exist without its related `Employee`, and has no unique key of its own.
 * **Identifying Relationship :**
-  * A **special type of ==relationship** that connects a weak entity to its **owner== (strong entity)**.
+  * A **special type of <mark>relationship** that connects a weak entity to its **owner</mark> (strong entity)**.
   * Called **identifying** because it helps in identifying instances of the weak entity.
   * **Drawn using a double-lined diamond** in ER diagrams.
   * The participation of the weak entity is **always total** (shown by double line connecting to the relationship).
@@ -188,10 +188,10 @@ MUS → 4, 10, 21
 * unordered, fixed ❌
 * unordered, variable ❌
 * **Concept:**
-  * \==**Primary Index** is built on the **primary key**==, and the data file is **sorted** on that key.
-  * Hence, the ==index file is also in **ordered**== form.
-  * Each index entry contains a ==**fixed-length pair**: _(key, pointer)_== → making it **fixed-length**.
-  * Efficient ==searching using **binary search**== is possible ==due to ordering==.
+  *<mark>*Primary Index** is built on the **primary key**</mark>, and the data file is **sorted** on that key.
+  * Hence, the <mark>index file is also in **ordered**</mark> form.
+  * Each index entry contains a <mark>**fixed-length pair**: _(key, pointer)_</mark> → making it **fixed-length**.
+  * Efficient <mark>searching using **binary search**</mark> is possible <mark>due to ordering</mark>.
 
 **Ques. Which of the following is used to represent "total" participation in ER diagram?**
 
@@ -235,7 +235,7 @@ NVL(column, default_value)     -- Oracle
 
 #### B+ Tree in DBMS
 
-A **B+ Tree** is a **balanced m-ary search tree** used for indexing in DBMS, where **all ==actual data records are stored only at the leaf level**==, and **==internal nodes contain only keys**.==
+A **B+ Tree** is a **balanced m-ary search tree** used for indexing in DBMS, where **all <mark>actual data records are stored only at the leaf level**</mark>, and **<mark>internal nodes contain only keys**.</mark>
 
 **Properties: of B++ Tree**
 

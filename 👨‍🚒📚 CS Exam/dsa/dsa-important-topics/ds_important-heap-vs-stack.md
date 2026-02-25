@@ -31,20 +31,20 @@ layout:
 
 ### Heap
 
-The **heap** is a ==region of a computer's memory== that is used for **dynamic memory allocation.**
+The **heap** is a <mark>region of a computer's memory</mark> that is used for **dynamic memory allocation.**
 
 **Key Characteristics of the Heap:**
 
 1. **Dynamic Memory Allocation**:
-   * Memory in the heap is allocated and deallocated at runtime. This allows for more ==flexible memory usage== compared to stack memory, which is fixed in size.
+   * Memory in the heap is allocated and deallocated at runtime. This allows for more <mark>flexible memory usage</mark> compared to stack memory, which is fixed in size.
 2. **Size**:
-   * The heap can ==grow and shrink as needed==, depending on the memory requirements of the application. It is generally ==larger than the stack==.
+   * The heap can <mark>grow and shrink as needed</mark>, depending on the memory requirements of the application. It is generally <mark>larger than the stack</mark>.
 3. **Lifetime**:
-   * Objects created in the heap ==exist until they are explicitly deallocated== by the programmer (e.g., using `delete` in C++ or garbage collection in languages like Java or Python).
+   * Objects created in the heap <mark>exist until they are explicitly deallocated</mark> by the programmer (e.g., using `delete` in C++ or garbage collection in languages like Java or Python).
 4. **Access Speed**:
-   * Accessing heap memory is generally ==slower than accessing stack== memory due to the ==overhead of dynamic allocation== and deallocation.
+   * Accessing heap memory is generally <mark>slower than accessing stack</mark> memory due to the <mark>overhead of dynamic allocation</mark> and deallocation.
 5. **Fragmentation**:
-   * The heap can ==become fragmented over time== as memory blocks are allocated and freed. This fragmentation can lead to inefficient use of memory.
+   * The heap can <mark>become fragmented over time</mark> as memory blocks are allocated and freed. This fragmentation can lead to inefficient use of memory.
 
 **Usage:**
 
@@ -74,20 +74,20 @@ int main() {
 
 ### Stack
 
-The **stack** is a specific ==region of memory== used for **managing function calls** and **local variables** in a program. Here are the key characteristics and details:
+The **stack** is a specific <mark>region of memory</mark> used for **managing function calls** and **local variables** in a program. Here are the key characteristics and details:
 
 **Key Characteristics of the Stack:**
 
 1. **Structure**:
    * The stack operates on a **Last In, First Out (LIFO)** basis. This means that the last item added to the stack is the first one to be removed.
 2. **Automatic Memory Management**:
-   * Memory ==allocation and deallocation for stack variables are handled automatically==. When a function is called, its local variables are pushed onto the stack, and when the function exits, these variables are popped off the stack.
+   * Memory <mark>allocation and deallocation for stack variables are handled automatically</mark>. When a function is called, its local variables are pushed onto the stack, and when the function exits, these variables are popped off the stack.
 3. **Size**:
-   * The stack typically has a ==fixed size==, which is ==determined when a program starts==. Exceeding this size ==can lead to a **stack overflow**==.
+   * The stack typically has a <mark>fixed size</mark>, which is <mark>determined when a program starts</mark>. Exceeding this size <mark>can lead to a **stack overflow**</mark>.
 4. **Lifetime**:
-   * Variables on the stack ==exist only within the scope of the functio==n in which they are declared. Once the function exits, these variables are destroyed.
+   * Variables on the stack <mark>exist only within the scope of the functio</mark>n in which they are declared. Once the function exits, these variables are destroyed.
 5. **Access Speed**:
-   * Accessing stack memory is generally ==faster than accessing heap== memory due to its contiguous allocation and straightforward management.
+   * Accessing stack memory is generally <mark>faster than accessing heap</mark> memory due to its contiguous allocation and straightforward management.
 6. **Limited Lifetime**:
    * The lifetime of stack variables is limited to the block in which they are defined. They cannot be returned from a function as they will no longer exist when the function returns.
 

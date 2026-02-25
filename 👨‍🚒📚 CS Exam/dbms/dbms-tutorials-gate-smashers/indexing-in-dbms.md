@@ -50,7 +50,7 @@ To understand the need for indexing, the instructor describes the relationship b
 [ CPU ] ←→ [ RAM ] ←→ [ Hard Disk ]
 ```
 
-**The Conflict:** There is a ==major speed mismatch==. The **CPU is incredibly fast**, while the **hard disk is very slow**.
+**The Conflict:** There is a <mark>major speed mismatch</mark>. The **CPU is incredibly fast**, while the **hard disk is very slow**.
 
 * For Example: CPU speed is in **Million Instructions per second (MISP)** while Hard disk only 10-20 Instructions per second
 * CPU speed is measured in ns (nano seconds or **peco seconds**) while Hard Disk is in ms (**milli seconds**)
@@ -100,21 +100,21 @@ If the data is **unordered (unsorted)** and there is no index: ⭐
 2. **Transfer Process:**
    * The system brings **Block 1** from the Hard Disk to RAM.
    * The CPU searches the block in RAM.
-   * \==If the record is found, it is a **Hit**.== If not, it is a **Miss**.
+   * <mark>If the record is found, it is a **Hit**.</mark> If not, it is a **Miss**.
    * The block is returned/discarded, and **Block 2** is fetched. This repeats for Block 3, Block 4, etc..
-3. **Worst Case:** In a **non-ordered file**, ==you might have to transfer all 100 blocks== to find the record.
+3. **Worst Case:** In a **non-ordered file**, <mark>you might have to transfer all 100 blocks</mark> to find the record.
 
 **The Main Problem: I/O Cost**
 
-* **Indexing does ==NOT reduce CPU processing== time** ⭐
+* **Indexing does <mark>NOT reduce CPU processing</mark> time** ⭐
   * Indexing does not reduce the time it takes to search inside a block once it is already in the RAM.
-* \==**Indexing Reduces I/O Cost**==
-  * The main issue is the ==cost of transferring data from the Hard Disk to RAM==, known as the **Input/Output (I/O) Cost**.
-* Calling many blocks increases the I/O cost significantly because of the **propagation and transmission** time ==involved in fetching from the slow hard disk.==
+* <mark>**Indexing Reduces I/O Cost**</mark>
+  * The main issue is the <mark>cost of transferring data from the Hard Disk to RAM</mark>, known as the **Input/Output (I/O) Cost**.
+* Calling many blocks increases the I/O cost significantly because of the **propagation and transmission** time <mark>involved in fetching from the slow hard disk.</mark>
 
 **The Solution: Indexing**
 
-The primary motive of indexing is to ==**call a lesser number of blocks**== from the hard disk to the RAM.
+The primary motive of indexing is to <mark>**call a lesser number of blocks**</mark> from the hard disk to the RAM.
 
 Lets Understand through comparing the **database to a book** ⭐
 
@@ -127,8 +127,8 @@ Lets Understand through comparing the **database to a book** ⭐
 
 **Conclusion**
 
-* \==Indexing reduces the number of blocks (pages)== the system has to shuffle or transfer.
-* Therefore, **Indexing reduces the I/O cost**, ==making the query retrieval process significantly faster.==
+* <mark>Indexing reduces the number of blocks (pages)</mark> the system has to shuffle or transfer.
+* Therefore, **Indexing reduces the I/O cost**, <mark>making the query retrieval process significantly faster.</mark>
 
 #### [Lec-94: Numerical Example on I/O Cost in Indexing | Part-1 | DBMS](https://youtu.be/P24LAhp-ap8)
 
@@ -249,7 +249,7 @@ If data for a search key does not fit in a single block and continues in the nex
 * If records for a search key do not fit in one block\
   → they **continue in next blocks**
 * These subsequent blocks are accessed **sequentially**
-* \==No overflow pointer== per record (like in secondary key)
+* <mark>No overflow pointer</mark> per record (like in secondary key)
 
 **Important Points**
 
@@ -378,7 +378,7 @@ B4 | .  .    . |   | | | {● ● ●}C<┘
 
 **Inverted File (in this context)**
 
-* An ==**inverted file** is secondary indexing== on a ==**non-key, unordered== attribute**
+* An <mark>**inverted file** is secondary indexing</mark> on a <mark>**non-key, unordered</mark> attribute**
 *   Structure:
 
     ```

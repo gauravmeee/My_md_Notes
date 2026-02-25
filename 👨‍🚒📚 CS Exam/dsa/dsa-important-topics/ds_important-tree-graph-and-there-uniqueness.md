@@ -37,7 +37,7 @@ layout:
 1. **Tree**
    * **Binary**
      * **BST** (Binary Search Tree)
-       * **AVL** (==Self-balancing== BST) ⭐
+       * **AVL** (<mark>Self-balancing</mark> BST) ⭐
        * **Red-Black** (Self-balancing BST) ⭐
      * **Balanced** (Binary trees where the height difference between subtrees is minimized)
      * **Full** (Each node has 0 or 2 children)
@@ -48,7 +48,7 @@ layout:
        * **Right-Skewed** (All nodes have right children only)
      * **Degenerate** (Resembling a linked list where each parent node has only one child)
    * **Multi-way**
-     * **B-Tree** (Balanced ==multi-way search tree==, used for indexing in databases) ⭐
+     * **B-Tree** (Balanced <mark>multi-way search tree</mark>, used for indexing in databases) ⭐
      * **B+ Tree** (Variant of B-Tree with all data in leaf nodes, used for efficient range queries) ⭐
      * **Trie** (Prefix Tree, used for efficient storage and retrieval of strings) ⭐
      * **Segment Tree** (Used for storing intervals or segments, supporting range queries)
@@ -88,37 +88,37 @@ layout:
 > **Tree ⊂ Forest ⊂ Graph**
 
 * **Graph** → A set of **vertices and edges** with no restriction on cycles or connectivity
-* **Forest** → ==**acyclic graph**==
-* **Tree** → A ==**connected==, ==acyclic graph**== with a hierarchical structure
+* **Forest** → <mark>**acyclic graph**</mark>
+* **Tree** → A <mark>**connected</mark>, <mark>acyclic graph**</mark> with a hierarchical structure
 
 > **AVL ⊂ BST** & **Red-Black ⊂ BST**
 
-* **BST (Binary Search Tree)** → A ==binary tree== where ==**left < root < right**==
-* **AVL tree** → A ==**self-balancing BST**== with **Strict Balancing** (**==height difference ≤ 1==)**
-* **Red-Black tree** → ==A **self-balancing BST**== with **Relaxed Balancing** ( using **==color rules to limit height==**)
+* **BST (Binary Search Tree)** → A <mark>binary tree</mark> where <mark>**left < root < right**</mark>
+* **AVL tree** → A <mark>**self-balancing BST**</mark> with **Strict Balancing** (**<mark>height difference ≤ 1</mark>)**
+* **Red-Black tree** → <mark>A **self-balancing BST**</mark> with **Relaxed Balancing** ( using **<mark>color rules to limit height</mark>**)
 
 **Important Trees**
 
 1. **Binary Tree**:
-   * A ==tree== where each node has ==at most two children==, typically referred to as the left and right child.
+   * A <mark>tree</mark> where each node has <mark>at most two children</mark>, typically referred to as the left and right child.
 2. **Heap**:
-   * A ==binary tree== used to ==implement priority queues.== The heap property requires that each ==node’s value be greater than or equal to the values of its children (for a max heap)== or less than or equal to the values of its children (for a min heap).
+   * A <mark>binary tree</mark> used to <mark>implement priority queues.</mark> The heap property requires that each <mark>node’s value be greater than or equal to the values of its children (for a max heap)</mark> or less than or equal to the values of its children (for a min heap).
 3. **Binary Search Tree (BST)**:
-   * A ==binary tree ==where for each node, the ==left child’s value is less than the node’s value==, and the ==right child’s value is greater==. This property allows efficient searching, insertion, and deletion operations.
+   * A <mark>binary tree <mark>where for each node, the <mark>left child’s value is less than the node’s value</mark>, and the <mark>right child’s value is greater</mark>. This property allows efficient searching, insertion, and deletion operations.
 4. **Balanced Binary Search Trees**: ⭐
-   * **AVL Tree**: A ==self-balancing binary search tree== where the ==heights of two child subtrees of any node differ by== no more than one.
-   * **Red-Black Tree**: A ==self-balancing binary search tree== with additional properties to ensure that the ==tree remains approximately balanced== during ==insertions and deletions.==
+   * **AVL Tree**: A <mark>self-balancing binary search tree</mark> where the <mark>heights of two child subtrees of any node differ by</mark> no more than one.
+   * **Red-Black Tree**: A <mark>self-balancing binary search tree</mark> with additional properties to ensure that the <mark>tree remains approximately balanced</mark> during <mark>insertions and deletions.</mark>
 5. **B-Tree**:
-   * A ==self-balancing tree== data structure that **==maintains sorted data==** and ==allows **searches, sequential access, insertions, and deletions**== in **logarithmic time**. It is commonly used in ==databases and file systems.==
+   * A <mark>self-balancing tree</mark> data structure that **<mark>maintains sorted data</mark>** and <mark>allows **searches, sequential access, insertions, and deletions**</mark> in **logarithmic time**. It is commonly used in <mark>databases and file systems.</mark>
 6. **B+ Tree**:
-   * A ==variation of the B-tree== where all ==**values are stored at the leaf level**==, and internal nodes only store keys. It is used extensively in ==database indexing.==
+   * A <mark>variation of the B-tree</mark> where all <mark>**values are stored at the leaf level**</mark>, and internal nodes only store keys. It is used extensively in <mark>database indexing.</mark>
 
 **More:**
 
 7. **Segment Tree**:
-   * A ==binary tree== used for answering range queries efficiently. It is often used for problems that involve querying sums or minimums over an interval of an array.
+   * A <mark>binary tree</mark> used for answering range queries efficiently. It is often used for problems that involve querying sums or minimums over an interval of an array.
 8. **Trie (Prefix Tree)**:
-   * A tree-like data structure ==used to store associative data structures==, such as dictionaries. It is ohow ften used for string storage and retrieval.
+   * A tree-like data structure <mark>used to store associative data structures</mark>, such as dictionaries. It is ohow ften used for string storage and retrieval.
 9. **Fenwick Tree (Binary Indexed Tree)**:
    * A data structure that provides efficient methods for querying and updating prefix sums in an array.
 
@@ -143,8 +143,8 @@ layout:
 
 > **Heap vs BST Structure Uniqueness Intuition:**
 
-* **Heap** → Structure depends only on **value hierarchy** (max/min property), not insertion order → for a given set, the heap ==shape is **fixed** once heapified==.
-* **BST** → Structure depends on **insertion order**; different orders produce ==**different shapes** while maintaining BST property==.
+* **Heap** → Structure depends only on **value hierarchy** (max/min property), not insertion order → for a given set, the heap <mark>shape is **fixed** once heapified</mark>.
+* **BST** → Structure depends on **insertion order**; different orders produce <mark>**different shapes** while maintaining BST property</mark>.
 
 **A. Unique Shape (structure) with Given Set of Values (Insertion Order Doesn’t Matter)**
 

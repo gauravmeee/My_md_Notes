@@ -45,7 +45,7 @@ A **Stack** is a linear data structure that follows the **LIFO (Last In First Ou
 **Stack Properties**
 
 * Works on **LIFO**
-* Implemented using ==**Array**== or **==Linked List==**
+* Implemented using <mark>**Array**</mark> or **<mark>Linked List</mark>**
 * Used in **recursion**, **expression parsing**, **backtracking**, **balancing symbols**, etc.
 
 **Applications**
@@ -59,8 +59,8 @@ A **Stack** is a linear data structure that follows the **LIFO (Last In First Ou
 | **Undo Feature**                    | Text editors like VS Code, Word, etc.     |
 | **Balanced Parentheses Check**      | Using stack to validate parentheses       |
 | **Reverse a String** ⭐ To Try       | Push characters and pop to reverse        |
-| ==**Next Greater Element**==        | Uses stack in O(n)                        |
-| ==**Stock Span Problem**== ⭐ To Try | O(n) solution with stack                  |
+| <mark>**Next Greater Element**</mark>        | Uses stack in O(n)                        |
+| <mark>**Stock Span Problem**</mark> ⭐ To Try | O(n) solution with stack                  |
 
 **Implementation Types**
 
@@ -75,10 +75,10 @@ A **Stack** is a linear data structure that follows the **LIFO (Last In First Ou
 
 | Problem                        | Concept Applied            |
 | ------------------------------ | -------------------------- |
-| ==Valid Parentheses==          | Stack + Matching pairs     |
-| ==Next Greater Element==       | Monotonic stack            |
+| <mark>Valid Parentheses</mark>          | Stack + Matching pairs     |
+| <mark>Next Greater Element</mark>       | Monotonic stack            |
 | Largest Rectangle in Histogram | Stack for area calculation |
-| Evaluate ==Postfix/Prefix==    | Stack evaluation           |
+| Evaluate <mark>Postfix/Prefix</mark>    | Stack evaluation           |
 | Min Stack                      | Stack with auxiliary min   |
 
 ***
@@ -103,7 +103,7 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 **Queue Properties**
 
 * Works on **FIFO**
-* Implemented using ==**Array**, **Linked List**, or **Two Stacks**==
+* Implemented using <mark>**Array**, **Linked List**, or **Two Stacks**</mark>
 * Used in **scheduling**, **BFS**, **buffering**, **data streaming**
 
 **Types of Queues**
@@ -125,7 +125,7 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 | **Data Buffer**                          | Handles stream data                  |
 | **Web Server**                           | Request handling in queue            |
 | **Caching (LRU)**                        | Queue helps manage eviction order    |
-| **==First Non-Repeating Char==** ⭐To Try | Use queue + frequency array          |
+| **<mark>First Non-Repeating Char</mark>** ⭐To Try | Use queue + frequency array          |
 
 **Implementation Types**
 
@@ -137,10 +137,10 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 
 | Problem                                    | Concept Applied           |
 | ------------------------------------------ | ------------------------- |
-| ==First Non-Repeating Character== ⭐ To Try | Queue + Map               |
-| ==Rotten Oranges== (Grid BFS) ⭐ To Try     | Queue for level traversal |
+| <mark>First Non-Repeating Character</mark> ⭐ To Try | Queue + Map               |
+| <mark>Rotten Oranges</mark> (Grid BFS) ⭐ To Try     | Queue for level traversal |
 | Course Schedule (Topological)              | Kahn's Algo → uses Queue  |
-| ==Sliding Window Maximum== ⭐ To Try        | Deque                     |
+| <mark>Sliding Window Maximum</mark> ⭐ To Try        | Deque                     |
 | Zigzag Tree Traversal                      | Two Queues or Deque       |
 
 ***
@@ -149,7 +149,7 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 
 **1. Basic Terminologies**
 
-* **Graph (G)**: ==G=(V,E)==, where
+* **Graph (G)**: <mark>G=(V,E)</mark>, where
   * V = vertices/nodes
   * E = edges
 * **Undirected Graph**: Edges have no direction
@@ -172,16 +172,16 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 
 * A connected component is a **maximally connected subgraph**
 * In a **tree**, edges = `n−1` ⭐
-* In a **connected graph**, ==minimum edges = `n−1`== (i.e. in Spanning Tree) ⭐
-* For a graph with `n` vertices and ==`k` connected components==, minimum edges required = ==`n−k`== ⭐
+* In a **connected graph**, <mark>minimum edges = `n−1`</mark> (i.e. in Spanning Tree) ⭐
+* For a graph with `n` vertices and <mark>`k` connected components</mark>, minimum edges required = <mark>`n−k`</mark> ⭐
 * **Spanning Tree:**
-  * A **spanning tree** is a connected, acyclic ==subgraph== that includes all the vertices of the original graph with exactly minimum ==(`n−1`) edges.==
+  * A **spanning tree** is a connected, acyclic <mark>subgraph</mark> that includes all the vertices of the original graph with exactly minimum <mark>(`n−1`) edges.</mark>
   * **Every spanning tree is acyclic**, but \*\*Not every acyclic graph is a spanning tree
   * So, Every **spanning tree** is a **tree**, but **not every tree** is a **spanning tree**
 
 **5. Tree Properties**
 
-* A tree is a ==connected acyclic undirected graph==
+* A tree is a <mark>connected acyclic undirected graph</mark>
 * Nodes = `n`, Edges = `n-1`
 * Exactly one path between any pair of nodes
 * A **forest** is a collection of disjoint trees
@@ -219,7 +219,7 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 
 * **Dijkstra** → Weighted graphs ( but **no negative weights**), greedy **`O((V + E) log V)`** with priority queue
 * **Bellman-Ford** → Handles **negative weights** ( but **no negative cycles)**, DP **`O(VE)`**
-* **Floyd-Warshall** → **All-pairs shortest path**, works with negative weights ( but **no negative cycles** ), DP **`O(V³)`**\`==
+* **Floyd-Warshall** → **All-pairs shortest path**, works with negative weights ( but **no negative cycles** ), DP **`O(V³)`**\`</mark>
 
 > **All three fail to give correct shortest paths** if a negative cycle exists ⭐
 
@@ -257,7 +257,7 @@ A **Queue** is a linear data structure that follows the **FIFO (First In First O
 
 * **Adjacency Matrix**: `O(n^2)` space
 * **Adjacency List**: `O(n + e)` space
-* **Edge List**: For ==Kruskal’s algo==
+* **Edge List**: For <mark>Kruskal’s algo</mark>
 
 **17. Time Complexities**
 
@@ -285,12 +285,12 @@ Here are the **Complete Tree Theory Notes** tailored for **PSU exams** (like ISR
 
 | Property                           | Formula / Description          |
 | ---------------------------------- | ------------------------------ |
-| ==Edges== in a tree with `n` nodes | `n − 1`                        |
-| ==Nodes== in a tree with `e` edges | `e + 1`                        |
-| ==Adding== one edge to a tree      | Creates **exactly one cycle**  |
-| ==Removing== one edge from a tree  | Graph becomes **disconnected** |
-| Acyclic + Connected                | ⇒ ==Tree==                     |
-| Acyclic + Not Connected            | ⇒ ==Forest==                   |
+| <mark>Edges</mark> in a tree with `n` nodes | `n − 1`                        |
+| <mark>Nodes</mark> in a tree with `e` edges | `e + 1`                        |
+| <mark>Adding</mark> one edge to a tree      | Creates **exactly one cycle**  |
+| <mark>Removing</mark> one edge from a tree  | Graph becomes **disconnected** |
+| Acyclic + Connected                | ⇒ <mark>Tree</mark>                     |
+| Acyclic + Not Connected            | ⇒ <mark>Forest</mark>                   |
 | Connected + `n−1` edges            | ⇒ Tree                         |
 
 **3. Forest**
@@ -307,7 +307,7 @@ Here are the **Complete Tree Theory Notes** tailored for **PSU exams** (like ISR
 | **Height of Node**                                  | Longest path from **node to a leaf** |
 | **Depth of Node**                                   | Distance from **root to that node**  |
 | **Max nodes at level l**                            | `2^l` (in binary tree)               |
-| **Height (h) of ==Full Binary Tree== with n nodes** | `log₂(n + 1) - 1`                    |
+| **Height (h) of <mark>Full Binary Tree</mark> with n nodes** | `log₂(n + 1) - 1`                    |
 
 **5. Types of Trees**
 
@@ -315,10 +315,10 @@ Here are the **Complete Tree Theory Notes** tailored for **PSU exams** (like ISR
 | ---------------------------- | --------------------------------------------------------------- |
 | **Rooted Tree**              | One node is root, defines parent-child relationships            |
 | **Binary Tree**              | Each node has ≤ 2 children                                      |
-| **==Full== Binary Tree**     | Every node has 0 or 2 children                                  |
-| **==Complete== Binary Tree** | All levels full except possibly last (left to right fill)       |
+| **<mark>Full</mark> Binary Tree**     | Every node has 0 or 2 children                                  |
+| **<mark>Complete</mark> Binary Tree** | All levels full except possibly last (left to right fill)       |
 | **Perfect Binary Tree**      | All internal nodes have 2 children and all leaves at same level |
-| **==Balanced== Binary Tree** | Height = `O(log n)` ⭐                                           |
+| **<mark>Balanced</mark> Binary Tree** | Height = `O(log n)` ⭐                                           |
 | **Skewed Tree**              | All nodes only on one side (worst case height = `n−1`) ⭐        |
 
 **6. Tree Traversals**

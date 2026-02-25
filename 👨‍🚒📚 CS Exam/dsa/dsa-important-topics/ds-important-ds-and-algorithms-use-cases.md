@@ -80,15 +80,15 @@ layout:
    * **Bucket Sort**: Sorting floating-point numbers by distributing into buckets (e.g., sorting grades).
    * **Counting Sort**: Sorting integers in a specific range (e.g., counting occurrences of words in a text).
 3. **Graph Algorithms** ⭐
-   * **Depth First Search (DFS)**: Searching or ==traversing graphs==, e.g., maze solving or network traversal.
-   * **Breadth First Search (BFS)**: ==Shortest path== in ==unweighted graphs==, e.g., web crawling or peer-to-peer network routing.
-   * \==**Dijkstra’s Algorithm**==: ==Shortest path== in ==weighted graphs==, e.g., GPS navigation.
-   * \==**Bellman-Ford Algorithm**==: Handling graphs with negative weights, e.g., currency exchange rate systems.
-   * \==**Floyd-Warshall Algorithm**:== Finding ==all-pairs shortest paths==, e.g., routing in a transportation network.
-   * \==**Kruskal’s Algorithm**==: ==Minimum Spanning Tree== for ==network design==, e.g., laying out roads or cable connections.
-   * \==**Prim’s Algorithm**:== ==Minimum Spanning Tree== for ==dense graphs==, e.g., connecting cities with the minimum road cost.
+   * **Depth First Search (DFS)**: Searching or <mark>traversing graphs</mark>, e.g., maze solving or network traversal.
+   * **Breadth First Search (BFS)**: <mark>Shortest path</mark> in <mark>unweighted graphs</mark>, e.g., web crawling or peer-to-peer network routing.
+   * <mark>**Dijkstra’s Algorithm**</mark>: <mark>Shortest path</mark> in <mark>weighted graphs</mark>, e.g., GPS navigation.
+   * <mark>**Bellman-Ford Algorithm**</mark>: Handling graphs with negative weights, e.g., currency exchange rate systems.
+   * <mark>**Floyd-Warshall Algorithm**:</mark> Finding <mark>all-pairs shortest paths</mark>, e.g., routing in a transportation network.
+   * <mark>**Kruskal’s Algorithm**</mark>: <mark>Minimum Spanning Tree</mark> for <mark>network design</mark>, e.g., laying out roads or cable connections.
+   * <mark>**Prim’s Algorithm**:</mark> <mark>Minimum Spanning Tree</mark> for <mark>dense graphs</mark>, e.g., connecting cities with the minimum road cost.
    * **Topological Sorting**: Task scheduling or dependency resolution, e.g., project management tools.
-   * **==A`*` Search Algorithm==:** Pathfinding with heuristics, e.g., robot navigation or map-based games.
+   * **</mark>A`*` Search Algorithm</mark>:** Pathfinding with heuristics, e.g., robot navigation or map-based games.
 4. **Dynamic Programming (DP)**
    * **Longest Common Subsequence (LCS)**: DNA sequence alignment or file comparison.
    * **Longest Increasing Subsequence (LIS)**: Stock market prediction or finding trends in time series.

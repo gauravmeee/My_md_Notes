@@ -38,7 +38,7 @@ In Database Management Systems (DBMS), **keys** are crucial for identifying uniq
    * Any set of attributes that can uniquely identify a row in a table.
    * Example: `{student_id}` or `{student_id, email}` are super keys, as both can uniquely identify a record.
 4. **Foreign Key**:
-   * A column (or a set of columns) in one table that ==references the primary key in another table.== This enforces referential integrity.
+   * A column (or a set of columns) in one table that <mark>references the primary key in another table.</mark> This enforces referential integrity.
    * Example: In a `course_enrollments` table, `student_id` might be a foreign key referencing the `students` table.
 5. **Composite Key**:
    * A key made up of two or more columns that, together, uniquely identify a row.

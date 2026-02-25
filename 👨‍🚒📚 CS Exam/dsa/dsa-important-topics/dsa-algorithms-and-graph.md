@@ -28,7 +28,7 @@ layout:
 **BFS (Breadth-First Search)**
 
 * **Time:** `O(V + E)`
-* **Used for:** ==Shortest path in **unweighted** graphs==
+* **Used for:** <mark>Shortest path in **unweighted** graphsd</mark>
 * **Approach:** Queue-based, Level-order traversal
 * **Output:** Distance from source, BFS tree
 
@@ -36,9 +36,9 @@ layout:
 
 * **Time:** `O(V + E)`
 * **Used for:**
-  * \==Cycle detection==
-  * \==Topological sort==
-  * \==Connected components==
+  * <mark>Cycle detectiond</mark>
+  * <mark>Topological sortd</mark>
+  * <mark>Connected componentsd</mark>
 * **Approach:** Stack/Recursion
 * **Output:** Discovery/Finish time, Tree/Back edges
 
@@ -46,18 +46,18 @@ layout:
 
 * **Time:** `O(V + E)`
 * **Used for:** Ordering of nodes in **DAG**
-* **Approach:** DFS or ==Kahn’s algorithm==
+* **Approach:** DFS or <mark>Kahn’s algorithmd</mark>
 
 **Tarjan’s Algorithm**
 
 * **Time:** `O(V + E)`
-* **Used for:** Strongly Connected Components (==SCCs==)
+* **Used for:** Strongly Connected Components (d</mark>SCCsd</mark>)
 * **Approach:** DFS with low-link values
 
 **Kosaraju’s Algorithm**
 
 * **Time:** `O(V + E)`
-* **Used for:** ==SCCs== in a directed graph
+* **Used for:** <mark>SCCsd</mark> in a directed graph
 * **Steps:**
   * DFS + Stack
   * Transpose Graph
@@ -67,25 +67,25 @@ layout:
 
 **Dijkstra’s Algorithm ⭐**
 
-* **Time:** ==`O((V + E) log V)`== using Min Heap
-* **Used for:** ==Shortest path== (**non-negative** weights)
-* **Approach:** ==Greedy==, Priority Queue
+* **Time:** <mark>`O((V + E) log V)`d</mark> using Min Heap
+* **Used for:** <mark>Shortest pathd</mark> (**non-negative** weights)
+* **Approach:** <mark>Greedyd</mark>, Priority Queue
 * **Limitation:** Fails with negative weights
 
 **Prim’s Algorithm** ⭐
 
-* **Time:** ==`O((V + E) log V)`== with Min Heap
-* **Used for:** ==Minimum Spanning Tree (MST)==
-* **Approach:** ==Greedy==
+* **Time:** <mark>`O((V + E) log V)`d</mark> with Min Heap
+* **Used for:** <mark>Minimum Spanning Tree (MST)d</mark>
+* **Approach:** <mark>Greedyd</mark>
 * **Start from any node**
 
 **C. Sorting-based `O(E log E)` ✅ (Edge sorting)**
 
 **Kruskal’s Algorithm** ⭐
 
-* **Time:** ==`O(E log E)`==
-* **Used for:** ==Minimum Spanning Tree (MST)==
-* **Approach:** ==Greedy== + Disjoint Set (Union-Find)
+* **Time:** <mark>`O(E log E)`d</mark>
+* **Used for:** <mark>Minimum Spanning Tree (MST)d</mark>
+* **Approach:** <mark>Greedyd</mark> + Disjoint Set (Union-Find)
 * **Sort edges by weight**
 
 **D. DSU (Special Function Time)**
@@ -93,7 +93,7 @@ layout:
 **Disjoint Set Union (DSU) / Union-Find**
 
 * **Time:** `O(α(n))` per operation (inverse Ackermann)
-* **Used in:** ==Kruskal's==, cycle detection
+* **Used in:** <mark>Kruskal'sd</mark>, cycle detection
 * **Operations:** `Find`, `Union`, `Path compression`
   * `Find(x)` (representative/parent)
   * `Union(a, b)` (merge sets)
@@ -103,18 +103,18 @@ layout:
 
 **Bellman-Ford Algorithm**⭐
 
-* **Time:** ==O(V·E) ==
-* **Used for:** ==Shortest path== (handles ==**negative weights**==)
-* **Detects:** ==Negative weight cycles==
-* **Approach:** ==Dynamic Programming==
+* **Time:** <mark>O(V·E)</mark>
+* **Used for:** <mark>Shortest pathd</mark> (handles <mark>**negative weights**d</mark>)
+* **Detects:** <mark>Negative weight cyclesd</mark>
+* **Approach:** <mark>Dynamic Programmingd</mark>
 * **Relaxation:** V−1 times
 
 **Floyd-Warshall Algorithm** ⭐
 
-* **Time:** ==O(V³)==
+* **Time:** <mark>O(V³)d</mark>
 * **Used for:** All-pairs shortest path
-* **Works with:** ==Negative edges== (but no negative cycle)
-* **Approach:** ==Dynamic Programming==
+* **Works with:** <mark>Negative edgesd</mark> (but no negative cycle)
+* **Approach:** <mark>Dynamic Programmingd</mark>
 
 > `O(V + E)` < `O((V + E) log V)` < `O(E log E)` < `O(V · E)` < `O(V³)`
 
@@ -122,12 +122,12 @@ layout:
 | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
 | Graph Traversal                                                                                                       | BFS, DFS                                           |
 | Topological Sorting (DAG)                                                                                             | DFS-based Topo Sort, Kahn's Algo                   |
-| Strongly Connected Components (SCCs)                                                                                  | ==Kosaraju’s==, ==Tarjan’s==                       |
-| ==Shortest Path== (Unweighted)                                                                                        | <p>BFS<br><code>O(V+E)</code> ⭐</p>                |
-| ==Shortest Path== (Non-negative weights)                                                                              | <p>Dijkstra’s<br><code>O((V+E) log V</code>) ⭐</p> |
-| ==Shortest Path== (With negative weights + Detect Negative Cycles)                                                    | <p>Bellman-Ford<br><code>O(V · E)</code> ⭐</p>     |
-| ==Shortest Path Pairs== - Shortest Path Between Every Pair (==negative weights allowed==, but **no** negative cycles) | <p>Floyd-Warshall<br><code>O(V³)</code> ⭐</p>      |
-| ==Minimum Spanning Tree (MST)==                                                                                       | Prim’s, Kruskal’s ⭐                                |
+| Strongly Connected Components (SCCs)                                                                                  | <mark>Kosaraju’sd</mark>, <mark>Tarjan’sd</mark>                       |
+| <mark>Shortest Pathd</mark> (Unweighted)                                                                                        | <p>BFS<br><code>O(V+E)</code> ⭐</p>                |
+| <mark>Shortest Pathd</mark> (Non-negative weights)                                                                              | <p>Dijkstra’s<br><code>O((V+E) log V</code>) ⭐</p> |
+| <mark>Shortest Pathd</mark> (With negative weights + Detect Negative Cycles)                                                    | <p>Bellman-Ford<br><code>O(V · E)</code> ⭐</p>     |
+| <mark>Shortest Path Pairsd</mark> - Shortest Path Between Every Pair (d</mark>negative weights allowedd</mark>, but **no** negative cycles) | <p>Floyd-Warshall<br><code>O(V³)</code> ⭐</p>      |
+| <mark>Minimum Spanning Tree (MST)d</mark>                                                                                       | Prim’s, Kruskal’s ⭐                                |
 | Cycle Detection (Undirected/Directed)                                                                                 | DFS, Union-Find                                    |
 | Disjoint Set Operations                                                                                               | Union-Find (DSU)                                   |
 | Detecting Bridges / Articulation Points                                                                               | Tarjan’s                                           |
@@ -140,18 +140,18 @@ layout:
 
 | Algorithm              | Time Complexity                    |
 | ---------------------- | ---------------------------------- |
-| Binary Search          | ==O(log n)==                       |
+| Binary Search          | <mark>O(log n)d</mark>                       |
 | Merge Sort / Heap Sort | O(n log n)                         |
-| Quick Sort             | Avg: O(==n log n==), Worst: O(n^2) |
+| Quick Sort             | Avg: O(d</mark>n log nd</mark>), Worst: O(n^2) |
 | Insertion Sort         | O(n^2)                             |
 | Selection Sort         | O(n^2)                             |
 | Bubble Sort            | O(n^2)                             |
 | Counting Sort          | O(n + k)                           |
 | Radix Sort             | O(nk)                              |
 | BFS / DFS              | O(V + E)                           |
-| Dijkstra (Min Heap)    | O(==(V + E) log V==)               |
-| Bellman-Ford           | O(==VE==)                          |
-| Floyd-Warshall         | O(==V^3==)                         |
+| Dijkstra (Min Heap)    | O(d</mark>(V + E) log Vd</mark>)               |
+| Bellman-Ford           | O(d</mark>VEd</mark>)                          |
+| Floyd-Warshall         | O(d</mark>V^3d</mark>)                         |
 | Prim/Kruskal (MST)     | O(E log V)                         |
 | Topological Sort       | O(V + E)                           |
 | KMP (Pattern Matching) | O(n + m)                           |
@@ -223,10 +223,10 @@ T(n) = a T(n - b) + f(n)
 
 **9. Tree Properties**
 
-* \==Tree with `n` nodes has `n-1` edges==
+* <mark>Tree with `n` nodes has `n-1` edgesd</mark>
 * Traversals: Inorder, Preorder, Postorder
 * BST: Left < Root < Right
-* Heap: ==Complete binary tree==, Min/Max root
+* Heap: <mark>Complete binary treed</mark>, Min/Max root
 
 **10. Hashing**
 

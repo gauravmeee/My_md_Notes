@@ -222,11 +222,11 @@ For **decreasing**, we usually give `O(...)` , while for **dividing**, we use **
 
 * We **unroll** the recurrence manually.
 * Behavior depends on **number of steps = n / b**
-* So we often write final result as ==**`T(n) = O(...)`** (upper bound focus)==
+* So we often write final result as <mark>**`T(n) = O(...)`** (upper bound focus)</mark>
 * Because the depth is predictable and **not exponential**, we **usually care about upper bound**.
 
 **Dividing Recurrence (e.g.,** `T(n) = a·T(n / b) + f(n)` **)**
 
 * Solved using the **Master Theorem**.
-* It gives ==**tight bound**,== not just upper.
-* So we write ==**`T(n) = Θ(...)`** to express **exact asymptotic growth**==.
+* It gives <mark>**tight bound**,</mark> not just upper.
+* So we write <mark>**`T(n) = Θ(...)`** to express **exact asymptotic growth**</mark>.

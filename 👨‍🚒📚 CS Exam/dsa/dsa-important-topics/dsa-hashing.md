@@ -23,9 +23,9 @@ layout:
 
 ### Hashing
 
-Hashing is a ==technique to map a key to an index== of a hash table using a ==hash function==, enabling $O(1)$ ==average time== for search, insert, and delete operations.
+Hashing is a <mark>technique to map a key to an index</mark> of a hash table using a <mark>hash functions</mark> enabling $O(1)$ <mark>average time</mark> for search, insert, and delete operations.
 
-> **Hash Table:** A hash table is a **data structure** that stores ==key–value pair==s and uses a **hash function** to ==map each key to an index in an array==, allowing **O(1) average-time** search, insertion, and deletion.
+> **Hash Table:** A hash table is a **data structure** that stores <mark>key–value pairs</mark> and uses a **hash function** to <mark>map each key to an index in an arrays</mark> allowing **O(1) average-time** search, insertion, and deletion.
 
 **Terminology**
 
@@ -205,7 +205,7 @@ Insert(k):
       table[j] = k
       return j
     i = i + 1
-  until i == m
+  until i <mark> m
 ```
 
 **1. Linear Probing:**

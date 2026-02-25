@@ -23,9 +23,9 @@ layout:
 
 ## Procedural Language (DBMS)
 
-* User specifies ==_what data_ is required **and** _how to get it_== (sequence of steps)
+* User specifies <mark>_what data_ is required **and** _how to get it_<mark> (sequence of steps)
 * Query execution path is defined by user
-* Define Steps, More control, ==less abstraction==
+* Define Steps, More control, <mark>less abstraction</mark>
 *
 
 **Examples:**
@@ -39,8 +39,8 @@ layout:
 π name (σ marks > 80 (STUDENT))
 ```
 
-* First **==select** tuples==
-* Then ==**project** attributes==
+* First **<mark>select** tuples</mark>
+* Then <mark>**project** attributes</mark>
 
 **eg:- Tuple Relational Calculus** (TRC)
 
@@ -108,7 +108,7 @@ layout:
 | Syntax              | `{t` \| `P(t)}`                                              |
 | Predicate           | Condition on tuple `t` (comparisons, logical operators)      |
 | Operators           | AND (`∧`), OR (`∨`), NOT (`¬`), `=`, `≠`, `<`, `>`, `≤`, `≥` |
-| Quantifiers         | ==`∃` (exists)==, ==`∀` (for all)==                          |
+| Quantifiers         | <mark>`∃` (exists)</mark>, <mark>`∀` (for all)<mark>                          |
 | Characteristics     | Non-procedural; specifies **what** to retrieve, not **how**  |
 | Difference from SQL | TRC is theoretical; SQL is practical                         |
 | **Examples** :      |                                                              |
@@ -128,7 +128,7 @@ layout:
 
 ## Non-Procedural Language (DBMS)
 
-* User specifies ==_what data_ is required, not _how to retrieve_==
+* User specifies <mark>_what data_ is required, not _how to retrieve_</mark>
 * DBMS decides execution plan
 * Define Result Only, High-level, declarative, high abstraction
 
@@ -220,7 +220,7 @@ SELECT name FROM STUDENT WHERE marks > 80;
 | Syntax              | `{ <x1, x2, …> \| P(x1, x2, …) }`                        |
 | Predicate           | Conditions on domains using logic                        |
 | Operators           | `∧`, `∨`, `¬`, `=`, `<`, `>`                             |
-| Quantifiers         | ==`∃`, `∀`==                                             |
+| Quantifiers         | <mark>`∃`, `∀`<mark>                                             |
 | Characteristics     | Mathematical, declarative                                |
 | Difference from TRC | DRC uses domains; TRC uses tuples                        |
 

@@ -31,29 +31,29 @@ layout:
 
 | Feature                    | Algorithm                                                                                                                                                                                                                                                                                                                                                                                                                                   | Program                                                                                                                                                                      |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Development Phase**      | Written during the ==**design phase**== of the software development lifecycle. It involves planning and understanding what needs to be developed before actual construction.                                                                                                                                                                                                                                                                | Written during the ==**implementation phase**==. This is the actual development based on the design.                                                                         |
-| **Purpose**                | Serves as a ==**design or blueprint== for the program**. It familiarises you with how your program is going to work. It helps avoid developing "useless" programs by ensuring a thorough design first.                                                                                                                                                                                                                                      | The ==**executable code**== that performs the defined task. It is run to check its functionality.                                                                            |
-| **Language Used**          | Can be written in ==**simple English-like statements**== that are easy to understand, without proper syntax. It can also use **mathematical notations**. The language used must be understandable by the team, especially the programmers who will implement it. The speaker intends to use **C language syntax for writing algorithms** because it is widely known and understood, even at a school level, ensuring clarity for everybody. | Written using **specific programming languages** such as ==C, C++, Java, or Python.==                                                                                        |
+| **Development Phase**      | Written during the <mark>**design phase**</mark> of the software development lifecycle. It involves planning and understanding what needs to be developed before actual construction.                                                                                                                                                                                                                                                                | Written during the <mark>**implementation phase**</mark>. This is the actual development based on the design.                                                                         |
+| **Purpose**                | Serves as a <mark>**design or blueprint</mark> for the program**. It familiarises you with how your program is going to work. It helps avoid developing "useless" programs by ensuring a thorough design first.                                                                                                                                                                                                                                      | The <mark>**executable code**</mark> that performs the defined task. It is run to check its functionality.                                                                            |
+| **Language Used**          | Can be written in <mark>**simple English-like statements**</mark> that are easy to understand, without proper syntax. It can also use **mathematical notations**. The language used must be understandable by the team, especially the programmers who will implement it. The speaker intends to use **C language syntax for writing algorithms** because it is widely known and understood, even at a school level, ensuring clarity for everybody. | Written using **specific programming languages** such as <mark>C, C++, Java, or Python.</mark>                                                                                        |
 | **Machine Dependence**     | **Hardware and operating system independent**. It does not depend on the machine's configuration or the OS (e.g., Linux or Windows).                                                                                                                                                                                                                                                                                                        | **Dependent on hardware and operating system**. You must select specific hardware and an operating system for the program to run, which affects the development environment. |
 | **Who Writes It**          | Often written by individuals with **domain knowledge** about the problem and its solution. For example, an accountant for accounting software or a doctor for hospital applications. Programmers who also have domain knowledge can act as designers.                                                                                                                                                                                       | Primarily written by **programmers**, often university graduates familiar with programming languages like C.                                                                 |
-| **Post-Creation Activity** | Algorithms are ==**analysed to determine their correctness and efficiency**== in terms of time and space.                                                                                                                                                                                                                                                                                                                                   | Programs are ==**tested by running them**== to check their functionality.                                                                                                    |
+| **Post-Creation Activity** | Algorithms are <mark>**analysed to determine their correctness and efficiency**</mark> in terms of time and space.                                                                                                                                                                                                                                                                                                                                   | Programs are <mark>**tested by running them**</mark> to check their functionality.                                                                                                    |
 
 ***
 
 ### [1.1 Priori Analysis and Posteriori Testing](https://www.youtube.com/watch?v=-JTq1BFBwmo\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=2\&pp=iAQB)
 
-Two key terms used for evaluating algorithms and programs: **==Priori Analysis**== and ==**Posteriori Testing**.==
+Two key terms used for evaluating algorithms and programs: **</mark>Priori Analysis**</mark> and <mark>**Posteriori Testing**.</mark>
 
 **Priori Analysis vs Posteriori Testing**
 
 | Feature              | **Priori Analysis**                         | **Posteriori Testing**                            |
 | -------------------- | ------------------------------------------- | ------------------------------------------------- |
-| **Definition**       | ==Analysis of an algorithm==                | ==Testing of a program by executing it==          |
+| **Definition**       | <mark>Analysis of an algorithm</mark>                | <mark>Testing of a program by executing it</mark>          |
 | **Done After**       | Algorithm is written (Design Phase)         | Program is written (Implementation Phase)         |
-| **What is Measured** | ==Time== and ==space== functions            | Actual execution time and memory usage            |
-| **Result Type**      | Functions (e.g., O(n), O(log n))            | ==Exact measured== values (e.g., 1.2 sec, 100 MB) |
-| **Independence**     | Language & hardware ==independent==         | Language, OS & hardware ==dependent==             |
-| **Purpose**          | ==Theoretical understanding== of efficiency | ==Practical evaluation== of performance           |
+| **What is Measured** | <mark>Time</mark> and <mark>space</mark> functions            | Actual execution time and memory usage            |
+| **Result Type**      | Functions (e.g., O(n), O(log n))            | <mark>Exact measured</mark> values (e.g., 1.2 sec, 100 MB) |
+| **Independence**     | Language & hardware <mark>independent</mark>         | Language, OS & hardware <mark>dependent</mark>             |
+| **Purpose**          | <mark>Theoretical understanding</mark> of efficiency | <mark>Practical evaluation</mark> of performance           |
 
 ***
 
@@ -64,26 +64,26 @@ Characteristics that every algorithm must possess to be considered valid and eff
 **1. Input**
 
 * **Requirement**: An algorithm **must take some input**.
-* **Quantity**: Algorithms can take ==**zero or more inputs**.==
+* **Quantity**: Algorithms can take <mark>**zero or more inputs**.</mark>
   * _Explanation_: While most algorithms process some data, some might perform a task that doesn't explicitly require external input, for example, generating a sequence of numbers based on an internal rule.
 
 **2. Output**
 
-* **Requirement**: An algorithm ==**must generate at least one output**.==
+* **Requirement**: An algorithm <mark>**must generate at least one output**.</mark>
 * **Purpose**: If an algorithm doesn't produce a result, there's **no use in writing it**.
   * _Analogy_: This is likened to a C language function that, even if it has a `void` return type, still "does something" and produces a result of some kind.
   * _Explanation_: The objective of any procedure, including an algorithm, is to yield some result. For example, a chemistry experiment must obtain a solution, or a recipe must produce a dish.
 
 **3. Definiteness**
 
-* **Requirement**: **Every statement** in an ==algorithm **should be unambiguous**== and have a ==**single, exact meaning**.==
+* **Requirement**: **Every statement** in an <mark>algorithm **should be unambiguous**</mark> and have a <mark>**single, exact meaning**.</mark>
 * **Clarity**: You **cannot write any statement that cannot be understood or solved**.
   * _Example_: You cannot use an "unknown value" like "root minus 1" (an imaginary number) as a real number in an algorithm.
   * _Explanation_: All steps performed within an algorithm must be **known steps**, with nothing left to "magical" interpretation.
 
 **4. Finiteness**
 
-* **Requirement**: An algorithm ==**must terminate at some point**.==
+* **Requirement**: An algorithm <mark>**must terminate at some point**.</mark>
 * **Limited Steps**: It must have a **finite set of statements**. Whether it has 10 statements or 10,000 statements, it **must eventually stop** and return a result.
   * _Contrast with Programs_: This characteristic distinguishes algorithms from certain programs (like database or web servers) that are designed to run continuously unless manually stopped.
   * _Analogy_: Similar to a function, an algorithm should have a limited set of steps and then stop and return the result.
@@ -91,7 +91,7 @@ Characteristics that every algorithm must possess to be considered valid and eff
 
 **5. Effectiveness**
 
-* **Requirement**: An algorithm ==**should not include unnecessary statements**.==
+* **Requirement**: An algorithm <mark>**should not include unnecessary statements**.</mark>
 * **Purposeful Steps**: **Whatever statement you write, the objective is that it should do something** towards the purpose of the procedure.
   * _Explanation_: Every step taken should be productive and contribute to the intended outcome. For instance, in a recipe, you wouldn't boil a vegetable and then not use it in the dish. This ensures that the procedure is efficient and goal-oriented.
 
@@ -105,8 +105,8 @@ Practical aspects of creating and evaluating algorithms, covering how they are w
 
 * **Syntax and Language**:
   * Algorithms are written during the **design phase** of software development.
-  * They can be written using ==**simple English-like statements**== that are easy to understand, without needing proper syntax.
-  * \==**Mathematical notations** can also be used.==
+  * They can be written using <mark>**simple English-like statements**</mark> that are easy to understand, without needing proper syntax.
+  * <mark>**Mathematical notations** can also be used.</mark>
   * While there's no fixed syntax, the goal is for the algorithm to be **understandable** by anyone involved in the project (e.g., designers, programmers).
   * Though language-independent, for practical purposes and ease of understanding, algorithms are often written using **C language syntax** because of its widespread familiarity.
   * **Minor details** related to programming languages, such as data types of parameters or variable declarations, are typically **not decided or bothered about** at the algorithm design time.
@@ -114,17 +114,17 @@ Practical aspects of creating and evaluating algorithms, covering how they are w
 
 \*\*How to Analyze an Algorithm:
 
-* Algorithm analysis is ==crucial for evaluating its efficiency==. The ==primary criteria for analysis are **time** and **space**.==
+* Algorithm analysis is <mark>crucial for evaluating its efficiency</mark>. The <mark>primary criteria for analysis are **time** and **space**.</mark>
 
 **1. Time Analysis**
 
-* **Objective**: To determine **how much computational time** an algorithm takes. The goal is to devise ==**time-efficient (faster)**== procedures.
+* **Objective**: To determine **how much computational time** an algorithm takes. The goal is to devise <mark>**time-efficient (faster)**</mark> procedures.
 * **Result**: The analysis yields a **time function (F(n))**, not an exact time value (e.g., "three minutes"). This function expresses performance in terms of the input size 'n'. For very simple algorithms, the time function might be a constant value.
-* **Assumption for Calculation**: **Every simple statement in an algorithm is ==assumed to take "one unit of time"**.==
+* **Assumption for Calculation**: **Every simple statement in an algorithm is <mark>assumed to take "one unit of time"**.</mark>
   * A "simple statement" refers to direct, non-nested statements.
   * If a statement involves complex operations (e.g., `X = 5*A + 6*B`), it is still considered **one unit of time** for high-level analysis, without delving into its conversion to multiple machine code instructions.
-  * If an algorithm calls another algorithm or procedure, that nested procedure also needs to be analyzed in detail. ==- **Frequency Count Method**:==
-  * This method is used to determine the time complexity by ==calculating **how many times each statement executes**.==
+  * If an algorithm calls another algorithm or procedure, that nested procedure also needs to be analyzed in detail. <mark>- **Frequency Count Method**:</mark>
+  * This method is used to determine the time complexity by <mark>calculating **how many times each statement executes**.</mark>
   * **Example: Sum of Array Elements**
     * A simple statement like `sum = 0` executes once.
     * A `for` loop (e.g., `for(i=0; i<n; i++)`) involves:
@@ -140,12 +140,12 @@ Practical aspects of creating and evaluating algorithms, covering how they are w
 **2. Space Analysis**
 
 * **Objective**: To determine **how much memory space** an algorithm will consume when run on a machine.
-* **Assumption for Calculation**: ==**Each variable is assumed to take "one word"**== of space.
-  * \=="Word" is used instead of "byte"== ==because the specific data type (e.g., integer, float, double) is not decided at the algorithm design phase.== ❓
+* **Assumption for Calculation**: <mark>**Each variable is assumed to take "one word"**</mark> of space.
+  * <mark>"Word" is used instead of "byte"</mark> <mark>because the specific data type (e.g., integer, float, double) is not decided at the algorithm design phase.</mark> ❓
 * **Calculation**: Involves counting the parameters and local variables used by the algorithm.
 * **Result**: The analysis yields a **space function (S(n))**.
-  * For simple algorithms using a fixed number of variables, ==the space can be a **constant**== (e.g., 3 variables = 3 words = ==**Order of 1**==).
-  * For algorithms that process arrays or matrices, the space complexity will depend on the size of these data structures. For example, an ==`N`-element array will require `N` words of space, leading to **Order of N** space== complexity. Similarly, an ==`N x N` matrix will require `N-squared` words, resulting in **Order of N-squared**== space complexity.
+  * For simple algorithms using a fixed number of variables, <mark>the space can be a **constant**</mark> (e.g., 3 variables = 3 words = <mark>**Order of 1**</mark>).
+  * For algorithms that process arrays or matrices, the space complexity will depend on the size of these data structures. For example, an <mark>`N`-element array will require `N` words of space, leading to **Order of N** space</mark> complexity. Similarly, an <mark>`N x N` matrix will require `N-squared` words, resulting in **Order of N-squared**</mark> space complexity.
 
 **3. Other Analysis Criteria**
 
@@ -158,7 +158,7 @@ Practical aspects of creating and evaluating algorithms, covering how they are w
 
 ### [1.4 Frequency Count Method](https://www.youtube.com/watch?v=1U3Uwct45IY\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=5\&pp=iAQB0gcJCccJAYcqIYzv)
 
-Practical method for ==determining the time complexity of an algorithm==, known as the Frequency Count Method.
+Practical method for <mark>determining the time complexity of an algorithm</mark>, known as the Frequency Count Method.
 
 **Objective**:
 
@@ -166,7 +166,7 @@ Practical method for ==determining the time complexity of an algorithm==, known 
 
 **Methodology**:
 
-1. **Assign Unit Time**: ==Every simple statement in the algorithm is assumed to take **one unit of time**.==
+1. **Assign Unit Time**: <mark>Every simple statement in the algorithm is assumed to take **one unit of time**.</mark>
 2. **Count Frequency**: For statements that repeat (e.g., inside loops), calculate their **frequency of execution**.
 3. **Sum Frequencies**: Sum up the frequencies of all statements to derive the **time function F(n)**.
 
@@ -222,29 +222,29 @@ Practical method for ==determining the time complexity of an algorithm==, known 
 
 Delves into the time complexity of various types of `for` loops.
 
-**1. Linear Increment/Decrement Loops ==(Order of N)== $O(N)$**
+**1. Linear Increment/Decrement Loops <mark>(Order of N)</mark> $O(N)$**
 
-* \==**Simple Increment**:==
+* <mark>**Simple Increment**:</mark>
   * `for (i=0; i<n; i++) { // statement }`
-  * The statement inside the loop executes ==`n`== times. The condition `i<n` is checked `n+1` times.
+  * The statement inside the loop executes <mark>`n`</mark> times. The condition `i<n` is checked `n+1` times.
   * **Complexity**: **Order of N**.
 * **Simple Decrement**:
   * `for (i=n; i>0; i--) { // statement }`
-  * Similar to incrementing, the loop executes ==`n` ==times.
+  * Similar to incrementing, the loop executes <mark>`n` <mark>times.
   * **Complexity**: **Order of N**.
-* \==**Increment by Constant Step**:==
+* <mark>**Increment by Constant Step**:</mark>
   * `for (i=1; i<n; i+=2) { // statement }` (incrementing by 2)
-  * The statement executes `n/2` times. The degree of ==`F(n) = n/2` is still `n`.==
+  * The statement executes `n/2` times. The degree of <mark>`F(n) = n/2` is still `n`.</mark>
   * **Complexity**: Even if incremented by a larger constant (e.g., `i+=20`), it's still **Order of N**. This is because constant coefficients are ignored in asymptotic notation.
 
-**2. ==Standard Nested Loops== (Order of N-squared) ==`O(N^2)`==**
+**2. <mark>Standard Nested Loops</mark> (Order of N-squared) <mark>`O(N^2)`</mark>**
 
 * `for (i=0; i<n; i++) { for (j=0; j<n; j++) { // statement } }`
 * The outer loop executes `n` times, and for each iteration of the outer loop, the inner loop executes `n` times.
-* The innermost statement executes ==`n * n = n^2` times.==
+* The innermost statement executes <mark>`n * n = n^2` times.</mark>
 * **Complexity**: **Order of N-squared**.
 
-**3. ==Nested Loops with Dependent Inner Loop== ==(Order of N-squared)== $O(N^2)$**
+**3. <mark>Nested Loops with Dependent Inner Loop</mark> <mark>(Order of N-squared)</mark> $O(N^2)$**
 
 * `for (i=0; i<n; i++) { for (j=0; j<i; j++) { // statement } }`
 * The number of times the inner statement executes depends on `i`:
@@ -253,11 +253,11 @@ Delves into the time complexity of various types of `for` loops.
   * When `i=2`, inner loop runs **2** times (`j=0, 1`).
   * ...
   * When `i=n-1`, inner loop runs **n-1** times.
-* **Total executions**: `0 + 1 + 2 + ... + (n-1)` = ==`n * (n-1) / 2`.==
+* **Total executions**: `0 + 1 + 2 + ... + (n-1)` = <mark>`n * (n-1) / 2`.</mark>
 * **Time Function F(n)**: `n^2/2 - n/2`.
-* **Complexity**: The highest degree is ==`n^2`==. So, it's **Order of N-squared**.
+* **Complexity**: The highest degree is <mark>`n^2`</mark>. So, it's **Order of N-squared**.
 
-**4. Loops with Non-Linear Counter ==(Order of Root N)== $O(\sqrt N)$ ⭐⭐**
+**4. Loops with Non-Linear Counter <mark>(Order of Root N)</mark> $O(\sqrt N)$ ⭐⭐**
 
 *   Consider a loop like:
 
@@ -272,14 +272,14 @@ Delves into the time complexity of various types of `for` loops.
 * The variable `P` accumulates values like `1`, `1+2=3`, `1+2+3=6`, `1+2+3+4=10`, etc. This is the sum of `I` up to a certain point.
 * If the loop runs `k` times, `P` will be approximately `1 + 2 + ... + k = k * (k+1) / 2`.
 * The loop stops when `P` becomes greater than or equal to `n`. So, `k * (k+1) / 2 >= n`.
-* Roughly, `k^2 / 2 >= n`, which implies `k^2 >= 2n`, so ==`k >= sqrt(2n)`.==
-* **Complexity**: ==The number of iterations `k` is proportional to **Root N (sqrt(n))**.==
+* Roughly, `k^2 / 2 >= n`, which implies `k^2 >= 2n`, so <mark>`k >= sqrt(2n)`.</mark>
+* **Complexity**: <mark>The number of iterations `k` is proportional to **Root N (sqrt(n))**.</mark>
 
 #### [1.5.2 Time Complexity (2)](https://www.youtube.com/watch?v=9SgLBjXqwd4\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=7\&pp=iAQB)
 
 Extends the analysis to loops where the counter variable is multiplied or divided.
 
-**1. ==Multiplicative Increment== Loop ==(Order of Log N)== $O(\log\_2 N)$**
+**1. <mark>Multiplicative Increment</mark> Loop <mark>(Order of Log N)</mark> $O(\log\_2 N)$**
 
 * `for (i=1; i<n; i*=2) { // statement }`
 * The variable `i` takes values: `1, 2, 4, 8, ..., 2^k`.
@@ -287,25 +287,25 @@ Extends the analysis to loops where the counter variable is multiplied or divide
 * So, `2^k >= n`. Taking `log2` on both sides, `k >= log2(n)`.
 * **Number of iterations**: `k` is `log2(n)`.
 * **Complexity**: **Order of Log N** (base 2).
-  * **Note on Logarithm Base**: The base of the logarithm (e.g., base 2, base 3) does not change the overall order of complexity in asymptotic analysis. ==`log2(n)`== is asymptotically equivalent to `log3(n)`.
+  * **Note on Logarithm Base**: The base of the logarithm (e.g., base 2, base 3) does not change the overall order of complexity in asymptotic analysis. <mark>`log2(n)`</mark> is asymptotically equivalent to `log3(n)`.
   * **Ceiling Function**: When `n` is not an exact power of the base, the number of executions will be `ceil(log_base(n))`. For example, `n=10`, `log2(10)` is approximately 3.32, but the loop executes 4 times (`1, 2, 4, 8` then `16` causes termination).
 
-**2. ==Multiplicative Decrement== Loop ==(Order of Log N)== $O(\log\_2 N)$**
+**2. <mark>Multiplicative Decrement</mark> Loop <mark>(Order of Log N)</mark> $O(\log\_2 N)$**
 
 * `for (i=n; i>1; i/=2) { // statement }`
 * The variable `i` takes values: `n, n/2, n/4, ..., n/2^k`.
 * The loop terminates when `i` (which is `n/2^k`) becomes less than `1`.
 * So, `n/2^k < 1`, which means `n < 2^k`, so `k > log2(n)`.
-* **Number of iterations**: `k` is proportional to ==`log2(n)`.==
+* **Number of iterations**: `k` is proportional to <mark>`log2(n)`.</mark>
 * **Complexity**: **Order of Log N** (base 2).
 
-**3. ==Independent Loops== (Additive Complexity)**
+**3. <mark>Independent Loops</mark> (Additive Complexity)**
 
 * `for (i=0; i<n; i++) { ... }`
 * `for (j=0; j<n; j++) { ... }`
 * These loops are executed sequentially, not nested.
 * Each loop has a complexity of **Order of N**.
-* **Combined Complexity**: ==`N + N = 2N`.== In asymptotic analysis, constant coefficients are dropped, so the complexity is still **Order of N**.
+* **Combined Complexity**: <mark>`N + N = 2N`.</mark> In asymptotic analysis, constant coefficients are dropped, so the complexity is still **Order of N**.
 
 **4. Complex Independent Loops (Log of Log N)**
 
@@ -315,12 +315,12 @@ Extends the analysis to loops where the counter variable is multiplied or divide
   * If `P` in the inner loop's condition is directly related to the _number of iterations_ of the outer loop (which is `log N`), then `P` can effectively be `log N`.
   * **Complexity**: The inner loop then executes `log(log N)` times. So, the overall time complexity is **Order of Log(Log N)**.
 
-**5. ==Nested Loops== with ==One Multiplicative Counter== (Order of N Log N)**
+**5. <mark>Nested Loops</mark> with <mark>One Multiplicative Counter</mark> (Order of N Log N)**
 
 * `for (i=0; i<n; i++) { for (j=1; j<n; j*=2) { // statement } }`
 * Outer loop is a linear increment loop, running **Order of N** times.
 * Inner loop is a multiplicative increment loop, running **Order of Log N** times for each iteration of the outer loop.
-* **Combined Complexity**: ==`N * Log N`.== So, the complexity is **Order of N Log N**.
+* **Combined Complexity**: <mark>`N * Log N`.</mark> So, the complexity is **Order of N Log N**.
 
 #### [1.5.3 Time Complexity of While and if (3)](https://www.youtube.com/watch?v=p1EnSvS3urU\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=8\&pp=iAQB)
 
@@ -452,27 +452,27 @@ The three main asymptotic notations are:
 
 * **Big O Notation (O): Upper Bound** (⭐ Used by us in Programming)
   * **Definition**: A function `f(n)` is `O(g(n))` if there exist positive constants `C` and `n0` such that **`f(n) ≤ C * g(n)` for all `n ≥ n0`**.
-  * **Explanation**: `g(n)` serves as an ==**upper bound** for `f(n)`.== This means that for sufficiently large `n` (beyond `n0`), `f(n)` will always be less than or equal to `C` times `g(n)`.
+  * **Explanation**: `g(n)` serves as an <mark>**upper bound** for `f(n)`.</mark> This means that for sufficiently large `n` (beyond `n0`), `f(n)` will always be less than or equal to `C` times `g(n)`.
   * **Example**: If `f(n) = 2n + 3`:
     * We can say `2n + 3 ≤ 5n` for `n ≥ 1` (here `C=5`, `g(n)=n`, `n0=1`).
     * Therefore, `f(n)` is **`O(n)`**.
-    * The lecture stresses that technically, ==`O(n^2)` or `O(2^n)` would also be mathematically correct upper bounds for `2n + 3` (e.g., `2n + 3 ≤ 5n^2` is true== for large `n`). However, when using Big O, we should ==**always prefer to write the closest or tightest upper bound possible**== ⭐ for practical usefulness.
+    * The lecture stresses that technically, <mark>`O(n^2)` or `O(2^n)` would also be mathematically correct upper bounds for `2n + 3` (e.g., `2n + 3 ≤ 5n^2` is true</mark> for large `n`). However, when using Big O, we should <mark>**always prefer to write the closest or tightest upper bound possible**</mark> ⭐ for practical usefulness.
 * **Big Omega Notation (Ω): Lower Bound**
   * **Definition**: A function `f(n)` is `Ω(g(n))` if there exist positive constants `C` and `n0` such that **`f(n) ≥ C * g(n)` for all `n ≥ n0`**.
-  * **Explanation**: `g(n)` serves as a ==**lower bound** for `f(n)`==. For sufficiently large `n`, `f(n)` will always be greater than or equal to `C` times `g(n)`.
+  * **Explanation**: `g(n)` serves as a <mark>**lower bound** for `f(n)`</mark>. For sufficiently large `n`, `f(n)` will always be greater than or equal to `C` times `g(n)`.
   * **Example**: If `f(n) = 2n + 3`:
     * We can say `2n + 3 ≥ 1n` for `n ≥ 0` (here `C=1`, `g(n)=n`, `n0=0`).
     * Therefore, `f(n)` is **`Ω(n)`**.
-    * Similar to ==Big O, `Ω(log n)` would also be a valid== lower bound, ==but the **nearest function is the most useful**==. `Ω(n^2)` would be incorrect because `n^2` is not a lower bound for `2n+3`.
+    * Similar to <mark>Big O, `Ω(log n)` would also be a valid</mark> lower bound, <mark>but the **nearest function is the most useful**</mark>. `Ω(n^2)` would be incorrect because `n^2` is not a lower bound for `2n+3`.
 * **Theta Notation (Θ): Tight/Average Bound**
   * **Definition**: A function `f(n)` is `Θ(g(n))` if there exist positive constants `C1`, `C2`, and `n0` such that **`C1 * g(n) ≤ f(n) ≤ C2 * g(n)` for all `n ≥ n0`**.
-  * **Explanation**: `g(n)` acts as both a ==**lower bound and an upper bound**==, effectively tightly bounding `f(n)`. This means `f(n)` grows at the same rate as `g(n)`.
+  * **Explanation**: `g(n)` acts as both a <mark>**lower bound and an upper bound**</mark>, effectively tightly bounding `f(n)`. This means `f(n)` grows at the same rate as `g(n)`.
   * **Example**: If `f(n) = 2n + 3`:
     * We can say `1n ≤ 2n + 3 ≤ 5n` for `n ≥ 1` (here `C1=1`, `C2=5`, `g(n)=n`, `n0=1`).
     * Therefore, `f(n)` is **`Θ(n)`**.
     * Unlike Big O and Big Omega, **Theta notation can only use `g(n)` that precisely matches the growth rate of `f(n)`**. For example, `Θ(n^2)` or `Θ(log n)` would be incorrect for `2n+3`.
     * **Theta notation is generally the most preferred and recommended** because it gives the most precise representation of an algorithm's asymptotic behaviour.
-* **Important Clarification**: Asymptotic notations ==(Big O, Omega, Theta) are **not directly related to best-case, worst-case, or average-case analysis**== of an algorithm. ==They describe the growth rate of a _function_==, which could be the function representing the best, worst, or average case time, but the notations themselves don't imply the case.
+* **Important Clarification**: Asymptotic notations <mark>(Big O, Omega, Theta) are **not directly related to best-case, worst-case, or average-case analysis**</mark> of an algorithm. <mark>They describe the growth rate of a _function_</mark>, which could be the function representing the best, worst, or average case time, but the notations themselves don't imply the case.
 
 | Notation | Name  | Use Case                                                                     |
 | -------- | ----- | ---------------------------------------------------------------------------- |
@@ -508,8 +508,8 @@ Examples to solidify the understanding of asymptotic notations, especially focus
   * **Lower Bound**: `log(n!)` is `Ω(1)` (or `Ω(n log n)` if using a tighter analysis, but video shows `Ω(1)` by setting lower bound of log to 0/1).
   * **Tight Bound (Theta)**: Similar to `n!`, a **tight `Theta` bound is not easily found** for `log(n!)` in common function classes.
 * **Summary of Notation Usage**:
-  * \==**Theta is always preferable** when it can be found because it gives the exact growth rate.==
-  * \==**Big O and Big Omega are useful when a tight bound is difficult== or impossible to determine** (e.g., for `n!`) or when you only need to specify an upper or lower performance limit.
+  * <mark>**Theta is always preferable** when it can be found because it gives the exact growth rate.</mark>
+  * <mark>**Big O and Big Omega are useful when a tight bound is difficult</mark> or impossible to determine** (e.g., for `n!`) or when you only need to specify an upper or lower performance limit.
   * Even when using Big O or Big Omega, it is **best practice to provide the tightest possible bound** (e.g., for `2n+3`, `O(n)` is useful, `O(n^2)` is correct but less useful). The lecturer uses an analogy of quoting a mobile phone price: giving `£20,000` is useful, but `£2,000` (too low) or `£200,000` (too high) are correct but not meaningful.
 
 ***
@@ -657,15 +657,15 @@ Different types of **performance analysis** for algorithms: best case, worst cas
 
 ### [1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find](https://www.youtube.com/watch?v=wU6udHRIkcc\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=17\&pp=iAQB0gcJCccJAYcqIYzv)
 
-**Disjoint Sets**, a ==data structure primarily used to manage a collection of non-overlapping (disjoint) sets==. They are particularly useful for **detecting cycles in undirected graphs**, a common application seen in algorithms like Kruskal's algorithm for finding Minimum Spanning Trees.
+**Disjoint Sets**, a <mark>data structure primarily used to manage a collection of non-overlapping (disjoint) sets</mark>. They are particularly useful for **detecting cycles in undirected graphs**, a common application seen in algorithms like Kruskal's algorithm for finding Minimum Spanning Trees.
 
 1. **What are Disjoint Sets?**
-   * **Definition**: A collection of ==sets where no two sets have any common elements==. Their intersection is always an empty set.
+   * **Definition**: A collection of <mark>sets where no two sets have any common elements</mark>. Their intersection is always an empty set.
    * **Representation**: Graphically, components of a non-connected graph can be represented as disjoint sets.
    * **Purpose**: While similar to mathematical sets, disjoint sets in algorithms are specifically tailored for efficient **Find** and **Union** operations, and for cycle detection.
 2. **Core Operations**:
-   * \==**Find(element)**: ==This operation determines which set a given element (or vertex) belongs to. It's essentially a "set membership" query.
-   * \==**Union(set1, set2)**:== This operation merges two previously disjoint sets into a single set. In the context of graphs, if an edge (U, V) is added, and U belongs to Set1 and V belongs to Set2 (where Set1 and Set2 are different), then Union(Set1, Set2) is performed to combine them.
+   * <mark>**Find(element)**: <mark>This operation determines which set a given element (or vertex) belongs to. It's essentially a "set membership" query.
+   * <mark>**Union(set1, set2)**:</mark> This operation merges two previously disjoint sets into a single set. In the context of graphs, if an edge (U, V) is added, and U belongs to Set1 and V belongs to Set2 (where Set1 and Set2 are different), then Union(Set1, Set2) is performed to combine them.
 
 Example:
 
@@ -708,11 +708,11 @@ S3 = {1, 2, 3, 4, 5, 6, 7, 8}
 ```
 
 3. **Cycle Detection using Disjoint Sets**:
-   * The ==primary purpose of Disjoint Sets== in graph algorithms is ==to detect cycles.==
+   * The <mark>primary purpose of Disjoint Sets</mark> in graph algorithms is <mark>to detect cycles.</mark>
    * **Mechanism**: If an edge (U, V) is considered for inclusion in a graph:
      * Perform `Find(U)` and `Find(V)` to identify the sets U and V belong to.
-     * I==f `Find(U)` and `Find(V)` return **different sets**==, it means U and V are ==currently in different components==. In this case, perform `Union(Find(U), Find(V))` to merge their components, and include the edge.
-     * \==If `Find(U)` and `Find(V)` return the **same set**==, it means U and V are already ==connected within the same component==. Adding the edge (U, V) would create a cycle. Therefore, this edge should not be included (e.g., in Kruskal's algorithm, this edge would be discarded).
+     * I</mark>f `Find(U)` and `Find(V)` return **different sets**</mark>, it means U and V are <mark>currently in different components</mark>. In this case, perform `Union(Find(U), Find(V))` to merge their components, and include the edge.
+     * <mark>If `Find(U)` and `Find(V)` return the **same set**</mark>, it means U and V are already <mark>connected within the same component</mark>. Adding the edge (U, V) would create a cycle. Therefore, this edge should not be included (e.g., in Kruskal's algorithm, this edge would be discarded).
    * The lecture demonstrates this step-by-step with an example graph, adding edges and performing unions to track components and detect cycles.
 
 Example 1:
@@ -732,7 +732,7 @@ S3 = {1, 2, 3, 4, 5, 6, 7, 8}
 - Find(1) -> S3  , Find(5) -> s3
 - u & v belong to the same set.
 - So, adding and extra edge (1,5) -> forms a cycle
-- Find(1) == Find(5) -> Cycle Detected
+- Find(1) </mark> Find(5) -> Cycle Detected
 
 
 
@@ -769,7 +769,7 @@ after diagram  |------------|
 
 3. **Graphical Representation**:
    * Instead of abstract sets, disjoint sets are often represented as a **collection of trees (a forest)**.
-   * \==Each tree represents a set,== and the ==**root of the tree is the representative** of that set==.
+   * <mark>Each tree represents a set,</mark> and the <mark>**root of the tree is the representative** of that set</mark>.
    * When performing `Union(Set1, Set2)`, the root of one tree is made a child of the root of the other tree, effectively merging the two trees into a single, larger tree.
 4. **Array Representation**:
    * A single array, typically named `parent` (or `p`), is used to represent the disjoint sets.

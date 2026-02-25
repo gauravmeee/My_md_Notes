@@ -30,13 +30,13 @@ layout:
 **What is DBMS?**
 
 * DBMS stands for **Database Management System**.
-* It is a ==set of applications or programs== that enable users to `create` and `maintain` a database
+* It is a <mark>set of applications or programs</mark> that enable users to `create` and `maintain` a database
 
 **What is DBMS's Utility?**
 
-* Provides a tool or an interface -> for performing various ==operations such as `inserting`, `deleting`, `updating`==, etc. into a database
-* It enables -> ==storage of data more `compactly` and `securely`== (compared to a file-based system).
-* \==Overcome problems like -> data `inconsistency`, `data redundancy`,== etc. in a database (makes it more convenient and organized to use it).
+* Provides a tool or an interface -> for performing various <mark>operations such as `inserting`, `deleting`, `updating`</mark>, etc. into a database
+* It enables -> <mark>storage of data more `compactly` and `securely`</mark> (compared to a file-based system).
+* <mark>Overcome problems like -> data `inconsistency`, `data redundancy`,</mark> etc. in a database (makes it more convenient and organized to use it).
 * Example of Popular DBMS systems :`file systmes`, `XML`, `Windows Registry`
 
 ```
@@ -52,15 +52,15 @@ layout:
 
 **What is RDBMS?**
 
-* RDBMS stands for **Relational Database Management System** (introduced in the ==1970s==) to `access` and `store` data more **efficiently** than DBMS.
+* RDBMS stands for **Relational Database Management System** (introduced in the <mark>1970s</mark>) to `access` and `store` data more **efficiently** than DBMS.
 * Stores data -> In form of `Tables` (as compared to DBMS which stores data as files).
-* \==Storing data as rows and columns== makes it `easier to locate specific values` in the database and `makes it more efficient` as compared to DBMS.
+* <mark>Storing data as rows and columns</mark> makes it `easier to locate specific values` in the database and `makes it more efficient` as compared to DBMS.
 * Example of Popular RDBMS: MySQL, Oracle DB
 
 **What is a Database?**
 
-* **Database** -> `organized`, `consistent`, and `logical` ==collection of data== (that can easily be updated, accessed, and managed).
-  * Database mostly ==contains sets of tables or objects== (anything created using create command is a database object) which consist of records and fields.
+* **Database** -> `organized`, `consistent`, and `logical` <mark>collection of data</mark> (that can easily be updated, accessed, and managed).
+  * Database mostly <mark>contains sets of tables or objects</mark> (anything created using create command is a database object) which consist of records and fields.
 * **Relation(Table)** -> set of tuples/rows/entities/records
 * **Tuple(Record or Row)** -> represents a single entry in a table.
 * **Attribute(Field or Column)** -> represents the basic units of data storage (which contain information about a particular aspect of the table).

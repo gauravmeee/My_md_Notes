@@ -54,9 +54,9 @@ layout:
 $$\boxed{T(n) = a \cdot T(n - b) + f(n)}$$
 
 * where:
-  * $a \geq 1$ (==branching factor==)
-  * $b > 0$ (==constant decrement==)
-  * $f(n)$ is the ==non-recursive cost==
+  * $a \geq 1$ (<mark>branching factor</mark>)
+  * $b > 0$ (<mark>constant decrement</mark>)
+  * $f(n)$ is the <mark>non-recursive cost</mark>
 
 **Solution by Unrolling**
 
@@ -66,7 +66,7 @@ $$T(n) = a^k \cdot T(n - k \cdot b) + \sum_{i=0}^{k-1} a^i \cdot f(n - i \cdot b
 
 * At base case: $k = n/b$, so $T(0)$ or $T(1) = c$ (constant)
 
-**Case 1: $a < 1$ (==Shrinking Recursion==)**
+**Case 1: $a < 1$ (<mark>Shrinking Recursion</mark>)**
 
 * **Behavior:** Exponential term $a^k \to 0$ as $k \to \infty$
 * **Dominant term:** The summation
@@ -77,7 +77,7 @@ $$T(n) = O\left(\frac{f(n)}{1-a}\right)$$
 
 > This only work if $f(n)$ is non-decreasing
 
-**Case 2: $a = 1$ (==Linear Accumulation==)**
+**Case 2: $a = 1$ (<mark>Linear Accumulation</mark>)**
 
 * **Behavior:** No exponential growth/decay
 * **Recurrence becomes:** $$T(n) = T(n-b) + f(n)$$
@@ -94,7 +94,7 @@ $$\boxed{T(n) = \sum_{i=0}^{n/b - 1} f(n - i \cdot b)}$$
 | $n^2$          | $T(n) = \Theta(n^3)$      | `n * n^2` => `O(n^3)`                      |
 | $\log n$       | $T(n) = \Theta(n \log n)$ | `n * logn` => `O(nlogn)`                   |
 
-**Case 3: $a > 1$ (==Exponential Growth==)**
+**Case 3: $a > 1$ (<mark>Exponential Growth</mark>)**
 
 * **Behavior:** Exponential term $a^{n/b}$ dominates
 * **Recurrence becomes:** $$\boxed{T(n) = a^{n/b} \cdot T(0) + \sum_{i=0}^{n/b - 1} a^i \cdot f(n - i \cdot b)}$$
@@ -310,7 +310,7 @@ $$\boxed {c = \log_b(a)}$$
 (Assume 1 input = 1 operation)
 
 * $O(1) ≤ 10^8$ -----→ N can be very large (practically infinite)
-* $O(log N) ≤ 10^8$ -----→ $N ≤ 2^{10^{8\}}$ (extremely large, practically infinite)
+* $O(log N) ≤ 10^8$ -----→ $N ≤ 2^{10^{8}}$ (extremely large, practically infinite)
 * $O(N) ≤ 10^8$ -----→ $N ≤ 10^8$
 * $O(N log N) ≤ 10^8$ -----→ $N ≤ 10^8 / log2(10^8) ≈ 3.7 × 10^6$
 * $O(N^2) ≤ 10^8$ -----→ $N ≤ √(10^8) ≈ 10^4$

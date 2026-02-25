@@ -23,7 +23,7 @@ layout:
 
 ## ACID ⭐
 
-ACID: set of ==properties that ensure reliable processing== of database transactions. These properties are:
+ACID: set of <mark>properties that ensure reliable processing</mark> of database transactions. These properties are:
 
 1. **Atomicity**: A transaction is an indivisible unit, meaning either all its operations are executed or none at all. If any part of the transaction fails, the entire transaction is rolled back, and the database remains unchanged. _Example_: Mobile recharge
    * Balance deducted from bank
@@ -45,7 +45,7 @@ Together, these properties ensure the reliability and correctness of database op
 ## RAID
 
 * **RAID** - **Redundant Array of Inexpensive Disks** (or **Independent Disks**).
-* **RAID** : is a ==data storage virtualization technology== that combines multiple physical disk drives into one or more logical units to improve performance, increase storage capacity, and enhance data redundancy.
+* **RAID** : is a <mark>data storage virtualization technology</mark> that combines multiple physical disk drives into one or more logical units to improve performance, increase storage capacity, and enhance data redundancy.
 * RAID is commonly used in databases to ensure high **availability** and **reliability** of data.
 * RAID has different levels, each offering a balance of performance, redundancy, and storage capacity. Here are some key RAID levels:
 
