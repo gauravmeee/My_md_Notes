@@ -346,3 +346,61 @@ char ch = s.at(2); // 'u'
 * `s.at(index)` is safer for error handling
 
 ***
+
+#### **Is string part of STL?**
+
+
+
+* `std::string` is part of the **C++ Standard Library**
+* It is **not part of the original STL (Stepanov STL)**
+* It is implemented as `std::basic_string<char>`
+* Practically behaves like a dynamic container
+
+Conclusion:\
+In CP & interviews → Treat `string` as STL container.
+
+
+
+**1. STL-like Container Functions**
+
+* **Capacity:** `s.size()`, `s.length()`, `s.empty()`, `s.capacity()`, `s.reserve(n)`, `s.shrink_to_fit()`, `s.max_size();`
+* **Element Access:** `s[i]`, `s.at(i)`, `s.front()`, `s.back()`
+* **Modifiers:** `s.push_back(c)`, `s.pop_back()`, `s.clear()`, `s.insert(pos, str)`, `s.erase(pos, len)`, `s.replace(pos, len, str)`, `s.append(str)`, `s += str`, `s.swap(other)`, `s.resize(n);`
+* **Iterators**: `s.begin()`, `s.end()`, `s.rbegin()`, `s.rend()`, `s.cbegin()`, `s.cend()`, `s.crbegin()`, `s.crend()`
+
+
+
+**2. String-Specific Functions (Non-STL style)**
+
+* **Substring**: `s.substr(pos, len)`
+* **Find Operations**: `s.find(str)`, `s.rfind(str)`, `s.find_first_of(chars)`, `s.find_last_of(chars)`, `s.find_first_not_of(chars)`, `s.find_last_not_of(chars)`
+* Comparison: `s.compare(str)`
+* Copy: `s.copy(arr, len, pos)`
+
+
+
+**4. Conversion Functions (Non-member)**
+
+* String → Number: `stoi(s)`, `stol(s)`, `stoll(s)`, `stof(s)`, `stod(s)`
+* Number → String: `to_string(num)`
+
+
+
+**5. C-style Interoperability:**
+
+* `s.c_str()`,
+* `s.data()`
+
+
+
+**6. Relational Operators:**
+
+* `==` , `!=`, `<`, `>`, `<=`, `>=`
+* Lexicographical comparison.
+
+
+
+**Important Properties** • Dynamic size\
+• Contiguous memory\
+• O(1) random access\
+• Works with STL algorithms
