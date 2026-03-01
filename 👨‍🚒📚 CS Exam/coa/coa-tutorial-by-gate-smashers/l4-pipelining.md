@@ -45,10 +45,10 @@ Input  /   R1          R2 /          R3           R4
     └──────┴──────┴─────┴──────┴─────┴──────┴─────┴ Clock
 ```
 
-* \==**IR (Interface Register)**==: Latches placed **after each stage** to store intermediate results between stages.
+* <mark>**IR (Interface Register)**==: Latches placed **after each stage** to store intermediate results between stages.
 * They isolate stages so each can work in parallel during the same clock cycle.
 * Common in **RISC architectures** to achieve high instruction throughput.
-* \==**Clock Pulse**:== Synchronizes all pipeline stages so each stage starts its operation at the same time. On each clock edge, IRs transfer stored data to the next stage, enabling overlapped execution of multiple instructions.
+* <mark>**Clock Pulse**:== Synchronizes all pipeline stages so each stage starts its operation at the same time. On each clock edge, IRs transfer stored data to the next stage, enabling overlapped execution of multiple instructions.
 
 **Standard:**
 
@@ -210,9 +210,9 @@ Efficiency = Cells Utilised / Totan no. of Cells
 		   = 2/3
 ```
 
-\==**Goal of Pipeline:**== To make **Cycles Per Instruction (CPI) ≈ 1**
+<mark>**Goal of Pipeline:**== To make **Cycles Per Instruction (CPI) ≈ 1**
 
-\==**CPI formula:**==
+<mark>**CPI formula:**==
 
 $$CPI=\frac{\text{Total CPU Cycles}}{\text{Number of Instructions}}$$
 

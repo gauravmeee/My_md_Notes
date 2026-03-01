@@ -83,18 +83,18 @@ Topics to be covered\*\*
 | Layer          | Provide Services (to its upper layer)                                                                                                                                 | Data Unit Transferred          |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
 | Application    | ❌ No Upper Layer                                                                                                                                                      | Message                        |
-| Transport      | <p>==Process-to-Process== Communication<br>OR<br>Two Processes (on different devices) communicate via socket<br>OR<br>Socket-to-Socket (End-to-End) Communication</p> | Segment (TCP) / Datagram (UDP) |
-| Network        | <p>==Host-to-Host== Communication<br>OR<br><strong>end‑system to end‑system</strong> communication<br>OR<br>Routing</p>                                               | Packet                         |
-| Data Link      | <p>==Node-to-Node== Communication<br>OR<br>Responsible for delivering frames to <strong>adjacent nodes</strong></p>                                                   | Frame                          |
+| Transport      | <p></mark>Process-to-Proces</mark>Communication<br>OR<br>Two Processes (on different devices) communicate via socket<br>OR<br>Socket-to-Socket (End-to-End) Communication</p> | Segment (TCP) / Datagram (UDP) |
+| Network        | <p></mark>Host-to-Host</mark> Communication<br>OR<br><strong>end‑system to end‑system</strong> communication<br>OR<br>Routing</p>                                               | Packet                         |
+| Data Link      | <p></mark>Node-to-Node</mark> Communication<br>OR<br>Responsible for delivering frames to <strong>adjacent nodes</strong></p>                                                   | Frame                          |
 | Physical Layer | <p>Between Nodes on Medium<br><br></p>                                                                                                                                | Bits (0s and 1s)               |
 
 **Quick reference**
 
 | Term        | What it means in a network diagram                                                                                                                                                                                       | Typical examples                                                                                                                |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **Process** | An ==_application‑level entity_ that runs inside an operating system and uses sockets== (or other IPC) to send/receive data. It is the logical source or destination of traffic (e.g., a web server, a database client). | `httpd` process on a web server, `mysqld` on a DB host, a Python script that opens a TCP socket.                                |
-| **Host**    | A ==_physical device_ (or virtual machine) that provides an IP stack== and can run one or more processes. It owns at least one network interface with an IP address.                                                     | Desktop PC, laptop, VM in the cloud, a Raspberry Pi, a server rack unit.                                                        |
-| **Node**    | Any ==_device attached to the same link_== (layer‑2 segment). A node may be a host, a router, a switch, a bridge, or even a hub – essentially anything that can appear on that broadcast domain.                         | Ethernet NICs on two PCs sharing a LAN, a managed switch port, a Wi‑Fi access point, a router interface connecting two subnets. |
+| **Process** | An <mark>_application‑level entity_ that runs inside an operating system and uses socket</mark>(or other IPC) to send/receive data. It is the logical source or destination of traffic (e.g., a web server, a database client). | `httpd` process on a web server, `mysqld` on a DB host, a Python script that opens a TCP socket.                                |
+| **Host**    | A <mark>_physical device_ (or virtual machine) that provides an IP stack</mark> and can run one or more processes. It owns at least one network interface with an IP address.                                                     | Desktop PC, laptop, VM in the cloud, a Raspberry Pi, a server rack unit.                                                        |
+| **Node**    | Any <mark>_device attached to the same link_</mark> (layer‑2 segment). A node may be a host, a router, a switch, a bridge, or even a hub – essentially anything that can appear on that broadcast domain.                         | Ethernet NICs on two PCs sharing a LAN, a managed switch port, a Wi‑Fi access point, a router interface connecting two subnets. |
 
 #### How they relate
 
@@ -169,7 +169,7 @@ Example: ⭐
 
 **3.2. Fragment (Network Layer, if needed)**
 
-* \==If the packet size > **MTU** (Maximum Transmission Unit), it is split into **fragments**.==
+* <mark>If the packet size > **MTU** (Maximum Transmission Unit), it is split into **fragments**.</mark>
 * Each fragment gets its own **IP header**
 * Only the **first fragment** contains the transport header
 * IP header includes: Identification field (same for all fragments), Offset, MF (More Fragments) flag
@@ -183,7 +183,7 @@ Example: ⭐
 
 **4. Frame (Data Link Layer)**
 
-* Each fragment is passed to the **Data Link Layer** (like Ethernet), which== adds a **Frame Header and Trailer**== (e.g., MAC addresses, checksum).
+* Each fragment is passed to the **Data Link Layer** (like Ethernet), which </mark>adds a **Frame Header and Trailer**</mark> (e.g., MAC addresses, checksum).
 * Now it's a **frame** ready for transmission over the physical medium.
 * Example:
 
@@ -201,8 +201,8 @@ Example: ⭐
 | --------------------------------- | ----------------------------------------- | --------------------------------------------------------- |
 | Message                           | Application                               | App data (e.g., HTTP, SMTP)                               |
 | Segment                           | Transport (TCP/UDP)                       | TCP/UDP header + Message                                  |
-| <p>Packet<br>==Fragment==<br></p> | <p>Network (IP)<br>Network (if large)</p> | <p>IP header + Segment<br>IP header + part of Segment</p> |
-| Frame                             | Data Link                                 | ==MAC header== + Fragment + Trailer                       |
+| <p>Packet<br> <mark>Fragment</mark> <br></p> | <p>Network (IP)<br>Network (if large)</p> | <p>IP header + Segment<br>IP header + part of Segment</p> |
+| Frame                             | Data Link                                 | <mark>MAC header</mark> + Fragment + Trailer                       |
 | Bits                              | Physical                                  | 0s and 1s transmitted physically                          |
 
 **Networking Devices**
@@ -222,7 +222,7 @@ Example: ⭐
 * **Both Gateway and Router** used for routing and connect two different network. The difference is that
   * **If the two Network Homogeneous** (Similar Type) -> i.e. Running on similar protocol, than Router is enough to route packet between two network
   * **If the two Network are Heterogenous** -> Than a Powerful device is Required i.e. Gateway (Protocol Converter)
-* \==**Switch (Modern)** is an **advanced version of Bridge**==:
+* <mark>**Switch (Modern)** is an **advanced version of Bridge**</mark>:
   * More ports
   * Features like **cut-through**, **store-and-forward**, etc.
 * **Transport Layer**:
@@ -246,7 +246,7 @@ Example: ⭐
 
 **Client-Server Model:**
 
-*   A ==**Client-Server Model**== is a **network architecture** where:
+*   A <mark>**Client-Server Model**</mark> is a **network architecture** where:
 
     * One side acts as a **Client**:\
       → Requests data or services (e.g., browser, mail app)
@@ -288,8 +288,8 @@ Example: ⭐
 **Note:**
 
 * **Application Layer** protocols uses **Transport Layer** Protocol
-* \==**TCP** is used when **reliable**, **connection-oriented**== communication is needed.
-* \==**UDP** is used for **faster**, **connectionless**== communication where some loss is acceptable.
+* <mark>**TCP** is used when **reliable**, **connection-oriented**</mark> communication is needed.
+* <mark>**UDP** is used for **faster**, **connectionless**</mark> communication where some loss is acceptable.
 * Some protocols like **DNS** can use both **UDP** (for queries) and **TCP** (for zone transfers).
 
 **Stateful vs Stateless**
@@ -304,16 +304,16 @@ Example: ⭐
 **Application Layer**
 
 * **Stateless** (Doesn't maintain user/session information): ⭐
-  * \==**DNS== , ==HTTP/1.x==, ==HTTP/2**==
+  * <mark>**DN</mark>, <mark>HTTP/1.x</mark>, <mark>HTTP/2**</mark>
   * These protocols treat each request independently (though a TCP connection may persist).
 * **Stateful** (Maintains user/session information): ⭐
-  * \==**DHCP==, ==FTP==, ==IMAP==, ==POP3==, ==SMTP**==
+  * <mark>**DHCP</mark>, <mark>FTP</mark>, <mark>IMAP</mark>, <mark>POP3</mark>, <mark>SMTP**</mark>
   * Each of these keeps session‑level information: DHCP tracks leases, FTP has separate control/data channels, IMAP/POP keep mailbox state, and SMTP follows a multi‑step transaction.
 
 **Note:**
 
-* An ==**application protocol using UDP** does **not necessarily mean** it is **stateless**== → _Example: DHCP uses UDP but is stateful (maintains IP lease info)_
-* An ==**application protocol using UDP** does **not necessarily mean** it is **stateless**== → _Example: HTTP uses TCP but is stateless_
+* An <mark>**application protocol using UDP** does **not necessarily mean** it is **stateless**</mark> → _Example: DHCP uses UDP but is stateful (maintains IP lease info)_
+* An <mark>**application protocol using UDP** does **not necessarily mean** it is **stateless**</mark> → _Example: HTTP uses TCP but is stateless_
 
 **Key take‑aways**
 
@@ -443,7 +443,7 @@ Example: ⭐
 
 **Two types of HTTP connection**s ⭐
 
-\==- HTTP relies on TCP's 3 way handshake==
+<mark>- HTTP relies on TCP's 3 way handshake</mark>
 
 * **Non-persistent HTTP** : `HTTP/1.0`
   * At most one object is sent over a single TCP connection
@@ -473,7 +473,7 @@ HTTP Client        HTTP Server
  ...| ⬋	            |...
 ```
 
-* \==One-time use: connection is closed after the response==
+* <mark>One-time use: connection is closed after the response</mark>
 * For each new object, a new TCP connection is required
 * `n` TCP connections are needed to send `n` objects (can be parallel)
 * Objects include HTML, images, CSS, JS, videos, etc.
@@ -511,7 +511,7 @@ HTTP Client        HTTP Server
     .               .
 ```
 
-* \==Multiple objects can be transferred over a single TCP connection==
+* <mark>Multiple objects can be transferred over a single TCP connection</mark>
 * Connection is closed explicitly by client (via 4-way FIN-ACK handshake)
 * Requests can be pipelined (sent without waiting for previous responses)
 
@@ -566,15 +566,15 @@ User Agent 2   ←------------------   Mail Server 2
    * Used for **mail transmission** (User Agent → Mail Server → Mail Server)
    * Works in **push mode**
    * **Persistent TCP connection** ⭐
-   * \==**Stateless** ==– User Agent 1 and Mail Server 1 do **not maintain** the state of sent mails (once sent, no tracking of delivery status or read status) ⭐
+   * <mark>**Stateless** <mark>– User Agent 1 and Mail Server 1 do **not maintain** the state of sent mails (once sent, no tracking of delivery status or read status) ⭐
 
 > Doubt: SMTP is mentioned stateless here, but according to Ai its statefull
 
 2. **IMAP (Internet Message Access Protocol)**
    * Used for **mail download** (Mail Server → User Agent)
-   * Supports ==multiple device login==
-   * Allows ==**hierarchical storage**==: folders, labels, inbox, etc.
-   * \==**Stateful**== – Mail Server 2 and User Agent 2 **maintain state** of mails (e.g., read/unread status, spam alerts for repeated mails, flags, folders) ⭐
+   * Supports <mark>multiple device login</mark>
+   * Allows <mark>**hierarchical storage**</mark>: folders, labels, inbox, etc.
+   * <mark>**Stateful**</mark> – Mail Server 2 and User Agent 2 **maintain state** of mails (e.g., read/unread status, spam alerts for repeated mails, flags, folders) ⭐
 
 * **POP (Post Office Protocol):**
   * Older version of IMAP
@@ -601,11 +601,11 @@ FTP Server : Server of Files
 1. **Control Connection**
    * Established at the beginning and remains open throughout the session
    * Used to send **commands** (e.g., login, list files, initiate transfer)
-   * \==**Persistent TCP connection**==
+   * <mark>**Persistent TCP connection**</mark>
 2. **Data Connection**
    * Created **separately** for each file transfer (upload/download)
    * Closed after the transfer completes
-   * \==**Non-persistent TCP connection**==
+   * <mark>**Non-persistent TCP connection**</mark>
 
 * Data Connection can also be from client to server as upload
 
@@ -616,8 +616,8 @@ FTP Server : Server of Files
 
 **Modes of FTP:**
 
-* **Active Mode:** ==Server initiates data connection to client==
-* **Passive Mode:** ==Client initiates both control and data connections== (common in modern systems due to firewalls)
+* **Active Mode:** <mark>Server initiates data connection to client</mark>
+* **Passive Mode:** <mark>Client initiates both control and data connection</mark>(common in modern systems due to firewalls)
 
 ***
 
@@ -632,40 +632,40 @@ Two Transport Layer Protocols :
 
 **1. UDP (User Datagram Protocol)**
 
-* \==**Connection-less** and **unreliable** service==
+* <mark>**Connection-less** and **unreliable** service</mark>
 * Messages may be **lost**, **duplicated**, or **arrive out of order**
 * Lightweight, **simple**, and **fast**
-* \==Preferred for **short communications**== like query-response
+* <mark>Preferred for **short communications**</mark> like query-response
 * Used by: **DNS**, **SNMP**, **HTTP/3**, **RIP**, and **real-time multimedia streaming** ⭐
 
 **2. TCP (Transmission Control Protocol)**
 
-* \==**Connection-oriented** and **reliable** service==
+* <mark>**Connection-oriented** and **reliable** service</mark>
 * Ensures **in-order delivery**, and detects/retransmits lost packets
-* Provides ==**flow control**, **error control**, and **congestion control**== ⭐
-* \==Preferred for **long communication**== and **data integrity-sensitive applications**
+* Provides <mark>**flow control**, **error control**, and **congestion control**</mark> ⭐
+* <mark>Preferred for **long communication**</mark> and **data integrity-sensitive applications**
 
 **Sequence Number**
 
 * **TCP is a byte-stream protocol** (Stream-oriented)
-* Uses ==**32-bit sequence numbers**== ⭐
+* Uses <mark>**32-bit sequence numbers**</mark> ⭐
 * A **unique sequence number is assigned to each byte** (not segment) ⭐
 * The **sequence number in a TCP segment** represents the **sequence of the first byte in the payload**
 * Using this, we can calculate:
   * Sequence numbers of all bytes in the segment
   * Sequence number of the **next segment** (by adding payload size to current sequence number)
 * 🔄 **Common doubt:**
-  * \==Sequence number is assigned **per byte**, **not per segment**== ⭐
+  * <mark>Sequence number is assigned **per byte**, **not per segment**</mark> ⭐
 
 ***
 
 **Acknowledgment Number (TCP)**
 
-* **TCP acknowledgments are ==piggybacked**==
-  * **Meaning:** The TCP header has a field for acknowledgment; even when ==sending data, acknowledgment info is included in the same segment==
+* **TCP acknowledgments are <mark>piggybacked**</mark>
+  * **Meaning:** The TCP header has a field for acknowledgment; even when <mark>sending data, acknowledgment info is included in the same segment</mark>
   * No separate ACK-only packet is needed if data is also being sent
 * **TCP uses cumulative acknowledgment**
-  * Receiver ==acknowledges the **next expected byte== sequence number**
+  * Receiver <mark>acknowledges the **next expected byte</mark> sequence number**
   * This implies that **all previous bytes (Ack No - 1 and before)** have been received successfully ⭐
   * Example: If `Ack = 501`, it means bytes `0–500` have been received
 * **Ack Number Formula:**\
@@ -686,10 +686,10 @@ Two Transport Layer Protocols :
 **Note:** ⭐
 
 * **In Data Link Layer (e.g., Stop-and-Wait / Go-Back-N):**
-  * \==**Sequence numbers are assigned to Frames**==
+  * <mark>**Sequence numbers are assigned to Frames**</mark>
   * Acknowledgment numbers refer to **Frame Numbers** (Frame 0, 1, etc.)
 * **In TCP (Transport Layer):**
-  * \==**Sequence numbers are assigned to Bytes**==
+  * <mark>**Sequence numbers are assigned to Bytes**</mark>
   * Acknowledgment number refers to the **next expected Byte**
   * So, even if a segment (packet) contains 500 bytes, **sequence and acknowledgment tracking is per byte**, not per segment
 
@@ -697,8 +697,8 @@ Two Transport Layer Protocols :
 
 **What is MSL?**
 
-* \==**MSL (Maximum Segment Lifetime)**== is the **maximum time** a TCP segment is allowed to exist in the network before being discarded.
-* It also relates to ==**wrap-around time**==, i.e., the **minimum time** in which a **sequence number can be reused**.
+* <mark>**MSL (Maximum Segment Lifetime)**</mark> is the **maximum time** a TCP segment is allowed to exist in the network before being discarded.
+* It also relates to <mark>**wrap-around time**</mark>, i.e., the **minimum time** in which a **sequence number can be reused**.
 
 **Understanding Sequence Numbers in TCP**
 
@@ -706,13 +706,13 @@ Two Transport Layer Protocols :
 * The **sequence number field** in TCP is **32 bits** long ⇒ can represent numbers from `0` to `2³² - 1`.
 * So, total sequence number range = `2³²` = `4,294,967,296` bytes = **4 GB** ⭐
 * Once the value reaches `2³² - 1`, it wraps around to `0`, `1`, and so on.\
-  \==This phenomenon is called **sequence number wrap-around**.==
+  <mark>This phenomenon is called **sequence number wrap-around**.</mark>
 
 **Initial Sequence Number (ISN)**
 
 * During **TCP connection establishment**, both client and server **randomly choose an ISN**.
 * The ISN itself is **consumed** during the handshake.
-* So, the **first byte of ==actual data** sent has **sequence number = ISN + 1**==
+* So, the **first byte of <mark>actual data** sent has **sequence number = ISN + 1**</mark>
 * **Example:**
 
 ```
@@ -763,12 +763,12 @@ Wrap-around time = 2^32 Bytes / Bandwidth
 ```
 
 * **Faster bandwidth ⇒ shorter wrap-around time**
-* \==Repeating sequence numbers **within wrap-around time** may cause confusion==
+* <mark>Repeating sequence numbers **within wrap-around time** may cause confusion</mark>
 
 **Maximum Segment Lifetime (MSL)**
 
 * MSL is the **maximum time a segment can stay alive in the network**
-* To ==avoid confusion with repeated sequence numbers==, **MSL must be ≤ wrap-around time** ⭐
+* To <mark>avoid confusion with repeated sequence numbers</mark>, **MSL must be ≤ wrap-around time** ⭐
 * **To maximize MSL**: Ensure that **wrap-around time is large enough** (by limiting bandwidth or using sequence number extensions)
 
 | Term                | Description                                                |
@@ -884,7 +884,7 @@ Wrap-around time = 2^32 Bytes / Bandwidth
 CLOSED
 ```
 
-* \==**Any side** can initiate termination== (hence named as TCP A and TCP B)
+* <mark>**Any side** can initiate termination</mark> (hence named as TCP A and TCP B)
 * The **side that initiates first (TCP A)**:
   * Sends **FIN** first
   * **Closes last**, after entering **TIME-WAIT**
@@ -1170,21 +1170,21 @@ with:
 
 **IP Address**
 
-IP Address is a ==**logical address** used for identifying devices on a network.==\
+IP Address is a <mark>**logical address** used for identifying devices on a network.</mark>\
 (It is different from **MAC address**, which is a **physical/hardware-level address** assigned to the network interface card.)
 
 An IP address is composed of **two parts**:
 
 1. **Network Identifier (Net ID)**
    * Denoted by `x` bits.
-   * \==Identifies the **network** to which the device belongs.==
+   * <mark>Identifies the **network** to which the device belongs.</mark>
    * All devices in the same network will share the same Net ID.
-   * Works as the ==**prefix**== of the IP address.
+   * Works as the <mark>**prefix**</mark> of the IP address.
 2. **Host Identifier (Host ID)**
    * Denoted by `y` bits.
-   * \==Identifies the **individual machine** (host) within the network.==
+   * <mark>Identifies the **individual machine** (host) within the network.</mark>
    * Host ID must be **unique within a network**.
-   * Works as the ==**suffix**== of the IP address.
+   * Works as the <mark>**suffix**</mark> of the IP address.
 
 ```
 [ Network Id | Host Id ]
@@ -1196,15 +1196,15 @@ Total = x + y = IP address size
 
 **IPv4 Address**
 
-* \==IPv4== address is ==**32 bits** in size.==
+* <mark>IPv4</mark> address is <mark>**32 bits** in size.</mark>
 * Network bits = x, Host bits = y = 32-x
 * One of the problems: **How many bits are allocated to Net ID?**
 * Based on this, IPv4 addressing is divided into two schemes:
 
 **IPv6 Address**
 
-* \==IPv6== has ==**128-bit** address size.==
-* There is ==**no concept of classful addressing**== in IPv6.
+* <mark>IPv6</mark> has <mark>**128-bit** address size.</mark>
+* There is <mark>**no concept of classful addressing**</mark> in IPv6.
 * IPv6 provides a **very large address space**, solving the exhaustion problem of IPv4.
 * IPv6 is **currently removed from GATE syllabus** for this year.
 
@@ -1268,8 +1268,8 @@ Class E : 240 - 255
 * Special IP address
 * It can not be an IP address of any host in the network
 * Used to represent a Network
-  * \==NetID field = As Assigned==
-  * \==HostID field = All Zero Bits==
+  * <mark>NetID field = As Assigned</mark>
+  * <mark>HostID field = All Zero Bits</mark>
 
 ```
 [ Network Id |  Host Id (00000...00) ]
@@ -1282,8 +1282,8 @@ Class E : 240 - 255
 * Network Directed Broadcast Address
 * It can not be an IP address of any host in the network
 * Used to broadcast a packet to all hosts belongs to a network
-  * \==NetID field = As Assigned==
-  * \==HostID field = All One Bits==
+  * <mark>NetID field = As Assigned</mark>
+  * <mark>HostID field = All One Bits</mark>
 
 ```
 [ Network Id |  Host Id (11111...11) ]
@@ -1294,7 +1294,7 @@ Class E : 240 - 255
 
 * **Network Size**: Maximum number of hosts in a network
 * **HostID field** → `y` bits
-* \==**Network Size = `2^y - 2` hosts per network**==
+* <mark>**Network Size = `2^y - 2` hosts per network**</mark>
   * `-2` because two IPs are **reserved**:
     * One for **Network Address** (all 0s in HostID)
     * One for **Broadcast Address** (all 1s in HostID)
@@ -1302,8 +1302,8 @@ Class E : 240 - 255
 **Network Mask**
 
 * **Network Mask (Netmask)** → 32-bit binary
-* \==NetID field = All **1s**==
-* \==HostID field = All **0s**==
+* <mark>NetID field = All **1s**</mark>
+* <mark>HostID field = All **0s**</mark>
 
 ```
 Netmask: [ 11111.....11 | 00000...00 ]
@@ -1325,10 +1325,10 @@ Netmask: [ 11111.....11 | 00000...00 ]
 
 **Subnetting**
 
-* Dividing (logically) a network into ==smaller manageable sub-networks==
+* Dividing (logically) a network into <mark>smaller manageable sub-networks</mark>
 * Sub-network (subnet) : Clustering of hosts inside a network
-* Clustering of hosts based on ==some bits of host identifier== (HostId) field
-* In practice, subnetting is based on ==most significant bits== of host identifier.)
+* Clustering of hosts based on <mark>some bits of host identifier</mark> (HostId) field
+* In practice, subnetting is based on <mark>most significant bit</mark>of host identifier.)
 
 After subnetting, IP address having three sections:
 
@@ -1344,9 +1344,9 @@ After subnetting, IP address having three sections:
 * Special IP address (32 bits)
 * Used to represent a **sub-network**
 
-1. \==**NetID field** = As Assigned==
-2. \==**Subnet ID** = Anything== ⭐
-3. \==**HostID field** = All Zeros==
+1. <mark>**NetID field** = As Assigned</mark>
+2. <mark>**Subnet ID** = Anything</mark> ⭐
+3. <mark>**HostID field** = All Zeros</mark>
 
 ```
 Subnet: [ Net Id | Subnet ID | 0000...0000]
@@ -1358,9 +1358,9 @@ Subnet: [ Net Id | Subnet ID | 0000...0000]
 * Special IP address (32 bits)
 * Used to broadcast a packet to **all hosts in a sub-network**
 
-1. \==**NetID field** = As Assigned==
-2. \==**Subnet ID** = Anything== ⭐
-3. \==**HostID field** = All Ones==
+1. <mark>**NetID field** = As Assigned</mark>
+2. <mark>**Subnet ID** = Anything</mark> ⭐
+3. <mark>**HostID field** = All Ones</mark>
 
 ```
 Subnet: [ Net Id | Subnet ID | 1111...1111]
@@ -1418,8 +1418,8 @@ Subnet Mask: [ 11...11 | 11...11 | 00...00 ]
 P.Q.R.S/x
 ```
 
-* \==`P.Q.R.S` → IP Address ==
-* \==`/x` → Number of bits used for **Network ID**==
+* <mark>`P.Q.R.S` → IP Address <mark>
+* <mark>`/x` → Number of bits used for **Network ID**</mark>
 * **Dynamic assignment**:\
   NetID size is **explicitly defined** using a **subnet mask** or **CIDR notation**.
 * **Example**:\
@@ -1428,13 +1428,13 @@ P.Q.R.S/x
   → Remaining **10 bits** = Host ID\
   → Allows **1022** usable hosts (`2^10 - 2`)
 * **Advantages**:
-  * \==More **efficient**, **flexible**, and **scalable** than classful addressing==
+  * <mark>More **efficient**, **flexible**, and **scalable** than classful addressing</mark>
   * Solves problem of **IP wastage**
   * Allows **subnetting** and **route summarization**
 
 **Technical Overview**
 
-* **Full Form**: ==Classless Inter-Domain Routing==
+* **Full Form**: <mark>Classless Inter-Domain Routing</mark>
 * **Nature**:\
   CIDR is an **IP address allocation method** for routing.\
   It builds upon the concept of **VLSM (Variable Length Subnet Masking)**.
@@ -1442,7 +1442,7 @@ P.Q.R.S/x
   * Allows for **flexible creation of "supernets"**
   * Enables **hierarchical routing**
 * **Impact**:
-  * \==CIDR revolutionized routing by allocating IP addresses in **hierarchical blocks**==
+  * <mark>CIDR revolutionized routing by allocating IP addresses in **hierarchical blocks**</mark>
   * Enables **aggregation** of routing information using **common prefixes**
   * Dramatically reduces the size of **backbone routing tables**
   * IP prefix can help identify **country**, **city**, or **ISP**
@@ -1542,8 +1542,8 @@ Step 3: Further divide `192.168.0.192/26` into two **/27 subnets** (3-bit subnet
 **Why VLSM?**
 
 * Real-world networks have different size needs (e.g., 100 hosts vs 10 hosts)
-* \==VLSM prevents **IP wastage**==
-* \==Used with **CIDR (Classless Inter-Domain Routing)** in most modern routing==
+* <mark>VLSM prevents **IP wastage**</mark>
+* <mark>Used with **CIDR (Classless Inter-Domain Routing)** in most modern routing</mark>
 
 **Classful vs Classless Addressing**
 
@@ -1612,10 +1612,10 @@ Network Address 2     Mask 2                 2               R2
 2. **Compare using longest prefix (most 1s in mask)**:
    * First try **Mask 2** (assume it have longest `1s` prefix).
      * Compute: `IP_D & Mask2 → Result2`
-     * If `Result2 == Network Address 2`, forward to **Interface 2 → R2**
+     * If `Result2 <mark> Network Address 2`, forward to **Interface 2 → R2**
    * Else, try **Mask 1** (assume it have 2nd longest `1s` prefix):
      * `IP_D & Mask1 → Result1`
-     * If `Result1 == Network Address 1`, forward to **Interface 1 → R1**
+     * If `Result1 <mark> Network Address 1`, forward to **Interface 1 → R1**
 3. If **no match found**, use:
    * `IP_D & 0.0.0.0 → 0.0.0.0` → **Default Route** → Interface 3 → **R3**
 
@@ -1985,7 +1985,7 @@ Total_Length_Last = HLEN * 4 + (SDU_Size - O * 8)
 
 **Reassembly of Fragments**
 
-* Reassembly of fragments, only at ==destination host== ⭐
+* Reassembly of fragments, only at <mark>destination host</mark> ⭐
 * Destination wait for some time
 * if any of the fragment is missing (or lost) in the sequence, this may lead reassembly failure
 
@@ -2883,9 +2883,9 @@ S = G * e^(-G)
 * **Slotted ALOHA Efficiency** ⭐
   * Suppose N nodes with many frames to transmit
   * Each node transmits in slot with probability `p`
-  * Probability that ==given== node has success in a given slot
+  * Probability that <mark>given</mark> node has success in a given slot
     * \= `p * (1-p)^ (N-1)`
-  * Probability that ==any== node has success in a given slot
+  * Probability that <mark>any</mark> node has success in a given slot
     * \= `N * p * (1-p)^ (N-1)`
 
 > ALOHA is not very important, but **vulnerable time** and **probability of success** for given/any node are asked in GATE.

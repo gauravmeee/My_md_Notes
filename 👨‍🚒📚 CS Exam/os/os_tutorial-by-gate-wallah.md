@@ -31,35 +31,35 @@ layout:
 
 **Services of Operating Systems**
 
-* \==User Interface==
+* <mark>User Interface==
 * Program Execution ⭐
-* \==I/O Operation==
+* <mark>I/O Operation==
 * File-System Manipulation
 * Inter Process Communication
 * Error Detection Allocation
 * Accounting
-* \==Protection & Security==
+* <mark>Protection & Security==
 
 **OS works Overall:**
 
 **1. Resource Management**
 
-* \==Managing CPU, main memory, and storage allocation== for multiple tasks and processes, avoiding conflicts and ensuring fairness.
+* <mark>Managing CPU, main memory, and storage allocation== for multiple tasks and processes, avoiding conflicts and ensuring fairness.
 * **Includes:** ==Memory Allocation==, ==Virtual Memory==, ==Paging==, ==Segmentation==, ==TLB==, Cache Management, Swapping, Memory Protection, ==Contiguous & Non-contiguous allocation==, Thrashing control.
 
 **2. File Management**
 
-* \==Maintaining file system structure== and performing file operations (create, read, update, delete) with access control and security.
+* <mark>Maintaining file system structure== and performing file operations (create, read, update, delete) with access control and security.
 * **Includes:** Directory Structure, File Allocation Methods (Contiguous, Linked, Indexed), Inodes, Journaling, Access Permissions, Free-space Management, Mounting & Unmounting, Backup & Recovery.
 
 **3. Process Management**
 
-* \==Creating, scheduling, executing, and terminating processes== including context switching and inter-process communication to ensure efficient multitasking.
+* <mark>Creating, scheduling, executing, and terminating processes== including context switching and inter-process communication to ensure efficient multitasking.
 * **Includes:** ==PCB==, ==Scheduling Algorithms (FCFS, SJF, RR, Priority, Multilevel Queue, Multilevel Feedback Queue)==, ==Context Switching==, Threads, IPC (Pipes, Shared Memory, Message Passing, Semaphores), Deadlock (Detection, Prevention, Avoidance, Banker's Algorithm), ==Starvation==, Critical Section, Synchronization.
 
 **4. Device Management**
 
-* \==Managing communication between hardware devices and software== by handling I/O operations through device drivers and buffering.
+* <mark>Managing communication between hardware devices and software== by handling I/O operations through device drivers and buffering.
 * **Includes:** Device Drivers, ==Interrupt Handling==, ==DMA (Direct Memory Access)==, Buffering, Spooling, I/O Scheduling, Polling vs Interrupts, ==Disk Scheduling Algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK)==.
 
 **Types of OS**:
@@ -111,8 +111,8 @@ CPU Utilization
 ( Shell ( Kernel ) )
 ```
 
-* \==**Shell**== → ==Outer layer of OS==,==provides interface to user== via `GUI` or `CLI`
-* \==**Kernel**== → ==Core of OS==, directly ==interacts with **hardware**==; manages **CPU, memory, processes, I/O, and devices**
+* <mark>**Shell**== → ==Outer layer of OS==,==provides interface to user== via `GUI` or `CLI`
+* <mark>**Kernel**== → ==Core of OS==, directly ==interacts with **hardware**==; manages **CPU, memory, processes, I/O, and devices**
 
 **System Call:** -> A way for ==program to interact with the operating system==.
 
@@ -269,18 +269,18 @@ Schedule & Dispatcher:\*\*
 **Main Memory vs CPU stored state:** ⭐
 
 * `Running` -> Stored in both CPU & Main Memory
-* \==`Ready, Blocked`== -> ==Stored in Main memory Only ==
+* <mark>`Ready, Blocked`== -> ==Stored in Main memory Only ==
 * `New & Terminated` -> Not stored
 
 **Two Transition are Voluntary by Process:** ⭐
 
-* \==**Running** to **Terminated**==
-* \==**Running** to **Blocked**==
+* <mark>**Running** to **Terminated**==
+* <mark>**Running** to **Blocked**==
 
 **Process Types Based on Resource Usage** ⭐
 
-* \==**CPU Bound**== - If the process is intensive in terms of CPU operations
-* \==**IO Bound**== - If the process is intensive in terms of IO operations.
+* <mark>**CPU Bound**== - If the process is intensive in terms of CPU operations
+* <mark>**IO Bound**== - If the process is intensive in terms of IO operations.
 
 **Note:**
 
@@ -289,23 +289,23 @@ Schedule & Dispatcher:\*\*
 
 **Scheduling Queues:** -> Queues of PCB's of different state of process ⭐
 
-* \==**Job Queue** -> New State==
-* \==**Ready Queue** -> Ready State==
-* \==**Device Queue** -> Blocked State==
+* <mark>**Job Queue** -> New State==
+* <mark>**Ready Queue** -> Ready State==
+* <mark>**Device Queue** -> Blocked State==
 
 **Types of Schedulers:** (\*\*Effect on Degree of Multiprogramming) ⭐
 
 **1.** ==**Long-Term Scheduler (Job)**== -> ==Decide process From `New` to `Ready` state==
 
-* \==Can Increase== Degree of Multiprogramming
+* <mark>Can Increase== Degree of Multiprogramming
 
 **2.** ==**Short-Term Scheduler (CPU)**== -> ==Decide process From `Ready` to `Running` state== -> CPU Scheduling Algorithms ⭐
 
-* \==No effect on== Degree of Multiprogramming X
+* <mark>No effect on== Degree of Multiprogramming X
 
 **3.** ==**Mid-Term Scheduler(Medium Term)**== -> Swap out Process ==(Ready or Blocked)== from Main memory to new suspended state ==(Suspended Ready or Suspended Blocked)==-> Swapping
 
-* \==Increase/Decrease (Swap in/out)== Degree of Multiprogramming
+* <mark>Increase/Decrease (Swap in/out)== Degree of Multiprogramming
 * **Explanation:** It temporarily removes a process from main memory to control the load. When the system is overloaded, it ==**swaps out** a Ready/Blocked process to secondary storage (Decrease Degree of Multiprogramming)== and puts it in **Suspended Ready/Suspended Blocked**. When memory pressure reduces, it **==swaps in** the suspended process back to Main Memory Ready/Blocked State (Increase Degree of Multiprogramming)==.
 * It stabilizes memory usage and keeps the system responsive by balancing how many processes actually reside in main memory at a time.
 
@@ -379,7 +379,7 @@ Note: Swapping is also called **Roll Out** and **Roll In** if it is based on pri
 * If two process coming to ready state, one from New State and another from CPU, New process will be forward in queue.
 * Quantum Value (Q) :
   * Very very Small -> No Efficiency,
-  * \==Small -> Interactive, ==
+  * <mark>Small -> Interactive, ==
   * Large -> Less Interactive,
   * Very very Large -> RR degrades to FCFS
 
@@ -413,7 +413,7 @@ Background Processes
 
 * Different Queue type of Processes with Flexible Priority
 * Criteria for Priorities of ==Queue can be changed based on Feedback==
-* \==Round Robing is Used in Each Priority Queue==
+* <mark>Round Robing is Used in Each Priority Queue==
 * It is used in Modern day computers ⭐
 
 ```
@@ -457,7 +457,7 @@ Foreground Processes ←┘
 * Loss of Data
 * DeadLock
 
-\==**Race Condition**== -> A race condition is an ==undesirable situation==, it occurs ==when the final result of concurrent processes depend on the sequence in which the processes complete their execution==. ⭐
+<mark>**Race Condition**== -> A race condition is an ==undesirable situation==, it occurs ==when the final result of concurrent processes depend on the sequence in which the processes complete their execution==. ⭐
 
 **Ques:** How many different values of X are possible after both `P1` and `P2` process finish execution
 
@@ -503,7 +503,7 @@ Ans -> By Race condition
 
 **Critical Section :**
 
-\===**Critical Section===** -> The critical section is a ==code segment where the shared variable can be accessed== ⭐
+<mark>=**Critical Section===** -> The critical section is a ==code segment where the shared variable can be accessed== ⭐
 
 ```
 ┌──────┐
@@ -525,9 +525,9 @@ Ans -> By Race condition
 
 **Requirement of Critical Section Solution** ⭐
 
-1. \==**Mutual Exclusion**== -> If a Process P1 is executing Critical Section, Other Process P2 can't enter critical section i.e. ==One process can enter critical section at a time==
-2. \==**Progress**== -> If no process is in Critical Section then process can access it, If it is not allowed due to some reason then there is no progress. ==If Deadlock -> No Progress==
-3. \==**Bounded Waiting**== -> If P1 is in critical section and Process P2 is waiting. After Process P1 come out from critical section and again tries to enter it, Stop it and give priority to waiting Process P2 to enter critical section
+1. <mark>**Mutual Exclusion**== -> If a Process P1 is executing Critical Section, Other Process P2 can't enter critical section i.e. ==One process can enter critical section at a time==
+2. <mark>**Progress**== -> If no process is in Critical Section then process can access it, If it is not allowed due to some reason then there is no progress. ==If Deadlock -> No Progress==
+3. <mark>**Bounded Waiting**== -> If P1 is in critical section and Process P2 is waiting. After Process P1 come out from critical section and again tries to enter it, Stop it and give priority to waiting Process P2 to enter critical section
 
 C.S -> Critical Section R.S -> Remaining Section
 
@@ -615,7 +615,7 @@ No Starvation ⭐
 
 * Is Process P1 and P2 have there own Flag `Flag[0]` and `Flag[1]`, and both false in starting
 * `Flag[0]=1` -> P0 want to go in C.S, `Flag[1]=1` => P1 want to go in C.S
-* \==`turn` used for priority== and will tell who should go in C.S, at a time `turn=0` or `turn=1`. If Process P0 Execute and Complete C.S, it will set `turn=1` and tell that next time its's P1 turn, So on Completing a Process another want to access C.S waiting one will given priority -> Bounded wait
+* <mark>`turn` used for priority== and will tell who should go in C.S, at a time `turn=0` or `turn=1`. If Process P0 Execute and Complete C.S, it will set `turn=1` and tell that next time its's P1 turn, So on Completing a Process another want to access C.S waiting one will given priority -> Bounded wait
 * In P0 : `while(Flag[1] && turn==1)` -> `Flag[1]` (P1 want to go in C.S) and `turn==1` (Priority is P1), the P0 -> Infinite Loop, Can't Access and vice versa -> Mutual Exclusion
 * If another process don't want to go in C.S its `Flag=false` and so, the current process's `while(another Process Flag = false && turn)` -> Not infinity -> can enter C.S So:
 * **Mutual Exclusion Guaranteed:** At most one process can enter the Critical Section because if both want to enter, `turn` ensures only one proceeds.
@@ -693,7 +693,7 @@ While(true)                      While(true)
 1. **Semaphore**
 2. **Monitor**
 
-\==**Semaphore**== -> ==Shared Integer value== (non-negative)
+<mark>**Semaphore**== -> ==Shared Integer value== (non-negative)
 
 * Semaphore (S) value which can be accessed using following function only
 
@@ -977,7 +977,7 @@ If Cycle? Yes -> Deadlock
 
 * Processes require resources: `R1, R2, R3, ... , Rn`
 * Max resources such that deadlock can occur = `(R1−1) + (R2−1) + ... + (Rn−1)`
-* \==Min resources such that deadlock never occur== =
+* <mark>Min resources such that deadlock never occur== =
 
 ```
 = (R1−1) + (R2−1) + ... + (Rn−1) + 1
@@ -1056,9 +1056,9 @@ There are three basic approaches to recover from deadlock 4. Inform the system o
 
 **Contiguous Memory Allocation** → The whole process is stored in a single continuous block of memory.
 
-1. \==**Fixed Partitioning**== → The ==memory is divided into a fixed number of partitions at system startup==. When a process arrives, it is allocated to a partition based on the partition allocation method (e.g., first-fit, best-fit).
+1. <mark>**Fixed Partitioning**== → The ==memory is divided into a fixed number of partitions at system startup==. When a process arrives, it is allocated to a partition based on the partition allocation method (e.g., first-fit, best-fit).
    * **Problem**: ==**Internal Fragmentation**== → Wasted space inside partitions if the process is smaller than the partition size.
-2. \==**Variable Partitioning**== → No fixed partitions; ==memory is allocated dynamically as per the process's need==. When a process arrives, a partition of exact size is created.
+2. <mark>**Variable Partitioning**== → No fixed partitions; ==memory is allocated dynamically as per the process's need==. When a process arrives, a partition of exact size is created.
    * **Problem**: ==**External Fragmentation**== → Free memory exists, but it is scattered in non-contiguous blocks, making it unusable for larger processes.
    * **Solution: Compaction** -> Rearranges memory contents to place all free memory together in one large block
 
@@ -1066,25 +1066,25 @@ There are three basic approaches to recover from deadlock 4. Inform the system o
 
 **Non-Contiguous Memory Allocation** → The ==process is divided into multiple parts and stored in different locations in memory==. This allows better memory utilization but requires mechanisms like paging or segmentation for access.
 
-1. \==**Paging**== -> The ==process is divided into fixed-size **pages**==, and ==memory is divided into **frames**== of the same size.
+1. <mark>**Paging**== -> The ==process is divided into fixed-size **pages**==, and ==memory is divided into **frames**== of the same size.
 
 * A page table maps each page to a frame in physical memory.
 * **Eliminates external fragmentation** but may cause **internal fragmentation** if the last page is not fully used.
 
-1. \==**Segmentation**== -> The ==process is divided into **logical segments**== (e.g., code, stack, heap), each of ==varying size==.
+1. <mark>**Segmentation**== -> The ==process is divided into **logical segments**== (e.g., code, stack, heap), each of ==varying size==.
 
-* \==A **segment table** keeps track of each segment’s base address and limit.== ⭐
+* <mark>A **segment table** keeps track of each segment’s base address and limit.== ⭐
 * **Eliminates internal fragmentation** but may cause **external fragmentation** (though less than variable partitioning).
 
 **Paging: ⭐**
 
 > Formulas and Numerical important for GATE
 
-* \==**Processes** is divided in equal size of partitions called as== `pages`
-* \==**Physical memory** is divided in same equal size of partitions called== `frames`
+* <mark>**Processes** is divided in equal size of partitions called as== `pages`
+* <mark>**Physical memory** is divided in same equal size of partitions called== `frames`
 * Processor will have a view of process and its pages
 * Pages are scattered in frames
-* \==Page table ==is used to map a process page to a physical frame
+* <mark>Page table ==is used to map a process page to a physical frame
 
 **Example of Paging:**
 
@@ -1236,8 +1236,8 @@ P.T 1 entry
 **Formula: ⭐⭐⭐**
 
 * No. of bits in offset = `log(page size)` = `d`
-* \==No. of bits in page no. = `log(no. of pages)`== = `p`
-* \==No. of bits in frame no. = `log(no. of frames)`== `f`
+* <mark>No. of bits in page no. = `log(no. of pages)`== = `p`
+* <mark>No. of bits in frame no. = `log(no. of frames)`== `f`
 * No. of bits in Logical Address = `log(process size)` = `p+d`
 * No. of bits in Physical Address = `log(memory size)` = `f+d`
 
@@ -1745,7 +1745,7 @@ Total Page Table size = 1027 Pages * 2KB = 2054 KB
 **Virtual Memory ⭐**
 
 * Feature of OS
-* \==Enables to run larger process with smaller available memory==
+* <mark>Enables to run larger process with smaller available memory==
 
 ```
 vb -> valid bit, is the process in Main memory?
@@ -1778,16 +1778,16 @@ process id  Valid bit
 * It ==gives each process an illusion of having its own large, continuous address space== even if RAM is smaller.
 * Virtual memory ==maps logical addresses to physical addresses using paging==. Only the ==currently needed pages are loaded into RAM, remaining pages stay on disk== (page file).
 * **Purpose**
-  * \==Run programs larger than available physical memory==
-  * \==Increase multiprogramming== by allowing more processes in memory
-  * \==Reduce internal and external fragmentation==
+  * <mark>Run programs larger than available physical memory==
+  * <mark>Increase multiprogramming== by allowing more processes in memory
+  * <mark>Reduce internal and external fragmentation==
   * Improve memory utilization without requiring huge physical RAM
 * **How it works**
   * Program generates logical addresses
   * Page table converts logical pages to physical frames
   * If a required page is not in RAM → page fault → OS loads it from disk
   * Least-used pages may be swapped out to disk to free space
-* \==**Key idea** : RAM + disk space together behave like a large continuous memory for each process.==
+* <mark>**Key idea** : RAM + disk space together behave like a large continuous memory for each process.==
 * Virtual memory can be implemented using
   1. Paging
   2. Segmentation
@@ -1863,7 +1863,7 @@ No. of Page Fault = 9
 Hit Ratio = 9/12
 ```
 
-* \==**Belady's Anomaly**== ==(only in FIFO)==-> Some Page references sequences are such that, Increasing the **No. of Frames (No. of Page stored in Memory)** Increases the no. of Fault
+* <mark>**Belady's Anomaly**== ==(only in FIFO)==-> Some Page references sequences are such that, Increasing the **No. of Frames (No. of Page stored in Memory)** Increases the no. of Fault
 * **Advantage of FIFO**
   * Simple and easy to implement
   * Low overhead
@@ -2102,7 +2102,7 @@ After thrashing, the pages in main memory become **insufficient** to store the r
 
 **File Attributes**
 
-* \==Name==, ==Extension==, ==Size==, ==Date==, ==Author==, (Created, Modified & Accessed), (Attributes: Read-only, hidden), Default Program, Security Details
+* <mark>Name==, ==Extension==, ==Size==, ==Date==, ==Author==, (Created, Modified & Accessed), (Attributes: Read-only, hidden), Default Program, Security Details
 
 **File System** -> **Module of OS** which ==manages, controls and organizes files== and related structures.
 

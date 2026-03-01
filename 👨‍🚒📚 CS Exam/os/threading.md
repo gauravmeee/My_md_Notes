@@ -21,7 +21,7 @@ layout:
 
 # Threading
 
-* \==**Thread** = lightweight execution== unit inside a process
+* <mark>**Thread** = lightweight execution== unit inside a process
 * A thread is a **lightweight subprocess** inside a process that ==**shares `code, data, and OS resources`** with other threads== of the same process
 * A **process** provides _resource ownership_, while a **thread** provides _CPU execution flow_
 
@@ -84,17 +84,17 @@ A multithreaded process contains:
 
 **Private to each thread:** ⭐
 
-* \==**Program Counter (PC)**== (next instruction)
-* \==**CPU registers**==
-* \==**Stack**== (function calls, local variables)
+* <mark>**Program Counter (PC)**== (next instruction)
+* <mark>**CPU registers**==
+* <mark>**Stack**== (function calls, local variables)
 * **Thread ID**
 * **Thread state**
 * **Thread Control Block (TCB)**
 
 **Key point:** ⭐
 
-* \==**Local variables are private** (stack) ==
-* \==**Global variables are shared** (data/heap)==
+* <mark>**Local variables are private** (stack) ==
+* <mark>**Global variables are shared** (data/heap)==
 
 #### **Thread Control Block (TCB)**
 
@@ -121,29 +121,29 @@ Same as process states:
 
 **1) User-level Threads (ULT)**
 
-* \==Managed by **thread library**== in user space (not by OS kernel)
-* \==OS sees the whole process as **single unit**==
+* <mark>Managed by **thread library**== in user space (not by OS kernel)
+* <mark>OS sees the whole process as **single unit**==
 * **Advantages:**
-  * \==very fast create/switch== (no kernel call)
+  * <mark>very fast create/switch== (no kernel call)
   * portable (library-based)
 * **Disadvantages:**
-  * \==**one blocking system call blocks all threads**==
+  * <mark>**one blocking system call blocks all threads**==
   * OS cannot schedule threads independently
-  * \==no true parallelism== on multi-core (in pure ULT model)
+  * <mark>no true parallelism== on multi-core (in pure ULT model)
 * Example libraries:
   * green threads
   * user-space threading packages
 
 **2) Kernel-level Threads (KLT)**
 
-* \==Managed directly by **OS kernel**==
-* \==Each thread is known to OS== and scheduled separately
+* <mark>Managed directly by **OS kernel**==
+* <mark>Each thread is known to OS== and scheduled separately
 * **Advantages:**
-  * \==true parallelism== on multi-core CPU
+  * <mark>true parallelism== on multi-core CPU
   * if one thread blocks, others can continue
   * better scheduling by OS
 * **Disadvantages:**
-  * \==thread operations slower (system calls)==
+  * <mark>thread operations slower (system calls)==
   * more overhead
 * Examples:
   * Linux `pthreads` (mapped to kernel threads)
@@ -162,7 +162,7 @@ Same as process states:
 
 #### **Thread Models (ULT-KLT Mapping)** ⭐
 
-> \==**How many&#x20;**_**User-Level Threads (ULT)==**_**&#x20;are ==associated/implemented== using ==how many&#x20;**_**Kernel-Level Threads (KLT)**_**.**==\
+> <mark>**How many&#x20;**_**User-Level Threads (ULT)==**_**&#x20;are ==associated/implemented== using ==how many&#x20;**_**Kernel-Level Threads (KLT)**_**.**==\
 > i.e., **how ULTs are “mapped onto” KLTs for CPU execution**
 
 **1. Many-to-One:**
@@ -177,16 +177,16 @@ Same as process states:
 
 * each user thread → 1 kernel thread
   * **Each ULT gets its own KLT**
-  * \==OS can schedule them independently== ⭐(like kernel thread)
-  * \==Real parallelism== possible ⭐(like kernel thread)
+  * <mark>OS can schedule them independently== ⭐(like kernel thread)
+  * <mark>Real parallelism== possible ⭐(like kernel thread)
 * true parallelism, more overhead (most modern OS follow this)
 
 **3. Many-to-Many:**
 
 * many user threads → many kernel threads
   * Many ULT mapped to **a pool of KLT**
-  * \==ULT can run in parallel== up to number of KLT available ⭐ (like kernel thread)
-  * \==Blocking one KLT doesn’t stop all ULT== ⭐(like kernel thread)
+  * <mark>ULT can run in parallel== up to number of KLT available ⭐ (like kernel thread)
+  * <mark>Blocking one KLT doesn’t stop all ULT== ⭐(like kernel thread)
 * balances overhead + parallelism
 
 > **One-to-Many (1 ULT → many KLT)** generally **doesn’t make sense** because:
@@ -229,7 +229,7 @@ To handle shared data safely:
 * **Mutex** (binary lock)
 * **Semaphore** (counting lock)
 * **Condition variables**
-* \==**Monitors**==
+* <mark>**Monitors**==
 
 Goal:
 

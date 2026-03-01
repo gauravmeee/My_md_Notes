@@ -202,8 +202,8 @@ public:
 
 **Usage:**
 
-* \==Conversion constructors== ==allow implicit or explicit construction from another type==.
-* \==Conversion operators== ==enable objects to be used where another type is expected==.
+* <mark>Conversion constructors== ==allow implicit or explicit construction from another type==.
+* <mark>Conversion operators== ==enable objects to be used where another type is expected==.
 
 **4. Standard Conversion Sequences**
 

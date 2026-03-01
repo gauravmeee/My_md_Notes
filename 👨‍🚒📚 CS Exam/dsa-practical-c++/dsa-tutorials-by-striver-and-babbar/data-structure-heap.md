@@ -753,7 +753,7 @@ Algorithm for CBT Check
 
 ```
 isCBT( root, i, nodeCount){
--> if(root\==NULL) return True;
+-> if(root<mark>NULL) return True;
 -> if( i > nodeCount) return false;
 -> else {
      left = isCBT (root->left, 2i +1, nodeCount)

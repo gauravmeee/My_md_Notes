@@ -29,8 +29,8 @@ Assembler is a **system program** that translates **assembly language** into **m
 
 **Functions of Assembler**
 
-* \==Translate **mnemonics** into **opcodes**==
-* \==Assign memory addresses==
+* <mark>Translate **mnemonics** into **opcodes**</mark>
+* <mark>Assign memory addresses</mark>
 * Resolve symbols and labels
 * Process assembler directives
 * Generate object code and error diagnostics
@@ -40,8 +40,8 @@ Assembler is a **system program** that translates **assembly language** into **m
 * **Input**: Assembly language program
 * **Output**:
   * Object code
-  * \==Symbol table==
-  * \==Literal table==
+  * <mark>Symbol table</mark>
+  * <mark>Literal table</mark>
   * Error list
 
 **Basic Elements of Assembly Language**
@@ -49,16 +49,16 @@ Assembler is a **system program** that translates **assembly language** into **m
 * **Mnemonic**: symbolic instruction (ADD, MOV)
 * **Operand**: data or address
 * **Label**: symbolic name for address
-* \==**Directive**:== ==instructions to assembler== (START, END, ORIGIN, EQU)
+* <mark>**Directive**:</mark> instructions to assembler</mark> (START, END, ORIGIN, EQU)
 
 **Types of Assembler**
 
 * **Single Pass Assembler**
-  * \==Scans program once==
+  * <mark>Scans program once</mark>
   * Difficult to handle **forward references** ⭐
   * Faster but complex
-* \==**Two Pass Assembler**==
-  * \==Scans program twice==
+* <mark>**Two Pass Assembler**</mark>
+  * <mark>Scans program twice</mark>
   * Handles forward **references easily** ⭐
   * Most commonly used
 * **Multi Pass Assembler**
@@ -73,19 +73,19 @@ Assembly is completed in **two logical passes**.
 
 * Initialize **Location Counter (LC)** using operand of `START`
 * Scan source program sequentially, one statement at a time
-* \==Assign addresses to each instruction== using **LC and instruction length** ⭐
-* \==Enter labels into **Symbol Table**== with their computed addresses
+* <mark>Assign addresses to each instruction</mark> using **LC and instruction length** ⭐
+* <mark>Enter labels into **Symbol Table**</mark> with their computed addresses
 * Build **Symbol Table** for all local symbols and their values
 * Process assembler directives
   * `START`: sets initial LC
   * `ORIGIN / ORG`: updates LC based on expression
   * `EQU`: assigns value to symbol without allocating memory
   * `LTORG`: allocates space for literals encountered so far
-* \==Literals encountered (`=5`, `='A'`) are added to **Literal Table**==
+* <mark>Literals encountered (`=5`, `='A'`) are added to **Literal Table**</mark>
 * Allocate space for literals when `LTORG` or `END` is seen
-* \==Compute the **total length of the program**== using final LC
-* \==Generate **Intermediate Code**== (opcode class + operands, no absolute addresses)
-* \==No object code generation== in this pass
+* <mark>Compute the **total length of the program**</mark> using final LC
+* <mark>Generate **Intermediate Code**</mark> (opcode class + operands, no absolute addresses)
+* <mark>No object code generation</mark> in this pass
 
 **Pass 2**
 
@@ -97,15 +97,15 @@ Assembly is completed in **two logical passes**.
 * Generate code for all **load and store register instructions**
 * Perform complete **object code generation**
 * Produce final object code with resolved addresses
-* \==Generate program **listing**== (LC, source statement, object code)
+* <mark>Generate program **listing**</mark> (LC, source statement, object code)
 * Final output includes object code, symbol table, literal table, listing
 
 **Key View (Exam Oriented)**
 
-* \==Pass 1 = address calculation + tables + intermediate code==
-* \==Pass 2 = address resolution + machine code + listing == This separation is the core idea tested in GATE and PSU exams.
+* <mark>Pass 1 = address calculation + tables + intermediate code</mark>
+* <mark>Pass 2 = address resolution + machine code + listing<mark> This separation is the core idea tested in GATE and PSU exams.
 
-**Note:** ==MOT(machine opcode table)== is used in both the passes
+**Note:** <mark>MOT(machine opcode table)</mark> is used in both the passes
 
 * for pass 1 – it is used to get length of mnemonics and modify location counter.
 * for pass 2- it is used to obtain respective machine code
@@ -166,8 +166,8 @@ Assembly is completed in **two logical passes**.
 
 **Mnemonic**
 
-* \==Human-readable symbolic instruction==
-* Used in ==**assembly language**==
+* <mark>Human-readable symbolic instruction</mark>
+* Used in <mark>**assembly language**</mark>
 * Easy to remember and write
 * Example
 
@@ -178,8 +178,8 @@ MOV A, B
 
 **Opcode**
 
-* \==Binary or hexadecimal== ==machine instruction==
-* Used by ==**CPU hardware**==
+* <mark>Binary or hexadecimal</mark><mark>machine instruction</mark>
+* Used by <mark>**CPU hardware**</mark>
 * Not human-readable
 * Example
 
@@ -190,9 +190,9 @@ MOV A, B
 
 **Key Differences**
 
-* \==Mnemonic== → symbolic name -> It is for Programmer
-* \==Opcode== → machine code value -> It is for Processor
-* \==Assembler maps mnemonic to opcode== using **OPTAB** ⭐
+* <mark>Mnemonic</mark> → symbolic name -> It is for Programmer
+* <mark>Opcode</mark> → machine code value -> It is for Processor
+* <mark>Assembler maps mnemonic to opcode</mark> using **OPTAB** ⭐
 
 **Relation**
 
@@ -243,7 +243,7 @@ Source Program
 
 * First operand → **source** `R1`
 * Second operand → **destination** `R2`
-* \==Result is stored in **second operand**== ⭐
+* <mark>Result is stored in **second operand**</mark> ⭐
 
 Example
 
@@ -328,7 +328,7 @@ Example
 * **USING**: tells assembler which register to use as base register `USING *,15`
 * **DROP**: removes register from base register list `DROP 15`
 * **ENTRY**: declares symbol as entry point for linker `ENTRY MAIN`
-* **EXTRN / EXTERNAL**: ==declares symbol defined in another module== `EXTRN SUM` ⭐
+* **EXTRN / EXTERNAL**:<mark>declares symbol defined in another module</mark> `EXTRN SUM` ⭐
 * **CSECT**: defines control section (separate relocatable unit) `MAIN CSECT`
 * **ORG**: alternative form of ORIGIN (assembler dependent) `ORG 200`
 
@@ -338,8 +338,8 @@ Example
 
 **Subroutine**
 
-* A **subroutine** is a ==callable block of code== that ==executes and **returns control== to the calling point**
-* Follows ==**call–return**== discipline (==stack based==)
+* A **subroutine** is a <mark>callable block of code</mark> that <mark>executes and **returns control</mark> to the calling point**
+* Follows <mark>**call–return**</mark> discipline (<mark>stack based</mark>)
 
 Example flow:
 
@@ -359,7 +359,7 @@ Key points:
 
 **Coroutine**
 
-* A **coroutine** is a ==program unit== that ==**suspends and resumes execution**==, not strict call–return
+* A **coroutine** is a <mark>program unit</mark> that <mark>**suspends and resumes execution**</mark>, not strict call–return
 * Control is transferred **cooperatively** between routines
 
 Example flow:
@@ -376,17 +376,17 @@ Key points:
 
 **Core Difference (Exam Focus)**
 
-* \==Subroutine: **call → execute → return** ==
-* \==Coroutine: **resume ↔ suspend**==
+* <mark>Subroutine: **call → execute → return**<mark>
+* <mark>Coroutine: **resume ↔ suspend**</mark>
 
 **Subroutine vs Coroutine (by Stack Overflow) ⭐**
 
-* The ==subroutine is a special case of a co-routine==. A co-routine is a generalized form of a subroutine which is non-preemptive multitasking.
-* A ==subroutine always starts its execution from the beginning(first line)==, but a ==co-routine starts from where it left off last time.==
+* The <mark>subroutine is a special case of a co-routine</mark>. A co-routine is a generalized form of a subroutine which is non-preemptive multitasking.
+* A <mark>subroutine always starts its execution from the beginning(first line)</mark>, but a <mark>co-routine starts from where it left off last time.</mark>
 
-This is why we say, the ==co-routine has multiple entry points== whereas the ==sub-routine has only one.==
+This is why we say, the <mark>co-routine has multiple entry points</mark> whereas the <mark>sub-routine has only one.</mark>
 
-\==`Yield` 'remembers' where the co-routine is== so when it is called again it will continue where it left off.
+<mark>`Yield` 'remembers' where the co-routine is </mark> so when it is called again it will continue where it left off.
 
 For example:
 
@@ -403,7 +403,7 @@ For example:
 
 Prints: `1 2 3`
 
-Note: ==Coroutines may use a return, and behave just like a subroutine==
+Note: <mark>Coroutines may use a return, and behave just like a subroutine</mark>
 
 ```
   coroutine foo {
@@ -424,17 +424,17 @@ Prints: `1 1 1`
 
 **What is a Macro**
 
-* A ==**macro** is a named block== of assembly statements
+* A <mark>**macro** is a named block</mark> of assembly statements
 * It is **expanded by the assembler** before actual code generation
-* \==Expansion = **textual substitution**==, not execution
+* <mark>Expansion = **textual substitution**</mark>, not execution
 
 Key idea
 
-> \==Macro works at **compile/assembly time**==, not run time
+> <mark>Macro works at **compile/assembly time**</mark>, not run time
 
 **Why Macros are Needed**
 
-* \==Avoid repetitive code==
+* <mark>Avoid repetitive code</mark>
 * Improve readability
 * No CALL/RET overhead (unlike subroutines)
 
@@ -531,8 +531,8 @@ ADD R1,R2
 **Macro Expansion vs Execution (⭐ GATE)**
 
 * Macro expansion → textual replacement
-* Instruction execution → CPU at ==run time==
-* \==Macro processor does **not evaluate logic**==, only expands text
+* Instruction execution → CPU at <mark>run time</mark>
+* <mark>Macro processor does **not evaluate logic**</mark>, only expands text
 
 **Conditional Assembly**
 
@@ -570,7 +570,7 @@ Used when:
 .IF NE, X   → if X != 0
 ```
 
-\==Zero is **implicit**==
+<mark>Zero is **implicit**</mark>
 
 **WORD Directive**
 
@@ -580,8 +580,8 @@ Used when:
 
 Meaning:
 
-* \==Allocate **1 word of memory**==
-* \==Initialize it with value `X`==
+* <mark>Allocate **1 word of memory**</mark>
+* <mark>Initialize it with value `X`</mark>
 * Assembler directive, **not machine instruction**
 
 Use case:
@@ -591,18 +591,18 @@ Use case:
 
 **ENDM**
 
-* Marks ==**end of macro== definition**
+* Marks <mark>**end of macro</mark> definition**
 * Mandatory
 * Assembler stops recording macro body here
 
 **ENDC**
 
-* Marks ==**end of conditional block**==
+* Marks <mark>**end of conditional block**</mark>
 * Only used with `.IF`
 
 **Recursive Macros**
 
-* A ==macro that **calls itself** ==
+* A <mark>macro that **calls itself**</mark>
 * Can be **direct** or **indirect**
 
 **Example 1**

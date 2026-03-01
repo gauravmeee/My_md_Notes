@@ -446,7 +446,7 @@ Using dict(zip): {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
 
 **26. Is Tuple Comprehension possible in Python? If yes, how and if not why?**
 
-\==**Tuple comprehensions** are not directly supported==, Python’s existing features like generator expressions and the `tuple()` function provide flexible alternatives for creating tuples from iterable data.
+<mark>**Tuple comprehensions** are not directly supported==, Python’s existing features like generator expressions and the `tuple()` function provide flexible alternatives for creating tuples from iterable data.
 
 `(i for i in (1, 2, 3))`
 
@@ -972,7 +972,7 @@ For **directories**, use:
 
 **18. Define pickling and unpickling in Python? ⭐**
 
-\==Pickling is **converting a Python object into a byte stream**==, while **unpickling** is the reverse—**converting the byte stream back into a Python object**. This is useful for saving and loading objects.
+<mark>Pickling is **converting a Python object into a byte stream**==, while **unpickling** is the reverse—**converting the byte stream back into a Python object**. This is useful for saving and loading objects.
 
 **Pickling (Saving an object)**
 

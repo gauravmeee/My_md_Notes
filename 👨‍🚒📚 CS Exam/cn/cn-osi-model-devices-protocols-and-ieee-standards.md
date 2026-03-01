@@ -27,56 +27,56 @@ layout:
 
 | OSI Layer           | TCP/IP Layer       |
 | ------------------- | ------------------ |
-| 7 - ==Application== | ==Application==    |
+| 7 - <mark>Application</mark> | <mark>Application</mark>    |
 | 6 - Presentation    | Application        |
 | 5 - Session         | Application        |
-| 4 - ==Transport==   | ==Transport==      |
-| 3 - ==Network==     | ==Internet==       |
-| 2 - ==Data Link==   | ==Network Access== |
+| 4 - <mark>Transport</mark>   | <mark>Transport</mark>      |
+| 3 - <mark>Network</mark>     | <mark>Internet</mark>       |
+| 2 - <mark>Data Link</mark>   | <mark>Network Access</mark> |
 | 1 - Physical        | Network Access     |
 
 **OSI Model – 7 Layers of Network Communication ⭐**
 
 **7. Application Layer (Layer 7)**
 
-* **Function:** ==Interface between user and network==
-* **Unit of Data:** ==Data (Message)==
-* **Protocols:** ==HTTP, HTTPS, FTP, SMTP, DNS==, DHCP, SNMP, SSH
+* **Function:** <mark>Interface between user and network</mark>
+* **Unit of Data:** <mark>Data (Message)</mark>
+* **Protocols:** <mark>HTTP, HTTPS, FTP, SMTP, DNS</mark>, DHCP, SNMP, SSH
 * **Services:** File transfers, email, browsing, remote access
 * **Port Numbers:** Yes (e.g., HTTP – 80, HTTPS – 443)
 
 **6. Presentation Layer (Layer 6)**
 
-* **Function:** ==Data translation, encryption, compression==
+* **Function:** <mark>Data translation, encryption, compression</mark>
 * **Examples:** SSL/TLS, JPEG, MPEG, ASCII, EBCDIC conversion
-* **Encryption:** ==SSL/TLS== (also works with Layer 7 protocols)
+* **Encryption:** <mark>SSL/TLS</mark> (also works with Layer 7 protocols)
 * **Compression:** e.g., MP3, ZIP
 * **Note:** Also merged into Application Layer in TCP/IP
 
 **5. Session Layer (Layer 5)**
 
-* **Function:** ==Establish, maintain, terminate communication sessions==
+* **Function:** <mark>Establish, maintain, terminate communication sessions</mark>
 * **Examples:** API calls, NetBIOS, RPC
 * **Dialog Control:** Half/full duplex session handling
-* \==**Synchronization:**== Add checkpoints for recovery
+* <mark>**Synchronization:**</mark> Add checkpoints for recovery
 * **Note:** Merged into Application Layer in TCP/IP
 
 **4. Transport Layer (Layer 4)**
 
-* **Function:** ==End-to-end communication==, ==reliability==, ==error checking==
-* **Unit of Data:** ==Segments (TCP)== / ==Datagrams (UDP==)
-* **Devices:** ==Gateway== (in legacy context)
+* **Function:** <mark>End-to-end communication</mark>, <mark>reliability</mark>, <mark>error checking</mark>
+* **Unit of Data:** <mark>Segments (TCP)</mark> / <mark>Datagrams (UDP</mark>)
+* **Devices:** <mark>Gateway</mark> (in legacy context)
 * **Protocols:** TCP, UDP
 * **Ports:** Yes (Port Numbers like 80, 443, etc.)
-* **Flow Control:** ==TCP uses sliding window==
+* **Flow Control:** <mark>TCP uses sliding window</mark>
 * **Error Control:** Acknowledgements, retransmission
 * _Note:_ Gateway is Layer 3 to 7 Device
 
 **3. Network Layer (Layer 3)**
 
 * **Function:** Routing, logical addressing, packet forwarding
-* **Unit of Data:** ==Packets==
-* **Devices:** ==Router==, Layer-3 Switch
+* **Unit of Data:** <mark>Packets</mark>
+* **Devices:** <mark>Router</mark>, Layer-3 Switch
 * **Addresses:** IP Address (32-bit IPv4 / 128-bit IPv6)
 * **Protocols:** IP, ICMP, IGMP, ARP, RARP
 * **Routing Algorithms:** OSPF, RIP, BGP
@@ -84,27 +84,27 @@ layout:
 **2. Data Link Layer (Layer 2)**
 
 * **Function:** Node-to-node delivery, MAC addressing, framing
-* **Unit of Data:** ==Frames==
-* **Devices:** ==Switch==, ==Bridge==
+* **Unit of Data:** <mark>Frames</mark>
+* **Devices:** <mark>Switch</mark>, <mark>Bridge</mark>
 * **Addresses:** MAC Address (48-bit)
-* **Protocols:** Ethernet, PPP, ==ARP==, STP
+* **Protocols:** Ethernet, PPP, <mark>ARP</mark>, STP
 * **Sub-layers:** LLC (Logical Link Control), MAC (Media Access Control)
-* **Error Detection:** Yes (==CRC==, ==checksum==)
+* **Error Detection:** Yes (<mark>CRC</mark>, <mark>checksum</mark>)
 
 **1. Physical Layer (Layer 1)**
 
 * **Function:** Transmits raw bits (0s and 1s) over physical medium
 * **Unit of Data:** Bits
-* **Devices:** Cables, ==Hubs==, ==Repeaters==, Network Interface Cards (NIC)
+* **Devices:** Cables, <mark>Hubs</mark>, <mark>Repeaters</mark>, Network Interface Cards (NIC)
 * **Mediums:** Copper wires, Fiber optics, Radio signals
-* **Standards:** ==IEEE 802.3 (Ethernet)==, RS-232, DSL
+* **Standards:** <mark>IEEE 802.3 (Ethernet)</mark>, RS-232, DSL
 
 | Layer        | Data Unit | Device                   | Address Type | Special Features                              |
 | ------------ | --------- | ------------------------ | ------------ | --------------------------------------------- |
-| Physical     | Bits      | ==Hub, Repeater, Cable== | -            | Signals, Voltages, Media                      |
-| Data Link    | Frames    | ==Switch, Bridge==       | MAC Address  | Framing, ==Error detection, Flow control==    |
+| Physical     | Bits      | <mark>Hub, Repeater, Cable</mark> | -            | Signals, Voltages, Media                      |
+| Data Link    | Frames    | <mark>Switch, Bridge</mark>       | MAC Address  | Framing, <mark>Error detection, Flow control</mark>    |
 | Network      | Packets   | Router                   | IP Address   | Routing, Logical addressing                   |
-| Transport    | Segments  | -                        | Port Numbers | Reliability, ==Flow & Error control==         |
+| Transport    | Segments  | -                        | Port Numbers | Reliability, <mark>Flow & Error control</mark>         |
 | Session      | Data      | -                        | -            | Session setup, checkpointing, Synchronisation |
 | Presentation | Data      | -                        | -            | Encryption, Translation, Compression          |
 | Application  | Data      | -                        | -            | End-user apps, Protocols like HTTP, DNS       |
@@ -151,13 +151,13 @@ layout:
 * **Port numbers**
 * **Reliable transmission:** **TCP**
 * **Unreliable but fast:** **UDP**
-* **Flow Control:** ==Sliding Window==
-* **Error Control:** ==**ACKs**==, ==checksums==
+* **Flow Control:** <mark>Sliding Window</mark>
+* **Error Control:** <mark>**ACKs**</mark>, <mark>checksums</mark>
 * **Multiplexing/Demultiplexing**
 * **Error control mechanism: ARQ**
-  * \==**Stop-and-Wait ARQ**== (Automatic Repeat reQuest):
-  * \==**Go-Back-N ARQ**== (Automatic Repeat reQuest):
-  * \==**Selective Repeat ARQ**== (Automatic Repeat reQuest):
+  * <mark>**Stop-and-Wait ARQ**</mark> (Automatic Repeat reQuest):
+  * <mark>**Go-Back-N ARQ**</mark> (Automatic Repeat reQuest):
+  * <mark>**Selective Repeat ARQ**</mark> (Automatic Repeat reQuest):
 * **More:**
   * **TCP Header Fields:** Sequence Number, ACK, Flags (SYN, FIN, RST, etc.)
   * **Connection Establishment:** **Three-Way Handshake**
@@ -187,9 +187,9 @@ layout:
 
 * **Framing**
 * **MAC addressing** (48-bit)
-* **Error Detection:** ==**CRC**==, ==**Checksum**==
-* **Error Detection & Correction:** ==2D Parity==, ==Hamming Code==
-* **Flow Control:** ==Stop-and-wait ARQ==, ==sliding window== (optional), ==Go Back N ARQ== , ==Selective Repeat ARQ==
+* **Error Detection:** <mark>**CRC**</mark>, <mark>**Checksum**</mark>
+* **Error Detection & Correction:** <mark>2D Parity</mark>, <mark>Hamming Code</mark>
+* **Flow Control:** <mark>Stop-and-wait ARQ</mark>, <mark>sliding window</mark> (optional), <mark>Go Back N ARQ</mark> , <mark>Selective Repeat ARQ</mark>
 * **Access control:** CSMA/CD (Ethernet), CSMA/CA (Wi-Fi)
 * **Sublayers:** LLC & MAC
 * **Protocols:** Ethernet, PPP, ARP, STP
@@ -234,16 +234,16 @@ layout:
 
 | Protocol | Full Form                           | Function/Use                                    | Transport Layer | Port Number                |
 | -------- | ----------------------------------- | ----------------------------------------------- | --------------- | -------------------------- |
-| HTTP ⭐   | HyperText Transfer Protocol         | Web browsing (www), transfers web pages         | TCP             | ==80==                     |
-| HTTPS    | HTTP Secure                         | Secure version of HTTP using SSL/TLS encryption | TCP             | ==443==                    |
+| HTTP ⭐   | HyperText Transfer Protocol         | Web browsing (www), transfers web pages         | TCP             | <mark>80</mark>                     |
+| HTTPS    | HTTP Secure                         | Secure version of HTTP using SSL/TLS encryption | TCP             | <mark>443</mark>                    |
 | FTP ⭐    | File Transfer Protocol              | Transfer files between computers                | TCP             | 20 (Data), 21 (Control) ⭐  |
 | SFTP     | Secure FTP                          | Encrypted version of FTP (via SSH)              | TCP             | 22                         |
-| SMTP ⭐   | Simple Mail Transfer Protocol       | ==Sends emails== (outgoing mail)                | TCP             | 25 (or 587 for submission) |
+| SMTP ⭐   | Simple Mail Transfer Protocol       | <mark>Sends emails</mark> (outgoing mail)                | TCP             | 25 (or 587 for submission) |
 | POP3 ⭐   | Post Office Protocol v3             | Downloads emails to local client (one-way)      | TCP             | 110                        |
 | IMAP ⭐   | Internet Message Access Protocol    | Email access & sync from server                 | TCP             | 143 (993 for IMAPS)        |
-| DNS ⭐    | Domain Name System                  | Converts domain names to IP addresses           | TCP/==UDP==     | 53                         |
-| DHCP     | Dynamic Host Configuration Protocol | Assigns IP addresses dynamically                | ==UDP==         | 67 (Server), 68 (Client)   |
-| SNMP     | Simple Network Management Protocol  | Monitors and manages network devices            | ==UDP==         | 161 (queries), 162 (traps) |
+| DNS ⭐    | Domain Name System                  | Converts domain names to IP addresses           | TCP/</mark>UDP</mark>     | 53                         |
+| DHCP     | Dynamic Host Configuration Protocol | Assigns IP addresses dynamically                | <mark>UDP</mark>         | 67 (Server), 68 (Client)   |
+| SNMP     | Simple Network Management Protocol  | Monitors and manages network devices            | <mark>UDP</mark>         | 161 (queries), 162 (traps) |
 | Telnet   | -                                   | Remote terminal access (plain text, insecure)   | TCP             | 23                         |
 | SSH      | Secure Shell                        | Secure remote login (replaces Telnet)           | TCP             | 22                         |
 
@@ -263,10 +263,10 @@ layout:
 
 | Protocol | Full Form                          | Function/Use                             |
 | -------- | ---------------------------------- | ---------------------------------------- |
-| ==IP==   | Internet Protocol                  | ==Assigns addresses== and routes packets |
+| <mark>IP</mark>   | Internet Protocol                  | <mark>Assigns addresses</mark> and routes packets |
 | ICMP     | Internet Control Message Protocol  | Error & control messages (used in ping)  |
 | IGMP     | Internet Group Management Protocol | Manages multicast group memberships      |
-| ==ARP==  | Address Resolution Protocol        | ==Resolves IP== → MAC address within LAN |
+| <mark>ARP</mark>  | Address Resolution Protocol        | <mark>Resolves IP</mark> → MAC address within LAN |
 | RARP     | Reverse ARP                        | Resolves MAC → IP address (obsolete)     |
 
 **IP Types:**
@@ -320,29 +320,29 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 **7. Application Layer**
 
 * When you open a website like `www.google.com`, your browser communicates using the `http://` or `https://` protocols. Here’s what happens at this layer:
-* **==Encryption & Decryption:==** If you're using `https://`, your data is encrypted before being sent out, ensuring security. When the data is received, it’s decrypted so it can be understood by your browser.
-* **==Domain Name System (DNS):==** The website address you type, such as `www.google.com`, isn’t directly understood by computers. They need an IP address, which is like a phone number for servers. The DNS, working at this layer, translates the domain name (`www.google.com`) into an IP address of the nearest Google server so your request can be routed correctly.
+* **<mark>Encryption & Decryption:</mark>** If you're using `https://`, your data is encrypted before being sent out, ensuring security. When the data is received, it’s decrypted so it can be understood by your browser.
+* **<mark>Domain Name System (DNS):</mark>** The website address you type, such as `www.google.com`, isn’t directly understood by computers. They need an IP address, which is like a phone number for servers. The DNS, working at this layer, translates the domain name (`www.google.com`) into an IP address of the nearest Google server so your request can be routed correctly.
 * For example, when you enter `www.google.com`, DNS might translate it to an IP address like `172.217.12.206`, which your browser will use to reach Google’s server.
 * _Note:_ Even if you’re using other applications like WhatsApp, which doesn’t use `http` or `https`, they still operate under the Application Layer. These applications might use proprietary protocols for encrypting and transferring data, but they still follow the same layering structure.
 
 **4. Transport Layer**
 
 * In your device, you might have several applications running simultaneously, like your browser, email client, or messaging apps. The Transport Layer is responsible for managing how data is sent and received by these different applications. It does this by assigning a **port number** to each application, ensuring that data intended for your web browser doesn’t accidentally end up in your email client.
-* **==TCP (Transmission Control Protocol)==**: This is used when you need a reliable connection. For example, when you’re loading a webpage, TCP ensures that all data packets arrive correctly and in the right order.
-* **==UDP (User Datagram Protocol)==**: This is used for faster, but less reliable connections. It’s often used for live streaming or online gaming, where speed is more critical than perfect accuracy.
+* **<mark>TCP (Transmission Control Protocol)</mark>**: This is used when you need a reliable connection. For example, when you’re loading a webpage, TCP ensures that all data packets arrive correctly and in the right order.
+* **<mark>UDP (User Datagram Protocol)</mark>**: This is used for faster, but less reliable connections. It’s often used for live streaming or online gaming, where speed is more critical than perfect accuracy.
 * For instance, when you load a website, TCP might use port 80 for `http` or port 443 for `https`. Meanwhile, your email application might be using port 25 for sending emails.
 
 **3. Internet Layer**
 
 * This layer deals with IP addresses, which are like the virtual addresses for devices on the internet. When you connect to a Wi-Fi network, your Internet Service Provider (ISP) assigns an **IP address** to your device through the router. This IP address is used to identify your device on the internet.
-* \==**IP Address:**== Think of it as your device's home address on the internet. Just as a letter needs your home address to reach you, data packets need your IP address to find your device.
+* <mark>**IP Address:**</mark> Think of it as your device's home address on the internet. Just as a letter needs your home address to reach you, data packets need your IP address to find your device.
 * For example, when your browser sends a request to Google’s server, it uses your IP address as the return address so Google knows where to send the webpage data back.
 * _Note:_ To send data, your device needs the IP address of the destination server (like Google’s server). Similarly, the server needs your IP address to send data back to you.
 
 **2. Link Layer**
 
 * This layer is responsible for the physical connection between your device and the network, usually through a **MAC address**. The MAC address is unique to each network device, like your computer’s Wi-Fi card or the router. It ensures that data packets can be directed to the correct hardware.
-* \==**MAC Address:**== Think of it as the physical address of a device on a local network. It’s like the unique serial number of your device’s network interface.
+* <mark>**MAC Address:**</mark> Think of it as the physical address of a device on a local network. It’s like the unique serial number of your device’s network interface.
 * When you send data, the data packet first travels to the router using the MAC address. The router then forwards the data to the ISP, and it continues on to the internet. When the response comes back, it follows the same path in reverse.
 * For instance, when you send a request from your laptop to the router, your laptop’s MAC address ensures the data packet reaches the correct device (the router) before it’s sent out to the wider internet.
 * _Note:_ The MAC address is only needed for communication between devices on the same local network, like between your device and the router. Once the data packet leaves your local network, the MAC address isn’t used anymore.
@@ -363,18 +363,18 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 | --------------------------------- | ---------------------------------------------------------------- | -------------------------- |
 | **Proxy Server**                  | Acts as intermediary; filters content, caches requests           | Squid Proxy, Web Proxy     |
 | **Gateway** ⭐                     | Translates between different protocols (e.g., HTTP to FTP, VoIP) | Cloud Gateway, IoT Gateway |
-| **Load Balancer**                 | ==Distributes HTTP/HTTPS traffic==; can perform SSL termination  | AWS ELB, HAProxy           |
+| **Load Balancer**                 | <mark>Distributes HTTP/HTTPS traffic</mark>; can perform SSL termination  | AWS ELB, HAProxy           |
 
 | Layer 4: Transport Layer Device | Function                                                    | Example(s)              |
 | ------------------------------- | ----------------------------------------------------------- | ----------------------- |
-| **Firewall**                    | ==Inspects port numbers and transport protocols (TCP/UDP)== | ==Stateful Firewall==   |
-| **Load Balancer**               | ==Distributes TCP/UDP traffic== across servers              | F5, NGINX Load Balancer |
+| **Firewall**                    | <mark>Inspects port numbers and transport protocols (TCP/UDP)</mark> | <mark>Stateful Firewall</mark>   |
+| **Load Balancer**               | <mark>Distributes TCP/UDP traffic</mark> across servers              | F5, NGINX Load Balancer |
 
 | Layer 3 : Network Layer Devices | Function                                                       | Example(s)                       |
 | ------------------------------- | -------------------------------------------------------------- | -------------------------------- |
 | **Router** ⭐                    | Connects different networks; routes packets using IP addresses | Home Router, Cisco Router        |
 | **Layer 3 Switch** ⭐            | Combines switching and routing at high speed                   | Core Switch, Distribution Switch |
-| **Firewall** (partially)        | ==Filters packets based on IP addresses and protocols==        | ==Network Firewall==             |
+| **Firewall** (partially)        | <mark>Filters packets based on IP addresses and protocols</mark>        | <mark>Network Firewall</mark>             |
 | **Brouter**                     | Works as both Bridge (Layer 2) and Router (Layer 3)            | Hybrid Networking Device         |
 
 | Layer 2 :Data Link Layer Devices | Function                                                           | Example(s)                   |
@@ -405,7 +405,7 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 
 **Gateway**
 
-* A gateway can be ==any layer of the OSI model, from the network layer (Layer 3) up to the application layer (Layer 7)==. Unlike a router, which primarily works at the network layer, a gateway's defining
+* A gateway can be <mark>any layer of the OSI model, from the network layer (Layer 3) up to the application layer (Layer 7)</mark>. Unlike a router, which primarily works at the network layer, a gateway's defining
 * **Explanation:**
 * **Basic gateway (router-like)** → Works at **Layer 3 (Network Layer)** to connect networks using different protocols (e.g., IPv4 ↔ IPv6).
 * **Application gateway (proxy, firewall, etc.)** → Works at **Layer 7 (Application Layer)** to translate or filter application data.
@@ -413,8 +413,8 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 **Switch**
 
 * **Layer:** Works at **Data Link Layer (Layer 2)**
-* **Function:** ==Connects multiple computers in a LAN== and ==sends data **only to the correct device**== using its **MAC address**
-* \==**Smart**== (It learns MAC addresses and reduces unwanted traffic)
+* **Function:** <mark>Connects multiple computers in a LAN</mark> and <mark>sends data **only to the correct device**</mark> using its **MAC address**
+* <mark>**Smart**</mark> (It learns MAC addresses and reduces unwanted traffic)
 * **Collision Domain:** Each port has its own → **No collisions**
 * **Broadcast Domain:** One (can be divided using VLAN)
 * **Use:** Used in offices, colleges for **fast and efficient communication**
@@ -423,8 +423,8 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 **Bridge**
 
 * **Layer:** Also at **Layer 2**
-* **Function:** ==Connects **two LANs** or **two segments**== of a LAN, and ==controls traffic using MAC addresses==
-* \==**Semi-smart** ==(Not as fast as switch, but can filter traffic)
+* **Function:** <mark>Connects **two LANs** or **two segments**</mark> of a LAN, and <mark>controls traffic using MAC addresses</mark>
+* <mark>**Semi-smart** <mark>(Not as fast as switch, but can filter traffic)
 * **Collision Domain:** **Divides** collision domain (each side separate)
 * **Broadcast Domain:** One
 * **Use:** Used to reduce traffic between two departments/floors
@@ -433,7 +433,7 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 **Hub**
 
 * **Layer:** Works at **Physical Layer (Layer 1)**
-* **Function:** **Blindly ==broadcasts** data to **all devices**==, not just one
+* **Function:** **Blindly <mark>broadcasts** data to **all devices**</mark>, not just one
 * **Dumb** (Doesn’t care who the data is for)
 * **Collision Domain:** **One big shared** → More collisions
 * **Broadcast Domain:** One
@@ -443,7 +443,7 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 **Repeater**
 
 * **Layer:** Works at **Layer 1**
-* **Function:** ==**Boosts** weak signals== so that data can travel longer distances
+* **Function:** <mark>**Boosts** weak signals</mark> so that data can travel longer distances
 * **Not smart** (No address checking)
 * **Use:** Extend range of LAN cable or Wi-Fi signal
 * **Extra:** Used in **large buildings or long cable runs** ![](https://simitech.in/wp-content/uploads/2024/03/Blog-Post-1-2-1050x550.jpg?6bfec1&6bfec1)
@@ -461,12 +461,12 @@ Imagine you want to visit a website like `www.google.com` on your browser. When 
 | -------- | ------------------------ | ----------------------------------------- | ---------------------- |
 | 802.1 ⭐  | Bridging & VLAN          | LAN switching, VLANs, QoS                 | Switches               |
 | 802.2 ⭐  | LLC                      | Logical Link Control (Data Link sublayer) | NICs, Switches         |
-| 802.3 ⭐  | ==Ethernet==             | Wired LAN using ==CSMA/CD==               | NICs, Switches         |
-| 802.4    | ==Token Bus==            | Token passing on bus topology (obsolete)  | Industrial networks    |
-| 802.5    | ==Token Ring==           | Token passing on ring topology (obsolete) | MAUs, NICs             |
+| 802.3 ⭐  | <mark>Ethernet</mark>             | Wired LAN using <mark>CSMA/CD</mark>               | NICs, Switches         |
+| 802.4    | <mark>Token Bus</mark>            | Token passing on bus topology (obsolete)  | Industrial networks    |
+| 802.5    | <mark>Token Ring</mark>           | Token passing on ring topology (obsolete) | MAUs, NICs             |
 | 802.6    | DQDB                     | MAN using dual bus (rare)                 | MAN switches           |
-| 802.11 ⭐ | ==Wi-Fi (Wireless LAN)== | Wireless LAN (a/b/g/n/ac/ax)              | Routers, Access Points |
-| 802.15   | ==Bluetooth==, WPAN      | Wireless Personal Area Network            | Bluetooth Devices      |
+| 802.11 ⭐ | <mark>Wi-Fi (Wireless LAN)</mark> | Wireless LAN (a/b/g/n/ac/ax)              | Routers, Access Points |
+| 802.15   | <mark>Bluetooth</mark>, WPAN      | Wireless Personal Area Network            | Bluetooth Devices      |
 | 802.16   | WiMAX                    | Broadband Wireless MAN                    | WiMAX Devices          |
 | 802.17   | RPR                      | High-speed metro networks                 | Metro Rings            |
 | 802.20   | Mobile Broadband         | Mobile broadband wireless access          | Base stations          |

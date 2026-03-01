@@ -89,7 +89,7 @@ The **Standard or Canonical SOP form** is the sum (OR) of all these product term
 F = A'BC' + AB'C' + AB'C + ABC' + ABC
 ```
 
-\==This form is called **standard or canonical** because it is derived directly from the truth table.==
+<mark>This form is called **standard or canonical** because it is derived directly from the truth table.==
 
 **Min Terms**
 
@@ -249,9 +249,9 @@ As you can see, each product term (`A'B`, `AB`, `A'B'`) includes both variables 
 The **Minimal SOP form** is a simplified version of the canonical form where **not all variables are necessarily present** in each product term. The primary goal of achieving a minimal form is to reduce the complexity of the Boolean expression, which translates to a simpler and more efficient logic circuit implementation.
 
 - **Minimisation Methods**: This form is obtained by simplifying the canonical SOP expression using methods like:
-  - \==**Boolean Algebra**:== Applying Boolean identities and theorems.
-  - \==**Karnaugh Maps (K-maps)**:== A graphical method for simplifying Boolean expressions.
-  - \==**Tabular Method (Quine-McCluskey)**:== A systematic algorithmic method for larger expressions.
+  - <mark>**Boolean Algebra**:== Applying Boolean identities and theorems.
+  - <mark>**Karnaugh Maps (K-maps)**:== A graphical method for simplifying Boolean expressions.
+  - <mark>**Tabular Method (Quine-McCluskey)**:== A systematic algorithmic method for larger expressions.
 
 **Example**: Consider a function `G` with three variables, `A`, `B`, and `C`. An example of a minimal SOP expression is:
 

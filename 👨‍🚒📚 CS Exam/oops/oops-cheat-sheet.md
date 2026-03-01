@@ -167,7 +167,7 @@ obj.pubFunc() // Accessing private function through another function
   * `static variable` inside a class **must** be ==defined outside the class== **unless** it is a `constexpr` or `const static` integral type, which can be initialized inside the class.
   * If **not explicitly initialized**, it is ==**automatically initialized to 0**==.
 * **`static function`**
-  * \==Can access **only `static` members**== (variables/functions) of the class.
+  * <mark>Can access **only `static` members**== (variables/functions) of the class.
   * Since it has ==no `this` pointer==, it ==can’t access non-static variables/functions.==
   * Useful for operations not tied to a specific object.
   * Can be called **without creating an instance**. ⭐
@@ -436,7 +436,7 @@ int main(){
 }
 ```
 
-* \==Default Constructor is required to create object without passing initial parameter ==(otherwise error).
+* <mark>Default Constructor is required to create object without passing initial parameter ==(otherwise error).
 * Initially `bd1` & `bd2` created using the default constructor and assigned garbage values.
 * `bd1` & `bd2` then ==reassigned a value using the parameterized constructor==.
 
@@ -1020,7 +1020,7 @@ base_class_pointer->display(); // BaseClass::Display()
 **Virtual Function**
 
 * **Virtual Function** -> A member function in the base class which is **declared using virtual keyword** is called virtual functions.
-* \==Virtual allow derived classes to **override** methods from a base class== so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer.
+* <mark>Virtual allow derived classes to **override** methods from a base class== so that the correct method is called, depending on the type of object, even when the call is made through a base class reference or pointer.
 * **Use of Virtual Function :**
   * if not exist in base class -> you can’t call it using a base class pointer.
   * If a derived class not override -> the base class implementation is used, avoiding errors.
@@ -1052,7 +1052,7 @@ base_class_pointer->display(); // DerivedClass::Display()
 
 `virtual` keyword make sure that when the **virtual** function is called by using the base class pointer the `overriden` function of the derived class will run ⭐
 
-\==`override` keyword ensures that the compiler checks whether a method in a derived class is **actually overriding** a virtual method== even If you accidentally change the method signature in the derived class. `override` Ensure correct matching, Catch typos, Avoid silent bugs.
+<mark>`override` keyword ensures that the compiler checks whether a method in a derived class is **actually overriding** a virtual method== even If you accidentally change the method signature in the derived class. `override` Ensure correct matching, Catch typos, Avoid silent bugs.
 
 **virtual functions can be overridden without the `override` keyword**, but using `override` is **strongly recommended**.
 

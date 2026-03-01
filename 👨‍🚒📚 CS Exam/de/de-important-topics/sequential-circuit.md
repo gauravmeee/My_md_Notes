@@ -13,8 +13,8 @@ A **Latch** is a level-triggered ==bistable circuit that stores 1 bit of data==.
 
 - **Level sensitive** (transparent when enabled)
 - **Basic types:**
-  1. \==SR Latch==,
-  2. \==D Latch==
+  1. <mark>SR Latch==,
+  2. <mark>D Latch==
 - **Built using** ==NAND/NOR== gates
 
 #### **1. SR Latch**
@@ -73,7 +73,7 @@ An **SR Latch** is a basic ==**bistable memory circuit**== formed using **cross-
 
 - Basic ==1-bit memory element==.
 - Stores data as long as power is on.
-- \==Building block for flip-flops and registers==.
+- <mark>Building block for flip-flops and registers==.
 
 #### **2. D Latch** ⭐ (Better than SR Latch)
 
@@ -120,7 +120,7 @@ A **D Latch** stores the value of **D** when **Enable (E) is active**, and holds
    - **E = 1** → **Q follows D** (Transparent mode)
    - **E = 0** → **Q holds previous value**
 
-- \==External behavior is **identical** in both cases==
+- <mark>External behavior is **identical** in both cases==
 - Difference is only \*\*internal active-HIGH vs active-LOW realization
 
 **Truth Table:**
@@ -169,7 +169,7 @@ A **Flip-Flop** is an **edge-triggered bistable circuit** that **==stores 1 bit 
 **Flip-Flop Significance**
 
 - Edge-triggered storage element.
-- \==Used in counters, register==s, and sequential circuits.
+- <mark>Used in counters, register==s, and sequential circuits.
 - Essential for synchronous digital systems.
 
 **D Flip-Flop Symbol:**
@@ -198,8 +198,8 @@ A **Flip-Flop** is an **edge-triggered bistable circuit** that **==stores 1 bit 
   - S=1, R=0 → Set (Q=1)
   - S=0, R=1 → Reset (Q=0)
   - S=0, R=0 → No change
-  - \==S=1, R=1 → Invalid state==
-- \==Limitation: Invalid input condition==
+  - <mark>S=1, R=1 → Invalid state==
+- <mark>Limitation: Invalid input condition==
 
 #### **2. JK Flip-Flop** ==(**J=Set** and **K=Reset**)== ⭐
 
@@ -209,8 +209,8 @@ A **Flip-Flop** is an **edge-triggered bistable circuit** that **==stores 1 bit 
   - J=1, K=0 → Set
   - J=0, K=1 → Reset
   - J=0, K=0 → No change
-  - \==J=1, K=1 → Toggle==
-- \==Advantage: No invalid state==
+  - <mark>J=1, K=1 → Toggle==
+- <mark>Advantage: No invalid state==
 
 #### **3. D Flip-Flop ==(Data / Delay)**== ⭐
 
@@ -224,8 +224,8 @@ A **Flip-Flop** is an **edge-triggered bistable circuit** that **==stores 1 bit 
 
 - Input: T
 - Operation
-  - \==T=0 → No change==
-  - \==T=1 → Toggle==
+  - <mark>T=0 → No change==
+  - <mark>T=1 → Toggle==
 - Application: Counters
 
 ## **Shift Register**
@@ -234,7 +234,7 @@ A **Shift Register** is a group of flip-flops connected in series, used to store
 
 **Key Points:**
 
-- \==Made using D Flip-Flops==
+- <mark>Made using D Flip-Flops==
 - Modes: SISO, SIPO, PISO, PIPO
 - Used in data transfer, serialization, delay circuits
 
@@ -247,7 +247,7 @@ A **Shift Register** is a group of flip-flops connected in series, used to store
 
 **Shift Register Significance**
 
-- \==Stores multiple bits and shifts them serially or in parallel==.
+- <mark>Stores multiple bits and shifts them serially or in parallel==.
 - Used for data transfer (serial ↔ parallel), ==temporary storage==, and time delays.
 - Common in communication interfaces and digital processing.
 

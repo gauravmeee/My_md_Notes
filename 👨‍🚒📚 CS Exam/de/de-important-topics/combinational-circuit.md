@@ -137,13 +137,13 @@ B ───┘
 **2. Full Adder**
 
 - Adds three bits (A, B, Cin)
-- \==**Sum== = $A \oplus B \oplus C\_{in}$**
+- <mark>**Sum== = $A \oplus B \oplus C\_{in}$**
 - **==Carry== = $(A \cdot B) + (B \cdot C\_{in}) + (A \cdot C\_{in})$** ⭐
 
 **3. Half Subtractor:**
 
-- \==**Diff**== = $A \oplus B$,
-- \==**Borrow**== = $\overline{A} \cdot B$ ⭐
+- <mark>**Diff**== = $A \oplus B$,
+- <mark>**Borrow**== = $\overline{A} \cdot B$ ⭐
 
 **4. Full Subtractor:**
 
@@ -152,22 +152,22 @@ B ───┘
 
 **5. Multiplexer (MUX)**
 
-- \==Selects one input== from many
+- <mark>Selects one input== from many
 - n-to-1 MUX has **n inputs, $\log\_2 n$ select lines, 1 output**
 
 **6. Demultiplexer (DEMUX)**
 
-- \==Routes single input to one of many outputs==
+- <mark>Routes single input to one of many outputs==
 - 1-to-n DEMUX has **1 input, $\log\_2 n$ select lines, n outputs**
 
 **7. Encoder**
 
-- \==Converts $2^n$ inputs into **n-bit** code==
+- <mark>Converts $2^n$ inputs into **n-bit** code==
 - Example: 8-to-3 encoder
 
 **8. Decoder**
 
-- \==Converts **n-bit** input to $2^n$ outputs==
+- <mark>Converts **n-bit** input to $2^n$ outputs==
 - Example: 3-to-8 decoder
 
 **Applications**
@@ -183,7 +183,7 @@ B ───┘
 
 **1. Half Adder ⭐**
 
-- \==Adds two single-bit== numbers (A, B)
+- <mark>Adds two single-bit== numbers (A, B)
 - **Sum (S) = A ⊕ B**
 - **Carry (C) = A · B**
 
@@ -210,7 +210,7 @@ B ───┘
 
 **2. Full Adder**
 
-- \==Adds three bits== (A, B, Cin)
+- <mark>Adds three bits== (A, B, Cin)
 - **Sum = A ⊕ B ⊕ Cin**
 - **Carry = (A · B) + (B · Cin) + (A · Cin)** ⭐
 
@@ -426,7 +426,7 @@ A **Multiplexer** is a combinational circuit that ==selects one input line from 
 **Multiplexer (MUX) Significance**
 
 - Allows selection of one data line from many inputs using select lines.
-- \==Reduces hardware== by sharing a single communication line.
+- <mark>Reduces hardware== by sharing a single communication line.
 - Used in ==data routing, ALU input selection, signal switching==.
 
 **Block Diagram:**
@@ -462,7 +462,7 @@ A _Demultiplexer_ is a combinational circuit that takes a single input and route
 
 **Demultiplexer (DEMUX) Significance**
 
-- \==Routes one input signal to one of many output lines== based on select lines.
+- <mark>Routes one input signal to one of many output lines== based on select lines.
 - Used in ==serial-to-parallel data conversion==.
 - Common in communication systems for data distribution.
 
@@ -550,7 +550,7 @@ A _Decoder_ is a combinational circuit that ==converts **n input lines** into **
 
 **Decoder Significance**
 
-- \==Converts binary input into a single active output line==.
+- <mark>Converts binary input into a single active output line==.
 - Used for ==address decoding in memory==, display systems, and instruction decoding.
 
 **Block Diagram (2-to-4 Decoder):**

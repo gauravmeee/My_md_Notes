@@ -105,7 +105,7 @@ Here’s a compact but complete **PSW & Flags** note for PSU exams:
 **Definition:** Addressing mode specifies **how to interpret the operand** in an instruction (where the operand is located or how to get it).
 
 1. **Immediate Addressing Mode** ⭐
-   * \==**Operand**== is given directly in the instruction.
+   * <mark>**Operand**== is given directly in the instruction.
    * **Advantage:** Fast, no memory access for operand.
    * **Application:** Constants.
    * **Example:** `MOV A, #5` → Load 5 into A.

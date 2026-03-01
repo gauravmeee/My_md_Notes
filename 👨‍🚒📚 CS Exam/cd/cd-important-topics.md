@@ -70,7 +70,7 @@ Responsible for **optimizing and converting IR to target code**
 
 **Error Detection and Code Generation**
 
-**First Three Phases – Used for: ==Error Detection==**
+**First Three Phases – Used for: </mark>Error Detection</mark>**
 
 1. **Lexical Analysis**\
    → Detects **lexical errors** (invalid tokens, unknown symbols)
@@ -79,7 +79,7 @@ Responsible for **optimizing and converting IR to target code**
 3. **Semantic Analysis**\
    → Detects **semantic errors** (type mismatches, undeclared variables)
 
-**Remaining Phases – Used for: ==Code Generation== & Optimization** 4. **Intermediate Code Generation** – Platform-independent code 5. **Code Optimization** – Improves performance 6. **Code Generation** – Machine code 7. **Linking & Assembly** – Final executable ❌
+**Remaining Phases – Used for: </mark>Code Generation</mark> & Optimization** 4. **Intermediate Code Generation** – Platform-independent code 5. **Code Optimization** – Improves performance 6. **Code Generation** – Machine code 7. **Linking & Assembly** – Final executable ❌
 
 > **In most compiler design syllabi (e.g., GATE, SJVN, etc.)**, the last phase **Linking & Assembly** is **not explicitly included**.
 
@@ -238,8 +238,8 @@ The value inside parentheses `(k)` denotes **number of lookahead symbols** used 
 
 | Parser          | Derivation | Parsing Type | Lookahead | Power           | Remarks                 |
 | --------------- | ---------- | ------------ | --------- | --------------- | ----------------------- |
-| LL(1)           | Leftmost   | ==Top-down== | 1         | Medium          | Predictive parser       |
-| LR(0)           | Rightmost  | Bottom-up    | ==0==     | ==Weak==        | Simple, less practical  |
+| LL(1)           | Leftmost   | </mark>Top-down</mark> | 1         | Medium          | Predictive parser       |
+| LR(0)           | Rightmost  | Bottom-up    | </mark>0</mark>     | </mark>Weak</mark>        | Simple, less practical  |
 | SLR(1)          | Rightmost  | Bottom-up    | 1         | Medium          | Uses FOLLOW sets        |
-| LALR(1)         | Rightmost  | Bottom-up    | 1         | ==Strong==      | Efficient & widely used |
-| Canonical LR(1) | Rightmost  | Bottom-up    | 1         | ==Very Strong== | Large tables            |
+| LALR(1)         | Rightmost  | Bottom-up    | 1         | </mark>Strong</mark>      | Efficient & widely used |
+| Canonical LR(1) | Rightmost  | Bottom-up    | 1         | </mark>Very Strong</mark> | Large tables            |

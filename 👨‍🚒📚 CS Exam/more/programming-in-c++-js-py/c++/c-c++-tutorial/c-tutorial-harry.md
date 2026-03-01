@@ -135,8 +135,8 @@ mostly header files have promises i.e. is function prototypes.
 
 In C programming there are two common formats for `#includes`:
 
-1. \==**`#include < headerFiIe.h >`**== // The angle brackets say to ==look in the standard system== directories
-2. \==**`#include " myFile.h"`**== // The quotation marks say to ==look in the current directory==.
+1. <mark>**`#include < headerFiIe.h >`**== // The angle brackets say to ==look in the standard system== directories
+2. <mark>**`#include " myFile.h"`**== // The quotation marks say to ==look in the current directory==.
 
 Disk drive full path is allowed, but discouraged since it is not portable:
 
@@ -267,15 +267,15 @@ int main()
 
 * Example: `int arr[10];`
 * Example: `int a;`
-* \==Stores local variables==, function calls, function parameters.
+* <mark>Stores local variables==, function calls, function parameters.
 * Memory is automatically allocated and freed when functions are called/returned.
 
 **Global and Static Variables**
 
 * Example: `int g;` (global)
 * Example: `static int s;` (static local or file scope)
-* \==Lifetime== is throughout the execution of the program.
-* \==Stored in **Global/Static segment**==, not on the stack.
+* <mark>Lifetime== is throughout the execution of the program.
+* <mark>Stored in **Global/Static segment**==, not on the stack.
 
 **Heap**
 

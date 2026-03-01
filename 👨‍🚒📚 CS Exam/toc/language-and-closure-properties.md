@@ -211,8 +211,8 @@ Regular ⊆ DCFL ⊆ CFL ⊂ CSL ⊂ RE
 
 **Decidable vs Recognizable Language ⭐**
 
-* \==Recursive -> Turing-decidable languages==
-* \==Recursive Enumerable -> Turing-recognizable language==
+* <mark>Recursive -> Turing-decidable languages==
+* <mark>Recursive Enumerable -> Turing-recognizable language==
 
 | Feature                  | ==**Turing Decidable (Recursive)**==           | ==**Turing Recognizable (RE)**==               |
 | ------------------------ | ---------------------------------------------- | ---------------------------------------------- |

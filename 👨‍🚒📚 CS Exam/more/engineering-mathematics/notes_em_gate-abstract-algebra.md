@@ -328,7 +328,7 @@ A monoid is a **==semigroup + identity==**. A monoid $(M, \*)$ satisfies:
 
 1. Closure
 2. Associativity
-3. \==Identity element exists==
+3. <mark>Identity element exists==
    - There exists $e ∈ M$ such that:
    - $e\_a = a\_e = a$ for all $a ∈ M$
 
@@ -345,8 +345,8 @@ So $(M, \*)$ satisfies:
 
 1. Closure
 2. Associativity
-3. \==Identity exists==
-4. \==**Commutative:**== $a\_b = b\_a$ for all $a,b ∈ M$
+3. <mark>Identity exists==
+4. <mark>**Commutative:**== $a\_b = b\_a$ for all $a,b ∈ M$
 
 **Example:**
 
@@ -410,15 +410,15 @@ So $(G, \*)$ satisfies:
 
 **Key Points**
 
-- \==ℕ is **not** a group== (no inverse)
+- <mark>ℕ is **not** a group== (no inverse)
 - `(ℤ, +)` is **Abelian group**
-- \==`(ℤ, ×)` is **not** a group== (no inverse for 2)
+- <mark>`(ℤ, ×)` is **not** a group== (no inverse for 2)
 - `−` and `/` are **not binary operations** on ℤ or ℕ
 
 **To Memorize** ⭐⭐
 
 - Closure + Associativity → present in all algebraic structures
 - Semigroup → Closure + Associativity
-- \==Monoid== → Semigroup + ==Identity==
-- \==Group== → Monoid + ==Inverse==
+- <mark>Monoid== → Semigroup + ==Identity==
+- <mark>Group== → Monoid + ==Inverse==
 - Abelian → Commutative

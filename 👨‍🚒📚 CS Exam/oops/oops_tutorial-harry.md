@@ -24,14 +24,14 @@ layout:
 ### Procedure Oriented Programming (POP)
 
 * large problems are ==divided into smaller problems known as functions==
-* \==program is written as sequence of procedure== or function
+* <mark>program is written as sequence of procedure== or function
 * Each procedure contains a series of instructions for performing specific task.
 * During the program execution each procedure (function) can be called by the other procedure
 * To call procedure, we have to write function name only
 * we concentrate on functions and gives very little attention to the data that are being used by functions.
 * The major emphasis is on `PROCEDURE` and not on the data.
 * In a multi-function program, many important data items are placed as `global` so that they may be accessed by all the function ( and each functions may have its own local data)
-* \==Global data are more vulnerable to an accidental change by a function==. In a large program it is very difficult to Identify what data is used by which function.
+* <mark>Global data are more vulnerable to an accidental change by a function==. In a large program it is very difficult to Identify what data is used by which function.
 * _Example :_ of POP languages `C, Cobol, Fortan, Pascal`
 
 ### Object Oriented Programming (OOP)
@@ -60,10 +60,10 @@ layout:
 1. Class
 2. Object
 3. Data Binding
-4. \==Encapsulation ==
-5. \==Data Abstraction==
-6. \==Inheritance==
-7. \==Polymorphism==
+4. <mark>Encapsulation ==
+5. <mark>Data Abstraction==
+6. <mark>Inheritance==
+7. <mark>Polymorphism==
 8. Message Passing
 
 #### 4-Principle of OOP
@@ -388,15 +388,15 @@ int main(){
 **Static Function**
 
 * Unlike non-static member function, **Static Function** of a class can be called without creating an instance (or object) of that class.
-* \==Belongs to the **class**==, not to any object.
-* \==Can be called using the class name directly.==
+* <mark>Belongs to the **class**==, not to any object.
+* <mark>Can be called using the class name directly.==
 * Cannot access **non-static members** (since they belong to objects).
 
 _**Key Learnings :**_
 
 * A Static function can't access non-static function/variable
 * Declare `count` inside Class, Define `Employee::count` outside Class
-* \==Default value is `zero`== for all static variable
+* <mark>Default value is `zero`== for all static variable
 * A Static function can be called without mentioning object name by class `Employee::getcount()`
 
 **Note:**
@@ -615,7 +615,7 @@ return 0;
 }
 ```
 
-\==Forward Declaration==
+<mark>Forward Declaration==
 
 * it refers to the beforehand declaration of the syntax or signature or an identifier, variable, function, class, etc. prior to its usage ( Done later int the program)
 * In C++, forward declarations are usually used for classes, in this, the class pre-defined before its use so that it can be called and used by other classes that are defined before this
@@ -1355,7 +1355,7 @@ The main thing to note here is that the ==data members and member functions of c
 
 So when the class “D” will try to access the data member or member function of class “A” it will cause ambiguity for the compiler and the compiler will throw an error. To solve this ambiguity we will ==make class “A” as a virtual base class==. To make a virtual base class “virtual” keyword is used.
 
-\==When one class is made virtual then only one copy of its data member and member function is passed to the classes inheriting it==. So in our example when we will make class “A” a virtual class then only one copy of the data member and member function will be passed to the classes “B” and “C” which will be shared between all classes. This will help to solve the ambiguity.
+<mark>When one class is made virtual then only one copy of its data member and member function is passed to the classes inheriting it==. So in our example when we will make class “A” a virtual class then only one copy of the data member and member function will be passed to the classes “B” and “C” which will be shared between all classes. This will help to solve the ambiguity.
 
 The syntax of the virtual base class is shown in the code snippet below,
 
@@ -1958,10 +1958,10 @@ int main(){
 
 ## [#54 Polymorphism in C++ | C++ Tutorials for Beginners](https://youtu.be/B-WWdC-H0zw)
 
-\==“Poly” means several== and ==“morphism” means form==. So we can say that polymorphism is something that has several forms or we can say it as one name and multiple forms. There are two types of polymorphism:
+<mark>“Poly” means several== and ==“morphism” means form==. So we can say that polymorphism is something that has several forms or we can say it as one name and multiple forms. There are two types of polymorphism:
 
-* \==Compile-time polymorphism==
-* \==Run time polymorphism==
+* <mark>Compile-time polymorphism==
+* <mark>Run time polymorphism==
 
 ```
                          Polymorphism
@@ -1989,7 +1989,7 @@ int main(){
 **2. Run Time Polymorphism**
 
 * In the run-time polymorphism, the ==compiler doesn’t know already what will happen at run time.== ==Run time polymorphism is also called **late binding**.== The run time polymorphism is considered ==slow because function calls are decided at run time==. Run time polymorphism can be ==achieved from the virtual function==.
-* \==Virtual Function:== A function that is in the parent class but redefined in the child class is called a virtual function. “virtual” keyword is used to declare a virtual function.
+* <mark>Virtual Function:== A function that is in the parent class but redefined in the child class is called a virtual function. “virtual” keyword is used to declare a virtual function.
 
 ***
 
@@ -2046,13 +2046,13 @@ derived_class_pointer->var_base = 34; // ✅ member variable of base class
 derived_class_pointer->var_derived = 98; // ✅ member variable of Derived class
 ```
 
-* \==A **derived class pointer** can access both **base** and **derived class members**==.
+* <mark>A **derived class pointer** can access both **base** and **derived class members**==.
 * The **derived class version** of an overridden function is called.
 
 **3. Derived Class Pointer to Base Class Object (Downcasting): ❌**
 
 * A **derived class pointer cannot point to a base class object** directly, resulting in a **compilation error**.
-* \==The base class lacks derived class-specific members, leading to **undefined behavior** if allowed.== ⭐
+* <mark>The base class lacks derived class-specific members, leading to **undefined behavior** if allowed.== ⭐
 * This restriction prevents unsafe memory access since the ==Derived class expects a larger object layout than what the Base class provides==.
 
 **Summary** ⭐
@@ -2072,7 +2072,7 @@ derived_class_pointer->var_derived = 98; // ✅ member variable of Derived class
 
 A ==member function in the base class which is declared using **virtual keyword**== is called virtual functions. They can be redefined in the derived class.
 
-\==Virtual functions allow derived classes to **override** methods from a base class so that the correct method is called==, depending on the type of object, even ==when the call is made through a base class reference or pointer. ==
+<mark>Virtual functions allow derived classes to **override** methods from a base class so that the correct method is called==, depending on the type of object, even ==when the call is made through a base class reference or pointer. ==
 
 Why Virtual Function ??
 
@@ -2333,9 +2333,9 @@ bogus code
 
 **late binding**, **overriding**, and **runtime polymorphism** indeed go **hand in hand**. They are tightly connected, and together they enable flexible and extensible object-oriented programming. Here's how they fit together
 
-* \==**Late Binding** is the mechanism==.
-* \==**Overriding** is the act of redefining a function== in the derived class.
-* \==**Runtime Polymorphism** is the result of late binding and overriding combined.==
+* <mark>**Late Binding** is the mechanism==.
+* <mark>**Overriding** is the act of redefining a function== in the derived class.
+* <mark>**Runtime Polymorphism** is the result of late binding and overriding combined.==
 
 | **Concept**              | **Definition**                                                                                                  | **Connection**                                |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
@@ -2353,7 +2353,7 @@ bogus code
 
 **Abstract Base Class**
 
-\==**Abstract base class** is a class that has at least one pure virtual function in its body.== The ==classes which are inheriting the base class must need to override the virtual function== of the abstract class **otherwise compiler will throw an error.**
+<mark>**Abstract base class** is a class that has at least one pure virtual function in its body.== The ==classes which are inheriting the base class must need to override the virtual function== of the abstract class **otherwise compiler will throw an error.**
 
 ```cpp
 class Tutorial{
@@ -2384,7 +2384,7 @@ Note:
 
 1. You ==can't Create Instance or Object of abstract class==.\
    However If you **were** calling the pure virtual function through object would ==lead to **undefined behavior**== because there would be no actual implementation for that function in the object.
-2. \==call a pure virtual function directly from the abstract class==, it will ==result in a compilation error== `ClassName::virtualFunc()`❌ You can define a non-virtual function in an abstract class and call it directly using `ClassName::NonVirtualFunc()` ✅
+2. <mark>call a pure virtual function directly from the abstract class==, it will ==result in a compilation error== `ClassName::virtualFunc()`❌ You can define a non-virtual function in an abstract class and call it directly using `ClassName::NonVirtualFunc()` ✅
 3. If you ==declare a function as `display() = 0;` without the `virtual`== keyword It will not be considered a pure virtual function. Instead, this would ==lead to a compilation error== ❌ , as it would not be valid to declare a function in this way in C++.
 
 4.== Declaring a function as `display() = 0;` outside of a class is not valid== in C++. ❌ A pure virtual function declaration must occur within the context of a class.
@@ -2397,7 +2397,7 @@ Function overloading and operator overloading are considered part of OOP as they
 
 **Function overloading vs Operator Overloading**
 
-* \==operator overloading **cannot be done independently** without using classes== ⭐ or structs because ==it's meant to define custom behavior for operators when applied to user-defined data types== (like classes or structs). It can't be used with fundamental types or independently of user-defined types.
+* <mark>operator overloading **cannot be done independently** without using classes== ⭐ or structs because ==it's meant to define custom behavior for operators when applied to user-defined data types== (like classes or structs). It can't be used with fundamental types or independently of user-defined types.
 * However, **function overloading** is different. ==Function overloading **can be done independently** of classes.== You can overload functions with different parameter types or numbers, even if they don't belong to any class.
 
 ## [Operator Overloading in C++ Programming | C++ Programming for Beginners](https://youtu.be/BO2KagRMS3M)
@@ -2459,6 +2459,6 @@ c3.print(); // Output: 7+9i
 c4.print(); // Output: 14+18i
 ````
 
-\==**Operator overloading** is only relevant in Object-Oriented Programming (OOP) because it allows custom behavior for operators with user-defined types== like classes or structs. Without OOP, operators already have predefined behavior for fundamental types, so overloading them has no significance.
+<mark>**Operator overloading** is only relevant in Object-Oriented Programming (OOP) because it allows custom behavior for operators with user-defined types== like classes or structs. Without OOP, operators already have predefined behavior for fundamental types, so overloading them has no significance.
 
-\==Operator overloading cannot be used for fundamental data types== (like `int`, `float`, etc.) because their operator behavior is predefined by the language. If you attempt to overload operators for these types, the compiler will produce an error, as C++ doesn't allow changing their built-in behavior.
+<mark>Operator overloading cannot be used for fundamental data types== (like `int`, `float`, etc.) because their operator behavior is predefined by the language. If you attempt to overload operators for these types, the compiler will produce an error, as C++ doesn't allow changing their built-in behavior.

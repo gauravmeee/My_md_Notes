@@ -32,7 +32,7 @@ i.e. Software components are modular units of a system that encapsulate function
 * Large software systems are complex
 * Components ==divide complexity== into manageable units
 * Enable parallel development
-* \==Improve maintainability and scalability==
+* <mark>Improve maintainability and scalability==
 * Support reuse across projects
 
 **Types of Software Components ⭐**
@@ -49,7 +49,7 @@ i.e. Software components are modular units of a system that encapsulate function
   * Workflow coordination
   * Exception handling
 * Example
-  * \==MVC Controller== ( Model–View–Controller )
+  * <mark>MVC Controller== ( Model–View–Controller )
   * Request Dispatcher in web applications
 
 **2. Problem Domain Component** ⭐

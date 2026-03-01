@@ -224,8 +224,8 @@ So, in theory, 8 processes can run **truly parallel** on an 8-core system.
 **DMA (Direct Memory Access)**
 
 * Allows devices to **transfer data directly to/from main memory** ==without CPU involvement==
-* \==CPU sets DMA controller with address, count, I/O command== → DMA handles transfer → interrupts CPU when done
-* \==Reduces CPU overhead== and increases I/O throughput
+* <mark>CPU sets DMA controller with address, count, I/O command== → DMA handles transfer → interrupts CPU when done
+* <mark>Reduces CPU overhead== and increases I/O throughput
 
 **Buffering**
 
@@ -252,7 +252,7 @@ So, in theory, 8 processes can run **truly parallel** on an 8-core system.
 
 **Spooling (Simultaneous Peripheral Operation -Line ⭐)**
 
-* \==Used when **CPU or multiple processes are faster than an I/O device** ==
+* <mark>Used when **CPU or multiple processes are faster than an I/O device** ==
 * Data meant for a ==**slow device is first stored on secondary storage (spool area)** instead of sending directly==
 * The **device works independently** and pulls one job at a time from the spool area
 
@@ -321,10 +321,10 @@ Spooling works offline using disk to hold full jobs for a device, while Bufferin
 **Threads**
 
 * **Lightweight ==subprocess** inside a process== that ==shares **code, data, and OS resources** with other threads of the same process==
-* \==Allows **parallel execution within a single program**,== e.g., one thread handles UI while another handles calculations
+* <mark>Allows **parallel execution within a single program**,== e.g., one thread handles UI while another handles calculations
 * **Context switching is faster** than switching between processes because memory and resources are shared
 * **Types:**
-  * \==**User-level threads:**== managed by thread library in user space, fast switching but one blocking call can block all threads
+  * <mark>**User-level threads:**== managed by thread library in user space, fast switching but one blocking call can block all threads
   * **Kernel-level threads:** managed by OS kernel, true parallelism across CPUs but slower switching due to kernel involvement
 
 **Process Management / Concurrency Control / IPC:**
@@ -388,12 +388,12 @@ This is how all components connect logically in OS.
 
 **Critical Section**
 
-* \==Code segment where shared data is accessed and must not be executed by more than one thread at a time==
+* <mark>Code segment where shared data is accessed and must not be executed by more than one thread at a time==
 * Problem: ensure mutual exclusion, progress, and bounded waiting
 
 **Synchronization**
 
-* \==Coordination among processes/threads to avoid **race conditions**== when accessing shared resources
+* <mark>Coordination among processes/threads to avoid **race conditions**== when accessing shared resources
 * Achieved using ==locks, semaphores, monitors, condition variables, barrier==s
 * **Goal:** enforce safe execution order while maximizing concurrency
 
@@ -426,7 +426,7 @@ This is how all components connect logically in OS.
 
 * Integer ==synchronization variable used to control access to shared resources==
 * Operations: wait(P) decrements; signal(V) increments
-* \==Binary semaphore (0/1) for mutual exclusion==; counting semaphore for multiple instances
+* <mark>Binary semaphore (0/1) for mutual exclusion==; counting semaphore for multiple instances
 
 **Sockets**
 
@@ -457,7 +457,7 @@ This is how all components connect logically in OS.
 
 **Mounting:**
 
-* \==Attaching a **file system** to a directory (mount point) so its contents become accessible ==
+* <mark>Attaching a **file system** to a directory (mount point) so its contents become accessible ==
 * Requires device name and file system type; OS updates mount table
 
 **Unmounting:**

@@ -52,8 +52,8 @@ delete[] arr;   // Frees the memory allocated for array  ⭐
 **Common Mistakes (Pointer) :**
 
 1. **Uninitialized Pointers:** Pointers that are declared but not initialized ==can point to any random memory location==, leading to ==undefined behavior==.
-2. \==**Dangling Pointers:**== Pointers that continue to point to memory that has been freed. Always ==set pointers to `nullptr` after deleting the memory==. ⭐
-3. \==**Memory Leaks:**== Occur when dynamically ==allocated memory is not freed==. This can be avoided by always using `delete` or `delete[]` for every `new` or `new[]`. ⭐
+2. <mark>**Dangling Pointers:**== Pointers that continue to point to memory that has been freed. Always ==set pointers to `nullptr` after deleting the memory==. ⭐
+3. <mark>**Memory Leaks:**== Occur when dynamically ==allocated memory is not freed==. This can be avoided by always using `delete` or `delete[]` for every `new` or `new[]`. ⭐
 4. **Pointer Arithmetic Errors:** Ensure pointer arithmetic is done within bounds of allocated memory to avoid accessing invalid memory locations.
 
 ***

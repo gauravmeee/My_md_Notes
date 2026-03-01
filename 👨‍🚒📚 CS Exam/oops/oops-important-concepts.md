@@ -186,7 +186,7 @@ void show(double, int);   // different signature
 
 1.  **Compile-time Polymorphism (Function Overloading)**
 
-    * \==Overloading is possible only if function **signatures** differ.==
+    * <mark>Overloading is possible only if function **signatures** differ.==
     * Changing only the return type does **not** change the signature, so it won’t overload.
 
     ```cpp
@@ -195,7 +195,7 @@ void show(double, int);   // different signature
     ```
 2.  **Runtime Polymorphism (Virtual Functions)**
 
-    * \==For overriding in inheritance, the **signature must match exactly**== (including const-ness)
+    * <mark>For overriding in inheritance, the **signature must match exactly**== (including const-ness)
     * If the signature is different, it becomes **function hiding**, not overriding.
 
     ```cpp

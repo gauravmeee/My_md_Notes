@@ -34,10 +34,10 @@ layout:
 
 **Automata** -> Mathematical Model or Theoretical Machine
 
-* \==Finite Automata -> Regular Language== ⭐
-* \==Pushdown Automata -> Context-free Language== ⭐
-* \==Linear-bounded Automata -> Context-sensitive Language==
-* \==Turing Machine -> Recursive Enumerable Language==
+* <mark>Finite Automata -> Regular Language== ⭐
+* <mark>Pushdown Automata -> Context-free Language== ⭐
+* <mark>Linear-bounded Automata -> Context-sensitive Language==
+* <mark>Turing Machine -> Recursive Enumerable Language==
 
 ### 1. Finite Automata
 

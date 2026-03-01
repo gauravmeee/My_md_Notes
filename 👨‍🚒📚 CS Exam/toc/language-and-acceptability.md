@@ -40,8 +40,8 @@ These are called ==**Recursively Enumerable (RE)** ==languages.
 
 **Not Accepted:** ==Turing Machines do **not** accept:==
 
-* \==**Non-computable languages**==, i.e., languages for which no TM exists at all
-* \==**Undecidable**== languages can't be fully solved (TM might not halt), but they are **still RE**
+* <mark>**Non-computable languages**==, i.e., languages for which no TM exists at all
+* <mark>**Undecidable**== languages can't be fully solved (TM might not halt), but they are **still RE**
 
 **Examples of Turing-Acceptable Languages:**
 

@@ -218,7 +218,7 @@ T\_1
 **3. Can cache access be skipped?**
 
 * **Hierarchical:** No. Cache lookup **cannot be bypassed**, even on a miss.
-* \==**Simultaneous:** Yes. Cache response can be **ignored** if memory responds first==.
+* <mark>**Simultaneous:** Yes. Cache response can be **ignored** if memory responds first==.
 
 **4. What happens on a cache miss**
 

@@ -59,7 +59,7 @@ Deployment
 Maintenance
 ```
 
-- \==linear and sequential== model
+- <mark>linear and sequential== model
 - Each phase must be completed before next starts
 - **Phases** : Requirement → Design → Implementation → Testing → Deployment → Maintenance
 - **Advantages**
@@ -87,7 +87,7 @@ Implementation
 - Enhanced waterfall with ==**feedback paths**==
 - Allows returning to previous phase
 - **Advantages :**
-  - \==Error correction== possible
+  - <mark>Error correction== possible
   - Better than classical waterfall
 - **Disadvantages :**
   - Still rigid

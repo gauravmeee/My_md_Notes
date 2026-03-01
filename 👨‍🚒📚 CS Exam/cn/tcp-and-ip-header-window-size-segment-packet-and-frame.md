@@ -44,7 +44,7 @@ layout:
 ```
 
 * **Size:**
-  * \==**20 bytes**== (without options)
+  * <mark>**20 bytes**</mark> (without options)
   * **20–60 bytes** (with options).
 * **Purpose:**
   * Reliable delivery, flow control, and connection management.
@@ -65,7 +65,7 @@ layout:
 **IPv4 Header** ⭐
 
 * **Size:**
-  * \==**20 bytes**== (without options)
+  * <mark>**20 bytes**</mark> (without options)
   * **20–60 bytes** (with options).
 * **Purpose:**
   * Routing data from source to destination across networks.
@@ -84,7 +84,7 @@ layout:
 
 **IPv6 Header**
 
-* **Size:** **==40 bytes== (fixed)**
+* **Size:** **<mark>40 bytes</mark> (fixed)**
   * Unlike IPv4, IPv6 header **does not have variable length** unless there are extension headers.
 * **Purpose:** Routing packets across networks, similar to IPv4, but simplified for faster processing and larger address space.
 * **Key Fields (Fixed 40 bytes):**
@@ -141,7 +141,7 @@ layout:
 | Options               | 0–40B    | No                                  | Usually unchanged                                       |
 | Data                  | Variable | No                                  | Payload unchanged                                       |
 
-* TCP headers **do not change during transit**, except ==rarely for **checksum if bits are corrupted and fixed**==.
+* TCP headers **do not change during transit**, except <mark>rarely for **checksum if bits are corrupted and fixed**</mark>.
 
 **2. IPv4 Header Fields & Changes in Transit**
 
@@ -152,17 +152,17 @@ layout:
 | Type of Service / DSCP | 8b       | Sometimes                                     | Routers may set QoS bits for priority       |
 | Total Length           | 16b      | No                                            | Includes header + payload; does not change  |
 | Identification         | 16b      | No                                            | Same for all fragments                      |
-| Flags                  | 3b       | ==Fragmentation may set MF (More Fragments)== | If packet fragmented                        |
-| Fragment Offset        | 13b      | ==Changes if fragmented==                     | Indicates position of fragment              |
-| TTL (Time To Live)     | 8b       | ==**Decrements at each hop**==                | Prevents loops; drops at 0                  |
+| Flags                  | 3b       | <mark>Fragmentation may set MF (More Fragments)</mark> | If packet fragmented                        |
+| Fragment Offset        | 13b      | <mark>Changes if fragmented</mark>                     | Indicates position of fragment              |
+| TTL (Time To Live)     | 8b       | <mark>**Decrements at each hop**</mark>                | Prevents loops; drops at 0                  |
 | Protocol               | 8b       | No                                            | Identifies transport layer protocol (TCP=6) |
-| Header Checksum        | 16b      | ==**Recomputed at each hop**==                | Because TTL changes, checksum changes       |
+| Header Checksum        | 16b      | <mark>**Recomputed at each hop**</mark>                | Because TTL changes, checksum changes       |
 | Source IP              | 32b      | No                                            | Original sender IP                          |
 | Destination IP         | 32b      | No                                            | Final receiver IP                           |
 | Options                | variable | Rarely                                        | Usually unchanged                           |
 
-* Only ==**TTL== and ==Header Checksum==** always change at routers. ⭐
-* Fragmentation fields (==Flags, Fragment Offset==) change **only ==if packet is fragmented**.==
+* Only <mark>**TTL</mark> and <mark>Header Checksum</mark>** always change at routers. ⭐
+* Fragmentation fields (<mark>Flags, Fragment Offset</mark>) change **only <mark>if packet is fragmented**.</mark>
 
 **Key Differences**
 
@@ -176,7 +176,7 @@ layout:
 
 **Field Changes during Transit**
 
-* Network (IP) → ==TTL, Checksum, Fragmentation fields== may change. ⭐
+* Network (IP) → <mark>TTL, Checksum, Fragmentation fields</mark> may change. ⭐
 * Transport (TCP) → Usually nothing changes.
 
 ***
@@ -185,8 +185,8 @@ layout:
 
 **1. TCP Window Size**
 
-* \==Max **application data** sender can send without ACK.==
-* Measured in **bytes**, controls ==**in-flight data**==.
+* <mark>Max **application data** sender can send without ACK.</mark>
+* Measured in **bytes**, controls <mark>**in-flight data**</mark>.
 * Does **not include headers**, only counts **payload**.
 
 ```
@@ -195,7 +195,7 @@ Throughput = min(Window size / RTT, Link bandwidth)
 
 **2. TCP Segment**
 
-* TCP **payload + ==TCP header** (20–60B)==.
+* TCP **payload + <mark>TCP header** (20–60B)</mark>.
 * Carries **application data** for transport.
 * Segment size limited by **MSS**:
 
@@ -205,13 +205,13 @@ MSS = MTU – IP header – TCP header
 
 **3. IP Packet**
 
-* Segment + ==IP header (20B).==
+* Segment + <mark>IP header (20B).</mark>
 * IP packet = TCP segment + IP header.
 * Packet is what **network layer** transmits to next hop.
 
 **4. Frame (Data Link Layer)**
 
-* Packet + Link header + ==trailer (Ethernet example: 14B + 4B)==.
+* Packet + Link header + <mark>trailer (Ethernet example: 14B + 4B)</mark>.
 * Max frame size limited by **MTU** (typically 1500B Ethernet).
 * Physical layer transmits **bits of frame**.
 

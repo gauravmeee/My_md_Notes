@@ -25,7 +25,7 @@ layout:
 
 * **Purpose:** To read input source code efficiently and provide characters to the lexer.
 * Lexical analyzer works on **one character at a time**, but reading file character by character is slow.
-* **Buffering** ==improves speed by reading chunks of data at once.==
+* **Buffering** <mark>improves speed by reading chunks of data at once.</mark>
 
 **Common Technique – Two Buffer Scheme:**
 

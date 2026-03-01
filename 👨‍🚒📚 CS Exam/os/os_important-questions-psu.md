@@ -94,7 +94,7 @@ layout:
 * **CPU can directly access main memory and registers** ✅True\
   Registers are the fastest memory, and main memory is accessed via address buses. ✅True
 * **Illegal memory access results in trap interrupt**\
-  \==Trap is a **synchronous software interrupt**== triggered by events like invalid memory ✅True
+  <mark>Trap is a **synchronous software interrupt**== triggered by events like invalid memory ✅True
 * **Memory protection among processes is implemented using base and limit registers** ✅True\
   Base register holds the start address, limit register defines the size. Ensures a process accesses only its own memory.
 * **Memory Address Register (MAR) stores the logical address** ❌ False ==MAR stores the **physical address**== for memory access. Logical address is translated before reaching MAR.
@@ -116,8 +116,8 @@ layout:
 
 * Prevents a process from accessing memory of another process.
 * Implemented using:
-  * \==**Base Register**: ==Holds starting address of process memory.
-  * \==**Limit Register**:== Holds the range (size) of memory allocated.
+  * <mark>**Base Register**: ==Holds starting address of process memory.
+  * <mark>**Limit Register**:== Holds the range (size) of memory allocated.
 
 **4. Trap Interrupt**
 
@@ -132,7 +132,7 @@ layout:
 * CPU can directly access:
   * **Registers** (fastest)
   * **Main Memory** (RAM)
-* \==Cannot access **secondary memory** directly== (==needs I/O controller==).
+* <mark>Cannot access **secondary memory** directly== (==needs I/O controller==).
 
 **6. Protection Mechanisms**
 

@@ -379,8 +379,8 @@ The focus is on the most important theorems for revision.
 
 **4.2 Functions, SOP, POS, and Operations ⭐❓**
 
-* \==**SOP (Sum of Products)**: ==Represents terms for which the **output is '1'**.
-* \==**POS (Product of Sums)**:== Represents terms for which the **output is '0'**.
+* <mark>**SOP (Sum of Products)**: ==Represents terms for which the **output is '1'**.
+* <mark>**POS (Product of Sums)**:== Represents terms for which the **output is '0'**.
   * If a function `F(A,B,C)` has `Sum(1,3,4)` in SOP, then its POS form will contain `Product(0,2,5,6,7)`.
 * **Complementation**: When taking the complement of a function:
   * SOP terms (representing '1's) become terms representing '0's.
@@ -650,7 +650,7 @@ The focus is on the most important theorems for revision.
 
 ![](https://www.tutorialspoint.com/digital-electronics/images/2-to-1-multiplexer.jpg)
 
-* \==**XOR Gate Implementation**:== Using a 2:1 Mux, ==if `I0` and `I1` are **complements== of each other** (e.g., `B` and `B'`), the output will be an XOR operation with the select line.
+* <mark>**XOR Gate Implementation**:== Using a 2:1 Mux, ==if `I0` and `I1` are **complements== of each other** (e.g., `B` and `B'`), the output will be an XOR operation with the select line.
   * `Y = S0' . B + S0 . B'` (If `I0=B, I1=B'` with `S0` as select line)
   * **Result: `Y = S0 XOR B'`** (if `I0=B`, `I1=B`').
   * **Result: `Y = S0 XOR B`** (if `I0=B'`, `I1=B`).
@@ -662,7 +662,7 @@ The focus is on the most important theorems for revision.
 
 **7.1 K-Map Simplification Rules**
 
-* \==**Objective**:== Find the minimum SOP or POS expression.
+* <mark>**Objective**:== Find the minimum SOP or POS expression.
 * **Strategy**:
   1. Concentrate on an **unused '1'** (minterm) in the K-Map.
   2. Form the **largest possible group** (Octet, Quad, Pair) that includes this '1'. Used '1's, Don't Cares, and other unused '1's can be used to form the largest group.

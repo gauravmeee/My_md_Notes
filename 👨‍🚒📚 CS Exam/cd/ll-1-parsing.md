@@ -23,21 +23,21 @@ layout:
 
 ### FIRST and FOLLOW (Syntax Analysis)
 
-* Used in ==**Top-Down Parsing**==
-* Essential for ==**LL(1) grammar**==
-* Helps in ==**predictive parsing== ==table construction**==
+* Used in <mark>**Top-Down Parsing<mark>**
+* Essential for <mark>**LL(1) grammar**</mark>
+* Helps in <mark>**predictive parsing</mark> <mark>table construction**</mark>
 
 **Grammar Basics**
 
 * **Terminal (T)**: tokens (`id`, `+`, `*`, `(`, `)`, etc.)
 * **Non-terminal (NT)**: variables (`E`, `T`, `F`, etc.)
-* **ε (epsilon)**: ==empty string==
-* **$**: ==input end== marker
+* **ε (epsilon)**: <mark>empty string</mark>
+* **$**: <mark>input end</mark> marker
 * Grammar: `A → α`
 
 **FIRST Set**
 
-* **FIRST(X)** = ==set of terminals== that can ==appear as the **first symbol**== of any ==string derived from X==
+* **FIRST(X)** = <mark>set of terminals</mark> that can <mark>appear as the **first symbol**</mark> of any <mark>string derived from X</mark>
 
 **Rules to Compute FIRST** ⭐
 
@@ -60,12 +60,12 @@ layout:
 
 **Key Points**
 
-* FIRST is about ==**starting terminals**==
+* FIRST is about <mark>**starting terminals**</mark>
 * ε only included if whole RHS can derive ε
 
 **FOLLOW Set**
 
-* **FOLLOW(A)** = ==set of terminals== that can ==appear **immediately after A**== in some sentential form
+* **FOLLOW(A)** = <mark>set of terminals</mark> that can <mark>appear **immediately after A**</mark> in some sentential form
 
 **Rules to Compute FOLLOW** ⭐
 
@@ -87,14 +87,14 @@ layout:
 
 **Key Points**
 
-* FOLLOW ==depends on **context**==
+* FOLLOW <mark>depends on **context**</mark>
 * FOLLOW never contains ε
 
 **Algorithm (GATE-Oriented)**
 
 1. Initialize all **FIRST** and **FOLLOW** as empty
-2. Apply ==FIRST rules== until ==no change==
-3. Apply ==FOLLOW rules== iteratively until ==fixed point==
+2. Apply <mark>FIRST rules</mark> until <mark>no change</mark>
+3. Apply <mark>FOLLOW rules</mark> iteratively until <mark>fixed point</mark>
 
 **Example ⭐**
 
@@ -205,7 +205,7 @@ RFOLLOW(A) = { b }
 * **FOLLOW** → LL(1), predictive parsing
 * **LFOLLOW / RFOLLOW** → theoretical, LR / precedence discussions
 
-**==FOLLOW usually means RFOLLOW==** ⭐
+<mark>FOLLOW usually means RFOLLOW</mark>** ⭐
 
 ```css
 S → AB
@@ -272,12 +272,12 @@ For production `A → α`:
 
 **Step 1: Compute FIRST**
 
-* **==FIRST of RHS==** tells **which terminal can start**
+* <mark>FIRST of RHS</mark>** tells **which terminal can start**
 * If ε ∈ FIRST(RHS), mark it
 
 **Step 2: Compute FOLLOW**
 
-* **==FOLLOW of LHS==** tells **what can appear next**
+* <mark>FOLLOW of LHS</mark>** tells **what can appear next**
 * Add `$` to FOLLOW(start symbol)
 
 **Step 3: Fill Table**
@@ -343,7 +343,7 @@ FOLLOW(B) = { $ }
 
 * `A → S`
 * `FIRST(S) − {ε} = {a, b}` → entries under `a` and `b`
-* Even though `ε ∈ FIRST(S)`, **FOLLOW(A) is not used here** because ==grammar would cause conflict (LL(1) violation if added)==
+* Even though `ε ∈ FIRST(S)`, **FOLLOW(A) is not used here** because <mark>grammar would cause conflict (LL(1) violation if added)</mark>
 
 > **Note:** **ε ∈ FIRST(RHS)** does **NOT automatically** mean entry under `$`. `$` column is filled **only using FOLLOW(LHS)** of the **same production** Always check **which non-terminal owns ε**
 

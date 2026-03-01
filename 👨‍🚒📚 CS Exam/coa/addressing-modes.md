@@ -30,18 +30,18 @@ layout:
 1. **Implied Mode**\
    Operand is ==**implicitly defined by opcode**== (no address field required).
 2. **Immediate Mode**\
-   \==Address field contains the **operand== itself** (constant data).
+   <mark>Address field contains the **operand== itself** (constant data).
 3. **Direct Mode**\
-   \==Address field contains the **effective address== (E.A)** of operand.\
+   <mark>Address field contains the **effective address== (E.A)** of operand.\
    `Operand = M[Address]`
 4. **Indirect Mode**\
-   \==Address field points to a memory location that contains **E.A**.==\
+   <mark>Address field points to a memory location that contains **E.A**.==\
    `E.A = M[Address]`, `Operand = M[E.A]`
 5. **Register Mode**\
-   \==Address field specifies a **register** which contains operand.==\
+   <mark>Address field specifies a **register** which contains operand.==\
    `Operand = R`
 6. **Register Indirect Mode**\
-   \==Address field specifies a register which contains **E.A** of operand.==\
+   <mark>Address field specifies a register which contains **E.A** of operand.==\
    `E.A = R`, `Operand = M[E.A]`
 
 **B. Computable Addressing Modes**
@@ -73,8 +73,8 @@ layout:
 
 `E.A = Address + (IndexReg)`
 
-* \==**Fixed / Not changeable:** `Address` field (Base Address)==
-* \==**Changeable:** `IndexReg` value==
+* <mark>**Fixed / Not changeable:** `Address` field (Base Address)==
+* <mark>**Changeable:** `IndexReg` value==
 * **Use:** Arrays / tables / strings
 * **Why:** Base points to start of array, index selects element number
 

@@ -52,11 +52,11 @@ layout:
 
 **Definition**: A DFA is a **5-tuple** defined as ==(Q, Σ, δ, q0, F)==.
 
-* \==**`Q`**== :A **finite set of states**.
-* \==**`Σ`**== : The **input alphabet**.
-* \==**`δ` (Transition Function)**== :Maps (Q × Σ → Q). This means **==from every state, for every input symbol, there is exactly one transition**==. This is crucial for DFA detection.
-* \==**`q0`**== : The **initial state**, which must be **only one**.
-* \==**`F`**== : A **set of final states**. This set can be **empty, contain one, or multiple states**; its size does not affect whether an automaton is a DFA.
+* <mark>**`Q`**== :A **finite set of states**.
+* <mark>**`Σ`**== : The **input alphabet**.
+* <mark>**`δ` (Transition Function)**== :Maps (Q × Σ → Q). This means **==from every state, for every input symbol, there is exactly one transition**==. This is crucial for DFA detection.
+* <mark>**`q0`**== : The **initial state**, which must be **only one**.
+* <mark>**`F`**== : A **set of final states**. This set can be **empty, contain one, or multiple states**; its size does not affect whether an automaton is a DFA.
 
 **DFA Detection**: To check if an automaton is a DFA, ensure that from **every state, ==for every input symbol, there is exactly one transition**==. The number of final states is not a concern for DFA detection.
 
@@ -119,7 +119,7 @@ layout:
 
 * **Examples where REs are NOT possible**:
   * Languages with dependencies, like `a^n b^n`.
-  * \==Palindromes== over more than one symbol.
+  * <mark>Palindromes== over more than one symbol.
 * **Examples of REs and corresponding DFA states**:
   * For a string where the **Nth symbol from the right is 'X'**: Requires **2^N states** in its minimal DFA (e.g., 4th symbol from right is 'b' needs 2^4 = 16 states).
   * For a string where the **Nth symbol from the left is 'X'**: Requires **N+1 states** (e.g., 4th symbol from left is 'a' needs 5 states).
