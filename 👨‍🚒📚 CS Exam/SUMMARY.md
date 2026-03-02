@@ -11,7 +11,7 @@
   * [OIL India - Theoritical](exams/oil-india-theoritical/README.md)
     * [0. Syllabus](<Exams/OIL India - Theoritical/0. Syllabus.md>)
     * [Notes+GPT\_1 DSA](<Exams/OIL India - Theoritical/Notes+GPT_1 DSA.md>)
-    * [Notes+GPT\_10 Data Mining & Big Data Analytics](<Exams/OIL India - Theoritical/Notes+GPT_10 Data Mining & Big Data Analytics.md>)
+    * [Notes+GPT\_10 Data Mining & Big Data Analytics](<Data Mining & Big Data Analytics.md>)
     * [Notes+GPT\_11 SE](<Exams/OIL India - Theoritical/Notes+GPT_11 SE.md>)
     * [Cloud Computing](<Cloud Computing.md>)
     * [Notes+GPT\_13 Principles of Programming Language](<Exams/OIL India - Theoritical/Notes+GPT_13 Principles of Programming Language.md>)
