@@ -1,2 +1,0 @@
-# All Question CG Theory
-

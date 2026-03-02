@@ -1,2 +1,0 @@
-# All Questions CG Numerical
-
