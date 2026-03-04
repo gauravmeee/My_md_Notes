@@ -44,9 +44,11 @@ S3  | Vishal|0
 S4  | Ram   | 72
 ```
 
-**Attributes/Fields** -> Column : `Sid`, `Sname`, `Marks` **Tuple/Record** -> Row : `S1 Ram 35`, `S2 Nikhil 56`
+**<mark>Attributes/Fields</mark>** -> Column : `Sid`, `Sname`, `Marks` 
+- **<mark>Degree</mark>** -> No. of attributes in Relation (above ex : 3) 
 
-**Degree** -> No. of attributes in Relation(above ex : 3) **Cardinality** -> No. of Records in Relation(above ex: 4)
+**<mark>Tuple/Record</mark>** -> Row : `S1 Ram 35`, `S2 Nikhil 56`
+- **<mark>Cardinality</mark>** -> No. of Records in Relation(above ex: 4)
 
 **Relation Schema:** `Student(Sid, Sname, Marks`. Tuple Value :
 
@@ -75,7 +77,6 @@ Let X & Y are any two attribute set over R.
 **then** -> `X->Y` is called functional dependency.
 
 Note:
-
 * It may or May not hold in a given relation
 * `X->Y` does not hold if there exists two tuples `t1, t2 ϵ R` such that `t1.x=t2.x` but `t1.y ≠ t2.y`
 * Based on relation instance, <mark>we can not conclude which F.D will hold</mark>, <mark>we can only conclude which F.D will not hold</mark>.
@@ -104,19 +105,18 @@ A | B | C
 **1. Trivial FD:**
 
 * If `Y ⊆ X` then `X->Y` is trivial
-* Every trivial F.D always holds true in the relation.
+* Every <mark>trivial F.D always holds true</mark> in the relation.
 * Ex: `AB->B`
 
 **2. Non-Trivial FD:**
-
-* If X and Y are two Non empty sets such that `X∩Y=∅`, then `X->Y` is called a non-trivial\`
-* May or May not hold true for a relation
+* If X and Y are two Non empty sets such that `X∩Y=∅`, then `X->Y` is called a non-trivial
+* <mark>Non Trivial F.D May or May not hold true</mark> for a relation
 * ex `A->B`
 
 **3. Semi-Trivial FD:** (Not Standard)
 
 * If X and Y are two Non empty sets such that `Y⫋X` and `X∩Y=∅`, then `X->Y` is called a <mark>semi-trivial</mark>
-* ex: `AB->BC` (<mark>`AB -> C` Non trivial</mark> + <mark>`AB->B` Trivial</mark>)
+* ex: `AB->BC` (`AB -> C` Non trivial + `AB->B` Trivial)
 
 No. of Non-Trivial FD `X->Y` Possible For above relation?
 
@@ -184,7 +184,7 @@ BC->A May or May not Hold
 * The **proper subset symbol (⊂)** means _“strict subset”_, i.e., Y is a subset but not equal. Example: `{A} ⊂ {A, B}`, but `{A, B} ⊄ {A, B}`.
 * The symbol you wrote **⫋** is just another typographical style sometimes used for **subset (⊆)** in relational algebra or FD notes. It does not imply anything extra beyond “Y is contained in X”.
 
-**Properties of FD**
+**Properties of FD** ⭐
 
 1. **Reflexivity:** If `Y ⫋ X` then `X->Y` is called reflexive FD (always hold in a relation)
 2. <mark>**Augmentation**</mark> : If <mark>`X->Y` holds in relation, then `XZ->YZ`</mark> will also hold in relation
