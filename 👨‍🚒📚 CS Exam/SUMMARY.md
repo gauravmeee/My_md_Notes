@@ -209,6 +209,7 @@
     * [Combinational Circuit](de/de-important-topics/combinational-circuit.md)
     * [Sequential Circuit](de/de-important-topics/sequential-circuit.md)
     * [SOP and POS, Maxterm and Minterm, Karnaugh Graph](de/de-important-topics/sop-and-pos-maxterm-and-minterm-karnaugh-graph.md)
+
 * [More](more/README.md)
   * [Programming in C++, JS, PY](more/programming-in-c++-js-py/README.md)
     * [C++](more/programming-in-c++-js-py/c++/README.md)

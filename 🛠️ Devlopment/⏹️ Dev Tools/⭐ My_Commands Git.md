@@ -111,7 +111,177 @@ tmp/**/
 
 ```
 
+
+# Common  Usecases
+
+
+# Fetch / Checkout
+
+### Fetch specific commit from GitHub:
+
+Downloads all commits, branches, and tags from the remote (`origin`), **but doesn't change your working directory**.
+```bash
+git fetch origin
+```
+
+**Moves HEAD and working directory to that specific commit**, entering a **detached HEAD state** (not on any branch).  **Moves HEAD and working directory to that specific commit**, entering a **detached HEAD state** (not on any branch).  
+```bash
+git checkout <commit-hash>
+```
+- It is Useful for reviewing or extracting files from that state.
+
 ---
+
+## Push
+
+### Update Last Commit and Push
+
+```sh
+# Stage all changes
+git add .
+```
+
+**Amend the last commit**
+```sh
+# Amend the last commit
+git commit --amend -m "your new commit message"   # Add changes and replace commit message
+git commit --amend        # Add changes and edit commit message
+git commit --amend --no-edit   # Add changes without editing message
+```
+
+```sh
+# Push updated commit (overwrite previous one on remote)
+git push origin <branch-name> --force
+
+# Push updated commit (safer than --force)  
+git push origin <branch-name> --force-with-lease
+```
+
+### Push on GitHub when `master` branch is **behind** the remote `master` branch. To fix this:
+
+**Method 1** - Safe Way (Recommended):
+```bash
+git pull --rebase
+git push
+```
+
+**Method 1** - Force Push (if sure your changes should overwrite remote):
+```bash
+git push --force
+```
+
+> Use force only if you're sure you don't need remote changes.
+
+---
+
+## Branch
+
+### Creating New Branch on Git and Push on New Branch in Github
+
+   ```bash
+   # Create a New Branch Locally
+   git checkout -b new-branch-name
+   
+   # Push the New Branch to GitHub
+   git push -u origin new-branch-name
+   ```
+
+_Note:_ This process is useful for managing different versions or features within the same project by using separate branches.
+
+### Delete Branch
+
+**at local level**
+```sh
+# Delete local branch
+git branch -d <branch-name>        # Safe delete (only if merged)
+git branch -D <branch-name>        # Force delete
+```
+
+**at remote level**
+```sh
+# Delete remote branch
+git push origin --delete <branch-name>
+```
+
+Check branches:
+
+```sh
+git branch          # Local
+git branch -r       # Remote
+```
+
+---
+
+## Config
+
+### Check & Set  `git pull` uses **merge (default)** or **rebase**:
+
+##### **Get:**
+
+**Check Current Setting**
+```bash
+git config --get pull.rebase
+# if 'true' -> git pull uses `rebase`
+# if 'false' -> git pull use `merge`
+```
+
+**Check Global Setting**
+```bash
+git config --global --get pull.rebase
+```
+
+**See All Related Config**
+```bash
+git config --list | grep pull
+# git config --list → shows all git configuration (system, global, local)  
+# grep pull → filters only settings related to `pull`
+```
+
+##### **Set:**
+
+**Set Pull to Use Rebase (Recommended)**
+```bash
+git config --global pull.rebase true
+# It keeps history clean and linear
+```
+
+For current repo only:
+```bash
+git config pull.rebase true
+```
+
+**Set Pull to Use Merge (Default Behavior)**
+```bash
+git config --global pull.rebase false
+```
+
+### Check and Set Username and Email
+
+1. **Check current Git email**
+```bash
+# repo-level
+git config user.email   # email
+git config user.name  # username
+
+# global-level
+git config --global user.email #  # email 
+git config --global user.email # username
+```
+
+2. **Set correct Git email and name**
+```bash
+# repo-level
+git config user.email "gkmeena2810@gmail.com" # --global for global 
+git config user.name "Gaurav Kumar Meena"  # --global for global 
+
+# global-level
+git config --global user.email "gkmeena2810@gmail.com" 
+git config --global user.name "Gaurav Kumar Meena"
+```
+
+
+---
+## Revert / Reset
 ### Undo Changes Using `reset` and `revert`
 
 **Reset hard**
@@ -171,44 +341,7 @@ git clean -fd  - # Removes untracked files (-f) and directories (-d)
 |`--hard`|✅ Yes|✅ Yes|✅ Yes|✅ Yes (dangerous)|Remove commits + code|
 |`revert`|✅ Yes|✅ Yes|✅ Yes|❌ No (safe)|Undo commit by creating a new one|
 
----
-    
-### Creating New Branch on Git and Push on New Branch in Github
-
-   ```bash
-   # Create a New Branch Locally
-   git checkout -b new-branch-name
-   
-   # Push the New Branch to GitHub
-   git push -u origin new-branch-name
-   ```
-
-_Note:_ This process is useful for managing different versions or features within the same project by using separate branches.
-
----
-# Update Last Commit and Push
-
-```sh
-# Stage all changes
-git add .
-```
-
-```sh
-# Amend the last commit
-git commit --amend        # Add changes and edit commit message
-git commit --amend --no-edit   # Add changes without editing message
-```
-
-```sh
-# Push updated commit (overwrite previous one on remote)
-git push origin <branch-name> --force
-```
-
-
----
-
-
-# Revert all changes up to the last commit. There are two main ways:
+### Revert all changes up to the last commit. There are two main ways:
 
 1. Discard all changes but keep the files (safer option)
 2. Hard reset to the last commit (more aggressive option)
@@ -220,13 +353,13 @@ First, let's see what changes are currently pending:
 git status
 ```
 
-##### **Method 1** -  Safer Option (Recommended)
+**Method 1** -  Safer Option (Recommended)
 ```bash
 git restore .                  # Restore tracked files
 git clean -fd                  # Remove untracked files and directories
 ```
 
-##### **Method 2** - Aggressive Option:
+**Method 2** - Aggressive Option:
 ```bash
 git reset --hard HEAD          # Hard reset to last commit
 git clean -fd                  # Remove untracked files and directories
@@ -235,8 +368,8 @@ git clean -fd                  # Remove untracked files and directories
 - `git restore .` is safer and more modern (This will discard changes but keep your files)
 - `git reset --hard HEAD` is more aggressive and will completely reset everything
 
----
-# Revert all changes to a specific commit. There are two main ways
+
+### Revert all changes to a specific commit. There are two main ways
 
 Use `git log` to get the `<commit-hash>`.
 ```sh
@@ -248,101 +381,83 @@ Shorten output in `<commit-hash> : <commit-message>`
 git log --oneline
 ```
 
-##### **Method 1 -** Hard reset (Dangerous, deletes changes):
+**Method 1 -** Hard reset (Dangerous, deletes changes):
 ```bash
 git reset --hard <commit-hash>
 git clean -fd                  # Remove untracked files and directories
 ```
 
-##### **Method 2 -** Soft reset (Keeps changes staged):
+**Method 2 -** Soft reset (Keeps changes staged):
 ```bash
 git reset --soft <commit-hash>
 git clean -fd                  # Remove untracked files and directories
 ```
 
-##### **Method 3 -** Revert (Undo commit but keep history):
+**Method 3 -** Revert (Undo commit but keep history):
 ```bash
 git revert <commit-hash>
 git clean -fd                  # Remove untracked files and directories
 ```
 
----
-## Fetch specific commit from GitHub:
-
-
-Downloads all commits, branches, and tags from the remote (`origin`), **but doesn't change your working directory**.
-```bash
-git fetch origin
-```
-
-**Moves HEAD and working directory to that specific commit**, entering a **detached HEAD state** (not on any branch).  **Moves HEAD and working directory to that specific commit**, entering a **detached HEAD state** (not on any branch).  
-```bash
-git checkout <commit-hash>
-```
-- It is Useful for reviewing or extracting files from that state.
 
 ---
+### Miscellaneous
 
-## Push on GitHub when `master` branch is **behind** the remote `master` branch. To fix this:
+##### **`cherry-pick`**
+- Apply **specific commit(s)** from one branch to another
+- Does **not merge full history**
+- Safe for recovery and selective fixes
+```bash
+git cherry-pick <commit>
+git cherry-pick A B C
+git cherry-pick --abort | --continue | --skip
+```
+- Use when: lost commits, hotfix from other branch
 
-##### **Method 1** - Safe Way (Recommended):
+##### **`pull --rebase`**
+- Fetch + replay local commits **on top of remote**
+- Keeps **linear history**
+- Avoids merge commits
 ```bash
 git pull --rebase
-git push
+git rebase --abort | --continue
 ```
+- Use when: clean history, solo work
+- Avoid on shared branches with pushed commits
 
-##### **Method 1** - Force Push (if sure your changes should overwrite remote):
+##### **`checkout`**
+- Switch branches or restore files (legacy command)
 ```bash
-git push --force
+git checkout branch
+git checkout <commit>
+git checkout -- file.txt
 ```
+- Detached HEAD when checkout commit
+- Modern replacement: `git switch`, `git restore`
 
-> Use force only if you're sure you don't need remote changes.
+##### **`stash`**
+- Temporarily save **uncommitted changes**
+- Working tree becomes clean
+```bash
+git stash
+git stash push -m "msg"
+git stash list
+git stash apply
+git stash pop
+git stash drop
+```
+- Use before: pull, rebase, reset
+- Stash ≠ commit (local only)
+
+##### **strong opinion**
+- **Recovery:** cherry-pick > reset
+- **Daily work:** pull --rebase
+- **Quick context switch:** stash
+- **Modern habit:** prefer switch/restore over checkout
 
 
 ---
-
-## Commit author email does not match any verified email in GitHub linked to Vercel.
- 
-- GitHub shows:
-```
-All checks have failed
-1 failing check
-Vercel - No GitHub account was found matching the commit author email address
-```
-    
-
-**Solution:**
-
-1. **Check current Git email**
-```bash
-git config user.email        # repo-level
-git config --global user.email  # global-level
-```
-
-2. **Set correct Git email and name**
-```bash
-git config user.email "gkmeena2810@gmail.com"
-git config user.name "Gaurav Kumar Meena"
-```
-
-_(Use `--global` to apply to all future repos)_
-
-3. **Update last commit author (if previous commits have wrong email)**
-```bash
-git commit --amend --no-edit --reset-author
-git push --force
-```
-
-4. **Reconnect/check Vercel Git integration**
-- Go to Vercel → Project → Settings → Git → Confirm GitHub account is connected.
-- Manual redeploy if needed.
-
-**Notes:**
-- Only the **email must match** a verified GitHub email; name is optional.
-- Using correct email ensures future commits trigger Vercel deployments automatically.
-
----
-## common commit types with examples in Git:
+# Common commit format / types with examples in Git:
 
 **1. `feat` (Feature)** – New functionality or feature added.
 
@@ -402,56 +517,3 @@ git commit -m "feat(ui): add dark mode toggle animation"
 
 ---
 
-### Miscellaneous
-
-##### **`cherry-pick`**
-- Apply **specific commit(s)** from one branch to another
-- Does **not merge full history**
-- Safe for recovery and selective fixes
-```bash
-git cherry-pick <commit>
-git cherry-pick A B C
-git cherry-pick --abort | --continue | --skip
-```
-- Use when: lost commits, hotfix from other branch
-
-##### **`pull --rebase`**
-- Fetch + replay local commits **on top of remote**
-- Keeps **linear history**
-- Avoids merge commits
-```bash
-git pull --rebase
-git rebase --abort | --continue
-```
-- Use when: clean history, solo work
-- Avoid on shared branches with pushed commits
-
-##### **`checkout`**
-- Switch branches or restore files (legacy command)
-```bash
-git checkout branch
-git checkout <commit>
-git checkout -- file.txt
-```
-- Detached HEAD when checkout commit
-- Modern replacement: `git switch`, `git restore`
-
-##### **`stash`**
-- Temporarily save **uncommitted changes**
-- Working tree becomes clean
-```bash
-git stash
-git stash push -m "msg"
-git stash list
-git stash apply
-git stash pop
-git stash drop
-```
-- Use before: pull, rebase, reset
-- Stash ≠ commit (local only)
-
-##### **strong opinion**
-- **Recovery:** cherry-pick > reset
-- **Daily work:** pull --rebase
-- **Quick context switch:** stash
-- **Modern habit:** prefer switch/restore over checkout

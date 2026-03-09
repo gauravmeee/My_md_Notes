@@ -1459,6 +1459,8 @@ n -> BFS( ans ) List n-> Queue n -> Visited Node List
 
 ## [G-15. Number of Enclaves | Multi-source BFS | C++ | Java](https://youtu.be/rxKcepXQgU4) ^G15
 
+## [G-16. Number of Distinct Islands | Constructive Thinking + DFS | C++ | Java](https://www.youtube.com/watch?v=7zmgQSJghpo)^G16
+
 ***
 
 ## [G-17. Bipartite Graph | BFS | C++ | Java](https://youtu.be/-vu34sct1g8) ^G17
