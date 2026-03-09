@@ -21,7 +21,7 @@ layout:
 
 # Algorithm: Dynamic Programming ⏳
 
-Steps Recursion -> Memoization(Recursion + extra) -> Tabulation -> Space Optimsation (Tabulation)
+Steps: Recursion -> Memoization (Recursion + extra) -> Tabulation -> Space Optimsation (Tabulation)
 
 Memoization (Recursion) -> Top-Down Approach Tabulation (For Loop) -> Bottom Up-Approach
 
@@ -31,6 +31,7 @@ Memoization (Recursion) -> Top-Down Approach Tabulation (For Loop) -> Bottom Up-
 
 * **Time Complexity (TC):** `O(2^n)`
   * The recursive solution explores all possible subsets of the array. For each element, it has two choices: either to pick or not pick the element, leading to an exponential time complexity of `O(2^n)`.
+
 * **Space Complexity (SC):** `O(n)`
   * The maximum depth of the recursion tree in the worst case is `n`. Therefore, the space complexity is `O(n)` due to the recursive call stack.
 

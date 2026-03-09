@@ -1,30 +1,17 @@
 
-# JAVA / C# / Python Programming
+### 1. Principles of Object-Oriented Programming
 
-|     | Topics                | Subtopics                                |
-| --- | --------------------- | ---------------------------------------- |
-| 1   | OOP Principles        | Encapsulation, Inheritance, Polymorphism |
-| 2   | Language Basics       | Syntax, data types, control flow         |
-| 3   | User Interfaces       | GUI programming                          |
-| 4   | Threads               | Creation and synchronization             |
-| 5   | Database Connectivity | JDBC, ADO.NET, Python DB APIs            |
-
-# 1. Principles of Object-Oriented Programming
-
-## 1. Object-Oriented Programming (OOP)
+##### **2.1 Object-Oriented Programming (OOP)**
 
 OOP is a programming paradigm based on the concept of **objects** which contain **data (attributes)** and **methods (functions)**. It focuses on modularity, reusability, and abstraction.
 
-## 2. Core Principles of OOP
+##### **2.2 Core Principles of OOP**
 
-### a) Encapsulation
+**a) Encapsulation**
 
 - Bundling of data and methods operating on that data into a single unit (class).
-    
 - Restricts direct access to internal data; access controlled via getters/setters.  
     **Example (Java):**
-    
-
 ```java
 class Student {
     private int rollNo;
@@ -33,14 +20,11 @@ class Student {
 }
 ```
 
-### b) Inheritance
+**b) Inheritance**
 
 - Mechanism to derive new classes (subclasses) from existing ones (superclasses).
-    
 - Promotes code reusability and hierarchical classification.  
     **Example (C#):**
-    
-
 ```csharp
 class Animal {
     public void eat() { Console.WriteLine("Eating"); }
@@ -50,16 +34,11 @@ class Dog : Animal {
 }
 ```
 
-### c) Polymorphism
-
+**c) Polymorphism**
 - Ability of different classes to respond differently to the same function call.
-    
 - **Compile-time polymorphism:** method overloading.
-    
 - **Runtime polymorphism:** method overriding via inheritance.  
     **Example (Python):**
-    
-
 ```python
 class Shape:
     def area(self): pass
@@ -67,14 +46,11 @@ class Circle(Shape):
     def area(self): return "Area of Circle"
 ```
 
-### d) Abstraction
+**d) Abstraction**
 
 - Hiding implementation details and showing only essential features.
-    
 - Achieved using abstract classes and interfaces.  
     **Example (Java):**
-    
-
 ```java
 abstract class Shape {
     abstract void draw();
@@ -84,46 +60,35 @@ class Circle extends Shape {
 }
 ```
 
-## 3. Advantages of OOP
+##### **1.3 Advantages of OOP**
 
 - Modularity and maintainability
-    
 - Code reusability via inheritance
-    
 - Flexibility and scalability
-    
 - Enhanced data security via encapsulation
     
 
-## 4. Key Concepts
+##### **1.4  Key Concepts**
 
 - **Class:** Blueprint for objects.
-    
 - **Object:** Instance of a class.
-    
 - **Constructor:** Initializes object state.
-    
 - **Message Passing:** Communication between objects via methods.
 
 
 ---
----
 
-# 2. Basics of Java / C# / Python Language
+### 2. Basics of Java / C# / Python Language
 
-## 1. Introduction
+##### **2.1 Introduction**
 
 - **Java**: Object-oriented, platform-independent (JVM-based).
-    
 - **C#**: Object-oriented, component-based, runs on .NET Framework / .NET Core.
-    
 - **Python**: Interpreted, dynamically typed, easy syntax, supports multiple paradigms.
-    
 
-## 2. Program Structure
+##### **2.2 Program Structure**
 
 **Java**
-
 ```java
 class Main {
     public static void main(String[] args) {
@@ -133,7 +98,6 @@ class Main {
 ```
 
 **C#**
-
 ```csharp
 using System;
 class Program {
@@ -144,12 +108,11 @@ class Program {
 ```
 
 **Python**
-
 ```python
 print("Hello World")
 ```
 
-## 3. Data Types
+##### **2.3 Data Types**
 
 |Type Category|Java|C#|Python|
 |---|---|---|---|
@@ -159,42 +122,31 @@ print("Hello World")
 |Boolean|boolean|bool|bool|
 |String|String|string|str|
 
-## 4. Variables & Constants
+##### **2.4 Variables & Constants**
 
 - **Declaration**
-    
     - Java: `int x = 10;`
-        
     - C#: `int x = 10;`
-        
     - Python: `x = 10`
         
 - **Constants**
-    
     - Java: `final int X = 10;`
-        
     - C#: `const int X = 10;`
-        
     - Python: conventionally uppercase: `X = 10`
         
 
-## 5. Operators
+##### **2.5 Operators**
 
 - **Arithmetic:** `+ - * / %`
-    
 - **Relational:** `== != > < >= <=`
-    
 - **Logical:** `&& || !` (Java/C#), `and or not` (Python)
-    
 - **Assignment:** `= += -= *= /=`
-    
 - **Increment/Decrement:** `++ --` (Java/C# only)
     
 
-## 6. Control Statements
+##### **2.6 Control Statements**
 
 **If-Else**
-
 ```java
 if(x > 0) System.out.println("Positive");
 else System.out.println("Negative");
@@ -213,7 +165,6 @@ else:
 ```
 
 **Looping**
-
 ```java
 for(int i=0;i<5;i++) System.out.println(i);
 ```
@@ -227,62 +178,49 @@ for i in range(5):
     print(i)
 ```
 
-## 7. Functions / Methods
+##### **2.7 Functions / Methods**
 
 - **Java**
-    
-
 ```java
 int add(int a, int b){ return a + b; }
 ```
 
 - **C#**
-    
-
 ```csharp
 int Add(int a, int b){ return a + b; }
 ```
 
 - **Python**
-    
-
 ```python
 def add(a, b):
     return a + b
 ```
 
-## 8. Input / Output
+##### **2.8 Input / Output**
 
 - **Java:** `Scanner sc = new Scanner(System.in); int x = sc.nextInt();`
-    
 - **C#:** `int x = Convert.ToInt32(Console.ReadLine());`
-    
 - **Python:** `x = int(input())`
     
 
-## 9. Comments
+##### **2.9 Comments**
 
 - **Single-line:** `//` (Java/C#), `#` (Python)
-    
 - **Multi-line:** `/*...*/` (Java/C#), `'''...'''` or `"""..."""` (Python)
-    
 
-## 10. Exception Handling
+##### **2.10 Exception Handling**
 
 **Java**
-
 ```java
 try { int a=5/0; } catch(Exception e){ System.out.println(e); }
 ```
 
 **C#**
-
 ```csharp
 try { int a=5/0; } catch(Exception e){ Console.WriteLine(e.Message); }
 ```
 
 **Python**
-
 ```python
 try: a=5/0
 except Exception as e: print(e)
@@ -290,28 +228,20 @@ except Exception as e: print(e)
 
 
 ---
----
 
-# 3. Working with User Interfaces
+### 3. Working with User Interfaces
 
-## 1. Introduction
+##### **3.1 Introduction**
 
 User Interface (UI) enables interaction between user and application. In Java, C#, and Python, UI can be **Graphical (GUI)** or **Web-based**.
 
----
+##### **3.2 Java – Swing & JavaFX**
 
-## 2. Java – Swing & JavaFX
-
-### a) Swing
-
+**a) Swing**
 - Part of `javax.swing` package.
-    
 - Lightweight, platform-independent GUI toolkit.
-    
 - Components: `JFrame`, `JButton`, `JLabel`, `JTextField`.  
     **Example**
-    
-
 ```java
 import javax.swing.*;
 class MyFrame {
@@ -327,14 +257,10 @@ class MyFrame {
 }
 ```
 
-### b) JavaFX
-
+**b) JavaFX**
 - Modern GUI framework replacing Swing.
-    
 - Uses FXML and CSS for UI design.  
     **Example**
-    
-
 ```java
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -350,18 +276,12 @@ public class Main extends Application {
 }
 ```
 
----
+##### **3.3 C# – Windows Forms & WPF**
 
-## 3. C# – Windows Forms & WPF
-
-### a) Windows Forms
-
+**a) Windows Forms**
 - Found in `System.Windows.Forms` namespace.
-    
 - Event-driven, drag-and-drop support in Visual Studio.  
     **Example**
-    
-
 ```csharp
 using System;
 using System.Windows.Forms;
@@ -378,30 +298,24 @@ class MyForm : Form {
 }
 ```
 
-### b) WPF (Windows Presentation Foundation)
+**b) WPF (Windows Presentation Foundation)**
 
 - Uses XAML for UI, supports data binding and animation.  
     **Example**
-    
-
 ```xml
 <Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
   <Button Content="Click Me" Width="100" Height="40"/>
 </Window>
 ```
 
----
 
-## 4. Python – Tkinter & PyQt
+##### **3.4 Python – Tkinter & PyQt**
 
-### a) Tkinter
+**a) Tkinter**
 
 - Built-in Python GUI library.
-    
 - Uses widgets like `Button`, `Label`, `Entry`, `Frame`.  
     **Example**
-    
-
 ```python
 import tkinter as tk
 win = tk.Tk()
@@ -410,14 +324,11 @@ btn.pack()
 win.mainloop()
 ```
 
-### b) PyQt / PySide
+**b) PyQt / PySide**
 
 - Advanced GUI library with Qt framework.
-    
 - Supports UI Designer tool.  
     **Example**
-    
-
 ```python
 from PyQt5.QtWidgets import QApplication, QPushButton
 app = QApplication([])
@@ -426,36 +337,26 @@ btn.show()
 app.exec_()
 ```
 
----
-
-## 5. Common Concepts
+##### **3.5 Common Concepts**
 
 - **Event Handling:** Actions triggered by user inputs (click, keypress).
-    
 - **Layout Managers:** Arrange UI components (e.g., `FlowLayout`, `GridLayout`, `pack()` etc.).
-    
 - **MVC Pattern:** Separates logic (Model), interface (View), and control (Controller).
-    
 - **Threading in UI:** Long-running tasks should run on separate threads to keep UI responsive.
     
-
----
 ---
 
 
-# 4. Introduction to Threads in Java
+### 4. Introduction to Threads in Java
 
-## 1. Definition
+##### **4.1 Definition**
 
 A **thread** is the smallest unit of a process that can run independently.  
 Multithreading allows concurrent execution of two or more threads to maximize CPU utilization.
 
----
+##### **4.2 Thread Creation Methods**
 
-## 2. Thread Creation Methods
-
-### a) Extending `Thread` class
-
+**a) Extending `Thread` class**
 ```java
 class MyThread extends Thread {
     public void run(){
@@ -469,8 +370,7 @@ class MyThread extends Thread {
 }
 ```
 
-### b) Implementing `Runnable` interface
-
+**b) Implementing `Runnable` interface**
 ```java
 class MyRunnable implements Runnable {
     public void run(){
@@ -484,24 +384,15 @@ class MyRunnable implements Runnable {
 }
 ```
 
----
 
-## 3. Thread Life Cycle
-
+##### **4.3 Thread Life Cycle**
 1. **New** – Thread created but not started (`new Thread()`).
-    
 2. **Runnable** – Ready to run after `start()`.
-    
 3. **Running** – Scheduler picks the thread to execute `run()`.
-    
 4. **Blocked/Waiting** – Waiting for resource or synchronization.
-    
 5. **Terminated** – After execution completes.
-    
 
----
-
-## 4. Thread Methods
+##### **4.4 Thread Methods**
 
 |Method|Description|
 |---|---|
@@ -513,25 +404,16 @@ class MyRunnable implements Runnable {
 |`setPriority(int p)`|Sets priority (1–10)|
 |`getName()` / `setName()`|Gets or sets thread name|
 
----
+##### **4.5 Thread Priority**
 
-## 5. Thread Priority
-
-- Range: `1 (MIN_PRIORITY)` to `10 (MAX_PRIORITY)`
-    
+- Range: `1 (MIN_PRIORITY)` to `10 (MAX_PRIORITY)
 - Default: `5 (NORM_PRIORITY)`
-    
 - Used by scheduler for execution order, but not guaranteed.
-    
 
----
-
-## 6. Synchronization
+##### **4.6 Synchronization**
 
 - Prevents multiple threads from accessing shared resources simultaneously.  
     **Example**
-    
-
 ```java
 class Counter {
     int count = 0;
@@ -540,63 +422,42 @@ class Counter {
 ```
 
 - `synchronized` ensures thread-safe access.
-    
 
----
-
-## 7. Inter-thread Communication
+##### **4.7 Inter-thread Communication**
 
 - Methods: `wait()`, `notify()`, `notifyAll()` (used within synchronized blocks).
-    
 - Used for coordination between threads.
-    
 
----
-
-## 8. Daemon Threads
+##### **4.8. Daemon Threads**
 
 - Background threads that terminate when all user threads finish.
-    
-
 ```java
 Thread t = new Thread(...);
 t.setDaemon(true);
 t.start();
 ```
 
----
 
-## 9. Advantages of Multithreading
+##### **4.9 Advantages of Multithreading**
 
 - Better CPU utilization
-    
 - Faster program execution
-    
 - Responsive UI
-    
 - Simultaneous background processing
     
-
-
----
 ---
 
-# 5. Database Connectivity using Java / C# / Python
+### 5. Database Connectivity using Java / C# / Python
 
-## 1. Introduction
+##### **5.1 Introduction**
 
 Database connectivity enables interaction between programs and databases (MySQL, SQL Server, Oracle, etc.) through APIs or libraries for CRUD operations (Create, Read, Update, Delete).
 
----
+##### **5.2 Java – JDBC (Java Database Connectivity)**
 
-## 2. Java – JDBC (Java Database Connectivity)
-
-### a) Steps
-
+**a) Steps**
 1. **Import package** – `import java.sql.*;`
-    
 2. **Load driver** – `Class.forName("com.mysql.cj.jdbc.Driver");`
-    
 3. **Establish connection**
     
     ```java
@@ -604,34 +465,29 @@ Database connectivity enables interaction between programs and databases (MySQL,
         "jdbc:mysql://localhost:3306/testdb","root","password");
     ```
     
-4. **Create statement**
-    
+1. **Create statement**
     ```java
     Statement st = con.createStatement();
     ```
     
-5. **Execute query**
-    
+2. **Execute query**
     ```java
     ResultSet rs = st.executeQuery("SELECT * FROM student");
     ```
     
-6. **Process results**
-    
+3. **Process results**
     ```java
     while(rs.next())
         System.out.println(rs.getInt(1)+" "+rs.getString(2));
     ```
     
-7. **Close connection**
-    
+4. **Close connection**
     ```java
     con.close();
     ```
     
 
-### b) PreparedStatement Example
-
+**b) PreparedStatement Exampl**e
 ```java
 PreparedStatement ps = con.prepareStatement("INSERT INTO student VALUES(?,?)");
 ps.setInt(1,101);
@@ -639,16 +495,13 @@ ps.setString(2,"Gaurav");
 ps.executeUpdate();
 ```
 
----
 
-## 3. C# – ADO.NET
+##### **5.3 C# – ADO.NET**
 
-### a) Steps
+**a) Steps**
 
 1. **Import namespace** – `using System.Data.SqlClient;`
-    
 2. **Establish connection**
-    
     ```csharp
     SqlConnection con = new SqlConnection(
         "Data Source=SERVER;Initial Catalog=TestDB;Integrated Security=True");
@@ -656,7 +509,6 @@ ps.executeUpdate();
     ```
     
 3. **Execute command**
-    
     ```csharp
     SqlCommand cmd = new SqlCommand("SELECT * FROM student", con);
     SqlDataReader dr = cmd.ExecuteReader();
@@ -665,14 +517,12 @@ ps.executeUpdate();
     ```
     
 4. **Close connection**
-    
     ```csharp
     con.Close();
     ```
     
 
-### b) Using Parameters
-
+**b) Using Parameters**
 ```csharp
 SqlCommand cmd = new SqlCommand("INSERT INTO student VALUES(@id,@name)", con);
 cmd.Parameters.AddWithValue("@id", 101);
@@ -680,12 +530,10 @@ cmd.Parameters.AddWithValue("@name", "Gaurav");
 cmd.ExecuteNonQuery();
 ```
 
----
 
-## 4. Python – DB API (Using MySQL Connector / SQLite3)
+##### **5.4 Python – DB API (Using MySQL Connector / SQLite3)**
 
-### a) MySQL Connector Example
-
+**a) MySQL Connector Example**
 ```python
 import mysql.connector
 con = mysql.connector.connect(host="localhost", user="root", password="1234", database="testdb")
@@ -696,15 +544,13 @@ for row in cur:
 con.close()
 ```
 
-### b) Parameterized Query
-
+**b) Parameterized Query**
 ```python
 cur.execute("INSERT INTO student VALUES(%s, %s)", (101, "Gaurav"))
 con.commit()
 ```
 
-### c) SQLite Example
-
+**c) SQLite Example**
 ```python
 import sqlite3
 con = sqlite3.connect("test.db")
@@ -717,17 +563,12 @@ for row in cur.execute("SELECT * FROM student"):
 con.close()
 ```
 
----
 
-## 5. Common Concepts
+##### **5.5 Common Concepts**
 
 - **Connection Object:** Represents DB connection.
-    
 - **Statement / Cursor / Command:** Executes SQL queries.
-    
 - **ResultSet / Reader:** Holds query results.
-    
 - **Prepared/Parameterized Statements:** Prevent SQL injection.
-    
 - **Transaction Control:** `commit()`, `rollback()` for consistency.
     

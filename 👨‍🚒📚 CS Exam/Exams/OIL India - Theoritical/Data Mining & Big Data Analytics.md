@@ -1,16 +1,4 @@
 
-# Data Mining and Big Data Analytics
-
-|     | Topics                                      | Subtopics                        |
-| --- | ------------------------------------------- | -------------------------------- |
-| 1   | Data Cleaning & Processing                  | Preprocessing and transformation |
-| 2   | Association & Correlation                   | Apriori, FP-Growth               |
-| 3   | Clustering                                  | K-Means, Hierarchical            |
-| 4   | Classification                              | Decision trees, SVM              |
-| 5   | Big Data                                    | Concepts and applications        |
-| 6   | Big Data Tools                              | Hadoop, Spark, MapReduce         |
-| 7   | Big Data Application Using Machine Learning |                                  |
-| 8   | Analytics Engines                           |                                  |
 ### 1. Data Cleaning and Processing
 
 ##### **1.1 Data Cleaning**

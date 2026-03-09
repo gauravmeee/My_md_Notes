@@ -1,14 +1,4 @@
 
-# Cloud Computing
-
-|     | Topics                        | Subtopics                  |
-| --- | ----------------------------- | -------------------------- |
-| 1   | Introduction                  | Characteristics and models |
-| 2   | Architecture & Virtualization | IaaS, PaaS, SaaS           |
-| 3   | Serverless & Microservices    | Concepts and use cases     |
-| 4   | Cloud Providers               | AWS, Azure, GCP basics     |
-|     |                               |                            |
-
 ### 1. Introduction to Cloud Computing
 
 **Definition:**  

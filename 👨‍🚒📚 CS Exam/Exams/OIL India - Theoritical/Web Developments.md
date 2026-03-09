@@ -1,17 +1,4 @@
 
-# Web Development
-
-|     | Topics                        | Subtopics                                                                           |
-| --- | ----------------------------- | ----------------------------------------------------------------------------------- |
-| 1   | Frontend                      | HTML, CSS, JS                                                                       |
-| 2   | HTTP                          | HTTP Methods: GET, POST, PUT, DELETE<br>HTTP Response Header<br>HTTP Request Header |
-| 3   | Storage                       | Local, Session, Cookie                                                              |
-| 4   | Server-side                   | NodeJS, Java, Python, C#                                                            |
-| 5   | CRUD Operations               | Database interaction                                                                |
-| 6   | REST APIs                     | Authentication, Rate limiting                                                       |
-| 7   | Rate Limiting                 |                                                                                     |
-| 8   | Authentication, Authorisation |                                                                                     |
-
 ### 1. Frontend
 
 **Integration Flow:**  
