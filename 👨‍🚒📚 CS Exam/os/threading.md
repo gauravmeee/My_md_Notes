@@ -21,8 +21,8 @@ layout:
 
 # Threading
 
-* <mark>**Thread** = lightweight execution== unit inside a process
-* A thread is a **lightweight subprocess** inside a process that ==**shares `code, data, and OS resources`** with other threads== of the same process
+* **Thread** <mark>lightweight execution</mark> unit inside a process
+* A thread is a **lightweight subprocess** inside a process that **<mark>shares `code, data, and OS resources`</mark>** with other threads of the same process
 * A **process** provides _resource ownership_, while a **thread** provides _CPU execution flow_
 
 #### **Why Threads?**
@@ -84,8 +84,8 @@ A multithreaded process contains:
 
 **Private to each thread:** ⭐
 
-* <mark>**Program Counter (PC)**== (next instruction)
-* <mark>**CPU registers**==
+* **<mark>Program Counter (PC)**</mark> (next instruction)
+* <mark>**CPU registers**</mark>
 * <mark>**Stack**== (function calls, local variables)
 * **Thread ID**
 * **Thread state**
