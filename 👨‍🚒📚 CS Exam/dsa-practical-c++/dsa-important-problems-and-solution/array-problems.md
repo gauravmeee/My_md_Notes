@@ -81,7 +81,7 @@ void markCol(vector<vector<int>> &matrix, int n, int m, int j) {
 }
 ```
 
-TC : O(n \* m )(n + m) + O(n + m)
+TC : `O(n * m )(n + m) + O(n + m)`
 
 > Better Approach
 
@@ -121,12 +121,11 @@ vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
 }
 ```
 
-TC : 2\* (n\* m) SC: O(n + m)
+TC : `2 * (n * m)` , SC: `O(n + m)`
 
 > Optimal
 
 ```cpp
-\
 vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
 
     // int row[n] = {0}; --> matrix[..][0]
@@ -187,4 +186,4 @@ vector<vector<int>> zeroMatrix(vector<vector<int>> &matrix, int n, int m) {
 }
 ```
 
-TC : 2\* O((n-1)\* (m-1)) + O(n) + O(m) -> 2 \* O(n\* m) SC : O(1)
+TC : `2 * O((n-1) * (m-1)) + O(n) + O(m) -> 2 * O(n* m)` , SC : `O(1)`

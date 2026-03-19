@@ -119,7 +119,7 @@ TC : 1 + 2 + 3 +. . . + n = n(n+1)/2 = (n^2)/2 + n/2
 
 ***
 
-\## 2. Bubble Sort ^2 - Push the Maximum to the last, by adjacent swaps (adjacent swap is the key over here)
+### 2. Bubble Sort ^2 - Push the Maximum to the last, by adjacent swaps (adjacent swap is the key over here)
 
 > **Average, Worst TC : `O(n^2)`** **Best TC : `O(n)`** SC: O(1)
 
