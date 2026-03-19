@@ -27,10 +27,10 @@ layout:
 
 A **compiler** is a software that primarily performs two main tasks:
 
-* **1. <mark>Translation**:</mark> It converts a program written in a **high-level language** (e.g., C, C++, Java) into a **low-level language** (e.g., assembly language, machine code). Compilers are often referred to as "translators" because they translate one type of language to another.
-* **2. <mark>Error Detection**:</mark> It detects various errors present in the source program during the translation process.
+* **1. <mark>Translation:</mark>** It converts a program written in a **high-level language** (e.g., C, C++, Java) into a **low-level language** (e.g., assembly language, machine code). Compilers are often referred to as "translators" because they translate one type of language to another.
+* **2. <mark>Error Detection:</mark>** It detects various errors present in the source program during the translation process.
 
-A compiler is <mark>not a small piece of software</mark>; it can consist of millions of lines of code. To manage this complexity, the total task of a <mark>compiler is divided into **six different sub-programs</mark> or phases**. Designing a compiler involves developing each of these sub-programs.
+A compiler is <mark>not a small piece of software</mark>; it can consist of millions of lines of code. To manage this complexity, the total task of a <mark>compiler is divided into</mark> **six different sub-programs or phases**. Designing a compiler involves developing each of these sub-programs.
 
 ### **2. Phases of a Compiler**
 
@@ -38,7 +38,7 @@ Each phase <mark>takes a specific input</mark> and <mark>produces a specific out
 
 Here are the **six phases** of a compiler:
 
-* **1. Lexical Analysis (<mark>Scanner)**</mark>:
+* **1. Lexical Analysis (<mark>Scanner</mark>)**:
   * **Input**: High-level language source code.
   * **Output**: **<mark>Tokens</mark>**.
   * **Primary Function**: Reads the source program <mark>character by character</mark>, groups them into meaningful units called tokens, and detects **lexical errors**.
