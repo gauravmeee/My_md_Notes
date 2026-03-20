@@ -1,6 +1,5 @@
 
-# Introduction
-
+### 1. Introduction
 
 A **Data Warehouse (DW)** is a centralized repository that stores large volumes of historical and current data from multiple sources, optimized for **analysis and reporting**, not transaction processing.
 
@@ -38,8 +37,9 @@ A **Data Warehouse (DW)** is a centralized repository that stores large volumes 
 - Complexity in ETL and data integration.
 - Requires careful design to handle large-scale queries efficiently.
 
+---
 
-## ETL, Data Cleaning, Data Cube, Data Model
+### 2. ETL, Data Cleaning, Data Cube, Data Model
 
 
 ##### **ETL (Extract, Transform, Load)**

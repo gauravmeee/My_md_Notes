@@ -35,10 +35,10 @@ layout:
 {% endcontent-ref %}
 
 {% content-ref url="more/programming-in-c++-js-py/c++-vs-python-vs-javascript.md" %}
-[c++-vs-python-vs-javascript.md](more/programming-in-c++-js-py/c++-vs-python-vs-javascript.md)
+[c++-vs-python-vs-javascript.md](c++-vs-python-vs-javascript.md)
 {% endcontent-ref %}
 
 {% content-ref url="more/programming-in-c++-js-py/pseudocode-pascal-notations.md" %}
-[pseudocode-pascal-notations.md](more/programming-in-c++-js-py/pseudocode-pascal-notations.md)
+[pseudocode-pascal-notations.md](pseudocode-pascal-notations.md)
 {% endcontent-ref %}
 

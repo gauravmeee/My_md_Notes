@@ -11,20 +11,17 @@ Cloud Computing is a model for enabling on-demand network access to a shared poo
 3. **Resource pooling:** Resources are shared among multiple users using multi-tenancy.
 4. **Rapid elasticity:** Resources can be scaled up or down quickly according to demand.
 5. **Measured service:** Resource usage is monitored, controlled, and billed based on consumption.
-    
 
 **Service Models:**
 1. **Infrastructure as a Service (IaaS):** Provides virtualized hardware resources (e.g., AWS EC2, Google Compute Engine).
 2. **Platform as a Service (PaaS):** Provides runtime environments and development tools (e.g., Google App Engine, Microsoft Azure).
 3. **Software as a Service (SaaS):** Delivers applications over the internet (e.g., Gmail, Salesforce).
-    
 
 **Deployment Models:**
 1. **Public Cloud:** Services offered over the internet to the general public (e.g., AWS, Azure).
 2. **Private Cloud:** Exclusive cloud infrastructure for a single organization.
 3. **Hybrid Cloud:** Combination of public and private clouds for flexibility.
 4. **Community Cloud:** Shared by several organizations with common concerns.
-    
 
 **Advantages:**
 - Cost-efficient (pay-per-use)
@@ -52,142 +49,82 @@ Cloud Computing is a model for enabling on-demand network access to a shared poo
 
 ## 2. Architecture & Virtualization
 
----
-
 ### 2.1 Cloud Architecture
 
 **Definition:**  
+
 Cloud architecture refers to the components and subcomponents required for cloud computing. These components typically consist of a **front-end platform (client side)**, **back-end platform (cloud side)**, a **cloud-based delivery model**, and a **network**.
 
----
+##### **Core Components of Cloud Architecture**
 
-### **Core Components of Cloud Architecture**
-
-#### 1. Front-End (Client Infrastructure)
-
+**1. Front-End (Client Infrastructure)**
 - User devices (laptops, smartphones, thin clients)
-    
 - Web browsers or cloud applications
-    
 - Client-side interfaces and APIs
-    
 
-#### 2. Back-End (Cloud Infrastructure)
-
+**2. Back-End (Cloud Infrastructure)**
 - Servers (compute resources)
-    
 - Storage systems
-    
 - Virtual machines
-    
 - Databases
-    
 - Application services
-    
 - Management & security mechanisms
-    
 
-#### 3. Cloud Delivery Models
-
+**3. Cloud Delivery Models**
 - IaaS
-    
 - PaaS
-    
 - SaaS
-    
 
-#### 4. Network
-
+**4. Network**
 - Internet connectivity
-    
 - VPN
-    
 - Load balancers
-    
 - Firewalls
-    
 
----
 
-### **Layered Cloud Architecture**
+##### **Layered Cloud Architecture**
 
 Cloud systems are generally divided into layers:
 
 1. **Physical Layer**
-    
     - Data centers
-        
     - Physical servers
-        
     - Networking hardware
-        
 2. **Virtualization Layer**
-    
     - Hypervisors
-        
-    - Virtual machines
-        
+    - Virtual machine
     - Containers
-        
 3. **Service Layer**
-    
     - IaaS, PaaS, SaaS
-        
 4. **Application Layer**
-    
     - End-user applications
-        
 
----
 
-### **Types of Cloud Architecture**
+**Types of Cloud Architecture**
 
 1. **Monolithic Architecture**
-    
     - Single unified application
-        
     - All components tightly coupled
-        
 2. **Service-Oriented Architecture (SOA)**
-    
     - Services communicate via APIs
-        
     - Reusable service components
-        
 3. **Microservices Architecture**
-    
     - Small, independent services
-        
     - Independently deployable
-        
 
----
 
-### **Advantages of Cloud Architecture**
-
+**Advantages of Cloud Architecture**
 - High scalability
-    
 - Fault tolerance
-    
 - Resource optimization
-    
 - Flexibility in deployment
-    
 - Cost efficiency
-    
 
----
-
-### **Challenges**
-
+**Challenges**
 - Security management
-    
 - Network latency
-    
 - Complex architecture design
-    
 - Compliance requirements
-    
 
 ---
 
