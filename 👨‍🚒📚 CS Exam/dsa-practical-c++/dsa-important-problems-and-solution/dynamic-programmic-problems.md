@@ -568,3 +568,6 @@ int mazeObstacles(int n, int m, vector< vector< int> > &mat) {
     return mat[n-1][m-1];
 }
 ```
+
+
+### [Construct The Array](https://www.hackerrank.com/challenges/construct-the-array/problem)

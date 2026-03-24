@@ -85,7 +85,7 @@ def nextGreaterElement(nums1, nums2):
     return result
 ```
 
-TC: $O(n+m)$, SC:$O(n+m)$ n, m size of nums2 and nums1
+TC: `O(n+m)`, SC: `O(n+m)` `n`, `m` size of `nums2` and `nums1`
 
 ***
 
@@ -121,6 +121,8 @@ int solution(string &S) {
 
 ***
 
+## [Fish](https://app.codility.com/programmers/lessons/7-stacks_and_queues/fish/)
+
 **My Solution** ⭐
 
 ```cpp
@@ -155,7 +157,7 @@ int solution(vector<int> &A, vector<int> &B) {
 * Use a **stack to store downstream fish only** as we iterate **left to right**.
 * When we encounter an **upstream fish**, we resolve fights against fish in the stack.
 
-**Correct Approach:**
+**Correct Approach:** ⭐
 
 ```cpp
 int solution(vector<int> &A, vector<int> &B) {
@@ -178,3 +180,4 @@ int solution(vector<int> &A, vector<int> &B) {
 ```
 
 **TC:** `O(N)` — each fish enters and leaves the stack at most once.
+
