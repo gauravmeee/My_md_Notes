@@ -1,6 +1,6 @@
 ---
-description: Discrete Mathematics
-icon: list-check
+description: Made By Me 💚
+icon: dot
 layout:
   width: wide
   title:
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# Discrete Mathematics Syllabus
+# Macro in C
 

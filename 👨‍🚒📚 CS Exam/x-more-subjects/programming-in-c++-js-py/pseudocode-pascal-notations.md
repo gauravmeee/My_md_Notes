@@ -1,6 +1,5 @@
 ---
-description: Discrete Mathematics
-icon: list-check
+icon: dot
 layout:
   width: wide
   title:
@@ -19,5 +18,5 @@ layout:
     visible: true
 ---
 
-# Discrete Mathematics Syllabus
+# Pseudocode Pascal notations
 

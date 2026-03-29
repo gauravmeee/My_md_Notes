@@ -1,6 +1,6 @@
 ---
-description: Discrete Mathematics
-icon: list-check
+description: C++ Code to Python & JavaScript
+icon: dot
 layout:
   width: wide
   title:
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# Discrete Mathematics Syllabus
+# C++ vs Python vs JavaScript
 

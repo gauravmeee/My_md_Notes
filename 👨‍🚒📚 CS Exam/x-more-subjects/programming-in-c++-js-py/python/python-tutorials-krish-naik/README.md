@@ -1,8 +1,8 @@
 ---
-description: Discrete Mathematics
-icon: list-check
+description: Made from Krish Naik's Tutorial ▶️
+icon: dot
 layout:
-  width: wide
+  width: default
   title:
     visible: true
   description:
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# Discrete Mathematics Syllabus
+# Python Tutorials (Krish Naik)
 

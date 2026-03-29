@@ -1,6 +1,6 @@
 ---
-description: Discrete Mathematics
-icon: list-check
+description: Made from Krish Naik's Tutorial ▶️
+icon: dot
 layout:
   width: wide
   title:
@@ -19,5 +19,5 @@ layout:
     visible: true
 ---
 
-# Discrete Mathematics Syllabus
+# Shallow Copy Vs Deep Copy in Python (Krish Naik)
 
