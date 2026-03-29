@@ -199,7 +199,7 @@ X  0 1 2 3 ...... n
   [                ]
 ```
 
-\*Changes: \*
+*Changes:*
 
 ```cpp
 temp1[] : arr[0 -> n-1] // skipped last

@@ -21,7 +21,8 @@ layout:
 
 # Dynamic Programmic Problems
 
-## [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+---
+## [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) (Actually it is Greedy Problem, Framed as DP)
 
 ```cpp
 int maxProfit(vector<int>& prices) {
@@ -36,6 +37,8 @@ int maxProfit(vector<int>& prices) {
 	return maxPro;
 }
 ```
+
+---
 
 ## [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/) ⭐
 
@@ -68,11 +71,14 @@ Total Time Complexity : O(r!) + O(c!) + O(r-c)!
 
 Note r>=c, because for any `rth` column, there are only `r` no. of columns, so we could choose any columns from starting up-to `r`
 
-let r = 5, c =3 ----> ${}^{5-1}C\_{3-1} = \frac{4!}{2!(4-2)!} = \frac{&#x34;_&#x33;}{&#x32;_&#x31;}$
+let $r = 5, c = 3 \Rightarrow \binom{5-1}{3-1} = \frac{4!}{2!(4-2)!} = \frac{4 \cdot 3}{2 \cdot 1}$
 
-Similarly r=7, c=4 ----> $\frac{&#x36;_&#x34;_&#x33;}{&#x33;_&#x32;_&#x31;}$
+$r = 7, c = 4 \Rightarrow \frac{6 \cdot 5 \cdot 4}{3 \cdot 2 \cdot 1}$
 
-Conclusion: for any `r` and `c` $\frac{(r-1)_(r-2)_(r-3)....(C-1)_times}{&#x31;_&#x32;\*3 ....(C-1)\*times}$ i.e $\frac{r-1}{1} \* \frac{r-2}{2} \* \frac{r-3}{3} ... (c-1)\*times$
+Conclusion:
+$$\frac{(r-1)(r-2)(r-3)\dots}{1 \cdot 2 \cdot 3 \dots}
+= \frac{r-1}{1} \cdot \frac{r-2}{2} \cdot \frac{r-3}{3} \dots$$
+
 
 ```cpp
 //pass nCr(r-1, c-1)
@@ -85,7 +91,6 @@ int nCr(int n, int r){
 }
 ```
 
-***
 
 1. Doubt : why this will not work if we update `res` in for loop `res=res/(r-1)` i.e. `r-i` decreasing in each iteration.
 
@@ -142,7 +147,6 @@ n * (n-1) * (n-2).... (n-r+1)
 r * (r-1) * (r-2) .... 1       
 ```
 
-***
 
 Total Time Complexity : O(c) ✅ and SC:O(1)
 
@@ -423,7 +427,7 @@ Memoisation by me
 int solve(int m, int n, vector<vector<int>>& dp){
 
     if(m<1 or n<1) return 0;
-    if(dp[m][n]!=-1) return dp[m][n];
+    if(dp[m][n]!= -1) return dp[m][n];
   
     int l = solve(m-1,n,dp);
     int r = solve(m,n-1,dp);
@@ -571,3 +575,45 @@ int mazeObstacles(int n, int m, vector< vector< int> > &mat) {
 
 
 ### [Construct The Array](https://www.hackerrank.com/challenges/construct-the-array/problem)
+
+Space Optimisation
+
+Me
+```cpp
+long countArray(int n, int k, int x) {
+    long mod = 1e9 + 7;
+    long same = 0, diff = 0;
+    if (x == 1) same = 1;
+    else diff = 1;
+    for (int i = 1; i < n; i++) {
+        long prev_same = same;
+        long prev_diff = diff;
+        same = prev_diff%mod;
+        diff = ((prev_same * (k - 1))%mod + (prev_diff * (k - 2))%mod)%mod;
+
+    }
+    return same;
+}
+```
+TC - O(n) SC - O(1)
+
+GPT 
+```cpp
+long countArray(int n, int k, int x) {
+    const long MOD = 1e9 + 7;
+
+    long same = 1;   // a[1] = 1
+    long diff = 0;
+
+    for (int i = 2; i <= n; i++) {
+        long new_same = diff % MOD;
+        long new_diff = (same * (k - 1) % MOD + diff * (k - 2) % MOD) % MOD;
+
+        same = new_same;
+        diff = new_diff;
+    }
+
+    return (x == 1) ? same : diff;
+}
+```
+TC - O(n) SC - O(1)
