@@ -21,6 +21,47 @@ layout:
 
 # Array Problems
 
+#### QuickSort
+
+```cpp
+void quicksort(int arr[], int low, int high) {
+    if(low >= high) return;
+    int pivot = arr[high], i = low;
+    for(int j = low; j < high; j++) {
+        if(arr[j] < pivot) swap(arr[i++], arr[j]);
+    }
+    swap(arr[i], arr[high]);
+    quicksort(arr, low, i - 1);
+    quicksort(arr, i + 1, high);
+}
+```
+
+#### Kth Largest Element
+
+```cpp
+int kthLargest(vector<int>& arr, int k) {
+    priority_queue<int, vector<int>, greater<int>> pq;
+    for(int num : arr) {
+        pq.push(num);
+        if(pq.size() > k) pq.pop();
+    }
+    return pq.top();
+}
+```
+
+#### Rotate NxN Matrix 90°
+
+```cpp
+void rotate(vector<vector<int>>& mat) {
+    int n = mat.size();
+    for(int i = 0; i < n; i++)
+        for(int j = i; j < n; j++)
+            swap(mat[i][j], mat[j][i]);
+    for(int i = 0; i < n; i++)
+        reverse(mat[i].begin(), mat[i].end());
+}
+```
+
 ## [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
 
 > Brute Force

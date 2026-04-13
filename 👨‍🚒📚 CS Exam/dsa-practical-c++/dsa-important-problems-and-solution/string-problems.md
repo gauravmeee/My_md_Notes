@@ -21,6 +21,73 @@ layout:
 
 # String Problems
 
+#### Longest Palindromic Substring
+
+```cpp
+string longestPalindrome(string s) {
+    int start = 0, maxLen = 1, n = s.length();
+    for(int i = 0; i < n; i++) {
+        int l = i, r = i;
+        while(l >= 0 && r < n && s[l] == s[r]) {
+            if(r - l + 1 > maxLen) {
+                start = l;
+                maxLen = r - l + 1;
+            }
+            l--; r++;
+        }
+        l = i, r = i + 1;
+        while(l >= 0 && r < n && s[l] == s[r]) {
+            if(r - l + 1 > maxLen) {
+                start = l;
+                maxLen = r - l + 1;
+            }
+            l--; r++;
+        }
+    }
+    return s.substr(start, maxLen);
+}
+```
+
+#### String Compression
+
+```cpp
+string compress(string s) {
+    string res = "";
+    int i = 0, n = s.length();
+    while(i < n) {
+        char ch = s[i];
+        int count = 0;
+        while(i < n && s[i] == ch) {
+            count++; i++;
+        }
+        res += ch + to_string(count);
+    }
+    return res;
+}
+```
+
+#### Character Frequency
+
+```cpp
+void freq(string s) {
+    unordered_map<char, int> mp;
+    for(char c : s) mp[c]++;
+    for(auto it : mp)
+        cout << it.first << ": " << it.second << "\n";
+}
+```
+
+#### Reverse String Without `strrev`
+
+```c
+void reverse(char* str) {
+    int n = strlen(str);
+    for(int i = 0; i < n/2; i++)
+        swap(str[i], str[n-i-1]);
+}
+```
+
+
 ## [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
 
 ```

@@ -1,5 +1,7 @@
 ### [Add Binary](https://leetcode.com/problems/add-binary/)
 
+**Arithmetic Version**
+
 ```cpp
 class Solution {
 public:
@@ -24,12 +26,8 @@ public:
     }
 };
 ```
-
-- Time: `O(max(n, m))`, Space: `O(max(n, m))`
     
-**In Bitwise Style**
-
-
+**Bitwise Version**
 ```cpp
 class Solution {
 public:
@@ -61,3 +59,51 @@ public:
 
 - `sumBit = a ⊕ b ⊕ carry`
 - `carry = (a & b) | (a & carry) | (b & carry)` ← full adder
+
+- Time: `O(max(n, m))`, 
+- Space: `O(max(n, m))
+
+### [Reverse Bits](https://leetcode.com/problems/reverse-bits/)
+
+**Arithmetic Version**
+```cpp
+class Solution {
+public:
+    int reverseBits(int n) {
+        int ans = 0;
+        for(int i = 0; i < 32; i++) {
+            int bit = n & 1;
+            ans = (ans * 2) + bit;
+            n = n >> 1;
+        }
+        return ans;
+    }
+};
+```
+- `ans = (ans * 2) + bit;`
+	- `ans * 2` → same as left shift
+	- `+ bit` → add extracted bit
+
+**Bitwise Version**
+```cpp
+class Solution {
+public:
+    int reverseBits(int n) {
+        int ans = 0;
+        for(int i = 0; i < 32; i++) {
+            int bit = n & 1;
+            ans = (ans << 1) | bit;
+            n >>= 1;
+        }
+        return ans;
+    }
+};
+```
+
+- `ans = (ans << 1) | bit;`
+	- `ans << 1` → shift left (multiply by 2)
+	- `| bit` → insert extracted bit at LSB
+
+
+- **Time Complexity:** `O(32) ≈ O(1)`
+- **Space Complexity:** `O(1)`
