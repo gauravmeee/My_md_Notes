@@ -25,12 +25,12 @@ layout:
 
 **32-bit Data Types**
 
-| Data Type        | Power of 2   | Actual Range                    | Power Range          | Power of 10    |
-| ---------------- | ------------ | ------------------------------- | -------------------- | -------------- |
-| `int`            | ±2³¹         | −2,147,483,648 to 2,147,483,647 | ±2 billion           | ±2 × 10⁹       |
-| `unsigned int`   | 0 to ==2³²== | 0 to 4,294,967,295              | 0 to ==4 billion==   | 0 to 4 × 10⁹   |
-| `short`          | ±2¹⁵         | −32,768 to 32,767               | ±32 thousand         | ±3.2 × 10⁴     |
-| `unsigned short` | 0 to ==2¹⁶== | 0 to 65,535                     | 0 to ==65 thousand== | 0 to 6.5 × 10⁴ |
+| Data Type        | Power of 2   | Actual Range                    | Power Range          | Power of 10                 |
+| ---------------- | ------------ | ------------------------------- | -------------------- | --------------------------- |
+| `int`            | ±2³¹         | −2,147,483,648 to 2,147,483,647 | ±2 billion           | ±2 × 10⁹<br>`-1e9` to `1e9` |
+| `unsigned int`   | 0 to ==2³²== | 0 to 4,294,967,295              | 0 to ==4 billion==   | 0 to 4 × 10⁹                |
+| `short`          | ±2¹⁵         | −32,768 to 32,767               | ±32 thousand         | ±3.2 × 10⁴                  |
+| `unsigned short` | 0 to ==2¹⁶== | 0 to 65,535                     | 0 to ==65 thousand== | 0 to 6.5 × 10⁴              |
 
 **64-bit Data Types**
 

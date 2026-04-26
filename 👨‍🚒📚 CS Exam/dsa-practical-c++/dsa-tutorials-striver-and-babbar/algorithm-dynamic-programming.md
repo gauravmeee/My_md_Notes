@@ -435,7 +435,14 @@ count ways()
 
 > Ques .
 
-## [Unique Paths II](https://www.naukri.com/code360/problems/maze-obstacles_977241?source=youtube\&campaign=striver_dp_videos\&utm_source=youtube\&utm_medium=affiliate\&utm_campaign=striver_dp_videos\&leftPanelTabValue=PROBLEM)
+---
+
+> Complete Till here ✅
+
+## [DP 9. Unique Paths 2 | DP on Grid with Maze Obstacles](https://youtu.be/TmhpgXScLyY) ✔️ solved
+
+
+[Unique Paths II](https://www.naukri.com/code360/problems/maze-obstacles_977241?source=youtube\&campaign=striver_dp_videos\&utm_source=youtube\&utm_medium=affiliate\&utm_campaign=striver_dp_videos\&leftPanelTabValue=PROBLEM)
 
 > Ques. Given a ‘N’ \* ’M’ maze with obstacles, count and return the number of unique paths to reach the right-bottom cell from the top-left cell. A cell in the given maze has a value '-1' if it is a blockage or dead-end, else 0. From a given cell, we are allowed to move to cells (i+1, j) and (i, j+1) only.
 
@@ -502,3 +509,17 @@ f(i,j){
 	return dp[i][j]= up + left // dp add and return 
 }
 ```
+
+
+## [DP 10. Minimum Path Sum in Grid | Asked to me In Microsoft Internship Interview | DP on GRIDS](https://youtu.be/_rgTlyky1uQ) ✔️ solved
+
+## [DP 11. Triangle | Fixed Starting Point and Variable Ending Point | DP on GRIDS](https://youtu.be/SrP-PiLSYC0) ✔️ Base Case Tricky
+
+## [DP 12. Minimum/Maximum Falling Path Sum | Variable Starting and Ending Points | DP on Grids](https://youtu.be/N_aJ5qQbYA0) ✔️ Solved upto memoisation
+Naukri.com https://www.naukri.com/code360/problems/maximum-path-sum-in-the-matrix_797998?leftPanelTabValue=SUBMISSION 
+
+---
+
+
+
+
