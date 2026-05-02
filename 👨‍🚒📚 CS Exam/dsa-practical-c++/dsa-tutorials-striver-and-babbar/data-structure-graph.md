@@ -153,20 +153,20 @@ __ : Undirected Edge (⇄)
 
 ```
 (1) ───
-│      Not cyclic ❌
+│      Not cyclic ❌ undirected
 (2)───  
 
 (1)───(2)
-│      │   Cyclic ✅
+│      │   Cyclic ✅ undirected
 (3)───(4)
 
 (1)───→(2)
 │       ↑  
-↓       │   Not cyclic ❌
+↓       │   Not cyclic ❌ directed
 (3)───→(4)
 
 (1)←──→(2)
-│       ↑   Cyclic ✅
+│       ↑   Cyclic ✅ directed
 ↓       │  
 (3)───→(4)
 
@@ -202,7 +202,7 @@ Undirected Grpah
 
 Degree (for Undirected Graph) - The no. of edges attach to the node
 
-Property : Total Degree of Graph = 2*E 
+Property : Total Degree of Graph = 2*E  ⭐⭐
 ```
 
 ```
@@ -283,7 +283,7 @@ Interpretation (Undirected Graph)
 #### _Adjacency Matrix:_
 
 ```sh
-adj[n+1][n+1] (if 0 based indexing then adj[n][n])
+adj[n+1][n+1] (if 0 based indexing then adj[n][n]) ⭐
 
 Mark the edge = 1
 adj[2][1]=1 # and adj[1][2]=1  (if undirected)
@@ -308,7 +308,7 @@ adj[4][5]=1 # and adj[5][4]=1         ,,
 5	| 0 | 0 | 1 | 0 | 1 | 0 |
 	└-----------------------┘
 
-Space : N x N (Costly)
+Space : N x N (Costly) ⭐
 ```
 
 **Implementation of Adjacency Matrix in C++**
@@ -317,7 +317,7 @@ Space : N x N (Costly)
 // Implementation Adjacency matrix
 int main(){
 	 int n, m;
-	 cin>>n>>m;
+	 cin>>n>>m; // n -> no. of nodes, m -> no. of edges
 	//graph here
 	int adj[n+1][n+1];
 	for(int i=0; i<m; i++){
@@ -342,7 +342,7 @@ adj[3] -> {1,4}
 adj[4] -> {3,2,5}
 adj[5] -> {2,4}
 
-Space Complexity - 2*E  (Each edges is considered twice)
+Space Complexity - 2*E  (Each edges is considered twice) ⭐
 ```
 
 **Implementation of Adjacency List in C++**
@@ -489,7 +489,7 @@ BFS -> Breadth First Search BFS -> Traversal Technique BFS -> Level wise Travers
 N = 8
 if Starting Node -> (1)
 
-		  (1)         ----> level 0
+		  (1)         ----> level 0 // ⭐
 		/      \
 	 (2)       (6)    ----> level 1
 	/   \     /   \
@@ -535,7 +535,7 @@ _Note :_ We can reach to a `Node` in more than one way from starting, and the di
 Node 5 : level 3 ✔️
 6 -> 7 -> 5
 
-Node 5 : level 4  X (it should be counted in earlier level)
+Node 5 : level 4  X (it should be counted in earlier level) ⭐
 6 -> 1 -> 2 -> 4 -> 5
 ```
 
@@ -782,6 +782,7 @@ class Solution {
                     q.push(it); 
                 }
             }
+            // q.pop(); could also be popped here, instead of earlier
         }
         return bfs; 
     }
@@ -826,9 +827,9 @@ _Note :_ We used Array of Vector here for Adjacency List
 
 `while(!q.empty())` -> run for each nodes : `n` `for(auto it : adj[node])` -> run for all adjacent node i.e. degree of nodes (But only not visited satisfy if condition) -> (node1\*degree of node 1) + (node2\*degree of node 2) + . . . .
 
-Total Time complexity = n + total degree -> n:V, total degree:2E = V + 2E
 
-**Space Complexity SC`:O(3n)`**
+**Total Time complexity:** `n` + `total degree` -> n=`V`  + total degree=`2E` = `V` + `2E`
+**Space Complexity SC: `O(3n) `**
 
 n -> BFS( ans ) List n-> Queue n -> Visited Node List
 
@@ -1021,9 +1022,8 @@ int main()
 
 `if(!vis[it])` -> For every node Calling the dfs() function once : `n` `for(auto it : adj[node])` -> run for all adjacent node i.e. degree of nodes (But only not visited satisfy if condition) -> (node1\*degree of node 1) + (node2\*degree of node 2) + . . . .
 
-Total Time complexity = n + total degree -> n:V, total degree:2E = V + 2E
-
-**Space Complexity SC`:O(3n)`**
+**Total Time complexity :** `n` + `total degree` -> `n`=V + total degree=`2E` = `V` + `2E`
+**Space Complexity SC:** `O(3n)`
 
 n -> DFS( ans ) List n-> Recursion Stack (Worst case) n -> Visited Node List
 
@@ -1049,7 +1049,6 @@ For a Source, Traverse its, Upper, Lower, Left and Right Cells.
                   (row+1, col)
 ```
 
-\=
 
 **Flood Fill - DFS Algorithm**
 
