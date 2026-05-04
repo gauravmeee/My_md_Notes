@@ -110,7 +110,7 @@ A **universal gate** can implement **any logic function**
 - **NOR** can also implement **any logic function**
 - **NOR** gate can form:
   - **NOT:** $\overline{A} = A \text{ NOR } A$
-  - **OR:** $A + B = \overline{\overline{A} \text{ NOR } \overline{B\}} = (A \text{ NOR } A) \text{ NOR } (B \text{ NOR } B)$
+  - **OR:** $A + B = \overline{\overline{A} \text{ NOR } \overline{B}} = (A \text{ NOR } A) \text{ NOR } (B \text{ NOR } B)$
   - **AND:** $A \cdot B = \overline{A \text{ NOR } B} = (A \text{ NOR } B) \text{ NOR } (A \text{ NOR } B)$
 - **Reason:** NOR combinations can generate all basic gates
 - **Advantage:** Useful in memory circuits and logic simplification
@@ -136,13 +136,13 @@ B ───┘
 **2. Full Adder**
 
 - Adds three bits (A, B, Cin)
-- <mark>**Sum== = $A \oplus B \oplus C\_{in}$**
-- **==Carry== = $(A \cdot B) + (B \cdot C\_{in}) + (A \cdot C\_{in})$** ⭐
+- <mark>**Sum</mark> = $A \oplus B \oplus C\_{in}$**
+- **<mark>Carry</mark> = $(A \cdot B) + (B \cdot C\_{in}) + (A \cdot C\_{in})$** ⭐
 
 **3. Half Subtractor:**
 
-- <mark>**Diff**== = $A \oplus B$,
-- <mark>**Borrow**== = $\overline{A} \cdot B$ ⭐
+- <mark>**Diff**</mark> = $A \oplus B$,
+- <mark>**Borrow**</mark> = $\overline{A} \cdot B$ ⭐
 
 **4. Full Subtractor:**
 
@@ -151,22 +151,22 @@ B ───┘
 
 **5. Multiplexer (MUX)**
 
-- <mark>Selects one input== from many
+- <mark>Selects one input</mark> from many
 - n-to-1 MUX has **n inputs, $\log\_2 n$ select lines, 1 output**
 
 **6. Demultiplexer (DEMUX)**
 
-- <mark>Routes single input to one of many outputs==
+- <mark>Routes single input to one of many outputs</mark>
 - 1-to-n DEMUX has **1 input, $\log\_2 n$ select lines, n outputs**
 
 **7. Encoder**
 
-- <mark>Converts $2^n$ inputs into **n-bit** code==
+- <mark>Converts $2^n$ inputs into **n-bit** code</mark>
 - Example: 8-to-3 encoder
 
 **8. Decoder**
 
-- <mark>Converts **n-bit** input to $2^n$ outputs==
+- <mark>Converts **n-bit** input to $2^n$ outputs</mark>
 - Example: 3-to-8 decoder
 
 **Applications**
@@ -182,7 +182,7 @@ B ───┘
 
 **1. Half Adder ⭐**
 
-- <mark>Adds two single-bit== numbers (A, B)
+- <mark>Adds two single-bit</mark> numbers (A, B)
 - **Sum (S) = A ⊕ B**
 - **Carry (C) = A · B**
 
@@ -209,7 +209,7 @@ B ───┘
 
 **2. Full Adder**
 
-- <mark>Adds three bits== (A, B, Cin)
+- <mark>Adds three bits</mark> (A, B, Cin)
 - **Sum = A ⊕ B ⊕ Cin**
 - **Carry = (A · B) + (B · Cin) + (A · Cin)** ⭐
 
@@ -425,7 +425,7 @@ A **Multiplexer** is a combinational circuit that ==selects one input line from 
 **Multiplexer (MUX) Significance**
 
 - Allows selection of one data line from many inputs using select lines.
-- <mark>Reduces hardware== by sharing a single communication line.
+- <mark>Reduces hardware</mark> by sharing a single communication line.
 - Used in ==data routing, ALU input selection, signal switching==.
 
 **Block Diagram:**
@@ -461,7 +461,7 @@ A _Demultiplexer_ is a combinational circuit that takes a single input and route
 
 **Demultiplexer (DEMUX) Significance**
 
-- <mark>Routes one input signal to one of many output lines== based on select lines.
+- <mark>Routes one input signal to one of many output lines</mark based on select lines.
 - Used in ==serial-to-parallel data conversion==.
 - Common in communication systems for data distribution.
 

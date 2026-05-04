@@ -543,7 +543,7 @@ Therefore S is **not conflict-serializable** (cannot be transformed into any ser
 
 **Conflict Equivalence and Serializability**
 
-If a schedule **S** can be converted into another schedule **S'** using only adjacent **non-conflicting swaps**, then **S and S' are <mark>conflict equivalent**. <mark> If such an **S'** exists, it will always be a **serial schedule**, meaning all operations of one transaction appear before the other. Thus, whenever conflict equivalence holds, **conflict serializability** also holds. This provides a direct method to test serializability through swapping.
+If a schedule **S** can be converted into another schedule **S'** using only adjacent **non-conflicting swaps**, then **S and S' are <mark>conflict equivalent**. </mark> If such an **S'** exists, it will always be a **serial schedule**, meaning all operations of one transaction appear before the other. Thus, whenever conflict equivalence holds, **conflict serializability** also holds. This provides a direct method to test serializability through swapping.
 
 **Analogy** : Conflict equivalence works like a sliding-block puzzle. Each operation is a block. You may slide two adjacent blocks only when the swap does not alter the final effect (non-conflict). If a swap would change the result (conflict pair), the move is prohibited. If schedule **S** can be rearranged block by block into **S'** using only allowed swaps, the schedules are conflict equivalent.
 

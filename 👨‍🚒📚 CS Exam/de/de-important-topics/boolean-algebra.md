@@ -32,7 +32,7 @@ layout:
 - `A + 1` = `1`
 - `A ⋅ 0` = `0`
 
-**3. ==Idempotent Laws**==
+**3. <mark>Idempotent Laws**</mark>
 
 - `A + A` = `A`
 - `A ⋅ A` = `A`
