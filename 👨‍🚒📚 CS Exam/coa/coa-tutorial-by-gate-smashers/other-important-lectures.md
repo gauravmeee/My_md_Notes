@@ -78,7 +78,6 @@ Formula to Get value back if Biasing done in format => `(-1)^S` x `0.M` x `2^[E-
 
 **Ques:** Find value of `[0 | 0110 | 10110 ]` if biasing was done on it. **Ans:** `(-1)^0` x `0.10110` x `2^[6-8]`
 
-***
 
 ***
 

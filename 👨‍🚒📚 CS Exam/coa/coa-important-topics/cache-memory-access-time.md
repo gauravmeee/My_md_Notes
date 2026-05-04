@@ -43,7 +43,7 @@ $$\boxed{AMAT = T_c + (1-H)\cdot T_m}$$
 
 **Simultaneous Access**
 
-$$$
+$${
 AMAT = H_1T_1 + (1-H_1)\Big[H_2T_2 + (1-H_2)T_m\Big]  
 }$$
 
@@ -218,7 +218,7 @@ T\_1
 **3. Can cache access be skipped?**
 
 * **Hierarchical:** No. Cache lookup **cannot be bypassed**, even on a miss.
-* <mark>**Simultaneous:** Yes. Cache response can be **ignored** if memory responds first==.
+* <mark>**Simultaneous:** Yes. Cache response can be **ignored** if memory responds first</mark>.
 
 **4. What happens on a cache miss**
 

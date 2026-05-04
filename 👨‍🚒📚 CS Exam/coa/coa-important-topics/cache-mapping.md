@@ -21,7 +21,6 @@ layout:
 
 # Cache Mapping
 
-> Created at CRL
 
 ```
 Main Memory Address :

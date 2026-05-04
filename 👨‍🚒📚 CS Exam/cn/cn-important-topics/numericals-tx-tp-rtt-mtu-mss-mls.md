@@ -42,8 +42,8 @@ layout:
 
 **3. Total Packet Delay** $\boxed{T\_{\text{total\}} = T\_x + T\_p}$
 
-* First bit arrival: $T\_{\text{first bit\}} = T\_p$
-* Last bit arrival: $T\_{\text{last bit\}} = T\_x + T\_p$
+* First bit arrival: $T_{\text{first bit}} = T_p$
+* Last bit arrival: $T_{\text{last bit}} = T_x + T_p$
 
 **4. Round Trip Time (RTT)**
 

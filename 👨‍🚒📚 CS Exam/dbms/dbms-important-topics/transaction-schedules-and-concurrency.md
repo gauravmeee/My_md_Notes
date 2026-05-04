@@ -169,13 +169,13 @@ Two schedules S and S′ are view equivalent if **all three** hold:
 
 **Comparison: Conflict vs View Serializability**
 
-| Aspect        | Conflict Serializability | View Serializability    |
-| ------------- | ------------------------ | ----------------------- |
-| Based on      | Conflicting operations   | Read-from + final write |
-| Test Method   | <mark>Precedence graph</mark>     | <mark>Logical checking</mark>    |
-| Blind Writes  | Not allowed              | Allowed                 |
-| Power         | Stronger                 | Weaker                  |
-| Practical Use | Easy to test             | Hard (NP-complete)      |
+| Aspect        | Conflict Serializability      | View Serializability          |
+| ------------- | ----------------------------- | ----------------------------- |
+| Based on      | Conflicting operations        | Read-from + final write       |
+| Test Method   | <mark>Precedence graph</mark> | <mark>Logical checking</mark> |
+| Blind Writes  | Not allowed                   | Allowed                       |
+| Power         | Stronger                      | Weaker                        |
+| Practical Use | Easy to test                  | Hard (NP-complete)            |
 
 **8. Exam-Oriented Conclusion**
 

@@ -23,9 +23,9 @@ layout:
 
 ## Indexing in DBMS
 
-Indexing is a data structure <mark>technique used to quickly locate and access data<mark> in a database table. It works like an index in a book—rather than scanning the entire table, the DBMS uses the index to find the desired record faster.
+Indexing is a data structure <mark>technique used to quickly locate and access data</mark> in a database table. It works like an index in a book—rather than scanning the entire table, the DBMS uses the index to find the desired record faster.
 
-Indexes are <mark>created on one or more columns<mark> of a table to <mark>improve retrieval speed<mark> at the cost of additional storage and maintenance overhead.
+Indexes are <mark>created on one or more columns</mark> of a table to <mark>improve retrieval speed</mark> at the cost of additional storage and maintenance overhead.
 
 #### Types of Indexes in DBMS
 
@@ -91,19 +91,19 @@ Index STRUCTURE   → B-Tree / B+-Tree / Hash / Bitmap
 
 **1. Primary Index**
 
-* <mark>Created automatically<mark> on the <mark>primary key<mark> of a table.
-* The index is <mark>based on the primary key<mark> field, which is unique and sorted.
+* <mark>Created automatically</mark> on the <mark>primary key</mark> of a table.
+* The index is <mark>based on the primary key</mark> field, which is unique and sorted.
 * One entry per data block.
 
 **2. Secondary Index**
 
-* <mark>Created on non-primary key attributes<mark> to <mark>speed up queries</mark>.
+* <mark>Created on non-primary key attributes</mark> to <mark>speed up queries</mark>.
 * Can have duplicates.
 * Useful when searching on non-key columns.
 
 **3. Clustered Index**
 
-* <mark>Determines the physical order of data<mark> in the table.
+* <mark>Determines the physical order of data</mark> in the table.
 * A table can have only one clustered index because data can be physically sorted in only one order.
 
 **4. Non-Clustered Index**
@@ -118,17 +118,17 @@ Index STRUCTURE   → B-Tree / B+-Tree / Hash / Bitmap
 
 **1. Dense Index** ⭐
 
-* Contains <mark>one index entry for every record<mark> in the data file.
-* Provides <mark>faster lookups<mark> because each record has a direct index entry.
-* Requires <mark>more storage space<mark> and has <mark>higher maintenance cost</mark>.
+* Contains <mark>one index entry for every record</mark> in the data file.
+* Provides <mark>faster lookups</mark> because each record has a direct index entry.
+* Requires <mark>more storage space</mark> and has <mark>higher maintenance cost</mark>.
 * Commonly used in <mark>secondary indexes</mark>.
 
 **2. Sparse Index** ⭐
 
-* Contains <mark>index entries for only some records<mark> (typically the first record of each block).
-* Requires <mark>less storage space<mark> and <mark>lower maintenance</mark>.
+* Contains <mark>index entries for only some records</mark> (typically the first record of each block).
+* Requires <mark>less storage space</mark> and <mark>lower maintenance</mark>.
 * Searching involves locating the correct block and then scanning it.
-* Commonly used in <mark>primary indexes<mark> where data is <mark>sorted sequentially</mark>.
+* Commonly used in <mark>primary indexes</mark> where data is <mark>sorted sequentially</mark>.
 * **Note:** Sparse indices can be used only if the relation is stored in the sorted order of the search key. ⭐
 
 **Sparse Index vs Dense Index**

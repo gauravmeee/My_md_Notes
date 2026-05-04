@@ -159,6 +159,6 @@ Candidate Key → attributes are Prime
 Chosen Candidate Key → Primary Key
 ```
 
-**Best Opinion:**\
-In exams, treat **prime attribute = attribute of any candidate key**.\
+**Best Opinion:**
+In exams, treat **prime attribute = attribute of any candidate key**.
 Ignore the term **key attribute** unless explicitly defined—it often causes confusion.

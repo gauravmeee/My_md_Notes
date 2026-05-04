@@ -49,7 +49,7 @@ Assembler is a **system program** that translates **assembly language** into **m
 * **Mnemonic**: symbolic instruction (ADD, MOV)
 * **Operand**: data or address
 * **Label**: symbolic name for address
-* <mark>**Directive**:</mark> instructions to assembler</mark> (START, END, ORIGIN, EQU)
+* <mark>**Directive**:</mark> instructions to assembler (START, END, ORIGIN, EQU)
 
 **Types of Assembler**
 
@@ -103,7 +103,7 @@ Assembly is completed in **two logical passes**.
 **Key View (Exam Oriented)**
 
 * <mark>Pass 1 = address calculation + tables + intermediate code</mark>
-* <mark>Pass 2 = address resolution + machine code + listing<mark> This separation is the core idea tested in GATE and PSU exams.
+* <mark>Pass 2 = address resolution + machine code + listing</mark> This separation is the core idea tested in GATE and PSU exams.
 
 **Note:** <mark>MOT(machine opcode table)</mark> is used in both the passes
 
@@ -376,8 +376,8 @@ Key points:
 
 **Core Difference (Exam Focus)**
 
-* <mark>Subroutine: **call → execute → return**<mark>
-* <mark>Coroutine: **resume ↔ suspend**</mark>
+* <mark>Subroutine: **call → execute → return**</mark>
+- <mark>Coroutine: **resume ↔ suspend**</mark>
 
 **Subroutine vs Coroutine (by Stack Overflow) ⭐**
 

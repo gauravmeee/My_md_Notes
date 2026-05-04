@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-# CD Important Concepts
+# Compiler, Lexical and Syntax Analyzer
 
 ## Compiler
 
@@ -32,27 +32,27 @@ layout:
 
 Responsible for **analyzing the source code** (syntax + semantics)
 
-* **Lexical Analysis**\
-  → Converts code into tokens\
+* **Lexical Analysis**
+  → Converts code into tokens
   → Done by **Lexer / Scanner**
-* **Syntax Analysis**\
-  → Checks grammar (CFG)\
-  → Builds **Parse Tree / Syntax Tree**\
+* **Syntax Analysis**
+  → Checks grammar (CFG)
+  → Builds **Parse Tree / Syntax Tree**
   → Done by **Parser**
-* **Semantic Analysis**\
-  → Checks for semantic correctness (type checks, undeclared vars)\
+* **Semantic Analysis**
+  → Checks for semantic correctness (type checks, undeclared vars)
   → Uses **Symbol Table**
-* **Intermediate Code Generation (ICG)**\
+* **Intermediate Code Generation (ICG)**
   → Converts code to intermediate representation (IR) like **Three Address Code (TAC)**
 
 **2. Backend**
 
 Responsible for **optimizing and converting IR to target code**
 
-* **Code Optimization**\
-  → Improves IR for performance (speed, memory)\
+* **Code Optimization**
+  → Improves IR for performance (speed, memory)
   → e.g., Constant Folding, Dead Code Elimination
-* **Code Generation**\
+* **Code Generation**
   → Converts IR to **Machine Code / Assembly**
 * **Code Linking & Assembly** ❌ → Combines code with libraries and prepares executable
 
@@ -70,16 +70,16 @@ Responsible for **optimizing and converting IR to target code**
 
 **Error Detection and Code Generation**
 
-**First Three Phases – Used for: </mark>Error Detection</mark>**
+**First Three Phases – Used for: <mark>Error Detection</mark>**
 
-1. **Lexical Analysis**\
+1. **Lexical Analysis**
    → Detects **lexical errors** (invalid tokens, unknown symbols)
-2. **Syntax Analysis**\
+2. **Syntax Analysis**
    → Detects **syntax errors** (missing brackets, wrong structure)
-3. **Semantic Analysis**\
+3. **Semantic Analysis**
    → Detects **semantic errors** (type mismatches, undeclared variables)
 
-**Remaining Phases – Used for: </mark>Code Generation</mark> & Optimization** 4. **Intermediate Code Generation** – Platform-independent code 5. **Code Optimization** – Improves performance 6. **Code Generation** – Machine code 7. **Linking & Assembly** – Final executable ❌
+**Remaining Phases – Used for: <mark>Code Generation</mark> & Optimization** 4. **Intermediate Code Generation** – Platform-independent code 5. **Code Optimization** – Improves performance 6. **Code Generation** – Machine code 7. **Linking & Assembly** – Final executable ❌
 
 > **In most compiler design syllabi (e.g., GATE, SJVN, etc.)**, the last phase **Linking & Assembly** is **not explicitly included**.
 
@@ -115,7 +115,6 @@ Responsible for **optimizing and converting IR to target code**
 
 ***
 
-***
 
 ## Syntax Analyser
 
@@ -141,8 +140,6 @@ int a = b + 5;
 * **Non-terminals** are grammar symbols (e.g., `Expr`, `DeclStmt`)
 * **Terminals** are actual C++ tokens (e.g., `int`, `a`, `+`, `5`, `;`)\
   Non-terminals get **replaced** by terminals and other non-terminals during parsing.
-
-***
 
 #### Parser Algorithms
 
@@ -188,7 +185,6 @@ int a = b + 5;
 > **LL Parsers** → **Top-Down**, Left-to-right scan + **Leftmost derivation**\
 > **LR Parsers** → **Bottom-Up**, Left-to-right scan + **Rightmost derivation (in reverse)**
 
-***
 
 #### Parser Types and Lookahead Meaning
 

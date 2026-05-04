@@ -23,7 +23,7 @@ layout:
 
 ## Procedural Language (DBMS)
 
-* User specifies <mark>_what data_ is required **and** _how to get it_<mark> (sequence of steps)
+* User specifies <mark>_what data_ is required **and** _how to get it_</mark> (sequence of steps)
 * Query execution path is defined by user
 * Define Steps, More control, <mark>less abstraction</mark>
 *
@@ -108,20 +108,20 @@ layout:
 | Syntax              | `{t` \| `P(t)}`                                              |
 | Predicate           | Condition on tuple `t` (comparisons, logical operators)      |
 | Operators           | AND (`∧`), OR (`∨`), NOT (`¬`), `=`, `≠`, `<`, `>`, `≤`, `≥` |
-| Quantifiers         | <mark>`∃` (exists)</mark>, <mark>`∀` (for all)<mark>                          |
+| Quantifiers         | <mark>`∃` (exists)</mark>, <mark>`∀` (for all)<mark>         |
 | Characteristics     | Non-procedural; specifies **what** to retrieve, not **how**  |
 | Difference from SQL | TRC is theoretical; SQL is practical                         |
 | **Examples** :      |                                                              |
 
-1. **Find all students older than 20**\
+1. **Find all students older than 20**
    `{ t | Student(t) ∧ t.Age > 20 }`
-2. **Find all students enrolled in a 4-credit course**\
+2. **Find all students enrolled in a 4-credit course**
    `{ t | ∃c (Course(c) ∧ t.CourseID = c.ID ∧ c.Credit = 4) }`
-3. **Find all students with marks > 80**\
+3. **Find all students with marks > 80**
    `{ t | Student(t) ∧ t.Marks > 80 }`
-4. **Find names of students in “DBMS” course**\
+4. **Find names of students in “DBMS” course**
    `{ t.Name | ∃c (Course(c) ∧ t.CourseID = c.ID ∧ c.CourseName = 'DBMS') }`
-5. **Find students who have taken all courses offered**\
+5. **Find students who have taken all courses offered**
    `{ s | Student(s) ∧ ∀c (Course(c) → ∃e (Enroll(e) ∧ e.StudentID = s.ID ∧ e.CourseID = c.ID)) }`
 
 ***
@@ -220,7 +220,7 @@ SELECT name FROM STUDENT WHERE marks > 80;
 | Syntax              | `{ <x1, x2, …> \| P(x1, x2, …) }`                        |
 | Predicate           | Conditions on domains using logic                        |
 | Operators           | `∧`, `∨`, `¬`, `=`, `<`, `>`                             |
-| Quantifiers         | <mark>`∃`, `∀`<mark>                                             |
+| Quantifiers         | <mark>`∃`, `∀`<mark>                                     |
 | Characteristics     | Mathematical, declarative                                |
 | Difference from TRC | DRC uses domains; TRC uses tuples                        |
 

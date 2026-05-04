@@ -31,15 +31,15 @@ layout:
 * **4NF**: Removes multivalued dependencies
 * **5NF**: Removes join dependencies, fully decomposed schema Corrected table (DBMS-accurate):
 
-| Normal Form  | Lossless / Lossy | Dependency Preserving | Anomalies Present                                      |
-| ------------ | ---------------- | --------------------- | ------------------------------------------------------ |
-| Unnormalized | <mark>Lossy</mark>        | No                    | Insertion, Deletion, Update                            |
-| 1NF          | <mark>Lossy</mark>        | No                    | Insertion, Deletion, Update                            |
-| 2NF          | <mark>Lossy</mark>        | No                    | Insertion, Deletion, Update (<mark>reduced</mark>)              |
-| 3NF          | Lossless         | <mark>Yes</mark>               | <mark>No Major anomalies</mark>                                 |
-| BCNF         | Lossless         | No (not guaranteed)   | **No Anomalies** (No functional dependency anomalies)  |
-| 4NF          | Lossless         | No                    | **No Anomalies** (No multivalued dependency anomalies) |
-| 5NF          | Lossless         | No                    | **No Anomalies** (No join dependency anomalies)        |
+| Normal Form  | Lossless / Lossy   | Dependency Preserving | Anomalies Present                                      |
+| ------------ | ------------------ | --------------------- | ------------------------------------------------------ |
+| Unnormalized | <mark>Lossy</mark> | No                    | Insertion, Deletion, Update                            |
+| 1NF          | <mark>Lossy</mark> | No                    | Insertion, Deletion, Update                            |
+| 2NF          | <mark>Lossy</mark> | No                    | Insertion, Deletion, Update (<mark>reduced</mark>)     |
+| 3NF          | Lossless           | <mark>Yes</mark>      | <mark>No Major anomalies</mark>                        |
+| BCNF         | Lossless           | No (not guaranteed)   | **No Anomalies** (No functional dependency anomalies)  |
+| 4NF          | Lossless           | No                    | **No Anomalies** (No multivalued dependency anomalies) |
+| 5NF          | Lossless           | No                    | **No Anomalies** (No join dependency anomalies)        |
 
 > 3NF **can still have anomalies**, but they are **theoretically acceptable**; only BCNF and above remove FD-based anomalies completely.
 
@@ -159,7 +159,7 @@ ENROLL(SID, CID)
 
 * Key → Non-key → Non-key
 
-> **Candidate key** → A <mark>**minimal set of attributes**</mark> that <mark>uniquely identifies</mark> a tuple\
+> **Candidate key** → A <mark>**minimal set of attributes**</mark> that <mark>uniquely identifies</mark> a tuple
 > **Super key** → A **set of attributes** that uniquely identifies a tuple, **may contain extra (non-minimal) attributes**
 
 > **Key Attribute** (prime attribute) → If an attribute <mark>appears in any candidate key</mark> **Non-key attribute** (non-prime attribute) → If it <mark>does not appear in any candidate key</mark> 
@@ -232,7 +232,7 @@ STUD(SID, Instructor)
 * No **non-trivial multivalued dependency**
 * If `X →→ Y`, then `X` must be a super key
 
-> **Trivial functional dependency** → X → Y where **Y ⊆ X**\
+> **Trivial functional dependency** → X → Y where **Y ⊆ X**
 > **Non-trivial functional dependency** → X → Y where **Y ⊄ X**
 
 **Violation Example**
@@ -310,7 +310,6 @@ STUDENT_HOBBY(SID, Hobby)
 
 ***
 
-***
 
 ### Decomposition
 
@@ -339,15 +338,15 @@ STUDENT_HOBBY(SID, Hobby)
 
 **Condition**
 
-* Decomposition of `R` into `R1` and `R2` is lossless if\
+* Decomposition of `R` into `R1` and `R2` is lossless if
   `(R1 ∩ R2) → R1` **OR** `(R1 ∩ R2) → R2`
 
 **Example**
 
 * `R(A, B, C)`
 * FD: `A → B`
-* Decompose into\
-  `R1(A, B)`\
+* Decompose into
+  `R1(A, B)`
   `R2(A, C)`
 * Intersection = `A`
 * Since `A → B`, lossless
@@ -364,8 +363,8 @@ STUDENT_HOBBY(SID, Hobby)
 **Example**
 
 * `R(A, B, C)`
-* Decompose into\
-  `R1(A, B)`\
+* Decompose into
+  `R1(A, B)`
   `R2(B, C)`
 * Intersection = `B`
 * No FD `B → R1` or `B → R2`
@@ -388,8 +387,8 @@ STUDENT_HOBBY(SID, Hobby)
 
 * `R(A, B, C)`
 * FD: `A → B`, `B → C`
-* Decompose into\
-  `R1(A, B)`\
+* Decompose into
+  `R1(A, B)`
   `R2(B, C)`
 * Dependencies preserved
 
@@ -432,8 +431,8 @@ STUDENT_HOBBY(SID, Hobby)
 * `R(A, B, C)`
 * FD: `A → B`, `B → C`
 * Not in 3NF due to transitive dependency
-* Decompose into\
-  `R1(A, B)`\
+* Decompose into
+  `R1(A, B)`
   `R2(B, C)`
 
 **Exam Note**
@@ -456,8 +455,8 @@ STUDENT_HOBBY(SID, Hobby)
 * FD: `A → B`, `C → B`
 * Keys: `{A, C}`
 * `C → B` violates BCNF
-* Decompose into\
-  `R1(C, B)`\
+* Decompose into
+  `R1(C, B)`
   `R2(A, C)`
 
 **Key Insight**
@@ -474,11 +473,11 @@ STUDENT_HOBBY(SID, Hobby)
 
 * `R(Student, Course, Hobby)`
 * Student has independent courses and hobbies
-* MVDs:\
-  `Student →→ Course`\
+* MVDs:
+  `Student →→ Course`
   `Student →→ Hobby`
-* Decompose into\
-  `R1(Student, Course)`\
+* Decompose into
+  `R1(Student, Course)`
   `R2(Student, Hobby)`
 
 **Result**

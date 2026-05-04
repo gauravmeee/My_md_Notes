@@ -18,6 +18,8 @@ layout:
     visible: true
 ---
 
+# Routing Algorithm
+
 # Bellman-Ford  vs Dijkstra's Algorithm.
 
 ### **1. Distance Vector Routing Protocols**:
@@ -55,3 +57,4 @@ layout:
 [**Lec-59: Count to Infinity Problem in Distance Vector Routing**](https://www.youtube.com/watch?v=UYASPR4jEkk\&ab_channel=GateSmashers)
 
 [**Lec-60: Link state routing in computer networks in Hindi**](https://youtu.be/kW6zV-040SY)
+

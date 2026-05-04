@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-# CN OSI Model, Devices, Protocols and IEEE Standards
+# OSI Model, Devices, Protocols and IEEE Standards
 
 ## OSI Layer
 
