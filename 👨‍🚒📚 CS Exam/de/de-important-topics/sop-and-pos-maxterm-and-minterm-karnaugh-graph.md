@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # SOP and POS, Maxterm and Minterm, Karnaugh Graph
 
 ### SOP and POS Notes (GATE – Digital Logic)

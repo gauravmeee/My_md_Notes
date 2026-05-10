@@ -18,10 +18,7 @@ layout:
   tags:
     visible: true
 ---
-
 # Fine Tuning
-
-## Fine-Tuning
 
 ##### **1. Definition**
 

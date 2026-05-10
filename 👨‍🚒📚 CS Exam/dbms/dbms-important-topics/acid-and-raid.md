@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # ACID and RAID
 
 ## ACID ⭐

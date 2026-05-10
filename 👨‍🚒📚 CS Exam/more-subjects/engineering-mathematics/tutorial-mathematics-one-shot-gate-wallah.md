@@ -18,8 +18,7 @@ layout:
   tags:
     visible: true
 ---
-
-# Engineering Mathematics Tutorial (Gate Walaah)
+# Tutorial Mathematics One Shot (Gate Walaah)
 
 Singular matrix -> Determinant of matrix = 0
 

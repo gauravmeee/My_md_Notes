@@ -1,6 +1,4 @@
-
-# Computer Graphics
-
+# Computer Graphics Overview
 
 ### 1. Display Devices
 

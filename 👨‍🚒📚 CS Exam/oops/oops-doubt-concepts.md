@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # OOPS Doubt Concepts
 
 ## Why C is not a OOPS if it have STRUCT

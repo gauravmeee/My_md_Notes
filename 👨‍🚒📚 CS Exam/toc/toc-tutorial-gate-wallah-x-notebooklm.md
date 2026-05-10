@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # TOC Tutorial (GATE Wallah x NotebookLM)
 
 ### **1. Introduction to Theory of Computation (ToC)**

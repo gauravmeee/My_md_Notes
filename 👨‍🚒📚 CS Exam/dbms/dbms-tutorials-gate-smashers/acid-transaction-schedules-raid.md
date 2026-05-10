@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # ACID, Transaction Schedules, RAID
 
 ## [Lec-74: ACID Properties of a Transaction | Database Management System](https://youtu.be/-GS0OxFJsYQ)

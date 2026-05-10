@@ -17,7 +17,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Routing Algorithm
 
 # Bellman-Ford  vs Dijkstra's Algorithm.

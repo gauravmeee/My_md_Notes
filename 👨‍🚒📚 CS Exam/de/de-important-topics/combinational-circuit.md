@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Combinational Circuit
 
 **Definition**

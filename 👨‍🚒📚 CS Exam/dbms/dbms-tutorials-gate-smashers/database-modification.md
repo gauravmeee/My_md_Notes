@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Database Modification
 
 [Lec-105: Immediate Database Modification in DBMS | Log Based Recovery Methods](https://www.youtube.com/watch?v=47LvbDGD4cc)

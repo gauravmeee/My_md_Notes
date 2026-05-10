@@ -1,4 +1,3 @@
-
 # Sequential Logic Circuits
 
 #### Latch & Flip Flop

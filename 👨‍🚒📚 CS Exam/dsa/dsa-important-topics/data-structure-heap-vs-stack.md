@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Data Structure: Heap vs Stack
 
 | Feature              | Stack Memory                    | Heap Memory                          |

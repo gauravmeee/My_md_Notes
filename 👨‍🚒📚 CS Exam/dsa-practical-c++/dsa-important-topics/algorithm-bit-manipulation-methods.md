@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Algorithm: Bit Manipulation
 
 #### Bitwise Operators

@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Data Structure: Stack and Queue ⏳
 
 * Stack - LIFO (Last in First Out) : Queue&#x20;

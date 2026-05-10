@@ -17,7 +17,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Symbol Table
 
 ## 1. Definition

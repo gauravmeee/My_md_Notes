@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Boolean Algebra
 
 #### Boolean Algebra Laws

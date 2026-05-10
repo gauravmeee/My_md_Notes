@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Algorithm: Sliding Window ⏳
 
 ## Sliding Window / 2 Pointer

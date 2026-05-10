@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # IP Addresses
 
 IP address network classifications are divided into **five classes (A, B, C, D, and E)** based on their **first few bits** and **value range**.

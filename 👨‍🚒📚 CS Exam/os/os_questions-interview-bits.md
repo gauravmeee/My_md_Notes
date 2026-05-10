@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # OS Questions (Interview bits)
 
 ## [Top 15 OS Interview Questions | Operating System Interview | Placement Strategy](https://youtu.be/K1GFwYzCQlw)

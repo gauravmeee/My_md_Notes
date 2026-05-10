@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Compiler, Lexical and Syntax Analyzer
 
 ## Compiler

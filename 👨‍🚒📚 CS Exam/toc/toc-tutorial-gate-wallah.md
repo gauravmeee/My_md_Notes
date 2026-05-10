@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # TOC Tutorial (GATE Wallah)
 
 ### 0. Introduction

@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Data Structure: Trie ⏳
 
 ## [L1. Implement TRIE | INSERT | SEARCH | STARTSWITH](https://youtu.be/dBGUmUQhjaM?list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp)

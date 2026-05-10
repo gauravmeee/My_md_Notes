@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # DE Tutorial (GATE Wallah x NotebookLM)
 
 ## [Digital Electronics One Shot | EE / ECE / IN / ECE | CS | Maha Revision | Target GATE 2025](https://youtu.be/JCuZvDY-Sc4)

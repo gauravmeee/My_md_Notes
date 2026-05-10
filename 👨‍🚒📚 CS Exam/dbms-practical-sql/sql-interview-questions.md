@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # SQL Interview Questions
 
 [SQL Interview Questions](https://www.geeksforgeeks.org/sql-interview-questions/)

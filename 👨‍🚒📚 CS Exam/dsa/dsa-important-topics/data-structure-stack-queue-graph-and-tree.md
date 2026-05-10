@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Data Structure: Stack, Queue, Graph and Tree
 
 **ALGORITHMS - PSU MCQ NOTES**

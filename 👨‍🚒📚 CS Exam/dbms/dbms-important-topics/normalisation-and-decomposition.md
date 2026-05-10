@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Normalisation and Decomposition
 
 **Normalization (Normal Forms Comparison)**

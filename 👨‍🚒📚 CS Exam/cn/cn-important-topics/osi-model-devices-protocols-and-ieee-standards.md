@@ -18,22 +18,21 @@ layout:
   tags:
     visible: true
 ---
-
 # OSI Model, Devices, Protocols and IEEE Standards
 
 ## OSI Layer
 
 **OSI vs TCP/IP Layer Mapping**
 
-| OSI Layer           | TCP/IP Layer       |
-| ------------------- | ------------------ |
+| OSI Layer                    | TCP/IP Layer                |
+| ---------------------------- | --------------------------- |
 | 7 - <mark>Application</mark> | <mark>Application</mark>    |
-| 6 - Presentation    | Application        |
-| 5 - Session         | Application        |
+| 6 - Presentation             | Application                 |
+| 5 - Session                  | Application                 |
 | 4 - <mark>Transport</mark>   | <mark>Transport</mark>      |
 | 3 - <mark>Network</mark>     | <mark>Internet</mark>       |
 | 2 - <mark>Data Link</mark>   | <mark>Network Access</mark> |
-| 1 - Physical        | Network Access     |
+| 1 - Physical                 | Network Access              |
 
 **OSI Model – 7 Layers of Network Communication ⭐**
 

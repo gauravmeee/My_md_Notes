@@ -1,6 +1,6 @@
+## Predicate Logic 
 
-
-## Predicate Logic (First Order Logic) – GATE Detailed Notes
+Predicate Logic = First Order Logic
 
 ##### **Limitation of Propositional Logic**
 

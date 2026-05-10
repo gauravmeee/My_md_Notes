@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Transaction Schedules and Concurrency
 
 #### Transaction, Schedules and Serializability

@@ -18,8 +18,7 @@ layout:
   tags:
     visible: true
 ---
-
-# Euler's Motor's MCQ
+# Euler Motors MCQ
 
 
 

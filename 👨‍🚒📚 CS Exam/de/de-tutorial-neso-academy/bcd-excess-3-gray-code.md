@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # BCD, Excess-3, Gray Code
 
 #### [Binary Coded Decimal (BCD) Code](https://www.youtube.com/watch?v=0rLiYpy2CqQ)

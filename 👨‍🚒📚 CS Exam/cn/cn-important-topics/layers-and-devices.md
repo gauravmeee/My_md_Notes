@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Layers and Devices
 
 > Added at LAB

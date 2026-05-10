@@ -18,9 +18,7 @@ layout:
   tags:
     visible: true
 ---
-
 # Addressing Modes
-
 
 **Definition:** Addressing mode specifies **how to interpret the operand** in an instruction (where the operand is located or how to get it).
 

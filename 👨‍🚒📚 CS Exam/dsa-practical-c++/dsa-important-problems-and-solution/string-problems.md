@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # String Problems
 
 #### Longest Palindromic Substring

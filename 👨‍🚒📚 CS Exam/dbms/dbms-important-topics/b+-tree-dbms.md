@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # B+ Tree in DBMS
 
 B+ Tree – Question Oriented Notes (Improved & Corrected)

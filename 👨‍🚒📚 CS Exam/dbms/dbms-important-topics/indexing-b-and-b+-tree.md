@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Indexing, B and B+ Tree
 
 ## Indexing in DBMS

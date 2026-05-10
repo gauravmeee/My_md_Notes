@@ -17,7 +17,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Abstract Algebra
 
 #### Abstract Algebra

@@ -18,10 +18,7 @@ layout:
   tags:
     visible: true
 ---
-
 # DSA Syllabus
-
-## DSA Syllabus
 
 #### Syllabus
 

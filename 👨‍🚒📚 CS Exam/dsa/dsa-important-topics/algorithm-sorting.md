@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Algorithm: Sorting
 
 > updated in crl

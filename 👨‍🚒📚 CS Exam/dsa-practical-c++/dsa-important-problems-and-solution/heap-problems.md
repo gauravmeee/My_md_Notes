@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Heap Problems
 
 ## [CPU Task Scheduler](https://www.naukri.com/code360/problems/cpu-task-scheduler_2248081?leftPanelTabValue=PROBLEM)

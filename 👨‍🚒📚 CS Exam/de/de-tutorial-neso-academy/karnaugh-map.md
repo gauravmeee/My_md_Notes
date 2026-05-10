@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Karnaugh Map
 
 #### [Karnaugh Map (K' Map) - Part 1](https://youtu.be/FPrcIhqNPVo)

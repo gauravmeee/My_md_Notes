@@ -17,8 +17,7 @@ layout:
   tags:
     visible: true
 ---
-
-## Memory Chip Organization and Interleaving
+# Memory Chip Organization and Interleaving
 
 **1. Understanding Chip Specifications**
 

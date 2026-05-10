@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Algorithm: Infix, Prefix and Postfix Traversal
 
 **1. Notations Overview**

@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # OOPS Important Concepts
 
 **Syntax Cheat Sheet**

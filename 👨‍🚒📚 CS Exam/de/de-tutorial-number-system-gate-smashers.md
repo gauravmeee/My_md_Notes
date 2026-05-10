@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # DE Tutorial Number System (GATE Smashers)
 
 ***
@@ -99,7 +98,7 @@ layout:
 
 [**Short ⏳Trick for 2’s Complement**](https://www.youtube.com/watch?v=7BtiYqPDL7k\&list=PLxCzCOWd7aiFOet6KEEqDff1aXEGLdUzn\&index=19\&pp=iAQB)
 
-[**#### Short Trick for 9’s & 10’s Complement**](https://www.youtube.com/watch?v=bPy_wHWOvv0\&list=PLxCzCOWd7aiFOet6KEEqDff1aXEGLdUzn\&index=20\&pp=iAQB)
+[**Short Trick for 9’s & 10’s Complement**](https://www.youtube.com/watch?v=bPy_wHWOvv0\&list=PLxCzCOWd7aiFOet6KEEqDff1aXEGLdUzn\&index=20\&pp=iAQB)
 
 [**7’s & 8’s Complement Short Trick**](https://www.youtube.com/watch?v=nydV1QLVfvk\&list=PLxCzCOWd7aiFOet6KEEqDff1aXEGLdUzn\&index=21\&pp=iAQB0gcJCU0KAYcqIYzv)
 

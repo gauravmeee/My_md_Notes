@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # LL(1) Parsing
 
 ### FIRST and FOLLOW (Syntax Analysis)

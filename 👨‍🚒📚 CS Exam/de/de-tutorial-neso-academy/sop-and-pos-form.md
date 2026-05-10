@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # SOP & POS Form
 
 ### [Sum of Products (Part 1) | SOP Form](https://youtu.be/xnLBbOYYnHM)

@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Algorithm: My Important methods
 
 ### 1. **String (C++)**

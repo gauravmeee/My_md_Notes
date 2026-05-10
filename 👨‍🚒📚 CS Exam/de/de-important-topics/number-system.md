@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Number System
 
 ### Number System and Base Conversion

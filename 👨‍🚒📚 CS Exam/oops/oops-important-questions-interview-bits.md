@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # OOPS Important Questions (Interview Bits)
 
 ### [OOPSs MCQ InterviewBits](https://www.interviewbit.com/oops-mcq/)

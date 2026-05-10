@@ -18,14 +18,7 @@ layout:
   tags:
     visible: true
 ---
-
 # Langchain
-
-Here are **detailed notes on LangChain**:
-
----
-
-# **LangChain**
 
 ## 1. Definition
 

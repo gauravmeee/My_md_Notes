@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # TOC Syllabus
 
 | Topic                  | Subtopics / What to Cover                              |

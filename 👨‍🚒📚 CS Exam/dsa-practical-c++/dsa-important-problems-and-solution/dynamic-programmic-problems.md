@@ -18,10 +18,8 @@ layout:
   tags:
     visible: true
 ---
-
 # Dynamic Programmic Problems
 
----
 ## [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) (Actually it is Greedy Problem, Framed as DP)
 
 ```cpp

@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Cache Memory Access Time
 
 #### **Average Memory Access Time (AMAT)**

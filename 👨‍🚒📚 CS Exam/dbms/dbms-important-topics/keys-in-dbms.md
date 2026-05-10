@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Keys in DBMS
 
 Attribute - field - column Tuple - Data - Row

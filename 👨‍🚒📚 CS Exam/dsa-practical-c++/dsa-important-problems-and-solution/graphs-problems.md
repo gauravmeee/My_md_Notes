@@ -1,7 +1,6 @@
+# Graphs Problems
 
 **Graph Edge**
-
-
 
 ```cpp
 // Graph Edge

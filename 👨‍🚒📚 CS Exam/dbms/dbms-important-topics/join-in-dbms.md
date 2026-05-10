@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Join in DBMS
 
 **Inner Join** = Intersection

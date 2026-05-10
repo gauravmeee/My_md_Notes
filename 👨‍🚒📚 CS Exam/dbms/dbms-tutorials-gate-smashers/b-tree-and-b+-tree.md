@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # B Tree and B+ Tree
 
 #### [Lec-100: Introduction to B-Tree and its Structure | Block Pointer, Record Pointer, Key](https://youtu.be/KcApkM5WYGw)

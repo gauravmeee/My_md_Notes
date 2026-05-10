@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # ER Model
 
 #### ER Model Symbols

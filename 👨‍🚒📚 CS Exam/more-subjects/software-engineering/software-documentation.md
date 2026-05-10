@@ -18,10 +18,7 @@ layout:
   tags:
     visible: true
 ---
-
 # Software Documentation
-
-# Software Documentation Notes
 
 ### Introduction
 

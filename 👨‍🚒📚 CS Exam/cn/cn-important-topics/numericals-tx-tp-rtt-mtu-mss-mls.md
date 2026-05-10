@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Numericals Tx, Tp, RTT, MTU, MSS, MLS
 
 #### All Formulas Overview

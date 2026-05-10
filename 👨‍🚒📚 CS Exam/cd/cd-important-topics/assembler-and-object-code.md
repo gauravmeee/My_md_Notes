@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Assembler and Object Code
 
 > Important For Gate Exam

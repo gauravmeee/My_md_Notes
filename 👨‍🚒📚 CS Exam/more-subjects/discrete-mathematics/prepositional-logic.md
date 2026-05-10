@@ -1,5 +1,4 @@
-
-## Propositional Logic (GATE Detailed Notes)
+## Propositional Logic
 
 ##### **Proposition**
 

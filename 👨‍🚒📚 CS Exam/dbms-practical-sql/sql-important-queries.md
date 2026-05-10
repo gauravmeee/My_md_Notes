@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # SQL Important Queries
 
 #### Print the top 5 rows

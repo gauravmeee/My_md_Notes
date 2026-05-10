@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Procedural and Non Procedural Language
 
 ## Procedural Language (DBMS)

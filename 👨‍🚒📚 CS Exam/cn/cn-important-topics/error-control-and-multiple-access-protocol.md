@@ -17,7 +17,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Error Control and Multiple Access Protocol
 
 #### Topics Covered

@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Algorithm: Important Methods
 
 ## C++ Important Methods.

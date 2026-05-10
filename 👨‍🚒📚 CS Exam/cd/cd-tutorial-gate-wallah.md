@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # CD Tutorial (Gate Wallah)
 
 > Created using Google NotebookLM

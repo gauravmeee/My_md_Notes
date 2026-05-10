@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Buffer in Lexical Analysis
 
 **Buffer in Lexical Analysis**

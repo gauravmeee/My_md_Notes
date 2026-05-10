@@ -17,7 +17,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Probability Advance
 
 #### Conditional Probability, Law of Total Probability

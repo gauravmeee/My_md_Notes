@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Algorithm: BFS vs DFS
 
 #### Breadth First Search vs Depth first Search

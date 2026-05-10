@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # TOC Practice Questions True/False
 
 ### True / False

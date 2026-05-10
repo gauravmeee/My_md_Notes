@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Software-process-models
 
 **Software Process Models** – A software process model is a **structured framework** that defines the **sequence of activities** involved in software development, from requirement analysis to maintenance.

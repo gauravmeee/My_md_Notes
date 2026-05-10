@@ -17,7 +17,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Injective & Surjective
 
 #### Composition of Functions – (GATE Detailed Notes)

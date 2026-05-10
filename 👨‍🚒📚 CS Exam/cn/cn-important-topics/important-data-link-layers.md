@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Important Data Link Layers
 
 #### Data Link Layer - Important Topics Done

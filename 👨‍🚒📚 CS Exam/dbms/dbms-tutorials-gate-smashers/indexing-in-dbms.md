@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Indexing in DBMS
 
 #### [Lec-93: Why Indexing is used | Indexing Beginning | DBMS](https://youtu.be/E--yzX05_k8)

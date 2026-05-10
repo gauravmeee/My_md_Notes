@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # DBMS Tutorial (Gate Wallah)
 
 ## [Database Management System One Shot | CS & IT Engineering | DA | Maha Revision | Target GATE 2025](https://youtu.be/k6rDS0qQiO0)

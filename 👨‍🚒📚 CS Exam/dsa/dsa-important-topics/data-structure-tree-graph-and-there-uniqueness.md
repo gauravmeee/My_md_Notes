@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Data Structure: Tree Graph and there Uniqueness
 
 ## Types of Trees

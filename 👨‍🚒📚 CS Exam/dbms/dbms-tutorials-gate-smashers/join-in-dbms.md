@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Joins in DBMS
 
 ## [Lec-38: Introduction to Joins and its types | Need of Joins with example | DBMS](https://youtu.be/zYH-e6tUYbw)

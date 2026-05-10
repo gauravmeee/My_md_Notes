@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # TCP and IP Header, Window Size, Segment, Packet and Frame
 
 #### TCP Header vs IP Header

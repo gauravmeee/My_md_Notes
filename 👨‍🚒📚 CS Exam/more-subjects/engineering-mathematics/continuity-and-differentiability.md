@@ -1,5 +1,4 @@
-
-### Comprehensive Notes on , and Related Concepts
+# Continuity and Differentiability
 
 ##### **1. Functions: Foundation**
 

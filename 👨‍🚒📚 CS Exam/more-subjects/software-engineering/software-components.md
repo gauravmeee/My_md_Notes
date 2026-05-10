@@ -21,8 +21,6 @@ layout:
 
 # Software Components
 
-# ⭐ Notes\_SE Software Components
-
 **Software Component** - A software component is a ==**self-contained, modular unit** of a software system== that performs a specific function and interacts with other components through **well-defined interfaces**. Components are designed for **reuse, replaceability, and independent development**.
 
 i.e. Software components are modular units of a system that encapsulate functionality, interact through interfaces, and promote reuse, maintainability, and scalability.

@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # SQL Cheat Sheet
 
 #### Types of Language in SQL

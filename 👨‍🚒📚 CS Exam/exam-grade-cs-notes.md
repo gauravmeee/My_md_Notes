@@ -1,2 +1,0 @@
-# Exam Grade CS Notes
-

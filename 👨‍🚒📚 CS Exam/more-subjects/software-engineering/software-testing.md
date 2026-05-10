@@ -18,7 +18,6 @@ layout:
   tags:
     visible: true
 ---
-
 # Software Testing
 
 ### Introduction
