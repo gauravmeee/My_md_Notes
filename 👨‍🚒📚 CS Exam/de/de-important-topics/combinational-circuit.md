@@ -414,19 +414,19 @@ A2 ──┘
 **1. Multiplexer (MUX)**
 
 **Definition:**\
-A **Multiplexer** is a combinational circuit that ==selects one input line from multiple inputs and forwards it to a single output line==, based on select lines.
+A **Multiplexer** is a combinational circuit that <mark>selects one input line from multiple inputs and forwards it to a single output line</mark>, based on select lines.
 
 **Key Points:**
 
 - Also called **data selector**
 - Reduces number of data lines by combining them
-- Requires ==**n** select lines to select from **2ⁿ**== inputs
+- Requires <mark>**n** select lines to select from **2ⁿ**</mark> inputs
 
 **Multiplexer (MUX) Significance**
 
 - Allows selection of one data line from many inputs using select lines.
 - <mark>Reduces hardware</mark> by sharing a single communication line.
-- Used in ==data routing, ALU input selection, signal switching==.
+- Used in <mark>data routing, ALU input selection, signal switching</mark>.
 
 **Block Diagram:**
 
@@ -457,12 +457,12 @@ A _Demultiplexer_ is a combinational circuit that takes a single input and route
 **Key Points:**
 
 - Opposite of MUX
-- Requires ==**n** select lines for **2ⁿ**== outputs
+- Requires <mark>**n** select lines for **2ⁿ**</mark> outputs
 
 **Demultiplexer (DEMUX) Significance**
 
-- <mark>Routes one input signal to one of many output lines</mark based on select lines.
-- Used in ==serial-to-parallel data conversion==.
+- <mark>Routes one input signal to one of many output lines</mark> based on select lines.
+- Used in <mark>serial-to-parallel data conversion</mark>.
 - Common in communication systems for data distribution.
 
 **Block Diagram:**
@@ -502,19 +502,19 @@ IN ──| 1 x 4 |── O1
 
 **Encoder**
 
-An _Encoder_ is a combinational circuit that ==converts **2ⁿ input lines** into **n output lines** by ==encoding the active input into binary form.
+An _Encoder_ is a combinational circuit that <mark>converts **2ⁿ input lines** into **n output lines** by </mark>encoding the active input into binary form.
 
 **Key Points:**
 
 - Works opposite to Decoder
-- Only ==one input should be active at a time==
-- Example: ==8-to-3 encoder== → 8 inputs, 3 outputs
+- Only <mark>one input should be active at a time</mark>
+- Example: <mark>8-to-3 encoder</mark> → 8 inputs, 3 outputs
 
 **Encoder Significance**
 
-- Converts ==active input line into binary code==.
+- Converts <mark>active input line into binary code</mark>.
 - Reduces number of bits needed to represent multiple signals.
-- Used in ==keyboards, priority systems, and digital communication==.
+- Used in <mark>keyboards, priority systems, and digital communication</mark>.
 
 **Block Diagram (4-to-2 Encoder):**
 
@@ -539,18 +539,18 @@ An _Encoder_ is a combinational circuit that ==converts **2ⁿ input lines** int
 
 **Decoder**
 
-A _Decoder_ is a combinational circuit that ==converts **n input lines** into **2ⁿ output lines**==, activating only one output for each input combination.
+A _Decoder_ is a combinational circuit that <mark>converts **n input lines** into **2ⁿ output lines**</mark>, activating only one output for each input combination.
 
 **Key Points:**
 
 - Opposite of Encoder
-- Used for ==address decoding== in memory systems
+- Used for <mark>address decoding</mark> in memory systems
 - Example: 2-to-4 decoder → 2 inputs, 4 outputs
 
 **Decoder Significance**
 
-- <mark>Converts binary input into a single active output line==.
-- Used for ==address decoding in memory==, display systems, and instruction decoding.
+- <mark>Converts binary input into a single active output line</mark>.
+- Used for <mark>address decoding in memory</mark>, display systems, and instruction decoding.
 
 **Block Diagram (2-to-4 Decoder):**
 

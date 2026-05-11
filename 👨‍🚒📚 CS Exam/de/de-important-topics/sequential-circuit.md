@@ -12,8 +12,8 @@ A **Latch** is a level-triggered ==bistable circuit that stores 1 bit of data==.
 
 - **Level sensitive** (transparent when enabled)
 - **Basic types:**
-  1. <mark>SR Latch==,
-  2. <mark>D Latch==
+  1. <mark>SR Latch</mark>,
+  2. <mark>D Latch</mark>
 - **Built using** ==NAND/NOR== gates
 
 #### **1. SR Latch**
