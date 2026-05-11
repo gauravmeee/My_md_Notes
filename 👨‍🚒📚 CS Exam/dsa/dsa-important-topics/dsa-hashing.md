@@ -108,15 +108,38 @@ A collision occurs in hashing when **two or more different keys are mapped to th
   * **Primary Clustering:** Long runs of occupied slots (in Linear Probing)
   * **Secondary Clustering:** Keys follow same probe sequence (in Quadratic Probing)
 
-**Collision Resolution Techniques**
+**Collision Resolution Techniques** ⭐
 
-* **A. Separate Chaining (Closed Addressing)**
-* **B. Open Addressing (Open Hashing)**
-  1. Linear Probing
-  2. Quadratic Probing
-  3. Double Hashing
+* **A. Separate Chaining (Closed Addressing)** -> Collision elements are linked together.
+	1. Bucket hashing → one index stores multiple entries in an array/block.
+	2. Chaining → one index points to a linked list.
+* **B. Open Addressing (Closed Hashing)** -> Probe for next empty slot.
+	1. Linear Probing → Search sequentially for next empty slot.
+	2. Quadratic Probing → Search using quadratic gaps to reduce clustering.
+	3. Double Hashing → Use a second hash function to decide probe step size.
 
-**A. Separate Chaining (Closed Addressing)**
+| Feature            | Close Addressing                                                | Open Addressing         |
+| ------------------ | --------------------------------------------------------------- | ----------------------- |
+| Another Name       | Separate Chaining                                               | Closed Hashing          |
+| Collision Handling | Store multiple elements at same index using linked list/buckets | Find another empty slot |
+| Storage            | Outside table possible                                          | Inside table only       |
+| Extra Memory       | Required                                                        | Not required            |
+| Deletion           | Easy                                                            | Difficult               |
+| Clustering         | Less                                                            | More                    |
+| Load Factor        | Can be (>1)                                                     | Must be (<1)            |
+
+The naming is confusing because different books use opposite terminology.
+
+| Term                                  | Method   | Meaning                                                 |
+| ------------------------------------- | -------- | ------------------------------------------------------- |
+| Open Addressing                       | probing  | All elements stored inside same hash table              |
+| Closed Addressing / Separate Chaining | chaining | Elements may be stored outside table using linked lists |
+
+Reason: ⭐
+- In open addressing, searching stays “open” within table slots.
+- In closed addressing, each index is “closed” to a chain/bucket attached to it.
+
+##### **A. Separate Chaining (Closed Addressing)**
 
 **Method:**
 
@@ -126,7 +149,6 @@ A collision occurs in hashing when **two or more different keys are mapped to th
 **Operations:**
 
 * **Insert:**
-
 ```
 1. Compute h(k)
 2. Insert k at head of list at table[h(k)]
@@ -134,7 +156,6 @@ A collision occurs in hashing when **two or more different keys are mapped to th
 ```
 
 * **Search:**
-
 ```
 1. Compute h(k)
 2. Traverse list at table[h(k)]
@@ -142,7 +163,6 @@ A collision occurs in hashing when **two or more different keys are mapped to th
 ```
 
 * **Delete:**
-
 ```
 1. Compute h(k)
 2. Search in list at table[h(k)]
@@ -182,7 +202,7 @@ A collision occurs in hashing when **two or more different keys are mapped to th
 * Average search time = $1 + \frac{\alpha}{2}$ (successful search)
 * Average search time = $\alpha$ (unsuccessful search)
 
-**B. Open Addressing (Open Hashing)**
+##### **B. Open Addressing (Closed Hashing)**
 
 **Method:**
 
