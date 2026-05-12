@@ -1,2 +1,0 @@
-# OIL India - Theoritical
-
