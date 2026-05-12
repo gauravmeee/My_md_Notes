@@ -134,8 +134,8 @@ $$F = (A + B')(B + C)(A' + C')$$
 **1. Basic Idea**
 
 - Boolean function can be represented using:
-  - <mark>Minterms (Σm) → for SOP form==
-  - <mark>Maxterms (ΠM) → for POS form==
+  - <mark>Minterms (Σm) → for SOP form</mark>
+  - <mark>Maxterms (ΠM) → for POS form</mark>
 
 **2. Minterm**
 
@@ -160,8 +160,8 @@ $$F = (A + B')(B + C)(A' + C')$$
 
 If for an input:
 
-- <mark>bit = 0 → variable is complemented==
-- <mark>bit = 1 → variable is uncomplemented==
+- <mark>bit = 0 → variable is complemented</mark>
+- <mark>bit = 1 → variable is uncomplemented</mark>
 
 **Example:**
 
@@ -190,8 +190,8 @@ If for an input:
 
 If for an input:
 
-- <mark>bit = 0 → variable is uncomplemented==
-- <mark>bit = 1 → variable is complemented==
+- <mark>bit = 0 → variable is uncomplemented</mark>
+- <mark>bit = 1 → variable is complemented</mark>
 
 Example:
 
@@ -276,11 +276,11 @@ If you want, I can also give 1 full solved example showing conversion between tr
 
 **1. What is K-Map?**
 
-- <mark>**Karnaugh Map (K-Map)** is a graphical method== to ==simplify Boolean functions.==
+- <mark>**Karnaugh Map (K-Map)** is a graphical method</mark> to ==simplify Boolean functions.==
 - It gives **minimum literals** expression (best for GATE).
 - Used for:
-  - <mark>**SOP minimization** (group 1s)==
-  - <mark>**POS minimization** (group 0s)==
+  - <mark>**SOP minimization** (group 1s)</mark>
+  - <mark>**POS minimization** (group 0s)</mark>
 
 **2. Why Gray Code?**
 
