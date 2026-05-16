@@ -1,23 +1,6 @@
 ---
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Automata and tuple representations
 ---
-# Automata and tuple representations.
 
 Writing Order of 4 types of tuples: -> `Sets → Functions → States -> Symbol -> Subset`
 

@@ -1,24 +1,6 @@
 ---
-description: From Gate Wallah's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: TOC Tutorial (GATE Wallah) ▶️
 ---
-# TOC Tutorial (GATE Wallah)
 
 ### 0. Introduction
 
@@ -33,10 +15,10 @@ layout:
 
 **Automata** -> Mathematical Model or Theoretical Machine
 
-* <mark>Finite Automata -> Regular Language== ⭐
-* <mark>Pushdown Automata -> Context-free Language== ⭐
-* <mark>Linear-bounded Automata -> Context-sensitive Language==
-* <mark>Turing Machine -> Recursive Enumerable Language==
+* ==Finite Automata -> Regular Language== ⭐
+* ==Pushdown Automata -> Context-free Language== ⭐
+* ==Linear-bounded Automata -> Context-sensitive Language==
+* ==Turing Machine -> Recursive Enumerable Language==
 
 ### 1. Finite Automata
 

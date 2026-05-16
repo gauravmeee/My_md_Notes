@@ -1,24 +1,6 @@
 ---
-description: From Gate Smasher's Tutorials ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title : ACID, Transaction Schedules, RAID ▶️
 ---
-# ACID, Transaction Schedules, RAID
 
 ## [Lec-74: ACID Properties of a Transaction | Database Management System](https://youtu.be/-GS0OxFJsYQ)
 
@@ -119,7 +101,7 @@ Schedule S
 
 **Rollback:** When T1 fails, atomicity requires undoing all of T1’s effects. Initial A was 10, so rollback must restore database A=10. But T2 has already committed using the uncommitted value produced by T1 (A=5). Since T1 later fails, we cannot undo T2’s commit. Hence recovery becomes impossible → **Irrecoverable schedule.**
 
-**Atomicity Principle:** This property dictates an <mark>"either all or none" rule.</mark> Either all the transaction's operations are performed, or not a single one is performed.
+**Atomicity Principle:** This property dictates an =="either all or none" rule.== Either all the transaction's operations are performed, or not a single one is performed.
 
 **Note:**
 
@@ -270,7 +252,7 @@ T2 waits until T1 commits before any access → strict.
 
 **Identification:** If a transaction waits for both **read and write** until the previous writer commits → strict.
 
-**Advantage:** <mark>Most reliable schedule</mark>; rollback never forces undoing of other committed work.
+**Advantage:** ==Most reliable schedule==; rollback never forces undoing of other committed work.
 
 **Relation:** Strict ⇒ Cascadeless ⇒ Recoverable.
 
@@ -293,9 +275,9 @@ T2 waits until T1 commits before any access → strict.
 
 **Serial Schedules**
 
-A schedule is serial if one transaction executes and completes fully, and **after that**, the next transaction starts. <mark>There is **no interleaving** of operations in the middle.</mark>
+A schedule is serial if one transaction executes and completes fully, and **after that**, the next transaction starts. ==There is **no interleaving** of operations in the middle.==
 
-A <mark>**serial schedule** is already serial</mark>, so it is pointless to ask if it can be made serializable.
+A ==**serial schedule** is already serial==, so it is pointless to ask if it can be made serializable.
 
 **Graphical Representation (Precedence Graph) of Serial Schedules**
 
@@ -543,7 +525,7 @@ Therefore S is **not conflict-serializable** (cannot be transformed into any ser
 
 **Conflict Equivalence and Serializability**
 
-If a schedule **S** can be converted into another schedule **S'** using only adjacent **non-conflicting swaps**, then **S and S' are <mark>conflict equivalent**. </mark> If such an **S'** exists, it will always be a **serial schedule**, meaning all operations of one transaction appear before the other. Thus, whenever conflict equivalence holds, **conflict serializability** also holds. This provides a direct method to test serializability through swapping.
+If a schedule **S** can be converted into another schedule **S'** using only adjacent **non-conflicting swaps**, then **S and S' are ==conflict equivalent**. == If such an **S'** exists, it will always be a **serial schedule**, meaning all operations of one transaction appear before the other. Thus, whenever conflict equivalence holds, **conflict serializability** also holds. This provides a direct method to test serializability through swapping.
 
 **Analogy** : Conflict equivalence works like a sliding-block puzzle. Each operation is a block. You may slide two adjacent blocks only when the swap does not alter the final effect (non-conflict). If a swap would change the result (conflict pair), the move is prohibited. If schedule **S** can be rearranged block by block into **S'** using only allowed swaps, the schedules are conflict equivalent.
 
@@ -607,17 +589,17 @@ If such a pair appears in order on the same data item, we draw a directed edge.
 
 **4. T3 : R(x)**
 
-* Conflict with later T1:W(x).
+* Conflict with later T1\:W(x).
 * **Edge: T3 → T1**.
 
 **5. T2 : R(y)**
 
-* Conflict with later T3:W(y).
+* Conflict with later T3\:W(y).
 * **Edge: T2 → T3**.
 
 **6. T2 : R(z)**
 
-* Conflict with later T1:W(z).
+* Conflict with later T1\:W(z).
 * **Edge: T2 → T1**.
 
 **7. T3 : W(y)**
@@ -628,7 +610,7 @@ If such a pair appears in order on the same data item, we draw a directed edge.
 **8. T2 : W(z)**
 
 * Conflicts: R(z), W(z).
-* Later T1:R(z) exists → edge already (T2 → T1).
+* Later T1\:R(z) exists → edge already (T2 → T1).
 
 Remaining T1 ops conflict within T1 → ignore.
 
@@ -664,7 +646,7 @@ T2 → T3 → T1
 
 This is the serial schedule equivalent to the given parallel schedule.
 
-**Cycle Detection (Key Rule)** : A schedule is conflict serializable <mark>(Consistent)</mark> iff the precedence graph has **no cycle**.
+**Cycle Detection (Key Rule)** : A schedule is conflict serializable ==(Consistent)== iff the precedence graph has **no cycle**.
 
 * A cycle means you can start at a node, follow directed edges, and return to the same node.
 * The given edges (T2→T3, T2→T1, T3→T1) do **not** form any backward path.
@@ -730,7 +712,7 @@ A cycle means conflict serializability cannot decide; the schedule becomes non-a
 
 When conflict serializability fails, view serializability checks if the schedule matches the input–read dependencies and final writes of some serial order.
 
-**View Equivalence:** Two schedules are <mark>**View Equivalent**</mark> if they produce the same final result, even if they do not look identical. View equivalence is achieved by checking if the schedule produces the same outcome as _some_ serial schedule.
+**View Equivalence:** Two schedules are ==**View Equivalent**== if they produce the same final result, even if they do not look identical. View equivalence is achieved by checking if the schedule produces the same outcome as _some_ serial schedule.
 
 **Example:**
 

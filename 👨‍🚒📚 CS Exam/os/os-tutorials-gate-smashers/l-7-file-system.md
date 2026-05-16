@@ -1,24 +1,6 @@
 ---
-description: From Gate Smasher's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L-7 File System ▶️
 ---
-# L-7: File System
 
 ## [L-7.1: File System in Operating System | Windows, Linux, Unix, Android etc.](https://www.youtube.com/watch?v=0LtuQhNFFe0\&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p\&index=82\&pp=iAQB0gcJCU0KAYcqIYzv)
 

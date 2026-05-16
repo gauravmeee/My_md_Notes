@@ -1,23 +1,6 @@
 ---
-description: Made By Me 💚
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Memory Chip Organization and Interleaving
 ---
-# Memory Chip Organization and Interleaving
 
 **1. Understanding Chip Specifications**
 

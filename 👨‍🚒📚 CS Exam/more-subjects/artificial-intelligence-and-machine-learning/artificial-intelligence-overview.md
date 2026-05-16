@@ -1,4 +1,7 @@
-# Artificial Intelligence Overview
+---
+title: Artificial Intelligence Overview
+---
+
 ### 1. Scope of AI
 
 AI (Artificial Intelligence) aims to build intelligent systems that can perform tasks requiring human-like intelligence such as reasoning, learning, perception, and decision-making.

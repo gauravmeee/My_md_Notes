@@ -1,5 +1,6 @@
-
-# SQL View
+---
+title: SQL View
+---
 
 A **View** in SQL is essentially a **virtual table**. It does not store data physically; instead, it stores a pre-defined `SELECT` query that pulls data from one or more "base tables" every time the view is accessed.
 

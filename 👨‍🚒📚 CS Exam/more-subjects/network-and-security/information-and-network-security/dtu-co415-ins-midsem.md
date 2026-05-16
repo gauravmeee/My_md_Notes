@@ -1,6 +1,6 @@
-# DTU CO415 INS Midsem
-
-> Gaurav Meena
+---
+title: INS (DTU CO415) Midsem
+---
 
 #### Substitution Cipher Examples:
 

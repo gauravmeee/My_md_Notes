@@ -1,24 +1,6 @@
 ---
-description: From Striver's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Algorithm - Recursion ▶️✔️
 ---
-# Algorithm: Recursion ✔️
 
 #### Content
 
@@ -939,7 +921,7 @@ int printS(int ind, int s, int sum, int arr[], int n){
 _**Time Complexity:**_ `TC:O(2^n)`\
 TC: two choice for each ( 1 to n )-> 2\*2\*2.... \*n times
 
-**TC:O(2^n)** for all above algorithm
+**TC\:O(2^n)** for all above algorithm
 
 It can be **optimised** somewhat by using another base condition at starting
 

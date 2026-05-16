@@ -1,24 +1,6 @@
 ---
-description: From Gate Smasher's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L4 Pipelining ▶️
 ---
-# L4: Pipelining
 
 ### [L-4.1: Pipelining with real life example| Need of Pipelining | COA](https://www.youtube.com/watch?v=Al95Owan9Ck)
 
@@ -30,7 +12,7 @@ layout:
 
 * Pipelining is the Process of arrangement of hardware elements of CPU such that Hs Overall Performance is increased
 * Simultaneous execution of more than one instructor takes place in pipelined processor
-* In pipelining <mark>multiple instructions are overlapped in execution</mark>
+* In pipelining ==multiple instructions are overlapped in execution==
 * Example – Reduced Instruction Set (RISC) Pipeline
 
 ```
@@ -44,10 +26,10 @@ Input  /   R1          R2 /          R3           R4
     └──────┴──────┴─────┴──────┴─────┴──────┴─────┴ Clock
 ```
 
-* <mark>**IR (Interface Register)**</mark>: Latches placed **after each stage** to store intermediate results between stages.
+* ==**IR (Interface Register)**==: Latches placed **after each stage** to store intermediate results between stages.
 * They isolate stages so each can work in parallel during the same clock cycle.
 * Common in **RISC architectures** to achieve high instruction throughput.
-* <mark>**Clock Pulse**:</mark> Synchronizes all pipeline stages so each stage starts its operation at the same time. On each clock edge, IRs transfer stored data to the next stage, enabling overlapped execution of multiple instructions.
+* ==**Clock Pulse**:== Synchronizes all pipeline stages so each stage starts its operation at the same time. On each clock edge, IRs transfer stored data to the next stage, enabling overlapped execution of multiple instructions.
 
 **Standard:**
 
@@ -209,9 +191,9 @@ Efficiency = Cells Utilised / Totan no. of Cells
 		   = 2/3
 ```
 
-<mark>**Goal of Pipeline:**</mark> To make **Cycles Per Instruction (CPI) ≈ 1**
+==**Goal of Pipeline:**== To make **Cycles Per Instruction (CPI) ≈ 1**
 
-<mark>**CPI formula:**</mark>
+==**CPI formula:**==
 
 $$CPI=\frac{\text{Total CPU Cycles}}{\text{Number of Instructions}}$$
 

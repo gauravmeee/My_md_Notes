@@ -1,4 +1,6 @@
-# Data Mining and Big Data Analytics Overview
+---
+title: Data Mining and Big Data Analytics Overview
+---
 
 ### 1. Data Cleaning and Processing
 

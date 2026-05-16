@@ -1,24 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Cache Memory Access Time
 ---
-# Cache Memory Access Time
 
 #### **Average Memory Access Time (AMAT)**
 
@@ -217,7 +199,7 @@ T\_1
 **3. Can cache access be skipped?**
 
 * **Hierarchical:** No. Cache lookup **cannot be bypassed**, even on a miss.
-* <mark>**Simultaneous:** Yes. Cache response can be **ignored** if memory responds first</mark>.
+* ==**Simultaneous:** Yes. Cache response can be **ignored** if memory responds first==.
 
 **4. What happens on a cache miss**
 

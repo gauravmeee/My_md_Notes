@@ -1,4 +1,6 @@
-# Continuity and Differentiability
+---
+title: Continuity and Differentiability
+---
 
 ##### **1. Functions: Foundation**
 

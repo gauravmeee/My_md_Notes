@@ -1,4 +1,6 @@
-# DTU CO313 CG Midsem
+---
+title: CG (DTU CO313) Midsem
+---
 
 ## [Pixel and Frame Buffer in computer graphics | Lecture 7](https://www.youtube.com/watch?v=7R9-18eTDJ0\&ab_channel=LearnPlayHub)
 

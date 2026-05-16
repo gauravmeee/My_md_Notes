@@ -1,24 +1,6 @@
 ---
-description: From Striver's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Algorithm - Sorting ▶️✔️
 ---
-# Algorithm: Sorting ✔️
 
 #### Content
 
@@ -421,7 +403,7 @@ Time Complexity : Average, Worst, Best `TC: O(nlog(n))`
 
 n = 2^k => log2n = k => no. of times -> time complexity 2. **merge()** -> Traversing aray: TC: worst case O(n)
 
-Space Complexity : `SC:O(n)` temporary array in merge of n size() -> SC: O(n) Recursion stack space -> SC:O(log(n))
+Space Complexity : `SC:O(n)` temporary array in merge of n size() -> SC: O(n) Recursion stack space -> SC\:O(log(n))
 
 _**C++ code :**_
 
@@ -647,9 +629,9 @@ Time Complexity : Average, Worst, Best `TC: O(nlog(n))`
 
 n = 2^k => log2n = k (height of tree) => no. of times -> time complexity
 
-2. **partition()** function going to entire array : TC :O(n)
+2. **partition()** function going to entire array : TC \:O(n)
 
-Space Complexity : `SC:O(logn)` Recursion stack space -> SC:O(log(n))
+Space Complexity : `SC:O(logn)` Recursion stack space -> SC\:O(log(n))
 
 _**C++ Code:**_
 

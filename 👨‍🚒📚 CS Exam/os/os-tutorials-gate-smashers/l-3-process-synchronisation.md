@@ -1,24 +1,6 @@
 ---
-description: From Gate Smasher's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L-3 Process Synchronisation ▶️
 ---
-# L-3: Process Synchronisation
 
 ### [L-3.1: Process Synchronization | Process Types | Race Condition | Operating System-1](https://www.youtube.com/watch?v=3Eaw1SSIqRg\&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p\&index=25\&pp=iAQB)
 

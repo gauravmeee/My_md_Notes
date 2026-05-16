@@ -1,24 +1,6 @@
 ---
-description: From Abdul Bari's Tutorials ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L6 Backtracking (Brute Force Approach) ▶️
 ---
-# L6: Backtracking - Brute Force Approach
 
 ## [6.1 N Queens Problem using Backtracking](https://www.youtube.com/watch?v=xFv_Hl4B83A\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=64\&pp=iAQB)
 

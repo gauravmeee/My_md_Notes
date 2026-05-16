@@ -1,4 +1,6 @@
-# Data Warehousing Overview
+---
+title: Data Warehousing Overview
+---
 
 ### 1. Introduction
 

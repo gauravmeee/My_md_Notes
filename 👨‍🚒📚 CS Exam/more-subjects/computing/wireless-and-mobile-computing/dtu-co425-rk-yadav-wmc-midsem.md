@@ -1,4 +1,6 @@
-# DTU CO425 RK Yadav WMC Midsem
+---
+title: WMC (DTU CO425 RK Yadav) Midsem
+---
 
 Entire Syllabus Cover :
 - Wireless Network

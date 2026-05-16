@@ -1,24 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: CPU Scheduling
 ---
-# CPU Scheduling
 
 ## OS Process Scheduling
 
@@ -235,7 +217,7 @@ BT[P4]=0 X Done
 
 3. Upto T = 5 : P1 and P3 Ready
 
-* Execution : P1->P3 (BT:P1=P3, BUT AT: P1\<P3 ) Note: if BT same, AT will be prioritize
+* Execution : P1->P3 (BT\:P1=P3, BUT AT: P1\<P3 ) Note: if BT same, AT will be prioritize
 
 ```
 [P1|P2P2P3|P4|P1P1P1P1]

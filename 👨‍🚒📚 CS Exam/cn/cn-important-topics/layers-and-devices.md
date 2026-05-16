@@ -1,36 +1,16 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Layers and Devices
 ---
-# Layers and Devices
-
-> Added at LAB
 
 **Things Difficult to Remember**
 
 **Layers - Devices**
 
-* **Layer 7 (Application)** - <mark>Proxy</mark>, <mark>Gateway</mark> (Layer 7), Load Balancer
-* **Layer 4 (Transport)** - <mark>Firewall</mark>, Load Balancer
-* **Layer 3 (Network)** - <mark>Router</mark>, Brouter, Switch (Layer 3), Firewall (Partially)
-* **Layer 2 (Data Link)** - <mark>Switch</mark>, <mark>Bridge</mark>, Access Point, NIC
-* **Layer 1 (Physical)** - <mark>Hub</mark>, <mark>Repeater</mark>, Modem (Partially) , NIC (Partially)
+* **Layer 7 (Application)** - ==Proxy==, ==Gateway== (Layer 7), Load Balancer
+* **Layer 4 (Transport)** - ==Firewall==, Load Balancer
+* **Layer 3 (Network)** - ==Router==, Brouter, Switch (Layer 3), Firewall (Partially)
+* **Layer 2 (Data Link)** - ==Switch==, ==Bridge==, Access Point, NIC
+* **Layer 1 (Physical)** - ==Hub==, ==Repeater==, Modem (Partially) , NIC (Partially)
 
 **Layer - Data Unit**
 
@@ -42,17 +22,17 @@ layout:
 
 **Port - Protocol**
 
-* <mark>20 - FTP data (TCP)</mark>
-* <mark>21 - FTP control (TCP)</mark>
-* <mark>25 - SMTP (TCP)</mark>
+* ==20 - FTP data (TCP)==
+* ==21 - FTP control (TCP)==
+* ==25 - SMTP (TCP)==
 * 53 - DNS (UDP & TCP)
 * 67 - DHCP Server (UDP)
 * 68 - DHCP Client (UDP)
-* <mark>80 - HTTP/1.x & HTTP/2 (TCP)</mark>
-* <mark>110 - POP3 (TCP)</mark>
-* <mark>143 - IMAP (TCP)</mark>
+* ==80 - HTTP/1.x & HTTP/2 (TCP)==
+* ==110 - POP3 (TCP)==
+* ==143 - IMAP (TCP)==
 * 179 - BGP (TCP)
-* <mark>443 - HTTPS/TLS (TCP) _and_ HTTP/3 over QUIC (UDP)</mark>
+* ==443 - HTTPS/TLS (TCP) _and_ HTTP/3 over QUIC (UDP)==
 * 520 - RIP (UDP)
 
 **Application Protocols Stateful or Stateless**
@@ -66,23 +46,23 @@ layout:
 
 **Socket (4. Transport Layer)**
 
-A **socket** is the <mark>software endpoint</mark> that programs use to <mark>send and receive data over a computer network</mark>.
+A **socket** is the ==software endpoint== that programs use to ==send and receive data over a computer network==.
 
 * **What it represents:**
-  * A combination of an <mark>IP address (identifying a host) and a port number</mark> (identifying a specific process or service on that host).
+  * A combination of an ==IP address (identifying a host) and a port number== (identifying a specific process or service on that host).
   * Together they form a unique “address” for a communication channel.
 * **How it works:**
   * One program creates a socket, binds it to a local address/port, and then either connects to a remote socket (for connection‑oriented protocols like TCP) or sends datagrams to a remote address (for connectionless protocols like UDP).
   * The other side does the same, establishing a two‑way communication path.
 * **Common types:**
-  * <mark>**Stream sockets**</mark> – use TCP; provide reliable, ordered byte streams.
-  * **<mark>Datagram sockets**</mark> – use UDP; send independent packets with no guarantee of delivery or order.
+  * ==**Stream sockets**== – use TCP; provide reliable, ordered byte streams.
+  * **==Datagram sockets**== – use UDP; send independent packets with no guarantee of delivery or order.
 
 In short, a socket abstracts the network stack so applications can read/write data just like they would to a file, while the underlying protocol handles routing, reliability, etc.
 
 **Host (3. Network Layer)**
 
-A **host** is any <mark>end‑system</mark> that <mark>runs a network protocol stack (typically TCP/IP)</mark> and can originate or receive data on a network. In practice, a host:
+A **host** is any ==end‑system== that ==runs a network protocol stack (typically TCP/IP)== and can originate or receive data on a network. In practice, a host:
 
 * **Has an IP address** – the logical identifier used by the Network layer to route packets to it.
 * **Runs applications** that use sockets (or other APIs) to send/receive traffic.
@@ -104,7 +84,7 @@ A **node** is any point‑of‑attachment on a network where data can be created
 Quick takeaway
 
 * A _host_ is a specific kind of node that acts as an end‑system for user applications.
-* All <mark>hosts are nodes</mark>, but not all nodes are hosts—</mark>routers and switches</mark> are also nodes, just ones that primarily forward traffic.
+* All ==hosts are nodes==, but not all nodes are hosts—==routers and switches== are also nodes, just ones that primarily forward traffic.
 
 #### Devices
 
@@ -112,14 +92,14 @@ Quick takeaway
 
 | Device                                       | Layers involved                   | What it does on each layer                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | -------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Router**                                   | 1, 2, 3                           | <p>• <strong>L1:</strong> Sends/receives bits on each interface (copper, fiber, wireless).<br>• <strong>L2:</strong> Adds/removes the appropriate link‑layer header (Ethernet MAC, PPP, HDLC, etc.) for the outgoing/incoming interface.<br>• <mark><strong>L3:</strong> Reads the destination IP address, looks up a routing table and forwards the packet to the selected next hop.</mark></p>                                                                                                            |
-| **Multilayer Switch / Layer‑3 Switch**       | 1, 2, 3 (sometimes 4)             | <p></mark>• <strong>L1/L2:</strong> Same as an Ethernet switch – learns MAC addresses and forwards frames within a VLAN.</mark><br></mark>• <strong>L3:</strong> Performs fast hardware routing between VLANs or subnets (IP lookup).</mark><br>• <strong>L4 (optional):</strong> May apply ACLs or QoS based on TCP/UDP ports.</p>                                                                                                                                                                                    |
-| **Gateway (generic term)**                   | 1 – 7 (depends on the conversion) | <p>• <strong>L1/L2:</strong> Provides physical/link connectivity between dissimilar media (e.g., Ethernet ↔ Serial, copper ↔ fiber).<br>• <strong>L3:</strong> May route or perform address translation when moving between IP domains.<br></mark>• <strong>L4–L7:</strong> Performs protocol conversion – e.g., IPv4 ↔ IPv6 (NAT64/DNS64), MPLS ↔ IP, or encapsulation for tunnels (GRE, IPsec).</mark></p>                                                                                                 |
+| **Router**                                   | 1, 2, 3                           | <p>• <strong>L1:</strong> Sends/receives bits on each interface (copper, fiber, wireless).<br>• <strong>L2:</strong> Adds/removes the appropriate link‑layer header (Ethernet MAC, PPP, HDLC, etc.) for the outgoing/incoming interface.<br>• ==<strong>L3:</strong> Reads the destination IP address, looks up a routing table and forwards the packet to the selected next hop.==</p>                                                                                                            |
+| **Multilayer Switch / Layer‑3 Switch**       | 1, 2, 3 (sometimes 4)             | <p>==• <strong>L1/L2:</strong> Same as an Ethernet switch – learns MAC addresses and forwards frames within a VLAN.==<br>==• <strong>L3:</strong> Performs fast hardware routing between VLANs or subnets (IP lookup).==<br>• <strong>L4 (optional):</strong> May apply ACLs or QoS based on TCP/UDP ports.</p>                                                                                                                                                                                    |
+| **Gateway (generic term)**                   | 1 – 7 (depends on the conversion) | <p>• <strong>L1/L2:</strong> Provides physical/link connectivity between dissimilar media (e.g., Ethernet ↔ Serial, copper ↔ fiber).<br>• <strong>L3:</strong> May route or perform address translation when moving between IP domains.<br>==• <strong>L4–L7:</strong> Performs protocol conversion – e.g., IPv4 ↔ IPv6 (NAT64/DNS64), MPLS ↔ IP, or encapsulation for tunnels (GRE, IPsec).==</p>                                                                                                 |
 | **Firewall (stateful + NAT)**                | 1, 2, 3, 4, 5‑7 (optional)        | <p>• <strong>L1/L2:</strong> Receives frames and may strip/insert VLAN tags.<br>• <strong>L3:</strong> Filters packets by source/destination IP, applies NAT (translates private ↔ public addresses).<br>• <strong>L4:</strong> Tracks TCP/UDP session state; allows only established connections.<br>• <strong>L5‑L7 (optional):</strong> Deep‑packet inspection (e.g., HTTP header checks) or application‑layer proxying.</p>                                                                    |
-| **Application‑Layer Gateway / Proxy**        | 1, 2, 3, 4, 5‑7                   | <p>• <strong>L1/L2:</strong> Normal Ethernet/physical handling.<br>• <strong>L3/L4:</strong> Terminates the client’s TCP connection; opens a separate outbound connection to the server.<br></mark>• <strong>L5‑L7:</strong> Interprets the application protocol (HTTP, FTP, SMTP, etc.), can modify <mark>requests/responses, enforce policies, cache content.</p>                                                                                                                                         |
+| **Application‑Layer Gateway / Proxy**        | 1, 2, 3, 4, 5‑7                   | <p>• <strong>L1/L2:</strong> Normal Ethernet/physical handling.<br>• <strong>L3/L4:</strong> Terminates the client’s TCP connection; opens a separate outbound connection to the server.<br>==• <strong>L5‑L7:</strong> Interprets the application protocol (HTTP, FTP, SMTP, etc.), can modify ==requests/responses, enforce policies, cache content.</p>                                                                                                                                         |
 | **VPN Concentrator / IPsec Gateway**         | 1, 2, 3, 4, 5‑7                   | <p>• <strong>L1/L2:</strong> Sends encrypted frames over whatever physical media is used.<br>• <strong>L3:</strong> Encapsulates original IP packets inside a new outer IP header (tunnel mode) or encrypts them directly (transport mode).<br>• <strong>L4:</strong> Secures the transport with ESP/AH; may also perform NAT‑Traversal handling.<br>• <strong>L5‑L7:</strong> May terminate higher‑level protocols (e.g., SSL VPN terminates HTTPS and presents a virtual LAN to the client).</p> |
 | **Bridge (Transparent Bridge / MAC Switch)** | 1, 2                              | <p>• <strong>L1:</strong> Sends/receives bits on each port.<br>• <strong>L2:</strong> Learns MAC addresses and forwards frames within the same broadcast domain; no IP processing.</p>                                                                                                                                                                                                                                                                                                             |
-| **Modem / Media Converter**                  | 1, 2                              | <p></mark>• <strong>L1:</strong> Converts signaling (e.g., electrical ↔ optical, DSL line ↔ Ethernet).</mark><br>• <strong>L2 (optional):</strong> May encapsulate data in PPP or HDLC frames for the WAN side.</p>                                                                                                                                                                                                                                                                                          |
+| **Modem / Media Converter**                  | 1, 2                              | <p>==• <strong>L1:</strong> Converts signaling (e.g., electrical ↔ optical, DSL line ↔ Ethernet).==<br>• <strong>L2 (optional):</strong> May encapsulate data in PPP or HDLC frames for the WAN side.</p>                                                                                                                                                                                                                                                                                          |
 
 **How to read the table**
 

@@ -1,24 +1,6 @@
 ---
-description: From Striver's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Algorithm - Sliding Window ▶️⌛
 ---
-# Algorithm: Sliding Window ⏳
 
 ## Sliding Window / 2 Pointer
 

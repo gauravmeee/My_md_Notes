@@ -1,24 +1,6 @@
 ---
-description: From Gate Smasher's Tutorials ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Database Modification ▶️
 ---
-# Database Modification
 
 [Lec-105: Immediate Database Modification in DBMS | Log Based Recovery Methods](https://www.youtube.com/watch?v=47LvbDGD4cc)
 

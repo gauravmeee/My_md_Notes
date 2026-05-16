@@ -1,24 +1,6 @@
 ---
-description: Made by Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: SQL Cheat Sheet
 ---
-# SQL Cheat Sheet
 
 #### Types of Language in SQL
 
@@ -675,7 +657,7 @@ ORDER BY -- sorts the grouped result
 **3. Date & Time Data Types**
 
 * `DATE`- Date (YYYY-MM-DD)
-* `TIME` - Time (HH:MM:SS)
+* `TIME` - Time (HH\:MM\:SS)
 * `DATETIME` - Date and time
 * `TIMESTAMP` - Auto-generated datetime
 * `YEAR` - Year (2 or 4 digits)

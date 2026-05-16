@@ -1,23 +1,6 @@
 ---
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Injective & Surjective
 ---
-# Injective & Surjective
 
 #### Composition of Functions – (GATE Detailed Notes)
 
@@ -198,7 +181,7 @@ $f \circ g$ is **surjective**
 
 **Proofs: Composition Properties**
 
-- Let $g:A \to B$ and $f:B \to C$.
+- Let $g\:A \to B$ and $f\:B \to C$.
 
 **1. $f \circ g$ injective $\implies g$ injective**
 

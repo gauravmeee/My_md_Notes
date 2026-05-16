@@ -1,24 +1,6 @@
 ---
-description: From Love Babbar's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Data Structure - Heap ▶️✔️
 ---
-# Data Structure: Heap ✔️
 
 ## [# Lecture 74: Heaps in C++ || Heap Sort || Insertion/Deletion in Heap || Priority Queue STL](https://youtu.be/NKJnHewiGdc)
 
@@ -310,7 +292,7 @@ node 2 : heap ✅, 52<53 and 50<53
     52(4)  50(5)  
 ```
 
-node 1 :node 2 : Not heap ❌, 53<54 but !55<54
+node 1 \:node 2 : Not heap ❌, 53<54 but !55<54
 
 ```
      54(1)
@@ -752,7 +734,7 @@ Algorithm for CBT Check
 
 ```
 isCBT( root, i, nodeCount){
--> if(root<mark>NULL) return True;
+-> if(root==NULL) return True;
 -> if( i > nodeCount) return false;
 -> else {
      left = isCBT (root->left, 2i +1, nodeCount)

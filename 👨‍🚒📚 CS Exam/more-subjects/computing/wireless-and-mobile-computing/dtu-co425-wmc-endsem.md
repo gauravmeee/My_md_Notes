@@ -1,4 +1,7 @@
-# DTU CO425 WMC Endsem
+---
+title: WMC (DTU CO425) Endsem
+---
+
 # [L38: Bluetooth Architecture, Protocol Stack, Piconet, Layer Functions | Mobile Computing Lectures](https://www.youtube.com/watch?v=XDwz1XNOkhY&t=702s&ab_channel=EasyEngineeringClasses)
 
 ## Bluetooth Technology 

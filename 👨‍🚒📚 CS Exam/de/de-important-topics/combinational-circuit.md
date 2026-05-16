@@ -1,24 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Combinational Circuit
 ---
-# Combinational Circuit
 
 **Definition**
 
@@ -136,13 +118,13 @@ B ───┘
 **2. Full Adder**
 
 - Adds three bits (A, B, Cin)
-- <mark>**Sum</mark> = $A \oplus B \oplus C\_{in}$**
-- **<mark>Carry</mark> = $(A \cdot B) + (B \cdot C\_{in}) + (A \cdot C\_{in})$** ⭐
+- ==**Sum== = $A \oplus B \oplus C\_{in}$**
+- **==Carry== = $(A \cdot B) + (B \cdot C\_{in}) + (A \cdot C\_{in})$** ⭐
 
 **3. Half Subtractor:**
 
-- <mark>**Diff**</mark> = $A \oplus B$,
-- <mark>**Borrow**</mark> = $\overline{A} \cdot B$ ⭐
+- ==**Diff**== = $A \oplus B$,
+- ==**Borrow**== = $\overline{A} \cdot B$ ⭐
 
 **4. Full Subtractor:**
 
@@ -151,22 +133,22 @@ B ───┘
 
 **5. Multiplexer (MUX)**
 
-- <mark>Selects one input</mark> from many
+- ==Selects one input== from many
 - n-to-1 MUX has **n inputs, $\log\_2 n$ select lines, 1 output**
 
 **6. Demultiplexer (DEMUX)**
 
-- <mark>Routes single input to one of many outputs</mark>
+- ==Routes single input to one of many outputs==
 - 1-to-n DEMUX has **1 input, $\log\_2 n$ select lines, n outputs**
 
 **7. Encoder**
 
-- <mark>Converts $2^n$ inputs into **n-bit** code</mark>
+- ==Converts $2^n$ inputs into **n-bit** code==
 - Example: 8-to-3 encoder
 
 **8. Decoder**
 
-- <mark>Converts **n-bit** input to $2^n$ outputs</mark>
+- ==Converts **n-bit** input to $2^n$ outputs==
 - Example: 3-to-8 decoder
 
 **Applications**
@@ -182,7 +164,7 @@ B ───┘
 
 **1. Half Adder ⭐**
 
-- <mark>Adds two single-bit</mark> numbers (A, B)
+- ==Adds two single-bit== numbers (A, B)
 - **Sum (S) = A ⊕ B**
 - **Carry (C) = A · B**
 
@@ -209,7 +191,7 @@ B ───┘
 
 **2. Full Adder**
 
-- <mark>Adds three bits</mark> (A, B, Cin)
+- ==Adds three bits== (A, B, Cin)
 - **Sum = A ⊕ B ⊕ Cin**
 - **Carry = (A · B) + (B · Cin) + (A · Cin)** ⭐
 
@@ -414,19 +396,19 @@ A2 ──┘
 **1. Multiplexer (MUX)**
 
 **Definition:**\
-A **Multiplexer** is a combinational circuit that <mark>selects one input line from multiple inputs and forwards it to a single output line</mark>, based on select lines.
+A **Multiplexer** is a combinational circuit that ==selects one input line from multiple inputs and forwards it to a single output line==, based on select lines.
 
 **Key Points:**
 
 - Also called **data selector**
 - Reduces number of data lines by combining them
-- Requires <mark>**n** select lines to select from **2ⁿ**</mark> inputs
+- Requires ==**n** select lines to select from **2ⁿ**== inputs
 
 **Multiplexer (MUX) Significance**
 
 - Allows selection of one data line from many inputs using select lines.
-- <mark>Reduces hardware</mark> by sharing a single communication line.
-- Used in <mark>data routing, ALU input selection, signal switching</mark>.
+- ==Reduces hardware== by sharing a single communication line.
+- Used in ==data routing, ALU input selection, signal switching==.
 
 **Block Diagram:**
 
@@ -440,7 +422,7 @@ A **Multiplexer** is a combinational circuit that <mark>selects one input line f
        Select Lines
 ```
 
-**Truth Table (4:1 MUX example):**
+**Truth Table (4\:1 MUX example):**
 
 | S1  | S0  | OUT |
 | --- | --- | --- |
@@ -457,12 +439,12 @@ A _Demultiplexer_ is a combinational circuit that takes a single input and route
 **Key Points:**
 
 - Opposite of MUX
-- Requires <mark>**n** select lines for **2ⁿ**</mark> outputs
+- Requires ==**n** select lines for **2ⁿ**== outputs
 
 **Demultiplexer (DEMUX) Significance**
 
-- <mark>Routes one input signal to one of many output lines</mark> based on select lines.
-- Used in <mark>serial-to-parallel data conversion</mark>.
+- ==Routes one input signal to one of many output lines== based on select lines.
+- Used in ==serial-to-parallel data conversion==.
 - Common in communication systems for data distribution.
 
 **Block Diagram:**
@@ -477,7 +459,7 @@ IN ──| 1 x 4 |── O1
 	 Select Lines
 ```
 
-**Truth Table (1:4 DEMUX example):**
+**Truth Table (1\:4 DEMUX example):**
 
 | S1  | S0  | O0  | O1  | O2  | O3  |
 | --- | --- | --- | --- | --- | --- |
@@ -494,7 +476,7 @@ IN ──| 1 x 4 |── O1
 | Inputs   | 2ⁿ          | 1             |
 | Outputs  | 1           | 2ⁿ            |
 | Control  | n select    | n select      |
-| Example  | 4:1 MUX     | 1:4 DEMUX     |
+| Example  | 4\:1 MUX     | 1\:4 DEMUX     |
 
 ---
 
@@ -502,19 +484,19 @@ IN ──| 1 x 4 |── O1
 
 **Encoder**
 
-An _Encoder_ is a combinational circuit that <mark>converts **2ⁿ input lines** into **n output lines** by </mark>encoding the active input into binary form.
+An _Encoder_ is a combinational circuit that ==converts **2ⁿ input lines** into **n output lines** by ==encoding the active input into binary form.
 
 **Key Points:**
 
 - Works opposite to Decoder
-- Only <mark>one input should be active at a time</mark>
-- Example: <mark>8-to-3 encoder</mark> → 8 inputs, 3 outputs
+- Only ==one input should be active at a time==
+- Example: ==8-to-3 encoder== → 8 inputs, 3 outputs
 
 **Encoder Significance**
 
-- Converts <mark>active input line into binary code</mark>.
+- Converts ==active input line into binary code==.
 - Reduces number of bits needed to represent multiple signals.
-- Used in <mark>keyboards, priority systems, and digital communication</mark>.
+- Used in ==keyboards, priority systems, and digital communication==.
 
 **Block Diagram (4-to-2 Encoder):**
 
@@ -539,18 +521,18 @@ An _Encoder_ is a combinational circuit that <mark>converts **2ⁿ input lines**
 
 **Decoder**
 
-A _Decoder_ is a combinational circuit that <mark>converts **n input lines** into **2ⁿ output lines**</mark>, activating only one output for each input combination.
+A _Decoder_ is a combinational circuit that ==converts **n input lines** into **2ⁿ output lines**==, activating only one output for each input combination.
 
 **Key Points:**
 
 - Opposite of Encoder
-- Used for <mark>address decoding</mark> in memory systems
+- Used for ==address decoding== in memory systems
 - Example: 2-to-4 decoder → 2 inputs, 4 outputs
 
 **Decoder Significance**
 
-- <mark>Converts binary input into a single active output line</mark>.
-- Used for <mark>address decoding in memory</mark>, display systems, and instruction decoding.
+- ==Converts binary input into a single active output line==.
+- Used for ==address decoding in memory==, display systems, and instruction decoding.
 
 **Block Diagram (2-to-4 Decoder):**
 
@@ -580,4 +562,4 @@ A _Decoder_ is a combinational circuit that <mark>converts **n input lines** int
 | Function | Many→Few    | Few→Many    |
 | Inputs   | 2ⁿ          | n           |
 | Outputs  | n           | 2ⁿ          |
-| Example  | 8:3 Encoder | 3:8 Decoder |
+| Example  | 8\:3 Encoder | 3\:8 Decoder |

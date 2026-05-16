@@ -1,24 +1,6 @@
 ---
-description: Made by Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Data Structure - Linked List
 ---
-# Data Structure: Linked List
 
 ## Introduction to Linked List
 

@@ -1,24 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Algorithm - Time Complexity Recurrence Relation
 ---
-# Algorithm: Time Complexity Recurrence Relation
 
 **1. What is a Recurrence Relation?**
 
@@ -221,11 +203,11 @@ For **decreasing**, we usually give `O(...)` , while for **dividing**, we use **
 
 * We **unroll** the recurrence manually.
 * Behavior depends on **number of steps = n / b**
-* So we often write final result as <mark>**`T(n) = O(...)`** (upper bound focus)</mark>
+* So we often write final result as ==**`T(n) = O(...)`** (upper bound focus)==
 * Because the depth is predictable and **not exponential**, we **usually care about upper bound**.
 
 **Dividing Recurrence (e.g.,** `T(n) = a·T(n / b) + f(n)` **)**
 
 * Solved using the **Master Theorem**.
-* It gives <mark>**tight bound**,</mark> not just upper.
-* So we write <mark>**`T(n) = Θ(...)`** to express **exact asymptotic growth**</mark>.
+* It gives ==**tight bound**,== not just upper.
+* So we write ==**`T(n) = Θ(...)`** to express **exact asymptotic growth**==.

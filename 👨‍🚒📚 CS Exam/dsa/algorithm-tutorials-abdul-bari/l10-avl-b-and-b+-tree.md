@@ -1,24 +1,6 @@
 ---
-description: From Abdul Bari's Tutorials ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L10 AVL, B and B+ Tree ▶️
 ---
-# L10: AVL, B and B+ Tree
 
 ## [10.1 AVL Tree - Insertion and Rotations](https://youtu.be/jDM6_TnYIqE?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O)
 

@@ -1,4 +1,6 @@
-# DTU CO425 RK Yadav WMC Endsem
+---
+title: WMC (DTU CO425 RK Yadav) Endsem
+---
 
 Wireless networks use radio frequency channels as 
 their physical medium for communications.

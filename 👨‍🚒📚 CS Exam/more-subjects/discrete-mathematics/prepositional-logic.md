@@ -1,4 +1,6 @@
-## Propositional Logic
+---
+title: Propositional Logic
+---
 
 ##### **Proposition**
 

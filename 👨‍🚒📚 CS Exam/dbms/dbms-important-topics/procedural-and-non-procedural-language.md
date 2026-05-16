@@ -1,30 +1,12 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Procedural and Non Procedural Language
 ---
-# Procedural and Non Procedural Language
 
 ## Procedural Language (DBMS)
 
-* User specifies <mark>_what data_ is required **and** _how to get it_</mark> (sequence of steps)
+* User specifies ==_what data_ is required **and** _how to get it_== (sequence of steps)
 * Query execution path is defined by user
-* Define Steps, More control, <mark>less abstraction</mark>
+* Define Steps, More control, ==less abstraction==
 *
 
 **Examples:**
@@ -38,8 +20,8 @@ layout:
 π name (σ marks > 80 (STUDENT))
 ```
 
-* First **<mark>select** tuples</mark>
-* Then <mark>**project** attributes</mark>
+* First **==select** tuples==
+* Then ==**project** attributes==
 
 **eg:- Tuple Relational Calculus** (TRC)
 
@@ -107,7 +89,7 @@ layout:
 | Syntax              | `{t` \| `P(t)}`                                              |
 | Predicate           | Condition on tuple `t` (comparisons, logical operators)      |
 | Operators           | AND (`∧`), OR (`∨`), NOT (`¬`), `=`, `≠`, `<`, `>`, `≤`, `≥` |
-| Quantifiers         | <mark>`∃` (exists)</mark>, <mark>`∀` (for all)<mark>         |
+| Quantifiers         | ==`∃` (exists)==, ==`∀` (for all)==         |
 | Characteristics     | Non-procedural; specifies **what** to retrieve, not **how**  |
 | Difference from SQL | TRC is theoretical; SQL is practical                         |
 | **Examples** :      |                                                              |
@@ -127,7 +109,7 @@ layout:
 
 ## Non-Procedural Language (DBMS)
 
-* User specifies <mark>_what data_ is required, not _how to retrieve_</mark>
+* User specifies ==_what data_ is required, not _how to retrieve_==
 * DBMS decides execution plan
 * Define Result Only, High-level, declarative, high abstraction
 
@@ -219,7 +201,7 @@ SELECT name FROM STUDENT WHERE marks > 80;
 | Syntax              | `{ <x1, x2, …> \| P(x1, x2, …) }`                        |
 | Predicate           | Conditions on domains using logic                        |
 | Operators           | `∧`, `∨`, `¬`, `=`, `<`, `>`                             |
-| Quantifiers         | <mark>`∃`, `∀`<mark>                                     |
+| Quantifiers         | ==`∃`, `∀`==                                     |
 | Characteristics     | Mathematical, declarative                                |
 | Difference from TRC | DRC uses domains; TRC uses tuples                        |
 

@@ -1,4 +1,6 @@
-# DTU CO425 WMC Midsem
+---
+title: WMC (DTU CO425) Midsem
+---
 
 # [IEEE 802.11 architecture| Mobile Computing | Lec-23 | Bhanu priya](https://youtu.be/AWPgmEHVp1c)
 
@@ -509,7 +511,7 @@ But if you establish two wireless network , let one is using 802.11b and other i
 2. Point Coordination Function (PCF) - For Infrastructure Network.
 ![](https://youtu.b)
 
-Watch this Youtube video 📺 at time 3:00 to 10:00 for good Diagram DFS Explanation 
+Watch this Youtube video 📺 at time 3\:00 to 10\:00 for good Diagram DFS Explanation 
 
 #### DCF
 802.11 standard uses Network Allocation Vector (NAV) for collision avoidance. The

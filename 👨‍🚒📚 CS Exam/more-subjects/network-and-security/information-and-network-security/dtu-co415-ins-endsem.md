@@ -1,4 +1,6 @@
-# DTU CO415 INS Endsem
+---
+title: INS (DTU CO415) Endsem
+---
 
 # [Euler's Toient Function Explained with Examples in Hindi #38](https://youtu.be/0uRL3ymzWig)
 

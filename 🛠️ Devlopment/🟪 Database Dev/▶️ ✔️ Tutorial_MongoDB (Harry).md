@@ -7,12 +7,12 @@ Manual 👉 [MongoDB Manual](https://www.mongodb.com/docs/manual/crud/)
 
 to MongoDB comparison:
 
-|**Relational DB**|**MongoDB**|**Description**|
-|---|---|---|
-|**Database**|**Database**|A collection of related data stored in one place.|
-|**Table**|**Collection**|A grouping of related data (like a table in SQL).|
-|**Row**|**Document**|An individual record in the collection.|
-|**Column**|**Field**|A key-value pair within a document.|
+| **Relational DB** | **MongoDB**    | **Description**                                   |
+| ----------------- | -------------- | ------------------------------------------------- |
+| **Database**      | **Database**   | A collection of related data stored in one place. |
+| **Table**         | **Collection** | A grouping of related data (like a table in SQL). |
+| **Row**           | **Document**   | An individual record in the collection.           |
+| **Column**        | **Field**      | A key-value pair within a document.               |
 - documents are like Javascript objects
 - Mongodb can be used with any programming language
 

@@ -1,24 +1,6 @@
 ---
-description: From Gate Smasher's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L-2 Process Scheduling ▶️
 ---
-# L-2: Process Scheduling
 
 ## [L-2.1: Process Scheduling Algorithms (Preemption Vs Non-Preemption) | CPU Scheduling in OS](https://www.youtube.com/watch?v=zFnrUVqtiOY\&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p\&index=14\&pp=iAQB)
 

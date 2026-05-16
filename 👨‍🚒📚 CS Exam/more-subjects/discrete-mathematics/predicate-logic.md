@@ -1,4 +1,6 @@
-## Predicate Logic 
+---
+title: Predicate Logic 
+---
 
 Predicate Logic = First Order Logic
 

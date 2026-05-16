@@ -1,24 +1,6 @@
 ---
-description: From Abdul Bari's Tutorials ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L3 Greedy Method ▶️
 ---
-# L3: Greedy Method
 
 ### [3.1 Knapsack Problem - Greedy Method](https://www.youtube.com/watch?v=oTTzNMHM05I\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=40\&pp=iAQB)
 

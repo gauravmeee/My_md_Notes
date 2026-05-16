@@ -1,24 +1,6 @@
 ---
-description: From Gate Neso Academy's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: BCD, Excess-3, Gray Code ▶️
 ---
-# BCD, Excess-3, Gray Code
 
 #### [Binary Coded Decimal (BCD) Code](https://www.youtube.com/watch?v=0rLiYpy2CqQ)
 

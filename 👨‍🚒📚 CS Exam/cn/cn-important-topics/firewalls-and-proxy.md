@@ -1,12 +1,12 @@
-
-# Firewalls and Proxy
-
+---
+title: Firewalls and Proxy
+---
 
 # Firewall
 
 ## What is a Firewall?
 
-A firewall is a network security system that <mark>monitors and controls incoming/outgoing traffic</mark> based on pre-defined security rules. It creates a barrier between a trusted internal network and an untrusted external network (like the internet).
+A firewall is a network security system that ==monitors and controls incoming/outgoing traffic== based on pre-defined security rules. It creates a barrier between a trusted internal network and an untrusted external network (like the internet).
 
 ## Types of Firewalls
 
@@ -14,7 +14,7 @@ A firewall is a network security system that <mark>monitors and controls incomin
 
 OSI layer: Network (3) + Transport (4)
 
-Works by <mark>inspecting individual packets without any knowledge of the session or connection state</mark>. Decisions are made purely on header fields.
+Works by ==inspecting individual packets without any knowledge of the session or connection state==. Decisions are made purely on header fields.
 
 Filters based on: source IP, destination IP, source port, destination port, protocol (TCP/UDP/ICMP), direction of packet.
 
@@ -35,7 +35,7 @@ Example rule: "Block all incoming TCP packets to port 23 (Telnet)."
 
 OSI layer: Network (3) + Transport (4), with a state table
 
-An improvement over the basic packet filter. <mark>Maintains a state table of active connections</mark>. A return packet is allowed only if it matches a known active session.
+An improvement over the basic packet filter. ==Maintains a state table of active connections==. A return packet is allowed only if it matches a known active session.
 
 Characteristics:
 
@@ -43,9 +43,9 @@ Characteristics:
 - More secure than plain packet filter
 - Still doesn't inspect application-layer payload
 - Most widely used type in practice ⭐
-- Also called <mark>dynamic packet filtering</mark>
+- Also called ==dynamic packet filtering==
 
-Key difference from packet filter: <mark>stateful knows whether an incoming packet is a legitimate response to an outgoing request</mark>; packet filter doesn't.
+Key difference from packet filter: ==stateful knows whether an incoming packet is a legitimate response to an outgoing request==; packet filter doesn't.
 
 ---
 
@@ -53,13 +53,13 @@ Key difference from packet filter: <mark>stateful knows whether an incoming pack
 
 OSI layer: Transport (4) + Session (5)
 
-Operates at the session layer. <mark>Validates the TCP/UDP handshake before allowing traffic</mark>. Once the session is established, data flows freely — it doesn't inspect individual packets in the session.
+Operates at the session layer. ==Validates the TCP/UDP handshake before allowing traffic==. Once the session is established, data flows freely — it doesn't inspect individual packets in the session.
 
 Characteristics:
 
-- <mark>Hides internal network topology (acts as a proxy)</mark>
+- ==Hides internal network topology (acts as a proxy)==
 - Validates handshake legitimacy (checks SYN, SYN-ACK, ACK sequence)
-- <mark>Does not inspect payload content</mark>
+- ==Does not inspect payload content==
 - Faster than application-layer firewalls
 - Cannot detect malicious content within an allowed session
 
@@ -69,7 +69,7 @@ Characteristics:
 
 OSI layer: Application (7)
 
-The most intelligent type. Acts as a full proxy — it <mark>terminates the client connection, inspects the entire payload, then forwards (or blocks) it to the destination</mark>. Understands specific application protocols like HTTP, FTP, DNS, SMTP.
+The most intelligent type. Acts as a full proxy — it ==terminates the client connection, inspects the entire payload, then forwards (or blocks) it to the destination==. Understands specific application protocols like HTTP, FTP, DNS, SMTP.
 
 Characteristics:
 
@@ -163,7 +163,7 @@ In networking, a proxy server sits between a client (your browser) and the desti
 
 ## Why use a proxy?
 
-**Anonymity** — the <mark>destination sees the proxy's IP, not yours</mark>. This is how VPNs and tools like Tor work at a conceptual level.
+**Anonymity** — the ==destination sees the proxy's IP, not yours==. This is how VPNs and tools like Tor work at a conceptual level.
 
 **Caching** — the proxy can store frequently requested content (a webpage, an image) and serve it from its own memory instead of fetching it again. Faster for users, less load on the server. Corporate networks do this heavily.
 

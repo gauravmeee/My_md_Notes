@@ -1,30 +1,12 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Buffer in Lexical Analysis
 ---
-# Buffer in Lexical Analysis
 
 **Buffer in Lexical Analysis**
 
 * **Purpose:** To read input source code efficiently and provide characters to the lexer.
 * Lexical analyzer works on **one character at a time**, but reading file character by character is slow.
-* **Buffering** <mark>improves speed by reading chunks of data at once.</mark>
+* **Buffering** ==improves speed by reading chunks of data at once.==
 
 **Common Technique – Two Buffer Scheme:**
 

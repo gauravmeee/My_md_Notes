@@ -1,24 +1,6 @@
 ---
-description: From Gate Smasher's Tutorials ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: B Tree and B+ Tree ▶️
 ---
-# B Tree and B+ Tree
 
 #### [Lec-100: Introduction to B-Tree and its Structure | Block Pointer, Record Pointer, Key](https://youtu.be/KcApkM5WYGw)
 

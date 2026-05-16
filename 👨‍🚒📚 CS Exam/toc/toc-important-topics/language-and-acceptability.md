@@ -1,24 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Language and Acceptability
 ---
-# Language and Acceptability
 
 ### **1. Languages Accepted by ==Turing Machine== ==(Type 0)**==
 
@@ -39,8 +21,8 @@ These are called ==**Recursively Enumerable (RE)**== languages.
 
 **Not Accepted:** ==Turing Machines do **not** accept:==
 
-* <mark>**Non-computable languages**</mark>, i.e., languages for which no TM exists at all
-* <mark>**Undecidable**</mark> languages can't be fully solved (TM might not halt), but they are **still RE**
+* ==**Non-computable languages**==, i.e., languages for which no TM exists at all
+* ==**Undecidable**== languages can't be fully solved (TM might not halt), but they are **still RE**
 
 **Examples of Turing-Acceptable Languages:**
 

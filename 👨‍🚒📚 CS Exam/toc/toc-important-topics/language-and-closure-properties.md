@@ -1,23 +1,6 @@
 ---
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Language and Closure Properties
 ---
-# Language and Closure Properties
 
 **Basic of Formal Language**
 
@@ -210,8 +193,8 @@ Regular ⊆ DCFL ⊆ CFL ⊂ CSL ⊂ RE
 
 **Decidable vs Recognizable Language ⭐**
 
-* <mark>Recursive -> Turing-decidable languages</mark>
-* <mark>Recursive Enumerable -> Turing-recognizable language</mark>
+* ==Recursive -> Turing-decidable languages==
+* ==Recursive Enumerable -> Turing-recognizable language==
 
 | Feature                  | ==**Turing Decidable (Recursive)**==           | ==**Turing Recognizable (RE)**==               |
 | ------------------------ | ---------------------------------------------- | ---------------------------------------------- |

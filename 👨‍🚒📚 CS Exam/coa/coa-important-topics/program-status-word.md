@@ -1,7 +1,8 @@
-# Program Status Word (PWS)
+---
+title: Program Status Word (PWS)
+---
 
-
-* A special CPU register <mark>holding **status information** and **control bits**</mark>.
+* A special CPU register ==holding **status information** and **control bits**==.
 * Updated automatically after most instructions.
 * Used by CPU to determine conditional operations, branching, and interrupts.
 

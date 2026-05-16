@@ -1,24 +1,6 @@
 ---
-description: From Gate Neso Academy's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Karnaugh Map ▶️
 ---
-# Karnaugh Map
 
 #### [Karnaugh Map (K' Map) - Part 1](https://youtu.be/FPrcIhqNPVo)
 

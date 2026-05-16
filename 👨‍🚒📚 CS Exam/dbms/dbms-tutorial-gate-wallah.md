@@ -1,24 +1,6 @@
 ---
-description: From Gate Wallah's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: DBMS Tutorial (Gate Wallah) ▶️
 ---
-# DBMS Tutorial (Gate Wallah)
 
 ## [Database Management System One Shot | CS & IT Engineering | DA | Maha Revision | Target GATE 2025](https://youtu.be/k6rDS0qQiO0)
 
@@ -43,11 +25,11 @@ S3  | Vishal|0
 S4  | Ram   | 72
 ```
 
-**<mark>Attributes/Fields</mark>** -> Column : `Sid`, `Sname`, `Marks` 
-- **<mark>Degree</mark>** -> No. of attributes in Relation (above ex : 3) 
+**==Attributes/Fields==** -> Column : `Sid`, `Sname`, `Marks` 
+- **==Degree==** -> No. of attributes in Relation (above ex : 3) 
 
-**<mark>Tuple/Record</mark>** -> Row : `S1 Ram 35`, `S2 Nikhil 56`
-- **<mark>Cardinality</mark>** -> No. of Records in Relation(above ex: 4)
+**==Tuple/Record==** -> Row : `S1 Ram 35`, `S2 Nikhil 56`
+- **==Cardinality==** -> No. of Records in Relation(above ex: 4)
 
 **Relation Schema:** `Student(Sid, Sname, Marks`. Tuple Value :
 
@@ -78,7 +60,7 @@ Let X & Y are any two attribute set over R.
 Note:
 * It may or May not hold in a given relation
 * `X->Y` does not hold if there exists two tuples `t1, t2 ϵ R` such that `t1.x=t2.x` but `t1.y ≠ t2.y`
-* Based on relation instance, <mark>we can not conclude which F.D will hold</mark>, <mark>we can only conclude which F.D will not hold</mark>.
+* Based on relation instance, ==we can not conclude which F.D will hold==, ==we can only conclude which F.D will not hold==.
 
 **Let Consider the Relation:**
 
@@ -104,17 +86,17 @@ A | B | C
 **1. Trivial FD:**
 
 * If `Y ⊆ X` then `X->Y` is trivial
-* Every <mark>trivial F.D always holds true</mark> in the relation.
+* Every ==trivial F.D always holds true== in the relation.
 * Ex: `AB->B`
 
 **2. Non-Trivial FD:**
 * If X and Y are two Non empty sets such that `X∩Y=∅`, then `X->Y` is called a non-trivial
-* <mark>Non Trivial F.D May or May not hold true</mark> for a relation
+* ==Non Trivial F.D May or May not hold true== for a relation
 * ex `A->B`
 
 **3. Semi-Trivial FD:** (Not Standard)
 
-* If X and Y are two Non empty sets such that `Y⫋X` and `X∩Y=∅`, then `X->Y` is called a <mark>semi-trivial</mark>
+* If X and Y are two Non empty sets such that `Y⫋X` and `X∩Y=∅`, then `X->Y` is called a ==semi-trivial==
 * ex: `AB->BC` (`AB -> C` Non trivial + `AB->B` Trivial)
 
 No. of Non-Trivial FD `X->Y` Possible For above relation?
@@ -186,22 +168,22 @@ BC->A May or May not Hold
 **Properties of FD** ⭐
 
 1. **Reflexivity:** If `Y ⫋ X` then `X->Y` is called reflexive FD (always hold in a relation)
-2. <mark>**Augmentation**</mark> : If <mark>`X->Y` holds in relation, then `XZ->YZ`</mark> will also hold in relation
+2. ==**Augmentation**== : If ==`X->Y` holds in relation, then `XZ->YZ`== will also hold in relation
 3. **Transitivity** : If `X->Y` & `Y->Z` holds in Relation, then `X->Z` will also holds
 
 * These three Properties are Called **Armstrong's Axioms**, and we Can prove and derive All other properties from these
 
-1. **Splitting (Decomposition)** : If <mark>`X->YZ` holds in Relation, then `X->Y` and `X->Z`</mark> holds in Relation.
-2. **Composition :** If <mark>`X->Y` and `P->Q` holds in the Relation then `XP->YQ` holds</mark> in Relation
-3. **Union:** If <mark>`X->Y` & `X->Z` holds in the Relation then `X->YZ` will also hold in Relation</mark>. (It is a corollary of Composition i.e. if P=X in Composition)
+1. **Splitting (Decomposition)** : If ==`X->YZ` holds in Relation, then `X->Y` and `X->Z`== holds in Relation.
+2. **Composition :** If ==`X->Y` and `P->Q` holds in the Relation then `XP->YQ` holds== in Relation
+3. **Union:** If ==`X->Y` & `X->Z` holds in the Relation then `X->YZ` will also hold in Relation==. (It is a corollary of Composition i.e. if P=X in Composition)
 4. **Pseudo Transitivity :** If X->Y and YW->Z, then XW->Z will hold in Relation.
 
 **Important Rule of Relation Model**
 
 Doctor Cord have given 13 Rules (0 to 12) called `Cord twelve rules`
 
-1. Each <mark>Tuple of the relation must be distinct</mark>, i.e. duplicate tuples are not allowed in the relation
-2. For tuple Uniqueness <mark>every relation must have a key</mark>
+1. Each ==Tuple of the relation must be distinct==, i.e. duplicate tuples are not allowed in the relation
+2. For tuple Uniqueness ==every relation must have a key==
 
 **ER Model Notations:** ⭐
 
@@ -257,14 +239,14 @@ Let R(A B C D) With FD set `F={A->BC, B->C, AD->B, C->D}`
 A⁺, AB⁺, AC⁺, AD⁺, ABC⁺, ABD⁺, ACD⁺, ABCD⁺ All of them represent the key of the relation
 ```
 
-<mark>**Key**</mark> -> A <mark>set of attributes that can be used to identify each tuple uniquely</mark> or A set of attributes that can determine all attributes of the Relation.
+==**Key**== -> A ==set of attributes that can be used to identify each tuple uniquely== or A set of attributes that can determine all attributes of the Relation.
 
-<mark>**Super Key(SK)**</mark> -> Let R be a relation on X be some set of attribute from relation R, if (X)⁺ contains all attributes of relation R then X is a Super key of relation R
+==**Super Key(SK)**== -> Let R be a relation on X be some set of attribute from relation R, if (X)⁺ contains all attributes of relation R then X is a Super key of relation R
 
-* <mark>Need not be minimal</mark>
+* ==Need not be minimal==
 * Ex: `A, AB, AC, AD, ABC, ABD, ACD or ABCD`
 
-<mark>**Candidate Key(CK)**</mark> -> A <mark>minimal set of attribute</mark> that can <mark>determine all attribute</mark> of relation is candidate key.
+==**Candidate Key(CK)**== -> A ==minimal set of attribute== that can ==determine all attribute== of relation is candidate key.
 
 * or Let R be the relation, and X be some super key of relation R, If No proper subset of X is a super Key, then X is a minimal Super Key i.e. X is candidate key
 * Ex: `A`
@@ -276,7 +258,7 @@ A⁺, AB⁺, AC⁺, AD⁺, ABC⁺, ABD⁺, ACD⁺, ABCD⁺ All of them represent
 * A SK with a single attribute is always a CK
 * if CK is formed of a single attribute, then simple CK
 * if CK is formed of two or more attribute, then Composite CK
-* <mark>Attribute that belongs to any CK are called **prime Attributes**</mark>
+* ==Attribute that belongs to any CK are called **prime Attributes**==
 * Attributes that does not belongs to any of the CK are called non-prime attributes
 
 **Note:**
@@ -570,7 +552,7 @@ FD set of sub relation R1 { C-> B, BD->C, CD->B} ∴ CK = (BD), (CD)
 
 ***
 
-[3:32:00](https://youtu.be/k6rDS0qQiO0?t=12754) ✅
+[3\:32\:00](https://youtu.be/k6rDS0qQiO0?t=12754) ✅
 
 ### Schema Refinement or Normalization
 
@@ -596,12 +578,12 @@ Cid -> Cname
 
 Note: A Relation will have at least one C.K
 
-**Primary Key (PK)** -> <mark>One of the C.K is chosen as P.K</mark>
+**Primary Key (PK)** -> ==One of the C.K is chosen as P.K==
 
-* P.K attributes are <mark>not allowed to take NULL</mark> values.
-* A relation can have <mark>at most one P.K</mark>.
+* P.K attributes are ==not allowed to take NULL== values.
+* A relation can have ==at most one P.K==.
 
-**Attribute Key (AK)** -> <mark>C.K except PK are called alternate key</mark>
+**Attribute Key (AK)** -> ==C.K except PK are called alternate key==
 
 Note: PK and AK are also minimal as formed from CK
 
@@ -748,7 +730,7 @@ We need to check if F⊆ F1∪F2∪F3 or not
 
 F1 ∪ F2 ∪ F3 ⊆ F and F ⊆ F1 ∪ F2 ∪ F3 -> Dependency Preserving
 
-\[Break from 4:16-4:52]
+\[Break from 4\:16-4\:52]
 
 ***
 
@@ -824,10 +806,10 @@ X : FD types Not Allowed
 
 > **Condition:** A relation is in **1NF** if all attributes contain **atomic values** (no multivalued or composite attributes).
 
-* Each column contains only <mark>**one value** per row.</mark>
+* Each column contains only ==**one value** per row.==
 * If No valued attributes, then Relation is at least in 1NF
 * If Multivalued exist, then not in 1NF
-* In `X->Y` if X is a super key, then there is <mark>no redundancy because of this FD</mark>
+* In `X->Y` if X is a super key, then there is ==no redundancy because of this FD==
 * In `X->Y` if X is not SK, then it will cause redundancy in the relation
 
 **Example:**
@@ -862,13 +844,13 @@ S3   |  B    |  M2
 
 **2. 2NF -> 1NF + No Partial Dependency**
 
-> **Condition:** A relation is in **2NF** if it is in **1NF** and <mark>**no non-prime attribute** is partially dependent on the candidate key (C.K).</mark>
+> **Condition:** A relation is in **2NF** if it is in **1NF** and ==**no non-prime attribute** is partially dependent on the candidate key (C.K).==
 
 * A relation R is in 2NF only if
   1. R is in 1NF
   2. No non-prime attribute should partially dependent on `C.K`
-* If type 1 FD i.e. <mark>`PSCK->NPA` exists in the relation R then partial dependency exists in the relation</mark>, and hence relation R will not be in `2NF`
-* In Detail : If `α → β` is a functional dependency and there exists some set of attribute `x ϵ α` such that `(α-x)->β` holds in the relation then `α → β` is called partial dependency, and if there exists no such set of attribute <mark>`x` then `α → β` is called full functional dependency</mark>
+* If type 1 FD i.e. ==`PSCK->NPA` exists in the relation R then partial dependency exists in the relation==, and hence relation R will not be in `2NF`
+* In Detail : If `α → β` is a functional dependency and there exists some set of attribute `x ϵ α` such that `(α-x)->β` holds in the relation then `α → β` is called partial dependency, and if there exists no such set of attribute ==`x` then `α → β` is called full functional dependency==
 
 **Example:**
 
@@ -913,7 +895,7 @@ S2    | C3    | B      | Physics
 
 **3. 3NF -> 2NF + No transitive dependency**
 
-> **Condition:** A relation is in **3NF** if it is in **2NF** and <mark>**no transitive dependency** exists</mark>.
+> **Condition:** A relation is in **3NF** if it is in **2NF** and ==**no transitive dependency** exists==.
 
 * A relation R is in 3NF only if
   1. R is in 1NF
@@ -952,7 +934,7 @@ E3    | Charlie | D1
 
 **4. BCNF -> 3NF + every non-trivial functional dependency has super key on LHS**
 
-> **Condition:** A relation is in **BCNF** if it is in **3NF** and <mark>**every non-trivial functional dependency**</mark> has a <mark>super key on the LHS.</mark>
+> **Condition:** A relation is in **BCNF** if it is in **3NF** and ==**every non-trivial functional dependency**== has a ==super key on the LHS.==
 
 * A relation R is in BCNF only if
   1. R is in 1NF
@@ -1114,9 +1096,9 @@ Basic R.A Operation             Derived R.A. Operation
 | S3   | C1   | IT     |
 ```
 
-**1. <mark>Projection (Π)</mark>**
+**1. ==Projection (Π)==**
 
-**Projection** -> Used to Produce output from <mark>specified Column</mark>
+**Projection** -> Used to Produce output from ==specified Column==
 
 1. Produce All 3 Attribute in Output -> Π<sub>Sid,Cid,Branch</sub>(Student)
 
@@ -1164,9 +1146,9 @@ Note: It will contain Distinct Tuples
 | C1   | IT     |
 ```
 
-**2. <mark>Selection (σ)</mark>**
+**2. ==Selection (σ)==**
 
-**Selection** -> Used to <mark>select tuples</mark> based on Specified Condition
+**Selection** -> Used to ==select tuples== based on Specified Condition
 
 1. Select the tuples from Student table Where `Cid = C1` -> σ <sub>(Cid = 'C1')</sub>
 
@@ -1210,7 +1192,7 @@ Note: Order of Execution is : Selection -> Projection First Select Whole Table -
 
 Note: Selection and Projection are unary operation i.e. applied on Single Relation.
 
-**3. <mark>Cross Product (×)</mark>**
+**3. ==Cross Product (×)==**
 
 * It is a binary Operation
 * Let `R` & `S` are two relation. then `RxS` will result all attributes of `R` followed by all attributes of `S`, with each tuple of `R` joined with each tuple of `S`
@@ -1272,7 +1254,7 @@ Now we can find the Result for the queries like
 
 * We could Get the `Sid` of those students from `S` table only, but to get the corresponding Names, We required `R` table.
 
-**4. <mark>Rename (ρ)</mark>**
+**4. ==Rename (ρ)==**
 
 * We Can Rename
   1. Table Name
@@ -1525,7 +1507,7 @@ R ⟗ S
 
 ***
 
-[5:51:00](https://youtu.be/k6rDS0qQiO0?t=28262) ✅
+[5\:51\:00](https://youtu.be/k6rDS0qQiO0?t=28262) ✅
 
 ### Lossless Natural Join
 
@@ -1682,7 +1664,7 @@ Value of **Common Attribute** is Unique in at least one relation -> Lossless Joi
 
 **Question Practices**
 
-[8:49:00](https://youtu.be/k6rDS0qQiO0) ✅
+[8\:49\:00](https://youtu.be/k6rDS0qQiO0) ✅
 
 **Ques: Check whether the decomposition of the relation is lossy or lossless**
 
@@ -1732,7 +1714,7 @@ R1      R2
 
 ***
 
-[9:06:00](https://youtu.be/k6rDS0qQiO0?t=32797) ✅
+[9\:06\:00](https://youtu.be/k6rDS0qQiO0?t=32797) ✅
 
 **Division**
 
@@ -1854,7 +1836,7 @@ R(ABC)  S(C,D)
 
 ***
 
-[9:33:00](https://youtu.be/k6rDS0qQiO0?t=34365) to \[10:07:00] Remaining
+[9\:33\:00](https://youtu.be/k6rDS0qQiO0?t=34365) to \[10\:07\:00] Remaining
 
 **Consider the Following Relation :-** Supplier (Sid, Sname, Rating) Parts(Pid, Pname, Color) Catalog (Sid, Pid, Cost)
 
@@ -1917,7 +1899,7 @@ S3  P3
 
 ***
 
-[10:07:00](https://youtu.be/k6rDS0qQiO0?t=36464) ✅
+[10\:07\:00](https://youtu.be/k6rDS0qQiO0?t=36464) ✅
 
 ### SQL
 

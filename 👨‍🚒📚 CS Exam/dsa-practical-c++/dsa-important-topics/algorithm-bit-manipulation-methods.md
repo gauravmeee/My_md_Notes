@@ -1,24 +1,6 @@
 ---
-description: Made by Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Algorithm - Bit Manipulation
 ---
-# Algorithm: Bit Manipulation
 
 #### Bitwise Operators
 
@@ -242,7 +224,7 @@ n | ((1 << (numBits - k)) - 1)
 
 **Get/Find Set Bits**
 
-* **Get the Rightmost Set Bit** :This operation helps you to isolate the rightmost set bit in a number. The rightmost set bit is the bit that is farthest to the right in the binary representation of the number.
+* **Get the Rightmost Set Bit** \:This operation helps you to isolate the rightmost set bit in a number. The rightmost set bit is the bit that is farthest to the right in the binary representation of the number.
 
 ```cpp
 int rightmostSetBit(int n) {

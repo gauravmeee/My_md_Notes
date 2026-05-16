@@ -1,5 +1,7 @@
+---
+title: Memory Management
+---
 
-# Memory Management
 
 ```text
 Operating Systems
@@ -26,7 +28,7 @@ This behavior is called the **Principle of Locality**.
 
 ##### **2. Working Set**
 
-The **working set** is: The <mark>set of pages currently being actively used by a process</mark> during a time interval.
+The **working set** is: The ==set of pages currently being actively used by a process== during a time interval.
 
 Notation:
 
@@ -39,7 +41,7 @@ It contains all pages referenced in the last $\Delta$ time units.
 
 ##### **3. Purpose of Working Set Model**
 
-The OS keeps the <mark>working</mark> set pages in memory to:
+The OS keeps the ==working== set pages in memory to:
 
 - reduce page faults
 - improve performance

@@ -1,4 +1,7 @@
-# DTU CO313 CG Endsem
+---
+title: CG (DTU CO313) Endsem
+---
+
 
 > Unit 4
 # [Window and viewport (2D viewing transformation) | World and device coordinates](https://www.youtube.com/watch?v=Rwj50JB-vvE&ab_channel=AbhishekSharma)

@@ -1,24 +1,6 @@
 ---
-description: From Gate Smasher's Tutorials ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Joins in DBMS ▶️
 ---
-# Joins in DBMS
 
 ## [Lec-38: Introduction to Joins and its types | Need of Joins with example | DBMS](https://youtu.be/zYH-e6tUYbw)
 

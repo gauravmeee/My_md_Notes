@@ -1,25 +1,7 @@
 ---
-description: Software Components
-icon: list-check
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Software Components
 ---
 
-# Software Components
 
 **Software Component** - A software component is a ==**self-contained, modular unit** of a software system== that performs a specific function and interacts with other components through **well-defined interfaces**. Components are designed for **reuse, replaceability, and independent development**.
 
@@ -30,7 +12,7 @@ i.e. Software components are modular units of a system that encapsulate function
 * Large software systems are complex
 * Components ==divide complexity== into manageable units
 * Enable parallel development
-* <mark>Improve maintainability and scalability==
+* ==Improve maintainability and scalability==
 * Support reuse across projects
 
 **Types of Software Components ⭐**
@@ -47,7 +29,7 @@ i.e. Software components are modular units of a system that encapsulate function
   * Workflow coordination
   * Exception handling
 * Example
-  * <mark>MVC Controller== ( Model–View–Controller )
+  * ==MVC Controller== ( Model–View–Controller )
   * Request Dispatcher in web applications
 
 **2. Problem Domain Component** ⭐

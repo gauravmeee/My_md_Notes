@@ -1,39 +1,21 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Addressing Modes
 ---
-# Addressing Modes
 
 **Definition:** Addressing mode specifies **how to interpret the operand** in an instruction (where the operand is located or how to get it).
 
 1. **Immediate Addressing Mode** ⭐
-   * <mark>**Operand**</mark> is given directly in the instruction.
+   * ==**Operand**== is given directly in the instruction.
    * **Advantage:** Fast, no memory access for operand.
    * **Application:** Constants.
    * **Example:** `MOV A, #5` → Load 5 into A.
 2. **Direct (Absolute) Addressing Mode** ⭐
-   * <mark>Address field</mark> contains the actual memory address of the operand.
+   * ==Address field== contains the actual memory address of the operand.
    * **Application:** Access fixed memory location.
    * **Example:** `MOV A, 2000H` → Load from memory 2000H.
 3. **Indirect Addressing Mode** ⭐
    * Address field contains a register/memory location holding the **effective address** of the operand.
-   * **Application:** <mark>Pointers</mark>, linked lists.
+   * **Application:** ==Pointers==, linked lists.
    * **Example:** `MOV A, @R0` → Effective address from R0.
 4. **Register Addressing Mode**
    * Operand is in a **CPU register**.
@@ -45,7 +27,7 @@ layout:
    * **Example:** `MOV A, @R2`.
 6. **Base Addressing Mode** ⭐
    * **Effective Address (EA)** = Base Register + Displacement.
-   * **Application:** <mark>Relocatable programs.</mark>
+   * **Application:** ==Relocatable programs.==
    * **Example:** `MOV A, 1000(RB)`.
 7. **Index Addressing Mode** ⭐
    * **EA** = Index Register + Base Address.
@@ -75,17 +57,17 @@ layout:
 
 1. **Base Addressing**
    * **Base** → relocation flexibility.
-   * _Base_ comes from a <mark>**base register** that can be changed at runtime.</mark>
+   * _Base_ comes from a ==**base register** that can be changed at runtime.==
    * Useful for **relocatable programs**: move the whole program in memory, just update the base register.
    * Example: OS loads a process at a new memory location without changing its instructions.
 2. **Index Addressing**
    * **Index** → array element access.
-   * _Base_ is a **constant** in the instruction (start of an array), <mark>displacement_ is an **index register** that changes.</mark>
+   * _Base_ is a **constant** in the instruction (start of an array), ==displacement_ is an **index register** that changes.==
    * Perfect for **arrays/tables**: just increment the index register to access the next element.
    * Example: Loop accessing array elements sequentially.
 3. **Relative Addressing**
    * **Relative** → branching within a short distance.
-   * _Base_ is the **PC**, <mark>displacement_ is a constant offset in instruction.</mark>
+   * _Base_ is the **PC**, ==displacement_ is a constant offset in instruction.==
    * Used for **branching/jumps**: target is always relative to the current instruction, making code **position-independent**.
    * Example: `BEQ LABEL` works even if program is loaded at a different address.
 
@@ -104,15 +86,15 @@ layout:
 
 > Effective address is obtained without arithmetic computation
 
-1. **Implied Mode**: Operand is <mark>**implicitly defined by opcode**</mark> (no address field required).
+1. **Implied Mode**: Operand is ==**implicitly defined by opcode**== (no address field required).
 2. **Immediate Mode**:  itself** (constant data).
-3. **Direct Mode**: <mark>Address field contains the **effective address</mark> (E.A)** of operand.
+3. **Direct Mode**: ==Address field contains the **effective address== (E.A)** of operand.
    `Operand = M[Address]`
-4. **Indirect Mode**: <mark>Address field points to a memory location that contains **E.A**.</mark>
+4. **Indirect Mode**: ==Address field points to a memory location that contains **E.A**.==
    `E.A = M[Address]`, `Operand = M[E.A]`
-5. **Register Mode**: <mark>Address field specifies a **register** which contains operand.</mark>
+5. **Register Mode**: ==Address field specifies a **register** which contains operand.==
    `Operand = R`
-6. **Register Indirect Mode**: <mark>Address field specifies a register which contains **E.A** of operand.</mark>
+6. **Register Indirect Mode**: ==Address field specifies a register which contains **E.A** of operand.==
    `E.A = R`, `Operand = M[E.A]`
 
 **B. Computable Addressing Modes**
@@ -144,8 +126,8 @@ layout:
 
 `E.A = Address + (IndexReg)`
 
-* <mark>**Fixed / Not changeable:** `Address` field (Base Address)</mark>
-* <mark>**Changeable:** `IndexReg` value</mark>
+* ==**Fixed / Not changeable:** `Address` field (Base Address)==
+* ==**Changeable:** `IndexReg` value==
 * **Use:** Arrays / tables / strings
 * **Why:** Base points to start of array, index selects element number
 
@@ -186,7 +168,7 @@ layout:
 
 * **Fixed / Not changeable:** `Offset` field (in instruction)
 * **Changeable:** `PC` value (keeps changing automatically)
-* **Use:** <mark>Branch / jump inside code segment</mark> (loops, if-else)
+* **Use:** ==Branch / jump inside code segment== (loops, if-else)
 * **Why:** Code can be loaded anywhere → jump still works (Position Independent Code)
 
 ```
@@ -233,7 +215,7 @@ Effective address = **`Base Register`** + **`Offset` (from instruction)**
 
 * **Fixed / Not changeable:** `Offset` field
 * **Changeable:** `BaseReg` value
-* **Use:** <mark>Segment based addressing, relocation, dynamic memory blocks, inter-segment jump</mark>
+* **Use:** ==Segment based addressing, relocation, dynamic memory blocks, inter-segment jump==
 * **Why:** Base register selects the memory region/segment, offset selects inside it
 
 ```
@@ -328,7 +310,7 @@ Base Reg Mode:     E.A = BaseReg + Offset
 
 `E.A = Address + IndexReg`
 
-* Register is <mark>**IndexReg**</mark> (a normal register <mark>chosen by programmer</mark>)
+* Register is ==**IndexReg**== (a normal register ==chosen by programmer==)
 * It changes because **you change it** (loop variable i)
 * Purpose: **Data access pattern**
   * arrays, tables, strings
@@ -341,7 +323,7 @@ Base Reg Mode:     E.A = BaseReg + Offset
 `E.A = PC + Offset`
 
 * Register is **PC** (not selectable)
-* It <mark>changes **automatically** every instruction</mark>
+* It ==changes **automatically** every instruction==
 * Purpose: **Control flow**
   * branch/jump target
 
@@ -356,7 +338,7 @@ Main benefit: **Position Independent Code (PIC)**
 `E.A = BaseReg + Offset`
 
 * Register is **BaseReg** (chosen/maintained by system/program)
-* It <mark>changes when **segment/region changes**</mark>
+* It ==changes when **segment/region changes**==
 * Purpose: **Relocation / segmentation**
   * move whole block by changing base
 

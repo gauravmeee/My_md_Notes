@@ -1,25 +1,6 @@
 ---
-description: From Abdul Bari's Tutorials ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L5 Graphs ▶️
 ---
-# L5: Graphs
-
 ## [5.1 Graph Traversals - BFS & DFS -Breadth First Search and Depth First Search](https://www.youtube.com/watch?v=pcKY4hjDrxk\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=61\&pp=iAQB)
 
 ***

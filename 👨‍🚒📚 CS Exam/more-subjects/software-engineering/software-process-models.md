@@ -1,24 +1,7 @@
 ---
-description: Software-process-models
-icon: list-check
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Software Process Models
 ---
-# Software-process-models
+# 
 
 **Software Process Models** – A software process model is a **structured framework** that defines the **sequence of activities** involved in software development, from requirement analysis to maintenance.
 
@@ -58,7 +41,7 @@ Deployment
 Maintenance
 ```
 
-- <mark>linear and sequential== model
+- ==linear and sequential== model
 - Each phase must be completed before next starts
 - **Phases** : Requirement → Design → Implementation → Testing → Deployment → Maintenance
 - **Advantages**
@@ -86,7 +69,7 @@ Implementation
 - Enhanced waterfall with ==**feedback paths**==
 - Allows returning to previous phase
 - **Advantages :**
-  - <mark>Error correction== possible
+  - ==Error correction== possible
   - Better than classical waterfall
 - **Disadvantages :**
   - Still rigid

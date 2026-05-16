@@ -1,29 +1,9 @@
 ---
-description: From Striver's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Data Structure - Stack and Queue ▶️⏳
 ---
-# Data Structure: Stack and Queue ⏳
 
 * Stack - LIFO (Last in First Out) : Queue&#x20;
 * FIFO (First in First Out)
-
-
 
 **Stack Operations in C++**
 
@@ -90,7 +70,7 @@ pop(): top--
 	  <- top
 ```
 
-`top` :Index from which element will be popped `top+1` : Index where next element will be pushed `top+1` number of element stored in Stack
+`top` \:Index from which element will be popped `top+1` : Index where next element will be pushed `top+1` number of element stored in Stack
 
 _Pseudocode:_
 

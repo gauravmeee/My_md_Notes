@@ -1,24 +1,6 @@
 ---
-description: From Abdul Bari's Tutorials ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L4 Dynamic Programming ▶️
 ---
-# L4: Dynamic Programming
 
 ## [4.1 Multi Stage Graph - Dynamic Programming](https://www.youtube.com/watch?v=9iE9Mj4m8jk\&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O\&index=47\&pp=iAQB)
 

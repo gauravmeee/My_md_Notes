@@ -1,24 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Normalisation and Decomposition
 ---
-# Normalisation and Decomposition
 
 **Normalization (Normal Forms Comparison)**
 
@@ -32,10 +14,10 @@ layout:
 
 | Normal Form  | Lossless / Lossy   | Dependency Preserving | Anomalies Present                                      |
 | ------------ | ------------------ | --------------------- | ------------------------------------------------------ |
-| Unnormalized | <mark>Lossy</mark> | No                    | Insertion, Deletion, Update                            |
-| 1NF          | <mark>Lossy</mark> | No                    | Insertion, Deletion, Update                            |
-| 2NF          | <mark>Lossy</mark> | No                    | Insertion, Deletion, Update (<mark>reduced</mark>)     |
-| 3NF          | Lossless           | <mark>Yes</mark>      | <mark>No Major anomalies</mark>                        |
+| Unnormalized | ==Lossy== | No                    | Insertion, Deletion, Update                            |
+| 1NF          | ==Lossy== | No                    | Insertion, Deletion, Update                            |
+| 2NF          | ==Lossy== | No                    | Insertion, Deletion, Update (==reduced==)     |
+| 3NF          | Lossless           | ==Yes==      | ==No Major anomalies==                        |
 | BCNF         | Lossless           | No (not guaranteed)   | **No Anomalies** (No functional dependency anomalies)  |
 | 4NF          | Lossless           | No                    | **No Anomalies** (No multivalued dependency anomalies) |
 | 5NF          | Lossless           | No                    | **No Anomalies** (No join dependency anomalies)        |
@@ -44,8 +26,8 @@ layout:
 
 **important points**:
 
-* <mark>**Lossless decomposition**</mark> is <mark>**guaranteed from 3NF onward**</mark> , not strictly by 1NF/2NF
-* <mark>**Dependency preservation**</mark> is **guaranteed <mark>only in 3NF**</mark> , not in BCNF, 4NF, 5NF
+* ==**Lossless decomposition**== is ==**guaranteed from 3NF onward**== , not strictly by 1NF/2NF
+* ==**Dependency preservation**== is **guaranteed ==only in 3NF**== , not in BCNF, 4NF, 5NF
 * **3NF is always achievable** without losing dependencies
 * **BCNF may require sacrificing dependency preservation**
 * **4NF deals with multivalued dependencies (MVDs)**
@@ -78,7 +60,7 @@ layout:
 
 **Rule**
 
-* Attributes must have <mark>**atomic (indivisible)</mark> values**
+* Attributes must have ==**atomic (indivisible)== values**
 * No repeating groups or multi-valued attributes
 
 **Violation Example**
@@ -105,17 +87,17 @@ STUDENT(SID, Name, Phone)
 **Rule**
 
 * Must be in 1NF
-* <mark>No **partial dependency**</mark> 
+* ==No **partial dependency**== 
 * **Non-prime attribute** must depend on **whole candidate key**
 
 **Partial Dependency**
 
 * Attribute depends on part of a composite key
 
-> **Candidate key** → A <mark>**minimal set of attributes**</mark> that <mark>uniquely identifies</mark> a tuple\
+> **Candidate key** → A ==**minimal set of attributes**== that ==uniquely identifies== a tuple\
 > **Composite key** → A **candidate key consisting of more than one attribute**
 
-> **Key Attribute** (prime attribute) → If an attribute <mark>appears in any candidate key</mark> **Non-key attribute** (non-prime attribute) → If it <mark>does not appear in any candidate key</mark> 
+> **Key Attribute** (prime attribute) → If an attribute ==appears in any candidate key== **Non-key attribute** (non-prime attribute) → If it ==does not appear in any candidate key== 
 
 **Violation Example**
 
@@ -149,7 +131,7 @@ ENROLL(SID, CID)
 **Rule**
 
 * Must be in 2NF
-* <mark>No **transitive dependency**</mark> 
+* ==No **transitive dependency**== 
 * For every FD `X → A`:
   * `X` is a super key OR
   * `A` is a prime attribute
@@ -158,10 +140,10 @@ ENROLL(SID, CID)
 
 * Key → Non-key → Non-key
 
-> **Candidate key** → A <mark>**minimal set of attributes**</mark> that <mark>uniquely identifies</mark> a tuple
+> **Candidate key** → A ==**minimal set of attributes**== that ==uniquely identifies== a tuple
 > **Super key** → A **set of attributes** that uniquely identifies a tuple, **may contain extra (non-minimal) attributes**
 
-> **Key Attribute** (prime attribute) → If an attribute <mark>appears in any candidate key</mark> **Non-key attribute** (non-prime attribute) → If it <mark>does not appear in any candidate key</mark> 
+> **Key Attribute** (prime attribute) → If an attribute ==appears in any candidate key== **Non-key attribute** (non-prime attribute) → If it ==does not appear in any candidate key== 
 
 **Violation Example**
 
@@ -195,7 +177,7 @@ DEPT(DeptID, DeptName)
 * Stronger than 3NF
 * For every FD `X → Y`, `X` must be a **super key** ⭐
 
-> **Candidate key** → A <mark>**minimal set of attributes**</mark> that <mark>uniquely identifies</mark> a tuple\
+> **Candidate key** → A ==**minimal set of attributes**== that ==uniquely identifies== a tuple\
 > **Super key** → A **set of attributes** that uniquely identifies a tuple, **may contain extra (non-minimal) attributes**
 
 **Violation Example (3NF but not BCNF)**
@@ -280,14 +262,14 @@ STUDENT_HOBBY(SID, Hobby)
 | Unnormalized | Insertion, Deletion, Update           |
 | 1NF          | Insertion, Deletion, Update           |
 | 2NF          | Insertion, Deletion, Update (reduced) |
-| <mark>3NF</mark>      | <mark>No major anomalies</mark>                |
+| ==3NF==      | ==No major anomalies==                |
 | BCNF         | No anomalies                          |
 | 4NF          | No anomalies                          |
 | 5NF          | No anomalies                          |
 
 **Best View (Exam-oriented)**
 
-* <mark>Anomalies completely removed from **3NF onwards**</mark> 
+* ==Anomalies completely removed from **3NF onwards**== 
 * Decomposition into **3NF / BCNF / 4NF is always lossless**
 * Lossy decompositions are **invalid in design**
 
@@ -324,8 +306,8 @@ STUDENT_HOBBY(SID, Hobby)
 
 **Types of Decomposition**
 
-1. <mark>Lossless vs Lossy</mark> 
-2. <mark>Dependency Preserving vs Non-preserving</mark> 
+1. ==Lossless vs Lossy== 
+2. ==Dependency Preserving vs Non-preserving== 
 3. 3NF Decomposition
 4. BCNF Decomposition
 5. 4NF Decomposition
@@ -491,15 +473,15 @@ STUDENT_HOBBY(SID, Hobby)
 | Unnormalized | Lossy            | No                    |
 | 1NF          | Lossy            | No                    |
 | 2NF          | Lossy            | No                    |
-| <mark>3NF</mark>      | <mark>Lossless</mark>     | <mark>Yes</mark>               |
+| ==3NF==      | ==Lossless==     | ==Yes==               |
 | BCNF         | Lossless         | No (not guaranteed)   |
 | 4NF          | Lossless         | No                    |
 | 5NF          | Lossless         | No                    |
 
-* Lossless → <mark>mandatory</mark> 
-* Dependency preserving → <mark>desirable</mark> 
-* 3NF → <mark>preserves FD</mark> , slight redundancy allowed
-* BCNF → <mark>no redundancy</mark> , FD may break
+* Lossless → ==mandatory== 
+* Dependency preserving → ==desirable== 
+* 3NF → ==preserves FD== , slight redundancy allowed
+* BCNF → ==no redundancy== , FD may break
 * 4NF → handles MVDs
 
 **GATE / PSU Focus**

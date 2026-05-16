@@ -1,4 +1,7 @@
-# Web Development Overview
+---
+title: Web Development Overview
+---
+
 ### 1. Frontend
 
 **Integration Flow:**  
@@ -422,9 +425,9 @@ app.delete('/users/:id', async (req, res) => {
 | CRUD   | HTTP Method | Example Endpoint |
 | ------ | ----------- | ---------------- |
 | Create | POST        | /users           |
-| Read   | GET         | /users/:id       |
-| Update | PUT/PATCH   | /users/:id       |
-| Delete | DELETE      | /users/:id       |
+| Read   | GET         | /users/\:id       |
+| Update | PUT/PATCH   | /users/\:id       |
+| Delete | DELETE      | /users/\:id       |
 
 **Key Points**
 - CRUD ensures full data lifecycle management.

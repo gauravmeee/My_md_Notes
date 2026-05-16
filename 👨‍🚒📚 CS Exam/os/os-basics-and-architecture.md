@@ -1,26 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: OS Basics and Architecture
 ---
-# Basics and Architecture
-
-***
 
 ## Operating System
 
@@ -43,7 +23,7 @@ A program that acts as an intermediary between the user and the computer hardwar
 **Four components of a Computer System:**
 
 1. **Hardware** – Provides basic computing resources
-2. <mark>**Operating System** – Controls and coordinates use of hardware among various applications and users
+2. ==**Operating System** – Controls and coordinates use of hardware among various applications and users
 3. **Application Programs** – Define how system resources are used to solve user problems
 4. **Users**
 
@@ -59,10 +39,10 @@ Depends on the point of view:
 
 **Operating System Definition**
 
-* <mark>**OS as a Resource Allocator:**
+* ==**OS as a Resource Allocator:**
   * Manages all hardware and software resources
   * Handles conflicting requests to ensure fair and efficient use
-* <mark>**OS as a Control Program:**
+* ==**OS as a Control Program:**
   * Controls program execution
   * Prevents errors and improper operations
 
@@ -73,13 +53,13 @@ Depends on the point of view:
 
 **Core Component:**
 
-* <mark>**Kernel:**
+* ==**Kernel:**
   * Always running
   * Manages hardware, memory, CPU, and I/O operations **Other Components:**
-* <mark>**System Programs:**
+* ==**System Programs:**
   * Support system operations
   * Ship with the OS
-* <mark>**Application Programs:**
+* ==**Application Programs:**
   * Solve specific user tasks
   * Run on top of system programs and kernel
 
@@ -99,7 +79,7 @@ Depends on the point of view:
 
 **Computer-System Operation**
 
-* <mark>I/O devices and CPU execute concurrently
+* ==I/O devices and CPU execute concurrently
 * Each device controller manages a specific device
 * Each has a local buffer
 * CPU transfers data between main memory and local buffers
@@ -111,12 +91,12 @@ Depends on the point of view:
 * Interrupt control transfers to the **interrupt service routine** via an **interrupt vector**
 * Interrupt vector stores addresses of service routines
 * System saves address of the interrupted instruction
-* <mark>A **trap**/**exception** is a software-generated interrupt (error/user request)
+* ==A **trap**/**exception** is a software-generated interrupt (error/user request)
 * OS is **interrupt-driven**
 
 **Interrupt Handling**
 
-* <mark>OS preserves CPU state (registers + program counter)
+* ==OS preserves CPU state (registers + program counter)
 * Determines type of interrupt:
   * **Polling**
   * **Vectored** interrupt system

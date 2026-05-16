@@ -1,47 +1,29 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Transaction Schedules and Concurrency
 ---
-# Transaction Schedules and Concurrency
 
 #### Transaction, Schedules and Serializability
 
 **1. Transaction**
 
-* A **transaction** is a <mark>sequence of operations</mark> performed <mark>as a single logical unit</mark> of work.
+* A **transaction** is a ==sequence of operations== performed ==as a single logical unit== of work.
 * Must satisfy **ACID properties**:
-  * **Atomicity** – <mark>All or none</mark> of its operations are executed.
-  * **Consistency** – Database remains in a <mark>valid state</mark> before and after transaction.
-  * **Isolation** – Concurrent transactions do <mark>not interfere</mark> with each other.
-  * **Durability** – Once committed, changes are <mark>permanent.</mark>
+  * **Atomicity** – ==All or none== of its operations are executed.
+  * **Consistency** – Database remains in a ==valid state== before and after transaction.
+  * **Isolation** – Concurrent transactions do ==not interfere== with each other.
+  * **Durability** – Once committed, changes are ==permanent.==
 
 **2. Schedule**
 
-* A **schedule** is an <mark>order in which the operations (read/write) of multiple transactions are executed</mark>.
+* A **schedule** is an ==order in which the operations (read/write) of multiple transactions are executed==.
 * **Types of Schedules:**
-  1. **Serial Schedule:** Transactions are <mark>executed one after another</mark> — no interleaving.
-  2. **Concurrent Schedule:** Operations of <mark>multiple transactions are interleaved for better performance.</mark>
+  1. **Serial Schedule:** Transactions are ==executed one after another== — no interleaving.
+  2. **Concurrent Schedule:** Operations of ==multiple transactions are interleaved for better performance.==
 
 **3. Serializability**
 
 * A schedule is **serializable** if its effect on the database is **equivalent to a serial schedule**.
-* It <mark>ensures **consistency** in concurrent executions</mark>.
+* It ==ensures **consistency** in concurrent executions==.
 
 **Types of Serializability** ⭐
 
@@ -171,7 +153,7 @@ Two schedules S and S′ are view equivalent if **all three** hold:
 | Aspect        | Conflict Serializability      | View Serializability          |
 | ------------- | ----------------------------- | ----------------------------- |
 | Based on      | Conflicting operations        | Read-from + final write       |
-| Test Method   | <mark>Precedence graph</mark> | <mark>Logical checking</mark> |
+| Test Method   | ==Precedence graph== | ==Logical checking== |
 | Blind Writes  | Not allowed                   | Allowed                       |
 | Power         | Stronger                      | Weaker                        |
 | Practical Use | Easy to test                  | Hard (NP-complete)            |
@@ -192,8 +174,8 @@ Two schedules S and S′ are view equivalent if **all three** hold:
 
 **Objectives**
 
-* Maintain <mark>database consistency</mark>.
-* Allow <mark>maximum parallelism</mark>.
+* Maintain ==database consistency==.
+* Allow ==maximum parallelism==.
 * Prevent anomalies like: ⭐
   1. **Lost Update**
   2. **Temporary Update (Dirty Read)**
@@ -274,8 +256,8 @@ Two schedules S and S′ are view equivalent if **all three** hold:
 
 * Transactions use **locks** to control access to data items.
 * Lock types:
-  * <mark>**Shared Lock (S)**</mark> – For reading (multiple transactions can share).
-  * <mark>**Exclusive Lock (X)**</mark> – For writing (only one transaction can hold).
+  * ==**Shared Lock (S)**== – For reading (multiple transactions can share).
+  * ==**Exclusive Lock (X)**== – For writing (only one transaction can hold).
 
 **Phases**
 
@@ -306,13 +288,13 @@ Two schedules S and S′ are view equivalent if **all three** hold:
 
 **3. Timestamp-Ordering Protocol**
 
-* Each transaction <mark>**T** gets a **unique timestamp (TS(T))**</mark> when it starts.
+* Each transaction ==**T** gets a **unique timestamp (TS(T))**== when it starts.
 * The DBMS ensures that **all conflicting operations** execute in **timestamp order**.
 
 **For Each Data Item (Q):**
 
-* <mark>**read\_TS(Q):**</mark> Largest timestamp of any transaction that read Q.
-* <mark>**write\_TS(Q):**</mark> Largest timestamp of any transaction that wrote Q.
+* ==**read\_TS(Q):**== Largest timestamp of any transaction that read Q.
+* ==**write\_TS(Q):**== Largest timestamp of any transaction that wrote Q.
 
 **Rules:**
 
@@ -332,7 +314,7 @@ Two schedules S and S′ are view equivalent if **all three** hold:
 
 **4. Thomas’ Write Rule (with Timestamp-Ordering Protocol) ⭐**
 
-* A <mark>modification of the timestamp-ordering protocol</mark> that allows <mark>**ignoring obsolete writes**</mark>.
+* A ==modification of the timestamp-ordering protocol== that allows ==**ignoring obsolete writes**==.
 * If a transaction tries to **write** an item **older** than the current version, its write is **skipped** instead of aborting the transaction.
 
 **Rule:**

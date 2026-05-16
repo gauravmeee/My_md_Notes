@@ -1,24 +1,6 @@
 ---
-description: From Gate Smasher's Tutorial ▶️
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: L-1 Introduction ▶️
 ---
-# L-1: Introduction
 
 ## [L-1.1: Introduction to Operating System and its Functions with English Subtitles](https://www.youtube.com/watch?v=WJ-UaAaumNA\&list=PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p\&index=2\&pp=iAQB)
 

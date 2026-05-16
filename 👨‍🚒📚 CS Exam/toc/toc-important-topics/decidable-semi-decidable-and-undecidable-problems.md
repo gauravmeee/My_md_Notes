@@ -1,8 +1,7 @@
-Here's the same content restructured for cleaner flow — the diagram above captures the full hierarchy at a glance, so everything below builds on it without repeating it.
-
+---
+title: Decidable, Semi-Decidable, and Undecidable Problems
 ---
 
-# Decidable, Semi-Decidable, and Undecidable Problems
 
 ## 1. The Core Question
 

@@ -1,4 +1,6 @@
-# DTU CL Unit 2
+---
+title: CL (DTU) Unit 2
+---
 
 # 2.1 Copyright
 

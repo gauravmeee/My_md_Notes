@@ -1,24 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: Numericals Tx, Tp, RTT, MTU, MSS, MLS
 ---
-# Numericals Tx, Tp, RTT, MTU, MSS, MLS
 
 #### All Formulas Overview
 
@@ -57,11 +39,11 @@ layout:
 
 **6. MTU / MLS / MSS**
 
-* **$MTU$ (Maximum Transmission Unit):** <mark>Max frame size a link can carry (bytes)</mark>
-* **$MLS$ (Maximum Link/Segment Size):** <mark>Largest segment/frame link allows</mark> $\boxed{ \leq MTU}$
+* **$MTU$ (Maximum Transmission Unit):** ==Max frame size a link can carry (bytes)==
+* **$MLS$ (Maximum Link/Segment Size):** ==Largest segment/frame link allows== $\boxed{ \leq MTU}$
 * **$MSS$ (Maximum Segment Size)** $\boxed{\text{MSS} = \text{MLS} - \text{IP Header} - \text{TCP Header\}}$
 * Impact on $T\_x = \frac{\text{Segment Size (including headers)\}}{R}$
-* **CSMA/CD** <mark>**minimum frame size**</mark>: $\boxed{L\_{\min} = R \times 2T\_p}$ ⭐
+* **CSMA/CD** ==**minimum frame size**==: $\boxed{L\_{\min} = R \times 2T\_p}$ ⭐
 
 **7. Store-and-Forward / Multiple Links**
 
@@ -72,7 +54,7 @@ layout:
 **8. CSMA/CD & Stop-and-Wait**
 
 * Collision detection requirement: $\boxed{T\_x \geq 2T\_p}$
-* <mark>Stop-and-Wait utilization</mark>: $\boxed{U = \frac{T\_x}{T\_x + 2T\_p\}}$ ⭐
+* ==Stop-and-Wait utilization==: $\boxed{U = \frac{T\_x}{T\_x + 2T\_p\}}$ ⭐
 * Minimum frame size for Ethernet / CSMA/CD: $L\_{\min} = R \times 2T\_p$
 
 **9. End-to-End Delay Components** $\boxed{T\_{\text{end-to-end\}} = \sum T\_x + \sum T\_p + \sum T\_q + \sum T\_{\text{process\}}}$
@@ -97,7 +79,7 @@ layout:
 
 **1. Transmission Delay $(Tx)$**
 
-**Definition:** Time required to **serialize** <mark>(push) all bits of a packet</mark> onto the link.
+**Definition:** Time required to **serialize** ==(push) all bits of a packet== onto the link.
 
 $$\boxed{T_x = \frac{L}{R}}$$
 
@@ -122,7 +104,7 @@ $$\boxed{T_x = \frac{L}{R}}$$
 
 **2. Propagation Delay $(Tp)$**
 
-**Definition:** Time taken by <mark>**one bit** to propagate from sender to receiver</mark> or Time taken for a bit to travel from sender to receiver.
+**Definition:** Time taken by ==**one bit** to propagate from sender to receiver== or Time taken for a bit to travel from sender to receiver.
 
 $$\boxed{T_p = \frac{d}{v}}$$
 

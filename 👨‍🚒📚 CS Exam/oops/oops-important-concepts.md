@@ -1,24 +1,6 @@
 ---
-description: Made By Me 💚
-icon: dot
-layout:
-  width: wide
-  title:
-    visible: true
-  description:
-    visible: true
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: false
-  metadata:
-    visible: false
-  tags:
-    visible: true
+title: OOPS Important Concepts
 ---
-# OOPS Important Concepts
 
 **Syntax Cheat Sheet**
 
@@ -185,7 +167,7 @@ void show(double, int);   // different signature
 
 1.  **Compile-time Polymorphism (Function Overloading)**
 
-    * <mark>Overloading is possible only if function **signatures** differ.==
+    * ==Overloading is possible only if function **signatures** differ.==
     * Changing only the return type does **not** change the signature, so it won’t overload.
 
     ```cpp
@@ -194,7 +176,7 @@ void show(double, int);   // different signature
     ```
 2.  **Runtime Polymorphism (Virtual Functions)**
 
-    * <mark>For overriding in inheritance, the **signature must match exactly**== (including const-ness)
+    * ==For overriding in inheritance, the **signature must match exactly**== (including const-ness)
     * If the signature is different, it becomes **function hiding**, not overriding.
 
     ```cpp

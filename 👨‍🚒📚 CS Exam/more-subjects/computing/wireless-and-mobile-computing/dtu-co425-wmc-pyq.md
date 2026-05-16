@@ -1,4 +1,6 @@
-# DTU CO425  WMC PYQ
+---
+title: WMC (DTU CO425) PYQ
+---
 
 # Q1. Show the various subsytems of the Cellular System architecture. Differentiate between HLR and VLR. Explain the working of Mobile call termination and location updation in cellular system
 >2023 MTE
