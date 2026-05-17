@@ -1,2 +1,0 @@
-# cloud-computing-overview-gpt
-

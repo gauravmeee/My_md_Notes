@@ -1,2 +1,0 @@
-# GATE Vocabulary Reference Guide
-
